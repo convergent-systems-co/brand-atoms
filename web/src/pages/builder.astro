@@ -1,0 +1,235 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Builder from '../components/Builder.tsx';
+import { getFonts, getPalettes } from '../lib/encyclopedia.js';
+import type { AtomCatalog } from '../lib/composeBrand.js';
+
+// Serialize the encyclopedia at build time so the client island has
+// everything it needs without making any network calls.
+const atoms: AtomCatalog = {
+  palettes: getPalettes()
+    .sort((a, b) => a.slug.localeCompare(b.slug))
+    .map((p) => ({
+      slug: p.slug,
+      version: p.version,
+      data: p.data,
+    })),
+  fonts: getFonts()
+    .sort((a, b) => a.slug.localeCompare(b.slug))
+    .map((f) => ({
+      slug: f.slug,
+      version: f.version,
+      data: f.data,
+    })),
+};
+
+const atomsJson = JSON.stringify(atoms);
+---
+
+<Layout
+  title="Builder — Brand Atoms"
+  description="Compose your own brand from the palette + font atom catalog. Live preview, download as YAML, all-formats zip."
+  section="builder"
+>
+  <header class="hero">
+    <h1>Builder</h1>
+    <p class="lede">
+      Compose your own brand from the catalog. Pick a palette and three fonts, preview live,
+      then download the YAML definition or every emitter format as a zip — all client-side.
+    </p>
+  </header>
+
+  <script type="application/json" id="brand-atoms-data" set:html={atomsJson}></script>
+
+  <Builder client:idle />
+
+  <style is:global>
+    .hero {
+      padding: 24px 0 32px;
+      max-width: 760px;
+    }
+    .hero h1 {
+      font-size: 56px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin: 0 0 12px;
+      line-height: 1;
+    }
+    .lede {
+      font-size: 17px;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    /* Builder island */
+    .builder {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 880px) {
+      .builder {
+        grid-template-columns: 1fr;
+      }
+    }
+    .builder-empty {
+      padding: 32px 0;
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      font-size: 14px;
+    }
+    .builder-controls {
+      background: var(--surface);
+      border-radius: 14px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .builder-controls .control-row,
+    .builder-controls .control {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .builder-controls .control-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .builder-controls label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-tertiary);
+    }
+    .builder-controls input,
+    .builder-controls select {
+      background: var(--bg);
+      color: var(--text-primary);
+      border: 1px solid var(--surface-elevated);
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-family: var(--font-sans);
+      font-size: 14px;
+    }
+    .builder-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+    .builder-actions button {
+      background: var(--primary);
+      color: var(--bg);
+      border: none;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      transition: opacity 0.12s ease, transform 0.12s ease;
+    }
+    .builder-actions button:hover:not(:disabled) {
+      transform: translateY(-1px);
+    }
+    .builder-actions button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* Preview */
+    .preview {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .preview-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .preview-head h2 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .mode-toggle {
+      display: inline-flex;
+      background: var(--surface);
+      border-radius: 8px;
+      padding: 2px;
+    }
+    .mode-btn {
+      background: transparent;
+      color: var(--text-secondary);
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+    }
+    .mode-btn.active {
+      background: var(--bg);
+      color: var(--primary);
+      font-weight: 700;
+    }
+    .preview-card {
+      padding: 24px;
+      border-radius: 14px;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      border: 1px solid var(--surface-elevated);
+    }
+    .preview-heading {
+      margin: 0;
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .preview-body {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .preview-buttons {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .preview-btn {
+      border: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .preview-btn.outline {
+      border: 1px solid currentColor;
+    }
+    .preview-badge {
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .preview-mono {
+      font-size: 12px;
+      margin: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+  </style>
+</Layout>

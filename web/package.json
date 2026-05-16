@@ -5,19 +5,28 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "cd .. && pnpm build && rm -rf web/public/dist && mkdir -p web/public/dist && cp -R dist/* web/public/dist/",
     "build": "astro build",
     "preview": "astro preview",
-    "deploy": "wrangler pages deploy dist --project-name brand-atoms"
+    "deploy": "wrangler pages deploy dist --project-name brand-atoms",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "@astrojs/react": "^4.1.6",
     "astro": "^6.1.10",
+    "fflate": "^0.8.2",
+    "marked": "^14.1.4",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "yaml": "^2.5.1"
   },
   "devDependencies": {
+    "@testing-library/react": "^16.1.0",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
+    "happy-dom": "^15.11.7",
+    "vitest": "^4.1.0",
     "wrangler": "^4.0.0"
   }
 }
