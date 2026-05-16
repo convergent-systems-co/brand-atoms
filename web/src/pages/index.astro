@@ -6,12 +6,14 @@ const palettes = [
 ];
 
 const fonts = [
-  { id: 'inter', name: 'Inter', kind: 'sans-serif', license: 'OFL-1.1' },
-  { id: 'firacode-nerdfont', name: 'FiraCode Nerd Font', kind: 'monospace', license: 'OFL-1.1' },
-  { id: 'jetbrainsmono-nerdfont', name: 'JetBrainsMono Nerd Font', kind: 'monospace', license: 'OFL-1.1' },
-  { id: 'hack-nerdfont', name: 'Hack Nerd Font', kind: 'monospace', license: 'MIT' },
-  { id: 'cascadiacode-nerdfont', name: 'CascadiaCode Nerd Font', kind: 'monospace', license: 'OFL-1.1' },
+  { id: 'inter', name: 'Inter', kind: 'sans-serif', license: 'OFL-1.1', cssFamily: "'Inter', sans-serif" },
+  { id: 'firacode-nerdfont', name: 'FiraCode Nerd Font', kind: 'monospace', license: 'OFL-1.1', cssFamily: "'Fira Code', ui-monospace, monospace" },
+  { id: 'jetbrainsmono-nerdfont', name: 'JetBrainsMono Nerd Font', kind: 'monospace', license: 'OFL-1.1', cssFamily: "'JetBrains Mono', ui-monospace, monospace" },
+  { id: 'hack-nerdfont', name: 'Hack Nerd Font', kind: 'monospace', license: 'MIT', cssFamily: "'Hack', 'DejaVu Sans Mono', ui-monospace, monospace" },
+  { id: 'cascadiacode-nerdfont', name: 'CascadiaCode Nerd Font', kind: 'monospace', license: 'OFL-1.1', cssFamily: "'Cascadia Code', ui-monospace, monospace" },
 ];
+
+const pangram = 'The quick brown fox jumps over 13 lazy dogs.';
 
 const stats = {
   palettes: palettes.length,
@@ -32,7 +34,8 @@ const stats = {
     <meta name="description" content="A machine-readable, version-controlled encyclopedia of palettes, fonts, and brand standards. Consumed by AIs and humans to produce on-brand outputs." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&family=Cascadia+Code:wght@400;500;700&display=swap" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css" />
   </head>
 
   <body>
@@ -95,8 +98,9 @@ const stats = {
       <h2>Fonts</h2>
       <ul class="font-list">
         {fonts.map((f) => (
-          <li class={`font-card font-${f.kind}`}>
+          <li class={`font-card font-${f.kind}`} style={`--font-showcase:${f.cssFamily}`}>
             <div class="font-name">{f.name}</div>
+            <div class="font-sample">{pangram}</div>
             <div class="font-meta">{f.kind} · {f.license}</div>
             <code class="ref">{f.id}@1.0.0</code>
           </li>
@@ -333,11 +337,18 @@ const stats = {
         padding: 16px 20px;
       }
       .font-name {
-        font-size: 18px;
+        font-size: 22px;
         font-weight: 600;
-        margin-bottom: 4px;
+        margin-bottom: 6px;
+        font-family: var(--font-showcase, var(--font-sans));
       }
-      .font-monospace .font-name { font-family: var(--font-mono); font-weight: 500; }
+      .font-sample {
+        font-size: 15px;
+        line-height: 1.4;
+        color: var(--text-secondary);
+        margin-bottom: 12px;
+        font-family: var(--font-showcase, var(--font-sans));
+      }
       .font-meta {
         font-size: 12px;
         font-family: var(--font-mono);
