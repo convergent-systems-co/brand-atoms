@@ -1,0 +1,277 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  section?: 'home' | 'brands' | 'palettes' | 'fonts';
+}
+
+const { title, description, section = 'home' } = Astro.props;
+
+const navItems = [
+  { id: 'home', label: 'Home', href: '/' },
+  { id: 'brands', label: 'Brands', href: '/brands' },
+  { id: 'palettes', label: 'Palettes', href: '/palettes' },
+  { id: 'fonts', label: 'Fonts', href: '/fonts' },
+] as const;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&family=Cascadia+Code:wght@400;500;700&display=swap" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css" />
+  </head>
+
+  <body>
+    <div class="shell">
+      <main class="content">
+        <slot />
+        <footer class="footer">
+          <p>
+            Open source ·
+            <a href="https://github.com/convergent-systems-co/branding-library">github.com/convergent-systems-co/branding-library</a>
+          </p>
+          <p class="micro">A Convergent Systems project · Built on Astro, deployed on Cloudflare Pages</p>
+        </footer>
+      </main>
+
+      <aside class="sidenav">
+        <a class="brand" href="/">
+          <span class="mark" aria-hidden="true">
+            <span class="dot dot-1"></span>
+            <span class="dot dot-2"></span>
+            <span class="dot dot-3"></span>
+            <span class="dot dot-4"></span>
+          </span>
+          <span class="brand-text">Brand<br/>Atoms</span>
+        </a>
+
+        <nav class="nav">
+          <ul>
+            {navItems.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class:list={['nav-link', { active: item.id === section }]}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div class="aside-meta">
+          <a href="https://github.com/convergent-systems-co/branding-library" class="meta-link">
+            <span>↗</span> GitHub
+          </a>
+        </div>
+      </aside>
+    </div>
+
+    <style is:global>
+      :root {
+        --nord0: #2E3440; --nord1: #3B4252; --nord2: #434C5E; --nord3: #4C566A;
+        --nord4: #D8DEE9; --nord5: #E5E9F0; --nord6: #ECEFF4;
+        --nord7: #8FBCBB; --nord8: #88C0D0; --nord9: #81A1C1; --nord10: #5E81AC;
+        --nord11: #BF616A; --nord12: #D08770; --nord13: #EBCB8B; --nord14: #A3BE8C; --nord15: #B48EAD;
+
+        --bg: var(--nord6);
+        --surface: var(--nord5);
+        --surface-elevated: var(--nord4);
+        --text-primary: var(--nord0);
+        --text-secondary: var(--nord1);
+        --text-tertiary: var(--nord3);
+        --primary: var(--nord10);
+        --accent: var(--nord8);
+        --success: var(--nord14);
+
+        --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        --font-mono: 'JetBrains Mono', 'Fira Code', Menlo, Monaco, monospace;
+
+        --sidenav-width: 220px;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: var(--nord0);
+          --surface: var(--nord1);
+          --surface-elevated: var(--nord2);
+          --text-primary: var(--nord6);
+          --text-secondary: var(--nord4);
+          --text-tertiary: var(--nord3);
+          --primary: var(--nord8);
+        }
+      }
+
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
+      body {
+        background: var(--bg);
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+        font-size: 16px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .shell {
+        display: grid;
+        grid-template-columns: 1fr var(--sidenav-width);
+        min-height: 100vh;
+        max-width: 1320px;
+        margin: 0 auto;
+      }
+
+      .content {
+        min-width: 0;
+        padding: 32px 32px 0 32px;
+      }
+
+      .sidenav {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        padding: 32px 24px;
+        border-left: 1px solid var(--surface);
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        color: var(--text-primary);
+      }
+      .mark {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3px;
+        width: 32px;
+        height: 32px;
+        padding: 4px;
+        background: var(--surface);
+        border-radius: 8px;
+        flex-shrink: 0;
+      }
+      .dot {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+      }
+      .dot-1 { background: var(--nord8); }
+      .dot-2 { background: var(--nord14); }
+      .dot-3 { background: var(--nord13); }
+      .dot-4 { background: var(--nord15); }
+      .brand-text {
+        font-weight: 800;
+        font-size: 17px;
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+      }
+
+      .nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .nav-link {
+        display: block;
+        padding: 8px 12px;
+        text-decoration: none;
+        color: var(--text-secondary);
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 500;
+        transition: background 0.12s ease, color 0.12s ease;
+      }
+      .nav-link:hover {
+        background: var(--surface);
+        color: var(--text-primary);
+      }
+      .nav-link.active {
+        background: var(--surface);
+        color: var(--primary);
+        font-weight: 600;
+      }
+
+      .aside-meta {
+        margin-top: auto;
+        padding-top: 16px;
+        border-top: 1px solid var(--surface);
+      }
+      .meta-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        text-decoration: none;
+        color: var(--text-tertiary);
+        font-family: var(--font-mono);
+        font-size: 12px;
+      }
+      .meta-link:hover { color: var(--primary); }
+
+      .footer {
+        margin-top: 96px;
+        padding: 32px 0 64px;
+        text-align: left;
+        border-top: 1px solid var(--surface);
+        color: var(--text-secondary);
+        font-size: 14px;
+      }
+      .footer a {
+        color: var(--primary);
+        text-decoration: none;
+        font-family: var(--font-mono);
+      }
+      .footer a:hover { text-decoration: underline; }
+      .footer .micro {
+        font-size: 12px;
+        color: var(--text-tertiary);
+        margin-top: 8px;
+      }
+
+      @media (max-width: 880px) {
+        .shell {
+          grid-template-columns: 1fr;
+        }
+        .sidenav {
+          position: static;
+          height: auto;
+          border-left: none;
+          border-bottom: 1px solid var(--surface);
+          flex-direction: row;
+          align-items: center;
+          padding: 16px 24px;
+          gap: 24px;
+        }
+        .nav ul {
+          flex-direction: row;
+          flex-wrap: wrap;
+        }
+        .aside-meta {
+          margin-top: 0;
+          padding-top: 0;
+          border-top: none;
+        }
+        .content {
+          padding: 16px 24px 0 24px;
+        }
+      }
+    </style>
+  </body>
+</html>

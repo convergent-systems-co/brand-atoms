@@ -1,0 +1,154 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { fontShowcaseFamily, getFonts } from '../../lib/encyclopedia.js';
+
+const fonts = getFonts()
+  .map((f) => ({
+    slug: f.slug,
+    version: f.version,
+    name: f.data.name,
+    family: f.data.family,
+    description: f.data.description,
+    classification: f.data.classification ?? 'unknown',
+    license: f.data.provenance?.license ?? 'unspecified',
+    cssFamily: fontShowcaseFamily(f.slug),
+    weightCount: new Set(f.data.availableStyles.map((s) => s.weight)).size,
+    hasItalic: f.data.availableStyles.some((s) => s.style === 'italic'),
+    tags: f.data.tags ?? [],
+  }))
+  .sort((a, b) => a.classification.localeCompare(b.classification) || a.name.localeCompare(b.name));
+
+const pangram = 'The quick brown fox jumps over 13 lazy dogs.';
+const alphaNum = 'AaBbGgQq 0123456789';
+---
+
+<Layout title="Fonts — Brand Atoms" section="fonts">
+  <header class="hero">
+    <h1>Fonts</h1>
+    <p class="lede">
+      Typefaces available as brand-atoms references. Each font captures family name, available
+      weights and styles, fallback stack, classification, and provenance — pointing at the
+      canonical upstream source.
+    </p>
+    <p class="meta">
+      {fonts.length} font{fonts.length === 1 ? '' : 's'} · samples render in the actual typeface
+    </p>
+  </header>
+
+  <div class="list">
+    {fonts.map((f) => (
+      <article class="card" style={`--font-showcase:${f.cssFamily}`}>
+        <header class="card-head">
+          <h2 class="font-name">{f.name}</h2>
+          <span class="cls">{f.classification}</span>
+        </header>
+        <p class="font-sample large">{pangram}</p>
+        <p class="font-sample small">{alphaNum}</p>
+        <footer class="card-foot">
+          <code class="ref">{f.slug}@{f.version}</code>
+          <span class="meta">
+            <code>{f.family}</code>
+            · {f.weightCount} weight{f.weightCount === 1 ? '' : 's'}
+            {f.hasItalic && <span> + italic</span>}
+            · {f.license}
+          </span>
+        </footer>
+      </article>
+    ))}
+  </div>
+
+  <style>
+    .hero {
+      padding: 32px 0 16px;
+      max-width: 760px;
+    }
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin: 0 0 12px;
+      line-height: 1;
+    }
+    .lede {
+      font-size: 17px;
+      color: var(--text-secondary);
+      max-width: 620px;
+      margin: 0 0 12px;
+    }
+    .meta {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text-tertiary);
+      margin: 0;
+    }
+
+    .list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 24px 0;
+    }
+
+    .card {
+      background: var(--surface);
+      border-radius: 14px;
+      padding: 24px;
+    }
+
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .font-name {
+      font-family: var(--font-showcase, var(--font-sans));
+      font-size: 28px;
+      font-weight: 600;
+      margin: 0;
+      line-height: 1.1;
+    }
+    .cls {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-tertiary);
+      text-transform: lowercase;
+    }
+
+    .font-sample {
+      margin: 0 0 6px;
+      font-family: var(--font-showcase, var(--font-sans));
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+    .font-sample.large {
+      font-size: 17px;
+    }
+    .font-sample.small {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      margin-bottom: 14px;
+    }
+
+    .card-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--surface-elevated);
+      flex-wrap: wrap;
+    }
+    .ref {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-tertiary);
+    }
+    .meta {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-tertiary);
+    }
+  </style>
+</Layout>

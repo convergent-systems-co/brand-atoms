@@ -1,0 +1,169 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getPalettes } from '../../lib/encyclopedia.js';
+
+const palettes = getPalettes()
+  .map((p) => ({
+    slug: p.slug,
+    version: p.version,
+    name: p.data.name,
+    description: p.data.description,
+    swatchCount: p.data.swatches.length,
+    license: p.data.provenance?.license ?? 'unspecified',
+    tags: p.data.tags ?? [],
+    previewSwatches: p.data.swatches.slice(0, 12).map((s) => ({ id: s.id, value: s.value })),
+  }))
+  .sort((a, b) => a.name.localeCompare(b.name));
+---
+
+<Layout title="Palettes — Brand Atoms" section="palettes">
+  <header class="hero">
+    <h1>Palettes</h1>
+    <p class="lede">
+      Color systems composed of named swatches plus light- and dark-mode role mappings.
+      Each palette is the canonical reference for its source — exact hex values, MIT/Apache/OFL
+      attribution, version-pinned.
+    </p>
+    <p class="meta">
+      {palettes.length} palette{palettes.length === 1 ? '' : 's'} · {palettes.reduce((s, p) => s + p.swatchCount, 0)} total swatches
+    </p>
+  </header>
+
+  <div class="grid">
+    {palettes.map((p) => (
+      <a class="card" href={`/palettes/${p.slug}`}>
+        <header class="card-head">
+          <h2>{p.name}</h2>
+          <span class="meta">{p.swatchCount} swatches · {p.license}</span>
+        </header>
+        {p.description && <p class="desc">{p.description}</p>}
+        <div class="swatch-row">
+          {p.previewSwatches.map((s) => (
+            <span class="swatch" style={`background:${s.value}`} title={`${s.id} ${s.value}`}></span>
+          ))}
+        </div>
+        <div class="card-foot">
+          <code class="ref">{p.slug}@{p.version}</code>
+          {p.tags.length > 0 && (
+            <span class="tags">
+              {p.tags.slice(0, 3).map((t) => <code class="tag">{t}</code>)}
+            </span>
+          )}
+        </div>
+      </a>
+    ))}
+  </div>
+
+  <style>
+    .hero {
+      padding: 32px 0 16px;
+      max-width: 760px;
+    }
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin: 0 0 12px;
+      line-height: 1;
+    }
+    .lede {
+      font-size: 17px;
+      color: var(--text-secondary);
+      max-width: 620px;
+      margin: 0 0 12px;
+    }
+    .meta {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text-tertiary);
+      margin: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 16px;
+      padding: 24px 0;
+    }
+
+    .card {
+      background: var(--surface);
+      border-radius: 14px;
+      padding: 20px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px -16px rgba(46, 52, 64, 0.25);
+    }
+
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+    }
+    .card h2 {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0;
+    }
+    .card .meta {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-tertiary);
+    }
+
+    .desc {
+      margin: 0;
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .swatch-row {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 3px;
+    }
+    .swatch {
+      aspect-ratio: 1;
+      border-radius: 3px;
+    }
+
+    .card-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .ref {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-tertiary);
+    }
+    .tags {
+      display: inline-flex;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      background: var(--surface-elevated);
+      padding: 2px 6px;
+      border-radius: 3px;
+      color: var(--text-tertiary);
+    }
+  </style>
+</Layout>

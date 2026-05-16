@@ -701,6 +701,10 @@ vite.config.ts.timestamp-*
 ### END: Node
 
 ### START: branding-library project
+# Re-include source dirs the generic Python "lib/" / "build/" / "dist/" rules above
+# would otherwise ignore. The encyclopedia source code lives under web/src/lib/.
+!web/src/lib/
+!web/src/lib/**
 # Build outputs
 dist/
 

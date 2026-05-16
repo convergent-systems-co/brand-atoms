@@ -1,0 +1,326 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getPaletteBySlug, getPalettes } from '../../lib/encyclopedia.js';
+
+export function getStaticPaths() {
+  const seen = new Set<string>();
+  return getPalettes()
+    .filter((p) => {
+      if (seen.has(p.slug)) return false;
+      seen.add(p.slug);
+      return true;
+    })
+    .map((p) => ({ params: { slug: p.slug } }));
+}
+
+const { slug } = Astro.params;
+const palette = getPaletteBySlug(slug!);
+if (!palette) {
+  return Astro.redirect('/palettes');
+}
+
+const { data } = palette;
+const lightRoles = Object.entries(data.modes.light.roles).sort(([a], [b]) => a.localeCompare(b));
+const darkRoles = Object.entries(data.modes.dark.roles).sort(([a], [b]) => a.localeCompare(b));
+
+const findSwatch = (id: string) => data.swatches.find((s) => s.id === id);
+
+const groupByFamily = (swatches: typeof data.swatches) => {
+  const groups = new Map<string, typeof data.swatches>();
+  for (const s of swatches) {
+    const m = s.id.match(/^(.+?)-(?:[0-9]+|a[0-9]+)$/);
+    const family = m && m[1] ? m[1] : 'misc';
+    if (!groups.has(family)) groups.set(family, []);
+    const list = groups.get(family);
+    if (list) list.push(s);
+  }
+  return groups;
+};
+const families = groupByFamily(data.swatches);
+const useFamilyGrouping = families.size > 1 && data.swatches.length > 30;
+---
+
+<Layout
+  title={`${data.name} — Brand Atoms`}
+  description={data.description ?? ''}
+  section="palettes"
+>
+  <nav class="crumb">
+    <a href="/palettes">← Palettes</a>
+    <span>·</span>
+    <code>{palette.slug}@{palette.version}</code>
+  </nav>
+
+  <header class="detail-hero">
+    <h1>{data.name}</h1>
+    {data.description && <p class="lede">{data.description}</p>}
+    <div class="stats-inline">
+      <span><strong>{data.swatches.length}</strong> swatches</span>
+      <span><strong>{Object.keys(data.modes.light.roles).length}</strong> light roles</span>
+      <span><strong>{Object.keys(data.modes.dark.roles).length}</strong> dark roles</span>
+      {data.tags && data.tags.length > 0 && (
+        <span class="tags">{data.tags.map((t) => <code class="tag">{t}</code>)}</span>
+      )}
+    </div>
+  </header>
+
+  <section class="section">
+    <h2>Swatches</h2>
+    {useFamilyGrouping ? (
+      <div class="families">
+        {[...families.entries()].map(([family, list]) => (
+          <div class="family">
+            <h3 class="family-name">{family}</h3>
+            <div class="swatch-grid">
+              {list.map((s) => (
+                <div class="swatch-card">
+                  <div class="swatch-chip" style={`background:${s.value}`} title={s.value}></div>
+                  <div class="swatch-id">{s.id}</div>
+                  <div class="swatch-hex">{s.value}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    ) : (
+      <div class="swatch-grid">
+        {data.swatches.map((s) => (
+          <div class="swatch-card">
+            <div class="swatch-chip" style={`background:${s.value}`} title={s.value}></div>
+            <div class="swatch-id">{s.id}</div>
+            <div class="swatch-hex">{s.value}</div>
+            {s.description && <div class="swatch-desc">{s.description}</div>}
+          </div>
+        ))}
+      </div>
+    )}
+  </section>
+
+  <section class="section">
+    <h2>Mode role mappings</h2>
+    <div class="modes-grid">
+      <div class="mode-panel">
+        <h3>Light mode <span class="mode-count">({lightRoles.length} roles)</span></h3>
+        <div class="role-list">
+          {lightRoles.map(([role, swatchId]) => {
+            const sw = findSwatch(swatchId);
+            return (
+              <div class="role-row">
+                <span class="role-chip" style={`background:${sw?.value ?? '#888'}`}></span>
+                <span class="role-name">{role}</span>
+                <code class="role-arrow">→ {swatchId}</code>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      <div class="mode-panel">
+        <h3>Dark mode <span class="mode-count">({darkRoles.length} roles)</span></h3>
+        <div class="role-list">
+          {darkRoles.map(([role, swatchId]) => {
+            const sw = findSwatch(swatchId);
+            return (
+              <div class="role-row">
+                <span class="role-chip" style={`background:${sw?.value ?? '#888'}`}></span>
+                <span class="role-name">{role}</span>
+                <code class="role-arrow">→ {swatchId}</code>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {data.provenance && (
+    <section class="section">
+      <h2>Provenance</h2>
+      <dl class="provenance">
+        {data.provenance.source && (
+          <>
+            <dt>Source</dt>
+            <dd><a href={data.provenance.source}>{data.provenance.source}</a></dd>
+          </>
+        )}
+        <dt>License</dt>
+        <dd><code>{data.provenance.license}</code></dd>
+        {data.provenance.attribution && (
+          <>
+            <dt>Attribution</dt>
+            <dd>{data.provenance.attribution}</dd>
+          </>
+        )}
+        {data.provenance.importedDate && (
+          <>
+            <dt>Imported</dt>
+            <dd>
+              <code>{data.provenance.importedDate}</code>
+              {data.provenance.importedFromVersion && <span> (upstream version {data.provenance.importedFromVersion})</span>}
+            </dd>
+          </>
+        )}
+        {data.provenance.notes && (
+          <>
+            <dt>Notes</dt>
+            <dd>{data.provenance.notes}</dd>
+          </>
+        )}
+      </dl>
+    </section>
+  )}
+
+  <style>
+    .crumb {
+      padding: 16px 0 0;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text-tertiary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .crumb a {
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+    .crumb a:hover { color: var(--primary); }
+
+    .detail-hero {
+      padding: 24px 0 32px;
+    }
+    .detail-hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin: 0 0 12px;
+      line-height: 1;
+    }
+    .lede {
+      font-size: 17px;
+      color: var(--text-secondary);
+      max-width: 760px;
+      margin: 0 0 20px;
+    }
+    .stats-inline {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+    }
+    .stats-inline strong {
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+    .tags { display: inline-flex; gap: 6px; flex-wrap: wrap; }
+    .tag { background: var(--surface); padding: 2px 8px; border-radius: 4px; font-size: 12px; }
+
+    .section {
+      padding: 24px 0 32px;
+    }
+    .section h2 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 0 0 16px;
+    }
+
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 10px;
+    }
+    .swatch-card {
+      background: var(--surface);
+      border-radius: 10px;
+      padding: 10px;
+    }
+    .swatch-chip {
+      aspect-ratio: 16 / 9;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+    .swatch-id {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .swatch-hex {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+    }
+    .swatch-desc {
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--text-tertiary);
+      line-height: 1.4;
+    }
+
+    .families { display: flex; flex-direction: column; gap: 28px; }
+    .family-name {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-tertiary);
+      margin: 0 0 10px;
+      font-family: var(--font-mono);
+    }
+
+    .modes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 880px) { .modes-grid { grid-template-columns: 1fr; } }
+    .mode-panel { background: var(--surface); border-radius: 14px; padding: 20px; }
+    .mode-panel h3 { margin: 0 0 12px; font-size: 16px; font-weight: 600; }
+    .mode-count {
+      font-weight: 400;
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      font-size: 12px;
+    }
+    .role-list { display: flex; flex-direction: column; gap: 4px; }
+    .role-row {
+      display: grid;
+      grid-template-columns: 16px 1fr auto;
+      align-items: center;
+      gap: 10px;
+      padding: 4px 6px;
+      border-radius: 4px;
+    }
+    .role-row:hover { background: var(--surface-elevated); }
+    .role-chip { width: 16px; height: 16px; border-radius: 4px; }
+    .role-name { font-size: 13px; }
+    .role-arrow { font-family: var(--font-mono); font-size: 11px; color: var(--text-tertiary); }
+
+    .provenance {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 8px 16px;
+      background: var(--surface);
+      border-radius: 14px;
+      padding: 20px;
+      margin: 0;
+    }
+    .provenance dt {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text-tertiary);
+    }
+    .provenance dd { margin: 0; font-size: 14px; }
+    .provenance a {
+      color: var(--primary);
+      text-decoration: none;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      word-break: break-all;
+    }
+    .provenance a:hover { text-decoration: underline; }
+  </style>
+</Layout>

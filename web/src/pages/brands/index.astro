@@ -1,0 +1,185 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getBrands } from '../../lib/encyclopedia.js';
+
+const brands = getBrands()
+  .map((b) => ({
+    slug: b.slug,
+    version: b.version,
+    name: b.data.name,
+    description: b.data.description,
+    tags: b.data.tags ?? [],
+    paletteRef: b.data.references.palette,
+    fontCount: Object.keys(b.data.references.fonts).length,
+    ruleCount: b.data.rules.length,
+    assetCount: b.data.assets.length,
+  }))
+  .sort((a, b) => a.name.localeCompare(b.name));
+---
+
+<Layout title="Brands — Brand Atoms" section="brands">
+  <header class="hero">
+    <h1>Brands</h1>
+    <p class="lede">
+      Compositions of atoms — each brand picks a palette, a set of fonts, and adds semantic
+      role mappings, structured assets, and typed-constraint rules. The output is a fully
+      resolved on-brand spec that AI agents can render with no judgment calls.
+    </p>
+    <p class="meta">
+      {brands.length} brand{brands.length === 1 ? '' : 's'}
+    </p>
+  </header>
+
+  <div class="grid">
+    {brands.map((b) => (
+      <article class="card">
+        <header class="card-head">
+          <h2>{b.name}</h2>
+          <code class="ref">{b.slug}@{b.version}</code>
+        </header>
+        {b.description && <p class="desc">{b.description}</p>}
+
+        <div class="metrics">
+          <div class="metric">
+            <div class="metric-value">1</div>
+            <div class="metric-label">palette</div>
+            <code class="metric-sub">{b.paletteRef}</code>
+          </div>
+          <div class="metric">
+            <div class="metric-value">{b.fontCount}</div>
+            <div class="metric-label">font{b.fontCount === 1 ? '' : 's'}</div>
+            <code class="metric-sub">via role keys</code>
+          </div>
+          <div class="metric">
+            <div class="metric-value">{b.assetCount}</div>
+            <div class="metric-label">asset{b.assetCount === 1 ? '' : 's'}</div>
+            <code class="metric-sub">logos / favicons</code>
+          </div>
+          <div class="metric">
+            <div class="metric-value">{b.ruleCount}</div>
+            <div class="metric-label">rule{b.ruleCount === 1 ? '' : 's'}</div>
+            <code class="metric-sub">typed constraints</code>
+          </div>
+        </div>
+
+        {b.tags.length > 0 && (
+          <div class="tags">
+            {b.tags.map((t) => <code class="tag">{t}</code>)}
+          </div>
+        )}
+      </article>
+    ))}
+  </div>
+
+  <style>
+    .hero {
+      padding: 32px 0 16px;
+      max-width: 760px;
+    }
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin: 0 0 12px;
+      line-height: 1;
+    }
+    .lede {
+      font-size: 17px;
+      color: var(--text-secondary);
+      max-width: 620px;
+      margin: 0 0 12px;
+    }
+    .meta {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text-tertiary);
+      margin: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      padding: 24px 0;
+    }
+
+    .card {
+      background: var(--surface);
+      border-radius: 14px;
+      padding: 24px;
+    }
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .card h2 {
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+    .ref {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-tertiary);
+    }
+    .desc {
+      margin: 0 0 20px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 640px) {
+      .metrics { grid-template-columns: repeat(2, 1fr); }
+    }
+    .metric {
+      background: var(--bg);
+      border-radius: 10px;
+      padding: 14px;
+    }
+    .metric-value {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .metric-label {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-bottom: 4px;
+    }
+    .metric-sub {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--text-tertiary);
+      display: block;
+      word-break: break-all;
+    }
+
+    .tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      background: var(--surface-elevated);
+      padding: 3px 8px;
+      border-radius: 4px;
+      color: var(--text-secondary);
+    }
+  </style>
+</Layout>
