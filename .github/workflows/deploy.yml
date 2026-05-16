@@ -47,9 +47,9 @@ jobs:
       - name: Build Astro site
         run: cd web && pnpm build
 
+      # wrangler-action@v3 tries `pnpm add wrangler` at the workspace root,
+      # which pnpm rejects without -w. wrangler is already a devDep in web/,
+      # so we exec it directly via pnpm from there.
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
-        with:
-          accountId: ${{ env.CLOUDFLARE_ACCOUNT_ID }}
-          apiToken: ${{ env.CLOUDFLARE_API_TOKEN }}
-          command: pages deploy web/dist --project-name brand-atoms --branch main
+        working-directory: ./web
+        run: pnpm exec wrangler pages deploy dist --project-name brand-atoms --branch main
