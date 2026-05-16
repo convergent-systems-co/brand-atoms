@@ -77,5 +77,11 @@ export const Font = AtomBase.extend({
     .describe('Fallback font families to use if the primary fails to load'),
   availableStyles: z.array(FontStyle).default([]),
   classification: FontClassification.optional(),
+  cdnUrls: z
+    .record(z.string(), Url)
+    .optional()
+    .describe(
+      'Filename → public CDN URL for mirrored binaries. Populated by tools/r2-mirror.ts. Additive and optional — old YAML without this field remains valid.',
+    ),
 });
 export type Font = z.infer<typeof Font>;
