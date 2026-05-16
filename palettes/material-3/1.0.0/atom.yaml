@@ -1,0 +1,245 @@
+kind: palette
+id: material-3
+version: 1.0.0
+name: Material 3 (Material You) — Baseline
+description: >
+  The Material Design 3 baseline color scheme generated from seed color
+  #6750A4 (purple). Provides tonal palettes (primary, secondary, tertiary,
+  error, neutral, neutral-variant) at canonical tones, plus full M3
+  system role mappings for both light and dark schemes.
+tags: [material, google, m3, role-based, tonal-palette]
+
+provenance:
+  source: https://github.com/material-components/material-web/blob/main/tokens/versions/v0_192/_md-ref-palette.scss
+  license: Apache-2.0
+  attribution: >
+    Material Design 3 reference palette, Copyright Google LLC, licensed
+    under Apache License 2.0. Baseline scheme generated via the HCT
+    algorithm from seed color #6750A4.
+  importedDate: 2026-05-15
+  importedFromVersion: v0.192
+  notes: >
+    System role → tone mappings sourced from Flutter material library
+    gen_defaults data files (color_light.json, color_dark.json).
+
+swatches:
+  - { id: black, name: Black, value: "#000000" }
+  - { id: white, name: White, value: "#FFFFFF" }
+
+  # Primary tonal palette (seed: #6750A4)
+  - { id: primary-0, name: Primary 0, value: "#000000" }
+  - { id: primary-10, name: Primary 10, value: "#21005D" }
+  - { id: primary-20, name: Primary 20, value: "#381E72" }
+  - { id: primary-30, name: Primary 30, value: "#4F378B" }
+  - { id: primary-40, name: Primary 40 (seed), value: "#6750A4" }
+  - { id: primary-50, name: Primary 50, value: "#7F67BE" }
+  - { id: primary-60, name: Primary 60, value: "#9A82DB" }
+  - { id: primary-70, name: Primary 70, value: "#B69DF8" }
+  - { id: primary-80, name: Primary 80, value: "#D0BCFF" }
+  - { id: primary-90, name: Primary 90, value: "#EADDFF" }
+  - { id: primary-95, name: Primary 95, value: "#F6EDFF" }
+  - { id: primary-99, name: Primary 99, value: "#FFFBFE" }
+  - { id: primary-100, name: Primary 100, value: "#FFFFFF" }
+
+  # Secondary tonal palette
+  - { id: secondary-0, name: Secondary 0, value: "#000000" }
+  - { id: secondary-10, name: Secondary 10, value: "#1D192B" }
+  - { id: secondary-20, name: Secondary 20, value: "#332D41" }
+  - { id: secondary-30, name: Secondary 30, value: "#4A4458" }
+  - { id: secondary-40, name: Secondary 40, value: "#625B71" }
+  - { id: secondary-50, name: Secondary 50, value: "#7A7289" }
+  - { id: secondary-60, name: Secondary 60, value: "#958DA5" }
+  - { id: secondary-70, name: Secondary 70, value: "#B0A7C0" }
+  - { id: secondary-80, name: Secondary 80, value: "#CCC2DC" }
+  - { id: secondary-90, name: Secondary 90, value: "#E8DEF8" }
+  - { id: secondary-95, name: Secondary 95, value: "#F6EDFF" }
+  - { id: secondary-99, name: Secondary 99, value: "#FFFBFE" }
+  - { id: secondary-100, name: Secondary 100, value: "#FFFFFF" }
+
+  # Tertiary tonal palette
+  - { id: tertiary-0, name: Tertiary 0, value: "#000000" }
+  - { id: tertiary-10, name: Tertiary 10, value: "#31111D" }
+  - { id: tertiary-20, name: Tertiary 20, value: "#492532" }
+  - { id: tertiary-30, name: Tertiary 30, value: "#633B48" }
+  - { id: tertiary-40, name: Tertiary 40, value: "#7D5260" }
+  - { id: tertiary-50, name: Tertiary 50, value: "#986977" }
+  - { id: tertiary-60, name: Tertiary 60, value: "#B58392" }
+  - { id: tertiary-70, name: Tertiary 70, value: "#D29DAC" }
+  - { id: tertiary-80, name: Tertiary 80, value: "#EFB8C8" }
+  - { id: tertiary-90, name: Tertiary 90, value: "#FFD8E4" }
+  - { id: tertiary-95, name: Tertiary 95, value: "#FFECF1" }
+  - { id: tertiary-99, name: Tertiary 99, value: "#FFFBFA" }
+  - { id: tertiary-100, name: Tertiary 100, value: "#FFFFFF" }
+
+  # Error tonal palette
+  - { id: error-0, name: Error 0, value: "#000000" }
+  - { id: error-10, name: Error 10, value: "#410E0B" }
+  - { id: error-20, name: Error 20, value: "#601410" }
+  - { id: error-30, name: Error 30, value: "#8C1D18" }
+  - { id: error-40, name: Error 40, value: "#B3261E" }
+  - { id: error-50, name: Error 50, value: "#DC362E" }
+  - { id: error-60, name: Error 60, value: "#E46962" }
+  - { id: error-70, name: Error 70, value: "#EC928E" }
+  - { id: error-80, name: Error 80, value: "#F2B8B5" }
+  - { id: error-90, name: Error 90, value: "#F9DEDC" }
+  - { id: error-95, name: Error 95, value: "#FCEEEE" }
+  - { id: error-99, name: Error 99, value: "#FFFBF9" }
+  - { id: error-100, name: Error 100, value: "#FFFFFF" }
+
+  # Neutral tonal palette (includes M3 v6.1 expanded surface container tones)
+  - { id: neutral-0, name: Neutral 0, value: "#000000" }
+  - { id: neutral-4, name: Neutral 4, value: "#0F0D13" }
+  - { id: neutral-6, name: Neutral 6, value: "#141218" }
+  - { id: neutral-10, name: Neutral 10, value: "#1D1B20" }
+  - { id: neutral-12, name: Neutral 12, value: "#211F26" }
+  - { id: neutral-17, name: Neutral 17, value: "#2B2930" }
+  - { id: neutral-20, name: Neutral 20, value: "#322F35" }
+  - { id: neutral-22, name: Neutral 22, value: "#36343B" }
+  - { id: neutral-24, name: Neutral 24, value: "#3B383E" }
+  - { id: neutral-30, name: Neutral 30, value: "#48464C" }
+  - { id: neutral-40, name: Neutral 40, value: "#605D64" }
+  - { id: neutral-50, name: Neutral 50, value: "#79767D" }
+  - { id: neutral-60, name: Neutral 60, value: "#938F96" }
+  - { id: neutral-70, name: Neutral 70, value: "#AEA9B1" }
+  - { id: neutral-80, name: Neutral 80, value: "#CAC5CD" }
+  - { id: neutral-87, name: Neutral 87, value: "#DED8E1" }
+  - { id: neutral-90, name: Neutral 90, value: "#E6E0E9" }
+  - { id: neutral-92, name: Neutral 92, value: "#ECE6F0" }
+  - { id: neutral-94, name: Neutral 94, value: "#F3EDF7" }
+  - { id: neutral-95, name: Neutral 95, value: "#F5EFF7" }
+  - { id: neutral-96, name: Neutral 96, value: "#F7F2FA" }
+  - { id: neutral-98, name: Neutral 98, value: "#FEF7FF" }
+  - { id: neutral-99, name: Neutral 99, value: "#FFFBFF" }
+  - { id: neutral-100, name: Neutral 100, value: "#FFFFFF" }
+
+  # Neutral-variant tonal palette
+  - { id: neutral-variant-0, name: Neutral Variant 0, value: "#000000" }
+  - { id: neutral-variant-10, name: Neutral Variant 10, value: "#1D1A22" }
+  - { id: neutral-variant-20, name: Neutral Variant 20, value: "#322F37" }
+  - { id: neutral-variant-30, name: Neutral Variant 30, value: "#49454F" }
+  - { id: neutral-variant-40, name: Neutral Variant 40, value: "#605D66" }
+  - { id: neutral-variant-50, name: Neutral Variant 50, value: "#79747E" }
+  - { id: neutral-variant-60, name: Neutral Variant 60, value: "#938F99" }
+  - { id: neutral-variant-70, name: Neutral Variant 70, value: "#AEA9B4" }
+  - { id: neutral-variant-80, name: Neutral Variant 80, value: "#CAC4D0" }
+  - { id: neutral-variant-90, name: Neutral Variant 90, value: "#E7E0EC" }
+  - { id: neutral-variant-95, name: Neutral Variant 95, value: "#F5EEFA" }
+  - { id: neutral-variant-99, name: Neutral Variant 99, value: "#FFFBFE" }
+  - { id: neutral-variant-100, name: Neutral Variant 100, value: "#FFFFFF" }
+
+modes:
+  light:
+    roles:
+      primary: primary-40
+      on-primary: primary-100
+      primary-container: primary-90
+      on-primary-container: primary-30
+      primary-fixed: primary-90
+      primary-fixed-dim: primary-80
+      on-primary-fixed: primary-10
+      on-primary-fixed-variant: primary-30
+      inverse-primary: primary-80
+
+      secondary: secondary-40
+      on-secondary: secondary-100
+      secondary-container: secondary-90
+      on-secondary-container: secondary-30
+      secondary-fixed: secondary-90
+      secondary-fixed-dim: secondary-80
+      on-secondary-fixed: secondary-10
+      on-secondary-fixed-variant: secondary-30
+
+      tertiary: tertiary-40
+      on-tertiary: tertiary-100
+      tertiary-container: tertiary-90
+      on-tertiary-container: tertiary-30
+      tertiary-fixed: tertiary-90
+      tertiary-fixed-dim: tertiary-80
+      on-tertiary-fixed: tertiary-10
+      on-tertiary-fixed-variant: tertiary-30
+
+      error: error-40
+      on-error: error-100
+      error-container: error-90
+      on-error-container: error-30
+
+      background: neutral-98
+      on-background: neutral-10
+      surface: neutral-98
+      on-surface: neutral-10
+      surface-variant: neutral-variant-90
+      on-surface-variant: neutral-variant-30
+      surface-tint: primary-40
+      inverse-surface: neutral-20
+      inverse-on-surface: neutral-95
+
+      surface-dim: neutral-87
+      surface-bright: neutral-98
+      surface-container-lowest: neutral-100
+      surface-container-low: neutral-96
+      surface-container: neutral-94
+      surface-container-high: neutral-92
+      surface-container-highest: neutral-90
+
+      outline: neutral-variant-50
+      outline-variant: neutral-variant-80
+      shadow: neutral-0
+      scrim: neutral-0
+
+  dark:
+    roles:
+      primary: primary-80
+      on-primary: primary-20
+      primary-container: primary-30
+      on-primary-container: primary-90
+      primary-fixed: primary-90
+      primary-fixed-dim: primary-80
+      on-primary-fixed: primary-10
+      on-primary-fixed-variant: primary-30
+      inverse-primary: primary-40
+
+      secondary: secondary-80
+      on-secondary: secondary-20
+      secondary-container: secondary-30
+      on-secondary-container: secondary-90
+      secondary-fixed: secondary-90
+      secondary-fixed-dim: secondary-80
+      on-secondary-fixed: secondary-10
+      on-secondary-fixed-variant: secondary-30
+
+      tertiary: tertiary-80
+      on-tertiary: tertiary-20
+      tertiary-container: tertiary-30
+      on-tertiary-container: tertiary-90
+      tertiary-fixed: tertiary-90
+      tertiary-fixed-dim: tertiary-80
+      on-tertiary-fixed: tertiary-10
+      on-tertiary-fixed-variant: tertiary-30
+
+      error: error-80
+      on-error: error-20
+      error-container: error-30
+      on-error-container: error-90
+
+      background: neutral-6
+      on-background: neutral-90
+      surface: neutral-6
+      on-surface: neutral-90
+      surface-variant: neutral-variant-30
+      on-surface-variant: neutral-variant-80
+      surface-tint: primary-80
+      inverse-surface: neutral-90
+      inverse-on-surface: neutral-20
+
+      surface-dim: neutral-6
+      surface-bright: neutral-24
+      surface-container-lowest: neutral-4
+      surface-container-low: neutral-10
+      surface-container: neutral-12
+      surface-container-high: neutral-17
+      surface-container-highest: neutral-22
+
+      outline: neutral-variant-60
+      outline-variant: neutral-variant-30
+      shadow: neutral-0
+      scrim: neutral-0

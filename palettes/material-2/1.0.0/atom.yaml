@@ -1,0 +1,362 @@
+kind: palette
+id: material-2
+version: 1.0.0
+name: Material 2 (Material Design Baseline)
+description: >
+  The original Material Design baseline color system (2014). 19 color
+  families, each with shades 50–900 plus four accent values (A100–A700)
+  where applicable. The de facto reference for any Google-flavored or
+  Material-influenced product before 2022.
+tags: [material, google, baseline, swatch-palette]
+
+provenance:
+  source: https://github.com/material-components/material-components-web/blob/master/packages/mdc-theme/_color-palette.scss
+  license: Apache-2.0
+  attribution: >
+    Material Design color palette, Copyright Google Inc., licensed under
+    Apache License 2.0.
+  importedDate: 2026-05-15
+
+swatches:
+  # Common
+  - id: white
+    name: White
+    value: "#FFFFFF"
+  - id: black
+    name: Black
+    value: "#000000"
+  - id: dark-surface
+    name: Dark Surface (#121212)
+    value: "#121212"
+    description: Material 2 recommended dark theme background
+
+  # Red
+  - { id: red-50, name: Red 50, value: "#FFEBEE" }
+  - { id: red-100, name: Red 100, value: "#FFCDD2" }
+  - { id: red-200, name: Red 200, value: "#EF9A9A" }
+  - { id: red-300, name: Red 300, value: "#E57373" }
+  - { id: red-400, name: Red 400, value: "#EF5350" }
+  - { id: red-500, name: Red 500, value: "#F44336" }
+  - { id: red-600, name: Red 600, value: "#E53935" }
+  - { id: red-700, name: Red 700, value: "#D32F2F" }
+  - { id: red-800, name: Red 800, value: "#C62828" }
+  - { id: red-900, name: Red 900, value: "#B71C1C" }
+  - { id: red-a100, name: Red A100, value: "#FF8A80" }
+  - { id: red-a200, name: Red A200, value: "#FF5252" }
+  - { id: red-a400, name: Red A400, value: "#FF1744" }
+  - { id: red-a700, name: Red A700, value: "#D50000" }
+
+  # Pink
+  - { id: pink-50, name: Pink 50, value: "#FCE4EC" }
+  - { id: pink-100, name: Pink 100, value: "#F8BBD0" }
+  - { id: pink-200, name: Pink 200, value: "#F48FB1" }
+  - { id: pink-300, name: Pink 300, value: "#F06292" }
+  - { id: pink-400, name: Pink 400, value: "#EC407A" }
+  - { id: pink-500, name: Pink 500, value: "#E91E63" }
+  - { id: pink-600, name: Pink 600, value: "#D81B60" }
+  - { id: pink-700, name: Pink 700, value: "#C2185B" }
+  - { id: pink-800, name: Pink 800, value: "#AD1457" }
+  - { id: pink-900, name: Pink 900, value: "#880E4F" }
+  - { id: pink-a100, name: Pink A100, value: "#FF80AB" }
+  - { id: pink-a200, name: Pink A200, value: "#FF4081" }
+  - { id: pink-a400, name: Pink A400, value: "#F50057" }
+  - { id: pink-a700, name: Pink A700, value: "#C51162" }
+
+  # Purple
+  - { id: purple-50, name: Purple 50, value: "#F3E5F5" }
+  - { id: purple-100, name: Purple 100, value: "#E1BEE7" }
+  - { id: purple-200, name: Purple 200, value: "#CE93D8" }
+  - { id: purple-300, name: Purple 300, value: "#BA68C8" }
+  - { id: purple-400, name: Purple 400, value: "#AB47BC" }
+  - { id: purple-500, name: Purple 500, value: "#9C27B0" }
+  - { id: purple-600, name: Purple 600, value: "#8E24AA" }
+  - { id: purple-700, name: Purple 700, value: "#7B1FA2" }
+  - { id: purple-800, name: Purple 800, value: "#6A1B9A" }
+  - { id: purple-900, name: Purple 900, value: "#4A148C" }
+  - { id: purple-a100, name: Purple A100, value: "#EA80FC" }
+  - { id: purple-a200, name: Purple A200, value: "#E040FB" }
+  - { id: purple-a400, name: Purple A400, value: "#D500F9" }
+  - { id: purple-a700, name: Purple A700, value: "#AA00FF" }
+
+  # Deep Purple
+  - { id: deep-purple-50, name: Deep Purple 50, value: "#EDE7F6" }
+  - { id: deep-purple-100, name: Deep Purple 100, value: "#D1C4E9" }
+  - { id: deep-purple-200, name: Deep Purple 200, value: "#B39DDB" }
+  - { id: deep-purple-300, name: Deep Purple 300, value: "#9575CD" }
+  - { id: deep-purple-400, name: Deep Purple 400, value: "#7E57C2" }
+  - { id: deep-purple-500, name: Deep Purple 500, value: "#673AB7" }
+  - { id: deep-purple-600, name: Deep Purple 600, value: "#5E35B1" }
+  - { id: deep-purple-700, name: Deep Purple 700, value: "#512DA8" }
+  - { id: deep-purple-800, name: Deep Purple 800, value: "#4527A0" }
+  - { id: deep-purple-900, name: Deep Purple 900, value: "#311B92" }
+  - { id: deep-purple-a100, name: Deep Purple A100, value: "#B388FF" }
+  - { id: deep-purple-a200, name: Deep Purple A200, value: "#7C4DFF" }
+  - { id: deep-purple-a400, name: Deep Purple A400, value: "#651FFF" }
+  - { id: deep-purple-a700, name: Deep Purple A700, value: "#6200EA" }
+
+  # Indigo
+  - { id: indigo-50, name: Indigo 50, value: "#E8EAF6" }
+  - { id: indigo-100, name: Indigo 100, value: "#C5CAE9" }
+  - { id: indigo-200, name: Indigo 200, value: "#9FA8DA" }
+  - { id: indigo-300, name: Indigo 300, value: "#7986CB" }
+  - { id: indigo-400, name: Indigo 400, value: "#5C6BC0" }
+  - { id: indigo-500, name: Indigo 500, value: "#3F51B5" }
+  - { id: indigo-600, name: Indigo 600, value: "#3949AB" }
+  - { id: indigo-700, name: Indigo 700, value: "#303F9F" }
+  - { id: indigo-800, name: Indigo 800, value: "#283593" }
+  - { id: indigo-900, name: Indigo 900, value: "#1A237E" }
+  - { id: indigo-a100, name: Indigo A100, value: "#8C9EFF" }
+  - { id: indigo-a200, name: Indigo A200, value: "#536DFE" }
+  - { id: indigo-a400, name: Indigo A400, value: "#3D5AFE" }
+  - { id: indigo-a700, name: Indigo A700, value: "#304FFE" }
+
+  # Blue
+  - { id: blue-50, name: Blue 50, value: "#E3F2FD" }
+  - { id: blue-100, name: Blue 100, value: "#BBDEFB" }
+  - { id: blue-200, name: Blue 200, value: "#90CAF9" }
+  - { id: blue-300, name: Blue 300, value: "#64B5F6" }
+  - { id: blue-400, name: Blue 400, value: "#42A5F5" }
+  - { id: blue-500, name: Blue 500, value: "#2196F3" }
+  - { id: blue-600, name: Blue 600, value: "#1E88E5" }
+  - { id: blue-700, name: Blue 700, value: "#1976D2" }
+  - { id: blue-800, name: Blue 800, value: "#1565C0" }
+  - { id: blue-900, name: Blue 900, value: "#0D47A1" }
+  - { id: blue-a100, name: Blue A100, value: "#82B1FF" }
+  - { id: blue-a200, name: Blue A200, value: "#448AFF" }
+  - { id: blue-a400, name: Blue A400, value: "#2979FF" }
+  - { id: blue-a700, name: Blue A700, value: "#2962FF" }
+
+  # Light Blue
+  - { id: light-blue-50, name: Light Blue 50, value: "#E1F5FE" }
+  - { id: light-blue-100, name: Light Blue 100, value: "#B3E5FC" }
+  - { id: light-blue-200, name: Light Blue 200, value: "#81D4FA" }
+  - { id: light-blue-300, name: Light Blue 300, value: "#4FC3F7" }
+  - { id: light-blue-400, name: Light Blue 400, value: "#29B6F6" }
+  - { id: light-blue-500, name: Light Blue 500, value: "#03A9F4" }
+  - { id: light-blue-600, name: Light Blue 600, value: "#039BE5" }
+  - { id: light-blue-700, name: Light Blue 700, value: "#0288D1" }
+  - { id: light-blue-800, name: Light Blue 800, value: "#0277BD" }
+  - { id: light-blue-900, name: Light Blue 900, value: "#01579B" }
+  - { id: light-blue-a100, name: Light Blue A100, value: "#80D8FF" }
+  - { id: light-blue-a200, name: Light Blue A200, value: "#40C4FF" }
+  - { id: light-blue-a400, name: Light Blue A400, value: "#00B0FF" }
+  - { id: light-blue-a700, name: Light Blue A700, value: "#0091EA" }
+
+  # Cyan
+  - { id: cyan-50, name: Cyan 50, value: "#E0F7FA" }
+  - { id: cyan-100, name: Cyan 100, value: "#B2EBF2" }
+  - { id: cyan-200, name: Cyan 200, value: "#80DEEA" }
+  - { id: cyan-300, name: Cyan 300, value: "#4DD0E1" }
+  - { id: cyan-400, name: Cyan 400, value: "#26C6DA" }
+  - { id: cyan-500, name: Cyan 500, value: "#00BCD4" }
+  - { id: cyan-600, name: Cyan 600, value: "#00ACC1" }
+  - { id: cyan-700, name: Cyan 700, value: "#0097A7" }
+  - { id: cyan-800, name: Cyan 800, value: "#00838F" }
+  - { id: cyan-900, name: Cyan 900, value: "#006064" }
+  - { id: cyan-a100, name: Cyan A100, value: "#84FFFF" }
+  - { id: cyan-a200, name: Cyan A200, value: "#18FFFF" }
+  - { id: cyan-a400, name: Cyan A400, value: "#00E5FF" }
+  - { id: cyan-a700, name: Cyan A700, value: "#00B8D4" }
+
+  # Teal
+  - { id: teal-50, name: Teal 50, value: "#E0F2F1" }
+  - { id: teal-100, name: Teal 100, value: "#B2DFDB" }
+  - { id: teal-200, name: Teal 200, value: "#80CBC4" }
+  - { id: teal-300, name: Teal 300, value: "#4DB6AC" }
+  - { id: teal-400, name: Teal 400, value: "#26A69A" }
+  - { id: teal-500, name: Teal 500, value: "#009688" }
+  - { id: teal-600, name: Teal 600, value: "#00897B" }
+  - { id: teal-700, name: Teal 700, value: "#00796B" }
+  - { id: teal-800, name: Teal 800, value: "#00695C" }
+  - { id: teal-900, name: Teal 900, value: "#004D40" }
+  - { id: teal-a100, name: Teal A100, value: "#A7FFEB" }
+  - { id: teal-a200, name: Teal A200, value: "#64FFDA" }
+  - { id: teal-a400, name: Teal A400, value: "#1DE9B6" }
+  - { id: teal-a700, name: Teal A700, value: "#00BFA5" }
+
+  # Green
+  - { id: green-50, name: Green 50, value: "#E8F5E9" }
+  - { id: green-100, name: Green 100, value: "#C8E6C9" }
+  - { id: green-200, name: Green 200, value: "#A5D6A7" }
+  - { id: green-300, name: Green 300, value: "#81C784" }
+  - { id: green-400, name: Green 400, value: "#66BB6A" }
+  - { id: green-500, name: Green 500, value: "#4CAF50" }
+  - { id: green-600, name: Green 600, value: "#43A047" }
+  - { id: green-700, name: Green 700, value: "#388E3C" }
+  - { id: green-800, name: Green 800, value: "#2E7D32" }
+  - { id: green-900, name: Green 900, value: "#1B5E20" }
+  - { id: green-a100, name: Green A100, value: "#B9F6CA" }
+  - { id: green-a200, name: Green A200, value: "#69F0AE" }
+  - { id: green-a400, name: Green A400, value: "#00E676" }
+  - { id: green-a700, name: Green A700, value: "#00C853" }
+
+  # Light Green
+  - { id: light-green-50, name: Light Green 50, value: "#F1F8E9" }
+  - { id: light-green-100, name: Light Green 100, value: "#DCEDC8" }
+  - { id: light-green-200, name: Light Green 200, value: "#C5E1A5" }
+  - { id: light-green-300, name: Light Green 300, value: "#AED581" }
+  - { id: light-green-400, name: Light Green 400, value: "#9CCC65" }
+  - { id: light-green-500, name: Light Green 500, value: "#8BC34A" }
+  - { id: light-green-600, name: Light Green 600, value: "#7CB342" }
+  - { id: light-green-700, name: Light Green 700, value: "#689F38" }
+  - { id: light-green-800, name: Light Green 800, value: "#558B2F" }
+  - { id: light-green-900, name: Light Green 900, value: "#33691E" }
+  - { id: light-green-a100, name: Light Green A100, value: "#CCFF90" }
+  - { id: light-green-a200, name: Light Green A200, value: "#B2FF59" }
+  - { id: light-green-a400, name: Light Green A400, value: "#76FF03" }
+  - { id: light-green-a700, name: Light Green A700, value: "#64DD17" }
+
+  # Lime
+  - { id: lime-50, name: Lime 50, value: "#F9FBE7" }
+  - { id: lime-100, name: Lime 100, value: "#F0F4C3" }
+  - { id: lime-200, name: Lime 200, value: "#E6EE9C" }
+  - { id: lime-300, name: Lime 300, value: "#DCE775" }
+  - { id: lime-400, name: Lime 400, value: "#D4E157" }
+  - { id: lime-500, name: Lime 500, value: "#CDDC39" }
+  - { id: lime-600, name: Lime 600, value: "#C0CA33" }
+  - { id: lime-700, name: Lime 700, value: "#AFB42B" }
+  - { id: lime-800, name: Lime 800, value: "#9E9D24" }
+  - { id: lime-900, name: Lime 900, value: "#827717" }
+  - { id: lime-a100, name: Lime A100, value: "#F4FF81" }
+  - { id: lime-a200, name: Lime A200, value: "#EEFF41" }
+  - { id: lime-a400, name: Lime A400, value: "#C6FF00" }
+  - { id: lime-a700, name: Lime A700, value: "#AEEA00" }
+
+  # Yellow
+  - { id: yellow-50, name: Yellow 50, value: "#FFFDE7" }
+  - { id: yellow-100, name: Yellow 100, value: "#FFF9C4" }
+  - { id: yellow-200, name: Yellow 200, value: "#FFF59D" }
+  - { id: yellow-300, name: Yellow 300, value: "#FFF176" }
+  - { id: yellow-400, name: Yellow 400, value: "#FFEE58" }
+  - { id: yellow-500, name: Yellow 500, value: "#FFEB3B" }
+  - { id: yellow-600, name: Yellow 600, value: "#FDD835" }
+  - { id: yellow-700, name: Yellow 700, value: "#FBC02D" }
+  - { id: yellow-800, name: Yellow 800, value: "#F9A825" }
+  - { id: yellow-900, name: Yellow 900, value: "#F57F17" }
+  - { id: yellow-a100, name: Yellow A100, value: "#FFFF8D" }
+  - { id: yellow-a200, name: Yellow A200, value: "#FFFF00" }
+  - { id: yellow-a400, name: Yellow A400, value: "#FFEA00" }
+  - { id: yellow-a700, name: Yellow A700, value: "#FFD600" }
+
+  # Amber
+  - { id: amber-50, name: Amber 50, value: "#FFF8E1" }
+  - { id: amber-100, name: Amber 100, value: "#FFECB3" }
+  - { id: amber-200, name: Amber 200, value: "#FFE082" }
+  - { id: amber-300, name: Amber 300, value: "#FFD54F" }
+  - { id: amber-400, name: Amber 400, value: "#FFCA28" }
+  - { id: amber-500, name: Amber 500, value: "#FFC107" }
+  - { id: amber-600, name: Amber 600, value: "#FFB300" }
+  - { id: amber-700, name: Amber 700, value: "#FFA000" }
+  - { id: amber-800, name: Amber 800, value: "#FF8F00" }
+  - { id: amber-900, name: Amber 900, value: "#FF6F00" }
+  - { id: amber-a100, name: Amber A100, value: "#FFE57F" }
+  - { id: amber-a200, name: Amber A200, value: "#FFD740" }
+  - { id: amber-a400, name: Amber A400, value: "#FFC400" }
+  - { id: amber-a700, name: Amber A700, value: "#FFAB00" }
+
+  # Orange
+  - { id: orange-50, name: Orange 50, value: "#FFF3E0" }
+  - { id: orange-100, name: Orange 100, value: "#FFE0B2" }
+  - { id: orange-200, name: Orange 200, value: "#FFCC80" }
+  - { id: orange-300, name: Orange 300, value: "#FFB74D" }
+  - { id: orange-400, name: Orange 400, value: "#FFA726" }
+  - { id: orange-500, name: Orange 500, value: "#FF9800" }
+  - { id: orange-600, name: Orange 600, value: "#FB8C00" }
+  - { id: orange-700, name: Orange 700, value: "#F57C00" }
+  - { id: orange-800, name: Orange 800, value: "#EF6C00" }
+  - { id: orange-900, name: Orange 900, value: "#E65100" }
+  - { id: orange-a100, name: Orange A100, value: "#FFD180" }
+  - { id: orange-a200, name: Orange A200, value: "#FFAB40" }
+  - { id: orange-a400, name: Orange A400, value: "#FF9100" }
+  - { id: orange-a700, name: Orange A700, value: "#FF6D00" }
+
+  # Deep Orange
+  - { id: deep-orange-50, name: Deep Orange 50, value: "#FBE9E7" }
+  - { id: deep-orange-100, name: Deep Orange 100, value: "#FFCCBC" }
+  - { id: deep-orange-200, name: Deep Orange 200, value: "#FFAB91" }
+  - { id: deep-orange-300, name: Deep Orange 300, value: "#FF8A65" }
+  - { id: deep-orange-400, name: Deep Orange 400, value: "#FF7043" }
+  - { id: deep-orange-500, name: Deep Orange 500, value: "#FF5722" }
+  - { id: deep-orange-600, name: Deep Orange 600, value: "#F4511E" }
+  - { id: deep-orange-700, name: Deep Orange 700, value: "#E64A19" }
+  - { id: deep-orange-800, name: Deep Orange 800, value: "#D84315" }
+  - { id: deep-orange-900, name: Deep Orange 900, value: "#BF360C" }
+  - { id: deep-orange-a100, name: Deep Orange A100, value: "#FF9E80" }
+  - { id: deep-orange-a200, name: Deep Orange A200, value: "#FF6E40" }
+  - { id: deep-orange-a400, name: Deep Orange A400, value: "#FF3D00" }
+  - { id: deep-orange-a700, name: Deep Orange A700, value: "#DD2C00" }
+
+  # Brown
+  - { id: brown-50, name: Brown 50, value: "#EFEBE9" }
+  - { id: brown-100, name: Brown 100, value: "#D7CCC8" }
+  - { id: brown-200, name: Brown 200, value: "#BCAAA4" }
+  - { id: brown-300, name: Brown 300, value: "#A1887F" }
+  - { id: brown-400, name: Brown 400, value: "#8D6E63" }
+  - { id: brown-500, name: Brown 500, value: "#795548" }
+  - { id: brown-600, name: Brown 600, value: "#6D4C41" }
+  - { id: brown-700, name: Brown 700, value: "#5D4037" }
+  - { id: brown-800, name: Brown 800, value: "#4E342E" }
+  - { id: brown-900, name: Brown 900, value: "#3E2723" }
+
+  # Grey
+  - { id: grey-50, name: Grey 50, value: "#FAFAFA" }
+  - { id: grey-100, name: Grey 100, value: "#F5F5F5" }
+  - { id: grey-200, name: Grey 200, value: "#EEEEEE" }
+  - { id: grey-300, name: Grey 300, value: "#E0E0E0" }
+  - { id: grey-400, name: Grey 400, value: "#BDBDBD" }
+  - { id: grey-500, name: Grey 500, value: "#9E9E9E" }
+  - { id: grey-600, name: Grey 600, value: "#757575" }
+  - { id: grey-700, name: Grey 700, value: "#616161" }
+  - { id: grey-800, name: Grey 800, value: "#424242" }
+  - { id: grey-900, name: Grey 900, value: "#212121" }
+
+  # Blue Grey
+  - { id: blue-grey-50, name: Blue Grey 50, value: "#ECEFF1" }
+  - { id: blue-grey-100, name: Blue Grey 100, value: "#CFD8DC" }
+  - { id: blue-grey-200, name: Blue Grey 200, value: "#B0BEC5" }
+  - { id: blue-grey-300, name: Blue Grey 300, value: "#90A4AE" }
+  - { id: blue-grey-400, name: Blue Grey 400, value: "#78909C" }
+  - { id: blue-grey-500, name: Blue Grey 500, value: "#607D8B" }
+  - { id: blue-grey-600, name: Blue Grey 600, value: "#546E7A" }
+  - { id: blue-grey-700, name: Blue Grey 700, value: "#455A64" }
+  - { id: blue-grey-800, name: Blue Grey 800, value: "#37474F" }
+  - { id: blue-grey-900, name: Blue Grey 900, value: "#263238" }
+
+modes:
+  light:
+    roles:
+      primary: indigo-500
+      primary-variant: indigo-700
+      secondary: pink-a200
+      secondary-variant: pink-a400
+      background: white
+      surface: white
+      error: red-500
+      on-primary: white
+      on-secondary: black
+      on-background: black
+      on-surface: black
+      on-error: white
+      text-primary: grey-900
+      text-secondary: grey-600
+      text-disabled: grey-400
+      divider: grey-300
+
+  dark:
+    roles:
+      primary: indigo-200
+      primary-variant: indigo-700
+      secondary: pink-a100
+      secondary-variant: pink-a200
+      background: dark-surface
+      surface: grey-900
+      error: red-200
+      on-primary: black
+      on-secondary: black
+      on-background: white
+      on-surface: white
+      on-error: black
+      text-primary: grey-50
+      text-secondary: grey-400
+      text-disabled: grey-600
+      divider: grey-800

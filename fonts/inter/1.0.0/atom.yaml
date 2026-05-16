@@ -1,0 +1,58 @@
+kind: font
+id: inter
+version: 1.0.0
+name: Inter
+description: >
+  A humanist sans-serif typeface designed for highly legible computer
+  screens. Variable font supporting weights 100–900 with optical size
+  axis. Excellent default body and UI font for modern web and app
+  interfaces.
+family: Inter
+classification: sans-serif
+tags: [variable-font, humanist, screen, ui, body]
+
+provenance:
+  source: https://fonts.google.com/specimen/Inter
+  license: OFL-1.1
+  attribution: >
+    Inter, Copyright 2016 The Inter Project Authors (Rasmus Andersson),
+    licensed under the SIL Open Font License, Version 1.1.
+  importedDate: 2026-05-15
+  importedFromVersion: "4.1"
+  notes: >
+    Inter is a variable font with axes opsz (14-32) and wght (100-900).
+    Both upright and italic styles available.
+
+source:
+  kind: google-fonts
+  family: Inter
+  url: https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap
+
+fallbackStack:
+  - -apple-system
+  - BlinkMacSystemFont
+  - Segoe UI
+  - Roboto
+  - Helvetica Neue
+  - Arial
+  - sans-serif
+
+availableStyles:
+  - { weight: 100, style: normal }
+  - { weight: 100, style: italic }
+  - { weight: 200, style: normal }
+  - { weight: 200, style: italic }
+  - { weight: 300, style: normal }
+  - { weight: 300, style: italic }
+  - { weight: 400, style: normal }
+  - { weight: 400, style: italic }
+  - { weight: 500, style: normal }
+  - { weight: 500, style: italic }
+  - { weight: 600, style: normal }
+  - { weight: 600, style: italic }
+  - { weight: 700, style: normal }
+  - { weight: 700, style: italic }
+  - { weight: 800, style: normal }
+  - { weight: 800, style: italic }
+  - { weight: 900, style: normal }
+  - { weight: 900, style: italic }

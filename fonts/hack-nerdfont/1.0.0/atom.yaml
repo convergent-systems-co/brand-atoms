@@ -1,0 +1,48 @@
+kind: font
+id: hack-nerdfont
+version: 1.0.0
+name: Hack Nerd Font
+description: >
+  Hack monospaced font with Nerd Fonts glyph augmentation. Hack is a
+  derivative of Bitstream Vera and DejaVu, optimized for source code
+  with a dotted zero and short descenders for legibility at common
+  terminal sizes. Patched with ~10,000 additional icons.
+family: Hack Nerd Font
+classification: monospace
+tags: [nerd-font, monospace, terminal, code]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: MIT
+  attribution: >
+    Hack, Copyright 2018 Source Foundry Authors and Christopher Simpkins,
+    licensed under the Hack Open Font License (modified MIT/Bitstream
+    Vera license). Nerd Fonts patching by Ryan L McIntyre, MIT license.
+  importedDate: 2026-05-15
+  importedFromVersion: v3.4.0
+  notes: >
+    Base font version: Hack 3.003. Download archive:
+    https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Hack.zip
+
+source:
+  kind: external
+  family: Hack Nerd Font
+  notes: >
+    Nerd-Font-patched build of Hack. Not available via Google Fonts.
+    Download woff2/ttf files from the Nerd Fonts GitHub release and
+    self-host, or install system-wide for terminal use.
+
+fallbackStack:
+  - Hack
+  - DejaVu Sans Mono
+  - Menlo
+  - Monaco
+  - Consolas
+  - Liberation Mono
+  - monospace
+
+availableStyles:
+  - { weight: 400, style: normal }
+  - { weight: 400, style: italic }
+  - { weight: 700, style: normal }
+  - { weight: 700, style: italic }

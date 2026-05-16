@@ -1,0 +1,128 @@
+kind: palette
+id: nord
+version: 1.0.0
+name: Nord
+description: >
+  An arctic, north-bluish color palette. 16 colors organized into four
+  groups (Polar Night, Snow Storm, Frost, Aurora), designed for clean,
+  legible UIs and syntax highlighting in both light and dark ambiances.
+tags: [arctic, cool, syntax-highlighting]
+
+provenance:
+  source: https://www.nordtheme.com/docs/colors-and-palettes
+  license: MIT
+  attribution: Nord theme by Sven Greb (github.com/arcticicestudio/nord)
+  importedDate: 2026-05-15
+  importedFromVersion: "0.2.0"
+
+swatches:
+  # Polar Night — dark base colors
+  - id: nord0
+    name: Polar Night 0 (darkest)
+    value: "#2E3440"
+    description: Dark theme background; bright theme primary text
+  - id: nord1
+    name: Polar Night 1
+    value: "#3B4252"
+    description: Dark theme elevated UI (status bars, panels, buttons)
+  - id: nord2
+    name: Polar Night 2
+    value: "#434C5E"
+    description: Dark theme active line and selection highlighting
+  - id: nord3
+    name: Polar Night 3 (lightest)
+    value: "#4C566A"
+    description: Dark theme indent guides and comments
+
+  # Snow Storm — light text colors
+  - id: nord4
+    name: Snow Storm 4 (darkest)
+    value: "#D8DEE9"
+    description: Dark theme caret/variables; bright theme elevated UI
+  - id: nord5
+    name: Snow Storm 5
+    value: "#E5E9F0"
+    description: Dark theme subtle UI text; bright theme active line
+  - id: nord6
+    name: Snow Storm 6 (lightest)
+    value: "#ECEFF4"
+    description: Dark theme primary text; bright theme background
+
+  # Frost — primary blue accent group
+  - id: nord7
+    name: Frost 7 (teal)
+    value: "#8FBCBB"
+    description: Classes, types, primitives; secondary accent
+  - id: nord8
+    name: Frost 8 (light blue, primary accent)
+    value: "#88C0D0"
+    description: Primary accent color; function declarations
+  - id: nord9
+    name: Frost 9 (mid blue)
+    value: "#81A1C1"
+    description: Keywords, operators, tags
+  - id: nord10
+    name: Frost 10 (deep blue)
+    value: "#5E81AC"
+    description: Pragmas, preprocessor; tertiary attention
+
+  # Aurora — semantic colors
+  - id: nord11
+    name: Aurora 11 (red)
+    value: "#BF616A"
+    description: Errors, Git deletions
+  - id: nord12
+    name: Aurora 12 (orange)
+    value: "#D08770"
+    description: Annotations, decorators
+  - id: nord13
+    name: Aurora 13 (yellow)
+    value: "#EBCB8B"
+    description: Warnings, Git modifications, escape characters
+  - id: nord14
+    name: Aurora 14 (green)
+    value: "#A3BE8C"
+    description: Success states, strings, Git additions
+  - id: nord15
+    name: Aurora 15 (purple)
+    value: "#B48EAD"
+    description: Uncommon functionality, numbers
+
+modes:
+  light:
+    roles:
+      background: nord6
+      surface: nord5
+      surface-elevated: nord4
+      text-primary: nord0
+      text-secondary: nord1
+      text-tertiary: nord3
+      primary: nord10
+      primary-hover: nord9
+      accent: nord8
+      secondary-accent: nord7
+      success: nord14
+      warning: nord13
+      error: nord11
+      info: nord10
+      annotation: nord12
+      special: nord15
+
+  dark:
+    roles:
+      background: nord0
+      surface: nord1
+      surface-elevated: nord2
+      text-primary: nord6
+      text-secondary: nord4
+      text-tertiary: nord3
+      primary: nord8
+      primary-hover: nord9
+      accent: nord8
+      secondary-accent: nord7
+      success: nord14
+      warning: nord13
+      error: nord11
+      info: nord10
+      annotation: nord12
+      special: nord15

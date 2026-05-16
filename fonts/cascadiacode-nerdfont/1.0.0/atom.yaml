@@ -1,0 +1,59 @@
+kind: font
+id: cascadiacode-nerdfont
+version: 1.0.0
+name: CascadiaCode Nerd Font
+description: >
+  Microsoft's Cascadia Code monospaced font with Nerd Fonts glyph
+  augmentation. Designed for Windows Terminal and Visual Studio Code,
+  features programming ligatures and a clean modern aesthetic. Patched
+  with ~10,000 additional icons.
+family: CaskaydiaCove Nerd Font
+classification: monospace
+tags: [nerd-font, monospace, microsoft, ligatures, terminal]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: OFL-1.1
+  attribution: >
+    Cascadia Code, Copyright Microsoft Corporation, licensed under the
+    SIL Open Font License, Version 1.1. Nerd Fonts patching by
+    Ryan L McIntyre, MIT license. Note: Nerd-Font-patched build is
+    distributed under the family name "CaskaydiaCove Nerd Font" to
+    avoid trademark issues with Microsoft's "Cascadia Code".
+  importedDate: 2026-05-15
+  importedFromVersion: v3.4.0
+  notes: >
+    Base font version: Cascadia Code 2407.24. Download archive:
+    https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/CascadiaCode.zip
+
+source:
+  kind: external
+  family: CaskaydiaCove Nerd Font
+  notes: >
+    Nerd-Font-patched build of Cascadia Code (renamed CaskaydiaCove for
+    distribution). Not available via Google Fonts. Download woff2/ttf
+    files from the Nerd Fonts GitHub release and self-host, or install
+    system-wide for terminal/IDE use.
+
+fallbackStack:
+  - Cascadia Code
+  - JetBrains Mono
+  - Menlo
+  - Monaco
+  - Consolas
+  - Liberation Mono
+  - monospace
+
+availableStyles:
+  - { weight: 200, style: normal }
+  - { weight: 200, style: italic }
+  - { weight: 300, style: normal }
+  - { weight: 300, style: italic }
+  - { weight: 400, style: normal }
+  - { weight: 400, style: italic }
+  - { weight: 500, style: normal }
+  - { weight: 500, style: italic }
+  - { weight: 600, style: normal }
+  - { weight: 600, style: italic }
+  - { weight: 700, style: normal }
+  - { weight: 700, style: italic }

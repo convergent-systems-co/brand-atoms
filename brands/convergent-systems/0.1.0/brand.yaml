@@ -1,0 +1,218 @@
+id: convergent-systems
+version: 0.1.0
+name: Convergent Systems
+description: >
+  Seed/example brand for the branding-library encyclopedia. Demonstrates
+  full schema coverage: palette + font references, semantic role mapping,
+  structured assets with light/dark variants, and typed-constraint rules
+  across most constraint types.
+tags: [seed, example, developer-tooling]
+
+provenance:
+  license: MIT
+  importedDate: 2026-05-15
+  notes: >
+    This brand exists primarily to exercise and document the schema. It
+    is not the final visual identity for Convergent Systems and may be
+    refined or replaced in subsequent versions.
+
+references:
+  palette: nord@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    primary: nord10
+    primary-hover: nord9
+    accent: nord8
+    success: nord14
+    warning: nord13
+    error: nord11
+    text-primary-light: nord0
+    text-primary-dark: nord6
+    background-light: nord6
+    background-dark: nord0
+    surface-light: nord5
+    surface-dark: nord1
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets:
+  - id: wordmark-light
+    category: logo-wordmark
+    name: Convergent Systems Wordmark (Light)
+    description: Primary wordmark for use on light backgrounds.
+    variants:
+      - id: svg
+        file: assets/logo-wordmark-light.svg
+        colorScheme: dark-on-light
+        intendedMode: light
+        format: svg
+        dimensions: { width: 320, height: 64 }
+
+  - id: wordmark-dark
+    category: logo-wordmark
+    name: Convergent Systems Wordmark (Dark)
+    description: Primary wordmark for use on dark backgrounds.
+    variants:
+      - id: svg
+        file: assets/logo-wordmark-dark.svg
+        colorScheme: light-on-dark
+        intendedMode: dark
+        format: svg
+        dimensions: { width: 320, height: 64 }
+
+  - id: mark
+    category: logo-mark
+    name: Convergent Systems Mark
+    description: Square mark for app icons, social avatars, and compact contexts.
+    variants:
+      - id: svg
+        file: assets/logo-mark.svg
+        colorScheme: full-color
+        format: svg
+        dimensions: { width: 48, height: 48 }
+
+  - id: favicon
+    category: favicon
+    name: Browser favicon
+    variants:
+      - id: svg-32
+        file: assets/favicon.svg
+        format: svg
+        dimensions: { width: 32, height: 32 }
+
+rules:
+  - type: numericRange
+    target: typography.body.fontSize
+    min: 14
+    unit: px
+    severity: error
+    rationale: >
+      Body text must be readable on screens at standard viewing distance.
+      Below 14px legibility drops significantly, especially for users with
+      mild visual impairment.
+
+  - type: numericRange
+    target: logo.wordmark.minWidth
+    min: 120
+    unit: px
+    severity: error
+    rationale: >
+      Below 120px wide the wordmark loses legibility. Use the mark variant
+      for smaller placements.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      WCAG 2.1 Level AA contrast requirement for body text. The Nord
+      palette in light and dark mode both satisfy this when text-primary
+      and background roles are paired as defined.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 7.0
+    standard: WCAG-AAA
+    severity: recommendation
+    rationale: >
+      For accessibility-critical contexts, target Level AAA contrast
+      (7:1) which provides comfortable reading for users with low vision.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - inverted-without-variant
+    severity: error
+    rationale: >
+      Maintains brand integrity. Use the appropriate light or dark variant
+      rather than applying filters or inversions to the source SVG.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: dark
+    use: wordmark-dark
+    severity: error
+    rationale: >
+      Always use the dark-mode wordmark variant on dark backgrounds to
+      maintain the correct color relationships.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: light
+    use: wordmark-light
+    severity: error
+    rationale: Mirror rule of the dark-mode variant selection.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.5
+    severity: error
+    rationale: >
+      Visual hierarchy requires that headings are at minimum 1.5× the
+      body text size so readers can quickly scan structure.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["500", "600", "700", "800"]
+    severity: warning
+    rationale: >
+      Headings need weight emphasis. Lighter weights (100–400) compromise
+      hierarchy on most backgrounds.
+
+  - type: numericRatio
+    target: typography.body.lineHeight
+    min: 1.4
+    max: 1.7
+    severity: recommendation
+    rationale: >
+      Line-height in 1.4–1.7 maximizes readability of prose at standard
+      reading sizes. Tighter compresses; looser fragments.
+
+  - type: contextRestriction
+    target: roles.colors.success
+    forbiddenContexts:
+      - error-state
+      - destructive-action
+      - validation-failure
+    severity: error
+    rationale: >
+      Green (Nord14) is semantically associated with success states.
+      Reusing it for error contexts creates confusion and undermines
+      the meaning of the success role elsewhere in the system.
+
+  - type: compositionConstraint
+    target: typography.mono
+    doesNotPairWith:
+      - typography.display
+    severity: warning
+    rationale: >
+      Display contexts (large hero text, marketing headers) should use the
+      humanist sans (Inter) — monospace at display scale reads as code or
+      terminal output, which is off-tone for non-developer audiences.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level AA.
+      Applies globally across every UI surface produced from this brand.
