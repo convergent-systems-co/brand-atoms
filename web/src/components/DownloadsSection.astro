@@ -1,0 +1,127 @@
+---
+import { downloadFormats, downloadHref, downloadLabel } from '../lib/downloads.js';
+import type { ResolvedBrand } from '../lib/encyclopedia.js';
+
+export interface Props {
+  brand: ResolvedBrand;
+}
+
+const { brand } = Astro.props;
+---
+
+<section class="section downloads-section" data-component="downloads-section">
+  <h2>Downloads</h2>
+  <p class="section-lede">
+    All converter outputs for <code>{brand.id}@{brand.version}</code>. Served from
+    <code>/dist/brands/{brand.id}/{brand.version}/</code>.
+  </p>
+
+  <div class="downloads-grid">
+    {downloadFormats.map((format) => (
+      <article class="download-card">
+        <header class="download-head">
+          <h3>{format.name}</h3>
+          <span class="download-count">{format.files.length} file{format.files.length === 1 ? '' : 's'}</span>
+        </header>
+        <p class="download-desc">{format.description}</p>
+        <ul class="download-list">
+          {format.files.map((file) => (
+            <li>
+              <a
+                class="download-link"
+                href={downloadHref(brand, file)}
+                download
+              >
+                <span class="download-leaf">{downloadLabel(file)}</span>
+                <span class="download-path"><code>{file}</code></span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .downloads-section {
+    padding: 24px 0 32px;
+  }
+  .downloads-section h2 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 12px;
+  }
+  .downloads-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 14px;
+  }
+  .download-card {
+    background: var(--surface);
+    border-radius: 14px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .download-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .download-head h3 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .download-count {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-tertiary);
+    text-transform: lowercase;
+  }
+  .download-desc {
+    margin: 0;
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.4;
+  }
+  .download-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .download-link {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: background 0.12s ease, color 0.12s ease;
+  }
+  .download-link:hover {
+    background: var(--surface-elevated);
+    color: var(--primary);
+  }
+  .download-leaf {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .download-path code {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-tertiary);
+  }
+  .download-link:hover .download-path code {
+    color: var(--text-secondary);
+  }
+</style>

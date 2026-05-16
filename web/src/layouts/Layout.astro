@@ -2,7 +2,7 @@
 export interface Props {
   title: string;
   description?: string;
-  section?: 'home' | 'brands' | 'palettes' | 'fonts';
+  section?: 'home' | 'brands' | 'palettes' | 'fonts' | 'builder';
 }
 
 const { title, description, section = 'home' } = Astro.props;
@@ -12,6 +12,7 @@ const navItems = [
   { id: 'brands', label: 'Brands', href: '/brands' },
   { id: 'palettes', label: 'Palettes', href: '/palettes' },
   { id: 'fonts', label: 'Fonts', href: '/fonts' },
+  { id: 'builder', label: 'Builder', href: '/builder' },
 ] as const;
 ---
 
