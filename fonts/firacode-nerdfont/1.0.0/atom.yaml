@@ -3,34 +3,26 @@ id: firacode-nerdfont
 version: 1.0.0
 name: FiraCode Nerd Font
 description: >
-  Fira Code monospaced font with Nerd Fonts glyph augmentation. Adds
-  ~10,000 icons (Powerline, Material Design Icons, Font Awesome,
-  Devicons, Octicons, Codicons, etc.) to Mozilla's Fira Code, which
-  itself extends Fira Mono with programming ligatures.
+  Fira Code monospaced font with Nerd Fonts glyph augmentation. Adds ~10,000 icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.) to Mozilla's Fira Code, which itself extends Fira Mono with programming ligatures.
 family: FiraCode Nerd Font
 classification: monospace
-tags: [nerd-font, monospace, programming-ligatures, terminal, code]
+tags: [ nerd-font, monospace, programming-ligatures, terminal, code ]
 
 provenance:
   source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
   license: OFL-1.1
   attribution: >
-    Fira Code, Copyright 2014–2025 The Fira Code Project Authors
-    (Nikita Prokopov), licensed under the SIL Open Font License,
-    Version 1.1. Nerd Fonts patching by Ryan L McIntyre, MIT license.
+    Fira Code, Copyright 2014–2025 The Fira Code Project Authors (Nikita Prokopov), licensed under the SIL Open Font License, Version 1.1. Nerd Fonts patching by Ryan L McIntyre, MIT license.
   importedDate: 2026-05-15
   importedFromVersion: v3.4.0
   notes: >
-    Base font version: Fira Code 6.2. Download archive:
-    https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/FiraCode.zip
+    Base font version: Fira Code 6.2. Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/FiraCode.zip
 
 source:
   kind: external
   family: FiraCode Nerd Font
   notes: >
-    Nerd-Font-patched build of Fira Code. Not available via Google Fonts.
-    Download woff2/ttf files from the Nerd Fonts GitHub release and
-    self-host, or install system-wide for terminal/editor use.
+    Nerd-Font-patched build of Fira Code. Not available via Google Fonts. Download woff2/ttf files from the Nerd Fonts GitHub release and self-host, or install system-wide for terminal/editor use.
 
 fallbackStack:
   - Fira Code
@@ -48,3 +40,10 @@ availableStyles:
   - { weight: 500, style: normal }
   - { weight: 600, style: normal }
   - { weight: 700, style: normal }
+cdnUrls:
+  FiraCodeNerdFontMono-SemiBold.ttf: https://cdn.brand-atoms.com/fonts/firacode-nerdfont/1.0.0/FiraCodeNerdFontMono-SemiBold.ttf
+  FiraCodeNerdFontMono-Regular.ttf: https://cdn.brand-atoms.com/fonts/firacode-nerdfont/1.0.0/FiraCodeNerdFontMono-Regular.ttf
+  FiraCodeNerdFontMono-Retina.ttf: https://cdn.brand-atoms.com/fonts/firacode-nerdfont/1.0.0/FiraCodeNerdFontMono-Retina.ttf
+  FiraCodeNerdFontMono-Medium.ttf: https://cdn.brand-atoms.com/fonts/firacode-nerdfont/1.0.0/FiraCodeNerdFontMono-Medium.ttf
+  FiraCodeNerdFontMono-Bold.ttf: https://cdn.brand-atoms.com/fonts/firacode-nerdfont/1.0.0/FiraCodeNerdFontMono-Bold.ttf
+  FiraCodeNerdFontMono-Light.ttf: https://cdn.brand-atoms.com/fonts/firacode-nerdfont/1.0.0/FiraCodeNerdFontMono-Light.ttf

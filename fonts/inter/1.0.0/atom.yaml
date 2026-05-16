@@ -3,25 +3,20 @@ id: inter
 version: 1.0.0
 name: Inter
 description: >
-  A humanist sans-serif typeface designed for highly legible computer
-  screens. Variable font supporting weights 100–900 with optical size
-  axis. Excellent default body and UI font for modern web and app
-  interfaces.
+  A humanist sans-serif typeface designed for highly legible computer screens. Variable font supporting weights 100–900 with optical size axis. Excellent default body and UI font for modern web and app interfaces.
 family: Inter
 classification: sans-serif
-tags: [variable-font, humanist, screen, ui, body]
+tags: [ variable-font, humanist, screen, ui, body ]
 
 provenance:
   source: https://fonts.google.com/specimen/Inter
   license: OFL-1.1
   attribution: >
-    Inter, Copyright 2016 The Inter Project Authors (Rasmus Andersson),
-    licensed under the SIL Open Font License, Version 1.1.
+    Inter, Copyright 2016 The Inter Project Authors (Rasmus Andersson), licensed under the SIL Open Font License, Version 1.1.
   importedDate: 2026-05-15
   importedFromVersion: "4.1"
   notes: >
-    Inter is a variable font with axes opsz (14-32) and wght (100-900).
-    Both upright and italic styles available.
+    Inter is a variable font with axes opsz (14-32) and wght (100-900). Both upright and italic styles available.
 
 source:
   kind: google-fonts
@@ -56,3 +51,6 @@ availableStyles:
   - { weight: 800, style: italic }
   - { weight: 900, style: normal }
   - { weight: 900, style: italic }
+cdnUrls:
+  InterVariable.woff2: https://cdn.brand-atoms.com/fonts/inter/1.0.0/InterVariable.woff2
+  InterVariable-Italic.woff2: https://cdn.brand-atoms.com/fonts/inter/1.0.0/InterVariable-Italic.woff2
