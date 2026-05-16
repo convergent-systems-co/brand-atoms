@@ -1,0 +1,16 @@
+---
+import type { ResolvedBrand } from '../lib/encyclopedia.js';
+
+export interface Props {
+  brand: ResolvedBrand;
+}
+
+const { brand } = Astro.props;
+// Stub — body filled in by T-A (issue #2).
+---
+
+<section class="section downloads-section" data-component="downloads-section">
+  <h2>Downloads</h2>
+  <p class="section-lede">All converter outputs for <code>{brand.id}@{brand.version}</code>.</p>
+  <!-- TODO T-A: render 9 format groups with download links -->
+</section>

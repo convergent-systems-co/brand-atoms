@@ -1,0 +1,16 @@
+---
+import type { ResolvedBrand } from '../lib/encyclopedia.js';
+
+export interface Props {
+  brand: ResolvedBrand;
+}
+
+const { brand } = Astro.props;
+// Stub — body filled in by T-B (issue #3).
+---
+
+<section class="section brand-guide-section" data-component="brand-guide">
+  <h2>Brand Guide</h2>
+  <p class="section-lede">Inline rendering of the Markdown brand guide for <code>{brand.id}@{brand.version}</code>.</p>
+  <!-- TODO T-B: render markdown emitter output via marked -->
+</section>

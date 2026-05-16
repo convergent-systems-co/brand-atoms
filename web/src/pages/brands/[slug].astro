@@ -2,6 +2,8 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import Layout from '../../layouts/Layout.astro';
+import BrandGuide from '../../components/BrandGuide.astro';
+import DownloadsSection from '../../components/DownloadsSection.astro';
 import { fontShowcaseFamily, getBrands, getResolvedBrandBySlug } from '../../lib/encyclopedia.js';
 
 export function getStaticPaths() {
@@ -117,6 +119,10 @@ const pangram = 'The quick brown fox jumps over 13 lazy dogs.';
       )}
     </div>
   </header>
+
+  <DownloadsSection brand={brand} />
+
+  <BrandGuide brand={brand} />
 
   <section class="section">
     <h2>Atoms</h2>
