@@ -18,7 +18,8 @@
     "validate": "tsx tools/validate.ts",
     "build": "tsx tools/build.ts",
     "lint": "biome check .",
-    "format": "biome format --write ."
+    "format": "biome format --write .",
+    "test:workflow": "tsx tools/__tests__/workflow.test.ts"
   },
   "dependencies": {
     "yaml": "^2.5.1",

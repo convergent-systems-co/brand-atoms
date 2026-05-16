@@ -1,0 +1,55 @@
+name: deploy
+
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: false
+
+# Workflow-level env so every step sees the Cloudflare context.
+# CLOUDFLARE_API_TOKEN is aliased from the repo secret CSO_CF_TOKEN
+# (not a secret named CLOUDFLARE_API_TOKEN) so wrangler / wrangler-action pick it up.
+env:
+  CLOUDFLARE_ACCOUNT_ID: e1fe0f0ce8ff18da4edc118372c30022
+  CLOUDFLARE_API_TOKEN: ${{ secrets.CSO_CF_TOKEN }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Verify CSO_CF_TOKEN secret is set
+        run: |
+          if [ -z "${CLOUDFLARE_API_TOKEN}" ]; then
+            echo "::error::Missing CSO_CF_TOKEN secret — set at https://github.com/convergent-systems-co/branding-library/settings/secrets/actions"
+            exit 1
+          fi
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Validate library
+        run: pnpm validate
+
+      - name: Build converter outputs
+        run: pnpm build
+
+      - name: Build Astro site
+        run: cd web && pnpm build
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          accountId: ${{ env.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ env.CLOUDFLARE_API_TOKEN }}
+          command: pages deploy web/dist --project-name brand-atoms --branch main
