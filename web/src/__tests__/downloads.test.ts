@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { emitters } from '../../../tools/emitters/index.js';
 import { downloadFormats, downloadHref } from '../lib/downloads.js';
 import { fixtureBrand } from './fixtures/brand.js';
 
@@ -46,6 +47,19 @@ describe('downloadFormats', () => {
     for (const f of downloadFormats) {
       expect(f.files.length, `format ${f.name} has no files`).toBeGreaterThan(0);
     }
+  });
+});
+
+describe('downloadFormats vs. real emitter output (integration)', () => {
+  it('matches the files actually written by every emitter against a fixture brand', () => {
+    // Run every emitter against the fixture brand and collect the exact
+    // paths they write. The Downloads section's declared file list must
+    // be a 1:1 match — no theatrical hardcoding.
+    const emittedPaths = emitters
+      .flatMap((emitter) => emitter.emit(fixtureBrand).map((f) => f.path))
+      .sort();
+    const declaredPaths = downloadFormats.flatMap((f) => f.files).sort();
+    expect(declaredPaths).toEqual(emittedPaths);
   });
 });
 

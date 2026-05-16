@@ -31,7 +31,11 @@ const loadAtoms = (): AtomCatalog => {
   if (!node || !node.textContent) return EMPTY_CATALOG;
   try {
     return JSON.parse(node.textContent) as AtomCatalog;
-  } catch {
+  } catch (err) {
+    // Atom payload is corrupt — surface it loudly. Builder UI will show
+    // "Loading atom catalog…" forever; the console error makes the cause
+    // discoverable for users + ops, instead of a silent dead page.
+    console.error('[Builder] Failed to parse #brand-atoms-data payload:', err);
     return EMPTY_CATALOG;
   }
 };

@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { parse as parseYaml } from 'yaml';
+import { Brand } from '../../../tools/schemas/index.js';
 import { composeBrand, toBrandDefinitionYaml } from '../lib/composeBrand.js';
 import { emitters } from '../../../tools/emitters/index.js';
 import { fixtureBrand } from './fixtures/brand.js';
@@ -91,5 +92,28 @@ describe('toBrandDefinitionYaml', () => {
     expect(parsed.references.fonts.heading).toContain(atoms.fonts[0]!.slug);
     expect(parsed.references.fonts.body).toContain(atoms.fonts[1]!.slug);
     expect(parsed.references.fonts.mono).toContain(atoms.fonts[2]!.slug);
+  });
+
+  it('output validates against the real Brand zod schema', () => {
+    const yaml = toBrandDefinitionYaml({
+      id: 'custom-brand',
+      version: '0.1.0',
+      name: 'Custom Brand',
+      paletteSlug: atoms.palettes[0]!.slug,
+      paletteVersion: atoms.palettes[0]!.version,
+      headingSlug: atoms.fonts[0]!.slug,
+      headingVersion: atoms.fonts[0]!.version,
+      bodySlug: atoms.fonts[1]!.slug,
+      bodyVersion: atoms.fonts[1]!.version,
+      monoSlug: atoms.fonts[2]!.slug,
+      monoVersion: atoms.fonts[2]!.version,
+    });
+    const parsed = parseYaml(yaml);
+    // safeParse so we get a useful diff if it fails, not just a thrown error.
+    const result = Brand.safeParse(parsed);
+    expect(
+      result.success,
+      result.success ? '' : JSON.stringify(result.error.format(), null, 2),
+    ).toBe(true);
   });
 });
