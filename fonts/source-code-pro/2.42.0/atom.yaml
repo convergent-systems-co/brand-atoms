@@ -1,0 +1,54 @@
+kind: font
+id: source-code-pro
+version: 2.42.0
+name: Source Code Pro
+description: >
+  Adobe's open-source monospaced typeface by Paul D. Hunt, derived from Source Sans 3. A
+  practical, screen-tuned mono designed for code editors and terminals with seven weights
+  (ExtraLight–Black) and matching italics.
+family: Source Code Pro
+classification: monospace
+tags: [ adobe-source, monospace, code, terminal, variable-font ]
+
+provenance:
+  source: https://github.com/adobe-fonts/source-code-pro
+  license: OFL-1.1
+  attribution: >
+    Copyright 2010–2024 Adobe (http://www.adobe.com/), with Reserved Font Name "Source".
+    Licensed under the SIL Open Font License, Version 1.1. Designed by Paul D. Hunt.
+  importedDate: 2026-05-17
+  importedFromVersion: "2.042"
+  notes: >
+    Upstream release: github.com/adobe-fonts/source-code-pro/releases/tag/2.042. Also
+    published on Google Fonts as "Source Code Pro".
+
+source:
+  kind: google-fonts
+  family: Source Code Pro
+  url: https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap
+
+fallbackStack:
+  - Menlo
+  - Monaco
+  - Consolas
+  - Liberation Mono
+  - Courier New
+  - monospace
+
+availableStyles:
+  - { weight: 200, style: normal }
+  - { weight: 200, style: italic }
+  - { weight: 300, style: normal }
+  - { weight: 300, style: italic }
+  - { weight: 400, style: normal }
+  - { weight: 400, style: italic }
+  - { weight: 500, style: normal }
+  - { weight: 500, style: italic }
+  - { weight: 600, style: normal }
+  - { weight: 600, style: italic }
+  - { weight: 700, style: normal }
+  - { weight: 700, style: italic }
+  - { weight: 800, style: normal }
+  - { weight: 800, style: italic }
+  - { weight: 900, style: normal }
+  - { weight: 900, style: italic }

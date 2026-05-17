@@ -1,0 +1,55 @@
+kind: font
+id: source-sans-3
+version: 3.0.52
+name: Source Sans 3
+description: >
+  Adobe's first open-source typeface, originally Source Sans Pro (2012) by Paul D. Hunt.
+  Source Sans 3 is the variable-font generation with full weight axis 200–900 (upright and
+  italic). Designed for user interfaces, code, and information-dense screen reading.
+family: Source Sans 3
+classification: sans-serif
+tags: [ adobe-source, sans-serif, ui, body, variable-font, humanist ]
+
+provenance:
+  source: https://github.com/adobe-fonts/source-sans
+  license: OFL-1.1
+  attribution: >
+    Copyright 2010–2024 Adobe (http://www.adobe.com/), with Reserved Font Name "Source".
+    Licensed under the SIL Open Font License, Version 1.1. Designed by Paul D. Hunt.
+  importedDate: 2026-05-17
+  importedFromVersion: "3.052"
+  notes: >
+    Upstream release: github.com/adobe-fonts/source-sans/releases/tag/3.052. Successor to
+    Source Sans Pro. Also published on Google Fonts as "Source Sans 3".
+
+source:
+  kind: google-fonts
+  family: Source Sans 3
+  url: https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap
+
+fallbackStack:
+  - -apple-system
+  - BlinkMacSystemFont
+  - Segoe UI
+  - Roboto
+  - Helvetica Neue
+  - Arial
+  - sans-serif
+
+availableStyles:
+  - { weight: 200, style: normal }
+  - { weight: 200, style: italic }
+  - { weight: 300, style: normal }
+  - { weight: 300, style: italic }
+  - { weight: 400, style: normal }
+  - { weight: 400, style: italic }
+  - { weight: 500, style: normal }
+  - { weight: 500, style: italic }
+  - { weight: 600, style: normal }
+  - { weight: 600, style: italic }
+  - { weight: 700, style: normal }
+  - { weight: 700, style: italic }
+  - { weight: 800, style: normal }
+  - { weight: 800, style: italic }
+  - { weight: 900, style: normal }
+  - { weight: 900, style: italic }

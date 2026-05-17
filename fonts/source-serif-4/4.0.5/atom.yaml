@@ -1,0 +1,54 @@
+kind: font
+id: source-serif-4
+version: 4.0.5
+name: Source Serif 4
+description: >
+  Adobe's open-source transitional serif by Frank Grießhammer, derived from the
+  Pierre-Simon Fournier specimens. Source Serif 4 is the variable-font generation with an
+  optical-size axis (8–60pt) and weight axis 200–900 (upright and italic). Companion to
+  Source Sans 3.
+family: Source Serif 4
+classification: serif
+tags: [ adobe-source, serif, body, editorial, variable-font, transitional ]
+
+provenance:
+  source: https://github.com/adobe-fonts/source-serif
+  license: OFL-1.1
+  attribution: >
+    Copyright 2014–2024 Adobe (http://www.adobe.com/), with Reserved Font Name "Source".
+    Licensed under the SIL Open Font License, Version 1.1. Designed by Frank Grießhammer.
+  importedDate: 2026-05-17
+  importedFromVersion: "4.005"
+  notes: >
+    Upstream release: github.com/adobe-fonts/source-serif/releases/tag/4.005. Successor to
+    Source Serif Pro. Also published on Google Fonts as "Source Serif 4".
+
+source:
+  kind: google-fonts
+  family: Source Serif 4
+  url: https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap
+
+fallbackStack:
+  - Georgia
+  - Cambria
+  - Times New Roman
+  - Times
+  - serif
+
+availableStyles:
+  - { weight: 200, style: normal }
+  - { weight: 200, style: italic }
+  - { weight: 300, style: normal }
+  - { weight: 300, style: italic }
+  - { weight: 400, style: normal }
+  - { weight: 400, style: italic }
+  - { weight: 500, style: normal }
+  - { weight: 500, style: italic }
+  - { weight: 600, style: normal }
+  - { weight: 600, style: italic }
+  - { weight: 700, style: normal }
+  - { weight: 700, style: italic }
+  - { weight: 800, style: normal }
+  - { weight: 800, style: italic }
+  - { weight: 900, style: normal }
+  - { weight: 900, style: italic }
