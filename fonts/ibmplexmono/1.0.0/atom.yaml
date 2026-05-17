@@ -1,0 +1,53 @@
+kind: font
+id: ibmplexmono
+version: 1.0.0
+name: IBM Plex Mono
+family: IBM Plex Mono
+classification: monospace
+tags:
+  - monospace
+provenance:
+  source: https://raw.githubusercontent.com/google/fonts/main/ofl/ibmplexmono/METADATA.pb
+  license: OFL-1.1
+  attribution: Designed by Mike Abbink, Bold Monday. Copyright 2017 IBM Corp. All rights reserved. Licensed under the SIL Open Font License, Version 1.1.
+  importedDate: 2026-05-17
+source:
+  kind: google-fonts
+  family: IBM Plex Mono
+  url: https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap
+fallbackStack:
+  - Menlo
+  - Monaco
+  - Consolas
+  - Liberation Mono
+  - Courier New
+  - monospace
+availableStyles:
+  - weight: 100
+    style: normal
+  - weight: 100
+    style: italic
+  - weight: 200
+    style: normal
+  - weight: 200
+    style: italic
+  - weight: 300
+    style: normal
+  - weight: 300
+    style: italic
+  - weight: 400
+    style: normal
+  - weight: 400
+    style: italic
+  - weight: 500
+    style: normal
+  - weight: 500
+    style: italic
+  - weight: 600
+    style: normal
+  - weight: 600
+    style: italic
+  - weight: 700
+    style: normal
+  - weight: 700
+    style: italic

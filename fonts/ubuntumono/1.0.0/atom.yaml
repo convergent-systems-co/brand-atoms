@@ -1,0 +1,33 @@
+kind: font
+id: ubuntumono
+version: 1.0.0
+name: Ubuntu Mono
+family: Ubuntu Mono
+classification: monospace
+tags:
+  - monospace
+provenance:
+  source: https://raw.githubusercontent.com/google/fonts/main/ufl/ubuntumono/METADATA.pb
+  license: UFL-1.0
+  attribution: Designed by Dalton Maag. Copyright 2011 Canonical Ltd. Licensed under the Ubuntu Font Licence 1.0
+  importedDate: 2026-05-17
+source:
+  kind: google-fonts
+  family: Ubuntu Mono
+  url: https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap
+fallbackStack:
+  - Menlo
+  - Monaco
+  - Consolas
+  - Liberation Mono
+  - Courier New
+  - monospace
+availableStyles:
+  - weight: 400
+    style: normal
+  - weight: 400
+    style: italic
+  - weight: 700
+    style: normal
+  - weight: 700
+    style: italic

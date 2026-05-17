@@ -1,0 +1,31 @@
+kind: font
+id: jost
+version: 1.0.0
+name: Jost
+family: Jost
+classification: sans-serif
+tags:
+  - sans-serif
+  - variable-font
+provenance:
+  source: https://raw.githubusercontent.com/google/fonts/main/ofl/jost/METADATA.pb
+  license: OFL-1.1
+  attribution: Designed by Owen Earl. Copyright 2020 The Jost Project Authors (https://github.com/indestructible-type/Jost) Licensed under the SIL Open Font License, Version 1.1.
+  importedDate: 2026-05-17
+source:
+  kind: google-fonts
+  family: Jost
+  url: https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap
+fallbackStack:
+  - -apple-system
+  - BlinkMacSystemFont
+  - Segoe UI
+  - Roboto
+  - Helvetica Neue
+  - Arial
+  - sans-serif
+availableStyles:
+  - weight: 400
+    style: normal
+  - weight: 400
+    style: italic

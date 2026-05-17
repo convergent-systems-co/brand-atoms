@@ -1,0 +1,30 @@
+kind: font
+id: bitter
+version: 1.0.0
+name: Bitter
+family: Bitter
+classification: slab-serif
+tags:
+  - slab
+  - variable-font
+provenance:
+  source: https://raw.githubusercontent.com/google/fonts/main/ofl/bitter/METADATA.pb
+  license: OFL-1.1
+  attribution: Designed by Sol Matas. Copyright 2011 The Bitter Project Authors (https://github.com/solmatas/BitterPro) Licensed under the SIL Open Font License, Version 1.1.
+  importedDate: 2026-05-17
+source:
+  kind: google-fonts
+  family: Bitter
+  url: https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&display=swap
+fallbackStack:
+  - Rockwell
+  - Courier Bold
+  - Courier
+  - Georgia
+  - Times
+  - serif
+availableStyles:
+  - weight: 400
+    style: normal
+  - weight: 400
+    style: italic

@@ -1,0 +1,24 @@
+kind: font
+id: greatvibes
+version: 1.0.0
+name: Great Vibes
+family: Great Vibes
+classification: handwriting
+tags:
+  - handwriting
+provenance:
+  source: https://raw.githubusercontent.com/google/fonts/main/ofl/greatvibes/METADATA.pb
+  license: OFL-1.1
+  attribution: Designed by Robert Leuschke. Copyright 2010 The Great Vibes Pro Project Authors (https://github.com/googlefonts/great-vibes) Licensed under the SIL Open Font License, Version 1.1.
+  importedDate: 2026-05-17
+source:
+  kind: google-fonts
+  family: Great Vibes
+  url: https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap
+fallbackStack:
+  - Brush Script MT
+  - Lucida Handwriting
+  - cursive
+availableStyles:
+  - weight: 400
+    style: normal

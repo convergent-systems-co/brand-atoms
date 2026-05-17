@@ -1,0 +1,29 @@
+kind: font
+id: faustina
+version: 1.0.0
+name: Faustina
+family: Faustina
+classification: serif
+tags:
+  - serif
+  - variable-font
+provenance:
+  source: https://raw.githubusercontent.com/google/fonts/main/ofl/faustina/METADATA.pb
+  license: OFL-1.1
+  attribution: Designed by Omnibus-Type. Copyright 2019 The Faustina Project Authors (https://github.com/Omnibus-Type/Faustina) Licensed under the SIL Open Font License, Version 1.1.
+  importedDate: 2026-05-17
+source:
+  kind: google-fonts
+  family: Faustina
+  url: https://fonts.googleapis.com/css2?family=Faustina:ital,wght@0,300..800;1,300..800&display=swap
+fallbackStack:
+  - Georgia
+  - Cambria
+  - Times New Roman
+  - Times
+  - serif
+availableStyles:
+  - weight: 400
+    style: normal
+  - weight: 400
+    style: italic
