@@ -145,20 +145,45 @@ assert.ok(webBuild, 'must run `cd web && pnpm build` (astro)');
 pass('web build (astro) present');
 
 // ─── Deploy step ──────────────────────────────────────────────────────
-const deploy = findStep(steps, (s) => (s.uses ?? '').startsWith('cloudflare/wrangler-action@v3'));
-assert.ok(deploy, 'must use cloudflare/wrangler-action@v3 for deploy');
-pass('cloudflare/wrangler-action@v3 used');
+// wrangler-action@v3 was removed (commit aba2067) because it ran
+// `pnpm add wrangler` at the workspace root, which pnpm rejects without
+// -w. wrangler is a devDep in web/, so we exec it directly via pnpm.
+type StepWithDir = Step & { 'working-directory'?: string };
+const deploy = findStep(
+  steps,
+  (s) => /\bwrangler\s+pages\s+deploy\b/.test(s.run ?? ''),
+) as StepWithDir | undefined;
+assert.ok(deploy, 'must have a deploy step that runs `wrangler pages deploy`');
+pass('wrangler-pages-deploy step present');
 
-const command = String(deploy.with?.command ?? '');
+// Direct `pnpm exec wrangler ...` — the abandoned wrangler-action must
+// not creep back in.
 assert.ok(
-  command.includes('pages deploy web/dist'),
-  `wrangler command must be "pages deploy web/dist ..." (got "${command}")`,
+  !steps.some((s) => (s.uses ?? '').startsWith('cloudflare/wrangler-action')),
+  'must not use cloudflare/wrangler-action — exec wrangler directly from web/ instead',
+);
+pass('no cloudflare/wrangler-action regression');
+
+const run = String(deploy.run ?? '');
+const workingDir = String(deploy['working-directory'] ?? '');
+assert.ok(
+  workingDir === './web' || workingDir === 'web',
+  `deploy step must set working-directory to web/ (got "${workingDir}")`,
 );
 assert.ok(
-  command.includes(`--project-name ${PROJECT_NAME}`),
+  /\bpnpm\s+exec\s+wrangler\b/.test(run),
+  `deploy step must run \`pnpm exec wrangler ...\` (got "${run}")`,
+);
+// From web/, the dist path is `dist`, not `web/dist`.
+assert.ok(
+  /pages\s+deploy\s+dist\b/.test(run),
+  `wrangler command must be "pages deploy dist ..." from web/ (got "${run}")`,
+);
+assert.ok(
+  run.includes(`--project-name ${PROJECT_NAME}`),
   `wrangler command must include --project-name ${PROJECT_NAME}`,
 );
-assert.ok(command.includes('--branch main'), 'wrangler command must include --branch main');
+assert.ok(run.includes('--branch main'), 'wrangler command must include --branch main');
 pass('wrangler command deploys web/dist to brand-atoms on branch main');
 
 // ─── Order check: deploy must come AFTER both builds ──────────────────
