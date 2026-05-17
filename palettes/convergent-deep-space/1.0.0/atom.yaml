@@ -1,0 +1,146 @@
+kind: palette
+id: convergent-deep-space
+version: 1.0.0
+name: Convergent Deep Space
+description: >
+  Dark-first palette extracted from the Convergent Systems brand site
+  (convergent-systems.co). Deep-space blue-blacks for the canvas, cool
+  off-white for text, and three vibrant accents — cyan, gold, orange —
+  each with a softer hover variant. The gold accent is the brand's
+  signature, used in the hexagonal-spiral mark.
+
+  Designed for dark mode; light-mode role mappings provide a sensible
+  inversion (cream canvas, deep-space text) while preserving the same
+  three accent hues so the brand identity survives a mode switch.
+tags: [convergent-systems, dark-first, deep-space, mathematical]
+
+provenance:
+  source: https://convergent-systems.co
+  license: MIT
+  attribution: >
+    Convergent Systems Co. — palette derived from the public CSS
+    variables on convergent-systems.co. The Convergent Systems brand
+    is the property of Convergent Systems Co.
+  importedDate: 2026-05-16
+
+swatches:
+  # ─── Deep-space canvas tones (dark backgrounds) ─────────────────
+  - id: deep-space-0
+    name: Deep Space 0 (canvas)
+    value: "#07090F"
+    description: Primary canvas — the deepest base.
+  - id: deep-space-1
+    name: Deep Space 1
+    value: "#0B1020"
+    description: Slightly elevated surface above canvas.
+  - id: deep-space-2
+    name: Deep Space 2
+    value: "#11182C"
+    description: Elevated surface for cards, modals, panels.
+
+  # ─── Snow tones (light foreground on dark) ──────────────────────
+  - id: snow-0
+    name: Snow 0 (foreground)
+    value: "#EEF1F7"
+    description: Primary text on deep-space canvas.
+  - id: snow-1
+    name: Snow 1 (muted)
+    value: "#A4ADBF"
+    description: Secondary text, descriptions, captions.
+  - id: snow-2
+    name: Snow 2 (muted-soft)
+    value: "#7D8699"
+    description: Tertiary text, disabled states, micro-copy.
+
+  # ─── Frost (cyan accent — primary action color) ─────────────────
+  - id: frost-cyan
+    name: Frost Cyan
+    value: "#5CD6FF"
+    description: Primary accent. Links, interactive elements, focus ring.
+  - id: frost-cyan-soft
+    name: Frost Cyan Soft (hover)
+    value: "#8DE4FF"
+    description: Hover/active state of the primary accent.
+
+  # ─── Solar (gold accent — brand mark color) ─────────────────────
+  - id: solar-gold
+    name: Solar Gold
+    value: "#F4C75E"
+    description: Brand mark color. The hexagonal-spiral logo, key wordmark accents.
+  - id: solar-gold-soft
+    name: Solar Gold Soft
+    value: "#FFD982"
+    description: Soft gold for backgrounds, hover states, secondary emphasis.
+
+  # ─── Ember (orange accent — warmth, secondary CTA) ──────────────
+  - id: ember-orange
+    name: Ember Orange
+    value: "#FF8A3D"
+    description: Tertiary accent. Ambient warmth, secondary calls-to-action.
+  - id: ember-orange-soft
+    name: Ember Orange Soft
+    value: "#FFB070"
+    description: Soft orange for backgrounds, hover states.
+
+  # ─── Hairlines and structural tones ─────────────────────────────
+  - id: hairline-faint
+    name: Hairline Faint
+    value: "#FFFFFF14"
+    description: Subtle borders, dividers (white at ~8% alpha).
+  - id: hairline-strong
+    name: Hairline Strong
+    value: "#FFFFFF24"
+    description: Stronger borders for emphasized separations (~14% alpha).
+
+  # ─── Pure tones ─────────────────────────────────────────────────
+  - id: pure-white
+    name: Pure White
+    value: "#FFFFFF"
+  - id: pure-black
+    name: Pure Black
+    value: "#000000"
+
+  # ─── Light-mode-specific tones ──────────────────────────────────
+  - id: parchment-canvas
+    name: Parchment Canvas (light bg)
+    value: "#F9F7F0"
+    description: Warm cream canvas for light mode — complements gold accent.
+  - id: parchment-surface
+    name: Parchment Surface
+    value: "#FDFCF7"
+    description: Elevated surface above the parchment canvas.
+
+modes:
+  light:
+    roles:
+      background: parchment-canvas
+      surface: parchment-surface
+      surface-elevated: pure-white
+      text-primary: deep-space-0
+      text-secondary: deep-space-1
+      text-tertiary: snow-2
+      primary: frost-cyan
+      primary-hover: frost-cyan-soft
+      accent: solar-gold
+      accent-hover: solar-gold-soft
+      warning: ember-orange
+      warning-hover: ember-orange-soft
+      mark: solar-gold
+
+  dark:
+    roles:
+      background: deep-space-0
+      surface: deep-space-1
+      surface-elevated: deep-space-2
+      text-primary: snow-0
+      text-secondary: snow-1
+      text-tertiary: snow-2
+      primary: frost-cyan
+      primary-hover: frost-cyan-soft
+      accent: solar-gold
+      accent-hover: solar-gold-soft
+      warning: ember-orange
+      warning-hover: ember-orange-soft
+      mark: solar-gold
+      hairline: hairline-faint
+      hairline-strong: hairline-strong
