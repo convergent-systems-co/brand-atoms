@@ -1,0 +1,503 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getBrands, getFonts, getPalettes } from '../lib/encyclopedia.js';
+
+const palettes = getPalettes();
+const fonts = getFonts();
+const brands = getBrands();
+
+const sampleBrand = brands.find((b) => b.slug === 'convergent-systems') ?? brands[0];
+const sampleSlug = sampleBrand?.slug ?? 'convergent-systems';
+const sampleVersion = sampleBrand?.version ?? '1.0.0';
+---
+
+<Layout
+  title="Instructions — Brand Atoms"
+  description="How AI agents and humans leverage brand-atoms.com to produce on-brand outputs."
+  section="instructions"
+>
+  <header class="hero">
+    <h1>Instructions</h1>
+    <p class="lede">
+      Brand Atoms is a structured encyclopedia: every palette, font, brand, and constraint
+      is typed YAML. The same source feeds AI agents that need a machine-readable contract
+      and humans who want a browsable reference.
+    </p>
+  </header>
+
+  <nav class="toc" aria-label="On this page">
+    <a href="#concepts">Concepts</a>
+    <span>·</span>
+    <a href="#for-ai">For AI agents</a>
+    <span>·</span>
+    <a href="#for-humans">For humans</a>
+    <span>·</span>
+    <a href="#outputs">Output formats</a>
+    <span>·</span>
+    <a href="#extend">Extending the catalog</a>
+  </nav>
+
+  <section class="section" id="concepts">
+    <h2>The atom model</h2>
+    <p class="section-lede">
+      Three concepts. Memorize these and the rest is mechanical.
+    </p>
+
+    <div class="concepts">
+      <article class="concept">
+        <div class="concept-icon" style="background: var(--primary)"></div>
+        <h3>Atoms</h3>
+        <p>
+          The leaves. A <code>palette</code> is swatches + light/dark role mappings; a
+          <code>font</code> is family, weights, classification, source, and CDN URLs.
+          Every atom lives at <code>&lt;kind&gt;/&lt;slug&gt;/&lt;version&gt;/atom.yaml</code> and
+          is versioned with semver.
+        </p>
+      </article>
+      <article class="concept">
+        <div class="concept-icon" style="background: var(--accent)"></div>
+        <h3>Brands</h3>
+        <p>
+          The compositions. A <code>brand</code> picks one palette and a set of fonts by
+          reference (<code>convergent-deep-space@1</code>, <code>inter@1</code>), then adds
+          semantic role overrides (<code>primary</code>, <code>identity</code>, <code>accent</code>)
+          and structured assets (logos, favicons, og-images).
+        </p>
+      </article>
+      <article class="concept">
+        <div class="concept-icon" style="background: var(--warning)"></div>
+        <h3>Rules</h3>
+        <p>
+          The contracts. A brand declares typed constraints — <code>contrastRatio</code>,
+          <code>numericRange</code>, <code>forbiddenTreatment</code>, <code>fontPairing</code>,
+          and seven more — that an AI can iterate programmatically. No opaque prose: every
+          rule has a target, parameters, severity, and rationale.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="for-ai">
+    <h2>For AI agents</h2>
+    <p class="section-lede">
+      Your job is to render in-brand output every time. Brand Atoms gives you a deterministic
+      contract. Pick the format that matches your runtime.
+    </p>
+
+    <ol class="numbered-steps">
+      <li>
+        <strong>Resolve a brand.</strong> Brands are addressed by <code>&lt;slug&gt;@&lt;version&gt;</code>.
+        At build time the encyclopedia resolves every reference and emits one of eight output
+        formats per brand under <code>/dist/brands/&lt;slug&gt;/&lt;version&gt;/</code>.
+      </li>
+      <li>
+        <strong>Pick a format.</strong> All formats live behind the brand's detail page —
+        click <code>Downloads</code> on any brand to see the catalog. Common picks:
+        <ul class="bullet-list">
+          <li><code>brand.json</code> — flat JSON, all roles + rules + assets resolved.</li>
+          <li><code>tokens.json</code> — W3C Design Tokens spec; works in Figma, Style Dictionary, Tokens Studio.</li>
+          <li><code>tokens.css</code> — CSS custom properties on <code>:root</code> with <code>prefers-color-scheme</code>.</li>
+          <li><code>brand.yaml</code> — the canonical source; same shape as in the repo.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Read the rules.</strong> Before generating output, iterate <code>brand.rules</code>
+        and treat each typed constraint as a hard or soft check. <code>severity: error</code>
+        rules MUST hold; <code>severity: recommendation</code> rules SHOULD hold; explain any
+        deviation.
+      </li>
+      <li>
+        <strong>Pin versions.</strong> Reference brands and atoms by exact version
+        (<code>{sampleSlug}@{sampleVersion}</code>) for reproducibility, or by major
+        (<code>{sampleSlug}@1</code>) to ride non-breaking updates.
+      </li>
+    </ol>
+
+    <div class="code-block">
+      <div class="code-head">
+        <code class="code-lang">fetch a brand · curl</code>
+      </div>
+      <pre><code>curl https://brand-atoms.com/dist/brands/{sampleSlug}/{sampleVersion}/json/brand.json</code></pre>
+    </div>
+
+    <div class="code-block">
+      <div class="code-head">
+        <code class="code-lang">use in a project · CSS</code>
+      </div>
+      <pre><code>{'<link rel="stylesheet"\n      href="https://brand-atoms.com/dist/brands/' + sampleSlug + '/' + sampleVersion + '/css/tokens.css">'}</code></pre>
+    </div>
+  </section>
+
+  <section class="section" id="for-humans">
+    <h2>For humans</h2>
+    <p class="section-lede">
+      Three paths, depending on what you want to do.
+    </p>
+
+    <div class="human-paths">
+      <article class="human-path">
+        <h3>I want to learn a brand.</h3>
+        <p>
+          Go to <a href="/brands">/brands</a>. Each brand has a live preview (components
+          rendered in the brand's actual palette and fonts), a downloadable spec, and a
+          full breakdown of palette modes, role mappings, assets, and rules.
+        </p>
+      </article>
+      <article class="human-path">
+        <h3>I want to reuse an atom.</h3>
+        <p>
+          Browse <a href="/palettes">/palettes</a> or <a href="/fonts">/fonts</a>. Pick a
+          palette by hex, by family, or by mode coverage. Pick a font by classification,
+          license, or available weights. Reference them by <code>slug@version</code>.
+        </p>
+      </article>
+      <article class="human-path">
+        <h3>I want to build a new brand.</h3>
+        <p>
+          Go to <a href="/builder">/builder</a>. Pick a palette and three fonts; preview
+          live in both modes; download the <code>brand.yaml</code> or the full
+          eight-format zip. All client-side — no upload, no account.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="outputs">
+    <h2>Output formats</h2>
+    <p class="section-lede">
+      Eight emitters per brand. Pick the one that matches your toolchain.
+    </p>
+
+    <table class="format-table">
+      <thead>
+        <tr>
+          <th>Format</th>
+          <th>File</th>
+          <th>Best for</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>YAML</strong></td>
+          <td><code>yaml/brand.yaml</code></td>
+          <td>Source-of-truth; human-editable; same as the repo.</td>
+        </tr>
+        <tr>
+          <td><strong>JSON</strong></td>
+          <td><code>json/brand.json</code></td>
+          <td>AI agents, scripts, anything that parses JSON natively.</td>
+        </tr>
+        <tr>
+          <td><strong>W3C Design Tokens</strong></td>
+          <td><code>w3c/tokens.json</code> + light/dark</td>
+          <td>Figma, Style Dictionary, Tokens Studio, anything that speaks DTCG.</td>
+        </tr>
+        <tr>
+          <td><strong>CSS variables</strong></td>
+          <td><code>css/tokens.css</code></td>
+          <td>Direct drop-in for any web project with <code>prefers-color-scheme</code>.</td>
+        </tr>
+        <tr>
+          <td><strong>Tailwind config</strong></td>
+          <td><code>tailwind/tailwind.config.js</code></td>
+          <td>Tailwind projects that want brand colors as utility classes.</td>
+        </tr>
+        <tr>
+          <td><strong>SCSS</strong></td>
+          <td><code>scss/_tokens.scss</code></td>
+          <td>SCSS pipelines that need <code>$brand-primary</code>-style vars.</td>
+        </tr>
+        <tr>
+          <td><strong>iOS Swift</strong></td>
+          <td><code>ios/Brand.swift</code></td>
+          <td>Native iOS apps; emits <code>UIColor</code> extensions.</td>
+        </tr>
+        <tr>
+          <td><strong>Android XML</strong></td>
+          <td><code>android/colors.xml</code></td>
+          <td>Native Android apps; emits <code>res/values/colors.xml</code>.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="format-note">
+      Every emitter resolves the brand fully — palette references, font CDN URLs, asset
+      paths, role overrides. You're never re-resolving in your runtime.
+    </p>
+  </section>
+
+  <section class="section" id="extend">
+    <h2>Extending the catalog</h2>
+    <p class="section-lede">
+      Brand Atoms is open source. Adding an atom or brand is a typed YAML diff in git.
+    </p>
+
+    <ol class="numbered-steps">
+      <li>
+        <strong>Pick a kind.</strong> New palette → <code>palettes/&lt;slug&gt;/&lt;semver&gt;/atom.yaml</code>.
+        New font → <code>fonts/&lt;slug&gt;/&lt;semver&gt;/atom.yaml</code>. New brand →
+        <code>brands/&lt;slug&gt;/&lt;semver&gt;/brand.yaml</code>.
+      </li>
+      <li>
+        <strong>Match the schema.</strong> All schemas live in <code>tools/schemas/</code>.
+        Zod validates every file at build time; a missing required field fails the deploy.
+      </li>
+      <li>
+        <strong>Cite a source.</strong> Every atom and brand has a <code>provenance</code>
+        block (source URL, license, attribution, import date). No fabricated colors, no
+        ghost fonts.
+      </li>
+      <li>
+        <strong>Open a PR.</strong> CI runs <code>pnpm validate</code> on every push.
+        Merge to <code>main</code> triggers a deploy to brand-atoms.com.
+      </li>
+    </ol>
+
+    <p class="extend-note">
+      Repo:
+      <a class="ext-link" href="https://github.com/convergent-systems-co/branding-library">github.com/convergent-systems-co/branding-library</a>.
+      Currently {palettes.length} palettes, {fonts.length} fonts, and {brands.length} brands published.
+    </p>
+  </section>
+
+  <style>
+    .hero {
+      padding: 32px 0 16px;
+      max-width: 760px;
+    }
+    .hero h1 {
+      font-size: 56px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin: 0 0 12px;
+      line-height: 1;
+    }
+    .lede {
+      font-size: 17px;
+      color: var(--text-secondary);
+      max-width: 640px;
+      margin: 0;
+    }
+
+    .toc {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 0 8px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text-tertiary);
+    }
+    .toc a {
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+    .toc a:hover { color: var(--primary); }
+
+    .section { padding: 32px 0; max-width: 920px; }
+    .section h2 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 0 0 8px;
+      scroll-margin-top: 16px;
+    }
+    .section-lede {
+      font-size: 15px;
+      color: var(--text-secondary);
+      margin: 0 0 20px;
+      max-width: 640px;
+      line-height: 1.6;
+    }
+
+    .concepts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+    @media (max-width: 720px) {
+      .concepts { grid-template-columns: minmax(0, 1fr); }
+    }
+    .concept {
+      background: var(--surface);
+      border-radius: 14px;
+      padding: 20px;
+    }
+    .concept-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+    .concept h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin: 0 0 8px;
+    }
+    .concept p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    .numbered-steps {
+      margin: 0 0 20px;
+      padding-left: 24px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+    .numbered-steps > li {
+      margin-bottom: 14px;
+    }
+    .numbered-steps > li::marker {
+      color: var(--primary);
+      font-weight: 700;
+    }
+    .numbered-steps strong { color: var(--text-primary); }
+
+    .bullet-list {
+      margin: 8px 0 0;
+      padding-left: 20px;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+    .bullet-list li::marker { color: var(--accent); }
+
+    code, .section code {
+      font-family: var(--font-mono);
+      font-size: 0.9em;
+      background: var(--surface);
+      padding: 1px 6px;
+      border-radius: 4px;
+      color: var(--text-primary);
+    }
+
+    .code-block {
+      background: var(--surface);
+      border: 1px solid var(--surface-elevated);
+      border-radius: 10px;
+      margin: 12px 0 16px;
+      overflow: hidden;
+    }
+    .code-head {
+      padding: 8px 14px;
+      border-bottom: 1px solid var(--surface-elevated);
+      background: var(--surface-elevated);
+    }
+    .code-lang {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background: transparent;
+      padding: 0;
+    }
+    .code-block pre {
+      margin: 0;
+      padding: 14px;
+      overflow-x: auto;
+    }
+    .code-block pre code {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      background: transparent;
+      padding: 0;
+      color: var(--text-primary);
+      white-space: pre;
+    }
+
+    .human-paths {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+    @media (max-width: 880px) {
+      .human-paths { grid-template-columns: minmax(0, 1fr); }
+    }
+    .human-path {
+      background: var(--surface);
+      border-radius: 14px;
+      padding: 20px;
+    }
+    .human-path h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin: 0 0 10px;
+      color: var(--primary);
+    }
+    .human-path p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+    .human-path a {
+      color: var(--primary);
+      text-decoration: none;
+      font-family: var(--font-mono);
+    }
+    .human-path a:hover { text-decoration: underline; }
+
+    .format-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 14px;
+      border: 1px solid var(--surface-elevated);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .format-table thead {
+      background: var(--surface-elevated);
+    }
+    .format-table th,
+    .format-table td {
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--surface-elevated);
+      vertical-align: top;
+    }
+    .format-table th {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-tertiary);
+      font-weight: 600;
+    }
+    .format-table tbody tr:last-child td { border-bottom: 0; }
+    .format-table tbody tr:nth-child(even) { background: var(--surface); }
+    .format-table strong { color: var(--text-primary); }
+    .format-table code {
+      font-size: 12px;
+    }
+    .format-note {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      margin: 12px 0 0;
+      font-style: italic;
+    }
+
+    .extend-note {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin: 16px 0 0;
+      padding: 14px 16px;
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+    }
+    .ext-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      word-break: break-all;
+    }
+    .ext-link:hover { text-decoration: underline; }
+  </style>
+</Layout>
