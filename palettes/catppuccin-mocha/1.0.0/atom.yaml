@@ -1,0 +1,131 @@
+kind: palette
+id: catppuccin-mocha
+version: 1.0.0
+name: Catppuccin Mocha
+description: Catppuccin Mocha - a soothing dark pastel theme. Native dark mode; the light mode role map is a sensible inversion that preserves accent identity (mauve = primary, etc.).
+tags:
+  - catppuccin
+  - dark
+  - pastel
+  - developer
+provenance:
+  source: https://raw.githubusercontent.com/catppuccin/palette/main/palette.json
+  license: MIT
+  attribution: Catppuccin palette by the Catppuccin organization (github.com/catppuccin/palette)
+  importedDate: 2026-05-17
+  importedFromVersion: 1.8.0
+  notes: "Hex values verbatim from the upstream palette.json. Role mappings follow Catppuccin's design guidance: the same accent name (mauve = primary, red = error, green = success, peach = warning) is used across all four flavors so themes can be switched without changing role semantics."
+swatches:
+  - id: rosewater
+    name: Rosewater
+    value: "#f5e0dc"
+  - id: flamingo
+    name: Flamingo
+    value: "#f2cdcd"
+  - id: pink
+    name: Pink
+    value: "#f5c2e7"
+  - id: mauve
+    name: Mauve
+    value: "#cba6f7"
+  - id: red
+    name: Red
+    value: "#f38ba8"
+  - id: maroon
+    name: Maroon
+    value: "#eba0ac"
+  - id: peach
+    name: Peach
+    value: "#fab387"
+  - id: yellow
+    name: Yellow
+    value: "#f9e2af"
+  - id: green
+    name: Green
+    value: "#a6e3a1"
+  - id: teal
+    name: Teal
+    value: "#94e2d5"
+  - id: sky
+    name: Sky
+    value: "#89dceb"
+  - id: sapphire
+    name: Sapphire
+    value: "#74c7ec"
+  - id: blue
+    name: Blue
+    value: "#89b4fa"
+  - id: lavender
+    name: Lavender
+    value: "#b4befe"
+  - id: text
+    name: Text
+    value: "#cdd6f4"
+  - id: subtext1
+    name: Subtext 1
+    value: "#bac2de"
+  - id: subtext0
+    name: Subtext 0
+    value: "#a6adc8"
+  - id: overlay2
+    name: Overlay 2
+    value: "#9399b2"
+  - id: overlay1
+    name: Overlay 1
+    value: "#7f849c"
+  - id: overlay0
+    name: Overlay 0
+    value: "#6c7086"
+  - id: surface2
+    name: Surface 2
+    value: "#585b70"
+  - id: surface1
+    name: Surface 1
+    value: "#45475a"
+  - id: surface0
+    name: Surface 0
+    value: "#313244"
+  - id: base
+    name: Base
+    value: "#1e1e2e"
+  - id: mantle
+    name: Mantle
+    value: "#181825"
+  - id: crust
+    name: Crust
+    value: "#11111b"
+modes:
+  light:
+    roles:
+      accent: pink
+      background: crust
+      error: red
+      info: sky
+      outline: overlay2
+      primary: mauve
+      primary-hover: lavender
+      secondary: blue
+      success: green
+      surface: surface0
+      surface-elevated: surface1
+      text-primary: crust
+      text-secondary: surface2
+      text-tertiary: overlay1
+      warning: peach
+  dark:
+    roles:
+      accent: pink
+      background: base
+      error: red
+      info: sky
+      outline: overlay0
+      primary: mauve
+      primary-hover: lavender
+      secondary: blue
+      success: green
+      surface: mantle
+      surface-elevated: surface0
+      text-primary: text
+      text-secondary: subtext1
+      text-tertiary: subtext0
+      warning: peach

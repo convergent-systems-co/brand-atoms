@@ -1,0 +1,447 @@
+kind: palette
+id: open-color
+version: 1.9.1
+name: Open Color
+description: Open Color - a color scheme optimized for UI design. 13 hue families (gray, red, pink, grape, violet, indigo, blue, cyan, teal, green, lime, yellow, orange) each with 10 shades (0 = lightest, 9 = darkest), plus pure white and black.
+tags:
+  - open-color
+  - ui
+  - web
+  - mit
+provenance:
+  source: https://raw.githubusercontent.com/yeun/open-color/v1.9.1/open-color.json
+  license: MIT
+  attribution: Open Color by Yeun Park (github.com/yeun/open-color)
+  importedDate: 2026-05-17
+  importedFromVersion: v1.9.1
+  notes: Pinned to the v1.9.1 tag on GitHub for reproducibility.
+swatches:
+  - id: white
+    name: White
+    value: "#ffffff"
+  - id: black
+    name: Black
+    value: "#000000"
+  - id: gray-0
+    name: Gray 0
+    value: "#f8f9fa"
+  - id: gray-1
+    name: Gray 1
+    value: "#f1f3f5"
+  - id: gray-2
+    name: Gray 2
+    value: "#e9ecef"
+  - id: gray-3
+    name: Gray 3
+    value: "#dee2e6"
+  - id: gray-4
+    name: Gray 4
+    value: "#ced4da"
+  - id: gray-5
+    name: Gray 5
+    value: "#adb5bd"
+  - id: gray-6
+    name: Gray 6
+    value: "#868e96"
+  - id: gray-7
+    name: Gray 7
+    value: "#495057"
+  - id: gray-8
+    name: Gray 8
+    value: "#343a40"
+  - id: gray-9
+    name: Gray 9
+    value: "#212529"
+  - id: red-0
+    name: Red 0
+    value: "#fff5f5"
+  - id: red-1
+    name: Red 1
+    value: "#ffe3e3"
+  - id: red-2
+    name: Red 2
+    value: "#ffc9c9"
+  - id: red-3
+    name: Red 3
+    value: "#ffa8a8"
+  - id: red-4
+    name: Red 4
+    value: "#ff8787"
+  - id: red-5
+    name: Red 5
+    value: "#ff6b6b"
+  - id: red-6
+    name: Red 6
+    value: "#fa5252"
+  - id: red-7
+    name: Red 7
+    value: "#f03e3e"
+  - id: red-8
+    name: Red 8
+    value: "#e03131"
+  - id: red-9
+    name: Red 9
+    value: "#c92a2a"
+  - id: pink-0
+    name: Pink 0
+    value: "#fff0f6"
+  - id: pink-1
+    name: Pink 1
+    value: "#ffdeeb"
+  - id: pink-2
+    name: Pink 2
+    value: "#fcc2d7"
+  - id: pink-3
+    name: Pink 3
+    value: "#faa2c1"
+  - id: pink-4
+    name: Pink 4
+    value: "#f783ac"
+  - id: pink-5
+    name: Pink 5
+    value: "#f06595"
+  - id: pink-6
+    name: Pink 6
+    value: "#e64980"
+  - id: pink-7
+    name: Pink 7
+    value: "#d6336c"
+  - id: pink-8
+    name: Pink 8
+    value: "#c2255c"
+  - id: pink-9
+    name: Pink 9
+    value: "#a61e4d"
+  - id: grape-0
+    name: Grape 0
+    value: "#f8f0fc"
+  - id: grape-1
+    name: Grape 1
+    value: "#f3d9fa"
+  - id: grape-2
+    name: Grape 2
+    value: "#eebefa"
+  - id: grape-3
+    name: Grape 3
+    value: "#e599f7"
+  - id: grape-4
+    name: Grape 4
+    value: "#da77f2"
+  - id: grape-5
+    name: Grape 5
+    value: "#cc5de8"
+  - id: grape-6
+    name: Grape 6
+    value: "#be4bdb"
+  - id: grape-7
+    name: Grape 7
+    value: "#ae3ec9"
+  - id: grape-8
+    name: Grape 8
+    value: "#9c36b5"
+  - id: grape-9
+    name: Grape 9
+    value: "#862e9c"
+  - id: violet-0
+    name: Violet 0
+    value: "#f3f0ff"
+  - id: violet-1
+    name: Violet 1
+    value: "#e5dbff"
+  - id: violet-2
+    name: Violet 2
+    value: "#d0bfff"
+  - id: violet-3
+    name: Violet 3
+    value: "#b197fc"
+  - id: violet-4
+    name: Violet 4
+    value: "#9775fa"
+  - id: violet-5
+    name: Violet 5
+    value: "#845ef7"
+  - id: violet-6
+    name: Violet 6
+    value: "#7950f2"
+  - id: violet-7
+    name: Violet 7
+    value: "#7048e8"
+  - id: violet-8
+    name: Violet 8
+    value: "#6741d9"
+  - id: violet-9
+    name: Violet 9
+    value: "#5f3dc4"
+  - id: indigo-0
+    name: Indigo 0
+    value: "#edf2ff"
+  - id: indigo-1
+    name: Indigo 1
+    value: "#dbe4ff"
+  - id: indigo-2
+    name: Indigo 2
+    value: "#bac8ff"
+  - id: indigo-3
+    name: Indigo 3
+    value: "#91a7ff"
+  - id: indigo-4
+    name: Indigo 4
+    value: "#748ffc"
+  - id: indigo-5
+    name: Indigo 5
+    value: "#5c7cfa"
+  - id: indigo-6
+    name: Indigo 6
+    value: "#4c6ef5"
+  - id: indigo-7
+    name: Indigo 7
+    value: "#4263eb"
+  - id: indigo-8
+    name: Indigo 8
+    value: "#3b5bdb"
+  - id: indigo-9
+    name: Indigo 9
+    value: "#364fc7"
+  - id: blue-0
+    name: Blue 0
+    value: "#e7f5ff"
+  - id: blue-1
+    name: Blue 1
+    value: "#d0ebff"
+  - id: blue-2
+    name: Blue 2
+    value: "#a5d8ff"
+  - id: blue-3
+    name: Blue 3
+    value: "#74c0fc"
+  - id: blue-4
+    name: Blue 4
+    value: "#4dabf7"
+  - id: blue-5
+    name: Blue 5
+    value: "#339af0"
+  - id: blue-6
+    name: Blue 6
+    value: "#228be6"
+  - id: blue-7
+    name: Blue 7
+    value: "#1c7ed6"
+  - id: blue-8
+    name: Blue 8
+    value: "#1971c2"
+  - id: blue-9
+    name: Blue 9
+    value: "#1864ab"
+  - id: cyan-0
+    name: Cyan 0
+    value: "#e3fafc"
+  - id: cyan-1
+    name: Cyan 1
+    value: "#c5f6fa"
+  - id: cyan-2
+    name: Cyan 2
+    value: "#99e9f2"
+  - id: cyan-3
+    name: Cyan 3
+    value: "#66d9e8"
+  - id: cyan-4
+    name: Cyan 4
+    value: "#3bc9db"
+  - id: cyan-5
+    name: Cyan 5
+    value: "#22b8cf"
+  - id: cyan-6
+    name: Cyan 6
+    value: "#15aabf"
+  - id: cyan-7
+    name: Cyan 7
+    value: "#1098ad"
+  - id: cyan-8
+    name: Cyan 8
+    value: "#0c8599"
+  - id: cyan-9
+    name: Cyan 9
+    value: "#0b7285"
+  - id: teal-0
+    name: Teal 0
+    value: "#e6fcf5"
+  - id: teal-1
+    name: Teal 1
+    value: "#c3fae8"
+  - id: teal-2
+    name: Teal 2
+    value: "#96f2d7"
+  - id: teal-3
+    name: Teal 3
+    value: "#63e6be"
+  - id: teal-4
+    name: Teal 4
+    value: "#38d9a9"
+  - id: teal-5
+    name: Teal 5
+    value: "#20c997"
+  - id: teal-6
+    name: Teal 6
+    value: "#12b886"
+  - id: teal-7
+    name: Teal 7
+    value: "#0ca678"
+  - id: teal-8
+    name: Teal 8
+    value: "#099268"
+  - id: teal-9
+    name: Teal 9
+    value: "#087f5b"
+  - id: green-0
+    name: Green 0
+    value: "#ebfbee"
+  - id: green-1
+    name: Green 1
+    value: "#d3f9d8"
+  - id: green-2
+    name: Green 2
+    value: "#b2f2bb"
+  - id: green-3
+    name: Green 3
+    value: "#8ce99a"
+  - id: green-4
+    name: Green 4
+    value: "#69db7c"
+  - id: green-5
+    name: Green 5
+    value: "#51cf66"
+  - id: green-6
+    name: Green 6
+    value: "#40c057"
+  - id: green-7
+    name: Green 7
+    value: "#37b24d"
+  - id: green-8
+    name: Green 8
+    value: "#2f9e44"
+  - id: green-9
+    name: Green 9
+    value: "#2b8a3e"
+  - id: lime-0
+    name: Lime 0
+    value: "#f4fce3"
+  - id: lime-1
+    name: Lime 1
+    value: "#e9fac8"
+  - id: lime-2
+    name: Lime 2
+    value: "#d8f5a2"
+  - id: lime-3
+    name: Lime 3
+    value: "#c0eb75"
+  - id: lime-4
+    name: Lime 4
+    value: "#a9e34b"
+  - id: lime-5
+    name: Lime 5
+    value: "#94d82d"
+  - id: lime-6
+    name: Lime 6
+    value: "#82c91e"
+  - id: lime-7
+    name: Lime 7
+    value: "#74b816"
+  - id: lime-8
+    name: Lime 8
+    value: "#66a80f"
+  - id: lime-9
+    name: Lime 9
+    value: "#5c940d"
+  - id: yellow-0
+    name: Yellow 0
+    value: "#fff9db"
+  - id: yellow-1
+    name: Yellow 1
+    value: "#fff3bf"
+  - id: yellow-2
+    name: Yellow 2
+    value: "#ffec99"
+  - id: yellow-3
+    name: Yellow 3
+    value: "#ffe066"
+  - id: yellow-4
+    name: Yellow 4
+    value: "#ffd43b"
+  - id: yellow-5
+    name: Yellow 5
+    value: "#fcc419"
+  - id: yellow-6
+    name: Yellow 6
+    value: "#fab005"
+  - id: yellow-7
+    name: Yellow 7
+    value: "#f59f00"
+  - id: yellow-8
+    name: Yellow 8
+    value: "#f08c00"
+  - id: yellow-9
+    name: Yellow 9
+    value: "#e67700"
+  - id: orange-0
+    name: Orange 0
+    value: "#fff4e6"
+  - id: orange-1
+    name: Orange 1
+    value: "#ffe8cc"
+  - id: orange-2
+    name: Orange 2
+    value: "#ffd8a8"
+  - id: orange-3
+    name: Orange 3
+    value: "#ffc078"
+  - id: orange-4
+    name: Orange 4
+    value: "#ffa94d"
+  - id: orange-5
+    name: Orange 5
+    value: "#ff922b"
+  - id: orange-6
+    name: Orange 6
+    value: "#fd7e14"
+  - id: orange-7
+    name: Orange 7
+    value: "#f76707"
+  - id: orange-8
+    name: Orange 8
+    value: "#e8590c"
+  - id: orange-9
+    name: Orange 9
+    value: "#d9480f"
+modes:
+  light:
+    roles:
+      accent: violet-6
+      background: white
+      error: red-7
+      info: cyan-7
+      outline: gray-3
+      primary: blue-7
+      primary-hover: blue-8
+      success: green-7
+      surface: gray-0
+      surface-elevated: gray-1
+      text-primary: gray-9
+      text-secondary: gray-7
+      text-tertiary: gray-6
+      warning: yellow-7
+  dark:
+    roles:
+      accent: violet-4
+      background: gray-9
+      error: red-5
+      info: cyan-4
+      outline: gray-7
+      primary: blue-4
+      primary-hover: blue-3
+      success: green-4
+      surface: gray-8
+      surface-elevated: gray-7
+      text-primary: gray-0
+      text-secondary: gray-3
+      text-tertiary: gray-5
+      warning: yellow-4

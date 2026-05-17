@@ -1,0 +1,785 @@
+kind: palette
+id: tailwind-css
+version: 4.0.0
+name: Tailwind CSS - Default Palette
+description: "The default Tailwind CSS color palette: 22 hue families x 11 shades (50, 100..900, 950) plus pure white and black. Hex values mirror the Tailwind v3.4.17 release (the last release shipping hex form; v4 expresses identical colors in oklch)."
+tags:
+  - tailwind
+  - utility-first
+  - web
+  - default
+provenance:
+  source: https://raw.githubusercontent.com/tailwindlabs/tailwindcss/v3.4.17/src/public/colors.js
+  license: MIT
+  attribution: Tailwind CSS by Tailwind Labs (github.com/tailwindlabs/tailwindcss)
+  importedDate: 2026-05-17
+  importedFromVersion: v3.4.17
+  notes: Tailwind v4 switched the default palette to oklch() form; values are colorimetrically identical to the v3.4.17 hex form mirrored here. Pinned to a tagged release for reproducibility.
+swatches:
+  - id: white
+    name: White
+    value: "#ffffff"
+  - id: black
+    name: Black
+    value: "#000000"
+  - id: slate-50
+    name: Slate 50
+    value: "#f8fafc"
+  - id: slate-100
+    name: Slate 100
+    value: "#f1f5f9"
+  - id: slate-200
+    name: Slate 200
+    value: "#e2e8f0"
+  - id: slate-300
+    name: Slate 300
+    value: "#cbd5e1"
+  - id: slate-400
+    name: Slate 400
+    value: "#94a3b8"
+  - id: slate-500
+    name: Slate 500
+    value: "#64748b"
+  - id: slate-600
+    name: Slate 600
+    value: "#475569"
+  - id: slate-700
+    name: Slate 700
+    value: "#334155"
+  - id: slate-800
+    name: Slate 800
+    value: "#1e293b"
+  - id: slate-900
+    name: Slate 900
+    value: "#0f172a"
+  - id: slate-950
+    name: Slate 950
+    value: "#020617"
+  - id: gray-50
+    name: Gray 50
+    value: "#f9fafb"
+  - id: gray-100
+    name: Gray 100
+    value: "#f3f4f6"
+  - id: gray-200
+    name: Gray 200
+    value: "#e5e7eb"
+  - id: gray-300
+    name: Gray 300
+    value: "#d1d5db"
+  - id: gray-400
+    name: Gray 400
+    value: "#9ca3af"
+  - id: gray-500
+    name: Gray 500
+    value: "#6b7280"
+  - id: gray-600
+    name: Gray 600
+    value: "#4b5563"
+  - id: gray-700
+    name: Gray 700
+    value: "#374151"
+  - id: gray-800
+    name: Gray 800
+    value: "#1f2937"
+  - id: gray-900
+    name: Gray 900
+    value: "#111827"
+  - id: gray-950
+    name: Gray 950
+    value: "#030712"
+  - id: zinc-50
+    name: Zinc 50
+    value: "#fafafa"
+  - id: zinc-100
+    name: Zinc 100
+    value: "#f4f4f5"
+  - id: zinc-200
+    name: Zinc 200
+    value: "#e4e4e7"
+  - id: zinc-300
+    name: Zinc 300
+    value: "#d4d4d8"
+  - id: zinc-400
+    name: Zinc 400
+    value: "#a1a1aa"
+  - id: zinc-500
+    name: Zinc 500
+    value: "#71717a"
+  - id: zinc-600
+    name: Zinc 600
+    value: "#52525b"
+  - id: zinc-700
+    name: Zinc 700
+    value: "#3f3f46"
+  - id: zinc-800
+    name: Zinc 800
+    value: "#27272a"
+  - id: zinc-900
+    name: Zinc 900
+    value: "#18181b"
+  - id: zinc-950
+    name: Zinc 950
+    value: "#09090b"
+  - id: neutral-50
+    name: Neutral 50
+    value: "#fafafa"
+  - id: neutral-100
+    name: Neutral 100
+    value: "#f5f5f5"
+  - id: neutral-200
+    name: Neutral 200
+    value: "#e5e5e5"
+  - id: neutral-300
+    name: Neutral 300
+    value: "#d4d4d4"
+  - id: neutral-400
+    name: Neutral 400
+    value: "#a3a3a3"
+  - id: neutral-500
+    name: Neutral 500
+    value: "#737373"
+  - id: neutral-600
+    name: Neutral 600
+    value: "#525252"
+  - id: neutral-700
+    name: Neutral 700
+    value: "#404040"
+  - id: neutral-800
+    name: Neutral 800
+    value: "#262626"
+  - id: neutral-900
+    name: Neutral 900
+    value: "#171717"
+  - id: neutral-950
+    name: Neutral 950
+    value: "#0a0a0a"
+  - id: stone-50
+    name: Stone 50
+    value: "#fafaf9"
+  - id: stone-100
+    name: Stone 100
+    value: "#f5f5f4"
+  - id: stone-200
+    name: Stone 200
+    value: "#e7e5e4"
+  - id: stone-300
+    name: Stone 300
+    value: "#d6d3d1"
+  - id: stone-400
+    name: Stone 400
+    value: "#a8a29e"
+  - id: stone-500
+    name: Stone 500
+    value: "#78716c"
+  - id: stone-600
+    name: Stone 600
+    value: "#57534e"
+  - id: stone-700
+    name: Stone 700
+    value: "#44403c"
+  - id: stone-800
+    name: Stone 800
+    value: "#292524"
+  - id: stone-900
+    name: Stone 900
+    value: "#1c1917"
+  - id: stone-950
+    name: Stone 950
+    value: "#0c0a09"
+  - id: red-50
+    name: Red 50
+    value: "#fef2f2"
+  - id: red-100
+    name: Red 100
+    value: "#fee2e2"
+  - id: red-200
+    name: Red 200
+    value: "#fecaca"
+  - id: red-300
+    name: Red 300
+    value: "#fca5a5"
+  - id: red-400
+    name: Red 400
+    value: "#f87171"
+  - id: red-500
+    name: Red 500
+    value: "#ef4444"
+  - id: red-600
+    name: Red 600
+    value: "#dc2626"
+  - id: red-700
+    name: Red 700
+    value: "#b91c1c"
+  - id: red-800
+    name: Red 800
+    value: "#991b1b"
+  - id: red-900
+    name: Red 900
+    value: "#7f1d1d"
+  - id: red-950
+    name: Red 950
+    value: "#450a0a"
+  - id: orange-50
+    name: Orange 50
+    value: "#fff7ed"
+  - id: orange-100
+    name: Orange 100
+    value: "#ffedd5"
+  - id: orange-200
+    name: Orange 200
+    value: "#fed7aa"
+  - id: orange-300
+    name: Orange 300
+    value: "#fdba74"
+  - id: orange-400
+    name: Orange 400
+    value: "#fb923c"
+  - id: orange-500
+    name: Orange 500
+    value: "#f97316"
+  - id: orange-600
+    name: Orange 600
+    value: "#ea580c"
+  - id: orange-700
+    name: Orange 700
+    value: "#c2410c"
+  - id: orange-800
+    name: Orange 800
+    value: "#9a3412"
+  - id: orange-900
+    name: Orange 900
+    value: "#7c2d12"
+  - id: orange-950
+    name: Orange 950
+    value: "#431407"
+  - id: amber-50
+    name: Amber 50
+    value: "#fffbeb"
+  - id: amber-100
+    name: Amber 100
+    value: "#fef3c7"
+  - id: amber-200
+    name: Amber 200
+    value: "#fde68a"
+  - id: amber-300
+    name: Amber 300
+    value: "#fcd34d"
+  - id: amber-400
+    name: Amber 400
+    value: "#fbbf24"
+  - id: amber-500
+    name: Amber 500
+    value: "#f59e0b"
+  - id: amber-600
+    name: Amber 600
+    value: "#d97706"
+  - id: amber-700
+    name: Amber 700
+    value: "#b45309"
+  - id: amber-800
+    name: Amber 800
+    value: "#92400e"
+  - id: amber-900
+    name: Amber 900
+    value: "#78350f"
+  - id: amber-950
+    name: Amber 950
+    value: "#451a03"
+  - id: yellow-50
+    name: Yellow 50
+    value: "#fefce8"
+  - id: yellow-100
+    name: Yellow 100
+    value: "#fef9c3"
+  - id: yellow-200
+    name: Yellow 200
+    value: "#fef08a"
+  - id: yellow-300
+    name: Yellow 300
+    value: "#fde047"
+  - id: yellow-400
+    name: Yellow 400
+    value: "#facc15"
+  - id: yellow-500
+    name: Yellow 500
+    value: "#eab308"
+  - id: yellow-600
+    name: Yellow 600
+    value: "#ca8a04"
+  - id: yellow-700
+    name: Yellow 700
+    value: "#a16207"
+  - id: yellow-800
+    name: Yellow 800
+    value: "#854d0e"
+  - id: yellow-900
+    name: Yellow 900
+    value: "#713f12"
+  - id: yellow-950
+    name: Yellow 950
+    value: "#422006"
+  - id: lime-50
+    name: Lime 50
+    value: "#f7fee7"
+  - id: lime-100
+    name: Lime 100
+    value: "#ecfccb"
+  - id: lime-200
+    name: Lime 200
+    value: "#d9f99d"
+  - id: lime-300
+    name: Lime 300
+    value: "#bef264"
+  - id: lime-400
+    name: Lime 400
+    value: "#a3e635"
+  - id: lime-500
+    name: Lime 500
+    value: "#84cc16"
+  - id: lime-600
+    name: Lime 600
+    value: "#65a30d"
+  - id: lime-700
+    name: Lime 700
+    value: "#4d7c0f"
+  - id: lime-800
+    name: Lime 800
+    value: "#3f6212"
+  - id: lime-900
+    name: Lime 900
+    value: "#365314"
+  - id: lime-950
+    name: Lime 950
+    value: "#1a2e05"
+  - id: green-50
+    name: Green 50
+    value: "#f0fdf4"
+  - id: green-100
+    name: Green 100
+    value: "#dcfce7"
+  - id: green-200
+    name: Green 200
+    value: "#bbf7d0"
+  - id: green-300
+    name: Green 300
+    value: "#86efac"
+  - id: green-400
+    name: Green 400
+    value: "#4ade80"
+  - id: green-500
+    name: Green 500
+    value: "#22c55e"
+  - id: green-600
+    name: Green 600
+    value: "#16a34a"
+  - id: green-700
+    name: Green 700
+    value: "#15803d"
+  - id: green-800
+    name: Green 800
+    value: "#166534"
+  - id: green-900
+    name: Green 900
+    value: "#14532d"
+  - id: green-950
+    name: Green 950
+    value: "#052e16"
+  - id: emerald-50
+    name: Emerald 50
+    value: "#ecfdf5"
+  - id: emerald-100
+    name: Emerald 100
+    value: "#d1fae5"
+  - id: emerald-200
+    name: Emerald 200
+    value: "#a7f3d0"
+  - id: emerald-300
+    name: Emerald 300
+    value: "#6ee7b7"
+  - id: emerald-400
+    name: Emerald 400
+    value: "#34d399"
+  - id: emerald-500
+    name: Emerald 500
+    value: "#10b981"
+  - id: emerald-600
+    name: Emerald 600
+    value: "#059669"
+  - id: emerald-700
+    name: Emerald 700
+    value: "#047857"
+  - id: emerald-800
+    name: Emerald 800
+    value: "#065f46"
+  - id: emerald-900
+    name: Emerald 900
+    value: "#064e3b"
+  - id: emerald-950
+    name: Emerald 950
+    value: "#022c22"
+  - id: teal-50
+    name: Teal 50
+    value: "#f0fdfa"
+  - id: teal-100
+    name: Teal 100
+    value: "#ccfbf1"
+  - id: teal-200
+    name: Teal 200
+    value: "#99f6e4"
+  - id: teal-300
+    name: Teal 300
+    value: "#5eead4"
+  - id: teal-400
+    name: Teal 400
+    value: "#2dd4bf"
+  - id: teal-500
+    name: Teal 500
+    value: "#14b8a6"
+  - id: teal-600
+    name: Teal 600
+    value: "#0d9488"
+  - id: teal-700
+    name: Teal 700
+    value: "#0f766e"
+  - id: teal-800
+    name: Teal 800
+    value: "#115e59"
+  - id: teal-900
+    name: Teal 900
+    value: "#134e4a"
+  - id: teal-950
+    name: Teal 950
+    value: "#042f2e"
+  - id: cyan-50
+    name: Cyan 50
+    value: "#ecfeff"
+  - id: cyan-100
+    name: Cyan 100
+    value: "#cffafe"
+  - id: cyan-200
+    name: Cyan 200
+    value: "#a5f3fc"
+  - id: cyan-300
+    name: Cyan 300
+    value: "#67e8f9"
+  - id: cyan-400
+    name: Cyan 400
+    value: "#22d3ee"
+  - id: cyan-500
+    name: Cyan 500
+    value: "#06b6d4"
+  - id: cyan-600
+    name: Cyan 600
+    value: "#0891b2"
+  - id: cyan-700
+    name: Cyan 700
+    value: "#0e7490"
+  - id: cyan-800
+    name: Cyan 800
+    value: "#155e75"
+  - id: cyan-900
+    name: Cyan 900
+    value: "#164e63"
+  - id: cyan-950
+    name: Cyan 950
+    value: "#083344"
+  - id: sky-50
+    name: Sky 50
+    value: "#f0f9ff"
+  - id: sky-100
+    name: Sky 100
+    value: "#e0f2fe"
+  - id: sky-200
+    name: Sky 200
+    value: "#bae6fd"
+  - id: sky-300
+    name: Sky 300
+    value: "#7dd3fc"
+  - id: sky-400
+    name: Sky 400
+    value: "#38bdf8"
+  - id: sky-500
+    name: Sky 500
+    value: "#0ea5e9"
+  - id: sky-600
+    name: Sky 600
+    value: "#0284c7"
+  - id: sky-700
+    name: Sky 700
+    value: "#0369a1"
+  - id: sky-800
+    name: Sky 800
+    value: "#075985"
+  - id: sky-900
+    name: Sky 900
+    value: "#0c4a6e"
+  - id: sky-950
+    name: Sky 950
+    value: "#082f49"
+  - id: blue-50
+    name: Blue 50
+    value: "#eff6ff"
+  - id: blue-100
+    name: Blue 100
+    value: "#dbeafe"
+  - id: blue-200
+    name: Blue 200
+    value: "#bfdbfe"
+  - id: blue-300
+    name: Blue 300
+    value: "#93c5fd"
+  - id: blue-400
+    name: Blue 400
+    value: "#60a5fa"
+  - id: blue-500
+    name: Blue 500
+    value: "#3b82f6"
+  - id: blue-600
+    name: Blue 600
+    value: "#2563eb"
+  - id: blue-700
+    name: Blue 700
+    value: "#1d4ed8"
+  - id: blue-800
+    name: Blue 800
+    value: "#1e40af"
+  - id: blue-900
+    name: Blue 900
+    value: "#1e3a8a"
+  - id: blue-950
+    name: Blue 950
+    value: "#172554"
+  - id: indigo-50
+    name: Indigo 50
+    value: "#eef2ff"
+  - id: indigo-100
+    name: Indigo 100
+    value: "#e0e7ff"
+  - id: indigo-200
+    name: Indigo 200
+    value: "#c7d2fe"
+  - id: indigo-300
+    name: Indigo 300
+    value: "#a5b4fc"
+  - id: indigo-400
+    name: Indigo 400
+    value: "#818cf8"
+  - id: indigo-500
+    name: Indigo 500
+    value: "#6366f1"
+  - id: indigo-600
+    name: Indigo 600
+    value: "#4f46e5"
+  - id: indigo-700
+    name: Indigo 700
+    value: "#4338ca"
+  - id: indigo-800
+    name: Indigo 800
+    value: "#3730a3"
+  - id: indigo-900
+    name: Indigo 900
+    value: "#312e81"
+  - id: indigo-950
+    name: Indigo 950
+    value: "#1e1b4b"
+  - id: violet-50
+    name: Violet 50
+    value: "#f5f3ff"
+  - id: violet-100
+    name: Violet 100
+    value: "#ede9fe"
+  - id: violet-200
+    name: Violet 200
+    value: "#ddd6fe"
+  - id: violet-300
+    name: Violet 300
+    value: "#c4b5fd"
+  - id: violet-400
+    name: Violet 400
+    value: "#a78bfa"
+  - id: violet-500
+    name: Violet 500
+    value: "#8b5cf6"
+  - id: violet-600
+    name: Violet 600
+    value: "#7c3aed"
+  - id: violet-700
+    name: Violet 700
+    value: "#6d28d9"
+  - id: violet-800
+    name: Violet 800
+    value: "#5b21b6"
+  - id: violet-900
+    name: Violet 900
+    value: "#4c1d95"
+  - id: violet-950
+    name: Violet 950
+    value: "#2e1065"
+  - id: purple-50
+    name: Purple 50
+    value: "#faf5ff"
+  - id: purple-100
+    name: Purple 100
+    value: "#f3e8ff"
+  - id: purple-200
+    name: Purple 200
+    value: "#e9d5ff"
+  - id: purple-300
+    name: Purple 300
+    value: "#d8b4fe"
+  - id: purple-400
+    name: Purple 400
+    value: "#c084fc"
+  - id: purple-500
+    name: Purple 500
+    value: "#a855f7"
+  - id: purple-600
+    name: Purple 600
+    value: "#9333ea"
+  - id: purple-700
+    name: Purple 700
+    value: "#7e22ce"
+  - id: purple-800
+    name: Purple 800
+    value: "#6b21a8"
+  - id: purple-900
+    name: Purple 900
+    value: "#581c87"
+  - id: purple-950
+    name: Purple 950
+    value: "#3b0764"
+  - id: fuchsia-50
+    name: Fuchsia 50
+    value: "#fdf4ff"
+  - id: fuchsia-100
+    name: Fuchsia 100
+    value: "#fae8ff"
+  - id: fuchsia-200
+    name: Fuchsia 200
+    value: "#f5d0fe"
+  - id: fuchsia-300
+    name: Fuchsia 300
+    value: "#f0abfc"
+  - id: fuchsia-400
+    name: Fuchsia 400
+    value: "#e879f9"
+  - id: fuchsia-500
+    name: Fuchsia 500
+    value: "#d946ef"
+  - id: fuchsia-600
+    name: Fuchsia 600
+    value: "#c026d3"
+  - id: fuchsia-700
+    name: Fuchsia 700
+    value: "#a21caf"
+  - id: fuchsia-800
+    name: Fuchsia 800
+    value: "#86198f"
+  - id: fuchsia-900
+    name: Fuchsia 900
+    value: "#701a75"
+  - id: fuchsia-950
+    name: Fuchsia 950
+    value: "#4a044e"
+  - id: pink-50
+    name: Pink 50
+    value: "#fdf2f8"
+  - id: pink-100
+    name: Pink 100
+    value: "#fce7f3"
+  - id: pink-200
+    name: Pink 200
+    value: "#fbcfe8"
+  - id: pink-300
+    name: Pink 300
+    value: "#f9a8d4"
+  - id: pink-400
+    name: Pink 400
+    value: "#f472b6"
+  - id: pink-500
+    name: Pink 500
+    value: "#ec4899"
+  - id: pink-600
+    name: Pink 600
+    value: "#db2777"
+  - id: pink-700
+    name: Pink 700
+    value: "#be185d"
+  - id: pink-800
+    name: Pink 800
+    value: "#9d174d"
+  - id: pink-900
+    name: Pink 900
+    value: "#831843"
+  - id: pink-950
+    name: Pink 950
+    value: "#500724"
+  - id: rose-50
+    name: Rose 50
+    value: "#fff1f2"
+  - id: rose-100
+    name: Rose 100
+    value: "#ffe4e6"
+  - id: rose-200
+    name: Rose 200
+    value: "#fecdd3"
+  - id: rose-300
+    name: Rose 300
+    value: "#fda4af"
+  - id: rose-400
+    name: Rose 400
+    value: "#fb7185"
+  - id: rose-500
+    name: Rose 500
+    value: "#f43f5e"
+  - id: rose-600
+    name: Rose 600
+    value: "#e11d48"
+  - id: rose-700
+    name: Rose 700
+    value: "#be123c"
+  - id: rose-800
+    name: Rose 800
+    value: "#9f1239"
+  - id: rose-900
+    name: Rose 900
+    value: "#881337"
+  - id: rose-950
+    name: Rose 950
+    value: "#4c0519"
+modes:
+  light:
+    roles:
+      accent: indigo-600
+      background: white
+      error: red-600
+      info: sky-600
+      outline: slate-300
+      primary: blue-600
+      primary-hover: blue-700
+      secondary: slate-700
+      success: green-600
+      surface: slate-50
+      surface-elevated: slate-100
+      text-primary: slate-900
+      text-secondary: slate-700
+      text-tertiary: slate-500
+      warning: amber-500
+  dark:
+    roles:
+      accent: indigo-400
+      background: slate-950
+      error: red-400
+      info: sky-400
+      outline: slate-700
+      primary: blue-400
+      primary-hover: blue-300
+      secondary: slate-300
+      success: green-400
+      surface: slate-900
+      surface-elevated: slate-800
+      text-primary: slate-50
+      text-secondary: slate-300
+      text-tertiary: slate-400
+      warning: amber-400
