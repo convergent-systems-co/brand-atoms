@@ -1,0 +1,128 @@
+kind: palette
+id: bootstrap
+version: 1.0.0
+name: Bootstrap (Default)
+description: >
+  Bootstrap's default theme palette — the canonical color scheme shipped
+  with Bootstrap 5. Defines the base color ramp, neutral greys, and the
+  six theme colors (primary, secondary, success, info, warning, danger)
+  used across all Bootstrap components.
+tags: [corporate, bootstrap, design-system, light, dark]
+
+provenance:
+  source: https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss
+  license: MIT
+  attribution: Bootstrap, Copyright 2011-2024 The Bootstrap Authors (twbs/bootstrap)
+  importedDate: 2026-05-17
+  importedFromVersion: "5.3"
+
+swatches:
+  # ─── Base colors ───
+  - id: blue
+    name: Blue
+    value: "#0D6EFD"
+  - id: indigo
+    name: Indigo
+    value: "#6610F2"
+  - id: purple
+    name: Purple
+    value: "#6F42C1"
+  - id: pink
+    name: Pink
+    value: "#D63384"
+  - id: red
+    name: Red
+    value: "#DC3545"
+  - id: orange
+    name: Orange
+    value: "#FD7E14"
+  - id: yellow
+    name: Yellow
+    value: "#FFC107"
+  - id: green
+    name: Green
+    value: "#198754"
+  - id: teal
+    name: Teal
+    value: "#20C997"
+  - id: cyan
+    name: Cyan
+    value: "#0DCAF0"
+
+  # ─── Greys ───
+  - id: white
+    name: White
+    value: "#FFFFFF"
+  - id: gray-100
+    name: Gray 100
+    value: "#F8F9FA"
+  - id: gray-200
+    name: Gray 200
+    value: "#E9ECEF"
+  - id: gray-300
+    name: Gray 300
+    value: "#DEE2E6"
+  - id: gray-400
+    name: Gray 400
+    value: "#CED4DA"
+  - id: gray-500
+    name: Gray 500
+    value: "#ADB5BD"
+  - id: gray-600
+    name: Gray 600
+    value: "#6C757D"
+  - id: gray-700
+    name: Gray 700
+    value: "#495057"
+  - id: gray-800
+    name: Gray 800
+    value: "#343A40"
+  - id: gray-900
+    name: Gray 900
+    value: "#212529"
+  - id: black
+    name: Black
+    value: "#000000"
+
+modes:
+  light:
+    roles:
+      background: white
+      surface: gray-100
+      surface-elevated: white
+      text-primary: gray-900
+      text-secondary: gray-700
+      text-tertiary: gray-600
+      primary: blue
+      primary-hover: blue
+      accent: indigo
+      secondary-accent: gray-600
+      success: green
+      warning: yellow
+      error: red
+      info: cyan
+      annotation: orange
+      special: purple
+      outline: gray-300
+      cta: blue
+  dark:
+    # Bootstrap 5.3+ dark mode — uses the upper grey scale as canvas.
+    roles:
+      background: gray-900
+      surface: gray-800
+      surface-elevated: gray-700
+      text-primary: white
+      text-secondary: gray-200
+      text-tertiary: gray-500
+      primary: blue
+      primary-hover: blue
+      accent: indigo
+      secondary-accent: gray-500
+      success: green
+      warning: yellow
+      error: red
+      info: cyan
+      annotation: orange
+      special: purple
+      outline: gray-700
+      cta: blue

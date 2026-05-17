@@ -1,0 +1,147 @@
+kind: palette
+id: atlassian
+version: 1.0.0
+name: Atlassian Design System
+description: >
+  Atlassian's classic color primitives — the foundational color ramps that
+  underpin Jira, Confluence, Bitbucket, and every Atlassian product. Defines
+  the canonical Blue/Green/Yellow/Red/Purple/Teal accents and the N0–N900
+  neutral scale, with semantic light/dark role mappings.
+tags: [corporate, atlassian, design-system, light, dark]
+
+provenance:
+  source: https://atlassian.design/foundations/color-new/color-palette-new
+  license: Apache-2.0
+  attribution: Atlassian Design System color palette, Copyright Atlassian Pty Ltd.
+  importedDate: 2026-05-17
+  notes: >
+    Color values from Atlassian's published design-system color palette
+    (Atlassian Design Guidelines). Atlassian's pattern library and design
+    tokens are publicly available under Apache-2.0 via their
+    @atlaskit packages.
+
+swatches:
+  # ─── Neutral scale ───
+  - id: n0
+    name: Neutral 0
+    value: "#FFFFFF"
+  - id: n10
+    name: Neutral 10
+    value: "#FAFBFC"
+  - id: n20
+    name: Neutral 20
+    value: "#F4F5F7"
+  - id: n30
+    name: Neutral 30
+    value: "#EBECF0"
+  - id: n40
+    name: Neutral 40
+    value: "#DFE1E6"
+  - id: n50
+    name: Neutral 50
+    value: "#C1C7D0"
+  - id: n100
+    name: Neutral 100
+    value: "#7A869A"
+  - id: n200
+    name: Neutral 200
+    value: "#6B778C"
+  - id: n300
+    name: Neutral 300
+    value: "#5E6C84"
+  - id: n500
+    name: Neutral 500
+    value: "#42526E"
+  - id: n700
+    name: Neutral 700
+    value: "#253858"
+  - id: n800
+    name: Neutral 800
+    value: "#172B4D"
+  - id: n900
+    name: Neutral 900
+    value: "#091E42"
+
+  # ─── Brand & semantic ───
+  - id: blue-400
+    name: Blue 400 (primary)
+    value: "#0052CC"
+  - id: blue-500
+    name: Blue 500
+    value: "#0747A6"
+  - id: blue-300
+    name: Blue 300
+    value: "#2684FF"
+  - id: green-400
+    name: Green 400 (success)
+    value: "#00875A"
+  - id: green-300
+    name: Green 300
+    value: "#36B37E"
+  - id: yellow-400
+    name: Yellow 400 (warning)
+    value: "#FF991F"
+  - id: yellow-300
+    name: Yellow 300
+    value: "#FFAB00"
+  - id: red-400
+    name: Red 400 (danger)
+    value: "#DE350B"
+  - id: red-300
+    name: Red 300
+    value: "#FF5630"
+  - id: purple-400
+    name: Purple 400
+    value: "#5243AA"
+  - id: purple-300
+    name: Purple 300
+    value: "#6554C0"
+  - id: teal-400
+    name: Teal 400
+    value: "#00A3BF"
+  - id: teal-300
+    name: Teal 300
+    value: "#00B8D9"
+
+modes:
+  light:
+    roles:
+      background: n0
+      surface: n10
+      surface-elevated: n0
+      text-primary: n900
+      text-secondary: n700
+      text-tertiary: n200
+      primary: blue-400
+      primary-hover: blue-500
+      accent: blue-400
+      secondary-accent: purple-400
+      success: green-400
+      warning: yellow-400
+      error: red-400
+      info: blue-400
+      annotation: teal-400
+      special: purple-400
+      outline: n40
+      cta: blue-400
+  dark:
+    # Atlassian's dark mode tokens — uses the upper neutral scale as surfaces.
+    roles:
+      background: n900
+      surface: n800
+      surface-elevated: n700
+      text-primary: n0
+      text-secondary: n30
+      text-tertiary: n100
+      primary: blue-300
+      primary-hover: blue-400
+      accent: blue-300
+      secondary-accent: purple-300
+      success: green-300
+      warning: yellow-300
+      error: red-300
+      info: blue-300
+      annotation: teal-300
+      special: purple-300
+      outline: n500
+      cta: blue-300

@@ -1,0 +1,117 @@
+kind: palette
+id: github-light
+version: 1.0.0
+name: GitHub Light (Primer)
+description: >
+  GitHub's Primer "light" color scheme — the canonical palette used across
+  github.com. Sources base scale colors (white→black, blue/green/yellow/
+  orange/red/purple/pink, coral) and the system semantic token assignments
+  used by Primer-based products.
+tags: [corporate, light, github, primer, design-system]
+
+provenance:
+  source: https://github.com/primer/primitives
+  license: MIT
+  attribution: GitHub Primer Primitives, Copyright GitHub Inc. (primer/primitives)
+  importedDate: 2026-05-17
+
+swatches:
+  # ─── Canvas / surfaces ───
+  - id: canvas-default
+    name: Canvas default (page background)
+    value: "#FFFFFF"
+  - id: canvas-subtle
+    name: Canvas subtle
+    value: "#F6F8FA"
+  - id: canvas-inset
+    name: Canvas inset
+    value: "#F6F8FA"
+  - id: canvas-overlay
+    name: Canvas overlay
+    value: "#FFFFFF"
+  - id: border-default
+    name: Border default
+    value: "#D0D7DE"
+  - id: border-muted
+    name: Border muted
+    value: "#D8DEE4"
+
+  # ─── Foreground ───
+  - id: fg-default
+    name: Foreground default
+    value: "#1F2328"
+  - id: fg-muted
+    name: Foreground muted
+    value: "#656D76"
+  - id: fg-subtle
+    name: Foreground subtle
+    value: "#6E7781"
+  - id: fg-on-emphasis
+    name: Foreground on-emphasis
+    value: "#FFFFFF"
+
+  # ─── Semantic / accent ───
+  - id: accent
+    name: Accent (blue.5)
+    value: "#0969DA"
+  - id: success
+    name: Success (success.5)
+    value: "#1A7F37"
+  - id: attention
+    name: Attention (yellow.5)
+    value: "#9A6700"
+  - id: severe
+    name: Severe (orange.5)
+    value: "#BC4C00"
+  - id: danger
+    name: Danger (red.5)
+    value: "#CF222E"
+  - id: done
+    name: Done (purple.5)
+    value: "#8250DF"
+  - id: sponsors
+    name: Sponsors (pink.5)
+    value: "#BF3989"
+
+modes:
+  light:
+    roles:
+      background: canvas-default
+      surface: canvas-subtle
+      surface-elevated: canvas-overlay
+      text-primary: fg-default
+      text-secondary: fg-muted
+      text-tertiary: fg-subtle
+      primary: accent
+      primary-hover: accent
+      accent: accent
+      secondary-accent: done
+      success: success
+      warning: attention
+      error: danger
+      info: accent
+      annotation: severe
+      special: sponsors
+      outline: border-default
+      cta: accent
+  dark:
+    # Inversion — use the github-dark atom for true dark Primer values.
+    roles:
+      background: fg-default
+      surface: fg-muted
+      surface-elevated: fg-default
+      text-primary: canvas-default
+      text-secondary: canvas-subtle
+      text-tertiary: border-default
+      primary: accent
+      primary-hover: accent
+      accent: accent
+      secondary-accent: done
+      success: success
+      warning: attention
+      error: danger
+      info: accent
+      annotation: severe
+      special: sponsors
+      outline: border-default
+      cta: accent

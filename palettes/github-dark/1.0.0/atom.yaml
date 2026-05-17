@@ -1,0 +1,116 @@
+kind: palette
+id: github-dark
+version: 1.0.0
+name: GitHub Dark (Primer)
+description: >
+  GitHub's Primer "dark" color scheme — the canonical dark palette used
+  across github.com when "Dark" theme is selected. Includes canvas, fg,
+  border, and semantic accent tokens.
+tags: [corporate, dark, github, primer, design-system]
+
+provenance:
+  source: https://github.com/primer/primitives
+  license: MIT
+  attribution: GitHub Primer Primitives, Copyright GitHub Inc. (primer/primitives)
+  importedDate: 2026-05-17
+
+swatches:
+  # ─── Canvas / surfaces ───
+  - id: canvas-default
+    name: Canvas default
+    value: "#0D1117"
+  - id: canvas-subtle
+    name: Canvas subtle
+    value: "#161B22"
+  - id: canvas-inset
+    name: Canvas inset
+    value: "#010409"
+  - id: canvas-overlay
+    name: Canvas overlay
+    value: "#161B22"
+  - id: border-default
+    name: Border default
+    value: "#30363D"
+  - id: border-muted
+    name: Border muted
+    value: "#21262D"
+
+  # ─── Foreground ───
+  - id: fg-default
+    name: Foreground default
+    value: "#E6EDF3"
+  - id: fg-muted
+    name: Foreground muted
+    value: "#7D8590"
+  - id: fg-subtle
+    name: Foreground subtle
+    value: "#6E7681"
+  - id: fg-on-emphasis
+    name: Foreground on-emphasis
+    value: "#FFFFFF"
+
+  # ─── Semantic / accent ───
+  - id: accent
+    name: Accent (blue.4)
+    value: "#2F81F7"
+  - id: success
+    name: Success (success.4)
+    value: "#3FB950"
+  - id: attention
+    name: Attention (yellow.4)
+    value: "#D29922"
+  - id: severe
+    name: Severe (orange.4)
+    value: "#DB6D28"
+  - id: danger
+    name: Danger (red.4)
+    value: "#F85149"
+  - id: done
+    name: Done (purple.4)
+    value: "#A371F7"
+  - id: sponsors
+    name: Sponsors (pink.4)
+    value: "#DB61A2"
+
+modes:
+  dark:
+    roles:
+      background: canvas-default
+      surface: canvas-subtle
+      surface-elevated: canvas-overlay
+      text-primary: fg-default
+      text-secondary: fg-muted
+      text-tertiary: fg-subtle
+      primary: accent
+      primary-hover: accent
+      accent: accent
+      secondary-accent: done
+      success: success
+      warning: attention
+      error: danger
+      info: accent
+      annotation: severe
+      special: sponsors
+      outline: border-default
+      cta: accent
+  light:
+    # Inversion — for true light Primer values, see github-light.
+    roles:
+      background: fg-default
+      surface: fg-muted
+      surface-elevated: border-default
+      text-primary: canvas-default
+      text-secondary: canvas-subtle
+      text-tertiary: border-default
+      primary: accent
+      primary-hover: accent
+      accent: accent
+      secondary-accent: done
+      success: success
+      warning: attention
+      error: danger
+      info: accent
+      annotation: severe
+      special: sponsors
+      outline: border-default
+      cta: accent
