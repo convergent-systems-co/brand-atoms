@@ -64,12 +64,16 @@ const atomsJson = JSON.stringify(atoms);
     /* Builder island */
     .builder {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      /* minmax(0, 1fr) — without the 0 minimum, long <option> text inside the
+         palette/font selects forces the form column's min-content wider than
+         1fr, pushing the preview column past the content area and under the
+         sticky sidenav. The DARK toggle ends up unclickable. */
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       gap: 24px;
     }
     @media (max-width: 880px) {
       .builder {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
       }
     }
     .builder-empty {
@@ -94,7 +98,8 @@ const atomsJson = JSON.stringify(atoms);
     }
     .builder-controls .control-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      /* See note above on .builder — same min-content overflow risk. */
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       gap: 12px;
     }
     .builder-controls label {
