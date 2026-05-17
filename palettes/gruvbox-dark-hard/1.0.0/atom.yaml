@@ -1,0 +1,138 @@
+kind: palette
+id: gruvbox-dark-hard
+version: 1.0.0
+name: Gruvbox Dark (Hard Contrast)
+description: >
+  Pavel Pertsev's Gruvbox — retro-groove dark variant at hard contrast.
+  Uses a darker bg0 (#1D2021) for maximum contrast. Same accent system
+  as the medium and soft variants.
+tags: [dev-theme, dark, classic, gruvbox, retro]
+
+provenance:
+  source: https://github.com/morhetz/gruvbox/blob/master/colors/gruvbox.vim
+  license: MIT
+  attribution: Gruvbox by Pavel Pertsev (morhetz/gruvbox)
+  importedDate: 2026-05-17
+
+swatches:
+  # ─── Background tones ───
+  - id: bg0
+    name: bg0 (primary background, hard)
+    value: "#1D2021"
+  - id: bg1
+    name: bg1
+    value: "#3C3836"
+  - id: bg2
+    name: bg2
+    value: "#504945"
+  - id: bg3
+    name: bg3
+    value: "#665C54"
+  - id: bg4
+    name: bg4
+    value: "#7C6F64"
+
+  # ─── Foreground tones ───
+  - id: fg0
+    name: fg0 (lightest)
+    value: "#FBF1C7"
+  - id: fg1
+    name: fg1 (primary text)
+    value: "#EBDBB2"
+  - id: fg2
+    name: fg2
+    value: "#D5C4A1"
+  - id: fg3
+    name: fg3
+    value: "#BDAE93"
+  - id: fg4
+    name: fg4 (muted)
+    value: "#A89984"
+  - id: gray
+    name: Gray (comment)
+    value: "#928374"
+
+  # ─── Neutral accents ───
+  - id: red
+    name: Red
+    value: "#CC241D"
+  - id: green
+    name: Green
+    value: "#98971A"
+  - id: yellow
+    name: Yellow
+    value: "#D79921"
+  - id: blue
+    name: Blue
+    value: "#458588"
+  - id: purple
+    name: Purple
+    value: "#B16286"
+  - id: aqua
+    name: Aqua
+    value: "#689D6A"
+  - id: orange
+    name: Orange
+    value: "#D65D0E"
+
+  # ─── Bright accents ───
+  - id: bright-red
+    name: Bright red
+    value: "#FB4934"
+  - id: bright-green
+    name: Bright green
+    value: "#B8BB26"
+  - id: bright-yellow
+    name: Bright yellow
+    value: "#FABD2F"
+  - id: bright-blue
+    name: Bright blue
+    value: "#83A598"
+  - id: bright-purple
+    name: Bright purple
+    value: "#D3869B"
+  - id: bright-aqua
+    name: Bright aqua
+    value: "#8EC07C"
+  - id: bright-orange
+    name: Bright orange
+    value: "#FE8019"
+
+modes:
+  dark:
+    roles:
+      background: bg0
+      surface: bg1
+      surface-elevated: bg2
+      text-primary: fg1
+      text-secondary: fg2
+      text-tertiary: gray
+      primary: bright-blue
+      primary-hover: bright-aqua
+      accent: bright-orange
+      secondary-accent: bright-purple
+      success: bright-green
+      warning: bright-yellow
+      error: bright-red
+      info: bright-blue
+      annotation: bright-orange
+      special: bright-purple
+  light:
+    # Inversion using neutral accents.
+    roles:
+      background: fg0
+      surface: fg1
+      surface-elevated: fg2
+      text-primary: bg0
+      text-secondary: bg1
+      text-tertiary: gray
+      primary: blue
+      primary-hover: aqua
+      accent: orange
+      secondary-accent: purple
+      success: green
+      warning: yellow
+      error: red
+      info: blue
+      annotation: orange
+      special: purple

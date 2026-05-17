@@ -1,0 +1,99 @@
+kind: palette
+id: dracula
+version: 1.0.0
+name: Dracula
+description: >
+  Dracula is a dark, low-saturation theme built around six accent colors
+  (cyan, green, orange, pink, purple, red, yellow) on a deep purple-grey
+  background. The official spec defines a fixed 10-color palette.
+tags: [dev-theme, dark, classic, dracula]
+
+provenance:
+  source: https://github.com/dracula/dracula-theme
+  license: MIT
+  attribution: Dracula Theme by Zeno Rocha and contributors (dracula/dracula-theme)
+  importedDate: 2026-05-17
+  notes: >
+    Palette is the official 10-color Dracula spec. Light mode is a thoughtful
+    inversion (bg↔fg swap) since Dracula is fundamentally a dark theme.
+
+swatches:
+  # ─── Base ───
+  - id: background
+    name: Background
+    value: "#282A36"
+    description: Editor / surface background
+  - id: current-line
+    name: Current Line
+    value: "#44475A"
+    description: Selection / current-line highlight
+  - id: foreground
+    name: Foreground
+    value: "#F8F8F2"
+    description: Primary text
+  - id: comment
+    name: Comment
+    value: "#6272A4"
+    description: Comments, muted text
+
+  # ─── Accents ───
+  - id: cyan
+    name: Cyan
+    value: "#8BE9FD"
+  - id: green
+    name: Green
+    value: "#50FA7B"
+  - id: orange
+    name: Orange
+    value: "#FFB86C"
+  - id: pink
+    name: Pink
+    value: "#FF79C6"
+  - id: purple
+    name: Purple
+    value: "#BD93F9"
+  - id: red
+    name: Red
+    value: "#FF5555"
+  - id: yellow
+    name: Yellow
+    value: "#F1FA8C"
+
+modes:
+  dark:
+    roles:
+      background: background
+      surface: current-line
+      surface-elevated: current-line
+      text-primary: foreground
+      text-secondary: foreground
+      text-tertiary: comment
+      primary: purple
+      primary-hover: pink
+      accent: pink
+      secondary-accent: cyan
+      success: green
+      warning: yellow
+      error: red
+      info: cyan
+      annotation: orange
+      special: purple
+  light:
+    # Thoughtful inversion — Dracula is dark-only upstream.
+    roles:
+      background: foreground
+      surface: foreground
+      surface-elevated: foreground
+      text-primary: background
+      text-secondary: current-line
+      text-tertiary: comment
+      primary: purple
+      primary-hover: pink
+      accent: pink
+      secondary-accent: cyan
+      success: green
+      warning: orange
+      error: red
+      info: cyan
+      annotation: orange
+      special: purple
