@@ -1,0 +1,110 @@
+kind: palette
+id: ayu-light
+version: 1.0.0
+name: Ayu Light
+description: >
+  Ayu Light — clean off-white background variant with a warm gold accent
+  (#FFAA33) for primary actions. Uses muted, slightly desaturated syntax
+  hues that read well on paper-tone surfaces.
+tags: [dev-theme, light, modern, ayu]
+
+provenance:
+  source: https://github.com/ayu-theme/ayu-colors
+  license: MIT
+  attribution: Ayu Theme by Ivan Konyrev / ayu-theme (github.com/ayu-theme/ayu-colors)
+  importedDate: 2026-05-17
+
+swatches:
+  # ─── Base tones ───
+  - id: bg
+    name: Editor background
+    value: "#FCFCFC"
+  - id: fg
+    name: Editor foreground
+    value: "#5C6166"
+  - id: ui
+    name: UI text
+    value: "#8A9199"
+  - id: panel-bg
+    name: Panel background
+    value: "#F3F4F5"
+  - id: line
+    name: Current line
+    value: "#F8F9FA"
+
+  # ─── Syntax ───
+  - id: accent
+    name: Accent
+    value: "#FFAA33"
+  - id: tag
+    name: Tag (cyan)
+    value: "#55B4D4"
+  - id: func
+    name: Function
+    value: "#F2AE49"
+  - id: entity
+    name: Entity
+    value: "#399EE6"
+  - id: string
+    name: String
+    value: "#86B300"
+  - id: regexp
+    name: Regexp
+    value: "#4CBF99"
+  - id: markup
+    name: Markup
+    value: "#F07171"
+  - id: keyword
+    name: Keyword
+    value: "#FA8D3E"
+  - id: special
+    name: Special
+    value: "#E6BA7E"
+  - id: constant
+    name: Constant
+    value: "#A37ACC"
+  - id: operator
+    name: Operator
+    value: "#ED9366"
+  - id: error
+    name: Error
+    value: "#E65050"
+
+modes:
+  light:
+    roles:
+      background: bg
+      surface: panel-bg
+      surface-elevated: line
+      text-primary: fg
+      text-secondary: ui
+      text-tertiary: ui
+      primary: entity
+      primary-hover: tag
+      accent: accent
+      secondary-accent: constant
+      success: string
+      warning: func
+      error: error
+      info: tag
+      annotation: keyword
+      special: constant
+  dark:
+    # Inversion — Ayu Light is light-only. For a real dark, see ayu-dark / ayu-mirage.
+    roles:
+      background: fg
+      surface: ui
+      surface-elevated: ui
+      text-primary: bg
+      text-secondary: panel-bg
+      text-tertiary: line
+      primary: entity
+      primary-hover: tag
+      accent: accent
+      secondary-accent: constant
+      success: string
+      warning: func
+      error: error
+      info: tag
+      annotation: keyword
+      special: constant

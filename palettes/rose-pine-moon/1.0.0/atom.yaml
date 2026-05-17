@@ -1,0 +1,105 @@
+kind: palette
+id: rose-pine-moon
+version: 1.0.0
+name: Rosé Pine Moon
+description: >
+  Rosé Pine Moon — a brighter, softer dark variant with cooler purple
+  base tones. Same accent system as the default Rosé Pine.
+tags: [dev-theme, dark, modern, rose-pine, moon]
+
+provenance:
+  source: https://github.com/rose-pine/palette
+  license: MIT
+  attribution: Rosé Pine by mini and contributors (rose-pine/palette)
+  importedDate: 2026-05-17
+
+swatches:
+  # ─── Base tones ───
+  - id: base
+    name: Base
+    value: "#232136"
+  - id: surface
+    name: Surface
+    value: "#2A273F"
+  - id: overlay
+    name: Overlay
+    value: "#393552"
+  - id: muted
+    name: Muted
+    value: "#6E6A86"
+  - id: subtle
+    name: Subtle
+    value: "#908CAA"
+  - id: text
+    name: Text
+    value: "#E0DEF4"
+
+  # ─── Highlights ───
+  - id: highlight-low
+    name: Highlight low
+    value: "#2A283E"
+  - id: highlight-med
+    name: Highlight medium
+    value: "#44415A"
+  - id: highlight-high
+    name: Highlight high
+    value: "#56526E"
+
+  # ─── Accents ───
+  - id: love
+    name: Love (red)
+    value: "#EB6F92"
+  - id: gold
+    name: Gold (yellow)
+    value: "#F6C177"
+  - id: rose
+    name: Rose
+    value: "#EA9A97"
+  - id: pine
+    name: Pine (teal)
+    value: "#3E8FB0"
+  - id: foam
+    name: Foam (cyan)
+    value: "#9CCFD8"
+  - id: iris
+    name: Iris (purple)
+    value: "#C4A7E7"
+
+modes:
+  dark:
+    roles:
+      background: base
+      surface: surface
+      surface-elevated: overlay
+      text-primary: text
+      text-secondary: subtle
+      text-tertiary: muted
+      primary: iris
+      primary-hover: foam
+      accent: rose
+      secondary-accent: pine
+      success: foam
+      warning: gold
+      error: love
+      info: foam
+      annotation: gold
+      special: iris
+  light:
+    # Thoughtful inversion — Moon is a dark variant.
+    roles:
+      background: text
+      surface: subtle
+      surface-elevated: muted
+      text-primary: base
+      text-secondary: surface
+      text-tertiary: overlay
+      primary: pine
+      primary-hover: iris
+      accent: rose
+      secondary-accent: gold
+      success: pine
+      warning: gold
+      error: love
+      info: pine
+      annotation: gold
+      special: iris

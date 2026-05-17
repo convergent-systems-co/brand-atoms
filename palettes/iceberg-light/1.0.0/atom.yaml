@@ -1,0 +1,122 @@
+kind: palette
+id: iceberg-light
+version: 1.0.0
+name: Iceberg (Light)
+description: >
+  Iceberg Light variant by cocopon — light counterpart of Iceberg with a
+  cool grey-white background and the same 16-color ANSI base reinterpreted
+  for light surfaces.
+tags: [dev-theme, light, modern, iceberg]
+
+provenance:
+  source: https://github.com/cocopon/iceberg.vim/blob/master/colors/iceberg.vim
+  license: MIT
+  attribution: Iceberg by cocopon (cocopon/iceberg.vim) — light variant
+  importedDate: 2026-05-17
+
+swatches:
+  # ─── Base ───
+  - id: bg
+    name: Background
+    value: "#E8E9EC"
+  - id: bg-statusline
+    name: Statusline background
+    value: "#DCDFE7"
+  - id: line
+    name: Current line
+    value: "#DCDFE7"
+  - id: fg
+    name: Foreground
+    value: "#33374C"
+  - id: comment
+    name: Comment
+    value: "#8389A3"
+
+  # ─── ANSI 16 ───
+  - id: black
+    name: Black
+    value: "#DCDFE7"
+  - id: red
+    name: Red
+    value: "#CC517A"
+  - id: green
+    name: Green
+    value: "#668E3D"
+  - id: yellow
+    name: Yellow
+    value: "#C57339"
+  - id: blue
+    name: Blue
+    value: "#2D539E"
+  - id: magenta
+    name: Magenta
+    value: "#7759B4"
+  - id: cyan
+    name: Cyan
+    value: "#3F83A6"
+  - id: white
+    name: White
+    value: "#33374C"
+  - id: bright-black
+    name: Bright black
+    value: "#8389A3"
+  - id: bright-red
+    name: Bright red
+    value: "#CC3768"
+  - id: bright-green
+    name: Bright green
+    value: "#598030"
+  - id: bright-yellow
+    name: Bright yellow
+    value: "#B6662D"
+  - id: bright-blue
+    name: Bright blue
+    value: "#22478E"
+  - id: bright-magenta
+    name: Bright magenta
+    value: "#6845AD"
+  - id: bright-cyan
+    name: Bright cyan
+    value: "#327698"
+  - id: bright-white
+    name: Bright white
+    value: "#262A3F"
+
+modes:
+  light:
+    roles:
+      background: bg
+      surface: bg-statusline
+      surface-elevated: line
+      text-primary: fg
+      text-secondary: bright-white
+      text-tertiary: comment
+      primary: blue
+      primary-hover: bright-blue
+      accent: magenta
+      secondary-accent: cyan
+      success: green
+      warning: yellow
+      error: red
+      info: cyan
+      annotation: yellow
+      special: magenta
+  dark:
+    # Inversion — iceberg-light is light-only.
+    roles:
+      background: fg
+      surface: bright-white
+      surface-elevated: comment
+      text-primary: bg
+      text-secondary: bg-statusline
+      text-tertiary: comment
+      primary: blue
+      primary-hover: bright-blue
+      accent: magenta
+      secondary-accent: cyan
+      success: green
+      warning: yellow
+      error: red
+      info: cyan
+      annotation: yellow
+      special: magenta

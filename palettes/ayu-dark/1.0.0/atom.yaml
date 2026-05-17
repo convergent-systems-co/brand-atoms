@@ -1,0 +1,110 @@
+kind: palette
+id: ayu-dark
+version: 1.0.0
+name: Ayu Dark
+description: >
+  Ayu Dark — bold, deep-space dark variant with a warm gold accent
+  (#E6B450) on a near-black background. Designed by ishan with a focus
+  on clean syntax distinction.
+tags: [dev-theme, dark, modern, ayu]
+
+provenance:
+  source: https://github.com/ayu-theme/ayu-colors
+  license: MIT
+  attribution: Ayu Theme by Ivan Konyrev / ayu-theme (github.com/ayu-theme/ayu-colors)
+  importedDate: 2026-05-17
+
+swatches:
+  # ─── Base tones ───
+  - id: bg
+    name: Editor background
+    value: "#0B0E14"
+  - id: fg
+    name: Editor foreground
+    value: "#BFBDB6"
+  - id: ui
+    name: UI text
+    value: "#565B66"
+  - id: panel-bg
+    name: Panel background
+    value: "#0F131A"
+  - id: line
+    name: Current line
+    value: "#11151C"
+
+  # ─── Syntax ───
+  - id: accent
+    name: Accent
+    value: "#E6B450"
+  - id: tag
+    name: Tag (cyan)
+    value: "#39BAE6"
+  - id: func
+    name: Function
+    value: "#FFB454"
+  - id: entity
+    name: Entity
+    value: "#59C2FF"
+  - id: string
+    name: String
+    value: "#AAD94C"
+  - id: regexp
+    name: Regexp
+    value: "#95E6CB"
+  - id: markup
+    name: Markup
+    value: "#F07178"
+  - id: keyword
+    name: Keyword
+    value: "#FF8F40"
+  - id: special
+    name: Special
+    value: "#E6B673"
+  - id: constant
+    name: Constant
+    value: "#D2A6FF"
+  - id: operator
+    name: Operator
+    value: "#F29668"
+  - id: error
+    name: Error
+    value: "#D95757"
+
+modes:
+  dark:
+    roles:
+      background: bg
+      surface: panel-bg
+      surface-elevated: line
+      text-primary: fg
+      text-secondary: ui
+      text-tertiary: ui
+      primary: entity
+      primary-hover: tag
+      accent: accent
+      secondary-accent: constant
+      success: string
+      warning: func
+      error: error
+      info: tag
+      annotation: keyword
+      special: constant
+  light:
+    # Thoughtful inversion — Ayu Dark is dark-only. Ayu Light is a separate atom.
+    roles:
+      background: fg
+      surface: regexp
+      surface-elevated: fg
+      text-primary: bg
+      text-secondary: panel-bg
+      text-tertiary: ui
+      primary: entity
+      primary-hover: tag
+      accent: accent
+      secondary-accent: constant
+      success: string
+      warning: func
+      error: error
+      info: tag
+      annotation: keyword
+      special: constant

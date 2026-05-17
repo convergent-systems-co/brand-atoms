@@ -1,0 +1,104 @@
+kind: palette
+id: palenight
+version: 1.0.0
+name: Material Palenight
+description: >
+  Palenight variant of the Material Theme — a soft, lavender-tinted dark
+  scheme based on Material's blue-grey 900 surface (#292D3E) with the
+  Material Theme accent palette.
+tags: [dev-theme, dark, modern, material, palenight]
+
+provenance:
+  source: https://github.com/material-theme/vsc-material-theme
+  license: Apache-2.0
+  attribution: Material Theme Palenight by Mattia Astorino (material-theme/vsc-material-theme)
+  importedDate: 2026-05-17
+
+swatches:
+  # ─── Base tones ───
+  - id: bg
+    name: Background
+    value: "#292D3E"
+  - id: bg-alt
+    name: Background (alt)
+    value: "#1B1E2B"
+  - id: fg
+    name: Foreground
+    value: "#A6ACCD"
+  - id: line
+    name: Current line
+    value: "#34324A"
+  - id: selection
+    name: Selection
+    value: "#3C435E"
+  - id: comment
+    name: Comment
+    value: "#676E95"
+  - id: caret
+    name: Caret / cursor
+    value: "#FFCC00"
+
+  # ─── Material accents ───
+  - id: red
+    name: Red
+    value: "#F07178"
+  - id: orange
+    name: Orange
+    value: "#F78C6C"
+  - id: yellow
+    name: Yellow
+    value: "#FFCB6B"
+  - id: green
+    name: Green
+    value: "#C3E88D"
+  - id: cyan
+    name: Cyan
+    value: "#89DDFF"
+  - id: blue
+    name: Blue
+    value: "#82AAFF"
+  - id: purple
+    name: Purple
+    value: "#C792EA"
+  - id: pink
+    name: Pink
+    value: "#FF9CAC"
+
+modes:
+  dark:
+    roles:
+      background: bg
+      surface: bg-alt
+      surface-elevated: line
+      text-primary: fg
+      text-secondary: fg
+      text-tertiary: comment
+      primary: blue
+      primary-hover: cyan
+      accent: purple
+      secondary-accent: pink
+      success: green
+      warning: yellow
+      error: red
+      info: cyan
+      annotation: orange
+      special: purple
+  light:
+    # Inversion — Palenight is dark-only.
+    roles:
+      background: fg
+      surface: fg
+      surface-elevated: comment
+      text-primary: bg
+      text-secondary: bg-alt
+      text-tertiary: comment
+      primary: blue
+      primary-hover: cyan
+      accent: purple
+      secondary-accent: pink
+      success: green
+      warning: orange
+      error: red
+      info: cyan
+      annotation: orange
+      special: purple

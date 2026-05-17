@@ -1,0 +1,110 @@
+kind: palette
+id: ayu-mirage
+version: 1.0.0
+name: Ayu Mirage
+description: >
+  Ayu Mirage — softer "blue-grey" dark variant with warm gold (#FFCC66)
+  accents. Easier on the eyes than the canonical Ayu Dark while keeping
+  the same syntax-color taxonomy.
+tags: [dev-theme, dark, modern, ayu, mirage]
+
+provenance:
+  source: https://github.com/ayu-theme/ayu-colors
+  license: MIT
+  attribution: Ayu Theme by Ivan Konyrev / ayu-theme (github.com/ayu-theme/ayu-colors)
+  importedDate: 2026-05-17
+
+swatches:
+  # ─── Base tones ───
+  - id: bg
+    name: Editor background
+    value: "#242936"
+  - id: fg
+    name: Editor foreground
+    value: "#CCCAC2"
+  - id: ui
+    name: UI text
+    value: "#707A8C"
+  - id: panel-bg
+    name: Panel background
+    value: "#1F2430"
+  - id: line
+    name: Current line
+    value: "#1A1F29"
+
+  # ─── Syntax ───
+  - id: accent
+    name: Accent
+    value: "#FFCC66"
+  - id: tag
+    name: Tag (cyan)
+    value: "#5CCFE6"
+  - id: func
+    name: Function
+    value: "#FFD173"
+  - id: entity
+    name: Entity
+    value: "#73D0FF"
+  - id: string
+    name: String
+    value: "#D5FF80"
+  - id: regexp
+    name: Regexp
+    value: "#95E6CB"
+  - id: markup
+    name: Markup
+    value: "#F28779"
+  - id: keyword
+    name: Keyword
+    value: "#FFAD66"
+  - id: special
+    name: Special
+    value: "#FFDFB3"
+  - id: constant
+    name: Constant
+    value: "#DFBFFF"
+  - id: operator
+    name: Operator
+    value: "#F29E74"
+  - id: error
+    name: Error
+    value: "#FF6666"
+
+modes:
+  dark:
+    roles:
+      background: bg
+      surface: panel-bg
+      surface-elevated: line
+      text-primary: fg
+      text-secondary: ui
+      text-tertiary: ui
+      primary: entity
+      primary-hover: tag
+      accent: accent
+      secondary-accent: constant
+      success: string
+      warning: func
+      error: error
+      info: tag
+      annotation: keyword
+      special: constant
+  light:
+    # Inversion — Mirage is a dark variant.
+    roles:
+      background: fg
+      surface: regexp
+      surface-elevated: fg
+      text-primary: bg
+      text-secondary: panel-bg
+      text-tertiary: ui
+      primary: entity
+      primary-hover: tag
+      accent: accent
+      secondary-accent: constant
+      success: string
+      warning: func
+      error: error
+      info: tag
+      annotation: keyword
+      special: constant
