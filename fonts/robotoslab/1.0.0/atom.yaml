@@ -1,0 +1,28 @@
+kind: font
+id: robotoslab
+version: 1.0.0
+name: Roboto Slab
+family: Roboto Slab
+classification: slab-serif
+tags:
+  - slab
+  - variable-font
+provenance:
+  source: https://raw.githubusercontent.com/google/fonts/main/apache/robotoslab/METADATA.pb
+  license: Apache-2.0
+  attribution: Designed by Christian Robertson. Copyright 2018 The Roboto Slab Project Authors (https://github.com/googlefonts/robotoslab) Licensed under the Apache License, Version 2.0.
+  importedDate: 2026-05-17
+source:
+  kind: google-fonts
+  family: Roboto Slab
+  url: https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap
+fallbackStack:
+  - Rockwell
+  - Courier Bold
+  - Courier
+  - Georgia
+  - Times
+  - serif
+availableStyles:
+  - weight: 400
+    style: normal

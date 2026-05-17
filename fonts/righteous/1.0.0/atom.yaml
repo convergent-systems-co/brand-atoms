@@ -1,0 +1,25 @@
+kind: font
+id: righteous
+version: 1.0.0
+name: Righteous
+family: Righteous
+classification: display
+tags:
+  - display
+provenance:
+  source: https://raw.githubusercontent.com/google/fonts/main/ofl/righteous/METADATA.pb
+  license: OFL-1.1
+  attribution: Designed by Astigmatic. Copyright (c) 2011 by Brian J. Bonislawsky DBA Astigmatic (AOETI) (astigma@astigmatic.com), with Reserved Font Name "Righteous" Licensed under the SIL Open Font License, Version 1.1.
+  importedDate: 2026-05-17
+source:
+  kind: google-fonts
+  family: Righteous
+  url: https://fonts.googleapis.com/css2?family=Righteous&display=swap
+fallbackStack:
+  - Georgia
+  - Cambria
+  - Times New Roman
+  - serif
+availableStyles:
+  - weight: 400
+    style: normal

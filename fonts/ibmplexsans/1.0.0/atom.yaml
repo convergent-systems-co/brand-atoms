@@ -1,0 +1,31 @@
+kind: font
+id: ibmplexsans
+version: 1.0.0
+name: IBM Plex Sans
+family: IBM Plex Sans
+classification: sans-serif
+tags:
+  - sans-serif
+  - variable-font
+provenance:
+  source: https://raw.githubusercontent.com/google/fonts/main/ofl/ibmplexsans/METADATA.pb
+  license: OFL-1.1
+  attribution: Designed by Mike Abbink, Bold Monday. Copyright 2019 IBM Corp. All rights reserved. Licensed under the SIL Open Font License, Version 1.1.
+  importedDate: 2026-05-17
+source:
+  kind: google-fonts
+  family: IBM Plex Sans
+  url: https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap
+fallbackStack:
+  - -apple-system
+  - BlinkMacSystemFont
+  - Segoe UI
+  - Roboto
+  - Helvetica Neue
+  - Arial
+  - sans-serif
+availableStyles:
+  - weight: 400
+    style: normal
+  - weight: 400
+    style: italic

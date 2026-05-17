@@ -1,0 +1,33 @@
+kind: font
+id: anonymouspro
+version: 1.0.0
+name: Anonymous Pro
+family: Anonymous Pro
+classification: monospace
+tags:
+  - monospace
+provenance:
+  source: https://raw.githubusercontent.com/google/fonts/main/ofl/anonymouspro/METADATA.pb
+  license: OFL-1.1
+  attribution: Designed by Mark Simonson. Copyright (c) Mark Simonson 2009-2010. All rights reserved. Licensed under the SIL Open Font License, Version 1.1.
+  importedDate: 2026-05-17
+source:
+  kind: google-fonts
+  family: Anonymous Pro
+  url: https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap
+fallbackStack:
+  - Menlo
+  - Monaco
+  - Consolas
+  - Liberation Mono
+  - Courier New
+  - monospace
+availableStyles:
+  - weight: 400
+    style: normal
+  - weight: 400
+    style: italic
+  - weight: 700
+    style: normal
+  - weight: 700
+    style: italic

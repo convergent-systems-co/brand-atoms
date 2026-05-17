@@ -1,0 +1,29 @@
+kind: font
+id: oswald
+version: 1.0.0
+name: Oswald
+family: Oswald
+classification: sans-serif
+tags:
+  - sans-serif
+  - variable-font
+provenance:
+  source: https://raw.githubusercontent.com/google/fonts/main/ofl/oswald/METADATA.pb
+  license: OFL-1.1
+  attribution: Designed by Vernon Adams, Kalapi Gajjar, Cyreal. Copyright 2016 The Oswald Project Authors (https://github.com/googlefonts/OswaldFont) Licensed under the SIL Open Font License, Version 1.1.
+  importedDate: 2026-05-17
+source:
+  kind: google-fonts
+  family: Oswald
+  url: https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap
+fallbackStack:
+  - -apple-system
+  - BlinkMacSystemFont
+  - Segoe UI
+  - Roboto
+  - Helvetica Neue
+  - Arial
+  - sans-serif
+availableStyles:
+  - weight: 400
+    style: normal

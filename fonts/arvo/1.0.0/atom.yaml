@@ -1,0 +1,33 @@
+kind: font
+id: arvo
+version: 1.0.0
+name: Arvo
+family: Arvo
+classification: slab-serif
+tags:
+  - slab
+provenance:
+  source: https://raw.githubusercontent.com/google/fonts/main/ofl/arvo/METADATA.pb
+  license: OFL-1.1
+  attribution: Designed by Anton Koovit. Copyright 2010 Anton Koovit. Licensed under the SIL Open Font License, Version 1.1.
+  importedDate: 2026-05-17
+source:
+  kind: google-fonts
+  family: Arvo
+  url: https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap
+fallbackStack:
+  - Rockwell
+  - Courier Bold
+  - Courier
+  - Georgia
+  - Times
+  - serif
+availableStyles:
+  - weight: 400
+    style: normal
+  - weight: 400
+    style: italic
+  - weight: 700
+    style: normal
+  - weight: 700
+    style: italic

@@ -1,0 +1,28 @@
+kind: font
+id: kalam
+version: 1.0.0
+name: Kalam
+family: Kalam
+classification: handwriting
+tags:
+  - handwriting
+provenance:
+  source: https://raw.githubusercontent.com/google/fonts/main/ofl/kalam/METADATA.pb
+  license: OFL-1.1
+  attribution: Designed by Indian Type Foundry. Copyright (c) 2014 Indian Type Foundry (info@indiantypefoundry.com) Licensed under the SIL Open Font License, Version 1.1.
+  importedDate: 2026-05-17
+source:
+  kind: google-fonts
+  family: Kalam
+  url: https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap
+fallbackStack:
+  - Brush Script MT
+  - Lucida Handwriting
+  - cursive
+availableStyles:
+  - weight: 300
+    style: normal
+  - weight: 400
+    style: normal
+  - weight: 700
+    style: normal

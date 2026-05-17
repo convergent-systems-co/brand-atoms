@@ -1,0 +1,31 @@
+kind: font
+id: lobstertwo
+version: 1.0.0
+name: Lobster Two
+family: Lobster Two
+classification: display
+tags:
+  - display
+provenance:
+  source: https://raw.githubusercontent.com/google/fonts/main/ofl/lobstertwo/METADATA.pb
+  license: OFL-1.1
+  attribution: Designed by Impallari Type. Copyright (c) 2011 by Pablo Impallari (www.impallari.com impallari@gmail.com). All rights reserved. Licensed under the SIL Open Font License, Version 1.1.
+  importedDate: 2026-05-17
+source:
+  kind: google-fonts
+  family: Lobster Two
+  url: https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap
+fallbackStack:
+  - Georgia
+  - Cambria
+  - Times New Roman
+  - serif
+availableStyles:
+  - weight: 400
+    style: normal
+  - weight: 400
+    style: italic
+  - weight: 700
+    style: normal
+  - weight: 700
+    style: italic

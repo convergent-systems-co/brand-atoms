@@ -1,0 +1,24 @@
+kind: font
+id: satisfy
+version: 1.0.0
+name: Satisfy
+family: Satisfy
+classification: handwriting
+tags:
+  - handwriting
+provenance:
+  source: https://raw.githubusercontent.com/google/fonts/main/apache/satisfy/METADATA.pb
+  license: Apache-2.0
+  attribution: Designed by Sideshow. Copyright (c) 2011 by Font Diner, Inc. All rights reserved. Licensed under the Apache License, Version 2.0.
+  importedDate: 2026-05-17
+source:
+  kind: google-fonts
+  family: Satisfy
+  url: https://fonts.googleapis.com/css2?family=Satisfy&display=swap
+fallbackStack:
+  - Brush Script MT
+  - Lucida Handwriting
+  - cursive
+availableStyles:
+  - weight: 400
+    style: normal

@@ -1,0 +1,25 @@
+kind: font
+id: caveat
+version: 1.0.0
+name: Caveat
+family: Caveat
+classification: handwriting
+tags:
+  - handwriting
+  - variable-font
+provenance:
+  source: https://raw.githubusercontent.com/google/fonts/main/ofl/caveat/METADATA.pb
+  license: OFL-1.1
+  attribution: Designed by Impallari Type. Copyright 2014 The Caveat Project Authors (https://github.com/googlefonts/caveat) Licensed under the SIL Open Font License, Version 1.1.
+  importedDate: 2026-05-17
+source:
+  kind: google-fonts
+  family: Caveat
+  url: https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap
+fallbackStack:
+  - Brush Script MT
+  - Lucida Handwriting
+  - cursive
+availableStyles:
+  - weight: 400
+    style: normal

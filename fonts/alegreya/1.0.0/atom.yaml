@@ -1,0 +1,29 @@
+kind: font
+id: alegreya
+version: 1.0.0
+name: Alegreya
+family: Alegreya
+classification: serif
+tags:
+  - serif
+  - variable-font
+provenance:
+  source: https://raw.githubusercontent.com/google/fonts/main/ofl/alegreya/METADATA.pb
+  license: OFL-1.1
+  attribution: Designed by Juan Pablo del Peral, Huerta Tipográfica. Copyright 2011 The Alegreya Project Authors (https://github.com/huertatipografica/Alegreya) Licensed under the SIL Open Font License, Version 1.1.
+  importedDate: 2026-05-17
+source:
+  kind: google-fonts
+  family: Alegreya
+  url: https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&display=swap
+fallbackStack:
+  - Georgia
+  - Cambria
+  - Times New Roman
+  - Times
+  - serif
+availableStyles:
+  - weight: 400
+    style: normal
+  - weight: 400
+    style: italic

@@ -1,0 +1,62 @@
+kind: font
+id: poppins
+version: 1.0.0
+name: Poppins
+family: Poppins
+classification: sans-serif
+tags:
+  - sans-serif
+provenance:
+  source: https://raw.githubusercontent.com/google/fonts/main/ofl/poppins/METADATA.pb
+  license: OFL-1.1
+  attribution: Designed by Indian Type Foundry, Jonny Pinhorn, Ninad Kale. Copyright 2020 The Poppins Project Authors (https://github.com/itfoundry/Poppins) Licensed under the SIL Open Font License, Version 1.1.
+  importedDate: 2026-05-17
+source:
+  kind: google-fonts
+  family: Poppins
+  url: https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap
+fallbackStack:
+  - -apple-system
+  - BlinkMacSystemFont
+  - Segoe UI
+  - Roboto
+  - Helvetica Neue
+  - Arial
+  - sans-serif
+availableStyles:
+  - weight: 100
+    style: normal
+  - weight: 100
+    style: italic
+  - weight: 200
+    style: normal
+  - weight: 200
+    style: italic
+  - weight: 300
+    style: normal
+  - weight: 300
+    style: italic
+  - weight: 400
+    style: normal
+  - weight: 400
+    style: italic
+  - weight: 500
+    style: normal
+  - weight: 500
+    style: italic
+  - weight: 600
+    style: normal
+  - weight: 600
+    style: italic
+  - weight: 700
+    style: normal
+  - weight: 700
+    style: italic
+  - weight: 800
+    style: normal
+  - weight: 800
+    style: italic
+  - weight: 900
+    style: normal
+  - weight: 900
+    style: italic
