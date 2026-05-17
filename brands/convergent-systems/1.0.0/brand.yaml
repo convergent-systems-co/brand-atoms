@@ -1,0 +1,252 @@
+id: convergent-systems
+version: 1.0.0
+name: Convergent Systems
+description: >
+  Convergent Systems builds civilization-grade software at the
+  intersection of artificial intelligence, human resilience, developer
+  productivity, and systems architecture. The brand expresses
+  institutional restraint and mathematical precision: a hexagonal mark
+  with six radial axes converging on a centered point, set against
+  deep-space blue-blacks with cyan, gold, and ember accents.
+
+  Tagline: "Civilization-Grade Software for a Converging World."
+  Founding principle: "Careful software is built for outcomes, not
+  engagement."
+tags: [convergent-systems, civilization-grade, dark-first, mathematical]
+
+provenance:
+  source: https://convergent-systems.co
+  license: MIT
+  attribution: >
+    Convergent Systems Co. — brand identity captured from the public
+    site convergent-systems.co. Founded by Thomas Polliard. Trademarks
+    and design rights belong to Convergent Systems Co.
+  importedDate: 2026-05-16
+  notes: >
+    This replaces the seed `convergent-systems@0.1.0` (which used the
+    Nord palette as a placeholder). Version 1.0.0 is the first capture
+    of the production brand as deployed at convergent-systems.co.
+
+references:
+  palette: convergent-deep-space@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+
+roles:
+  colors:
+    primary: frost-cyan
+    primary-hover: frost-cyan-soft
+    accent: solar-gold
+    accent-hover: solar-gold-soft
+    mark: solar-gold
+    warmth: ember-orange
+    text-emphasis: snow-0
+    text-muted: snow-1
+  typography:
+    display: heading
+    prose: body
+    wordmark: heading
+
+assets:
+  - id: mark
+    category: logo-mark
+    name: Convergent Systems Mark
+    description: >
+      Hexagonal seal with six radial axes converging on a centered
+      golden node. The mark is mathematical, not decorative — the
+      geometry references the convergence-on-a-singularity theme.
+    variants:
+      - id: svg
+        file: assets/logo-mark.svg
+        colorScheme: full-color
+        format: svg
+        dimensions: { width: 100, height: 100 }
+
+  - id: wordmark-dark
+    category: logo-wordmark
+    name: Convergent Systems Wordmark (Dark)
+    description: Wordmark for use on deep-space-dark backgrounds.
+    variants:
+      - id: svg
+        file: assets/logo-wordmark-dark.svg
+        colorScheme: light-on-dark
+        intendedMode: dark
+        format: svg
+        dimensions: { width: 400, height: 80 }
+
+  - id: wordmark-light
+    category: logo-wordmark
+    name: Convergent Systems Wordmark (Light)
+    description: Wordmark for use on parchment / light backgrounds.
+    variants:
+      - id: svg
+        file: assets/logo-wordmark-light.svg
+        colorScheme: dark-on-light
+        intendedMode: light
+        format: svg
+        dimensions: { width: 400, height: 80 }
+
+  - id: favicon
+    category: favicon
+    name: Convergent Systems Favicon
+    description: Browser favicon. Identical to the mark.
+    variants:
+      - id: svg
+        file: assets/favicon.svg
+        colorScheme: full-color
+        format: svg
+        dimensions: { width: 100, height: 100 }
+
+rules:
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["700", "800"]
+    severity: error
+    rationale: >
+      Headings on convergent-systems.co use weight 800 (`clamp` font-size
+      with letter-spacing -0.03em). Lighter weights compromise the
+      institutional voice; weights above 800 are unavailable in the
+      Inter variable font's static cuts on the brand's CDN.
+
+  - type: numericRange
+    target: typography.wordmark.letterSpacing
+    min: 0.18
+    max: 0.18
+    unit: em
+    severity: error
+    rationale: >
+      The wordmark uses 0.18em letter-spacing as captured on the brand
+      site. Deviating breaks the calibrated visual rhythm.
+
+  - type: numericRange
+    target: typography.section-label.letterSpacing
+    min: 0.32
+    max: 0.32
+    unit: em
+    severity: error
+    rationale: >
+      Section labels use 0.32em letter-spacing, uppercase, weight 700.
+      The wider tracking signals categorical organization, not body
+      text.
+
+  - type: forbiddenTreatment
+    target: logo.mark
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - inverted-without-variant
+    severity: error
+    rationale: >
+      The mark is mathematical. Stretching breaks the hexagonal
+      proportions; recoloring breaks the gold-signature identity. Use
+      the appropriate light/dark wordmark variant rather than filtering
+      the source.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: dark
+    use: wordmark-dark
+    severity: error
+    rationale: Use the dark-theme wordmark on deep-space-dark backgrounds.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: light
+    use: wordmark-light
+    severity: error
+    rationale: Use the light-theme wordmark on parchment / light backgrounds.
+
+  - type: colorChoice
+    target: logo.mark.fill
+    allowed:
+      - solar-gold
+    forbidden:
+      - solar-gold-soft
+      - frost-cyan
+      - ember-orange
+      - any-non-gold
+    severity: error
+    rationale: >
+      The mark color IS the brand identity. Gold #F4C75E and only that.
+      Soft variants are for hover/background; the mark itself is the
+      anchor color.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Snow-0 on Deep-Space-0 gives ~16:1; well above AA. Required for
+      body text legibility on the dark canvas. Verify when introducing
+      new role-color pairings.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 3.0
+    standard: WCAG-AA-large
+    severity: error
+    rationale: >
+      Frost-Cyan on Deep-Space-0 must remain perceptible at link size.
+      Below 3:1 (AA-large), interactive affordance is lost.
+
+  - type: numericRatio
+    target: typography.body.lineHeight
+    min: 1.6
+    max: 1.7
+    severity: recommendation
+    rationale: >
+      Body text on convergent-systems.co uses line-height 1.6–1.65. This
+      range preserves readability at the established 1.15rem size.
+
+  - type: contextRestriction
+    target: roles.colors.warmth
+    forbiddenContexts:
+      - error-state
+      - validation-failure
+      - destructive-action
+    severity: error
+    rationale: >
+      Ember-orange is a warmth/ambient accent (radial glows, secondary
+      CTA). It is NOT the error color. Using it for failure states
+      conflicts with its established positive-warm meaning.
+
+  - type: compositionConstraint
+    target: roles.colors.frost-cyan
+    pairsWith:
+      - roles.colors.solar-gold
+    doesNotPairWith:
+      - roles.colors.ember-orange
+    severity: recommendation
+    rationale: >
+      The brand pairs cyan + gold as the dominant duo (cool + warm
+      across the spectrum). Cyan + orange together fights for
+      attention without resolving into hierarchy.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level AA.
+      The brand's institutional voice demands accessibility as table
+      stakes, not aspiration.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.8
+    severity: error
+    rationale: >
+      The site's hero uses clamp(2.2rem, 4.2vw, 3.6rem) for headings
+      against 1.15rem body — a ratio of roughly 2-3×. The 1.8× floor
+      keeps headlines unmistakable even at the smaller clamp.
