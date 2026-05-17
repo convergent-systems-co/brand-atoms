@@ -51,6 +51,10 @@ availableStyles:
   - { weight: 800, style: italic }
   - { weight: 900, style: normal }
   - { weight: 900, style: italic }
+
+variableAxes:
+  - { tag: wght, name: Weight, min: 100, max: 900, default: 400 }
+  - { tag: opsz, name: Optical Size, min: 14, max: 32, default: 14 }
 cdnUrls:
   InterVariable.woff2: https://cdn.brand-atoms.com/fonts/inter/1.0.0/InterVariable.woff2
   InterVariable-Italic.woff2: https://cdn.brand-atoms.com/fonts/inter/1.0.0/InterVariable-Italic.woff2

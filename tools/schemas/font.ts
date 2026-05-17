@@ -67,6 +67,22 @@ export const FontClassification = z.enum([
   'slab-serif',
 ]);
 
+// OpenType variable-font axis. Four-letter axis tag (`wght`, `opsz`,
+// `slnt`, `wdth`, `ital`, etc.) plus the min/max/default the font ships.
+// Optional on every font — purely additive metadata for consumers that
+// can target axis values (Figma variable-font import, CSS
+// font-variation-settings).
+export const FontVariableAxis = z.object({
+  tag: z
+    .string()
+    .regex(/^[A-Za-z]{4}$/, 'OpenType axis tags are exactly four letters (e.g. "wght", "opsz")'),
+  name: z.string().describe('Human-readable axis name, e.g. "Weight" or "Optical Size"'),
+  min: z.number(),
+  max: z.number(),
+  default: z.number().optional(),
+});
+export type FontVariableAxis = z.infer<typeof FontVariableAxis>;
+
 export const Font = AtomBase.extend({
   kind: z.literal('font'),
   family: z.string().describe('Canonical font family name used in CSS font-family'),
@@ -76,6 +92,12 @@ export const Font = AtomBase.extend({
     .default([])
     .describe('Fallback font families to use if the primary fails to load'),
   availableStyles: z.array(FontStyle).default([]),
+  variableAxes: z
+    .array(FontVariableAxis)
+    .optional()
+    .describe(
+      'Variable-font axis ranges. Present when the upstream ships a variable font. Additive — atoms without this field are treated as static. Consumers that need axis ranges (Figma, font-variation-settings) read this; consumers that only need discrete weights read availableStyles.',
+    ),
   classification: FontClassification.optional(),
   cdnUrls: z
     .record(z.string(), Url)
