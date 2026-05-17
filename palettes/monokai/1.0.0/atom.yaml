@@ -1,0 +1,107 @@
+kind: palette
+id: monokai
+version: 1.0.0
+name: Monokai (Classic)
+description: >
+  Wimer Hazenberg's original Monokai — the canonical TextMate scheme that
+  popularized warm-on-dark syntax highlighting. Recognizable by its pink,
+  green, cyan, orange, and purple accents on a deep olive-grey background.
+tags: [dev-theme, dark, classic, monokai, textmate]
+
+provenance:
+  source: https://github.com/microsoft/vscode/blob/main/extensions/theme-monokai/themes/monokai-color-theme.json
+  license: MIT
+  attribution: Original Monokai theme by Wimer Hazenberg, classic hex values as shipped in Microsoft VS Code theme-monokai extension (MIT).
+  importedDate: 2026-05-17
+  notes: >
+    Canonical values match Wimer Hazenberg's original Monokai spec
+    (https://monokai.pro/) as bundled in the MIT-licensed VS Code
+    theme-monokai built-in extension.
+
+swatches:
+  # ─── Base ───
+  - id: background
+    name: Background
+    value: "#272822"
+    description: Editor background
+  - id: line-highlight
+    name: Line highlight
+    value: "#3E3D32"
+    description: Current line
+  - id: selection
+    name: Selection
+    value: "#49483E"
+    description: Selection / hover surface
+  - id: foreground
+    name: Foreground
+    value: "#F8F8F2"
+    description: Primary text
+  - id: comment
+    name: Comment
+    value: "#75715E"
+    description: Comments
+
+  # ─── Accents ───
+  - id: pink
+    name: Pink
+    value: "#F92672"
+    description: Keywords, operators
+  - id: orange
+    name: Orange
+    value: "#FD971F"
+    description: Function parameters, constants
+  - id: yellow
+    name: Yellow
+    value: "#E6DB74"
+    description: Strings
+  - id: green
+    name: Green
+    value: "#A6E22E"
+    description: Function names, classes
+  - id: cyan
+    name: Cyan
+    value: "#66D9EF"
+    description: Types, classes, decorators
+  - id: purple
+    name: Purple
+    value: "#AE81FF"
+    description: Numbers, constants
+
+modes:
+  dark:
+    roles:
+      background: background
+      surface: line-highlight
+      surface-elevated: selection
+      text-primary: foreground
+      text-secondary: foreground
+      text-tertiary: comment
+      primary: pink
+      primary-hover: orange
+      accent: green
+      secondary-accent: cyan
+      success: green
+      warning: yellow
+      error: pink
+      info: cyan
+      annotation: orange
+      special: purple
+  light:
+    # Thoughtful inversion — Monokai is dark-only.
+    roles:
+      background: foreground
+      surface: foreground
+      surface-elevated: foreground
+      text-primary: background
+      text-secondary: line-highlight
+      text-tertiary: comment
+      primary: pink
+      primary-hover: orange
+      accent: green
+      secondary-accent: cyan
+      success: green
+      warning: orange
+      error: pink
+      info: cyan
+      annotation: orange
+      special: purple

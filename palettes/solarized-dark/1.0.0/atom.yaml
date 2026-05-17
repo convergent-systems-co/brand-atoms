@@ -1,0 +1,109 @@
+kind: palette
+id: solarized-dark
+version: 1.0.0
+name: Solarized Dark
+description: >
+  Ethan Schoonover's Solarized — dark variant. Uses Base03/Base02 as
+  background tones and Base0/Base1 as text. Shares the same eight precision
+  accent hues with the light variant.
+tags: [dev-theme, dark, classic, solarized]
+
+provenance:
+  source: https://ethanschoonover.com/solarized/
+  license: MIT
+  attribution: Solarized by Ethan Schoonover (altercation/solarized)
+  importedDate: 2026-05-17
+  notes: >
+    Canonical hex values from the original spec at ethanschoonover.com/solarized
+    and the reference altercation/solarized repository (MIT-licensed).
+
+swatches:
+  # ─── Base tones (shared with Solarized Light) ───
+  - id: base03
+    name: Base03 (darkest bg)
+    value: "#002B36"
+  - id: base02
+    name: Base02
+    value: "#073642"
+  - id: base01
+    name: Base01 (optional emphasized content)
+    value: "#586E75"
+  - id: base00
+    name: Base00 (primary content, light bg)
+    value: "#657B83"
+  - id: base0
+    name: Base0 (primary content, dark bg)
+    value: "#839496"
+  - id: base1
+    name: Base1
+    value: "#93A1A1"
+  - id: base2
+    name: Base2
+    value: "#EEE8D5"
+  - id: base3
+    name: Base3 (lightest bg)
+    value: "#FDF6E3"
+
+  # ─── Accents ───
+  - id: yellow
+    name: Yellow
+    value: "#B58900"
+  - id: orange
+    name: Orange
+    value: "#CB4B16"
+  - id: red
+    name: Red
+    value: "#DC322F"
+  - id: magenta
+    name: Magenta
+    value: "#D33682"
+  - id: violet
+    name: Violet
+    value: "#6C71C4"
+  - id: blue
+    name: Blue
+    value: "#268BD2"
+  - id: cyan
+    name: Cyan
+    value: "#2AA198"
+  - id: green
+    name: Green
+    value: "#859900"
+
+modes:
+  dark:
+    roles:
+      background: base03
+      surface: base02
+      surface-elevated: base02
+      text-primary: base0
+      text-secondary: base1
+      text-tertiary: base01
+      primary: blue
+      primary-hover: cyan
+      accent: violet
+      secondary-accent: magenta
+      success: green
+      warning: yellow
+      error: red
+      info: blue
+      annotation: orange
+      special: violet
+  light:
+    roles:
+      background: base3
+      surface: base2
+      surface-elevated: base3
+      text-primary: base00
+      text-secondary: base01
+      text-tertiary: base1
+      primary: blue
+      primary-hover: cyan
+      accent: violet
+      secondary-accent: magenta
+      success: green
+      warning: yellow
+      error: red
+      info: blue
+      annotation: orange
+      special: violet

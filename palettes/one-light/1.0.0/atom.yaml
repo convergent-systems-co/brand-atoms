@@ -1,0 +1,107 @@
+kind: palette
+id: one-light
+version: 1.0.0
+name: One Light
+description: >
+  Atom's "One Light" syntax theme — the bright companion to One Dark,
+  with a warm off-white background and the same hue-based accent system
+  tuned for legibility on light surfaces.
+tags: [dev-theme, light, classic, atom, one]
+
+provenance:
+  source: https://github.com/atom/atom/blob/master/packages/one-light-syntax/styles/colors.less
+  license: MIT
+  attribution: One Light by GitHub Inc. / Atom team (atom/one-light-syntax)
+  importedDate: 2026-05-17
+
+swatches:
+  # ─── Syntax accents ───
+  - id: mono-1
+    name: Mono 1 (primary text)
+    value: "#383A42"
+  - id: mono-2
+    name: Mono 2
+    value: "#696C77"
+  - id: mono-3
+    name: Mono 3 (comments)
+    value: "#A0A1A7"
+  - id: hue-1
+    name: Hue 1 (cyan)
+    value: "#0184BC"
+  - id: hue-2
+    name: Hue 2 (blue)
+    value: "#4078F2"
+  - id: hue-3
+    name: Hue 3 (purple)
+    value: "#A626A4"
+  - id: hue-4
+    name: Hue 4 (green)
+    value: "#50A14F"
+  - id: hue-5
+    name: Hue 5 (red 1)
+    value: "#E45649"
+  - id: hue-5-2
+    name: Hue 5-2 (red 2)
+    value: "#CA1243"
+  - id: hue-6
+    name: Hue 6 (orange 1)
+    value: "#986801"
+  - id: hue-6-2
+    name: Hue 6-2 (orange 2 / yellow)
+    value: "#C18401"
+
+  # ─── Base UI ───
+  - id: syntax-fg
+    name: Syntax foreground
+    value: "#383A42"
+  - id: syntax-bg
+    name: Syntax background
+    value: "#FAFAFA"
+  - id: syntax-gutter
+    name: Syntax gutter
+    value: "#9D9D9F"
+  - id: syntax-guide
+    name: Syntax guide
+    value: "#D3D3D3"
+  - id: syntax-accent
+    name: Syntax accent
+    value: "#526FFF"
+
+modes:
+  light:
+    roles:
+      background: syntax-bg
+      surface: syntax-guide
+      surface-elevated: syntax-bg
+      text-primary: mono-1
+      text-secondary: mono-2
+      text-tertiary: mono-3
+      primary: hue-2
+      primary-hover: syntax-accent
+      accent: hue-3
+      secondary-accent: hue-1
+      success: hue-4
+      warning: hue-6-2
+      error: hue-5
+      info: hue-1
+      annotation: hue-6
+      special: hue-3
+  dark:
+    # Thoughtful inversion — One Light is light-only.
+    roles:
+      background: mono-1
+      surface: mono-2
+      surface-elevated: mono-1
+      text-primary: syntax-bg
+      text-secondary: syntax-guide
+      text-tertiary: mono-3
+      primary: hue-2
+      primary-hover: syntax-accent
+      accent: hue-3
+      secondary-accent: hue-1
+      success: hue-4
+      warning: hue-6-2
+      error: hue-5
+      info: hue-1
+      annotation: hue-6
+      special: hue-3

@@ -1,0 +1,107 @@
+kind: palette
+id: one-dark
+version: 1.0.0
+name: One Dark
+description: >
+  Atom's "One Dark" syntax theme — the dark companion to Atom/Pulsar's
+  signature One scheme, with a cool blue/grey base and a balanced set
+  of mono/red/orange/green/cyan/blue/purple syntax accents.
+tags: [dev-theme, dark, classic, atom, one]
+
+provenance:
+  source: https://github.com/atom/atom/blob/master/packages/one-dark-syntax/styles/colors.less
+  license: MIT
+  attribution: One Dark by GitHub Inc. / Atom team (atom/one-dark-syntax)
+  importedDate: 2026-05-17
+
+swatches:
+  # ─── Syntax accents ───
+  - id: mono-1
+    name: Mono 1 (primary text)
+    value: "#ABB2BF"
+  - id: mono-2
+    name: Mono 2
+    value: "#828997"
+  - id: mono-3
+    name: Mono 3 (comments)
+    value: "#5C6370"
+  - id: hue-1
+    name: Hue 1 (cyan)
+    value: "#56B6C2"
+  - id: hue-2
+    name: Hue 2 (blue)
+    value: "#61AFEF"
+  - id: hue-3
+    name: Hue 3 (purple)
+    value: "#C678DD"
+  - id: hue-4
+    name: Hue 4 (green)
+    value: "#98C379"
+  - id: hue-5
+    name: Hue 5 (red 1)
+    value: "#E06C75"
+  - id: hue-5-2
+    name: Hue 5-2 (red 2)
+    value: "#BE5046"
+  - id: hue-6
+    name: Hue 6 (orange 1)
+    value: "#D19A66"
+  - id: hue-6-2
+    name: Hue 6-2 (orange 2 / yellow)
+    value: "#E5C07B"
+
+  # ─── Base UI ───
+  - id: syntax-fg
+    name: Syntax foreground
+    value: "#ABB2BF"
+  - id: syntax-bg
+    name: Syntax background
+    value: "#282C34"
+  - id: syntax-gutter
+    name: Syntax gutter
+    value: "#636D83"
+  - id: syntax-guide
+    name: Syntax guide
+    value: "#3B4048"
+  - id: syntax-accent
+    name: Syntax accent
+    value: "#528BFF"
+
+modes:
+  dark:
+    roles:
+      background: syntax-bg
+      surface: syntax-guide
+      surface-elevated: syntax-gutter
+      text-primary: mono-1
+      text-secondary: mono-2
+      text-tertiary: mono-3
+      primary: hue-2
+      primary-hover: syntax-accent
+      accent: hue-3
+      secondary-accent: hue-1
+      success: hue-4
+      warning: hue-6-2
+      error: hue-5
+      info: hue-1
+      annotation: hue-6
+      special: hue-3
+  light:
+    # Thoughtful inversion — One Dark is dark-only.
+    roles:
+      background: mono-1
+      surface: mono-2
+      surface-elevated: mono-1
+      text-primary: syntax-bg
+      text-secondary: syntax-guide
+      text-tertiary: mono-3
+      primary: hue-2
+      primary-hover: syntax-accent
+      accent: hue-3
+      secondary-accent: hue-1
+      success: hue-4
+      warning: hue-6
+      error: hue-5-2
+      info: hue-1
+      annotation: hue-6
+      special: hue-3

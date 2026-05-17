@@ -1,0 +1,129 @@
+kind: palette
+id: tokyo-night
+version: 1.0.0
+name: Tokyo Night
+description: >
+  Clean, dark theme based on the colors of Tokyo at night. This is the
+  "night" flavor — the canonical pitch-black background variant of Folke
+  Lemaitre's tokyonight.nvim.
+tags: [dev-theme, dark, modern, tokyo-night]
+
+provenance:
+  source: https://github.com/folke/tokyonight.nvim/blob/main/lua/tokyonight/colors/night.lua
+  license: Apache-2.0
+  attribution: Tokyo Night by Folke Lemaitre and contributors (folke/tokyonight.nvim)
+  importedDate: 2026-05-17
+
+swatches:
+  # ─── Backgrounds ───
+  - id: bg
+    name: Background
+    value: "#1A1B26"
+    description: Editor background
+  - id: bg-dark
+    name: Background (dark)
+    value: "#16161E"
+    description: Sidebar / inactive panel
+  - id: bg-highlight
+    name: Background highlight
+    value: "#292E42"
+    description: Current-line, hovered surfaces
+  - id: bg-visual
+    name: Background visual
+    value: "#283457"
+    description: Visual selection
+
+  # ─── Foreground ───
+  - id: fg
+    name: Foreground
+    value: "#C0CAF5"
+    description: Primary text
+  - id: fg-dark
+    name: Foreground (dark)
+    value: "#A9B1D6"
+    description: Secondary text
+  - id: fg-gutter
+    name: Foreground gutter
+    value: "#3B4261"
+    description: Inactive gutter
+  - id: comment
+    name: Comment
+    value: "#565F89"
+    description: Comments
+
+  # ─── Accents ───
+  - id: blue
+    name: Blue
+    value: "#7AA2F7"
+  - id: blue1
+    name: Blue 1
+    value: "#2AC3DE"
+  - id: blue2
+    name: Blue 2
+    value: "#0DB9D7"
+  - id: cyan
+    name: Cyan
+    value: "#7DCFFF"
+  - id: magenta
+    name: Magenta
+    value: "#BB9AF7"
+  - id: purple
+    name: Purple
+    value: "#9D7CD8"
+  - id: orange
+    name: Orange
+    value: "#FF9E64"
+  - id: yellow
+    name: Yellow
+    value: "#E0AF68"
+  - id: green
+    name: Green
+    value: "#9ECE6A"
+  - id: green1
+    name: Green 1
+    value: "#73DACA"
+  - id: red
+    name: Red
+    value: "#F7768E"
+  - id: red1
+    name: Red 1
+    value: "#DB4B4B"
+
+modes:
+  dark:
+    roles:
+      background: bg
+      surface: bg-dark
+      surface-elevated: bg-highlight
+      text-primary: fg
+      text-secondary: fg-dark
+      text-tertiary: comment
+      primary: blue
+      primary-hover: cyan
+      accent: magenta
+      secondary-accent: green1
+      success: green
+      warning: yellow
+      error: red
+      info: blue1
+      annotation: orange
+      special: purple
+  light:
+    # Thoughtful inversion — Tokyo Night night is dark-only.
+    roles:
+      background: fg
+      surface: fg-dark
+      surface-elevated: fg
+      text-primary: bg
+      text-secondary: bg-highlight
+      text-tertiary: comment
+      primary: blue
+      primary-hover: blue2
+      accent: magenta
+      secondary-accent: green1
+      success: green
+      warning: yellow
+      error: red1
+      info: blue1
+      annotation: orange
+      special: purple
