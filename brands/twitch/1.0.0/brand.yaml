@@ -1,0 +1,173 @@
+id: twitch
+version: 1.0.0
+name: Twitch
+description: >
+  Twitch is the global live-streaming platform for gaming, esports,
+  and creator-driven live content, owned by Amazon since 2014.
+  The brand identity, refreshed in 2019 by Collins, is anchored on
+  a single saturated Twitch Purple (#9146FF) and the geometric
+  Glitch mark on a dark canvas. The brand is dark-first and
+  unmistakably gamer-facing: the consumer product, the chat panel,
+  and the player chrome all live on near-black surfaces with the
+  purple reading as the high-energy interactive signature.
+tags: [streaming, gaming, twitch, amazon, dark-first, live, creator]
+
+provenance:
+  source: https://brand.twitch.tv/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Twitch Interactive, Inc. (an Amazon company) — Twitch, the
+    Twitch wordmark, and the Glitch mark are registered trademarks
+    of Twitch Interactive, Inc. The signature Twitch Purple
+    (#9146FF) and the canvas (#0E0E10) are documented across
+    Twitch's public brand site at brand.twitch.tv. Inter is
+    referenced for both heading and body roles — Twitch does not
+    use a proprietary brand face and runs Roobert / Inter family
+    sans across product surfaces.
+  importedDate: 2026-05-18
+  notes: >
+    Twitch's brand site (brand.twitch.tv) is one of the more
+    accessible streaming brand kits. Twitch does not commission a
+    full proprietary corporate face the way Netflix Sans or Spotify
+    Circular were commissioned; the product runs an Inter-family
+    sans. Inter is the canonical reference for this atom.
+
+references:
+  palette: twitch@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # identity = the brand's signature surface. Twitch is dark-first:
+    # the black canvas IS the brand, with the purple Glitch mark and
+    # wordmark reading on top.
+    identity: twitch-black
+    on-identity: twitch-purple
+
+    background: twitch-black
+    surface: twitch-near-black
+    surface-elevated: twitch-charcoal
+    text-primary: twitch-white
+    text-secondary: twitch-gray-light
+    text-tertiary: twitch-graphite
+
+    primary: twitch-purple
+    primary-hover: twitch-purple-light
+    accent: twitch-purple
+    accent-hover: twitch-purple-light
+    mark: twitch-purple
+    text-emphasis: twitch-white
+  typography:
+    display: heading
+    prose: body
+    wordmark: heading
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.mark.fill
+    allowed:
+      - twitch-purple
+      - twitch-white
+      - twitch-black
+    forbidden:
+      - twitch-purple-hover
+      - twitch-purple-light
+      - twitch-graphite
+      - twitch-gray-light
+    severity: error
+    rationale: >
+      The Twitch Glitch mark renders only in Twitch Purple, reversed
+      white on dark cinematic surfaces, or in monochrome black on
+      light. The hover and lighter purples are interactive-state
+      values; gray tones are chrome — none are acceptable mark
+      fills.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+      - inverted-without-variant
+    severity: error
+    rationale: >
+      Twitch's 2019 brand refresh established a flat, geometric
+      identity. Gradients, drop-shadows, and recoloring conflict
+      with the documented brand system; apply only Twitch-approved
+      variants with respected clearspace.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Twitch White on Twitch Black (#0E0E10) gives ~19:1 — well
+      above WCAG 2.1 Level AA. The rule encodes the floor for any
+      new foreground/background pairing on Twitch surfaces.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 3.0
+    standard: WCAG-AA-large
+    severity: error
+    rationale: >
+      Twitch Purple (#9146FF) on Twitch Black gives ~5:1 — clears
+      AA-large and approaches AA-normal. Buttons using the purple
+      fill with white text exceed 6:1; this rule guards the
+      interactive affordance of the primary CTA.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["500", "700", "800"]
+    severity: warning
+    rationale: >
+      Twitch's marketing and product chrome use Medium (500), Bold
+      (700), and Heavy (800) for hero and section headers. Lighter
+      cuts read as chat body and compromise the energetic, gamer-
+      facing voice.
+
+  - type: contextRestriction
+    target: roles.colors.primary
+    forbiddenContexts:
+      - body-text
+      - secondary-link
+      - validation-failure
+    severity: error
+    rationale: >
+      Twitch Purple is reserved for the brand mark, the wordmark,
+      and primary actions ("Follow," "Subscribe," "Go Live"). Using
+      it inside body copy or for error/failure states breaks the
+      interactive signal the purple carries throughout the product.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level AA.
+      The dark-first canvas makes contrast checks the default
+      verification on any new role pairing.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.4
+    severity: warning
+    rationale: >
+      Twitch's marketing headers and section heads run materially
+      larger than the chat-and-metadata body text. A 1.4× minimum
+      ratio preserves the display-to-prose hierarchy the product
+      and marketing both depend on.

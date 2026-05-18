@@ -1,0 +1,189 @@
+id: klarna
+version: 1.0.0
+name: Klarna
+description: >
+  Klarna Bank AB is the Stockholm-headquartered buy-now-pay-later
+  fintech that pioneered the consumer-installments category in
+  Europe and now operates globally. The brand is built on a
+  deliberately un-fintech identity: Klarna Pink (#FFA8CD) on white,
+  with a warm near-black wordmark and a voice that reads more like
+  a lifestyle brand than a payments processor. The "smoooth" tag
+  line and the editorial-leaning visual system (oversized type,
+  cropped photography, generous pink fields) frame Klarna as
+  consumer-first rather than merchant-infrastructure.
+tags: [fintech, payments, bnpl, klarna, pink, lifestyle, light-first]
+
+provenance:
+  source: https://www.klarna.com/us/press/brand/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Klarna Bank AB (publ) — Klarna, the Klarna wordmark, and the
+    Klarna "smoooth" mark are registered trademarks of Klarna Bank
+    AB. The signature Klarna Pink (#FFA8CD) is documented across
+    Klarna's brand-press kit and verified against the deployed
+    klarna.com brand surfaces. Klarna Mono and Klarna Sans are
+    proprietary corporate typefaces; Inter is referenced here as the
+    open-source fallback.
+  importedDate: 2026-05-18
+  notes: >
+    Klarna's proprietary typefaces (Klarna Sans, Klarna Mono,
+    Klarna Display) were commissioned for the brand and are not
+    publicly distributed. This atom references Inter for both
+    heading and body roles and notes Klarna Sans as the proprietary
+    primary in provenance. The pink is the brand's most-policed
+    element — it is the brand, not merely a brand accent.
+
+references:
+  palette: klarna@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # identity = the brand's signature surface. Klarna's identity is
+    # Klarna Pink — used as a full background field, not just an
+    # accent. The pink IS the brand.
+    identity: klarna-pink
+    on-identity: klarna-black
+
+    primary: klarna-pink
+    primary-hover: klarna-pink-deep
+    accent: klarna-pink
+    accent-hover: klarna-pink-deep
+    mark: klarna-black
+
+    text-primary-light: klarna-black
+    text-primary-dark: klarna-white
+    text-secondary-light: klarna-graphite
+    background-light: klarna-white
+    background-dark: klarna-canvas-dark
+    surface-light: klarna-cream
+    surface-dark: klarna-surface-dark
+    divider: klarna-divider
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.wordmark.fill
+    allowed:
+      - klarna-black
+      - klarna-white
+      - klarna-pink
+    forbidden:
+      - klarna-pink-deep
+      - klarna-graphite
+      - klarna-cream
+      - klarna-gray
+    severity: error
+    rationale: >
+      The Klarna wordmark renders in Klarna Black on pink or white
+      surfaces, reversed white on dark surfaces, or as a pink mark
+      on cream/white in expressive marketing. The deep-pink and
+      gray tones are interactive-state or text values, not wordmark
+      fills.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+      - inverted-without-variant
+    severity: error
+    rationale: >
+      Klarna's brand-press program forbids modifying the wordmark.
+      Apply only Klarna-approved variants with respected clearspace;
+      gradient fills and drop-shadows conflict with the flat,
+      deliberate visual system the 2018 refresh established.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Klarna Black (#17120F) on Klarna White gives ~19:1 — well
+      above WCAG 2.1 Level AA. This rule guards the floor for any
+      new foreground/background pairing on Klarna surfaces.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: roles.colors.text-primary-light
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Klarna Black on Klarna Pink (#17120F on #FFA8CD) gives ~9:1 —
+      well above AA. Klarna's signature treatment is black type on
+      pink fields, and this contrast must remain comfortably above
+      AA for body usage.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["400", "500", "700"]
+    severity: warning
+    rationale: >
+      Klarna's editorial-leaning marketing uses Klarna Sans Regular
+      (400), Medium (500), and Bold (700). The brand favors
+      oversized type at lighter cuts over heavy display weights —
+      a quieter, lifestyle-brand voice rather than a shouty one.
+
+  - type: contextRestriction
+    target: roles.colors.identity
+    forbiddenContexts:
+      - error-state
+      - validation-failure
+      - destructive-action
+    severity: error
+    rationale: >
+      Klarna Pink is the brand-identity color and the signature
+      brand surface. Using it for error states or destructive
+      actions conflicts with its established positive-brand meaning
+      and would dilute the most defining brand element.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level AA.
+      Fintech surfaces handling consumer credit have elevated trust
+      requirements; AA is the floor on any new role pairing.
+
+  - type: compositionConstraint
+    target: roles.colors.identity
+    pairsWith:
+      - klarna-black
+      - klarna-white
+      - klarna-cream
+    doesNotPairWith:
+      - klarna-pink-deep
+    severity: recommendation
+    rationale: >
+      Klarna Pink pairs cleanly with Klarna Black, white, and cream.
+      The deeper pink (#E6739D) is a hover state, not a co-equal
+      brand color — pairing the two pinks on the same surface
+      creates a muddy two-pink composition.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.8
+    severity: warning
+    rationale: >
+      Klarna's editorial marketing surfaces use oversized display
+      type — often 3-4× body size. A 1.8× minimum size ratio
+      preserves the editorial display-to-prose hierarchy the brand
+      voice depends on.

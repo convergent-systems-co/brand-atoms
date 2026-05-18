@@ -1,0 +1,53 @@
+kind: font
+id: pinterest-sans
+version: 1.0.0
+name: Pinterest Sans
+description: >
+  Pinterest Sans — the proprietary corporate typeface of Pinterest,
+  Inc. Used as the primary display and UI face across the Pinterest
+  product, marketing site, and brand materials. A humanist sans-serif
+  tuned for small-size legibility on the dense Pinterest pin grid and
+  for warmth at editorial display sizes on marketing surfaces.
+family: Pinterest Sans
+classification: sans-serif
+tags: [proprietary, custom, humanist, social, brand-only]
+
+provenance:
+  source: https://newsroom.pinterest.com/en/brand-guidelines
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Pinterest Sans is a proprietary typeface owned by Pinterest, Inc.
+    Use is restricted to Pinterest's own marketing and to partners
+    under Pinterest's brand-use guidelines. brand-atoms documents the
+    face for reference only — no binaries are mirrored or
+    redistributed by this catalog.
+  importedDate: 2026-05-18
+  notes: >
+    Pinterest Sans is not publicly distributed. Public web rendering
+    by non-Pinterest consumers must fall back to a comparable
+    humanist sans. The recommended public-web fallback is Inter
+    (already in the brand-atoms catalog).
+
+source:
+  kind: external
+  family: Pinterest Sans
+  notes: >
+    Licensed font; no public CDN. Distributed by Pinterest, Inc. to
+    authorized brand-use partners. CSS @font-face declarations must
+    reference internally hosted files under Pinterest's licensing.
+
+fallbackStack:
+  - Inter
+  - -apple-system
+  - BlinkMacSystemFont
+  - Segoe UI
+  - Helvetica Neue
+  - Arial
+  - sans-serif
+
+availableStyles:
+  - { weight: 400, style: normal }
+  - { weight: 500, style: normal }
+  - { weight: 600, style: normal }
+  - { weight: 700, style: normal }
+  - { weight: 800, style: normal }

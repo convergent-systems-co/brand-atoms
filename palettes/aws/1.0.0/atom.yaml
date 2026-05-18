@@ -1,0 +1,146 @@
+kind: palette
+id: aws
+version: 1.0.0
+name: Amazon Web Services
+description: >
+  Amazon Web Services palette anchored on AWS Smile Orange (#FF9900) —
+  the arrow-and-smile signature carried over from the Amazon parent
+  brand — paired with AWS Squid Ink (#232F3E), the deep navy that
+  defines the AWS Management Console chrome and the AWS architecture
+  diagrams. Where the Amazon retail palette leans on warm orange
+  against a white retail canvas, the AWS palette runs darker:
+  console-first, diagram-first, and engineered for the long-form
+  technical surfaces of the AWS Architecture Center, the docs site,
+  and re:Invent keynote slides.
+tags: [tech, cloud, aws, amazon, infrastructure, orange, navy]
+
+provenance:
+  source: https://aws.amazon.com/architecture/icons/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Amazon Web Services, AWS, the AWS logo, and the AWS arrow-and-
+    smile are trademarks of Amazon.com, Inc. or its affiliates.
+    The Smile Orange (#FF9900) and Squid Ink (#232F3E) hex values
+    are documented across the AWS Architecture Icons toolkit, the
+    AWS Brand Guidelines, and the AWS Management Console.
+  importedDate: 2026-05-18
+  notes: >
+    AWS shares Smile Orange with the Amazon parent palette (the
+    arrow-and-smile is the same arrow that runs under the Amazon
+    wordmark) but ships its own identity around Squid Ink as the
+    canvas color. This atom encodes the AWS-specific reading: the
+    console and diagram surfaces are dark-first; the marketing
+    surfaces are light. Both modes are authored. The AWS
+    Architecture Icons PowerPoint and Keynote toolkits are the
+    canonical published source for the Squid Ink hex.
+
+swatches:
+  - id: aws-smile-orange
+    name: AWS Smile Orange
+    value: "#FF9900"
+    description: >
+      The signature AWS orange — the arrow-and-smile that
+      identifies the AWS sub-brand and the principal CTA color
+      across aws.amazon.com.
+  - id: aws-rind
+    name: AWS Rind
+    value: "#EC7211"
+    description: >
+      Deeper orange used on pressed/active states for the
+      primary CTA and as the headline accent on dark canvases.
+  - id: aws-squid-ink
+    name: AWS Squid Ink
+    value: "#232F3E"
+    description: >
+      The AWS Management Console chrome navy. The canonical
+      dark-canvas color across AWS architecture diagrams and
+      the Architecture Icons toolkit.
+  - id: aws-anchor
+    name: AWS Anchor
+    value: "#161E2D"
+    description: >
+      Darker navy used on console mega-navigation surfaces
+      and the dark-mode page canvas.
+  - id: aws-navy-light
+    name: AWS Navy Light
+    value: "#37475A"
+    description: >
+      Secondary navigation band — sits one tone lighter than
+      Squid Ink for layered chrome on the console.
+  - id: aws-link
+    name: AWS Link
+    value: "#0972D3"
+    description: >
+      Console link / interactive blue. The AWS Cloudscape
+      design system documents this hex as the link primary.
+  - id: aws-link-hover
+    name: AWS Link Hover
+    value: "#033160"
+    description: >
+      Pressed/hovered state for the AWS console link blue.
+  - id: aws-success
+    name: AWS Success
+    value: "#037F0C"
+    description: Cloudscape success green — used for confirmation states.
+  - id: aws-error
+    name: AWS Error
+    value: "#D13212"
+    description: Cloudscape error red — destructive and validation-failure states.
+  - id: aws-warning
+    name: AWS Warning
+    value: "#B7740D"
+    description: Cloudscape warning amber — caution / pending states.
+  - id: aws-ink
+    name: AWS Ink
+    value: "#16191F"
+    description: Primary text on light surfaces — Cloudscape's neutral text.
+  - id: aws-gray
+    name: AWS Gray
+    value: "#545B64"
+    description: Secondary text and metadata on light surfaces.
+  - id: aws-gray-light
+    name: AWS Gray Light
+    value: "#879596"
+    description: Tertiary text and disabled UI on light surfaces.
+  - id: aws-surface
+    name: AWS Surface
+    value: "#F2F3F3"
+    description: Quiet surface — Cloudscape page-level background tint.
+  - id: aws-white
+    name: AWS White
+    value: "#FFFFFF"
+    description: Primary canvas on marketing surfaces and console cards.
+
+modes:
+  light:
+    roles:
+      background: aws-white
+      surface: aws-surface
+      surface-elevated: aws-white
+      text-primary: aws-ink
+      text-secondary: aws-gray
+      text-tertiary: aws-gray-light
+      primary: aws-smile-orange
+      primary-hover: aws-rind
+      accent: aws-link
+      accent-hover: aws-link-hover
+      warning: aws-warning
+      warning-hover: aws-rind
+      error: aws-error
+      success: aws-success
+  dark:
+    roles:
+      background: aws-anchor
+      surface: aws-squid-ink
+      surface-elevated: aws-navy-light
+      text-primary: aws-white
+      text-secondary: aws-surface
+      text-tertiary: aws-gray-light
+      primary: aws-smile-orange
+      primary-hover: aws-rind
+      accent: aws-link
+      accent-hover: aws-link-hover
+      warning: aws-warning
+      warning-hover: aws-rind
+      error: aws-error
+      success: aws-success

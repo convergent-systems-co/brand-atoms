@@ -1,0 +1,114 @@
+kind: palette
+id: disney-plus
+version: 1.0.0
+name: Disney+
+description: >
+  Disney+ corporate brand palette. The streaming service's identity
+  is anchored on a deep navy canvas (#01153E) with the saturated
+  Disney+ Blue (#113CCF) carrying the wordmark, the iconic arc on the
+  "D," and primary CTAs. Disney+ is dark-first: the consumer app,
+  marketing surfaces, and the wordmark all live on near-black or
+  deep-navy canvases with the blue used sparingly as the brand
+  identity accent.
+tags: [streaming, entertainment, disney, disney-plus, blue, dark-first]
+
+provenance:
+  source: https://thewaltdisneycompany.com/dis/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    The Walt Disney Company — Disney+, the Disney+ wordmark, and the
+    arced "D" mark are registered trademarks of Disney Enterprises,
+    Inc. The signature Disney+ Blue (#113CCF) is documented across
+    Disney+'s public brand-surface stylesheets and is observable in
+    the deployed disneyplus.com hero treatments. The deep-navy
+    canvas (#01153E) is the dominant background tone in the
+    consumer product.
+  importedDate: 2026-05-18
+  notes: >
+    Disney+ launched in November 2019 with this single-blue identity
+    by Disney's internal brand team. The dark-navy canvas is the
+    canonical Disney+ surface across web, mobile, and connected-TV
+    apps. The light-mode role mapping is an authored inversion
+    provided for marketing surfaces that require a light treatment;
+    it is not a Disney+-published canonical mode.
+
+swatches:
+  # ─── Signature ─────────────────────────────────────────────────
+  - id: disney-plus-blue
+    name: Disney+ Blue
+    value: "#113CCF"
+    description: Primary signature blue — the Disney+ wordmark fill, the arc on the "D," and primary CTAs.
+  - id: disney-plus-blue-bright
+    name: Disney+ Blue Bright
+    value: "#1F80E0"
+    description: Brighter cyan-blue used on hover/highlight states and as the secondary brand-gradient accent.
+  - id: disney-plus-blue-deep
+    name: Disney+ Blue Deep
+    value: "#0B2BA0"
+    description: Deep blue used on pressed states and as the dark-end of the brand gradient.
+
+  # ─── Canvas ───────────────────────────────────────────────────
+  - id: disney-plus-navy
+    name: Disney+ Navy
+    value: "#01153E"
+    description: Canonical canvas — the deep navy that frames the Disney+ consumer surface.
+  - id: disney-plus-navy-elevated
+    name: Disney+ Navy Elevated
+    value: "#0B1E4F"
+    description: Elevated surface — tiles, modal headers, and expanded title cards sit on this slightly lifted navy.
+  - id: disney-plus-near-black
+    name: Disney+ Near-Black
+    value: "#0A0E1A"
+    description: Near-black used for the highest-contrast surfaces and for the title-art frame.
+
+  # ─── Text/Neutrals ─────────────────────────────────────────────
+  - id: disney-plus-white
+    name: Disney+ White
+    value: "#FFFFFF"
+    description: Primary text on the dark canvas; reversed wordmark fill on light backgrounds.
+  - id: disney-plus-fog
+    name: Disney+ Fog
+    value: "#F5F7FA"
+    description: Authored light-mode canvas — used for marketing surfaces that require a light treatment.
+  - id: disney-plus-graphite
+    name: Disney+ Graphite
+    value: "#5A6478"
+    description: Secondary text on light backgrounds; tertiary text on dark.
+  - id: disney-plus-gray
+    name: Disney+ Gray
+    value: "#A2A9B8"
+    description: Tertiary text and metadata in the consumer product.
+
+modes:
+  light:
+    roles:
+      background: disney-plus-fog
+      surface: disney-plus-white
+      surface-elevated: disney-plus-white
+      text-primary: disney-plus-navy
+      text-secondary: disney-plus-graphite
+      text-tertiary: disney-plus-gray
+      primary: disney-plus-blue
+      primary-hover: disney-plus-blue-deep
+      accent: disney-plus-blue-bright
+      accent-hover: disney-plus-blue
+      warning: disney-plus-blue-bright
+      warning-hover: disney-plus-blue
+      error: disney-plus-blue-deep
+      success: disney-plus-blue-bright
+  dark:
+    roles:
+      background: disney-plus-navy
+      surface: disney-plus-navy-elevated
+      surface-elevated: disney-plus-near-black
+      text-primary: disney-plus-white
+      text-secondary: disney-plus-gray
+      text-tertiary: disney-plus-graphite
+      primary: disney-plus-blue-bright
+      primary-hover: disney-plus-blue
+      accent: disney-plus-blue-bright
+      accent-hover: disney-plus-blue
+      warning: disney-plus-blue-bright
+      warning-hover: disney-plus-blue
+      error: disney-plus-blue-bright
+      success: disney-plus-blue-bright

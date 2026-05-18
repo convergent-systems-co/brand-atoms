@@ -1,0 +1,185 @@
+id: x-twitter
+version: 1.0.0
+name: X (formerly Twitter)
+description: >
+  X (formerly Twitter) is the real-time, public-square social platform
+  acquired by Elon Musk in 2022 and rebranded from Twitter to X in
+  July 2023. The post-rebrand identity is a deliberate monochrome
+  reduction: a single geometric X mark in white-on-black or
+  black-on-white, with no chromatic accent surviving from the
+  Twitter Blue era. The product surface retains a multi-mode theme
+  (default dark, "Lights Out" pure-black, light), but the brand-mark
+  surface is one of two values — black or white — with the proprietary
+  Chirp typeface carrying the marketing voice.
+tags: [social, x, twitter, monochrome, dark-first, consumer-tech]
+
+provenance:
+  source: https://about.x.com/en/who-we-are/brand-toolkit
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    X and the X mark are registered trademarks of X Corp. This atom
+    reads the publicly available X brand toolkit at
+    about.x.com/en/who-we-are/brand-toolkit; it is not an official X
+    brand-guidelines document. Chirp is X's proprietary corporate
+    typeface (designed with Grilli Type) and is referenced here with
+    a public-web fallback to Inter when the licensed file is
+    unavailable.
+  importedDate: 2026-05-18
+  notes: >
+    X's canonical brand-mark surface is dark-first: the white X on a
+    black canvas is the most-recognized form across the X.com product
+    and in marketing. The light-mode role mapping is the published
+    inverse — black mark on white canvas — and is equally canonical
+    per the brand toolkit. Legacy Twitter Blue (#1DA1F2) is documented
+    in the palette atom as a deprecated reference only.
+
+references:
+  palette: x-twitter@1
+  fonts:
+    heading: chirp@1
+    body: chirp@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # identity = the brand's signature surface. X post-rebrand is
+    # dark-first: black IS the brand surface, with white serving as
+    # the mark fill and primary text on dark.
+    identity: x-black
+    on-identity: x-white
+
+    background: x-black
+    surface: x-charcoal
+    surface-elevated: x-dim-elevated
+    text-primary: x-gray-light
+    text-secondary: x-gray
+    text-tertiary: x-gray
+
+    primary: x-white
+    primary-hover: x-gray-light
+    accent: x-white
+    accent-hover: x-gray-light
+    mark: x-white
+    text-emphasis: x-gray-light
+    text-muted: x-gray
+  typography:
+    display: heading
+    prose: body
+    wordmark: heading
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.mark
+    allowed:
+      - x-black
+      - x-white
+    forbidden:
+      - twitter-blue-legacy
+      - x-gray
+      - x-charcoal
+      - x-dim
+    severity: error
+    rationale: >
+      The post-2023 X mark is monochrome — black on light surfaces or
+      white on dark surfaces. The legacy Twitter Blue is explicitly
+      out of scope for the current identity; mid-grays compromise the
+      high-contrast reading the brand depends on.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - inverted-without-variant
+      - chromatic-accent
+      - twitter-blue-recolor
+    severity: error
+    rationale: >
+      The X brand toolkit prescribes the X mark only in approved
+      black-or-white variants with adequate clearspace. Recoloring
+      the X into Twitter Blue or any other chromatic value violates
+      the deliberate monochrome reduction that defines the post-rebrand
+      identity.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: dark
+    use: x-mark-white
+    severity: error
+    rationale: >
+      On dark surfaces (the canonical X.com canvas), the white X mark
+      is required for legibility. Do not invert the mark file on the
+      fly or apply a chromatic fill.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: light
+    use: x-mark-black
+    severity: error
+    rationale: >
+      On light surfaces, the black X mark is required. The mark on
+      x.com light mode and on light marketing surfaces is solid black.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      WCAG 2.1 Level AA contrast minimum for body text. X Gray Light
+      (#E7E9EA) on X Black (#000000) reads at ~17.4:1 — comfortably
+      above AA. The rule encodes the floor for any new
+      foreground/background pairing introduced on X-skinned surfaces.
+
+  - type: contextRestriction
+    target: roles.colors.identity
+    forbiddenContexts:
+      - product-of-competitor
+      - endorsement-implication
+      - twitter-era-rebrand-suggestion
+    severity: error
+    rationale: >
+      The X brand-use guidance prohibits placement of the X mark in
+      ways that imply endorsement, on competing-product surfaces, or
+      in ways that imply continuity with retired Twitter branding
+      (e.g., pairing the X mark with the bird).
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["500", "700", "800"]
+    severity: warning
+    rationale: >
+      Chirp is distributed with discrete weights Regular (400), Medium
+      (500), Bold (700), and Heavy (800). X's marketing headlines and
+      the wordmark sit in the 500–800 band; lighter cuts compromise
+      the deliberate, declarative voice the post-rebrand identity
+      depends on.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level AA.
+      The dark-first canvas makes contrast checks the default
+      verification on any new role pairing.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.5
+    severity: warning
+    rationale: >
+      X's marketing headlines run substantially larger than body copy.
+      A 1.5× minimum size ratio preserves the declarative display-to-
+      prose hierarchy the post-rebrand voice depends on.

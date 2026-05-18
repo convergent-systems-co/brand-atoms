@@ -1,0 +1,172 @@
+id: penpot
+version: 1.0.0
+name: Penpot
+description: >
+  Penpot is the open-source design and prototyping platform — a
+  browser-based design tool with components, libraries, and dev-
+  handoff, built on web standards and licensed under MPL-2.0. The
+  brand voice is open, community-led, and craft-confident.
+  Visually, the identity is the Penpot Mint mark (#31EFB8) — an
+  electric mint green — on a near-black canvas with white display
+  type. Penpot's marketing surface leans dark to put the mint
+  forward.
+tags: [open-source, design-tools, penpot, mpl-2-0]
+
+provenance:
+  source: https://penpot.app/
+  license: MPL-2.0
+  attribution: >
+    Penpot is © Penpot S.L. and the Penpot community, licensed
+    under the Mozilla Public License 2.0. Penpot publishes its
+    brand assets openly. The primary brand color Penpot Mint
+    (#31EFB8) is documented on Penpot's brand surfaces.
+    brand-atoms catalogues the publicly documented signature
+    color and authored neutrals; downstream use of the Penpot
+    name and mark is governed by Penpot's open-source license
+    and trademark guidance at penpot.app.
+  importedDate: 2026-05-18
+  notes: >
+    Penpot is the only open-source brand in this batch — its
+    license (Mozilla Public License 2.0) covers both the code
+    and the published brand assets. Penpot's marketing pages
+    render in a neutral humanist sans consistent with Inter;
+    Inter is referenced here as the primary face and is already
+    in the brand-atoms catalog.
+
+references:
+  palette: penpot@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # identity = the brand's signature surface. Penpot's identity is
+    # the Penpot Mint mark — the mint carries the institutional
+    # voice on the near-black canvas Penpot prefers in marketing.
+    identity: penpot-mint
+    on-identity: penpot-black
+
+    primary: penpot-mint
+    primary-hover: penpot-mint-hover
+    accent: penpot-mint
+    accent-hover: penpot-mint-hover
+
+    success: penpot-mint
+    warning: penpot-mint
+    error: penpot-mint
+
+    background-light: penpot-white
+    background-dark: penpot-canvas-dark
+    surface-light: penpot-surface-light
+    surface-dark: penpot-surface-dark
+    text-primary-light: penpot-black
+    text-primary-dark: penpot-white
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.mark
+    allowed:
+      - penpot-mint
+      - penpot-white
+      - penpot-black
+    forbidden:
+      - any-non-brand-color
+    severity: error
+    rationale: >
+      The Penpot mark renders in Penpot Mint as the canonical
+      fill, with white and near-black as the only sanctioned
+      monochrome alternates. The MPL-2.0 license covers the
+      code; Penpot's brand guidance restricts recoloring of the
+      mark.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - gradient-fill
+    severity: error
+    rationale: >
+      Penpot's brand surfaces ask consumers not to stretch,
+      rotate, recolor, or apply decorative effects to the mark
+      — open-source distribution does not waive brand-use
+      discipline.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      WCAG 2.1 Level AA contrast minimum for body text. Penpot
+      White (#FFFFFF) on Penpot Black (#18181A) clears AA at
+      very high contrast — the dark-canvas voice of the brand
+      already satisfies the accessibility floor.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: dark
+    use: logo-mint
+    severity: error
+    rationale: >
+      On the canonical dark canvas, use the Penpot Mint mark
+      variant; do not invert the mark into white on dark, as
+      that loses the brand's signature mint identity.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: light
+    use: logo-dark
+    severity: recommendation
+    rationale: >
+      On light surfaces, the Penpot Mint mark may render at low
+      contrast on white; consider a dark-fill monochrome
+      variant for body-text-adjacent placements where contrast
+      matters.
+
+  - type: compositionConstraint
+    target: roles.colors.identity
+    pairsWith:
+      - penpot-black
+      - penpot-canvas-dark
+      - penpot-white
+    severity: recommendation
+    rationale: >
+      Penpot Mint is calibrated to read on the near-black canvas
+      Penpot prefers in marketing. Pairing it with another
+      saturated hue at the same weight breaks the focused open-
+      source voice of the brand surface.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["500", "600", "700"]
+    severity: warning
+    rationale: >
+      Penpot's marketing surfaces render display headings in the
+      500–700 band against the dark canvas; lighter weights lose
+      contrast on the dark surface.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level
+      AA. Penpot-skinned surfaces must clear AA on body text;
+      note that Penpot Mint must not be used as a body-text
+      color on white because it fails AA.

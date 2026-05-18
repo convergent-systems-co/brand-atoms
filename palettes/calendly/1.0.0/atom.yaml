@@ -1,0 +1,107 @@
+kind: palette
+id: calendly
+version: 1.0.0
+name: Calendly
+description: >
+  Calendly's brand palette, anchored on Calendly Blue (#006BFF) —
+  the signature saturated blue that carries the wordmark and the
+  schedule mark. The institutional voice pairs that blue with a
+  clean white canvas and near-black body text on marketing
+  surfaces. Where competing scheduling tools lean on multi-color
+  product surfaces, Calendly commits to a single confident blue.
+tags: [saas, productivity, calendly, scheduling, blue]
+
+provenance:
+  source: https://calendly.com/press
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Calendly and the Calendly logo are trademarks of Calendly,
+    LLC. The primary brand color Calendly Blue (#006BFF) is
+    documented on Calendly's press resources and is independently
+    cross-referenced by the simple-icons brand database, which
+    cites calendly.com as the source.
+  importedDate: 2026-05-18
+  notes: >
+    Only Calendly Blue (#006BFF) is read directly from Calendly's
+    public brand surfaces. Secondary neutrals (mid-grays, dark
+    canvas, hover blue) are authored neutral inversions
+    calibrated to support both modes consistently without
+    fabricating hex values that Calendly does not publish.
+
+swatches:
+  # ─── Signature ─────────────────────────────────────────────────
+  - id: calendly-blue
+    name: Calendly Blue
+    value: "#006BFF"
+    description: >
+      Signature saturated blue. Primary brand color — used on the
+      wordmark, primary CTAs, and key interactive surfaces.
+
+  # ─── Neutrals ──────────────────────────────────────────────────
+  - id: calendly-white
+    name: Calendly White
+    value: "#FFFFFF"
+    description: Canvas on light surfaces; reversed wordmark fill.
+  - id: calendly-black
+    name: Calendly Black
+    value: "#0B1B2D"
+    description: Near-black body text on light backgrounds — Calendly's marketing-page text tone.
+  - id: calendly-canvas-dark
+    name: Calendly Canvas Dark
+    value: "#0B1B2D"
+    description: Authored dark-mode canvas aligned with the body-text tone.
+  - id: calendly-surface-light
+    name: Calendly Surface Light
+    value: "#F4F6F9"
+    description: Authored panel surface for light mode.
+  - id: calendly-surface-dark
+    name: Calendly Surface Dark
+    value: "#1A2A40"
+    description: Authored elevated surface on dark mode.
+  - id: calendly-text-secondary
+    name: Calendly Text Secondary
+    value: "#4A5568"
+    description: Authored secondary text — neutral mid-gray on light canvas.
+  - id: calendly-text-tertiary
+    name: Calendly Text Tertiary
+    value: "#8794A6"
+    description: Authored tertiary / muted text.
+  - id: calendly-blue-hover
+    name: Calendly Blue Hover
+    value: "#2D85FF"
+    description: Authored softer Calendly Blue for hover / active states.
+
+modes:
+  light:
+    roles:
+      background: calendly-white
+      surface: calendly-surface-light
+      surface-elevated: calendly-white
+      text-primary: calendly-black
+      text-secondary: calendly-text-secondary
+      text-tertiary: calendly-text-tertiary
+      primary: calendly-blue
+      primary-hover: calendly-blue-hover
+      accent: calendly-blue
+      accent-hover: calendly-blue-hover
+      warning: calendly-blue
+      warning-hover: calendly-blue-hover
+      error: calendly-blue
+      success: calendly-blue
+
+  dark:
+    roles:
+      background: calendly-canvas-dark
+      surface: calendly-surface-dark
+      surface-elevated: calendly-surface-dark
+      text-primary: calendly-white
+      text-secondary: calendly-text-tertiary
+      text-tertiary: calendly-text-secondary
+      primary: calendly-blue
+      primary-hover: calendly-blue-hover
+      accent: calendly-blue
+      accent-hover: calendly-blue-hover
+      warning: calendly-blue
+      warning-hover: calendly-blue-hover
+      error: calendly-blue
+      success: calendly-blue

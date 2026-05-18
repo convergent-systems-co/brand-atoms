@@ -1,0 +1,185 @@
+id: nextjs
+version: 1.0.0
+name: Next.js
+description: >
+  Next.js is the React framework for the web — a production-grade
+  meta-framework from Vercel that ships with file-based routing,
+  server components, streaming, edge runtime, and a tightly
+  integrated developer experience. The brand voice is engineer-
+  direct and product-led, inherited from Vercel: short sentences,
+  monochrome surfaces, deference to a live demo over an
+  adjective. The visual identity is the triangle mark, black on
+  white in light mode and white on black in dark mode — dark-first
+  in expression, monochrome by design.
+tags: [nextjs, framework, javascript, react, vercel, monochrome, dark-first]
+
+provenance:
+  source: https://nextjs.org/
+  license: MIT
+  attribution: >
+    Next.js is MIT-licensed and maintained by Vercel, Inc. The
+    Next.js triangle mark and "Next.js" word mark are property
+    of Vercel. The brand expression is monochrome black/white
+    paired with the open-source Geist typeface family; status
+    hues mirror the Geist Design System functional ramps shared
+    with the Vercel atom. This atom is brand-atoms' machine-
+    readable encoding; no logos are bundled.
+  importedDate: 2026-05-18
+  notes: >
+    Next.js does not publish a standalone brand-guidelines
+    document; the brand expression on nextjs.org is the source
+    of truth. Geist is in the brand-atoms catalog (geist@1,
+    geist-mono@1), released by Vercel under the SIL Open Font
+    License v1.1.
+
+references:
+  palette: nextjs@1
+  fonts:
+    heading: geist@1
+    body: geist@1
+    mono: geist-mono@1
+
+roles:
+  colors:
+    identity: next-black
+    on-identity: next-white
+    primary: next-black
+    primary-hover: light-gray-1000
+    accent: vercel-blue
+    accent-hover: vercel-blue-bright
+    background: light-bg-200
+    surface: next-white
+    text-primary: light-gray-1000
+    text-secondary: light-gray-600
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - gradient-fill
+      - drop-shadow
+      - on-busy-photo
+      - composited-with-product-logo
+    severity: error
+    rationale: >
+      The Next.js triangle mark is monochrome by design.
+      Gradient, recolored, or skewed variants are explicitly
+      disallowed per the Vercel brand expression at
+      vercel.com/design/brands (which governs Next.js as a
+      Vercel-stewarded property).
+
+  - type: colorChoice
+    target: roles.colors.primary
+    allowed:
+      - next-black
+      - next-white
+    forbidden:
+      - vercel-blue
+      - vercel-red
+      - vercel-amber
+      - vercel-green
+    severity: error
+    rationale: >
+      Next.js's primary brand color is monochrome — black in
+      light mode, white in dark. The functional hues
+      (blue/red/amber/green) carry semantic meaning and must
+      not stand in as the brand identity.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["500", "600", "700", "800"]
+    severity: warning
+    rationale: >
+      Next.js marketing surfaces use Geist Medium (500),
+      SemiBold (600), and Bold (700) for headings. Lighter
+      weights are reserved for fine UI labels; weights above
+      800 compromise Geist's neutral geometric voice.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Geist's foreground/background pairs are designed
+      AA-out-of-the-box: light-gray-1000 (#171717) on
+      light-bg-200 (#FAFAFA) gives ~15:1 and dark-gray-1000
+      (#EDEDED) on dark-bg-100 (#0A0A0A) gives ~17:1. Both
+      clear AA with substantial margin.
+
+  - type: contextRestriction
+    target: roles.colors.accent
+    allowedContexts:
+      - link
+      - focus-ring
+      - data-viz-primary
+    forbiddenContexts:
+      - background
+      - large-fill
+    severity: warning
+    rationale: >
+      Vercel Blue (#0070F3) is the documented link / focus
+      accent inherited from the Geist Design System — used
+      as a thin stroke or small-glyph fill, never as a large
+      background block. Large blue fills compete with the
+      monochrome brand voice.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.5
+    severity: error
+    rationale: >
+      Geist Sans is the only display face on nextjs.org and
+      vercel.com; the visual hierarchy is established
+      entirely by size. A 1.5× minimum heading-to-body
+      ratio preserves the typographic rhythm without
+      introducing a second family.
+
+  - type: compositionConstraint
+    target: roles.colors.identity
+    pairsWith:
+      - next-white
+    doesNotPairWith:
+      - vercel-blue
+      - vercel-red
+      - vercel-amber
+      - vercel-green
+    severity: error
+    rationale: >
+      The brand block is black-on-white or white-on-black
+      only. Pairing the triangle directly with functional
+      hues breaks the monochrome brand contract.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) —
+      Level AA. Geist Design System tokens are AA-compliant
+      by construction; consumers must not derive intermediate
+      stops that defeat that property.
+
+  - type: contextRestriction
+    target: trademark.use
+    forbiddenContexts:
+      - product-name-prefix
+      - implied-endorsement
+    severity: error
+    rationale: >
+      The Vercel brand policy forbids product names that
+      imply Next.js or Vercel endorsement. Use the mark to
+      indicate compatibility, not as part of a product
+      identity.

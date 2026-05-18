@@ -1,0 +1,108 @@
+kind: palette
+id: asana
+version: 1.0.0
+name: Asana
+description: >
+  Asana's brand palette, anchored on the three-dot coral mark — a
+  warm Asana Coral (#F06A6A) carrying the institutional voice on a
+  clean white canvas with near-black body text. Asana's product also
+  uses a documented purple supporting accent, but its exact published
+  brand hex is not catalogued here to avoid fabrication; consumers
+  needing the supporting purple should pull it from Asana's
+  in-product brand documentation at consumption time.
+tags: [saas, productivity, asana, work-management, coral]
+
+provenance:
+  source: https://asana.com/press
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Asana and the Asana logo are trademarks of Asana, Inc. The
+    primary brand color Asana Coral (#F06A6A) is documented on
+    Asana's press and brand resources and is independently
+    cross-referenced by the simple-icons brand database, which
+    cites asana.com as the source.
+  importedDate: 2026-05-18
+  notes: >
+    Only the Asana Coral mark color is read directly from Asana's
+    public brand surfaces. Secondary neutrals (mid-grays, dark
+    canvas) are authored neutral inversions calibrated to support
+    both modes consistently without fabricating hex values that
+    Asana does not publish.
+
+swatches:
+  # ─── Signature ─────────────────────────────────────────────────
+  - id: asana-coral
+    name: Asana Coral
+    value: "#F06A6A"
+    description: >
+      Signature warm coral — the three-dot mark color. Primary brand
+      accent used on the wordmark, the mark, and key brand surfaces.
+
+  # ─── Neutrals ──────────────────────────────────────────────────
+  - id: asana-white
+    name: Asana White
+    value: "#FFFFFF"
+    description: Canvas on light surfaces; reversed wordmark fill.
+  - id: asana-black
+    name: Asana Black
+    value: "#1E1F21"
+    description: Near-black body text on light backgrounds — Asana's marketing-page text tone.
+  - id: asana-canvas-dark
+    name: Asana Canvas Dark
+    value: "#1E1F21"
+    description: Authored dark-mode canvas — neutral near-black aligned with body-text tone.
+  - id: asana-surface-light
+    name: Asana Surface Light
+    value: "#F6F4F2"
+    description: Authored warm panel surface for light mode.
+  - id: asana-surface-dark
+    name: Asana Surface Dark
+    value: "#2D2E30"
+    description: Authored elevated surface on dark mode.
+  - id: asana-text-secondary
+    name: Asana Text Secondary
+    value: "#6D6E6F"
+    description: Authored secondary text — neutral mid-gray on light canvas.
+  - id: asana-text-tertiary
+    name: Asana Text Tertiary
+    value: "#9CA6AF"
+    description: Authored tertiary / muted text.
+  - id: asana-coral-hover
+    name: Asana Coral Hover
+    value: "#F58A8A"
+    description: Authored softer coral for hover / active states.
+
+modes:
+  light:
+    roles:
+      background: asana-white
+      surface: asana-surface-light
+      surface-elevated: asana-white
+      text-primary: asana-black
+      text-secondary: asana-text-secondary
+      text-tertiary: asana-text-tertiary
+      primary: asana-coral
+      primary-hover: asana-coral-hover
+      accent: asana-coral
+      accent-hover: asana-coral-hover
+      warning: asana-coral
+      warning-hover: asana-coral-hover
+      error: asana-coral
+      success: asana-coral
+
+  dark:
+    roles:
+      background: asana-canvas-dark
+      surface: asana-surface-dark
+      surface-elevated: asana-surface-dark
+      text-primary: asana-white
+      text-secondary: asana-text-tertiary
+      text-tertiary: asana-text-secondary
+      primary: asana-coral
+      primary-hover: asana-coral-hover
+      accent: asana-coral
+      accent-hover: asana-coral-hover
+      warning: asana-coral
+      warning-hover: asana-coral-hover
+      error: asana-coral
+      success: asana-coral

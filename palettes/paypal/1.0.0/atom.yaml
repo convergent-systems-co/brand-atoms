@@ -1,0 +1,125 @@
+kind: palette
+id: paypal
+version: 1.0.0
+name: PayPal
+description: >
+  PayPal Holdings, Inc. corporate brand palette. PayPal's identity is
+  carried by a tight, signature blue duotone — the deeper PayPal Blue
+  (#003087) and the brighter PayPal Cobalt (#009CDE) — paired across
+  the two-toned "PP" monogram and the wordmark. The brand canvas is
+  light-first with a near-black ink for body text; the secondary
+  PayPal Gold (#FFC439) drives the "Pay with PayPal" button across
+  the merchant web.
+tags: [fintech, payments, paypal, blue, corporate, light-first]
+
+provenance:
+  source: https://newsroom.paypal-corp.com/Brand-Center
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    PayPal Holdings, Inc. — PayPal, the PayPal wordmark, and the
+    two-tone "PP" monogram are registered trademarks of PayPal
+    Holdings, Inc. The signature duotone (PayPal Blue #003087 +
+    PayPal Cobalt #009CDE) is documented across PayPal's brand-center
+    press kit and visible in the deployed PayPal logomark SVG. The
+    "Pay with PayPal" gold (#FFC439) is published in PayPal's
+    merchant button-style guidance.
+  importedDate: 2026-05-18
+  notes: >
+    PayPal's identity is one of the most consistent in fintech: two
+    blues for the mark, one gold for the merchant button, and a clean
+    light canvas. The dark-mode role mapping is an authored inversion
+    for consumers that need a dark-surface treatment; it is not a
+    PayPal-published canonical mode.
+
+swatches:
+  # ─── Signature blues ───────────────────────────────────────────
+  - id: paypal-blue
+    name: PayPal Blue
+    value: "#003087"
+    description: Primary deep navy-blue — the back-facing "P" of the monogram and the wordmark color.
+  - id: paypal-cobalt
+    name: PayPal Cobalt
+    value: "#009CDE"
+    description: Bright cobalt — the front-facing "P" of the duotone monogram.
+  - id: paypal-blue-deep
+    name: PayPal Blue Deep
+    value: "#001C64"
+    description: Deeper navy used on hover/pressed states and emphasis text on the primary blue.
+
+  # ─── Accent gold ───────────────────────────────────────────────
+  - id: paypal-gold
+    name: PayPal Gold
+    value: "#FFC439"
+    description: Signature gold — the "Pay with PayPal" merchant-button fill across the web.
+  - id: paypal-gold-hover
+    name: PayPal Gold Hover
+    value: "#F2BB30"
+    description: Authored darker gold for hover/pressed states on the gold merchant button.
+
+  # ─── Neutrals ──────────────────────────────────────────────────
+  - id: paypal-ink
+    name: PayPal Ink
+    value: "#2C2E2F"
+    description: Near-black for body copy on light surfaces.
+  - id: paypal-graphite
+    name: PayPal Graphite
+    value: "#545D68"
+    description: Secondary text on light backgrounds.
+  - id: paypal-gray
+    name: PayPal Gray
+    value: "#9DA3A6"
+    description: Tertiary text and metadata.
+  - id: paypal-white
+    name: PayPal White
+    value: "#FFFFFF"
+    description: Canonical light canvas.
+  - id: paypal-fog
+    name: PayPal Fog
+    value: "#F5F7FA"
+    description: Authored surface tone for cards and panels.
+  - id: paypal-divider
+    name: PayPal Divider
+    value: "#CBD2D6"
+    description: Authored hairline divider tone.
+  - id: paypal-canvas-dark
+    name: PayPal Canvas Dark
+    value: "#0F1419"
+    description: Authored dark-mode canvas — PayPal is light-first; this is an authored inversion.
+  - id: paypal-surface-dark
+    name: PayPal Surface Dark
+    value: "#1C232B"
+    description: Authored elevated surface on dark mode.
+
+modes:
+  light:
+    roles:
+      background: paypal-white
+      surface: paypal-fog
+      surface-elevated: paypal-white
+      text-primary: paypal-ink
+      text-secondary: paypal-graphite
+      text-tertiary: paypal-gray
+      primary: paypal-blue
+      primary-hover: paypal-blue-deep
+      accent: paypal-cobalt
+      accent-hover: paypal-blue
+      warning: paypal-gold
+      warning-hover: paypal-gold-hover
+      error: paypal-blue-deep
+      success: paypal-cobalt
+  dark:
+    roles:
+      background: paypal-canvas-dark
+      surface: paypal-surface-dark
+      surface-elevated: paypal-surface-dark
+      text-primary: paypal-white
+      text-secondary: paypal-gray
+      text-tertiary: paypal-graphite
+      primary: paypal-cobalt
+      primary-hover: paypal-blue
+      accent: paypal-gold
+      accent-hover: paypal-gold-hover
+      warning: paypal-gold
+      warning-hover: paypal-gold-hover
+      error: paypal-blue
+      success: paypal-cobalt

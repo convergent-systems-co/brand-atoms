@@ -1,0 +1,212 @@
+id: bluesky
+version: 1.0.0
+name: Bluesky
+description: >
+  Bluesky is a decentralized social network built on the AT Protocol,
+  spun out of Twitter as a public-benefit corporation in 2021 and
+  opened to the public in 2024. The brand voice is hopeful,
+  open-source-leaning, and intentionally modest — a deliberate
+  counterweight to the closed-network identities it competes against.
+  Visually, Bluesky is anchored on Bluesky Blue (#0085FF) — a
+  saturated sky-blue that carries the butterfly mark and the bsky.app
+  product surface. The supporting system is intentionally restrained,
+  letting posts and media drive the visual surface.
+tags: [social, decentralized, bluesky, blue, atproto, public-benefit]
+
+provenance:
+  source: https://bsky.app
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Bluesky and the Bluesky butterfly mark are trademarks of Bluesky
+    Social, PBC. The primary brand blue (~#0085FF) is verified via
+    the simple-icons brand database, which cites bsky.app as the
+    source, and is consistent with the brand-mark fill on the
+    bsky.app product surface and the Bluesky press kit. Inter is the
+    UI typeface used across bsky.app and is already in the
+    brand-atoms catalog.
+  importedDate: 2026-05-18
+  notes: >
+    Bluesky's identity is bi-modal: the mobile client defaults to
+    dark mode on platforms where the OS prefers dark, while the
+    desktop product and marketing surface default to light. The
+    Bluesky Blue carries across both. Authored neutrals follow
+    bsky.app's product-UI tones (near-black canvas with cool
+    gray-blue elevations) rather than fabricating an independent
+    dark palette.
+
+references:
+  palette: bluesky@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # identity = the brand's signature color. Bluesky's identity IS
+    # the saturated sky-blue — used on the butterfly mark, the
+    # wordmark, and primary affordances.
+    identity: bluesky-blue
+    on-identity: bluesky-white
+
+    primary: bluesky-blue
+    primary-hover: bluesky-blue-dark
+    accent: bluesky-blue
+    accent-hover: bluesky-blue-dark
+
+    success: bluesky-green
+    warning: bluesky-yellow
+    error: bluesky-red
+
+    background-light: bluesky-white
+    background-dark: bluesky-canvas-dark
+    surface-light: bluesky-near-white
+    surface-dark: bluesky-surface-dark
+    surface-elevated-dark: bluesky-surface-elevated-dark
+    text-primary-light: bluesky-text-primary
+    text-primary-dark: bluesky-text-on-dark
+    text-secondary-light: bluesky-text-secondary
+    text-secondary-dark: bluesky-text-secondary-dark
+    divider-light: bluesky-divider-light
+    divider-dark: bluesky-divider-dark
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.mark
+    allowed:
+      - bluesky-blue
+      - bluesky-white
+      - bluesky-text-primary
+    forbidden:
+      - any-non-brand-color
+      - bluesky-yellow
+      - bluesky-green
+      - bluesky-red
+    severity: error
+    rationale: >
+      The Bluesky butterfly mark and wordmark render in Bluesky Blue,
+      white (on dark surfaces), or near-black (in monochrome
+      contexts). Status accents are reserved for product affordances
+      and never recolor the mark.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - inverted-without-variant
+      - cropped
+      - butterfly-redraw
+    severity: error
+    rationale: >
+      Bluesky's brand guidance prescribes the butterfly mark in
+      approved variants only. Recoloring, redrawing the butterfly, or
+      applying decorative effects violates the brand-use direction
+      surfaced across bsky.social and bsky.app.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: dark
+    use: butterfly-light
+    severity: error
+    rationale: >
+      On the dark canvas (bsky.app's dark theme), the butterfly mark
+      renders in white or Bluesky Blue Light for legibility. The
+      saturated Bluesky Blue alone may not clear AA-large on the
+      deepest canvas.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: light
+    use: butterfly-blue
+    severity: error
+    rationale: >
+      On light surfaces, the butterfly mark renders in Bluesky Blue —
+      the canonical brand application on bsky.app's light theme and
+      across marketing materials.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      WCAG 2.1 Level AA contrast minimum for body text. Bluesky's
+      near-black text (#0B0F14) on white reads at ~19:1 — well above
+      AA. The dark-mode text tone (#F1F3F5) on the near-black canvas
+      also clears AA.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 3.0
+    standard: WCAG-AA-large
+    severity: error
+    rationale: >
+      Bluesky Blue (#0085FF) on white reads at ~3.6:1 — clearing
+      WCAG AA at large-text size. The lighter blue variant
+      (#4FA9FF) is used on the dark canvas to maintain AA-large
+      contrast against the near-black surface.
+
+  - type: contextRestriction
+    target: roles.colors.identity
+    forbiddenContexts:
+      - product-of-competitor
+      - merchandise
+      - endorsement-implication
+      - atproto-misattribution
+    severity: error
+    rationale: >
+      Bluesky Social, PBC restricts use of the Bluesky butterfly mark
+      and wordmark in ways that imply official affiliation, on
+      competing-product surfaces, on third-party merchandise without
+      license, or in ways that conflate the Bluesky-the-app brand
+      with the AT Protocol (the open standard Bluesky stewards but
+      does not exclusively own).
+
+  - type: compositionConstraint
+    target: roles.colors.identity
+    pairsWith:
+      - bluesky-white
+      - bluesky-near-white
+      - bluesky-canvas-dark
+      - bluesky-text-primary
+    severity: recommendation
+    rationale: >
+      Bluesky Blue is calibrated to read on both the light and dark
+      canonical surfaces. Pairing it with an additional dominant
+      chromatic value breaks the calibrated minimal composition the
+      brand depends on.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["500", "600", "700"]
+    severity: warning
+    rationale: >
+      Inter's most-used cuts on the bsky.app surface are Medium (500),
+      Semi-Bold (600), and Bold (700). Lighter cuts compromise the
+      modest-but-confident voice the brand depends on, while heavier
+      cuts overstate against Bluesky's deliberately understated
+      visual surface.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level AA.
+      The bi-modal canvas requires contrast verification on both the
+      light and dark surfaces; AA is the floor on either.

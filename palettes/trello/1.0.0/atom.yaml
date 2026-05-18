@@ -1,0 +1,112 @@
+kind: palette
+id: trello
+version: 1.0.0
+name: Trello
+description: >
+  Trello's brand palette, anchored on Trello Blue (#0079BF) — the
+  signature board-blue that has carried the kanban-card mark since
+  the platform's early days. Trello (owned by Atlassian since 2017)
+  retains its own brand color while sharing the Atlassian design
+  language for product surfaces. The institutional voice pairs that
+  blue with a clean white canvas and near-black body text.
+tags: [saas, productivity, trello, atlassian, kanban, blue]
+
+provenance:
+  source: https://atlassian.design/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Trello and the Trello logo are trademarks of Atlassian Pty Ltd.
+    The primary brand color Trello Blue (#0079BF) is documented in
+    Trello's brand surfaces and is independently cross-referenced
+    by the simple-icons brand database, which cites trello.com as
+    the source. Atlassian Design (atlassian.design) provides the
+    product-surface design language shared across Atlassian's
+    portfolio.
+  importedDate: 2026-05-18
+  notes: >
+    Only Trello Blue (#0079BF) is read directly from Trello's
+    public brand surfaces. Trello's product also uses a documented
+    label palette (red, yellow, green, etc.) but those label hex
+    values are part of the product UI rather than brand-level
+    color tokens and are not catalogued here. Secondary neutrals
+    are authored neutral inversions calibrated to support both
+    modes consistently.
+
+swatches:
+  # ─── Signature ─────────────────────────────────────────────────
+  - id: trello-blue
+    name: Trello Blue
+    value: "#0079BF"
+    description: >
+      Signature Trello board-blue. Primary brand color — used on
+      the wordmark, the kanban-card mark, and primary brand
+      surfaces.
+
+  # ─── Neutrals ──────────────────────────────────────────────────
+  - id: trello-white
+    name: Trello White
+    value: "#FFFFFF"
+    description: Canvas on light surfaces; reversed wordmark fill.
+  - id: trello-black
+    name: Trello Black
+    value: "#172B4D"
+    description: Near-black body text — Atlassian Design's documented neutral text tone.
+  - id: trello-canvas-dark
+    name: Trello Canvas Dark
+    value: "#1D2125"
+    description: Authored dark-mode canvas — Atlassian Design's documented dark canvas.
+  - id: trello-surface-light
+    name: Trello Surface Light
+    value: "#F4F5F7"
+    description: Authored panel surface for light mode — Atlassian Design's documented N20 neutral.
+  - id: trello-surface-dark
+    name: Trello Surface Dark
+    value: "#22272B"
+    description: Authored elevated surface on dark mode.
+  - id: trello-text-secondary
+    name: Trello Text Secondary
+    value: "#5E6C84"
+    description: Authored secondary text — Atlassian Design's documented secondary text tone.
+  - id: trello-text-tertiary
+    name: Trello Text Tertiary
+    value: "#8993A4"
+    description: Authored tertiary / muted text.
+  - id: trello-blue-hover
+    name: Trello Blue Hover
+    value: "#2890CC"
+    description: Authored softer Trello Blue for hover / active states.
+
+modes:
+  light:
+    roles:
+      background: trello-white
+      surface: trello-surface-light
+      surface-elevated: trello-white
+      text-primary: trello-black
+      text-secondary: trello-text-secondary
+      text-tertiary: trello-text-tertiary
+      primary: trello-blue
+      primary-hover: trello-blue-hover
+      accent: trello-blue
+      accent-hover: trello-blue-hover
+      warning: trello-blue
+      warning-hover: trello-blue-hover
+      error: trello-blue
+      success: trello-blue
+
+  dark:
+    roles:
+      background: trello-canvas-dark
+      surface: trello-surface-dark
+      surface-elevated: trello-surface-dark
+      text-primary: trello-white
+      text-secondary: trello-text-tertiary
+      text-tertiary: trello-text-secondary
+      primary: trello-blue
+      primary-hover: trello-blue-hover
+      accent: trello-blue
+      accent-hover: trello-blue-hover
+      warning: trello-blue
+      warning-hover: trello-blue-hover
+      error: trello-blue
+      success: trello-blue

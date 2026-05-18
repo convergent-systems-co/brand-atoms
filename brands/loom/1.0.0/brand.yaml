@@ -1,0 +1,159 @@
+id: loom
+version: 1.0.0
+name: Loom
+description: >
+  Loom is an async-video messaging platform — quick screen and
+  camera recordings shared as links — acquired by Atlassian in
+  2023. The brand voice is friendly, fast, and human. Visually,
+  the identity is the record-spool mark in Loom Purple (#625DF5)
+  on a clean white canvas with near-black body text. Where
+  competing video tools lean on greens and blues, Loom commits
+  to a single committed blue-violet.
+tags: [saas, productivity, loom, async-video, atlassian]
+
+provenance:
+  source: https://www.loom.com/press
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Loom and the Loom logo are trademarks of Loom, Inc. (an
+    Atlassian company). The primary brand color Loom Purple
+    (#625DF5) is documented on Loom's press resources.
+    brand-atoms catalogues only the publicly documented signature
+    color and authored neutrals; licensed application of the
+    Loom name and mark is governed by Loom's brand-use guidance
+    at loom.com/press.
+  importedDate: 2026-05-18
+  notes: >
+    Loom's marketing pages render in a neutral humanist sans
+    consistent with Inter; Inter is referenced here as the primary
+    face and is already in the brand-atoms catalog.
+
+references:
+  palette: loom@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # identity = the brand's signature surface. Loom's identity is
+    # the record-spool mark in Loom Purple — the purple carries
+    # the institutional voice on the clean white canvas.
+    identity: loom-purple
+    on-identity: loom-white
+
+    primary: loom-purple
+    primary-hover: loom-purple-hover
+    accent: loom-purple
+    accent-hover: loom-purple-hover
+
+    success: loom-purple
+    warning: loom-purple
+    error: loom-purple
+
+    background-light: loom-white
+    background-dark: loom-canvas-dark
+    surface-light: loom-surface-light
+    surface-dark: loom-surface-dark
+    text-primary-light: loom-black
+    text-primary-dark: loom-white
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.mark
+    allowed:
+      - loom-purple
+      - loom-white
+      - loom-black
+    forbidden:
+      - any-non-brand-color
+    severity: error
+    rationale: >
+      The Loom record-spool mark renders in Loom Purple on light
+      surfaces and in white on dark surfaces. Recoloring the
+      mark into off-brand hues violates Loom's brand-use guidance.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - gradient-fill
+    severity: error
+    rationale: >
+      Loom's press resources prohibit stretching, rotating,
+      recoloring, or applying decorative effects to the mark.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      WCAG 2.1 Level AA contrast minimum for body text. Loom
+      Black (#1A1A2E) on Loom White (#FFFFFF) clears AA
+      comfortably.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: dark
+    use: logo-light
+    severity: error
+    rationale: >
+      On dark surfaces, use Loom's documented light-fill mark
+      variant; do not invert the purple mark on the fly.
+
+  - type: contextRestriction
+    target: roles.colors.identity
+    forbiddenContexts:
+      - product-of-competitor
+      - merchandise
+      - endorsement-implication
+      - company-name-or-domain
+    severity: error
+    rationale: >
+      Loom's trademark guidance forbids use of the Loom name and
+      mark in third-party company names, domains, and uses that
+      imply affiliation or endorsement.
+
+  - type: compositionConstraint
+    target: roles.colors.identity
+    pairsWith:
+      - loom-white
+      - loom-black
+      - loom-surface-light
+    severity: recommendation
+    rationale: >
+      Loom Purple is calibrated to read on white and near-black.
+      Pairing it with another saturated hue at the same weight
+      breaks the friendly, focused voice of the brand surface.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["500", "600", "700"]
+    severity: warning
+    rationale: >
+      Loom's marketing surfaces render headings in the 500–700
+      band; lighter weights undermine the confident voice of the
+      brand.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level
+      AA. Loom-skinned surfaces must clear AA on body text.

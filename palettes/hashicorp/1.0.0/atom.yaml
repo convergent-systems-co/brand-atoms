@@ -1,0 +1,153 @@
+kind: palette
+id: hashicorp
+version: 1.0.0
+name: HashiCorp
+description: >
+  HashiCorp brand palette anchored on the corporate HashiCorp Yellow
+  (#FFCD00) — the signature corporate accent used on the HashiCorp
+  parent wordmark — paired with the product-family accents that
+  identify each HashiCorp tool: Terraform Purple, Vault Yellow,
+  Consul Magenta, Nomad Green, Boundary Pink, Packer Blue, Vagrant
+  Blue, and Waypoint Sky. The corporate canvas is a deep near-black
+  used on hashicorp.com and the developer.hashicorp.com chrome.
+tags: [tech, hashicorp, devops, infrastructure-as-code, product-family]
+
+provenance:
+  source: https://www.hashicorp.com/brand
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    HashiCorp, the HashiCorp logo, Terraform, Vault, Consul, Nomad,
+    Boundary, Packer, Vagrant, and Waypoint are trademarks of
+    HashiCorp, Inc. Brand colors documented here are sourced from
+    hashicorp.com/brand and the product brand pages
+    (terraform.io, vaultproject.io, etc.) where each product
+    publishes its signature accent.
+  importedDate: 2026-05-18
+  notes: >
+    HashiCorp uses a corporate yellow (#FFCD00) for the parent
+    brand and a per-product accent palette for each tool. This
+    atom captures both: the corporate accent plus a representative
+    set of product-family hues used across the HashiCorp Cloud
+    Platform (HCP) console and the marketing site. Both light and
+    dark modes are authored; HashiCorp marketing leans dark.
+
+swatches:
+  - id: hashicorp-yellow
+    name: HashiCorp Yellow
+    value: "#FFCD00"
+    description: >
+      The HashiCorp corporate accent — the yellow of the
+      parent wordmark and the principal CTA color across
+      hashicorp.com.
+  - id: hashicorp-yellow-dark
+    name: HashiCorp Yellow Dark
+    value: "#D9AE00"
+    description: Pressed/active state for the corporate yellow CTA.
+  - id: hashicorp-black
+    name: HashiCorp Black
+    value: "#000000"
+    description: Pure black — corporate wordmark fill on light surfaces.
+  - id: hashicorp-canvas
+    name: HashiCorp Canvas
+    value: "#0E0E10"
+    description: >
+      Near-black canvas used on hashicorp.com hero sections
+      and the HCP console dark chrome.
+  - id: hashicorp-canvas-deep
+    name: HashiCorp Canvas Deep
+    value: "#050507"
+    description: Darkest canvas used as the page-level dark background.
+  - id: terraform-purple
+    name: Terraform Purple
+    value: "#7B42BC"
+    description: >
+      Terraform product accent — used on terraform.io and the
+      Terraform Registry chrome.
+  - id: vault-yellow
+    name: Vault Yellow
+    value: "#FFEC6E"
+    description: >
+      Vault product accent — the brighter yellow used on
+      vaultproject.io, distinct from the corporate yellow.
+  - id: consul-magenta
+    name: Consul Magenta
+    value: "#E03875"
+    description: >
+      Consul product accent — magenta used on consul.io and
+      service-mesh diagrams.
+  - id: nomad-green
+    name: Nomad Green
+    value: "#00CA8E"
+    description: Nomad product accent — used on nomadproject.io.
+  - id: boundary-pink
+    name: Boundary Pink
+    value: "#F24C53"
+    description: Boundary product accent — coral-pink used on boundaryproject.io.
+  - id: packer-blue
+    name: Packer Blue
+    value: "#1DAEFF"
+    description: Packer product accent — sky-blue used on packer.io.
+  - id: waypoint-sky
+    name: Waypoint Sky
+    value: "#14C6CB"
+    description: Waypoint product accent — teal used on waypointproject.io.
+  - id: hashicorp-ink
+    name: HashiCorp Ink
+    value: "#1B1B1F"
+    description: Primary text on light surfaces.
+  - id: hashicorp-gray
+    name: HashiCorp Gray
+    value: "#6F7682"
+    description: Secondary text and metadata.
+  - id: hashicorp-gray-light
+    name: HashiCorp Gray Light
+    value: "#9CA0A8"
+    description: Tertiary text and disabled UI.
+  - id: hashicorp-surface
+    name: HashiCorp Surface
+    value: "#F4F4F7"
+    description: Quiet surface — card backgrounds on the marketing site.
+  - id: hashicorp-border
+    name: HashiCorp Border
+    value: "#DDDFE4"
+    description: Hairline borders and dividers.
+  - id: hashicorp-white
+    name: HashiCorp White
+    value: "#FFFFFF"
+    description: Primary canvas on light surfaces.
+
+modes:
+  light:
+    roles:
+      background: hashicorp-white
+      surface: hashicorp-surface
+      surface-elevated: hashicorp-white
+      text-primary: hashicorp-ink
+      text-secondary: hashicorp-gray
+      text-tertiary: hashicorp-gray-light
+      primary: hashicorp-yellow
+      primary-hover: hashicorp-yellow-dark
+      accent: terraform-purple
+      accent-hover: consul-magenta
+      warning: vault-yellow
+      warning-hover: hashicorp-yellow-dark
+      error: boundary-pink
+      success: nomad-green
+      border: hashicorp-border
+  dark:
+    roles:
+      background: hashicorp-canvas-deep
+      surface: hashicorp-canvas
+      surface-elevated: hashicorp-black
+      text-primary: hashicorp-white
+      text-secondary: hashicorp-surface
+      text-tertiary: hashicorp-gray-light
+      primary: hashicorp-yellow
+      primary-hover: hashicorp-yellow-dark
+      accent: terraform-purple
+      accent-hover: consul-magenta
+      warning: vault-yellow
+      warning-hover: hashicorp-yellow-dark
+      error: boundary-pink
+      success: nomad-green
+      border: hashicorp-canvas

@@ -1,0 +1,143 @@
+kind: palette
+id: linkedin
+version: 1.0.0
+name: LinkedIn
+description: >
+  LinkedIn corporate palette, anchored on LinkedIn Blue (#0A66C2) — the
+  saturated mid-blue introduced with the 2019 brand refresh and used
+  across the LinkedIn product, marketing materials, and the in-bug
+  wordmark. The palette is light-first: the canonical LinkedIn surface
+  is white with the blue used as the primary identity color and on key
+  interactive surfaces. A small set of supporting accents (warm orange,
+  green for status, near-black for headlines) appears in LinkedIn's
+  published brand guidance.
+tags: [social, professional, linkedin, blue, corporate, light-first]
+
+provenance:
+  source: https://brand.linkedin.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    LinkedIn and the LinkedIn "in" mark are registered trademarks of
+    LinkedIn Corporation (a Microsoft subsidiary). LinkedIn Blue
+    (#0A66C2) is documented in LinkedIn's published brand guidelines
+    at brand.linkedin.com and independently verified via the
+    simple-icons brand database, which cites linkedin.com as the source.
+    The accent values are read from LinkedIn's brand-system color
+    documentation; status accents are authored neutrals tuned to the
+    LinkedIn product surface.
+  importedDate: 2026-05-18
+  notes: >
+    LinkedIn Blue was darkened from the original #0077B5 to the present
+    #0A66C2 in the 2019 brand refresh to clear WCAG AA contrast on
+    white at body-text size. The dark-mode role mapping is an authored
+    inversion supporting LinkedIn's product dark theme; the canonical
+    LinkedIn marketing surface remains light-first.
+
+swatches:
+  # ─── Signature ─────────────────────────────────────────────────
+  - id: linkedin-blue
+    name: LinkedIn Blue
+    value: "#0A66C2"
+    description: >
+      Signature mid-blue — the primary brand color introduced with the
+      2019 brand refresh. The in-bug wordmark, primary buttons, and
+      the link color on linkedin.com all read in this blue.
+  - id: linkedin-blue-dark
+    name: LinkedIn Blue Dark
+    value: "#004182"
+    description: >
+      Darker blue for hover, pressed, and focus states on LinkedIn
+      Blue — and the historical pre-2019 wordmark color region.
+  - id: linkedin-blue-light
+    name: LinkedIn Blue Light
+    value: "#378FE9"
+    description: >
+      Lighter blue used for link affordances on dark surfaces and for
+      hover hints on light surfaces.
+
+  # ─── Neutrals ──────────────────────────────────────────────────
+  - id: linkedin-white
+    name: LinkedIn White
+    value: "#FFFFFF"
+    description: Canvas on light surfaces — the canonical LinkedIn product background.
+  - id: linkedin-near-white
+    name: LinkedIn Near-White
+    value: "#F4F2EE"
+    description: Warm off-white background used on the LinkedIn feed and editorial pages.
+  - id: linkedin-black
+    name: LinkedIn Black
+    value: "#000000E6"
+    description: >
+      Body and headline color — published as black at 90% opacity for
+      use on white surfaces, balancing legibility with warmth.
+  - id: linkedin-black-solid
+    name: LinkedIn Black Solid
+    value: "#000000"
+    description: Solid black — used in marketing and on the in-bug wordmark variants.
+  - id: linkedin-text-secondary
+    name: LinkedIn Text Secondary
+    value: "#00000099"
+    description: Authored secondary text — black at 60% opacity for muted copy on white.
+  - id: linkedin-divider
+    name: LinkedIn Divider
+    value: "#E0DFDC"
+    description: Authored hairline divider tone on light canvas.
+
+  # ─── Supporting accents (published in LinkedIn brand kit) ──────
+  - id: linkedin-warm-orange
+    name: LinkedIn Warm Orange
+    value: "#E68523"
+    description: >
+      Warm orange — used sparingly on LinkedIn marketing surfaces and
+      illustration to signal warmth and humanity.
+  - id: linkedin-green
+    name: LinkedIn Green
+    value: "#057642"
+    description: >
+      Deep green — used in LinkedIn's product UI for "open to work" and
+      positive status affordances.
+
+  # ─── Dark-mode surfaces (authored inversion) ───────────────────
+  - id: linkedin-canvas-dark
+    name: LinkedIn Canvas Dark
+    value: "#1B1F23"
+    description: Authored dark-mode canvas for LinkedIn's product dark theme.
+  - id: linkedin-surface-dark
+    name: LinkedIn Surface Dark
+    value: "#2C3033"
+    description: Authored elevated surface on dark mode.
+
+modes:
+  light:
+    roles:
+      background: linkedin-white
+      surface: linkedin-white
+      surface-elevated: linkedin-near-white
+      text-primary: linkedin-black
+      text-secondary: linkedin-text-secondary
+      text-tertiary: linkedin-text-secondary
+      primary: linkedin-blue
+      primary-hover: linkedin-blue-dark
+      accent: linkedin-blue
+      accent-hover: linkedin-blue-dark
+      warning: linkedin-warm-orange
+      warning-hover: linkedin-warm-orange
+      error: linkedin-warm-orange
+      success: linkedin-green
+
+  dark:
+    roles:
+      background: linkedin-canvas-dark
+      surface: linkedin-surface-dark
+      surface-elevated: linkedin-surface-dark
+      text-primary: linkedin-white
+      text-secondary: linkedin-divider
+      text-tertiary: linkedin-divider
+      primary: linkedin-blue-light
+      primary-hover: linkedin-blue
+      accent: linkedin-blue-light
+      accent-hover: linkedin-blue
+      warning: linkedin-warm-orange
+      warning-hover: linkedin-warm-orange
+      error: linkedin-warm-orange
+      success: linkedin-green

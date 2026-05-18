@@ -1,0 +1,183 @@
+kind: palette
+id: discord
+version: 1.0.0
+name: Discord
+description: >
+  Discord corporate palette, anchored on Blurple (#5865F2) — the
+  saturated indigo-purple that has been Discord's signature brand
+  color since the 2021 brand refresh (an updated, more accessible hue
+  evolved from the original 2015 #7289DA Blurple). The Discord product
+  is dark-first: the canonical client surface renders Blurple and a
+  small set of authored neutrals on a deep gray-blue canvas
+  (#313338 / #1E1F22) that lets motion, emoji, and voice-state color
+  carry the brand voice.
+tags: [social, gaming, discord, blurple, dark-first, voice]
+
+provenance:
+  source: https://discord.com/branding
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Discord and the Discord logo are trademarks of Discord, Inc. The
+    Blurple value (#5865F2) introduced with the 2021 brand refresh is
+    documented in Discord's public brand page at discord.com/branding
+    and independently verified via the simple-icons brand database,
+    which cites discord.com as the source. The supporting palette
+    (Old Blurple, Greyple, Dark-but-not-Black, Not-Quite-Black) is
+    documented in Discord's brand page.
+  importedDate: 2026-05-18
+  notes: >
+    Discord is dark-first by canonical identity: the desktop and mobile
+    Discord client renders on a near-black gray-blue canvas with the
+    Blurple used on the mark, the primary CTAs, and key affordances.
+    The light-mode role mapping is an authored inversion supporting
+    Discord's user-selectable light theme; the brand-identity surface
+    on discord.com marketing is still dark-canvas-dominant. Old
+    Blurple (#7289DA) is retained as a deprecated reference for
+    pre-2021 applications.
+
+swatches:
+  # ─── Signature ─────────────────────────────────────────────────
+  - id: discord-blurple
+    name: Discord Blurple
+    value: "#5865F2"
+    description: >
+      Signature indigo-purple — the primary brand color introduced
+      with the 2021 brand refresh. The Discord wordmark, the Wumpus
+      mark, primary buttons, and the mention-highlight all read in
+      Blurple.
+  - id: discord-blurple-dark
+    name: Discord Blurple Dark
+    value: "#4752C4"
+    description: Darker Blurple for hover, pressed, and active states on the primary CTA.
+
+  # ─── Discord brand palette (published on discord.com/branding) ──
+  - id: discord-old-blurple
+    name: Discord Old Blurple
+    value: "#7289DA"
+    description: >
+      The pre-2021 Blurple — retained as a deprecated reference for
+      historical applications, not part of the current brand surface.
+  - id: discord-greyple
+    name: Discord Greyple
+    value: "#99AAB5"
+    description: Neutral grey-blue from Discord's brand palette — used in marketing illustration and as a secondary text tone.
+  - id: discord-dark-not-black
+    name: Discord Dark But Not Black
+    value: "#2C2F33"
+    description: >
+      "Dark But Not Black" — Discord's published dark surface tone,
+      used historically as the client's main canvas before the
+      2022 refresh.
+  - id: discord-not-quite-black
+    name: Discord Not Quite Black
+    value: "#23272A"
+    description: >
+      "Not Quite Black" — Discord's published deepest dark tone,
+      used historically as the client's sidebar canvas.
+  - id: discord-white
+    name: Discord White
+    value: "#FFFFFF"
+    description: White — the primary text and mark fill on the dark canvas.
+
+  # ─── Modern product surfaces (post-2022 client refresh) ────────
+  - id: discord-canvas-dark
+    name: Discord Canvas Dark
+    value: "#313338"
+    description: >
+      Modern Discord client primary canvas — the main chat surface
+      since the 2022 client visual refresh.
+  - id: discord-canvas-darker
+    name: Discord Canvas Darker
+    value: "#2B2D31"
+    description: Modern Discord secondary surface — the channel list / sidebar.
+  - id: discord-canvas-darkest
+    name: Discord Canvas Darkest
+    value: "#1E1F22"
+    description: Modern Discord deepest surface — the server list rail.
+  - id: discord-text-on-dark
+    name: Discord Text on Dark
+    value: "#F2F3F5"
+    description: Primary text color on the dark canvas.
+  - id: discord-text-secondary-dark
+    name: Discord Text Secondary on Dark
+    value: "#B5BAC1"
+    description: Secondary text on the dark canvas.
+  - id: discord-text-tertiary-dark
+    name: Discord Text Tertiary on Dark
+    value: "#80848E"
+    description: Tertiary / muted text on the dark canvas.
+
+  # ─── Status accents (Discord product) ──────────────────────────
+  - id: discord-green
+    name: Discord Green
+    value: "#23A55A"
+    description: Authored success / online-status accent.
+  - id: discord-yellow
+    name: Discord Yellow
+    value: "#F0B232"
+    description: Authored idle-status / warning accent.
+  - id: discord-red
+    name: Discord Red
+    value: "#F23F43"
+    description: Authored Do-Not-Disturb / error accent.
+  - id: discord-fuchsia
+    name: Discord Fuchsia
+    value: "#EB459E"
+    description: Authored secondary accent — used on Boost and Nitro affordances.
+
+  # ─── Light-mode surfaces (authored inversion) ──────────────────
+  - id: discord-light-canvas
+    name: Discord Light Canvas
+    value: "#FFFFFF"
+    description: Authored light-mode canvas for Discord's user-selectable light theme.
+  - id: discord-light-surface
+    name: Discord Light Surface
+    value: "#F2F3F5"
+    description: Authored elevated surface on light mode.
+  - id: discord-light-surface-elevated
+    name: Discord Light Surface Elevated
+    value: "#EBEDEF"
+    description: Authored deepest-elevated surface on light mode.
+  - id: discord-text-on-light
+    name: Discord Text on Light
+    value: "#060607"
+    description: Primary text on light canvas.
+  - id: discord-text-secondary-light
+    name: Discord Text Secondary on Light
+    value: "#4E5058"
+    description: Authored secondary text on light canvas.
+
+modes:
+  light:
+    roles:
+      background: discord-light-canvas
+      surface: discord-light-surface
+      surface-elevated: discord-light-surface-elevated
+      text-primary: discord-text-on-light
+      text-secondary: discord-text-secondary-light
+      text-tertiary: discord-greyple
+      primary: discord-blurple
+      primary-hover: discord-blurple-dark
+      accent: discord-blurple
+      accent-hover: discord-blurple-dark
+      warning: discord-yellow
+      warning-hover: discord-yellow
+      error: discord-red
+      success: discord-green
+
+  dark:
+    roles:
+      background: discord-canvas-dark
+      surface: discord-canvas-darker
+      surface-elevated: discord-canvas-darkest
+      text-primary: discord-text-on-dark
+      text-secondary: discord-text-secondary-dark
+      text-tertiary: discord-text-tertiary-dark
+      primary: discord-blurple
+      primary-hover: discord-blurple-dark
+      accent: discord-blurple
+      accent-hover: discord-blurple-dark
+      warning: discord-yellow
+      warning-hover: discord-yellow
+      error: discord-red
+      success: discord-green

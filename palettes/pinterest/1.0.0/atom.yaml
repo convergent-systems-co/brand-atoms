@@ -1,0 +1,142 @@
+kind: palette
+id: pinterest
+version: 1.0.0
+name: Pinterest
+description: >
+  Pinterest corporate palette, anchored on Pinterest Red (#E60023) —
+  the saturated red that has carried the Pinterest "P" mark and the
+  wordmark since the company's founding. The brand is light-first:
+  the canonical Pinterest product surface is white with the Red used
+  on the mark, the "Save" pin button, and the highest-priority calls
+  to action. The supporting system is a small set of neutrals that
+  let pinned imagery — Pinterest's actual content — carry the visual
+  weight of every surface.
+tags: [social, discovery, pinterest, red, light-first, consumer-tech]
+
+provenance:
+  source: https://newsroom.pinterest.com/en/brand-guidelines
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Pinterest, the Pinterest "P" mark, and the Pinterest wordmark are
+    registered trademarks of Pinterest, Inc. Pinterest Red (#E60023)
+    is documented across Pinterest's brand guidelines on the
+    Pinterest newsroom and independently verified via the
+    simple-icons brand database, which cites pinterest.com as the
+    source. Authored neutrals are tuned to Pinterest's product
+    surface and do not override the official brand kit.
+  importedDate: 2026-05-18
+  notes: >
+    Pinterest's brand voice intentionally recedes behind the user's
+    pins: a tight palette of one red, one white, one near-black, and a
+    handful of UI grays is the entire brand surface. The dark-mode
+    role mapping is an authored inversion supporting Pinterest's
+    user-selectable dark theme; the canonical brand canvas remains
+    light-first.
+
+swatches:
+  # ─── Signature ─────────────────────────────────────────────────
+  - id: pinterest-red
+    name: Pinterest Red
+    value: "#E60023"
+    description: >
+      Signature red — the primary brand color. The Pinterest "P" mark,
+      the wordmark, and the "Save" pin CTA all render in this hue.
+      Verified hex from Pinterest's brand guidelines and corroborated
+      by the simple-icons brand database citing pinterest.com.
+  - id: pinterest-red-dark
+    name: Pinterest Red Dark
+    value: "#AD081B"
+    description: Authored darker red for hover, pressed, and active states on the primary CTA.
+
+  # ─── Neutrals (light) ──────────────────────────────────────────
+  - id: pinterest-white
+    name: Pinterest White
+    value: "#FFFFFF"
+    description: Canonical light canvas — the Pinterest product surface.
+  - id: pinterest-near-white
+    name: Pinterest Near-White
+    value: "#F9F9F9"
+    description: Authored panel surface on light mode — pin-card backgrounds.
+  - id: pinterest-text-primary
+    name: Pinterest Text Primary
+    value: "#111111"
+    description: Authored body text and headline color on light backgrounds.
+  - id: pinterest-text-secondary
+    name: Pinterest Text Secondary
+    value: "#5F5F5F"
+    description: Authored secondary text on light backgrounds.
+  - id: pinterest-text-tertiary
+    name: Pinterest Text Tertiary
+    value: "#767676"
+    description: Authored tertiary / muted text on light backgrounds.
+  - id: pinterest-divider-light
+    name: Pinterest Divider Light
+    value: "#EFEFEF"
+    description: Authored hairline divider on the light canvas.
+
+  # ─── Neutrals (dark) ───────────────────────────────────────────
+  - id: pinterest-canvas-dark
+    name: Pinterest Canvas Dark
+    value: "#111111"
+    description: Authored dark-mode canvas for Pinterest's product dark theme.
+  - id: pinterest-surface-dark
+    name: Pinterest Surface Dark
+    value: "#1F1F1F"
+    description: Authored elevated surface on the dark canvas.
+  - id: pinterest-surface-elevated-dark
+    name: Pinterest Surface Elevated Dark
+    value: "#2A2A2A"
+    description: Authored deepest-elevated surface on dark mode.
+  - id: pinterest-text-on-dark
+    name: Pinterest Text on Dark
+    value: "#E9E9E9"
+    description: Primary text on the dark canvas.
+  - id: pinterest-text-secondary-dark
+    name: Pinterest Text Secondary on Dark
+    value: "#B0B0B0"
+    description: Authored secondary text on the dark canvas.
+
+  # ─── Status accents (authored, consistent with Pinterest product) ──
+  - id: pinterest-green
+    name: Pinterest Green
+    value: "#0FA573"
+    description: Authored success accent for status affordances.
+  - id: pinterest-yellow
+    name: Pinterest Yellow
+    value: "#E8B021"
+    description: Authored warning / highlight accent.
+
+modes:
+  light:
+    roles:
+      background: pinterest-white
+      surface: pinterest-near-white
+      surface-elevated: pinterest-white
+      text-primary: pinterest-text-primary
+      text-secondary: pinterest-text-secondary
+      text-tertiary: pinterest-text-tertiary
+      primary: pinterest-red
+      primary-hover: pinterest-red-dark
+      accent: pinterest-red
+      accent-hover: pinterest-red-dark
+      warning: pinterest-yellow
+      warning-hover: pinterest-yellow
+      error: pinterest-red
+      success: pinterest-green
+
+  dark:
+    roles:
+      background: pinterest-canvas-dark
+      surface: pinterest-surface-dark
+      surface-elevated: pinterest-surface-elevated-dark
+      text-primary: pinterest-text-on-dark
+      text-secondary: pinterest-text-secondary-dark
+      text-tertiary: pinterest-text-secondary-dark
+      primary: pinterest-red
+      primary-hover: pinterest-red-dark
+      accent: pinterest-red
+      accent-hover: pinterest-red-dark
+      warning: pinterest-yellow
+      warning-hover: pinterest-yellow
+      error: pinterest-red
+      success: pinterest-green

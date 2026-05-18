@@ -1,0 +1,184 @@
+id: nodejs
+version: 1.0.0
+name: Node.js
+description: >
+  Node.js is the open-source, cross-platform JavaScript runtime
+  built on V8 — the foundation of server-side JavaScript, modern
+  build tooling, and a substantial fraction of the web's
+  infrastructure. Stewarded today by the OpenJS Foundation, the
+  brand voice is community-led and infrastructural: stable,
+  long-term, ECMAScript-tracking. The visual identity is the
+  hexagon mark in Node Green (#5FA04E post-2024 refresh), with
+  the historic green (#339933) preserved for legacy surfaces.
+tags: [nodejs, javascript, runtime, server, green, open-source, openjs]
+
+provenance:
+  source: https://nodejs.org/static/documents/foundation-visual-guidelines.pdf
+  license: MIT
+  attribution: >
+    Node.js is MIT-licensed and stewarded by the OpenJS
+    Foundation. The Node.js hexagon mark and word mark are
+    trademarks of the OpenJS Foundation. Brand colors
+    documented here are drawn from the Node.js Foundation
+    Visual Identity Guidelines PDF (nodejs.org/static/documents/
+    foundation-visual-guidelines.pdf) and supplemented by the
+    post-2024 refresh Node Green (#5FA04E) used on the current
+    nodejs.org logo and verified against the simple-icons
+    project. This atom is brand-atoms' machine-readable
+    encoding; no logos are bundled.
+  importedDate: 2026-05-18
+  notes: >
+    The Foundation Visual Identity Guidelines PDF publishes
+    Node Green at #68A063 (PANTONE 7741 C). The current
+    nodejs.org logo uses a refreshed Node Green at #5FA04E.
+    Both values appear in this atom's palette; #5FA04E is the
+    primary role mapping per the current published mark.
+    Typography in the original guidelines is "Open Sans
+    equivalent" — Open Sans is not in the brand-atoms catalog;
+    this atom uses Inter as the catalog-equivalent humanist
+    sans.
+
+references:
+  palette: nodejs@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: source-code-pro@1
+
+roles:
+  colors:
+    identity: node-green
+    on-identity: node-white
+    primary: node-green
+    primary-hover: node-dark-green
+    accent: node-light-green
+    accent-hover: node-green
+    background: node-white
+    surface: node-off-white
+    text-primary: node-black
+    text-secondary: node-gray
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - hexagon-shape-modified
+      - stretched
+      - rotated
+      - recolored
+      - gradient-fill
+      - drop-shadow
+      - on-busy-photo
+    severity: error
+    rationale: >
+      The Node.js hexagon mark is the brand's signature shape;
+      altering its geometry, gradient-filling it, or recoloring
+      it outside the documented green range violates the
+      Foundation Visual Identity Guidelines.
+
+  - type: colorChoice
+    target: roles.colors.identity
+    allowed:
+      - node-green
+      - node-green-classic
+      - node-green-foundation
+    forbidden:
+      - node-light-green
+      - node-dark-green
+    severity: warning
+    rationale: >
+      Node.js maintains three legitimate "Node Green" values —
+      the post-2024 refresh (#5FA04E), the historic mark
+      (#339933), and the Foundation PDF (#68A063). Light Green
+      and Dark Green are supporting tones from the Foundation
+      Guidelines and must not stand in as the primary mark
+      fill.
+
+  - type: variantSelection
+    target: roles.colors.identity
+    when: { mode: "current" }
+    use: "node-green"
+    severity: warning
+    rationale: >
+      The current published Node.js mark (post-2024 refresh)
+      uses #5FA04E. Choose this value for net-new surfaces;
+      preserve #339933 only when matching legacy badges or
+      community-distributed assets.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Black on White exceeds 21:1 — well above the WCAG AA
+      threshold for body text. The Foundation Guidelines
+      designate Black as the canonical body-text color on
+      White.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 3.0
+    standard: WCAG-AA-large
+    severity: warning
+    rationale: >
+      Node Green (#5FA04E) on White sits around 3.4:1 —
+      clears AA-large for headlines but does NOT clear AA for
+      body text. Reserve Node Green for large display, mark
+      fills, and accents; use Node Dark Green (#006837) for
+      body-text-weight foreground.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.5
+    severity: recommendation
+    rationale: >
+      nodejs.org uses a single humanist sans for heading and
+      body. Maintain at least a 1.5× heading-to-body ratio to
+      preserve hierarchy.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) —
+      Level AA. Node.js's Foundation Guidelines pair Node
+      Green with Black and White to satisfy AA; consumers
+      must not derive intermediate stops that defeat that
+      property.
+
+  - type: compositionConstraint
+    target: roles.colors.identity
+    pairsWith:
+      - node-black
+      - node-white
+      - node-dark-green
+    severity: recommendation
+    rationale: >
+      The Foundation Guidelines pair Node Green canonically
+      with Black and White; Dark Green appears for shadowed
+      mark variants. Other pairings depart from the
+      documented identity.
+
+  - type: contextRestriction
+    target: trademark.use
+    forbiddenContexts:
+      - product-name-prefix
+      - implied-endorsement
+    severity: error
+    rationale: >
+      The OpenJS Foundation Trademark Policy forbids product
+      names that imply OpenJS or Node.js endorsement. Use
+      the mark to indicate compatibility, not as part of a
+      product identity.

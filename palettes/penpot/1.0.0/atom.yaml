@@ -1,0 +1,113 @@
+kind: palette
+id: penpot
+version: 1.0.0
+name: Penpot
+description: >
+  Penpot's brand palette, anchored on Penpot Mint (#31EFB8) — the
+  signature electric mint green that carries the wordmark and the
+  "P" mark of the open-source design and prototyping platform.
+  The institutional voice pairs that mint with a near-black canvas
+  (Penpot's marketing surface is dark-leaning) and white display
+  type. Penpot is open-source under MPL-2.0; its brand assets are
+  published openly.
+tags: [open-source, design-tools, penpot, mint, mpl-2-0]
+
+provenance:
+  source: https://penpot.app/
+  license: MPL-2.0
+  attribution: >
+    Penpot is © Penpot S.L. and the Penpot community, licensed
+    under the Mozilla Public License 2.0. Penpot publishes its
+    brand assets openly. The primary brand color Penpot Mint
+    (#31EFB8) is documented on Penpot's brand surfaces and is
+    independently cross-referenced by the simple-icons brand
+    database, which cites penpot.app as the source.
+  importedDate: 2026-05-18
+  notes: >
+    Penpot is the only open-source brand in this batch — its
+    license (Mozilla Public License 2.0) governs both the code
+    and the published brand assets. Only Penpot Mint (#31EFB8) is
+    read directly from Penpot's public brand surfaces. Secondary
+    neutrals (mid-grays, dark canvas, hover mint) are authored
+    neutral inversions calibrated to support both modes
+    consistently without fabricating hex values that Penpot does
+    not publish.
+
+swatches:
+  # ─── Signature ─────────────────────────────────────────────────
+  - id: penpot-mint
+    name: Penpot Mint
+    value: "#31EFB8"
+    description: >
+      Signature electric mint green. Primary brand color — used
+      on the wordmark, the "P" mark, primary CTAs, and key
+      interactive surfaces.
+
+  # ─── Neutrals ──────────────────────────────────────────────────
+  - id: penpot-white
+    name: Penpot White
+    value: "#FFFFFF"
+    description: Display type on dark canvas; canvas on light mode.
+  - id: penpot-black
+    name: Penpot Black
+    value: "#18181A"
+    description: Canonical dark canvas — the brand's preferred surface; also body text on light.
+  - id: penpot-canvas-dark
+    name: Penpot Canvas Dark
+    value: "#18181A"
+    description: Authored dark-mode canvas — Penpot's preferred marketing surface.
+  - id: penpot-surface-light
+    name: Penpot Surface Light
+    value: "#F5F5F5"
+    description: Authored panel surface for light mode.
+  - id: penpot-surface-dark
+    name: Penpot Surface Dark
+    value: "#2A2A2D"
+    description: Authored elevated surface on dark mode.
+  - id: penpot-text-secondary
+    name: Penpot Text Secondary
+    value: "#6E6E76"
+    description: Authored secondary text — neutral mid-gray on light canvas.
+  - id: penpot-text-tertiary
+    name: Penpot Text Tertiary
+    value: "#A0A0A8"
+    description: Authored tertiary / muted text.
+  - id: penpot-mint-hover
+    name: Penpot Mint Hover
+    value: "#5EF3C7"
+    description: Authored softer Penpot Mint for hover / active states.
+
+modes:
+  light:
+    roles:
+      background: penpot-white
+      surface: penpot-surface-light
+      surface-elevated: penpot-white
+      text-primary: penpot-black
+      text-secondary: penpot-text-secondary
+      text-tertiary: penpot-text-tertiary
+      primary: penpot-mint
+      primary-hover: penpot-mint-hover
+      accent: penpot-mint
+      accent-hover: penpot-mint-hover
+      warning: penpot-mint
+      warning-hover: penpot-mint-hover
+      error: penpot-mint
+      success: penpot-mint
+
+  dark:
+    roles:
+      background: penpot-canvas-dark
+      surface: penpot-surface-dark
+      surface-elevated: penpot-surface-dark
+      text-primary: penpot-white
+      text-secondary: penpot-text-tertiary
+      text-tertiary: penpot-text-secondary
+      primary: penpot-mint
+      primary-hover: penpot-mint-hover
+      accent: penpot-mint
+      accent-hover: penpot-mint-hover
+      warning: penpot-mint
+      warning-hover: penpot-mint-hover
+      error: penpot-mint
+      success: penpot-mint

@@ -1,0 +1,170 @@
+id: calendly
+version: 1.0.0
+name: Calendly
+description: >
+  Calendly is a scheduling automation platform — booking links,
+  routing, and meeting-availability surfaces that remove the
+  back-and-forth from calendar coordination. The brand voice is
+  calm, efficient, and quietly confident. Visually, the identity
+  is the wordmark in Calendly Blue (#006BFF) on a clean white
+  canvas with near-black body text and generous whitespace.
+tags: [saas, productivity, calendly, scheduling, minimal]
+
+provenance:
+  source: https://calendly.com/press
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Calendly and the Calendly logo are trademarks of Calendly,
+    LLC. The primary brand color Calendly Blue (#006BFF) is
+    documented on Calendly's press resources. brand-atoms
+    catalogues only the publicly documented signature color and
+    authored neutrals; licensed application of the Calendly name
+    and mark is governed by Calendly's brand-use guidance at
+    calendly.com/press.
+  importedDate: 2026-05-18
+  notes: >
+    Calendly's marketing pages render in a neutral humanist sans
+    consistent with Inter; Inter is referenced here as the primary
+    face and is already in the brand-atoms catalog.
+
+references:
+  palette: calendly@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # identity = the brand's signature surface. Calendly's identity
+    # is the wordmark in Calendly Blue — the blue carries the
+    # institutional voice on the clean white canvas.
+    identity: calendly-blue
+    on-identity: calendly-white
+
+    primary: calendly-blue
+    primary-hover: calendly-blue-hover
+    accent: calendly-blue
+    accent-hover: calendly-blue-hover
+
+    success: calendly-blue
+    warning: calendly-blue
+    error: calendly-blue
+
+    background-light: calendly-white
+    background-dark: calendly-canvas-dark
+    surface-light: calendly-surface-light
+    surface-dark: calendly-surface-dark
+    text-primary-light: calendly-black
+    text-primary-dark: calendly-white
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.mark
+    allowed:
+      - calendly-blue
+      - calendly-white
+      - calendly-black
+    forbidden:
+      - any-non-brand-color
+    severity: error
+    rationale: >
+      The Calendly wordmark renders in Calendly Blue on light
+      surfaces and in white on dark surfaces. Recoloring the
+      wordmark into off-brand hues violates Calendly's brand-use
+      guidance.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - gradient-fill
+    severity: error
+    rationale: >
+      Calendly's press resources prohibit stretching, rotating,
+      recoloring, or applying decorative effects to the wordmark.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      WCAG 2.1 Level AA contrast minimum for body text. Calendly
+      Black (#0B1B2D) on Calendly White (#FFFFFF) clears AA
+      comfortably.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: dark
+    use: logo-light
+    severity: error
+    rationale: >
+      On dark surfaces, use Calendly's documented light-fill
+      wordmark variant; do not invert the blue wordmark on the
+      fly.
+
+  - type: contextRestriction
+    target: roles.colors.identity
+    forbiddenContexts:
+      - product-of-competitor
+      - merchandise
+      - endorsement-implication
+      - company-name-or-domain
+    severity: error
+    rationale: >
+      Calendly's trademark guidance forbids use of the Calendly
+      name and mark in third-party company names, domains, and
+      uses that imply affiliation or endorsement.
+
+  - type: compositionConstraint
+    target: roles.colors.identity
+    pairsWith:
+      - calendly-white
+      - calendly-black
+      - calendly-surface-light
+    severity: recommendation
+    rationale: >
+      Calendly Blue is calibrated to read on white and near-black.
+      Pairing it with another saturated hue at the same weight
+      breaks the calm, efficient voice of the brand surface.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["500", "600", "700"]
+    severity: warning
+    rationale: >
+      Calendly's marketing surfaces render headings in the 500–
+      700 band; lighter weights undermine the confident voice of
+      the brand.
+
+  - type: numericRatio
+    target: typography.body.lineHeight
+    min: 1.4
+    max: 1.65
+    severity: recommendation
+    rationale: >
+      Calendly's product surfaces read with disciplined line-
+      height in the 1.4–1.65 band. Tighter values feel cramped;
+      looser values break the calm rhythm.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level
+      AA. Calendly-skinned surfaces must clear AA on body text.

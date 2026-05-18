@@ -1,0 +1,116 @@
+kind: palette
+id: python
+version: 1.0.0
+name: Python
+description: >
+  Python language brand palette anchored on the two-snake logo's
+  canonical pairing: Python Blue (#3776AB) and Python Yellow
+  (#FFD43B). The PSF logo combines them at equal weight; consumer
+  surfaces typically use blue as the primary identity and yellow as
+  the high-energy accent. A neutral set rounds out the page-level
+  light and dark canvases.
+tags: [python, programming-language, open-source, blue, yellow, psf]
+
+provenance:
+  source: https://www.python.org/community/logos/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    The Python logo and word mark are trademarks of the Python
+    Software Foundation. Brand colors documented here are the
+    community-known PSF logo hex values (#3776AB / #FFD43B),
+    consistent across the Python logo SVG distributed at
+    python.org/community/logos and the value published by the
+    simple-icons project (simpleicons.org/icons/python).
+  importedDate: 2026-05-18
+  notes: >
+    Hex values reflect the PSF two-snake logo's blue and yellow as
+    they appear in the canonical SVG distributed by the Foundation.
+    The PSF logo is light-first; the dark-mode role mapping below
+    is brand-atoms' sensible inversion (deep navy canvas, blue
+    identity preserved).
+
+swatches:
+  - id: python-blue
+    name: Python Blue
+    value: "#3776AB"
+    description: >
+      Primary brand color — the upper snake of the two-snake mark.
+      Used as the dominant identity color across python.org.
+  - id: python-yellow
+    name: Python Yellow
+    value: "#FFD43B"
+    description: >
+      Secondary brand color — the lower snake of the two-snake mark
+      and the high-energy accent for callouts and CTAs.
+  - id: python-dark-blue
+    name: Python Dark Blue
+    value: "#1E415E"
+    description: >
+      Deeper navy used for hover states and the dark-mode canvas.
+  - id: python-dark-yellow
+    name: Python Dark Yellow
+    value: "#FFC331"
+    description: >
+      Deeper amber used for hover states on the yellow accent.
+  - id: python-black
+    name: Python Black
+    value: "#0E1217"
+    description: Dark-mode page canvas.
+  - id: python-charcoal
+    name: Python Charcoal
+    value: "#1C232C"
+    description: Elevated dark surface.
+  - id: python-gray
+    name: Python Gray
+    value: "#646464"
+    description: Mid neutral for body text and dividers.
+  - id: python-light-gray
+    name: Python Light Gray
+    value: "#D5D5D5"
+    description: Hairline borders on light canvas.
+  - id: python-off-white
+    name: Python Off-White
+    value: "#F4F4F4"
+    description: Subtle layered surface on light canvas.
+  - id: python-white
+    name: Python White
+    value: "#FFFFFF"
+    description: Page canvas in light mode.
+  - id: python-success
+    name: Python Success Green
+    value: "#3F924B"
+    description: Status success color — used in PEP/issue badges.
+
+modes:
+  light:
+    roles:
+      background: python-white
+      surface: python-off-white
+      surface-elevated: python-white
+      text-primary: python-dark-blue
+      text-secondary: python-gray
+      text-tertiary: python-blue
+      primary: python-blue
+      primary-hover: python-dark-blue
+      accent: python-yellow
+      accent-hover: python-dark-yellow
+      warning: python-yellow
+      warning-hover: python-dark-yellow
+      error: python-dark-yellow
+      success: python-success
+  dark:
+    roles:
+      background: python-black
+      surface: python-charcoal
+      surface-elevated: python-charcoal
+      text-primary: python-white
+      text-secondary: python-light-gray
+      text-tertiary: python-yellow
+      primary: python-yellow
+      primary-hover: python-dark-yellow
+      accent: python-blue
+      accent-hover: python-dark-blue
+      warning: python-yellow
+      warning-hover: python-dark-yellow
+      error: python-dark-yellow
+      success: python-success

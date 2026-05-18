@@ -1,0 +1,180 @@
+id: rust
+version: 1.0.0
+name: Rust
+description: >
+  Rust is a systems programming language that runs blazingly fast,
+  prevents segfaults, and guarantees thread safety via its ownership
+  and borrow-checker model. The brand voice is engineering-honest,
+  community-stewarded, and quietly proud — measured tone, deference
+  to the compiler, and a strong open-source ethic carried since the
+  language's Mozilla incubation. The visual identity centers on Rust
+  Orange (#D34516), the gear-and-R logomark, and a typographic
+  voice that pairs a humanist sans for prose with a code monospace
+  for source samples. The Rust Foundation acts as steward of the
+  trademark and brand.
+tags: [rust, programming-language, systems, open-source, brand, foundation]
+
+provenance:
+  source: https://rustfoundation.org/policies/logo-policy-and-media-guide/
+  license: CC-BY-4.0
+  attribution: >
+    The Rust logo is owned by the Rust Foundation and distributed
+    under the Creative Commons Attribution 4.0 license per the
+    Rust Foundation's Logo Policy and Media Guide. The Rust word
+    mark and language identity remain trademarks of the Rust
+    Foundation. This atom is brand-atoms' machine-readable
+    encoding of the published brand guide; no logos or wordmarks
+    are bundled here.
+  importedDate: 2026-05-18
+  notes: >
+    Brand identity values are drawn from the Rust Foundation Brand
+    Guide (rustfoundation.org/brand-guide), which is the current
+    authoritative source. The Foundation's recommended typography
+    is Noto Sans / Noto Serif (freely available via Google Fonts);
+    those families are not yet in the brand-atoms catalog. This
+    atom substitutes the catalog's Inter (humanist sans, OFL-1.1)
+    for prose and Source Code Pro (Adobe's editorial monospace,
+    OFL-1.1) for source code — both honor the Foundation's intent
+    of "freely available, technical, neutral" without bundling a
+    new font atom solely for this brand.
+
+references:
+  palette: rust@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: source-code-pro@1
+
+roles:
+  colors:
+    identity: rust-orange
+    on-identity: rust-white
+    primary: rust-orange
+    primary-hover: rust-dark-blue
+    accent: rust-blue
+    accent-hover: rust-dark-blue
+    background: rust-white
+    surface: rust-off-white
+    text-primary: rust-dark-blue
+    text-secondary: rust-silver
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - flipped
+      - rotated
+      - skewed
+      - stretched
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+    severity: error
+    rationale: >
+      The Rust Foundation Brand Guide explicitly prohibits flipping,
+      rotating, skewing, or otherwise altering the Rust Foundation
+      logo. The gear-and-R mark must retain its proportions and
+      orientation in every reproduction.
+
+  - type: numericRange
+    target: logo.height
+    min: 10
+    unit: mm
+    severity: error
+    rationale: >
+      The Rust Foundation Brand Guide specifies a minimum
+      reproduction height of 10mm for the primary logo to preserve
+      gear-tooth legibility. Smaller renderings degrade the mark.
+
+  - type: colorChoice
+    target: roles.colors.identity
+    allowed:
+      - rust-orange
+      - rust-dark-blue
+    forbidden:
+      - rust-green
+      - rust-silver
+    severity: error
+    rationale: >
+      Rust Orange and Rust Dark Blue are the two identity colors
+      named in the Foundation Brand Guide. Rust Silver and Rust
+      Green are reserved for body / sustainability roles and must
+      not stand in as the brand identity color.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Rust Dark Blue (#1E2650) on Rust White exceeds 12:1 — well
+      above the WCAG AA threshold for body text.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 3.0
+    standard: WCAG-AA-large
+    severity: warning
+    rationale: >
+      Rust Orange (#D34516) on white sits around 4.9:1 — clears
+      AA for body text in most renderings, but consumers should
+      verify against actual rendered weight before using the
+      orange for fine text on light surfaces.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.5
+    severity: recommendation
+    rationale: >
+      Rust documentation surfaces use a single humanist sans for
+      both heading and body. Maintaining at least a 1.5×
+      heading-to-body ratio preserves hierarchy without requiring
+      a second family.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - rust-dark-blue
+      - rust-white
+    doesNotPairWith:
+      - rust-green
+    severity: warning
+    rationale: >
+      Rust Orange pairs canonically with Rust Dark Blue or White
+      backgrounds. Pairing Rust Orange directly with Rust Green
+      breaks the documented identity-vs-supporting role boundary
+      and creates a discordant orange-green clash.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) —
+      Level AA. Consumers must not pair tokens that defeat the
+      AA contrast property of the Foundation Brand Guide
+      palette.
+
+  - type: enumMembership
+    target: trademark.context
+    forbidden:
+      - "implied-endorsement"
+      - "product-name-prefix"
+    severity: error
+    rationale: >
+      The Rust Foundation Logo Policy distinguishes between
+      logo redistribution (permitted under CC-BY) and trademark
+      use (which requires not implying official endorsement).
+      Logos must not be used in product names or in contexts
+      that suggest the Rust project endorses a third-party
+      offering.

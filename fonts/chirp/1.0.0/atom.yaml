@@ -1,0 +1,56 @@
+kind: font
+id: chirp
+version: 1.0.0
+name: Chirp
+description: >
+  Chirp — the proprietary corporate typeface of X Corp (formerly
+  Twitter, Inc.), introduced in 2021 by Twitter and retained through
+  the 2023 X rebrand as the primary display and UI face. Chirp is a
+  proprietary humanist sans-serif designed in collaboration with
+  Grilli Type, tuned for the small-size legibility of timeline copy
+  while reading with personality at marketing display sizes.
+family: Chirp
+classification: sans-serif
+tags: [proprietary, custom, humanist, social, brand-only]
+
+provenance:
+  source: https://about.x.com/en/who-we-are/brand-toolkit
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Chirp is a proprietary typeface licensed to X Corp (formerly
+    Twitter, Inc.) and was designed in collaboration with Grilli
+    Type. Use is restricted to X's own marketing and to partners under
+    X's brand-use guidelines. brand-atoms documents the face for
+    reference only — no binaries are mirrored or redistributed by
+    this catalog.
+  importedDate: 2026-05-18
+  notes: >
+    Chirp is not publicly distributed. Public web rendering by non-X
+    consumers must fall back to a comparable humanist sans. The
+    recommended public-web fallback is Inter (already in the
+    brand-atoms catalog) — a similarly humanist sans that
+    approximates the rhythm of Chirp at UI sizes when the proprietary
+    file is unavailable.
+
+source:
+  kind: external
+  family: Chirp
+  notes: >
+    Licensed font; no public CDN. Distributed by X Corp to authorized
+    brand-use partners. CSS @font-face declarations must reference
+    internally hosted files under X's licensing.
+
+fallbackStack:
+  - Inter
+  - -apple-system
+  - BlinkMacSystemFont
+  - Segoe UI
+  - Helvetica Neue
+  - Arial
+  - sans-serif
+
+availableStyles:
+  - { weight: 400, style: normal }
+  - { weight: 500, style: normal }
+  - { weight: 700, style: normal }
+  - { weight: 800, style: normal }

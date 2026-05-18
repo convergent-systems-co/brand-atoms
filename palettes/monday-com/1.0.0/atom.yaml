@@ -1,0 +1,108 @@
+kind: palette
+id: monday-com
+version: 1.0.0
+name: monday.com
+description: >
+  monday.com's brand palette, anchored on Monday Red (#FF3D57) — the
+  signature hot-coral red that has carried the brand since its
+  identity refresh. The institutional voice pairs that red with a
+  clean white canvas and near-black body text. Where competing
+  work-OS brands lean on blues and purples, monday.com commits to
+  a single, energetic red as its identity anchor.
+tags: [saas, productivity, monday-com, work-os, red]
+
+provenance:
+  source: https://monday.com/p/press
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    monday.com and the monday.com logo are trademarks of
+    monday.com Ltd. The primary brand color Monday Red (#FF3D57) is
+    documented on monday.com's press resources and is independently
+    cross-referenced by the simple-icons brand database, which
+    cites monday.com as the source.
+  importedDate: 2026-05-18
+  notes: >
+    Only Monday Red (#FF3D57) is read directly from monday.com's
+    public brand surfaces. Secondary neutrals (mid-grays, dark
+    canvas, hover red) are authored neutral inversions calibrated
+    to support both modes consistently without fabricating hex
+    values that monday.com does not publish.
+
+swatches:
+  # ─── Signature ─────────────────────────────────────────────────
+  - id: monday-red
+    name: Monday Red
+    value: "#FF3D57"
+    description: >
+      Signature hot-coral red. Primary brand color — used on the
+      wordmark, the mark, primary CTAs, and key interactive
+      surfaces.
+
+  # ─── Neutrals ──────────────────────────────────────────────────
+  - id: monday-white
+    name: Monday White
+    value: "#FFFFFF"
+    description: Canvas on light surfaces; reversed wordmark fill.
+  - id: monday-black
+    name: Monday Black
+    value: "#000000"
+    description: Wordmark on light backgrounds; near-black body text.
+  - id: monday-canvas-dark
+    name: Monday Canvas Dark
+    value: "#1C1F3B"
+    description: Authored dark-mode canvas — deep neutral aligned with monday.com's product dark theme.
+  - id: monday-surface-light
+    name: Monday Surface Light
+    value: "#F6F7FB"
+    description: Authored panel surface for light mode.
+  - id: monday-surface-dark
+    name: Monday Surface Dark
+    value: "#292F4C"
+    description: Authored elevated surface on dark mode.
+  - id: monday-text-secondary
+    name: Monday Text Secondary
+    value: "#676879"
+    description: Authored secondary text — neutral mid-gray on light canvas.
+  - id: monday-text-tertiary
+    name: Monday Text Tertiary
+    value: "#9799A7"
+    description: Authored tertiary / muted text.
+  - id: monday-red-hover
+    name: Monday Red Hover
+    value: "#FF5E73"
+    description: Authored softer Monday Red for hover / active states.
+
+modes:
+  light:
+    roles:
+      background: monday-white
+      surface: monday-surface-light
+      surface-elevated: monday-white
+      text-primary: monday-black
+      text-secondary: monday-text-secondary
+      text-tertiary: monday-text-tertiary
+      primary: monday-red
+      primary-hover: monday-red-hover
+      accent: monday-red
+      accent-hover: monday-red-hover
+      warning: monday-red
+      warning-hover: monday-red-hover
+      error: monday-red
+      success: monday-red
+
+  dark:
+    roles:
+      background: monday-canvas-dark
+      surface: monday-surface-dark
+      surface-elevated: monday-surface-dark
+      text-primary: monday-white
+      text-secondary: monday-text-tertiary
+      text-tertiary: monday-text-secondary
+      primary: monday-red
+      primary-hover: monday-red-hover
+      accent: monday-red
+      accent-hover: monday-red-hover
+      warning: monday-red
+      warning-hover: monday-red-hover
+      error: monday-red
+      success: monday-red

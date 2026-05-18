@@ -1,0 +1,115 @@
+kind: palette
+id: typescript
+version: 1.0.0
+name: TypeScript
+description: >
+  TypeScript brand palette anchored on TS Blue (#3178C6) — the
+  rounded-square mark fill with the white "TS" lettermark cut out
+  from it. The brand is single-color with white as the reversed-out
+  type; supporting neutrals provide page-level light and dark
+  canvases.
+tags: [typescript, programming-language, microsoft, blue, open-source]
+
+provenance:
+  source: https://www.typescriptlang.org/branding
+  license: Apache-2.0
+  attribution: >
+    TypeScript is a trademark of Microsoft Corporation. The
+    TypeScript compiler and language are released under the
+    Apache-2.0 license; the typescriptlang.org branding page
+    permits use of the blue lettermark for indicating TypeScript
+    compatibility. The TS Blue hex (#3178C6) is the value
+    published by the simple-icons project and matches the SVG
+    distributed in the TypeScript Design Assets pack.
+  importedDate: 2026-05-18
+  notes: >
+    The TypeScript brand is intentionally minimal — a single blue
+    plus white. The dark-mode role mapping below is brand-atoms'
+    sensible inversion (deep navy canvas, TS blue identity
+    preserved).
+
+swatches:
+  - id: ts-blue
+    name: TypeScript Blue
+    value: "#3178C6"
+    description: >
+      Primary brand color — the rounded-square mark fill. The "TS"
+      lettermark sits on this blue in white.
+  - id: ts-blue-bright
+    name: TypeScript Blue Bright
+    value: "#4F8AD0"
+    description: Brighter variant used on dark backgrounds for legibility.
+  - id: ts-blue-dark
+    name: TypeScript Blue Dark
+    value: "#235A9E"
+    description: Darker variant used for hover states and shadows.
+  - id: ts-black
+    name: TypeScript Black
+    value: "#0E1217"
+    description: Dark-mode page canvas.
+  - id: ts-charcoal
+    name: TypeScript Charcoal
+    value: "#1C232C"
+    description: Elevated dark surface for cards and panels.
+  - id: ts-gray
+    name: TypeScript Gray
+    value: "#5C5C5C"
+    description: Mid neutral for body text and dividers.
+  - id: ts-light-gray
+    name: TypeScript Light Gray
+    value: "#D5D5D5"
+    description: Hairline borders on light canvas.
+  - id: ts-off-white
+    name: TypeScript Off-White
+    value: "#F4F4F4"
+    description: Subtle layered surface on the light canvas.
+  - id: ts-white
+    name: TypeScript White
+    value: "#FFFFFF"
+    description: Page canvas in light mode; reversed letter color on the mark.
+  - id: ts-success
+    name: TypeScript Success
+    value: "#2EA043"
+    description: Status success color.
+  - id: ts-warning
+    name: TypeScript Warning
+    value: "#D29922"
+    description: Status warning color.
+  - id: ts-error
+    name: TypeScript Error
+    value: "#CF222E"
+    description: Status error color.
+
+modes:
+  light:
+    roles:
+      background: ts-white
+      surface: ts-off-white
+      surface-elevated: ts-white
+      text-primary: ts-black
+      text-secondary: ts-gray
+      text-tertiary: ts-blue-dark
+      primary: ts-blue
+      primary-hover: ts-blue-dark
+      accent: ts-blue-dark
+      accent-hover: ts-blue
+      warning: ts-warning
+      warning-hover: ts-warning
+      error: ts-error
+      success: ts-success
+  dark:
+    roles:
+      background: ts-black
+      surface: ts-charcoal
+      surface-elevated: ts-charcoal
+      text-primary: ts-white
+      text-secondary: ts-light-gray
+      text-tertiary: ts-blue-bright
+      primary: ts-blue-bright
+      primary-hover: ts-blue
+      accent: ts-blue
+      accent-hover: ts-blue-bright
+      warning: ts-warning
+      warning-hover: ts-warning
+      error: ts-error
+      success: ts-success

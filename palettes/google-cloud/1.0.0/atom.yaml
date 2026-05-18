@@ -1,0 +1,146 @@
+kind: palette
+id: google-cloud
+version: 1.0.0
+name: Google Cloud
+description: >
+  Google Cloud Platform palette built around the four signature
+  Google brand hues — Blue (#4285F4), Red (#EA4335), Yellow
+  (#FBBC04), and Green (#34A853) — adapted for cloud-platform
+  surfaces. The Google Cloud sub-brand carries the parent Google
+  four-color identity forward and ties it to a deeper interactive
+  Cloud Blue used in console chrome and on cloud.google.com. The
+  palette pairs the four chromatic hues with a Google neutral
+  ramp anchored on Google Grey 900 for primary text.
+tags: [tech, cloud, gcp, google, four-color, infrastructure]
+
+provenance:
+  source: https://cloud.google.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Google, Google Cloud, the Google Cloud logo, and the Google
+    four-color brand palette are trademarks of Google LLC. The
+    four signature hex values (#4285F4 / #EA4335 / #FBBC04 /
+    #34A853) are the canonical Google brand colors documented
+    across the Google Material Design reference, the Google
+    brand-resources site, and the cloud.google.com marketing
+    surface.
+  importedDate: 2026-05-18
+  notes: >
+    The four canonical Google hex values are widely published —
+    they appear in the Material Design 2 color reference
+    (material.io) and in the Google Cloud branding kits. The
+    deeper "Cloud Blue 600" interactive variant (#1A73E8) is
+    documented across the Google Cloud Console chrome and the
+    Material Design system as the link / primary action color.
+    Both light and dark modes are authored. The deeper Cloud
+    Blue is documented as the console interactive primary on
+    cloud.google.com surfaces.
+
+swatches:
+  - id: google-blue
+    name: Google Blue
+    value: "#4285F4"
+    description: >
+      Canonical Google brand blue — the "G" of the four-color
+      logo and the principal accent across Google Cloud
+      marketing.
+  - id: cloud-blue-600
+    name: Cloud Blue 600
+    value: "#1A73E8"
+    description: >
+      Deeper interactive blue used in the Google Cloud Console
+      chrome and as the link / primary-action color across
+      cloud.google.com.
+  - id: cloud-blue-700
+    name: Cloud Blue 700
+    value: "#185ABC"
+    description: >
+      Pressed/active state for the Cloud Blue primary action.
+  - id: google-red
+    name: Google Red
+    value: "#EA4335"
+    description: >
+      Canonical Google brand red — the second "o" of the
+      Google wordmark and the error / destructive accent in
+      the Cloud Console.
+  - id: google-yellow
+    name: Google Yellow
+    value: "#FBBC04"
+    description: >
+      Canonical Google brand yellow — the third "o" of the
+      Google wordmark and the warning accent in the Cloud
+      Console.
+  - id: google-green
+    name: Google Green
+    value: "#34A853"
+    description: >
+      Canonical Google brand green — the "l" of the Google
+      wordmark and the success accent in the Cloud Console.
+  - id: google-grey-900
+    name: Google Grey 900
+    value: "#202124"
+    description: >
+      Primary text on light surfaces — Google Material's
+      Grey 900 token, used on cloud.google.com body copy.
+  - id: google-grey-700
+    name: Google Grey 700
+    value: "#5F6368"
+    description: Secondary text and metadata.
+  - id: google-grey-500
+    name: Google Grey 500
+    value: "#9AA0A6"
+    description: Tertiary text and disabled UI.
+  - id: google-grey-200
+    name: Google Grey 200
+    value: "#E8EAED"
+    description: Hairline borders and quiet dividers.
+  - id: google-grey-100
+    name: Google Grey 100
+    value: "#F1F3F4"
+    description: Subtle surface tint — Cloud Console card backgrounds.
+  - id: google-grey-50
+    name: Google Grey 50
+    value: "#F8F9FA"
+    description: Page-level background tint.
+  - id: google-white
+    name: Google White
+    value: "#FFFFFF"
+    description: Primary canvas on light surfaces.
+  - id: google-grey-1000
+    name: Google Grey 1000
+    value: "#171717"
+    description: Dark-mode canvas — used on cloud.google.com dark hero.
+
+modes:
+  light:
+    roles:
+      background: google-white
+      surface: google-grey-50
+      surface-elevated: google-white
+      text-primary: google-grey-900
+      text-secondary: google-grey-700
+      text-tertiary: google-grey-500
+      primary: cloud-blue-600
+      primary-hover: cloud-blue-700
+      accent: google-blue
+      accent-hover: cloud-blue-600
+      warning: google-yellow
+      warning-hover: google-red
+      error: google-red
+      success: google-green
+  dark:
+    roles:
+      background: google-grey-1000
+      surface: google-grey-900
+      surface-elevated: google-grey-700
+      text-primary: google-white
+      text-secondary: google-grey-200
+      text-tertiary: google-grey-500
+      primary: google-blue
+      primary-hover: cloud-blue-600
+      accent: google-blue
+      accent-hover: cloud-blue-600
+      warning: google-yellow
+      warning-hover: google-red
+      error: google-red
+      success: google-green

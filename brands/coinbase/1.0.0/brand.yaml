@@ -1,0 +1,175 @@
+id: coinbase
+version: 1.0.0
+name: Coinbase
+description: >
+  Coinbase Global, Inc. is the U.S.-based publicly traded cryptocurrency
+  exchange and the most recognizable retail-facing crypto brand. The
+  identity, refreshed in 2021, is built around a single signature
+  Coinbase Blue (#0052FF) on a clean light canvas — a deliberate
+  posture of trust and clarity against the speculative volatility of
+  the crypto category. The mark is a simple circular "C," and the
+  wordmark is rendered in a custom geometric sans (Coinbase Sans). The
+  voice is rational, plain-spoken, and infrastructure-leaning rather
+  than performative.
+tags: [fintech, crypto, coinbase, exchange, light-first, trust]
+
+provenance:
+  source: https://www.coinbase.com/en-de/press
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Coinbase Global, Inc. — Coinbase, the Coinbase wordmark, and the
+    circular "C" mark are registered trademarks of Coinbase Global,
+    Inc. The Coinbase Blue value (#0052FF) is documented across the
+    Coinbase press kit and verified against the deployed Coinbase
+    logomark SVG. Coinbase Sans is the proprietary corporate face;
+    Inter is referenced here as the open-source fallback.
+  importedDate: 2026-05-18
+  notes: >
+    Coinbase Sans (proprietary) is not publicly distributed. This atom
+    references Inter for both heading and body roles and notes
+    Coinbase Sans as the proprietary primary in provenance. The 2021
+    brand refresh dropped the prior multi-color secondary palette in
+    favor of the single-blue identity captured here.
+
+references:
+  palette: coinbase@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # identity = the brand's signature color. Coinbase's identity is
+    # Coinbase Blue on white — one blue, no ambiguity.
+    identity: coinbase-blue
+    on-identity: coinbase-white
+
+    primary: coinbase-blue
+    primary-hover: coinbase-blue-hover
+    accent: coinbase-blue
+    accent-hover: coinbase-blue-hover
+    mark: coinbase-blue
+
+    success: coinbase-green
+    error: coinbase-red
+    warning: coinbase-red
+
+    text-primary-light: coinbase-ink
+    text-primary-dark: coinbase-white
+    text-secondary-light: coinbase-slate
+    background-light: coinbase-white
+    background-dark: coinbase-canvas-dark
+    surface-light: coinbase-fog
+    surface-dark: coinbase-surface-dark
+    divider: coinbase-divider
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.mark
+    allowed:
+      - coinbase-blue
+      - coinbase-white
+      - coinbase-ink
+    forbidden:
+      - coinbase-blue-hover
+      - coinbase-blue-deep
+      - coinbase-green
+      - coinbase-red
+      - coinbase-forest
+    severity: error
+    rationale: >
+      The Coinbase circular "C" mark renders in Coinbase Blue on
+      light, reversed white on dark, or monochrome ink for print.
+      The hover and deep blues are interactive-state values; the
+      greens and red are buy/sell semantic colors — none are
+      acceptable mark fills.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+      - inverted-without-variant
+    severity: error
+    rationale: >
+      The Coinbase mark's circular geometry depends on exact
+      proportions and a flat solid fill. The 2021 brand refresh
+      explicitly removed gradient and multi-color treatments;
+      consumers MUST NOT reintroduce them.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Coinbase Ink (#0A0B0D) on Coinbase White gives ~20:1 — well
+      above WCAG 2.1 Level AA. This rule guards the floor for any
+      new foreground/background pairing on Coinbase surfaces.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Coinbase Blue (#0052FF) on white reaches ~5.7:1 — clears AA for
+      normal text. Buttons using the blue fill with white text exceed
+      6:1; this rule guards link usage so the brand interactive color
+      stays AA-compliant against the canvas.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["500", "600", "700"]
+    severity: warning
+    rationale: >
+      Coinbase Sans headlines on coinbase.com sit in the Medium (500),
+      Semibold (600), and Bold (700) band. Lighter cuts compromise
+      the confident, trust-leaning voice the brand depends on.
+
+  - type: contextRestriction
+    target: roles.colors.success
+    forbiddenContexts:
+      - body-text
+      - secondary-link
+    severity: error
+    rationale: >
+      Coinbase Green carries specific semantic weight in the retail
+      product — it indicates "buy" action and positive price
+      movement. Using it for body text or generic links breaks the
+      semantic separation between trading affordances and chrome.
+
+  - type: contextRestriction
+    target: roles.colors.error
+    forbiddenContexts:
+      - body-text
+      - secondary-link
+    severity: error
+    rationale: >
+      Coinbase Red carries specific semantic weight in the retail
+      product — it indicates "sell" action and negative price
+      movement. Using it for body or links breaks the semantic
+      separation between trading affordances and chrome.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level AA.
+      Fintech surfaces handling consumer funds have elevated trust
+      requirements; AA is the floor on any new role pairing.

@@ -1,0 +1,155 @@
+kind: palette
+id: react
+version: 1.0.0
+name: React
+description: >
+  React brand palette captured from the open-source react.dev color
+  module. The brand is dark-first: a near-black canvas (#23272F) is
+  the default surface and React Cyan (#61DAFB) is the historical
+  atom-orbit logo color, which the modern site supplements with a
+  documentation blue ramp (link #149ECA, dark-mode link #58C4DC).
+  Includes the full Gray, Blue, Yellow, Purple, Green, and Red
+  ramps used in the docs.
+tags: [react, library, javascript, meta, cyan, dark-first, open-source]
+
+provenance:
+  source: https://github.com/reactjs/react.dev/blob/main/colors.js
+  license: MIT
+  attribution: >
+    The react.dev codebase is MIT-licensed; React itself is
+    MIT-licensed. The React logo (atom orbiting an electron) is a
+    trademark of Meta Platforms, Inc. Colors documented here are
+    captured verbatim from the upstream colors.js module on the
+    main branch of github.com/reactjs/react.dev. React Cyan
+    (#61DAFB) is the canonical logo color, verified against the
+    simple-icons project.
+  importedDate: 2026-05-18
+  notes: >
+    react.dev's runtime brand uses #087EA4 (light) / #58C4DC (dark)
+    for documentation accent links; #61DAFB remains the canonical
+    logo color and is mapped here as the brand identity color. The
+    site is dark-first; the dark mode below is the production
+    rendering, light mode is the documented light theme.
+
+swatches:
+  # ─── Brand identity ────────────────────────────────────────────
+  - id: react-cyan
+    name: React Cyan
+    value: "#61DAFB"
+    description: >
+      Canonical React logo color — the cyan of the atom-orbit mark
+      used since the original Facebook open-source release.
+  - id: react-blue-50
+    name: React Blue 50
+    value: "#087EA4"
+    description: link / brand color on light surfaces.
+  - id: react-blue-40
+    name: React Blue 40
+    value: "#149ECA"
+    description: docs link color on light surfaces.
+  - id: react-blue-30
+    name: React Blue 30
+    value: "#58C4DC"
+    description: link / brand color on dark surfaces.
+  - id: react-blue-80
+    name: React Blue 80
+    value: "#043849"
+    description: deep blue used for hover states on light surfaces.
+  - id: react-blue-10
+    name: React Blue 10
+    value: "#E6F7FF"
+    description: highlight tint on light surfaces.
+
+  # ─── Neutral ramp (react.dev gray scale) ───────────────────────
+  - id: gray-95
+    name: Gray 95
+    value: "#16181D"
+    description: deepest dark-mode background.
+  - id: gray-90
+    name: Gray 90
+    value: "#23272F"
+    description: primary dark canvas (wash-dark / primary).
+  - id: gray-80
+    name: Gray 80
+    value: "#343A46"
+    description: dark-mode borders and card surfaces.
+  - id: gray-70
+    name: Gray 70
+    value: "#404756"
+    description: secondary text on dark surfaces.
+  - id: gray-60
+    name: Gray 60
+    value: "#4E5769"
+    description: tertiary text.
+  - id: gray-50
+    name: Gray 50
+    value: "#5E687E"
+    description: muted text.
+  - id: gray-30
+    name: Gray 30
+    value: "#99A1B3"
+    description: tertiary text on dark.
+  - id: gray-10
+    name: Gray 10
+    value: "#EBECF0"
+    description: light-mode borders and dividers.
+  - id: gray-5
+    name: Gray 5
+    value: "#F6F7F9"
+    description: light-mode card surfaces.
+  - id: react-white
+    name: React White
+    value: "#FFFFFF"
+    description: light-mode page canvas (wash).
+
+  # ─── Status hues ───────────────────────────────────────────────
+  - id: yellow-50
+    name: Yellow 50
+    value: "#C76A15"
+    description: docs warning amber.
+  - id: red-50
+    name: Red 50
+    value: "#A6423A"
+    description: docs danger red.
+  - id: green-50
+    name: Green 50
+    value: "#388F7F"
+    description: docs success teal-green.
+  - id: purple-50
+    name: Purple 50
+    value: "#575FB7"
+    description: docs accent purple.
+
+modes:
+  light:
+    roles:
+      background: react-white
+      surface: gray-5
+      surface-elevated: react-white
+      text-primary: gray-90
+      text-secondary: gray-70
+      text-tertiary: gray-50
+      primary: react-blue-50
+      primary-hover: react-blue-80
+      accent: react-cyan
+      accent-hover: react-blue-40
+      warning: yellow-50
+      warning-hover: yellow-50
+      error: red-50
+      success: green-50
+  dark:
+    roles:
+      background: gray-90
+      surface: gray-80
+      surface-elevated: gray-70
+      text-primary: react-white
+      text-secondary: gray-30
+      text-tertiary: gray-50
+      primary: react-blue-30
+      primary-hover: react-blue-40
+      accent: react-cyan
+      accent-hover: react-blue-30
+      warning: yellow-50
+      warning-hover: yellow-50
+      error: red-50
+      success: green-50

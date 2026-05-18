@@ -1,0 +1,109 @@
+kind: palette
+id: clickup
+version: 1.0.0
+name: ClickUp
+description: >
+  ClickUp's brand palette, anchored on ClickUp Purple (#7B68EE) —
+  the signature medium-slate purple that carries the wordmark and
+  the gradient-tipped "CU" mark. The institutional voice pairs that
+  purple with a clean white canvas and near-black body text on
+  marketing surfaces. ClickUp's "one app to replace them all"
+  positioning is reinforced by a single committed brand hue.
+tags: [saas, productivity, clickup, work-management, purple]
+
+provenance:
+  source: https://clickup.com/press
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    ClickUp and the ClickUp logo are trademarks of Mango
+    Technologies, Inc. (d/b/a ClickUp). The primary brand color
+    ClickUp Purple (#7B68EE) is documented on ClickUp's press
+    resources and is independently cross-referenced by the
+    simple-icons brand database, which cites clickup.com as the
+    source.
+  importedDate: 2026-05-18
+  notes: >
+    Only ClickUp Purple (#7B68EE) is read directly from ClickUp's
+    public brand surfaces. The mark also uses pink and yellow
+    gradient stops on marketing surfaces, but those specific hex
+    stops are not catalogued at the brand-atoms palette level to
+    avoid fabrication. Secondary neutrals are authored neutral
+    inversions calibrated to support both modes consistently.
+
+swatches:
+  # ─── Signature ─────────────────────────────────────────────────
+  - id: clickup-purple
+    name: ClickUp Purple
+    value: "#7B68EE"
+    description: >
+      Signature medium-slate purple. Primary brand color — used on
+      the wordmark, primary CTAs, and key interactive surfaces.
+
+  # ─── Neutrals ──────────────────────────────────────────────────
+  - id: clickup-white
+    name: ClickUp White
+    value: "#FFFFFF"
+    description: Canvas on light surfaces; reversed wordmark fill.
+  - id: clickup-black
+    name: ClickUp Black
+    value: "#000000"
+    description: Wordmark on light backgrounds; near-black body text.
+  - id: clickup-canvas-dark
+    name: ClickUp Canvas Dark
+    value: "#1B1A2E"
+    description: Authored dark-mode canvas — deep neutral with a slight purple cast aligned with the brand.
+  - id: clickup-surface-light
+    name: ClickUp Surface Light
+    value: "#F6F5FB"
+    description: Authored panel surface for light mode.
+  - id: clickup-surface-dark
+    name: ClickUp Surface Dark
+    value: "#2A2A40"
+    description: Authored elevated surface on dark mode.
+  - id: clickup-text-secondary
+    name: ClickUp Text Secondary
+    value: "#6B7280"
+    description: Authored secondary text — neutral mid-gray on light canvas.
+  - id: clickup-text-tertiary
+    name: ClickUp Text Tertiary
+    value: "#9CA3AF"
+    description: Authored tertiary / muted text.
+  - id: clickup-purple-hover
+    name: ClickUp Purple Hover
+    value: "#9485F2"
+    description: Authored softer ClickUp Purple for hover / active states.
+
+modes:
+  light:
+    roles:
+      background: clickup-white
+      surface: clickup-surface-light
+      surface-elevated: clickup-white
+      text-primary: clickup-black
+      text-secondary: clickup-text-secondary
+      text-tertiary: clickup-text-tertiary
+      primary: clickup-purple
+      primary-hover: clickup-purple-hover
+      accent: clickup-purple
+      accent-hover: clickup-purple-hover
+      warning: clickup-purple
+      warning-hover: clickup-purple-hover
+      error: clickup-purple
+      success: clickup-purple
+
+  dark:
+    roles:
+      background: clickup-canvas-dark
+      surface: clickup-surface-dark
+      surface-elevated: clickup-surface-dark
+      text-primary: clickup-white
+      text-secondary: clickup-text-tertiary
+      text-tertiary: clickup-text-secondary
+      primary: clickup-purple
+      primary-hover: clickup-purple-hover
+      accent: clickup-purple
+      accent-hover: clickup-purple-hover
+      warning: clickup-purple
+      warning-hover: clickup-purple-hover
+      error: clickup-purple
+      success: clickup-purple

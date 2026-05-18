@@ -1,0 +1,156 @@
+id: vuejs
+version: 1.0.0
+name: Vue.js
+description: >
+  Vue.js is a progressive JavaScript framework for building user
+  interfaces — incrementally adoptable, template-driven, and
+  designed to "scale between a library and a framework." The brand
+  voice is approachable, pragmatic, and community-driven: created
+  by Evan You, stewarded today by a small core team and a broad
+  contributor base. Visually, the two-tone Vue chevron pairs Vue
+  Green (#4FC08D) over Vue Navy (#35495E) as the core identity.
+tags: [vuejs, vue, framework, javascript, green, open-source]
+
+provenance:
+  source: https://vuejs.org/
+  license: MIT
+  attribution: >
+    Vue.js is MIT-licensed; the Vue chevron logo and the
+    "Vue.js" word mark are copyright Yuxi (Evan) You and the
+    Vue.js contributors. Brand colors documented here are the
+    canonical Vue Green (#4FC08D) and Navy (#35495E) — the
+    fill values of the two-tone chevron mark, verified against
+    the simple-icons project. This atom encodes the published
+    brand voice; no logos are bundled.
+  importedDate: 2026-05-18
+  notes: >
+    Vue does not publish a dedicated brand-guidelines document
+    on vuejs.org; the canonical color pairing is the SVG fill
+    in the official logo files distributed via the Vue.js
+    repositories and the simple-icons project. The brand
+    intent draws from the project's About page and the
+    historical "Design Principles" documentation.
+
+references:
+  palette: vuejs@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: source-code-pro@1
+
+roles:
+  colors:
+    identity: vue-green
+    on-identity: vue-white
+    primary: vue-green
+    primary-hover: vue-green-dark
+    accent: vue-navy
+    accent-hover: vue-navy-light
+    background: vue-white
+    surface: vue-off-white
+    text-primary: vue-navy
+    text-secondary: vue-navy-light
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - flipped
+      - rotated
+      - stretched
+      - recolored
+      - single-tone-when-two-tone-required
+      - drop-shadow
+      - on-busy-photo
+    severity: error
+    rationale: >
+      The Vue chevron mark is defined by its two-tone
+      composition (Vue Green over Vue Navy). Recoloring
+      either chevron, flattening to a single tone, or
+      otherwise altering the geometry breaks the documented
+      brand identity.
+
+  - type: compositionConstraint
+    target: logo
+    pairsWith:
+      - vue-green
+      - vue-navy
+    doesNotPairWith:
+      - vue-green-dark
+      - vue-light-gray
+    severity: error
+    rationale: >
+      The canonical chevron pairing is Vue Green over Vue
+      Navy. Substituting the deeper green or a neutral gray
+      for either chevron is not part of the documented
+      brand identity.
+
+  - type: colorChoice
+    target: roles.colors.identity
+    allowed:
+      - vue-green
+      - vue-navy
+    severity: error
+    rationale: >
+      Vue Green and Vue Navy are the two identity colors;
+      everything else in the palette is supporting tone.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Vue Navy (#35495E) on Vue White exceeds 9:1 — well
+      above the WCAG AA threshold for body text. vuejs.org's
+      typography sits on this pair.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 3.0
+    standard: WCAG-AA-large
+    severity: warning
+    rationale: >
+      Vue Green (#4FC08D) on Vue White sits around 2.4:1 —
+      does NOT clear AA-large for headlines. Reserve Vue
+      Green for large display contexts, dark backgrounds, or
+      pair with Vue Navy as a foreground for AA compliance.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.5
+    severity: recommendation
+    rationale: >
+      vuejs.org uses a single sans for heading and body.
+      Maintain at least a 1.5× heading-to-body ratio to
+      preserve hierarchy.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) —
+      Level AA. Vue Green is the brand accent; Vue Navy is
+      the AA-compliant foreground for body text. Consumers
+      must not pair Vue Green with white for fine text.
+
+  - type: contextRestriction
+    target: roles.colors.primary
+    forbiddenContexts:
+      - body-text-on-light
+    severity: warning
+    rationale: >
+      Vue Green on a white background does not clear AA for
+      body text; use it as headlines, accents, or on dark
+      surfaces, not as a fine-text foreground on white.

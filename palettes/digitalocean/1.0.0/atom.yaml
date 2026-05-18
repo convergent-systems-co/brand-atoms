@@ -1,0 +1,126 @@
+kind: palette
+id: digitalocean
+version: 1.0.0
+name: DigitalOcean
+description: >
+  DigitalOcean brand palette anchored on DigitalOcean Blue (#0080FF)
+  — the signature blue of the waving-ocean mark and the principal
+  accent across digitalocean.com and the DigitalOcean control
+  panel. The palette pairs DigitalOcean Blue with a deeper Navy
+  used on dark-mode marketing surfaces and a neutral ramp for body
+  copy and UI surfaces.
+tags: [tech, cloud, digitalocean, blue, infrastructure, developer-cloud]
+
+provenance:
+  source: https://www.digitalocean.com/press
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    DigitalOcean and the DigitalOcean logo are trademarks of
+    DigitalOcean, LLC. Brand colors documented here are derived
+    from the DigitalOcean press / brand resources page
+    (digitalocean.com/press) and the visible style values across
+    digitalocean.com and the DigitalOcean control panel.
+  importedDate: 2026-05-18
+  notes: >
+    DigitalOcean's marketing site is light-first; the control
+    panel ships both light and dark themes. The signature blue is
+    consistent across both surfaces. Both modes are authored here.
+
+swatches:
+  - id: do-blue
+    name: DigitalOcean Blue
+    value: "#0080FF"
+    description: >
+      The DigitalOcean signature blue — the fill of the waving-
+      ocean mark and the principal CTA color across
+      digitalocean.com.
+  - id: do-blue-dark
+    name: DigitalOcean Blue Dark
+    value: "#0061C2"
+    description: Pressed/active state for the primary CTA.
+  - id: do-blue-light
+    name: DigitalOcean Blue Light
+    value: "#3FA1FF"
+    description: Soft accent used on illustrations and on dark surfaces.
+  - id: do-navy
+    name: DigitalOcean Navy
+    value: "#031B4E"
+    description: >
+      Dark-mode canvas — the navy used on digitalocean.com
+      dark-theme hero compositions.
+  - id: do-navy-deep
+    name: DigitalOcean Navy Deep
+    value: "#020E2A"
+    description: Darkest navy used as the page-level dark canvas.
+  - id: do-ink
+    name: DigitalOcean Ink
+    value: "#031B4E"
+    description: Primary text on light surfaces — the same hex as the dark canvas, used as deep ink.
+  - id: do-gray
+    name: DigitalOcean Gray
+    value: "#646F87"
+    description: Secondary text and metadata.
+  - id: do-gray-light
+    name: DigitalOcean Gray Light
+    value: "#8B95A8"
+    description: Tertiary text and disabled UI.
+  - id: do-surface
+    name: DigitalOcean Surface
+    value: "#F4F6F8"
+    description: Quiet surface — card backgrounds on digitalocean.com.
+  - id: do-border
+    name: DigitalOcean Border
+    value: "#DDE3EB"
+    description: Hairline borders and dividers.
+  - id: do-white
+    name: DigitalOcean White
+    value: "#FFFFFF"
+    description: Primary canvas on light surfaces.
+  - id: do-success
+    name: DigitalOcean Success
+    value: "#1E944A"
+    description: Confirmation / healthy-droplet state.
+  - id: do-warning
+    name: DigitalOcean Warning
+    value: "#F2A33A"
+    description: Warning / pending state.
+  - id: do-error
+    name: DigitalOcean Error
+    value: "#D9534F"
+    description: Destructive / failed-droplet state.
+
+modes:
+  light:
+    roles:
+      background: do-white
+      surface: do-surface
+      surface-elevated: do-white
+      text-primary: do-ink
+      text-secondary: do-gray
+      text-tertiary: do-gray-light
+      primary: do-blue
+      primary-hover: do-blue-dark
+      accent: do-blue-light
+      accent-hover: do-blue
+      warning: do-warning
+      warning-hover: do-error
+      error: do-error
+      success: do-success
+      border: do-border
+  dark:
+    roles:
+      background: do-navy-deep
+      surface: do-navy
+      surface-elevated: do-blue-dark
+      text-primary: do-white
+      text-secondary: do-surface
+      text-tertiary: do-gray-light
+      primary: do-blue-light
+      primary-hover: do-blue
+      accent: do-blue
+      accent-hover: do-blue-light
+      warning: do-warning
+      warning-hover: do-error
+      error: do-error
+      success: do-success
+      border: do-blue-dark

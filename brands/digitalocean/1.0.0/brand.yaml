@@ -1,0 +1,163 @@
+id: digitalocean
+version: 1.0.0
+name: DigitalOcean
+description: >
+  DigitalOcean, LLC is the developer-cloud company providing
+  Droplets (VMs), App Platform (PaaS), Spaces (object storage),
+  managed databases, Kubernetes, and an opinionated developer-
+  forward cloud experience aimed at individual builders, startups,
+  and small teams. The brand identity is anchored on DigitalOcean
+  Blue (#0080FF) — the fill of the waving-ocean mark — paired with
+  a deeper Navy used in dark-mode marketing. The voice is
+  developer-direct and tutorial-forward: the DigitalOcean Community
+  tutorials carry a substantial portion of the brand's voice, and
+  the marketing surfaces match — short sentences, runnable
+  commands, and concrete pricing.
+tags: [tech, cloud, digitalocean, developer-cloud, infrastructure]
+
+provenance:
+  source: https://www.digitalocean.com/press
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    DigitalOcean and the DigitalOcean logo are trademarks of
+    DigitalOcean, LLC. Brand colors and identity guidance
+    documented here are derived from the DigitalOcean press /
+    brand resources page (digitalocean.com/press) and the
+    visible style values across digitalocean.com and the
+    DigitalOcean control panel.
+  importedDate: 2026-05-18
+  notes: >
+    Brand-atoms' read of DigitalOcean's publicly available brand
+    surface. This file is not an official DigitalOcean brand-
+    guidelines document. No asset files are bundled here — the
+    waving-ocean mark is trademarked.
+
+references:
+  palette: digitalocean@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    identity: do-blue
+    on-identity: do-white
+    primary: do-blue
+    primary-hover: do-blue-dark
+    accent: do-blue-light
+    accent-hover: do-blue
+    background: do-white
+    surface: do-surface
+    surface-elevated: do-white
+    text-primary: do-ink
+    text-secondary: do-gray
+    text-tertiary: do-gray-light
+    chrome: do-navy
+    chrome-deep: do-navy-deep
+    mark: do-blue
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.wave.fill
+    allowed:
+      - do-blue
+      - do-white
+    forbidden:
+      - do-blue-dark
+      - do-blue-light
+      - do-navy
+    severity: error
+    rationale: >
+      The DigitalOcean waving-ocean mark renders in DigitalOcean
+      Blue (#0080FF) or reversed white. The pressed-state dark
+      blue, the illustration light blue, and the chrome navy are
+      interactive-state and canvas tokens — none are valid mark
+      fills.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - wave-detached-from-wordmark
+      - gradient-fill
+    severity: error
+    rationale: >
+      DigitalOcean's brand guidelines explicitly prohibit
+      altering the proportions, color, or orientation of the
+      waving-ocean mark. The wave must not be detached from the
+      DigitalOcean wordmark on shared lockups, and gradient
+      fills are not part of the published brand system.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      DigitalOcean Ink (#031B4E) on DigitalOcean White gives
+      ~15:1 — well above WCAG 2.1 Level AA. The rule encodes
+      the floor for any new foreground/background pairing on
+      digitalocean.com.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 3.0
+    standard: WCAG-AA-large
+    severity: error
+    rationale: >
+      DigitalOcean Blue (#0080FF) on DigitalOcean White sits
+      around 4.3:1 — it clears AA for large interactive text
+      and approaches AA for body. The rule enforces the AA-large
+      floor for CTA legibility on the marketing site and the
+      control panel.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - do-white
+      - do-navy
+      - do-surface
+    doesNotPairWith:
+      - do-warning
+      - do-error
+    severity: recommendation
+    rationale: >
+      DigitalOcean Blue pairs cleanly against the white canvas
+      and the navy chrome. Pairing the brand blue directly with
+      the warning amber or error red on the same surface creates
+      a status-color conflict that competes with the brand
+      voice.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) —
+      Level AA. The DigitalOcean Community tutorials and the
+      control-panel chrome both target AA as the floor for
+      developer-documentation legibility.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.5
+    severity: recommendation
+    rationale: >
+      DigitalOcean's marketing surfaces use Inter for both
+      heading and body. Keep headings at least 1.5× body to
+      preserve hierarchy when one family does both jobs.

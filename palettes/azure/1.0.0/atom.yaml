@@ -1,0 +1,139 @@
+kind: palette
+id: azure
+version: 1.0.0
+name: Microsoft Azure
+description: >
+  Microsoft Azure palette anchored on Azure Blue (#0078D4) — the
+  Fluent communications blue carried across the Azure Portal chrome,
+  azure.microsoft.com, and the Azure architecture icon library. The
+  Azure sub-brand uses the Microsoft Fluent neutral ramp and the
+  same Segoe UI typography as the parent brand, but tightens the
+  hue identity around a single blue — distinct from the four-square
+  parent quadrant set — so that Azure surfaces read unambiguously
+  as cloud-platform rather than corporate Microsoft.
+tags: [tech, cloud, azure, microsoft, fluent, blue, infrastructure]
+
+provenance:
+  source: https://www.microsoft.com/design/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Microsoft, Azure, the Azure logo, Fluent, and Segoe UI are
+    trademarks of the Microsoft group of companies. Azure Blue
+    (#0078D4) is documented on the Microsoft Fluent 2 color system
+    (fluent2.microsoft.design/color) as the Brand / Communications
+    primary; the same value appears across azure.microsoft.com and
+    the Azure Portal chrome.
+  importedDate: 2026-05-18
+  notes: >
+    Azure uses the Microsoft parent's Communications Blue as its
+    signature — there is no separate "Azure Blue" hex in Fluent;
+    the Azure brand and the Microsoft Fluent system share #0078D4.
+    The Azure sub-brand also publishes a deeper "Azure dark" navy
+    (#243A5E) used on architecture-diagram backgrounds and re:Build
+    presentation slides; this atom captures both. Light and dark
+    modes are authored.
+
+swatches:
+  - id: azure-blue
+    name: Azure Blue
+    value: "#0078D4"
+    description: >
+      The Azure signature blue — Microsoft Fluent's Communications
+      primary, used on the Azure Portal chrome, the azure.microsoft.com
+      hero, and the canonical Azure-Cloud logo fill.
+  - id: azure-blue-dark
+    name: Azure Blue Dark
+    value: "#005A9E"
+    description: >
+      Pressed/active state for the Azure primary CTA; the deeper
+      blue used on hover transitions in the Azure Portal.
+  - id: azure-blue-light
+    name: Azure Blue Light
+    value: "#50E6FF"
+    description: >
+      Bright cyan accent used in Azure marketing illustrations and
+      in the Azure Cloud icon's secondary tone.
+  - id: azure-navy
+    name: Azure Navy
+    value: "#243A5E"
+    description: >
+      Deep navy used on Azure architecture-diagram backgrounds and
+      Azure presentation chrome. The dark-canvas brand color.
+  - id: azure-navy-deep
+    name: Azure Navy Deep
+    value: "#0B2545"
+    description: >
+      Darkest navy used in Azure marketing dark-mode hero
+      compositions.
+  - id: fluent-near-black
+    name: Fluent Near-Black
+    value: "#1F1F1F"
+    description: Fluent neutral foreground — primary text on light surfaces.
+  - id: fluent-gray-160
+    name: Fluent Gray 160
+    value: "#605E5C"
+    description: Fluent neutral foreground 2 — secondary text.
+  - id: fluent-gray-130
+    name: Fluent Gray 130
+    value: "#8A8886"
+    description: Fluent neutral foreground 3 — tertiary text and dividers.
+  - id: fluent-gray-30
+    name: Fluent Gray 30
+    value: "#EDEBE9"
+    description: Fluent neutral background 3 — subtle surface tint.
+  - id: fluent-gray-20
+    name: Fluent Gray 20
+    value: "#F3F2F1"
+    description: Fluent neutral background 2 — page-level background.
+  - id: fluent-white
+    name: Fluent White
+    value: "#FFFFFF"
+    description: Base background and reversed text on chromatic surfaces.
+  - id: azure-error
+    name: Azure Error
+    value: "#A4262C"
+    description: Fluent system error red — destructive / validation-failure.
+  - id: azure-success
+    name: Azure Success
+    value: "#107C10"
+    description: Fluent system success green — confirmation / healthy state.
+  - id: azure-warning
+    name: Azure Warning
+    value: "#797673"
+    description: >
+      Fluent system warning neutral — Azure leans on amber sparingly
+      and instead uses a muted neutral for caution states on chrome.
+
+modes:
+  light:
+    roles:
+      background: fluent-white
+      surface: fluent-gray-20
+      surface-elevated: fluent-white
+      text-primary: fluent-near-black
+      text-secondary: fluent-gray-160
+      text-tertiary: fluent-gray-130
+      primary: azure-blue
+      primary-hover: azure-blue-dark
+      accent: azure-blue-light
+      accent-hover: azure-blue
+      warning: azure-warning
+      warning-hover: azure-navy
+      error: azure-error
+      success: azure-success
+  dark:
+    roles:
+      background: azure-navy-deep
+      surface: azure-navy
+      surface-elevated: azure-blue-dark
+      text-primary: fluent-white
+      text-secondary: fluent-gray-30
+      text-tertiary: fluent-gray-130
+      primary: azure-blue
+      primary-hover: azure-blue-light
+      accent: azure-blue-light
+      accent-hover: azure-blue
+      warning: azure-warning
+      warning-hover: azure-navy
+      error: azure-error
+      success: azure-success

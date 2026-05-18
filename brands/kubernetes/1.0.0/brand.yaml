@@ -1,0 +1,184 @@
+id: kubernetes
+version: 1.0.0
+name: Kubernetes
+description: >
+  Kubernetes is the open-source container-orchestration platform
+  originally designed by Google and now maintained by the Cloud
+  Native Computing Foundation (CNCF). The brand identity is
+  anchored on the seven-spoked helm-wheel mark — a reference to the
+  Greek "κυβερνήτης" (kubernetes, "helmsman") — filled with the
+  signature Kubernetes Blue (#326CE5). The visual voice is
+  community-led and engineering-direct: documentation-forward,
+  diagram-friendly, and committed to the open-source convention of
+  primary-source clarity over marketing flourish. The mark and the
+  blue together form one of the most recognizable identities in
+  cloud-native infrastructure.
+tags: [tech, kubernetes, k8s, cncf, open-source, infrastructure]
+
+provenance:
+  source: https://kubernetes.io/community/branding/
+  license: Apache-2.0
+  attribution: >
+    Kubernetes is a registered trademark of The Linux Foundation /
+    Cloud Native Computing Foundation. The Kubernetes name and
+    logo are used under the CNCF trademark usage guidelines
+    (cncf.io/brand-guidelines). The Kubernetes project source is
+    licensed under Apache License 2.0; brand colors and identity
+    guidance documented here are derived from the project's
+    branding page (kubernetes.io/community/branding/), the
+    kubernetes/community repository, and the CNCF Style Guide.
+    Copyright The Kubernetes Authors / Cloud Native Computing
+    Foundation.
+  importedDate: 2026-05-18
+  notes: >
+    Kubernetes is the only Apache-2.0-licensed brand atom in this
+    initial cloud-and-devops set — the project itself is
+    open-source and the brand assets are governed by the CNCF
+    trademark policy. No asset files are bundled here; the helm-
+    wheel mark must be retrieved directly from the Kubernetes
+    branding page under the CNCF brand guidelines. Use of the
+    Kubernetes name and mark must comply with the Linux
+    Foundation / CNCF trademark usage policy.
+
+references:
+  palette: kubernetes@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    identity: k8s-blue
+    on-identity: k8s-white
+    primary: k8s-blue
+    primary-hover: k8s-blue-dark
+    accent: k8s-blue-light
+    accent-hover: k8s-blue
+    background: k8s-white
+    surface: k8s-surface
+    surface-elevated: k8s-white
+    text-primary: k8s-ink
+    text-secondary: k8s-gray
+    text-tertiary: k8s-gray-light
+    chrome: k8s-navy
+    chrome-deep: k8s-navy-deep
+    mark: k8s-blue
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.helm-wheel.fill
+    allowed:
+      - k8s-blue
+      - k8s-white
+    forbidden:
+      - k8s-blue-dark
+      - k8s-blue-light
+      - k8s-navy
+    severity: error
+    rationale: >
+      The Kubernetes helm-wheel renders in Kubernetes Blue
+      (#326CE5) or reversed white per the CNCF trademark
+      guidelines. The darker pressed-state and the lighter
+      illustration accent are interactive-state tokens and never
+      mark fills.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - spokes-altered
+      - gradient-fill
+    severity: error
+    rationale: >
+      The CNCF trademark guidelines explicitly prohibit altering
+      the proportions, color, or arrangement of the Kubernetes
+      helm-wheel mark. The seven spokes are a defined feature
+      of the mark and must not be modified.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Kubernetes Ink (#303030) on Kubernetes White gives ~13:1 —
+      well above WCAG 2.1 Level AA. The kubernetes.io
+      documentation surface targets AA as the accessibility
+      floor; consumers must not reduce this contrast.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Kubernetes Blue (#326CE5) on Kubernetes White gives ~5.1:1
+      — clearing WCAG AA for body-sized interactive text. The
+      documentation site relies on this contrast for link
+      legibility.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - k8s-white
+      - k8s-navy
+      - k8s-surface
+    doesNotPairWith:
+      - k8s-warning
+      - k8s-error
+    severity: recommendation
+    rationale: >
+      The Kubernetes Blue pairs cleanly against the white canvas
+      and the navy dark-mode chrome. Pairing the brand blue
+      directly with the warning amber or error red on the same
+      surface creates a status-color conflict that competes with
+      the brand voice.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) —
+      Level AA. The kubernetes.io documentation surface and CNCF
+      project sites both target AA as the floor for
+      accessibility on open-source documentation.
+
+  - type: contextRestriction
+    target: logo.helm-wheel
+    forbiddenContexts:
+      - commercial-endorsement
+      - product-co-branding-without-permission
+    severity: error
+    rationale: >
+      The Linux Foundation / CNCF trademark usage policy
+      requires explicit permission for commercial endorsement
+      or co-branding uses of the Kubernetes mark. Use of the
+      helm-wheel to imply endorsement of a commercial product
+      requires written approval from the CNCF.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.5
+    severity: recommendation
+    rationale: >
+      The kubernetes.io documentation surface uses a single
+      family for heading and body, with hierarchy established
+      through size. A 1.5× heading-to-body floor preserves the
+      display-to-prose distinction across the long-form
+      reference content.

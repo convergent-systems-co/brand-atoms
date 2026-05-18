@@ -1,0 +1,204 @@
+id: tiktok
+version: 1.0.0
+name: TikTok
+description: >
+  TikTok is the global short-form video platform owned by ByteDance,
+  the most downloaded consumer app of its era. The brand identity
+  is a chromatic three-color composition: a black canvas anchoring
+  the iconic music-note "d" mark composed of red and cyan layers
+  offset against a white core — a deliberate glitch-art chromatic-
+  aberration signature. The brand is dark-first, gen-Z-facing, and
+  unapologetically expressive: the wordmark and mark read as a
+  paired chromatic accent on solid black across the consumer app
+  and marketing surfaces.
+tags: [social, video, tiktok, bytedance, dark-first, chromatic, consumer]
+
+provenance:
+  source: https://www.tiktok.com/about/brand-guidelines
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    TikTok Pte. Ltd. (a ByteDance Ltd. subsidiary) — TikTok, the
+    TikTok wordmark, and the music-note "d" mark are registered
+    trademarks of TikTok Pte. Ltd. The signature TikTok Red
+    (#FE2C55) and TikTok Cyan (#25F4EE) are documented across
+    TikTok's brand-guidelines page and verified against the deployed
+    TikTok logomark SVG. TikTok Display (the proprietary corporate
+    typeface, designed by Grilli Type) is the brand display face;
+    Inter is referenced here as the open-source fallback.
+  importedDate: 2026-05-18
+  notes: >
+    TikTok Display (the proprietary face) is a commercial license
+    and not publicly distributed. This atom references Inter for
+    both heading and body roles and notes TikTok Display as the
+    proprietary primary in provenance. The chromatic-offset
+    treatment on the "d" mark is the most-policed brand element —
+    the red and cyan layers are NOT interchangeable, and the
+    offset MUST be applied as specified in the brand-guidelines.
+
+references:
+  palette: tiktok@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # identity = the brand's signature surface. TikTok is dark-first:
+    # the black canvas IS the brand, with the chromatic red+cyan
+    # mark reading as a paired accent on top.
+    identity: tiktok-black
+    on-identity: tiktok-white
+
+    background: tiktok-black
+    surface: tiktok-near-black
+    surface-elevated: tiktok-charcoal
+    text-primary: tiktok-white
+    text-secondary: tiktok-gray-light
+    text-tertiary: tiktok-gray
+
+    primary: tiktok-red
+    primary-hover: tiktok-red-deep
+    accent: tiktok-cyan
+    accent-hover: tiktok-cyan-deep
+    mark: tiktok-white
+    mark-channel-red: tiktok-red
+    mark-channel-cyan: tiktok-cyan
+    text-emphasis: tiktok-white
+  typography:
+    display: heading
+    prose: body
+    wordmark: heading
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.mark.core
+    allowed:
+      - tiktok-white
+      - tiktok-black
+    forbidden:
+      - tiktok-red
+      - tiktok-cyan
+      - tiktok-red-deep
+      - tiktok-cyan-deep
+      - tiktok-gray
+    severity: error
+    rationale: >
+      The TikTok music-note "d" mark has a white core (on dark
+      backgrounds) or a black core (on light backgrounds), with the
+      red and cyan layers offset behind it. The red and cyan are
+      chromatic-channel anchors, not core-fill colors — using either
+      for the core breaks the chromatic-aberration signature.
+
+  - type: colorChoice
+    target: logo.mark.channels
+    allowed:
+      - tiktok-red
+      - tiktok-cyan
+    forbidden:
+      - tiktok-red-deep
+      - tiktok-cyan-deep
+      - tiktok-white
+      - tiktok-black
+    severity: error
+    rationale: >
+      The chromatic-offset channels on the "d" mark MUST be the
+      published TikTok Red (#FE2C55) and TikTok Cyan (#25F4EE) —
+      the deeper hover variants are interactive-state values for
+      product chrome, not channel anchors. The mark's identity is
+      the specific red-and-cyan duotone, not "any red, any cyan."
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - inverted-without-variant
+      - flattened-to-single-color
+      - misaligned-chromatic-offset
+    severity: error
+    rationale: >
+      TikTok's brand-guidelines program is explicit: the chromatic
+      offset on the "d" mark MUST be applied as published, with the
+      red and cyan layers at the specified offset distance.
+      Flattening the mark to a single color, recoloring the
+      channels, or misaligning the offset destroys the defining
+      brand element.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      TikTok White on TikTok Black gives ~21:1 — well above WCAG
+      2.1 Level AA. The rule encodes the floor for any new
+      foreground/background pairing on TikTok surfaces.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 3.0
+    standard: WCAG-AA-large
+    severity: error
+    rationale: >
+      TikTok Red on TikTok Black gives ~5:1 — clears AA-large and
+      approaches AA-normal. Buttons using the red fill with white
+      text exceed 6:1; this rule guards the interactive affordance
+      of the primary CTA against the black canvas.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["500", "700", "900"]
+    severity: warning
+    rationale: >
+      TikTok Display headlines on marketing surfaces use Medium
+      (500), Bold (700), and Black (900) weights. Lighter cuts read
+      as feed body and compromise the gen-Z-facing expressive voice
+      the brand depends on.
+
+  - type: contextRestriction
+    target: roles.colors.primary
+    forbiddenContexts:
+      - body-text
+      - secondary-link
+    severity: error
+    rationale: >
+      TikTok Red is reserved for primary CTAs ("Follow," "Like,"
+      "Sign Up") and the chromatic-channel anchor on the mark.
+      Using it inside body copy or for secondary links dilutes the
+      signature accent and breaks the interactive signal the red
+      carries throughout the product.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - tiktok-cyan
+      - tiktok-black
+      - tiktok-white
+    doesNotPairWith:
+      - tiktok-red-deep
+    severity: recommendation
+    rationale: >
+      The TikTok Red and TikTok Cyan are paired anchors — the brand
+      is built on this duotone chromatic relationship. Pairing the
+      red with its own hover-state deeper red on the same surface
+      creates a muddy two-red composition that flattens the
+      chromatic signature.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level AA.
+      The dark-first canvas makes contrast checks the default
+      verification on any new role pairing.

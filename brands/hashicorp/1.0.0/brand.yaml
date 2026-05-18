@@ -1,0 +1,195 @@
+id: hashicorp
+version: 1.0.0
+name: HashiCorp
+description: >
+  HashiCorp, Inc. is the company behind a family of infrastructure-
+  automation tools — Terraform, Vault, Consul, Nomad, Boundary,
+  Packer, Vagrant, and Waypoint — and the HashiCorp Cloud Platform
+  (HCP) that hosts them. The corporate identity is anchored on a
+  single signature yellow (#FFCD00) against a deep near-black
+  canvas (#0E0E10), with each product carrying its own signature
+  accent (Terraform Purple, Vault Yellow, Consul Magenta, Nomad
+  Green, etc.). The voice is engineer-direct and operationally
+  literate: declarative IaC, deliberate APIs, and a strong
+  preference for the live `terraform apply` over the marketing
+  abstraction.
+tags: [tech, hashicorp, devops, infrastructure-as-code, dark-canvas]
+
+provenance:
+  source: https://www.hashicorp.com/brand
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    HashiCorp, the HashiCorp logo, Terraform, Vault, Consul,
+    Nomad, Boundary, Packer, Vagrant, and Waypoint are trademarks
+    of HashiCorp, Inc. Brand colors and identity guidance
+    documented here are derived from hashicorp.com/brand and the
+    product brand pages (terraform.io, vaultproject.io,
+    consul.io, nomadproject.io, boundaryproject.io, packer.io,
+    waypointproject.io).
+  importedDate: 2026-05-18
+  notes: >
+    Brand-atoms' read of HashiCorp's publicly available brand
+    surface and the per-product brand pages. This file is not an
+    official HashiCorp brand-guidelines document. HashiCorp leans
+    dark in marketing (hashicorp.com hero canvas is near-black);
+    the dark-canvas identity is encoded here. No asset files are
+    bundled; HashiCorp's product logos are trademarked.
+
+references:
+  palette: hashicorp@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # HashiCorp leans dark — the brand block is the near-black
+    # canvas, with the signature yellow as the identity accent
+    # that rides on top.
+    identity: hashicorp-canvas
+    on-identity: hashicorp-yellow
+
+    primary: hashicorp-yellow
+    primary-hover: hashicorp-yellow-dark
+    accent: terraform-purple
+    accent-hover: consul-magenta
+    background: hashicorp-white
+    surface: hashicorp-surface
+    surface-elevated: hashicorp-white
+    text-primary: hashicorp-ink
+    text-secondary: hashicorp-gray
+    text-tertiary: hashicorp-gray-light
+    chrome: hashicorp-canvas
+    chrome-deep: hashicorp-canvas-deep
+    product-terraform: terraform-purple
+    product-vault: vault-yellow
+    product-consul: consul-magenta
+    product-nomad: nomad-green
+    product-boundary: boundary-pink
+    product-packer: packer-blue
+    product-waypoint: waypoint-sky
+    mark: hashicorp-yellow
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.wordmark.fill
+    allowed:
+      - hashicorp-black
+      - hashicorp-white
+      - hashicorp-yellow
+    forbidden:
+      - terraform-purple
+      - consul-magenta
+      - nomad-green
+      - boundary-pink
+    severity: error
+    rationale: >
+      The HashiCorp corporate wordmark renders in black, reversed
+      white, or the corporate yellow. The product-family accents
+      identify specific products (Terraform, Consul, Nomad,
+      Boundary) and must not stand in for the parent corporate
+      mark.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - product-accent-on-corporate-wordmark
+      - gradient-fill
+    severity: error
+    rationale: >
+      HashiCorp's brand guidelines explicitly prohibit altering
+      the proportions or color of the corporate wordmark and
+      restrict per-product accent colors to their owning product
+      surfaces (Terraform Purple on Terraform, not on the
+      corporate wordmark).
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      HashiCorp Ink (#1B1B1F) on HashiCorp White gives ~17:1 —
+      well above WCAG 2.1 Level AA. The rule encodes the floor
+      for any new foreground/background pairing on hashicorp.com
+      and the HCP console.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 3.0
+    standard: WCAG-AA-large
+    severity: warning
+    rationale: >
+      HashiCorp Yellow on HashiCorp White is contrast-marginal —
+      it does not clear AA for body-sized text and barely clears
+      AA-large. Use the yellow as a CTA / heading accent against
+      the dark canvas (where it clears ~14:1), not as body copy
+      on white.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - hashicorp-canvas
+      - hashicorp-canvas-deep
+      - hashicorp-black
+    doesNotPairWith:
+      - vault-yellow
+    severity: recommendation
+    rationale: >
+      The signature corporate yellow lives against the near-black
+      canvas — the highest-contrast brand composition. Pairing
+      corporate yellow with Vault Yellow on the same surface
+      creates a two-yellow composition that reads as a brand-
+      hierarchy error.
+
+  - type: contextRestriction
+    target: roles.colors.product-terraform
+    allowedContexts:
+      - terraform
+      - hcp-terraform
+      - terraform-registry
+    forbiddenContexts:
+      - corporate-marketing
+      - parent-brand-surfaces
+    severity: warning
+    rationale: >
+      Terraform Purple is the product accent for Terraform and
+      Terraform-related surfaces. Using Terraform Purple on
+      corporate / parent-brand surfaces undermines the product-
+      family color system that lets readers identify which
+      HashiCorp product a surface belongs to.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) —
+      Level AA. HashiCorp's marketing and HCP console surfaces
+      both target AA as the accessibility floor for developer
+      tooling.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.5
+    severity: recommendation
+    rationale: >
+      HashiCorp's marketing surfaces use Inter for both heading
+      and body. Keep headings at least 1.5× body to preserve
+      hierarchy when one family does both jobs.

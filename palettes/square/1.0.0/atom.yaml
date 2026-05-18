@@ -1,0 +1,112 @@
+kind: palette
+id: square
+version: 1.0.0
+name: Square
+description: >
+  Square (a Block, Inc. brand) corporate palette. The brand identity
+  is anchored on Square Black — the literal square mark — paired
+  with the saturated Square Blue (#006AFF) used as the primary
+  interactive color and merchant accent. The canvas leans light-first
+  for the seller dashboard and marketing, with the black mark and
+  blue CTAs reading as the signature elements.
+tags: [fintech, payments, square, block, blue, black, merchant]
+
+provenance:
+  source: https://squareup.com/us/en/about/press
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Block, Inc. / Square — Square, the Square wordmark, and the
+    Square mark are registered trademarks of Block, Inc. The
+    signature Square Blue (#006AFF) is documented across Square's
+    press kit and visible in the deployed squareup.com marketing
+    surfaces. The Square mark itself is rendered in solid black on
+    light surfaces and reversed white on dark surfaces.
+  importedDate: 2026-05-18
+  notes: >
+    Square's parent company rebranded to Block, Inc. in 2021; the
+    Square seller brand retained its mark, wordmark, and color
+    system. The dark-mode role mapping is an authored inversion;
+    light is the canonical Square surface.
+
+swatches:
+  # ─── Signature ─────────────────────────────────────────────────
+  - id: square-blue
+    name: Square Blue
+    value: "#006AFF"
+    description: Primary brand blue — the Square interactive color, primary CTAs, and merchant accents.
+  - id: square-blue-hover
+    name: Square Blue Hover
+    value: "#0058D6"
+    description: Authored darker blue for hover/pressed states on the primary action.
+  - id: square-black
+    name: Square Black
+    value: "#000000"
+    description: The Square mark itself — solid black on light canvas. Also the wordmark color.
+  - id: square-near-black
+    name: Square Near-Black
+    value: "#1A1A1A"
+    description: Authored dark canvas — slightly lifted from pure black for dark-mode comfort.
+
+  # ─── Neutrals ──────────────────────────────────────────────────
+  - id: square-ink
+    name: Square Ink
+    value: "#212121"
+    description: Body text on light surfaces.
+  - id: square-graphite
+    name: Square Graphite
+    value: "#4F4F4F"
+    description: Secondary text on light backgrounds.
+  - id: square-gray
+    name: Square Gray
+    value: "#7B7B7B"
+    description: Tertiary text and metadata.
+  - id: square-divider
+    name: Square Divider
+    value: "#E5E5E5"
+    description: Authored hairline divider tone.
+  - id: square-white
+    name: Square White
+    value: "#FFFFFF"
+    description: Canonical light canvas.
+  - id: square-fog
+    name: Square Fog
+    value: "#F7F7F7"
+    description: Authored surface tone for cards and panels.
+  - id: square-surface-dark
+    name: Square Surface Dark
+    value: "#2B2B2B"
+    description: Authored elevated surface on dark mode.
+
+modes:
+  light:
+    roles:
+      background: square-white
+      surface: square-fog
+      surface-elevated: square-white
+      text-primary: square-ink
+      text-secondary: square-graphite
+      text-tertiary: square-gray
+      primary: square-blue
+      primary-hover: square-blue-hover
+      accent: square-blue
+      accent-hover: square-blue-hover
+      warning: square-blue-hover
+      warning-hover: square-blue
+      error: square-black
+      success: square-blue
+  dark:
+    roles:
+      background: square-near-black
+      surface: square-surface-dark
+      surface-elevated: square-surface-dark
+      text-primary: square-white
+      text-secondary: square-gray
+      text-tertiary: square-graphite
+      primary: square-blue
+      primary-hover: square-blue-hover
+      accent: square-blue
+      accent-hover: square-blue-hover
+      warning: square-blue-hover
+      warning-hover: square-blue
+      error: square-white
+      success: square-blue

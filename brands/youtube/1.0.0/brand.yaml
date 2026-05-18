@@ -1,0 +1,196 @@
+id: youtube
+version: 1.0.0
+name: YouTube
+description: >
+  YouTube is the global video-sharing platform owned by Google LLC,
+  founded in 2005 and acquired by Google in 2006. The brand identity,
+  refreshed in 2017, is anchored on a single saturated red and the
+  geometric play-button rectangle — among the most recognized marks
+  in consumer software. YouTube treats both light and dark modes as
+  canonical product surfaces, with the dark canvas at #0F0F0F
+  carrying the modern consumer experience. The voice is creator-
+  facing and casual, built around the content rather than around
+  the platform chrome.
+tags: [streaming, video, youtube, google, bimodal, consumer-tech]
+
+provenance:
+  source: https://www.youtube.com/about/brand-resources/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Google LLC — YouTube, the YouTube wordmark, and the play-button
+    mark are registered trademarks of Google LLC. The signature
+    YouTube Red (#FF0000) is documented across YouTube's brand-
+    resources page. YouTube Sans is the proprietary corporate
+    typeface; this atom references Roboto (Google's open-source
+    Apache-licensed corporate sans) as the documented fallback,
+    matching the YouTube product surface which has historically
+    used Roboto for system chrome.
+  importedDate: 2026-05-18
+  notes: >
+    YouTube Sans (proprietary) is reserved for the wordmark and
+    select marketing surfaces. Roboto (already in this catalog as
+    roboto@1) is the documented public fallback and the long-standing
+    chrome font for YouTube product surfaces. This atom references
+    Roboto for both heading and body roles and notes YouTube Sans
+    as the proprietary primary in provenance.
+
+references:
+  palette: youtube@1
+  fonts:
+    heading: roboto@1
+    body: roboto@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # identity = the brand's signature color. YouTube is bimodal but
+    # the red mark IS the brand across both light and dark canvases.
+    identity: youtube-red
+    on-identity: youtube-white
+
+    primary: youtube-red
+    primary-hover: youtube-red-dark
+    accent: youtube-red
+    accent-hover: youtube-red-dark
+    mark: youtube-red
+
+    text-primary-light: youtube-ink
+    text-primary-dark: youtube-white
+    text-secondary-light: youtube-graphite
+    text-secondary-dark: youtube-gray
+    background-light: youtube-white
+    background-dark: youtube-black
+    surface-light: youtube-fog
+    surface-dark: youtube-near-black
+    divider: youtube-divider
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.mark.fill
+    allowed:
+      - youtube-red
+      - youtube-white
+      - youtube-ink
+    forbidden:
+      - youtube-red-dark
+      - youtube-red-light
+      - youtube-gray
+      - youtube-graphite
+    severity: error
+    rationale: >
+      The YouTube play-button mark renders in pure red, reversed
+      white on dark surfaces, or monochrome black for print. Hover
+      and lighter reds are interactive-state values; gray tones are
+      chrome — none are acceptable mark fills.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+      - inverted-without-variant
+    severity: error
+    rationale: >
+      YouTube's brand-resources program is strict about the
+      play-button mark. The 2017 refresh removed the prior
+      red-rectangle-with-white-wordmark composition in favor of a
+      separated play-button mark + monochrome wordmark — consumers
+      MUST NOT reintroduce gradient or drop-shadow treatments.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      YouTube Ink (#030303) on YouTube White gives ~21:1 and YouTube
+      White on YouTube Black (#0F0F0F) gives ~19:1 — both directions
+      clear WCAG 2.1 Level AA with substantial margin.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 3.0
+    standard: WCAG-AA-large
+    severity: error
+    rationale: >
+      YouTube Red on white reaches ~4:1 — AA for large text. On the
+      dark canvas the same red against #0F0F0F gives ~5:1 — AA for
+      normal text. This rule guards interactive use at button size.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["400", "500", "700"]
+    severity: warning
+    rationale: >
+      YouTube Sans and the Roboto system chrome use Regular (400),
+      Medium (500), and Bold (700) on UI surfaces. Lighter cuts read
+      as content metadata; heavier cuts are outside the documented
+      product kit.
+
+  - type: contextRestriction
+    target: roles.colors.primary
+    forbiddenContexts:
+      - body-text
+      - secondary-link
+    severity: error
+    rationale: >
+      YouTube Red is reserved for the play-button mark, the
+      subscribe-button affordance, and primary alerts. Using it
+      inside body copy or for secondary links dilutes the signature
+      accent and weakens the affordance the red carries throughout
+      the product.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level AA.
+      The bimodal canvas makes contrast checks the default
+      verification on any new role pairing.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: dark
+    use: youtube-light
+    severity: error
+    rationale: >
+      On the dark YouTube canvas, the wordmark renders in white with
+      the play-button mark in red. Do not invert the white wordmark
+      to black on the dark canvas.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: light
+    use: youtube-dark
+    severity: error
+    rationale: >
+      On the light YouTube canvas, the wordmark renders in YouTube
+      Ink with the play-button mark in red. Do not render the
+      wordmark in white on a light surface.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.4
+    severity: warning
+    rationale: >
+      YouTube's marketing headlines and surface section heads run
+      materially larger than body and metadata text. A 1.4× minimum
+      ratio preserves the display-to-prose hierarchy the product
+      and marketing both depend on.

@@ -1,0 +1,158 @@
+id: docker
+version: 1.0.0
+name: Docker
+description: >
+  Docker, Inc. is the company behind the Docker container engine,
+  Docker Desktop, Docker Hub, and a developer-platform suite for
+  building and shipping containerized applications. The brand
+  identity is anchored on Docker Blue (#2496ED) — the fill of the
+  Moby whale mark — paired with a deeper Navy used on dark-canvas
+  marketing and on Docker Hub. The voice is developer-direct and
+  workflow-forward: short verbs, runnable commands, and a strong
+  preference for the live `docker run` over the marketing
+  abstraction.
+tags: [tech, containers, docker, devops, infrastructure]
+
+provenance:
+  source: https://www.docker.com/company/newsroom/media-resources/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Docker, the Docker logo, the Moby whale, Docker Desktop, and
+    Docker Hub are trademarks of Docker, Inc. Brand colors and
+    identity guidance documented here are derived from Docker's
+    media-resources page (docker.com/company/newsroom/media-
+    resources/) and the visible style values across docker.com and
+    Docker Desktop.
+  importedDate: 2026-05-18
+  notes: >
+    Brand-atoms' read of Docker's publicly available brand-resources
+    page. This file is not an official Docker brand-guidelines
+    document. The Moby whale is one of the most-protected
+    open-source-adjacent marks in developer tooling; no asset files
+    are bundled here.
+
+references:
+  palette: docker@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    identity: docker-blue
+    on-identity: docker-white
+    primary: docker-blue
+    primary-hover: docker-blue-dark
+    accent: docker-blue-bright
+    accent-hover: docker-blue
+    background: docker-white
+    surface: docker-surface
+    surface-elevated: docker-white
+    text-primary: docker-ink
+    text-secondary: docker-gray
+    text-tertiary: docker-gray-light
+    chrome: docker-navy
+    chrome-deep: docker-navy-deep
+    mark: docker-blue
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.whale.fill
+    allowed:
+      - docker-blue
+      - docker-white
+    forbidden:
+      - docker-blue-bright
+      - docker-blue-dark
+      - docker-navy
+    severity: error
+    rationale: >
+      The Moby whale renders in Docker Blue (#2496ED) or reversed
+      white. The hover Docker Blue Dark, the marketing-illustration
+      bright cyan, and the Docker Navy chrome are interactive-state
+      and canvas tokens — none are valid mark fills.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - whale-detached-from-wordmark
+      - gradient-fill
+    severity: error
+    rationale: >
+      Docker's brand guidelines explicitly prohibit altering the
+      proportions, color, or orientation of the Moby whale mark.
+      The whale must not be detached from the Docker wordmark on
+      shared lockups, and gradient fills are not part of the
+      published brand system.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Docker Ink (#17191E) on Docker White gives ~17:1 — well
+      above WCAG 2.1 Level AA. The rule encodes the floor for any
+      new foreground/background pairing on docker.com surfaces.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 3.0
+    standard: WCAG-AA-large
+    severity: warning
+    rationale: >
+      Docker Blue on Docker White sits around 3.6:1 — it clears
+      AA-large for headlines and large interactive text but falls
+      short of AA for body-sized text. Use Docker Blue as a CTA /
+      heading color, not for body copy on white.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - docker-navy
+      - docker-white
+      - docker-surface
+    doesNotPairWith:
+      - docker-warning
+      - docker-error
+    severity: recommendation
+    rationale: >
+      Docker Blue pairs cleanly against the navy chrome and the
+      white canvas. Pairing the brand blue directly with the
+      warning amber or error red on the same surface creates a
+      status-color conflict that competes with the brand voice.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) —
+      Level AA. Docker Desktop and the docker.com marketing
+      surfaces both target AA as the floor for accessibility
+      across developer tooling.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.5
+    severity: recommendation
+    rationale: >
+      Docker's marketing surfaces use Inter for both heading and
+      body. Keep headings at least 1.5× body to preserve
+      hierarchy when one family does both jobs.

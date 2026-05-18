@@ -1,0 +1,162 @@
+id: spline
+version: 1.0.0
+name: Spline
+description: >
+  Spline is a browser-based 3D design and collaboration tool —
+  Figma for three dimensions, with scene-based modeling, animation,
+  and interactive 3D export. The brand voice is craft-forward,
+  playful, and rendered-3D-confident. Visually, the identity is
+  the cube mark in Spline Orange (#FF8B14) on a clean canvas
+  with near-black body text and large 3D hero compositions.
+tags: [saas, design-tools, spline, three-d]
+
+provenance:
+  source: https://spline.design/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Spline and the Spline logo are trademarks of Spline, Inc. The
+    primary brand color Spline Orange (#FF8B14) is documented on
+    Spline's brand surfaces. brand-atoms catalogues only the
+    publicly documented signature color and authored neutrals;
+    licensed application of the Spline name and mark is governed
+    by Spline's brand-use guidance at spline.design.
+  importedDate: 2026-05-18
+  notes: >
+    Spline's marketing pages render in a neutral humanist sans
+    consistent with Inter; Inter is referenced here as the primary
+    face and is already in the brand-atoms catalog.
+
+references:
+  palette: spline@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # identity = the brand's signature surface. Spline's identity is
+    # the cube mark in Spline Orange — the orange carries the
+    # institutional voice on the clean canvas.
+    identity: spline-orange
+    on-identity: spline-white
+
+    primary: spline-orange
+    primary-hover: spline-orange-hover
+    accent: spline-orange
+    accent-hover: spline-orange-hover
+
+    success: spline-orange
+    warning: spline-orange
+    error: spline-orange
+
+    background-light: spline-white
+    background-dark: spline-canvas-dark
+    surface-light: spline-surface-light
+    surface-dark: spline-surface-dark
+    text-primary-light: spline-black
+    text-primary-dark: spline-white
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.mark
+    allowed:
+      - spline-orange
+      - spline-white
+      - spline-black
+    forbidden:
+      - any-non-brand-color
+    severity: error
+    rationale: >
+      The Spline cube mark renders in Spline Orange as the
+      canonical fill. Recoloring the mark into off-brand hues
+      violates Spline's brand-use guidance.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - gradient-fill
+    severity: error
+    rationale: >
+      Spline's brand surfaces prohibit stretching, rotating,
+      recoloring, or applying decorative effects to the cube
+      mark.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      WCAG 2.1 Level AA contrast minimum for body text. Spline
+      Black (#0E0E10) on Spline White (#FFFFFF) clears AA at
+      very high contrast.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: dark
+    use: logo-light
+    severity: error
+    rationale: >
+      On dark surfaces, place the orange cube against the dark
+      canvas (clears AA at large sizes) or use a monochrome
+      white variant for small wordmark lockups.
+
+  - type: contextRestriction
+    target: roles.colors.identity
+    forbiddenContexts:
+      - product-of-competitor
+      - merchandise
+      - endorsement-implication
+      - company-name-or-domain
+    severity: error
+    rationale: >
+      Spline's trademark guidance forbids use of the Spline name
+      and mark in third-party company names, domains, and uses
+      that imply affiliation or endorsement.
+
+  - type: compositionConstraint
+    target: roles.colors.identity
+    pairsWith:
+      - spline-white
+      - spline-black
+      - spline-surface-light
+    severity: recommendation
+    rationale: >
+      Spline Orange is calibrated to read on white and near-black.
+      Pairing it with another saturated hue at the same weight
+      breaks the focused, craft-forward voice of the brand
+      surface.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["500", "600", "700"]
+    severity: warning
+    rationale: >
+      Spline's marketing surfaces render headings in the 500–700
+      band; lighter weights undermine the confident, craft-
+      forward voice of the brand.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level
+      AA. Spline-skinned surfaces must clear AA on body text;
+      Spline Orange must not be used as a body-text color on
+      light backgrounds because it fails AA.

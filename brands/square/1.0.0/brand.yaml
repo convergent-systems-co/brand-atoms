@@ -1,0 +1,169 @@
+id: square
+version: 1.0.0
+name: Square
+description: >
+  Square, a Block, Inc. brand, is the seller-side commerce and
+  payments platform that put a card reader in the hand of every
+  small merchant. The brand is named after its mark: a literal
+  black square, geometric and exact. The visual identity is
+  disciplined and merchant-facing — Square Black for the mark and
+  wordmark, Square Blue (#006AFF) for interactive elements, and a
+  warm light canvas that frames the seller dashboard. The voice is
+  plain and operator-oriented: "Sell anywhere. Diversify revenue
+  streams. Streamline operations."
+tags: [fintech, payments, square, block, merchant, light-first]
+
+provenance:
+  source: https://squareup.com/us/en/about/press
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Block, Inc. / Square — Square, the Square wordmark, and the
+    Square mark are registered trademarks of Block, Inc. The
+    signature Square Blue (#006AFF) is documented across Square's
+    press kit and visible in the deployed squareup.com marketing
+    surfaces. Sharp Sans is the proprietary corporate typeface
+    historically used across Square; Inter is referenced here as
+    the open-source fallback.
+  importedDate: 2026-05-18
+  notes: >
+    Square's parent rebranded to Block in 2021. The Square seller
+    brand retained its identity. Sharp Sans (proprietary) is not
+    publicly distributed; this atom references Inter for both
+    heading and body roles and notes Sharp Sans in provenance. The
+    Square mark is rendered in solid black on light surfaces or in
+    reversed white on dark; "recolored" treatments are forbidden.
+
+references:
+  palette: square@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # identity = the brand's signature surface. Square is literally
+    # named after its mark; the black square IS the brand identity.
+    identity: square-black
+    on-identity: square-white
+
+    primary: square-blue
+    primary-hover: square-blue-hover
+    accent: square-blue
+    accent-hover: square-blue-hover
+    mark: square-black
+
+    text-primary-light: square-ink
+    text-primary-dark: square-white
+    text-secondary-light: square-graphite
+    background-light: square-white
+    background-dark: square-near-black
+    surface-light: square-fog
+    surface-dark: square-surface-dark
+    divider: square-divider
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.mark.fill
+    allowed:
+      - square-black
+      - square-white
+    forbidden:
+      - square-blue
+      - square-blue-hover
+      - square-ink
+      - square-graphite
+    severity: error
+    rationale: >
+      The Square mark renders only in solid black (on light surfaces)
+      or reversed white (on dark surfaces). Blue is the interactive
+      color for CTAs and links — not a mark fill. Recoloring the
+      square into off-brand hues violates Square's brand-use guidance.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+      - inverted-without-variant
+    severity: error
+    rationale: >
+      The Square mark is a literal geometric square — its identity
+      depends on exact proportions and a flat solid fill. Stretching,
+      rotating beyond 0°, recoloring, or applying drop-shadows breaks
+      the most essential brand cue.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Square Ink (#212121) on Square White (#FFFFFF) gives ~16:1 —
+      well above WCAG 2.1 Level AA. This rule guards the floor for
+      any new foreground/background pairing.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Square Blue (#006AFF) on white reaches ~5.6:1 — clears AA for
+      normal text. Buttons using the blue fill with white text exceed
+      6:1; this rule guards link usage so the brand interactive color
+      stays AA-compliant against the canvas.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["500", "600", "700"]
+    severity: warning
+    rationale: >
+      Square's marketing surfaces use Sharp Sans in Medium (500),
+      Semibold (600), and Bold (700) for headlines. Lighter cuts read
+      as body weight and compromise the confident merchant-facing
+      voice; heavier cuts are outside the standard corporate kit.
+
+  - type: contextRestriction
+    target: roles.colors.mark
+    forbiddenContexts:
+      - body-text
+      - secondary-link
+    severity: error
+    rationale: >
+      Square Black is reserved for the mark, the wordmark, and
+      primary headlines. Using solid #000000 for body text or
+      secondary links muddles the mark/text hierarchy the brand
+      depends on; use Square Ink (#212121) for body instead.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level AA.
+      Square's seller-facing surfaces have an elevated trust
+      requirement; AA is the floor on any new role pairing.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.5
+    severity: warning
+    rationale: >
+      Square's marketing hero typography runs materially larger than
+      body copy. A 1.5× minimum size ratio preserves the display-to-
+      prose hierarchy the seller-facing voice depends on.

@@ -1,0 +1,155 @@
+id: python
+version: 1.0.0
+name: Python
+description: >
+  Python is a high-level, general-purpose, dynamically-typed
+  programming language that emphasizes readability and the Zen of
+  Python ("explicit is better than implicit; readability counts").
+  The brand voice is welcoming, pedagogical, and community-first —
+  Python's growth has been carried by tutorials, scientific
+  computing, and an inclusive Python Software Foundation (PSF)
+  governance model. Visually, the brand pairs Python Blue
+  (#3776AB) with Python Yellow (#FFD43B) in the two-snake logo,
+  the equal-weight pairing being load-bearing.
+tags: [python, programming-language, psf, open-source, brand, education]
+
+provenance:
+  source: https://www.python.org/community/logos/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    The Python logo and word mark are trademarks of the Python
+    Software Foundation. Per the PSF Trademark Usage Policy, the
+    logo may be used to indicate that a project or product works
+    with Python; derived versions require advance PSF approval.
+    This atom is brand-atoms' machine-readable encoding of the
+    PSF logo's published color values; no logos are bundled.
+  importedDate: 2026-05-18
+  notes: >
+    Python's brand-color hex values are not published as a formal
+    palette page on python.org; the canonical values (#3776AB and
+    #FFD43B) are the resolved fill colors in the official PSF
+    logo SVG distributed at python.org/community/logos and are
+    matched by the simple-icons project. The brand voice
+    paragraph above draws from PSF's Diversity Statement and the
+    community pages at python.org/community/.
+
+references:
+  palette: python@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: source-code-pro@1
+
+roles:
+  colors:
+    identity: python-blue
+    on-identity: python-white
+    primary: python-blue
+    primary-hover: python-dark-blue
+    accent: python-yellow
+    accent-hover: python-dark-yellow
+    background: python-white
+    surface: python-off-white
+    text-primary: python-dark-blue
+    text-secondary: python-gray
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: compositionConstraint
+    target: logo
+    pairsWith:
+      - python-blue
+      - python-yellow
+    severity: error
+    rationale: >
+      The PSF two-snake logo is defined by the equal-weight
+      pairing of Python Blue and Python Yellow. Reproducing only
+      one snake or substituting other hues breaks the
+      Foundation's mark identity.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - recolored
+      - rotated
+      - skewed
+      - stretched
+      - derived-without-approval
+      - drop-shadow
+    severity: error
+    rationale: >
+      The PSF Trademark Usage Policy requires that the Python
+      logo be reproduced "with the right colors and fonts" and
+      that derived versions require PSF approval before use.
+      Recoloring, rotating, or otherwise altering the mark
+      violates the policy.
+
+  - type: colorChoice
+    target: roles.colors.identity
+    allowed:
+      - python-blue
+      - python-yellow
+    severity: error
+    rationale: >
+      Python Blue and Python Yellow are the two canonical
+      identity colors. Other neutrals in this palette are
+      supporting tones only.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Python Dark Blue (#1E415E) on Python White exceeds 9:1 —
+      well above the WCAG AA threshold for body text.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: warning
+    rationale: >
+      Python Blue (#3776AB) on White sits around 5.4:1 — clears
+      AA for body text. Python Yellow (#FFD43B) on White does
+      NOT clear AA; reserve yellow for large surfaces or pair
+      with a dark canvas for legibility.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.5
+    severity: recommendation
+    rationale: >
+      Python.org and PSF surfaces use a single humanist sans for
+      heading and body. Maintain at least a 1.5× heading-to-body
+      ratio to preserve hierarchy.
+
+  - type: contextRestriction
+    target: trademark.use
+    forbiddenContexts:
+      - implied-endorsement
+      - paid-merchandise-without-approval
+    severity: error
+    rationale: >
+      The PSF Trademark Usage Policy requires permission before
+      selling Python-branded merchandise and prohibits uses that
+      imply official PSF endorsement.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) —
+      Level AA. The Python brand uses Blue as its
+      AA-compliant interactive color; Yellow is reserved for
+      large display and accent use only.

@@ -1,0 +1,114 @@
+kind: palette
+id: klarna
+version: 1.0.0
+name: Klarna
+description: >
+  Klarna corporate brand palette. Klarna's brand is built on an
+  unmistakable signature: Klarna Pink (#FFA8CD), a warm pastel pink
+  that reads as both consumer-friendly and irreverent, paired with
+  Klarna Black on stark white. The 2018 brand refresh by Doberman and
+  Stockholm Design Lab anchored the identity on this single pink — a
+  deliberate departure from fintech blue conventions, designed to
+  read like a lifestyle brand rather than a payments processor.
+tags: [fintech, payments, bnpl, klarna, pink, smooth, lifestyle]
+
+provenance:
+  source: https://www.klarna.com/us/press/brand/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Klarna Bank AB (publ) — Klarna, the Klarna wordmark, and the
+    Klarna "smoooth" mark are registered trademarks of Klarna Bank
+    AB. The signature Klarna Pink (#FFA8CD) is documented across
+    Klarna's brand-press kit and verified against the deployed
+    klarna.com brand surfaces. Klarna Mono and Klarna Sans are the
+    proprietary corporate typefaces designed for the brand.
+  importedDate: 2026-05-18
+  notes: >
+    Klarna's pink (#FFA8CD) is the defining brand element — used as
+    a full background field, as a button fill, and as an oversized
+    typographic ground. The brand also uses stark black-on-white for
+    body and a constrained set of secondary accents. The dark-mode
+    role mapping is an authored inversion for product surfaces.
+
+swatches:
+  # ─── Signature ─────────────────────────────────────────────────
+  - id: klarna-pink
+    name: Klarna Pink
+    value: "#FFA8CD"
+    description: Signature pastel pink — the defining brand color, used as background fields and primary brand surface.
+  - id: klarna-pink-deep
+    name: Klarna Pink Deep
+    value: "#E6739D"
+    description: Authored deeper pink for hover/pressed states on the primary pink action.
+
+  # ─── Black/white anchors ───────────────────────────────────────
+  - id: klarna-black
+    name: Klarna Black
+    value: "#17120F"
+    description: Klarna Black — warm near-black used for the wordmark, body text, and high-contrast type on pink fields.
+  - id: klarna-white
+    name: Klarna White
+    value: "#FFFFFF"
+    description: Canonical light canvas paired with the pink fields.
+  - id: klarna-cream
+    name: Klarna Cream
+    value: "#F5EBE0"
+    description: Warm off-white used as a secondary surface — softer than pure white, often paired with pink on marketing.
+
+  # ─── Neutrals ──────────────────────────────────────────────────
+  - id: klarna-graphite
+    name: Klarna Graphite
+    value: "#3C3733"
+    description: Secondary text on light surfaces; a warm graphite that holds the same warmth as Klarna Black.
+  - id: klarna-gray
+    name: Klarna Gray
+    value: "#7A716A"
+    description: Tertiary text and metadata.
+  - id: klarna-divider
+    name: Klarna Divider
+    value: "#E5DDD4"
+    description: Authored hairline divider tone that respects the warm palette.
+
+  # ─── Dark surfaces (authored) ──────────────────────────────────
+  - id: klarna-canvas-dark
+    name: Klarna Canvas Dark
+    value: "#1A1410"
+    description: Authored dark-mode canvas — Klarna is light-first; this is an authored inversion.
+  - id: klarna-surface-dark
+    name: Klarna Surface Dark
+    value: "#2A211C"
+    description: Authored elevated surface on dark mode.
+
+modes:
+  light:
+    roles:
+      background: klarna-white
+      surface: klarna-cream
+      surface-elevated: klarna-white
+      text-primary: klarna-black
+      text-secondary: klarna-graphite
+      text-tertiary: klarna-gray
+      primary: klarna-pink
+      primary-hover: klarna-pink-deep
+      accent: klarna-pink
+      accent-hover: klarna-pink-deep
+      warning: klarna-pink-deep
+      warning-hover: klarna-pink
+      error: klarna-black
+      success: klarna-pink
+  dark:
+    roles:
+      background: klarna-canvas-dark
+      surface: klarna-surface-dark
+      surface-elevated: klarna-surface-dark
+      text-primary: klarna-white
+      text-secondary: klarna-cream
+      text-tertiary: klarna-gray
+      primary: klarna-pink
+      primary-hover: klarna-pink-deep
+      accent: klarna-pink
+      accent-hover: klarna-pink-deep
+      warning: klarna-pink-deep
+      warning-hover: klarna-pink
+      error: klarna-white
+      success: klarna-pink

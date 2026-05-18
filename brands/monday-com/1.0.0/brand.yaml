@@ -1,0 +1,176 @@
+id: monday-com
+version: 1.0.0
+name: monday.com
+description: >
+  monday.com is a Work OS — a configurable work-management surface
+  for projects, CRM, dev, and service teams. The brand voice is
+  energetic, playful, and column-and-row direct. Visually, the
+  identity is carried by the Monday Red mark (#FF3D57) on a clean
+  white canvas, with vivid status colors in-product and disciplined
+  near-black body text on marketing surfaces. Where competing
+  work-OS brands lean on cool blues, monday.com commits to a single
+  hot red.
+tags: [saas, productivity, monday-com, work-os]
+
+provenance:
+  source: https://monday.com/p/press
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    monday.com and the monday.com logo are trademarks of
+    monday.com Ltd. The primary brand color Monday Red (#FF3D57) is
+    documented on monday.com's press resources. brand-atoms
+    catalogues only the publicly documented signature color and
+    authored neutrals; licensed application of the monday.com name
+    and mark is governed by monday.com's brand-use guidance at
+    monday.com/p/press.
+  importedDate: 2026-05-18
+  notes: >
+    monday.com's marketing pages render in a neutral humanist sans
+    consistent with Inter; Inter is referenced here as the primary
+    face and is already in the brand-atoms catalog. The supporting
+    product status colors (greens, yellows, purples) are not
+    catalogued at the brand-atoms palette level because monday.com
+    does not publish their canonical hex values; consumers needing
+    them should pull from monday.com's in-product brand surfaces at
+    consumption time.
+
+references:
+  palette: monday-com@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # identity = the brand's signature surface. monday.com's identity
+    # is the wordmark in Monday Red — the red carries the
+    # institutional voice on the clean white canvas.
+    identity: monday-red
+    on-identity: monday-white
+
+    primary: monday-red
+    primary-hover: monday-red-hover
+    accent: monday-red
+    accent-hover: monday-red-hover
+
+    success: monday-red
+    warning: monday-red
+    error: monday-red
+
+    background-light: monday-white
+    background-dark: monday-canvas-dark
+    surface-light: monday-surface-light
+    surface-dark: monday-surface-dark
+    text-primary-light: monday-black
+    text-primary-dark: monday-white
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.mark
+    allowed:
+      - monday-red
+      - monday-white
+      - monday-black
+    forbidden:
+      - any-non-brand-color
+    severity: error
+    rationale: >
+      The monday.com wordmark renders in Monday Red on light
+      surfaces and in white on dark surfaces. Recoloring the
+      wordmark into off-brand hues violates monday.com's brand-use
+      guidance.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - gradient-fill
+    severity: error
+    rationale: >
+      monday.com's press resources prohibit stretching, rotating,
+      recoloring, or applying decorative effects to the wordmark.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      WCAG 2.1 Level AA contrast minimum for body text. Monday
+      Black (#000000) on Monday White (#FFFFFF) clears AA at 21:1.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: dark
+    use: logo-light
+    severity: error
+    rationale: >
+      On dark surfaces, use monday.com's documented light-fill
+      wordmark variant; do not invert the red wordmark on the fly.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: light
+    use: logo-red
+    severity: error
+    rationale: >
+      On light surfaces, the canonical wordmark renders in Monday
+      Red. A black-on-white monochrome variant is permitted; off-
+      brand hues are not.
+
+  - type: contextRestriction
+    target: roles.colors.identity
+    forbiddenContexts:
+      - product-of-competitor
+      - merchandise
+      - endorsement-implication
+      - company-name-or-domain
+    severity: error
+    rationale: >
+      monday.com's trademark guidance forbids use of the monday.com
+      name and mark in third-party company names, domains, and uses
+      that imply affiliation or endorsement.
+
+  - type: compositionConstraint
+    target: roles.colors.identity
+    pairsWith:
+      - monday-white
+      - monday-black
+      - monday-surface-light
+    severity: recommendation
+    rationale: >
+      Monday Red is calibrated to read on white and near-black.
+      Pairing it with another saturated hue at the same weight
+      breaks the high-energy, focused voice of the brand surface.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["500", "600", "700", "800"]
+    severity: warning
+    rationale: >
+      monday.com's marketing surfaces render display headings in
+      the medium-to-heavy band (500–800); lighter weights undermine
+      the bold, energetic voice of the brand.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level
+      AA. monday.com-skinned surfaces must clear AA on body text.

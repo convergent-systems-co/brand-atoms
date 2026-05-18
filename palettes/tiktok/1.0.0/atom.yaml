@@ -1,0 +1,117 @@
+kind: palette
+id: tiktok
+version: 1.0.0
+name: TikTok
+description: >
+  TikTok corporate brand palette. TikTok's identity is a chromatic
+  three-color composition: a black canvas as ground, with the
+  signature TikTok Red (#FE2C55) and TikTok Cyan (#25F4EE) offset
+  to create the iconic chromatic-aberration effect on the music-
+  note "d" mark and wordmark. The brand is dark-first: the consumer
+  app, the wordmark, and most marketing surfaces all live on solid
+  black with red and cyan reading as a paired chromatic accent.
+tags: [social, video, tiktok, bytedance, black, chromatic, dark-first]
+
+provenance:
+  source: https://www.tiktok.com/about/brand-guidelines
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    TikTok Pte. Ltd. (a ByteDance Ltd. subsidiary) — TikTok, the
+    TikTok wordmark, and the music-note "d" mark are registered
+    trademarks of TikTok Pte. Ltd. The signature red (#FE2C55) and
+    cyan (#25F4EE) are documented across TikTok's brand-guidelines
+    page and verified against the deployed TikTok logomark SVG.
+    The chromatic offset between the red and cyan layers is the
+    defining brand element.
+  importedDate: 2026-05-18
+  notes: >
+    TikTok's mark uses a deliberate chromatic-aberration effect:
+    the music-note "d" is composed of overlapping red and cyan
+    layers offset against a white core, producing a glitch-art
+    signature. This atom catalogues the chromatic-anchor swatches;
+    the offset-and-overlay treatment lives in the brand.yaml rules.
+
+swatches:
+  # ─── Chromatic signature ───────────────────────────────────────
+  - id: tiktok-red
+    name: TikTok Red
+    value: "#FE2C55"
+    description: Signature warm red — the red-channel anchor of the chromatic mark and a primary brand accent.
+  - id: tiktok-cyan
+    name: TikTok Cyan
+    value: "#25F4EE"
+    description: Signature cyan — the cyan-channel anchor of the chromatic mark, offset against the red.
+  - id: tiktok-red-deep
+    name: TikTok Red Deep
+    value: "#D91E45"
+    description: Authored deeper red used for hover/pressed states on the primary red.
+  - id: tiktok-cyan-deep
+    name: TikTok Cyan Deep
+    value: "#0BB8B3"
+    description: Authored deeper cyan used for hover/pressed states on the cyan accent.
+
+  # ─── Canvas ───────────────────────────────────────────────────
+  - id: tiktok-black
+    name: TikTok Black
+    value: "#000000"
+    description: Canonical canvas — the TikTok consumer surface and wordmark frame is solid black.
+  - id: tiktok-near-black
+    name: TikTok Near-Black
+    value: "#121212"
+    description: Elevated surface on the dark canvas — feed background, modal headers.
+  - id: tiktok-charcoal
+    name: TikTok Charcoal
+    value: "#1F1F1F"
+    description: Hovered surface and elevated tiles on the dark mode.
+  - id: tiktok-white
+    name: TikTok White
+    value: "#FFFFFF"
+    description: Primary text on the dark canvas; the core "d" mark interior; reversed wordmark fill on light surfaces.
+
+  # ─── Text/Neutrals ─────────────────────────────────────────────
+  - id: tiktok-fog
+    name: TikTok Fog
+    value: "#F1F1F2"
+    description: Authored light-mode canvas; secondary surface for marketing.
+  - id: tiktok-gray
+    name: TikTok Gray
+    value: "#86878B"
+    description: Secondary text and metadata across both modes.
+  - id: tiktok-gray-light
+    name: TikTok Gray Light
+    value: "#BBBBBC"
+    description: Tertiary text and inactive icons on the dark canvas.
+
+modes:
+  light:
+    roles:
+      background: tiktok-fog
+      surface: tiktok-white
+      surface-elevated: tiktok-white
+      text-primary: tiktok-black
+      text-secondary: tiktok-gray
+      text-tertiary: tiktok-gray-light
+      primary: tiktok-red
+      primary-hover: tiktok-red-deep
+      accent: tiktok-cyan
+      accent-hover: tiktok-cyan-deep
+      warning: tiktok-red-deep
+      warning-hover: tiktok-red
+      error: tiktok-red-deep
+      success: tiktok-cyan
+  dark:
+    roles:
+      background: tiktok-black
+      surface: tiktok-near-black
+      surface-elevated: tiktok-charcoal
+      text-primary: tiktok-white
+      text-secondary: tiktok-gray-light
+      text-tertiary: tiktok-gray
+      primary: tiktok-red
+      primary-hover: tiktok-red-deep
+      accent: tiktok-cyan
+      accent-hover: tiktok-cyan-deep
+      warning: tiktok-red
+      warning-hover: tiktok-red-deep
+      error: tiktok-red
+      success: tiktok-cyan

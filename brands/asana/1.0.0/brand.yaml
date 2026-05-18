@@ -1,0 +1,174 @@
+id: asana
+version: 1.0.0
+name: Asana
+description: >
+  Asana is a work-management platform built around tasks, projects,
+  goals, and portfolios — "where teams do their best work together."
+  The brand voice is calm, organized, and human. Visually, the
+  identity is carried by the three-dot Asana Coral mark (#F06A6A) on
+  a clean white canvas with near-black body text and generous
+  whitespace. Where competing work-management brands lean on blues
+  and greens, Asana commits to a warm, distinctive coral.
+tags: [saas, productivity, asana, work-management]
+
+provenance:
+  source: https://asana.com/press
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Asana and the Asana logo are trademarks of Asana, Inc. The
+    primary brand color Asana Coral (#F06A6A) is documented on
+    Asana's press and brand resources. brand-atoms catalogues only
+    the publicly documented signature color and authored neutrals;
+    licensed application of the Asana name and mark is governed by
+    Asana's brand-use guidance at asana.com/press.
+  importedDate: 2026-05-18
+  notes: >
+    Asana's marketing pages render in a neutral humanist sans
+    consistent with Inter; Inter is referenced here as the primary
+    face and is already in the brand-atoms catalog. Asana also uses
+    a documented supporting purple, but the exact published brand
+    hex is not catalogued in the referenced palette to avoid
+    fabrication; consumers needing it should pull from Asana's
+    in-product brand documentation at consumption time.
+
+references:
+  palette: asana@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # identity = the brand's signature surface. Asana's identity is
+    # the three-dot mark in Asana Coral — the coral carries the
+    # institutional voice on the clean white canvas.
+    identity: asana-coral
+    on-identity: asana-white
+
+    primary: asana-coral
+    primary-hover: asana-coral-hover
+    accent: asana-coral
+    accent-hover: asana-coral-hover
+
+    success: asana-coral
+    warning: asana-coral
+    error: asana-coral
+
+    background-light: asana-white
+    background-dark: asana-canvas-dark
+    surface-light: asana-surface-light
+    surface-dark: asana-surface-dark
+    text-primary-light: asana-black
+    text-primary-dark: asana-white
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.mark
+    allowed:
+      - asana-coral
+      - asana-white
+      - asana-black
+    forbidden:
+      - any-non-brand-color
+    severity: error
+    rationale: >
+      The Asana three-dot mark is rendered in Asana Coral on light
+      surfaces and in white on dark surfaces. Recoloring the mark
+      into off-brand hues violates Asana's brand-use guidance.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - gradient-fill
+    severity: error
+    rationale: >
+      Asana's brand resources prohibit stretching, rotating,
+      recoloring, or applying decorative effects to the three-dot
+      mark. The geometry and color of the mark are fixed.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      WCAG 2.1 Level AA contrast minimum for body text. Asana Black
+      (#1E1F21) on Asana White (#FFFFFF) clears AA comfortably.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: dark
+    use: logo-light
+    severity: error
+    rationale: >
+      On dark surfaces, use the light-fill three-dot variant; do
+      not place the coral mark on a busy or dark canvas where the
+      three dots fail contrast.
+
+  - type: contextRestriction
+    target: roles.colors.identity
+    forbiddenContexts:
+      - product-of-competitor
+      - merchandise
+      - endorsement-implication
+      - company-name-or-domain
+    severity: error
+    rationale: >
+      Asana's trademark guidance forbids use of the Asana name and
+      mark in third-party company names, domains, and uses that
+      imply affiliation or endorsement.
+
+  - type: compositionConstraint
+    target: roles.colors.identity
+    pairsWith:
+      - asana-white
+      - asana-black
+      - asana-surface-light
+    severity: recommendation
+    rationale: >
+      Asana Coral is calibrated to read on white, on warm off-white,
+      and on near-black. Pairing it with another saturated hue at
+      the same weight breaks the calm typographic voice of the
+      brand surface.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["500", "600", "700"]
+    severity: warning
+    rationale: >
+      Asana's marketing surfaces render headings in the 500–700
+      band; lighter weights undermine the confident, organized
+      voice of the brand.
+
+  - type: numericRatio
+    target: typography.body.lineHeight
+    min: 1.4
+    max: 1.65
+    severity: recommendation
+    rationale: >
+      Asana's product surface reads with disciplined line-height
+      in the 1.4–1.65 band. Tighter values feel cramped; looser
+      values break the calm, organized rhythm.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level AA.
+      Asana-skinned surfaces must clear AA on body text.

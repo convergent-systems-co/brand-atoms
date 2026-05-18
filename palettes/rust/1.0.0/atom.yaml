@@ -1,0 +1,121 @@
+kind: palette
+id: rust
+version: 1.0.0
+name: Rust
+description: >
+  Rust language brand palette anchored on Rust Orange (#D34516), the
+  signature accent of the gear-and-R mark and the cargo and rust-lang.org
+  marketing surfaces. The full Rust Foundation brand expression pairs
+  the orange with a deeper Rust Dark Blue (#1E2650), a supporting blue
+  for technical content (Rust Blue #28607F), a neutral metallic gray
+  (Rust Silver #67737A), and a green reserved for the database /
+  sustainability surfaces (Rust Green #61784D). Light-mode is canvas-
+  white; dark-mode inverts to a deep, near-black surface set so the
+  orange retains its high-energy role.
+tags: [rust, programming-language, open-source, orange, brand]
+
+provenance:
+  source: https://rustfoundation.org/brand-guide
+  license: CC-BY-4.0
+  attribution: >
+    The Rust logo is owned by the Rust Foundation and distributed
+    under CC-BY-4.0 per rustfoundation.org/policies/logo-policy-and-
+    media-guide. The colors documented here are published on the
+    Rust Foundation Brand Guide; the brand and Rust word mark remain
+    trademarks of the Rust Foundation. This palette atom is brand-
+    atoms' machine-readable encoding of the published values.
+  importedDate: 2026-05-18
+  notes: >
+    Hex values resolved from the Rust Foundation Brand Guide
+    (rustfoundation.org/brand-guide): Rust Dark Blue #1E2650, Rust
+    Orange #D34516, Rust Blue #28607F, Rust Silver #67737A, Rust
+    Green #61784D. The dark-mode role mapping is brand-atoms'
+    sensible inversion (canvas → near-black, orange identity
+    preserved); the Foundation guide is light-first and does not
+    enumerate a dark mode.
+
+swatches:
+  - id: rust-orange
+    name: Rust Orange
+    value: "#D34516"
+    description: >
+      Primary brand accent — the signature Rust Orange used on the
+      gear mark, primary buttons, and rust-lang.org accents.
+  - id: rust-dark-blue
+    name: Rust Dark Blue
+    value: "#1E2650"
+    description: >
+      Primary corporate dark color — the Rust Foundation's signature
+      navy used as a high-contrast canvas for the gear mark.
+  - id: rust-blue
+    name: Rust Blue
+    value: "#28607F"
+    description: >
+      Supporting blue used for technical illustrations and secondary
+      interactive elements.
+  - id: rust-silver
+    name: Rust Silver
+    value: "#67737A"
+    description: >
+      Neutral metallic gray used for body text on light surfaces and
+      hardware-adjacent surfaces.
+  - id: rust-green
+    name: Rust Green
+    value: "#61784D"
+    description: >
+      Reserved green used for database / sustainability surfaces per
+      the Brand Guide.
+  - id: rust-black
+    name: Rust Black
+    value: "#0E0E0E"
+    description: Near-black surface for dark-mode page canvas.
+  - id: rust-charcoal
+    name: Rust Charcoal
+    value: "#222222"
+    description: Elevated dark surface for cards and panels.
+  - id: rust-light-gray
+    name: Rust Light Gray
+    value: "#D7D7D7"
+    description: Hairline borders and dividers on light canvas.
+  - id: rust-off-white
+    name: Rust Off-White
+    value: "#F4F4F4"
+    description: Subtle layered surface on the light canvas.
+  - id: rust-white
+    name: Rust White
+    value: "#FFFFFF"
+    description: Page canvas in light mode; reversed text on orange.
+
+modes:
+  light:
+    roles:
+      background: rust-white
+      surface: rust-off-white
+      surface-elevated: rust-white
+      text-primary: rust-dark-blue
+      text-secondary: rust-silver
+      text-tertiary: rust-blue
+      primary: rust-orange
+      primary-hover: rust-dark-blue
+      accent: rust-blue
+      accent-hover: rust-dark-blue
+      warning: rust-orange
+      warning-hover: rust-dark-blue
+      error: rust-orange
+      success: rust-green
+  dark:
+    roles:
+      background: rust-black
+      surface: rust-charcoal
+      surface-elevated: rust-charcoal
+      text-primary: rust-white
+      text-secondary: rust-light-gray
+      text-tertiary: rust-silver
+      primary: rust-orange
+      primary-hover: rust-light-gray
+      accent: rust-blue
+      accent-hover: rust-light-gray
+      warning: rust-orange
+      warning-hover: rust-light-gray
+      error: rust-orange
+      success: rust-green

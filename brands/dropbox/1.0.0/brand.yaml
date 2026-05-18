@@ -1,0 +1,172 @@
+id: dropbox
+version: 1.0.0
+name: Dropbox
+description: >
+  Dropbox is a cloud storage and file-collaboration platform that has
+  expanded from sync-and-share into Dash (AI universal search), Sign,
+  and content collaboration. The brand voice — refreshed by Collins in
+  2017 — is editorial, bold, and human: large typographic blocks set
+  on warm-white or near-black, anchored by the saturated Dropbox Blue
+  open-box mark (#0061FF). Where competing storage brands recede into
+  utility, Dropbox commits to a magazine-cover composition.
+tags: [saas, productivity, dropbox, storage, collaboration]
+
+provenance:
+  source: https://www.dropbox.com/branding
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Dropbox and the Dropbox logo are trademarks of Dropbox, Inc. The
+    primary brand color Dropbox Blue (#0061FF) is documented on
+    Dropbox's brand and press resources. brand-atoms catalogues only
+    the publicly documented signature color and authored neutrals;
+    licensed application of the Dropbox name and mark is governed by
+    Dropbox's brand-use program at dropbox.com/branding.
+  importedDate: 2026-05-18
+  notes: >
+    Sharp Grotesk and Atlas Grotesk are Dropbox's proprietary
+    corporate typefaces. brand-atoms references Inter as the
+    open-source fallback (Inter is already in the catalog and is the
+    closest neutral-grotesk sans available); consumers with licensed
+    Sharp Grotesk or Atlas Grotesk files should override this
+    reference at consumption time.
+
+references:
+  palette: dropbox@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # identity = the brand's signature surface. Dropbox's identity is
+    # the open-box mark in Dropbox Blue — the blue carries the
+    # institutional voice when a single accent is required.
+    identity: dropbox-blue
+    on-identity: dropbox-white
+
+    primary: dropbox-blue
+    primary-hover: dropbox-blue-hover
+    accent: dropbox-blue
+    accent-hover: dropbox-blue-hover
+
+    success: dropbox-blue
+    warning: dropbox-blue
+    error: dropbox-blue
+
+    background-light: dropbox-white
+    background-dark: dropbox-canvas-dark
+    surface-light: dropbox-surface-light
+    surface-dark: dropbox-surface-dark
+    text-primary-light: dropbox-black
+    text-primary-dark: dropbox-white
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.mark
+    allowed:
+      - dropbox-blue
+      - dropbox-white
+      - dropbox-black
+    forbidden:
+      - any-non-brand-color
+    severity: error
+    rationale: >
+      The Dropbox open-box mark is rendered in Dropbox Blue on light
+      surfaces and in white on dark surfaces. Dropbox's brand
+      guidance forbids recoloring the mark into off-brand hues.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - gradient-fill
+    severity: error
+    rationale: >
+      Dropbox's brand resources prohibit stretching, rotating,
+      recoloring, or applying decorative effects to the open-box
+      mark. The geometry of the mark is fixed.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      WCAG 2.1 Level AA contrast minimum for body text. Dropbox Black
+      (#000000) on Dropbox White (#FFFFFF) clears AA at 21:1.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: dark
+    use: logo-light
+    severity: error
+    rationale: >
+      On dark surfaces, use Dropbox's documented light-fill open-box
+      variant; do not invert the blue mark on the fly.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: light
+    use: logo-blue
+    severity: error
+    rationale: >
+      On light surfaces, the canonical mark renders in Dropbox Blue.
+      A black-on-white monochrome variant is permitted; off-brand
+      hues are not.
+
+  - type: contextRestriction
+    target: roles.colors.identity
+    forbiddenContexts:
+      - product-of-competitor
+      - merchandise
+      - endorsement-implication
+      - company-name-or-domain
+    severity: error
+    rationale: >
+      Dropbox's trademark guidance forbids use of the Dropbox name
+      and mark in third-party company names, domains, and uses that
+      imply affiliation or endorsement.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["500", "600", "700", "800"]
+    severity: warning
+    rationale: >
+      Dropbox's editorial marketing surfaces render display headings
+      in the medium-to-heavy band (500–800); lighter weights
+      undermine the magazine-cover voice of the 2017 refresh.
+
+  - type: compositionConstraint
+    target: roles.colors.identity
+    pairsWith:
+      - dropbox-white
+      - dropbox-black
+      - dropbox-surface-light
+    severity: recommendation
+    rationale: >
+      Dropbox Blue is calibrated to read on white, on warm off-white,
+      and on near-black. Pairing it with an unrelated saturated hue
+      breaks the brand's tightly-composed magazine-cover voice.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level AA.
+      Dropbox-skinned surfaces must clear AA on body text.

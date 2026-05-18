@@ -1,0 +1,113 @@
+kind: palette
+id: twitch
+version: 1.0.0
+name: Twitch
+description: >
+  Twitch (an Amazon company) corporate palette. Twitch's identity is
+  anchored on a single saturated purple — Twitch Purple (#9146FF) —
+  paired with a dark canvas. The brand is dark-first: the consumer
+  product, marketing surfaces, and the Glitch mark all live on
+  near-black surfaces with the purple reading as the high-energy
+  signature. The 2019 brand refresh by Collins simplified the
+  identity to one purple, one mark, and a deliberately gamer-facing
+  voice that distinguishes Twitch from streaming-video conventions.
+tags: [streaming, gaming, twitch, amazon, purple, dark-first, live]
+
+provenance:
+  source: https://brand.twitch.tv/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Twitch Interactive, Inc. (an Amazon company) — Twitch, the Twitch
+    wordmark, and the Glitch mark are registered trademarks of
+    Twitch Interactive, Inc. The signature Twitch Purple (#9146FF)
+    and the dark canvas (#0E0E10) are documented across Twitch's
+    public brand site (brand.twitch.tv) and verified against the
+    deployed twitch.tv stylesheets.
+  importedDate: 2026-05-18
+  notes: >
+    Twitch's 2019 brand refresh by Collins reduced the identity to
+    a single purple and the geometric Glitch mark. The dark mode is
+    the canonical Twitch surface. The light-mode role mapping is an
+    authored inversion provided for consumers that need a light-
+    surface treatment; it is not the dominant brand context.
+
+swatches:
+  # ─── Signature ─────────────────────────────────────────────────
+  - id: twitch-purple
+    name: Twitch Purple
+    value: "#9146FF"
+    description: Primary signature purple — the Twitch wordmark, the Glitch mark, and primary CTAs.
+  - id: twitch-purple-hover
+    name: Twitch Purple Hover
+    value: "#772CE8"
+    description: Darker purple used for hover/pressed states on the primary action.
+  - id: twitch-purple-light
+    name: Twitch Purple Light
+    value: "#BF94FF"
+    description: Lighter purple used for emphasis on dark canvases and in marketing accents.
+
+  # ─── Canvas ───────────────────────────────────────────────────
+  - id: twitch-black
+    name: Twitch Black
+    value: "#0E0E10"
+    description: Canonical canvas — the Twitch consumer surface and chrome background.
+  - id: twitch-near-black
+    name: Twitch Near-Black
+    value: "#18181B"
+    description: Elevated surface — chat panels, player chrome, and modal backgrounds.
+  - id: twitch-charcoal
+    name: Twitch Charcoal
+    value: "#1F1F23"
+    description: Hovered surface, sidebar background, and elevated tiles in the Twitch consumer app.
+
+  # ─── Text/Neutrals ─────────────────────────────────────────────
+  - id: twitch-white
+    name: Twitch White
+    value: "#FFFFFF"
+    description: Primary text on the dark canvas; reversed wordmark fill on light backgrounds.
+  - id: twitch-off-white
+    name: Twitch Off-White
+    value: "#EFEFF1"
+    description: Authored light-mode canvas; secondary surface on dark mode.
+  - id: twitch-graphite
+    name: Twitch Graphite
+    value: "#53535F"
+    description: Secondary text and divider color on the dark canvas.
+  - id: twitch-gray-light
+    name: Twitch Gray Light
+    value: "#ADADB8"
+    description: Tertiary text and metadata in the consumer product.
+
+modes:
+  light:
+    roles:
+      background: twitch-off-white
+      surface: twitch-white
+      surface-elevated: twitch-white
+      text-primary: twitch-black
+      text-secondary: twitch-graphite
+      text-tertiary: twitch-gray-light
+      primary: twitch-purple
+      primary-hover: twitch-purple-hover
+      accent: twitch-purple
+      accent-hover: twitch-purple-hover
+      warning: twitch-purple-light
+      warning-hover: twitch-purple
+      error: twitch-purple-hover
+      success: twitch-purple
+  dark:
+    roles:
+      background: twitch-black
+      surface: twitch-near-black
+      surface-elevated: twitch-charcoal
+      text-primary: twitch-white
+      text-secondary: twitch-gray-light
+      text-tertiary: twitch-graphite
+      primary: twitch-purple
+      primary-hover: twitch-purple-light
+      accent: twitch-purple
+      accent-hover: twitch-purple-light
+      warning: twitch-purple-light
+      warning-hover: twitch-purple
+      error: twitch-purple-light
+      success: twitch-purple

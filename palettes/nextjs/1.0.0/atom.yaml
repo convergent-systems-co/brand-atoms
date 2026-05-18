@@ -1,0 +1,141 @@
+kind: palette
+id: nextjs
+version: 1.0.0
+name: Next.js
+description: >
+  Next.js brand palette — black-and-white minimal, dark-first. The
+  Next.js triangle mark is rendered as a monochrome glyph: black on
+  white in light mode, white on black in dark mode. There is no
+  brand-signature hue; identity is carried by the mark, the Geist
+  typeface, and the high-contrast monochrome treatment. Supporting
+  Geist neutral ramps + Vercel functional hues (blue/red/amber/
+  green) provide UI status colors for the docs site.
+tags: [nextjs, framework, javascript, react, vercel, monochrome, dark-first]
+
+provenance:
+  source: https://nextjs.org/
+  license: MIT
+  attribution: >
+    Next.js is MIT-licensed and maintained by Vercel, Inc. The
+    Next.js triangle mark and word mark are property of Vercel.
+    The brand expression is the monochrome black/white pairing
+    visible on nextjs.org; the supporting status hues are the
+    Geist Design System functional ramps shared with the Vercel
+    brand atom.
+  importedDate: 2026-05-18
+  notes: >
+    Next.js does not publish a standalone brand-colors document;
+    the identity is intentionally monochrome and inherits Geist
+    Design System functional hues from the Vercel ecosystem. The
+    hex values for functional hues mirror the canonical values
+    used on vercel.com.
+
+swatches:
+  - id: next-black
+    name: Next.js Black
+    value: "#000000"
+    description: >
+      Primary brand color — the triangle mark fill in light mode
+      and the dark-mode canvas. Pure black.
+  - id: next-white
+    name: Next.js White
+    value: "#FFFFFF"
+    description: >
+      Companion brand color — the triangle mark fill in dark mode
+      and the light-mode canvas. Pure white.
+  - id: dark-bg-100
+    name: Dark Background 100
+    value: "#0A0A0A"
+    description: Geist dark canvas tint used by nextjs.org dark mode.
+  - id: dark-gray-100
+    name: Dark Gray 100
+    value: "#1A1A1A"
+    description: Geist dark surface tint.
+  - id: dark-gray-300
+    name: Dark Gray 300
+    value: "#292929"
+    description: Geist dark gray for borders.
+  - id: dark-gray-500
+    name: Dark Gray 500
+    value: "#454545"
+    description: Geist dark gray for hairlines.
+  - id: dark-gray-900
+    name: Dark Gray 900
+    value: "#A1A1A1"
+    description: Geist muted text on dark.
+  - id: dark-gray-1000
+    name: Dark Gray 1000
+    value: "#EDEDED"
+    description: Geist primary text on dark.
+  - id: light-bg-200
+    name: Light Background 200
+    value: "#FAFAFA"
+    description: Geist light layered surface.
+  - id: light-gray-200
+    name: Light Gray 200
+    value: "#EAEAEA"
+    description: Geist light hairline border.
+  - id: light-gray-600
+    name: Light Gray 600
+    value: "#666666"
+    description: Geist secondary text on light.
+  - id: light-gray-1000
+    name: Light Gray 1000
+    value: "#171717"
+    description: Geist primary text on light.
+
+  # ─── Functional hues (Geist) ───────────────────────────────────
+  - id: vercel-blue
+    name: Vercel Blue
+    value: "#0070F3"
+    description: Functional accent — link / focus.
+  - id: vercel-blue-bright
+    name: Vercel Blue Bright
+    value: "#52A8FF"
+    description: Functional accent on dark surfaces.
+  - id: vercel-red
+    name: Vercel Red
+    value: "#FF6166"
+    description: Functional error / destructive.
+  - id: vercel-amber
+    name: Vercel Amber
+    value: "#F2A60D"
+    description: Functional warning.
+  - id: vercel-green
+    name: Vercel Green
+    value: "#62C073"
+    description: Functional success.
+
+modes:
+  light:
+    roles:
+      background: light-bg-200
+      surface: next-white
+      surface-elevated: next-white
+      text-primary: light-gray-1000
+      text-secondary: light-gray-600
+      text-tertiary: dark-gray-500
+      primary: next-black
+      primary-hover: light-gray-1000
+      accent: vercel-blue
+      accent-hover: vercel-blue-bright
+      warning: vercel-amber
+      warning-hover: vercel-amber
+      error: vercel-red
+      success: vercel-green
+  dark:
+    roles:
+      background: dark-bg-100
+      surface: dark-gray-100
+      surface-elevated: dark-gray-300
+      text-primary: dark-gray-1000
+      text-secondary: dark-gray-900
+      text-tertiary: dark-gray-500
+      primary: next-white
+      primary-hover: dark-gray-1000
+      accent: vercel-blue-bright
+      accent-hover: vercel-blue
+      warning: vercel-amber
+      warning-hover: vercel-amber
+      error: vercel-red
+      success: vercel-green

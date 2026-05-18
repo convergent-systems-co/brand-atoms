@@ -1,0 +1,119 @@
+kind: palette
+id: shopify
+version: 1.0.0
+name: Shopify
+description: >
+  Shopify's corporate brand palette, distinct from the Polaris product
+  design tokens (which catalog the merchant-admin design system).
+  The corporate identity is anchored on Shopify Green — the heritage
+  #95BF47 leaf-green is preserved in the public Shopify shopping bag
+  mark, while the modernized #008060 ("Tropical Indigo" / current
+  brand green) carries the corporate wordmark and primary actions on
+  shopify.com. The brand canvas is warm-white with deep ink for text;
+  the dark surface set is an authored inversion for product-chrome
+  use.
+tags: [ecommerce, commerce, shopify, green, merchant, corporate]
+
+provenance:
+  source: https://www.shopify.com/brand-assets
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Shopify Inc. — Shopify, the Shopify wordmark, and the Shopify
+    shopping-bag mark are registered trademarks of Shopify Inc. The
+    primary brand greens (#008060 current, #95BF47 heritage leaf, and
+    #7AB55C wordmark text) are documented across Shopify's public
+    brand-assets page and the Polaris design-token source. The corporate
+    palette in this atom is intentionally separate from the Polaris
+    palette (`palettes/polaris/1.0.0/atom.yaml`), which catalogues the
+    full 13-scale product design system.
+  importedDate: 2026-05-18
+  notes: >
+    Shopify operates two distinct color systems: the corporate brand
+    (this atom) and the Polaris design system (the polaris@1 palette).
+    Consumers who want the merchant-admin token set should reference
+    polaris@1 instead. Consumers who want the public marketing
+    surfaces — shopify.com hero CTAs, the wordmark, the shopping-bag
+    mark — should reference this atom.
+
+swatches:
+  # ─── Signature greens ──────────────────────────────────────────
+  - id: shopify-green
+    name: Shopify Green
+    value: "#008060"
+    description: Current corporate primary green — the modernized Shopify brand color on shopify.com primary CTAs and marketing.
+  - id: shopify-green-heritage
+    name: Shopify Green (Heritage)
+    value: "#95BF47"
+    description: Heritage Shopify leaf-green — the original shopping-bag mark fill color, retained on the public mark.
+  - id: shopify-green-wordmark
+    name: Shopify Green (Wordmark)
+    value: "#7AB55C"
+    description: Mid-green historically used on the Shopify wordmark text in the dual-tone heritage logo.
+  - id: shopify-green-deep
+    name: Shopify Green Deep
+    value: "#004C3F"
+    description: Deep green used for hover/pressed states on the primary corporate green and for emphasis on text.
+
+  # ─── Neutrals ──────────────────────────────────────────────────
+  - id: shopify-ink
+    name: Shopify Ink
+    value: "#1A1A1A"
+    description: Near-black used for body copy and the wordmark on light surfaces.
+  - id: shopify-graphite
+    name: Shopify Graphite
+    value: "#303030"
+    description: Authored elevated surface on the dark mode; matches Polaris gray-15.
+  - id: shopify-canvas-dark
+    name: Shopify Canvas Dark
+    value: "#1A1A1A"
+    description: Dark-mode canvas; matches Polaris gray-16.
+  - id: shopify-white
+    name: Shopify White
+    value: "#FFFFFF"
+    description: Canonical light canvas; the marketing surface is light-first.
+  - id: shopify-fog
+    name: Shopify Fog
+    value: "#F1F1F1"
+    description: Authored surface tone for cards and panels on light backgrounds; matches Polaris gray-6.
+  - id: shopify-gray
+    name: Shopify Gray
+    value: "#616161"
+    description: Secondary text on light backgrounds; matches Polaris gray-13.
+  - id: shopify-gray-light
+    name: Shopify Gray Light
+    value: "#8A8A8A"
+    description: Tertiary text and metadata.
+
+modes:
+  light:
+    roles:
+      background: shopify-white
+      surface: shopify-fog
+      surface-elevated: shopify-white
+      text-primary: shopify-ink
+      text-secondary: shopify-gray
+      text-tertiary: shopify-gray-light
+      primary: shopify-green
+      primary-hover: shopify-green-deep
+      accent: shopify-green
+      accent-hover: shopify-green-deep
+      warning: shopify-green-heritage
+      warning-hover: shopify-green-wordmark
+      error: shopify-green-deep
+      success: shopify-green
+  dark:
+    roles:
+      background: shopify-canvas-dark
+      surface: shopify-graphite
+      surface-elevated: shopify-graphite
+      text-primary: shopify-white
+      text-secondary: shopify-gray-light
+      text-tertiary: shopify-gray
+      primary: shopify-green
+      primary-hover: shopify-green-deep
+      accent: shopify-green-heritage
+      accent-hover: shopify-green-wordmark
+      warning: shopify-green-heritage
+      warning-hover: shopify-green-wordmark
+      error: shopify-green-deep
+      success: shopify-green

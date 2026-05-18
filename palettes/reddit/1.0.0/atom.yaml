@@ -1,0 +1,142 @@
+kind: palette
+id: reddit
+version: 1.0.0
+name: Reddit
+description: >
+  Reddit corporate palette, anchored on Reddit Orange (#FF4500) — the
+  saturated red-orange that has carried Snoo (the Reddit alien) and the
+  Reddit wordmark since the company's founding. The brand is bi-modal:
+  the legacy and the dominant mobile-app surface read as Reddit Orange
+  on a white canvas, while the modernized "new Reddit" dark theme
+  surfaces the Orange on a near-black canvas (#1A1A1B) inherited from
+  the redesign and retained in the 2023 brand evolution.
+tags: [social, community, reddit, orange, consumer-tech]
+
+provenance:
+  source: https://www.redditinc.com/brand
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Reddit, the Reddit logotype, and Snoo are registered trademarks of
+    Reddit, Inc. Reddit Orange (#FF4500) is documented in Reddit's
+    public brand kit at redditinc.com/brand and independently verified
+    via the simple-icons brand database, which cites reddit.com as the
+    source. The "new Reddit" dark canvas (#1A1A1B) is documented in
+    the Reddit redesign brand assets and surfaced on the Reddit web
+    product's dark theme.
+  importedDate: 2026-05-18
+  notes: >
+    Reddit's identity has historically been light-first (orange-on-white
+    on the classic Reddit product) but the modern product surface
+    defaults to dark mode on the mobile apps and offers user-selectable
+    dark mode on the web. The light and dark mode mappings below
+    catalogue both canonical surfaces; the Orange remains the
+    invariant brand color across both.
+
+swatches:
+  # ─── Signature ─────────────────────────────────────────────────
+  - id: reddit-orange
+    name: Reddit Orange
+    value: "#FF4500"
+    description: >
+      Signature red-orange — the primary brand color. The Snoo mark,
+      the Reddit wordmark, and the up-vote affordance all read in
+      this hue. Verified hex from Reddit's brand kit and corroborated
+      by the simple-icons brand database citing reddit.com.
+  - id: reddit-orange-dark
+    name: Reddit Orange Dark
+    value: "#CC3700"
+    description: Authored darker orange for hover, pressed, and active states on the primary.
+
+  # ─── Neutrals (light) ──────────────────────────────────────────
+  - id: reddit-white
+    name: Reddit White
+    value: "#FFFFFF"
+    description: Canonical light canvas — the historical Reddit product surface.
+  - id: reddit-near-white
+    name: Reddit Near-White
+    value: "#F6F7F8"
+    description: Authored panel surface on light mode — Reddit's listing rows on the web.
+  - id: reddit-text-primary
+    name: Reddit Text Primary
+    value: "#1A1A1B"
+    description: Authored body text on light backgrounds.
+  - id: reddit-text-secondary
+    name: Reddit Text Secondary
+    value: "#7C7C7C"
+    description: Authored secondary text on light backgrounds.
+  - id: reddit-divider-light
+    name: Reddit Divider Light
+    value: "#EDEFF1"
+    description: Authored hairline divider on light canvas.
+
+  # ─── Neutrals (dark) ───────────────────────────────────────────
+  - id: reddit-canvas-dark
+    name: Reddit Canvas Dark
+    value: "#1A1A1B"
+    description: >
+      The "new Reddit" dark canvas — documented in the Reddit redesign
+      brand assets and surfaced on the Reddit web product's dark theme.
+  - id: reddit-surface-dark
+    name: Reddit Surface Dark
+    value: "#272729"
+    description: Authored elevated surface on the dark canvas — rows, modal headers.
+  - id: reddit-surface-elevated-dark
+    name: Reddit Surface Elevated Dark
+    value: "#343536"
+    description: Authored deepest-elevated surface on dark mode — popovers and tooltips.
+  - id: reddit-text-on-dark
+    name: Reddit Text on Dark
+    value: "#D7DADC"
+    description: Primary text on the dark canvas — the off-white reading tone.
+  - id: reddit-text-secondary-dark
+    name: Reddit Text Secondary Dark
+    value: "#818384"
+    description: Authored secondary text on the dark canvas.
+  - id: reddit-divider-dark
+    name: Reddit Divider Dark
+    value: "#343536"
+    description: Authored hairline divider on dark canvas.
+
+  # ─── Vote accents (Reddit product) ─────────────────────────────
+  - id: reddit-downvote-blue
+    name: Reddit Downvote Blue
+    value: "#7193FF"
+    description: >
+      The complementary blue used historically for the down-vote
+      affordance on the Reddit product — the visual counterweight to
+      the Orange up-vote.
+
+modes:
+  light:
+    roles:
+      background: reddit-white
+      surface: reddit-near-white
+      surface-elevated: reddit-white
+      text-primary: reddit-text-primary
+      text-secondary: reddit-text-secondary
+      text-tertiary: reddit-text-secondary
+      primary: reddit-orange
+      primary-hover: reddit-orange-dark
+      accent: reddit-orange
+      accent-hover: reddit-orange-dark
+      warning: reddit-orange
+      warning-hover: reddit-orange-dark
+      error: reddit-orange
+      success: reddit-orange
+
+  dark:
+    roles:
+      background: reddit-canvas-dark
+      surface: reddit-surface-dark
+      surface-elevated: reddit-surface-elevated-dark
+      text-primary: reddit-text-on-dark
+      text-secondary: reddit-text-secondary-dark
+      text-tertiary: reddit-text-secondary-dark
+      primary: reddit-orange
+      primary-hover: reddit-orange-dark
+      accent: reddit-orange
+      accent-hover: reddit-orange-dark
+      warning: reddit-orange
+      warning-hover: reddit-orange-dark
+      error: reddit-orange
+      success: reddit-orange

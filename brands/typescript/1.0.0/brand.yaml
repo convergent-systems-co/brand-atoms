@@ -1,0 +1,160 @@
+id: typescript
+version: 1.0.0
+name: TypeScript
+description: >
+  TypeScript is JavaScript with syntax for types — a strongly-typed
+  superset of JavaScript developed and maintained by Microsoft.
+  The brand voice is precise, pragmatic, and editor-first: tooling
+  is part of the message. The visual identity is intentionally
+  minimal — a single blue rounded-square mark with the white "TS"
+  lettermark inside it. Color appears as identity, hierarchy, and
+  status; the brand does not lean on illustration.
+tags: [typescript, programming-language, microsoft, blue, open-source]
+
+provenance:
+  source: https://www.typescriptlang.org/branding
+  license: Apache-2.0
+  attribution: >
+    TypeScript is a trademark of Microsoft Corporation; the
+    TypeScript compiler and language libraries are released
+    under the Apache-2.0 license. The typescriptlang.org
+    branding page permits use of the blue lettermark for
+    indicating TypeScript compatibility but forbids modifying
+    the mark, integrating it into product logos, or naming a
+    product in a way that implies TypeScript endorsement. This
+    atom is brand-atoms' machine-readable encoding of those
+    rules; no logos are bundled.
+  importedDate: 2026-05-18
+  notes: >
+    Microsoft does not publish a hex value alongside the
+    TypeScript branding page; the canonical TS Blue (#3178C6)
+    is the SVG fill in the design assets pack distributed at
+    typescriptlang.org/branding and matches the value
+    published by the simple-icons project.
+
+references:
+  palette: typescript@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: source-code-pro@1
+
+roles:
+  colors:
+    identity: ts-blue
+    on-identity: ts-white
+    primary: ts-blue
+    primary-hover: ts-blue-dark
+    accent: ts-blue-dark
+    accent-hover: ts-blue
+    background: ts-white
+    surface: ts-off-white
+    text-primary: ts-black
+    text-secondary: ts-gray
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - shape-modified
+      - integrated-into-product-logo
+      - recolored
+      - rotated
+      - skewed
+      - on-busy-photo
+    severity: error
+    rationale: >
+      The TypeScript branding page explicitly forbids modifying
+      the shape of the logo, integrating it into a product's
+      own logo, or using it to name a product in a way that
+      implies TypeScript endorsement.
+
+  - type: colorChoice
+    target: roles.colors.identity
+    allowed:
+      - ts-blue
+      - ts-blue-bright
+    forbidden:
+      - ts-success
+      - ts-warning
+      - ts-error
+    severity: error
+    rationale: >
+      TS Blue (#3178C6) is the single canonical identity color;
+      a brighter variant exists for dark-surface legibility.
+      Status hues (success / warning / error) are functional
+      and must not stand in as the brand identity color.
+
+  - type: enumMembership
+    target: logo.variant
+    allowed:
+      - "ts-cutout-blue"
+      - "ts-monochrome"
+      - "typescript-lettermark"
+    severity: warning
+    rationale: >
+      The TypeScript branding pack publishes three approved
+      variants: the blue rounded-square with white TS cutout,
+      a single-color monochrome variant, and a full
+      "TypeScript" lettermark. Other variants are not approved.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      TypeScript Black (#0E1217) on TS White exceeds 18:1 —
+      well above the WCAG AA threshold for body text.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      TS Blue (#3178C6) on White sits around 5.0:1 — clears
+      WCAG AA for body text. Consumers should verify against
+      the actual rendered weight before using TS Blue for
+      fine text on white surfaces.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.5
+    severity: recommendation
+    rationale: >
+      typescriptlang.org uses a single humanist sans for
+      heading and body. Maintain at least a 1.5×
+      heading-to-body ratio to preserve hierarchy.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) —
+      Level AA. The TypeScript brand is designed
+      AA-compliant when TS Blue is used as the primary
+      interactive color on the documented backgrounds.
+
+  - type: contextRestriction
+    target: trademark.use
+    forbiddenContexts:
+      - product-name-prefix
+      - implied-endorsement
+    severity: error
+    rationale: >
+      Microsoft's branding page forbids product names that
+      imply TypeScript's endorsement (e.g. "TypeScript Lint",
+      "TypeScript Plus"). Use the mark to indicate
+      compatibility, not as part of a product identity.

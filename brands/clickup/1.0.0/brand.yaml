@@ -1,0 +1,161 @@
+id: clickup
+version: 1.0.0
+name: ClickUp
+description: >
+  ClickUp is a work-management platform positioned as "one app to
+  replace them all" — tasks, docs, chat, goals, whiteboards, and
+  more in a single surface. The brand voice is bold, enthusiastic,
+  and ambitious. Visually, the identity is carried by the
+  gradient-tipped ClickUp Purple mark (#7B68EE) on a clean white
+  canvas with near-black body text on marketing surfaces.
+tags: [saas, productivity, clickup, work-management]
+
+provenance:
+  source: https://clickup.com/press
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    ClickUp and the ClickUp logo are trademarks of Mango
+    Technologies, Inc. (d/b/a ClickUp). The primary brand color
+    ClickUp Purple (#7B68EE) is documented on ClickUp's press
+    resources. brand-atoms catalogues only the publicly documented
+    signature color and authored neutrals; licensed application of
+    the ClickUp name and mark is governed by ClickUp's brand-use
+    guidance at clickup.com/press.
+  importedDate: 2026-05-18
+  notes: >
+    ClickUp's marketing pages render in a neutral humanist sans
+    consistent with Inter; Inter is referenced here as the primary
+    face and is already in the brand-atoms catalog. The mark also
+    uses pink and yellow gradient stops on marketing surfaces, but
+    those specific hex stops are not catalogued at the brand-atoms
+    palette level to avoid fabrication.
+
+references:
+  palette: clickup@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # identity = the brand's signature surface. ClickUp's identity is
+    # the wordmark and CU mark in ClickUp Purple — the purple carries
+    # the institutional voice on the clean white canvas.
+    identity: clickup-purple
+    on-identity: clickup-white
+
+    primary: clickup-purple
+    primary-hover: clickup-purple-hover
+    accent: clickup-purple
+    accent-hover: clickup-purple-hover
+
+    success: clickup-purple
+    warning: clickup-purple
+    error: clickup-purple
+
+    background-light: clickup-white
+    background-dark: clickup-canvas-dark
+    surface-light: clickup-surface-light
+    surface-dark: clickup-surface-dark
+    text-primary-light: clickup-black
+    text-primary-dark: clickup-white
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.mark
+    allowed:
+      - clickup-purple
+      - clickup-white
+      - clickup-black
+    forbidden:
+      - any-non-brand-color
+    severity: error
+    rationale: >
+      The ClickUp wordmark renders in ClickUp Purple on light
+      surfaces and in white on dark surfaces. Recoloring the
+      wordmark into off-brand hues violates ClickUp's brand-use
+      guidance.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+    severity: error
+    rationale: >
+      ClickUp's press resources prohibit stretching, rotating,
+      recoloring, or applying decorative effects to the wordmark.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      WCAG 2.1 Level AA contrast minimum for body text. ClickUp
+      Black (#000000) on ClickUp White (#FFFFFF) clears AA at 21:1.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: dark
+    use: logo-light
+    severity: error
+    rationale: >
+      On dark surfaces, use ClickUp's documented light-fill
+      wordmark variant; do not invert the purple wordmark on the
+      fly.
+
+  - type: contextRestriction
+    target: roles.colors.identity
+    forbiddenContexts:
+      - product-of-competitor
+      - merchandise
+      - endorsement-implication
+      - company-name-or-domain
+    severity: error
+    rationale: >
+      ClickUp's trademark guidance forbids use of the ClickUp name
+      and mark in third-party company names, domains, and uses that
+      imply affiliation or endorsement.
+
+  - type: compositionConstraint
+    target: roles.colors.identity
+    pairsWith:
+      - clickup-white
+      - clickup-black
+      - clickup-surface-light
+    severity: recommendation
+    rationale: >
+      ClickUp Purple is calibrated to read on white and near-black.
+      Pairing it with another saturated hue at the same weight
+      breaks the focused, ambitious voice of the brand surface.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["500", "600", "700"]
+    severity: warning
+    rationale: >
+      ClickUp's marketing surfaces render headings in the 500–700
+      band; lighter weights undermine the confident voice of the
+      brand.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level
+      AA. ClickUp-skinned surfaces must clear AA on body text.

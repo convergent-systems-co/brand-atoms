@@ -1,0 +1,185 @@
+id: disney-plus
+version: 1.0.0
+name: Disney+
+description: >
+  Disney+ is The Walt Disney Company's subscription streaming service,
+  launched in November 2019 as the consumer home for Disney, Pixar,
+  Marvel, Star Wars, and National Geographic libraries. The brand is
+  dark-first, cinematic, and unmistakably Disney: a deep navy canvas
+  with the saturated Disney+ Blue carrying the wordmark and its iconic
+  arced "D." The voice is content-forward and family-broad — chrome
+  stays out of the way of the title art, and the brand identity reads
+  as the frame around the storytelling.
+tags: [streaming, entertainment, disney, disney-plus, dark-first, consumer-tech]
+
+provenance:
+  source: https://thewaltdisneycompany.com/dis/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    The Walt Disney Company — Disney+, the Disney+ wordmark, and the
+    arced "D" mark are registered trademarks of Disney Enterprises,
+    Inc. The signature Disney+ Blue (#113CCF) and the deep-navy
+    canvas (#01153E) are documented across Disney+'s public brand-
+    surface stylesheets and the deployed disneyplus.com hero
+    treatments. ABC Diatype is the proprietary corporate typeface;
+    Inter is referenced here as the open-source fallback.
+  importedDate: 2026-05-18
+  notes: >
+    ABC Diatype (licensed from Dinamo) is the corporate brand face
+    Disney+ uses across marketing surfaces. It is a commercial
+    proprietary face and not distributable through this catalog.
+    Inter is referenced as the open-source fallback and ABC Diatype
+    is noted as the proprietary primary in provenance.
+
+references:
+  palette: disney-plus@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # identity = the brand's signature surface. Disney+ is dark-first:
+    # the deep navy canvas IS the brand, with the blue wordmark and
+    # arced "D" reading on top.
+    identity: disney-plus-navy
+    on-identity: disney-plus-white
+
+    background: disney-plus-navy
+    surface: disney-plus-navy-elevated
+    surface-elevated: disney-plus-near-black
+    text-primary: disney-plus-white
+    text-secondary: disney-plus-gray
+    text-tertiary: disney-plus-graphite
+
+    primary: disney-plus-blue-bright
+    primary-hover: disney-plus-blue
+    accent: disney-plus-blue-bright
+    accent-hover: disney-plus-blue
+    mark: disney-plus-blue
+    text-emphasis: disney-plus-white
+  typography:
+    display: heading
+    prose: body
+    wordmark: heading
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.wordmark.fill
+    allowed:
+      - disney-plus-blue
+      - disney-plus-white
+    forbidden:
+      - disney-plus-blue-bright
+      - disney-plus-blue-deep
+      - disney-plus-navy
+      - disney-plus-gray
+    severity: error
+    rationale: >
+      The Disney+ wordmark renders only in Disney+ Blue (#113CCF) on
+      light or navy surfaces, or reversed white on dark cinematic
+      treatments. The brighter and deeper blues are interactive-state
+      and gradient values, not wordmark fills.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+      - inverted-without-variant
+      - blue-on-low-contrast-background
+    severity: error
+    rationale: >
+      Disney's brand-protection program is among the strictest in
+      consumer entertainment. The Disney+ wordmark and arced "D"
+      have specific clearspace and color rules; gradient fills and
+      drop-shadows conflict with the flat, cinematic visual system
+      established at the 2019 launch.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Disney+ White on Disney+ Navy (#01153E) gives ~17:1 — well
+      above WCAG 2.1 Level AA. The rule encodes the floor for any
+      new foreground/background pairing on Disney+ surfaces.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 3.0
+    standard: WCAG-AA-large
+    severity: error
+    rationale: >
+      Disney+ Blue Bright (#1F80E0) on Disney+ Navy (#01153E) gives
+      ~5:1 — clears AA-large. Buttons using the bright blue as a
+      fill with white text must maintain this floor so the
+      interactive affordance of the primary CTA stays perceptible.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["500", "700", "800"]
+    severity: warning
+    rationale: >
+      Disney+'s marketing headlines use ABC Diatype in Medium (500),
+      Bold (700), and Heavy (800) for hero typography. Lighter cuts
+      read as body and compromise the cinematic display voice the
+      brand depends on.
+
+  - type: contextRestriction
+    target: roles.colors.mark
+    forbiddenContexts:
+      - body-text
+      - secondary-link
+      - error-state
+    severity: error
+    rationale: >
+      Disney+ Blue (#113CCF) is reserved for the wordmark, the arced
+      "D," and primary brand surfaces. Using it inside body copy,
+      for secondary links, or for error states dilutes the signature
+      accent and weakens the cinematic hierarchy the brand depends
+      on.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level AA.
+      The dark-first canvas makes contrast checks the default
+      verification on any new role pairing.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: dark
+    use: disney-plus-blue-on-navy
+    severity: error
+    rationale: >
+      On the canonical Disney+ Navy canvas, the wordmark renders in
+      Disney+ Blue. The white-reversed variant is reserved for
+      cinematic title-art treatments and the lowest-contrast
+      backgrounds; the blue-on-navy variant is the default.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.6
+    severity: warning
+    rationale: >
+      Disney+'s marketing headlines run substantially larger than
+      body and metadata copy. A 1.6× minimum size ratio preserves
+      the cinematic display-to-prose hierarchy the brand voice
+      depends on.

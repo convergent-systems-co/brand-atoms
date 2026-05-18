@@ -1,0 +1,190 @@
+id: hbo-max
+version: 1.0.0
+name: HBO Max
+description: >
+  HBO Max — rebranded to Max in May 2023 — is the Warner Bros.
+  Discovery subscription streaming service that consolidates HBO,
+  Warner Bros., Discovery, and Cartoon Network libraries. The
+  brand identity is anchored on a saturated purple-to-blue gradient
+  on a dark canvas, deliberately distinct from streaming's
+  red/black (Netflix) and navy/blue (Disney+) conventions. The
+  brand is dark-first and content-forward; the wordmark and
+  gradient read as the brand, with the content carrying the
+  visual weight.
+tags: [streaming, entertainment, hbo, max, warner-bros, dark-first]
+
+provenance:
+  source: https://press.wbd.com/us/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Warner Bros. Discovery, Inc. — HBO, HBO Max, Max, and associated
+    marks are registered trademarks of Warner Bros. Discovery, Inc.
+    The signature purple-to-blue gradient and the dark canvas are
+    documented across HBO Max's launch brand-system materials and
+    the WBD press kit. The HBO Max corporate display sans is the
+    proprietary marketing typeface; Inter is referenced here as the
+    open-source fallback.
+  importedDate: 2026-05-18
+  notes: >
+    HBO Max was rebranded to Max in May 2023; the brand atom
+    captures the visual identity across that transition. The
+    purple-to-blue gradient (#B535F6 → #0046FE) is the most
+    distinctive brand element. The marketing display typeface is
+    proprietary and not publicly distributed; Inter is referenced
+    as the open-source fallback.
+
+references:
+  palette: hbo-max@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # identity = the brand's signature surface. HBO Max / Max is
+    # dark-first: the black canvas IS the brand, with the
+    # purple-to-blue gradient reading as the brand signature.
+    identity: max-black
+    on-identity: max-purple
+
+    background: max-black
+    surface: max-near-black
+    surface-elevated: max-charcoal
+    text-primary: max-white
+    text-secondary: max-gray-light
+    text-tertiary: max-gray
+
+    primary: max-purple
+    primary-hover: max-purple-deep
+    accent: max-blue
+    accent-hover: max-blue-bright
+    mark: max-purple
+    text-emphasis: max-white
+  typography:
+    display: heading
+    prose: body
+    wordmark: heading
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.wordmark.fill
+    allowed:
+      - max-purple
+      - max-blue
+      - max-white
+      - max-black
+    forbidden:
+      - max-purple-deep
+      - max-blue-bright
+      - max-gray
+      - max-gray-light
+    severity: error
+    rationale: >
+      The Max wordmark renders in the purple-to-blue gradient, in
+      monochrome white on dark surfaces, or in monochrome black on
+      light. The deeper and brighter gradient anchors are
+      interactive-state values; gray tones are chrome — none are
+      acceptable wordmark fills.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - inverted-without-variant
+      - flat-purple-instead-of-gradient
+    severity: error
+    rationale: >
+      The Max wordmark's signature treatment is the purple-to-blue
+      gradient — flattening to solid purple, recoloring outside the
+      gradient, or rendering over busy photography breaks the
+      defining brand element. Apply only WBD-approved variants with
+      respected clearspace.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Max White on Max Black gives ~21:1 — well above WCAG 2.1 Level
+      AA. The rule encodes the floor for any new foreground/
+      background pairing on Max surfaces.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 3.0
+    standard: WCAG-AA-large
+    severity: error
+    rationale: >
+      Max Purple (#B535F6) on Max Black gives ~6:1 — clears AA-large
+      and approaches AA-normal. Buttons using the purple as a fill
+      with white text exceed 6:1; this rule guards the interactive
+      affordance of the primary CTA.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["500", "700", "900"]
+    severity: warning
+    rationale: >
+      Max's marketing display headlines use Medium (500), Bold (700),
+      and Black (900) weights for hero typography. Lighter cuts read
+      as body and compromise the cinematic display voice the brand
+      depends on.
+
+  - type: contextRestriction
+    target: roles.colors.primary
+    forbiddenContexts:
+      - body-text
+      - secondary-link
+      - error-state
+    severity: error
+    rationale: >
+      Max Purple is the brand-identity color and the wordmark fill.
+      Using it inside body copy, for secondary links, or for error
+      states dilutes the signature accent and breaks the cinematic
+      hierarchy the brand depends on.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level AA.
+      The dark-first canvas makes contrast checks the default
+      verification on any new role pairing.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - max-blue
+      - max-black
+      - max-white
+    doesNotPairWith:
+      - max-purple-deep
+    severity: recommendation
+    rationale: >
+      The signature treatment is Max Purple → Max Blue gradient on
+      black. Pairing the purple with the deeper purple on the same
+      surface flattens the gradient signature into a single-purple
+      composition that reads as inconsistency.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.6
+    severity: warning
+    rationale: >
+      Max's marketing hero typography runs substantially larger than
+      body copy. A 1.6× minimum size ratio preserves the cinematic
+      display-to-prose hierarchy the brand voice depends on.

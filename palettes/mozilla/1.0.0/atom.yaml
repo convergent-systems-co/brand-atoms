@@ -1,0 +1,129 @@
+kind: palette
+id: mozilla
+version: 1.0.0
+name: Mozilla
+description: >
+  Mozilla brand palette covering both the corporate Mozilla identity
+  (Mozilla black wordmark with the trailing colon — :: — colored
+  expression on a near-black canvas) and the Firefox sub-brand's
+  signature gradient anchored on Firefox Orange (#FF7139). The
+  palette captures Mozilla's open-web brand voice: dark canvas,
+  expressive accent, restrained neutrals.
+tags: [mozilla, firefox, browser, foundation, open-source, dark-first]
+
+provenance:
+  source: https://brand.mozilla.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Mozilla and Firefox are trademarks of the Mozilla Foundation,
+    used by the Mozilla Corporation. Brand colors documented here
+    are the values published on the Mozilla Brand Portal
+    (brand.mozilla.com) and resolved against the simple-icons
+    project: Mozilla #161616 (corporate near-black), Firefox
+    Orange #FF7139 (Firefox sub-brand primary). The Mozilla and
+    Firefox marks are not redistributed by this atom.
+  importedDate: 2026-05-18
+  notes: >
+    Mozilla's brand is dark-first; the corporate site uses a
+    near-black canvas (#161616) with the Mozilla wordmark and
+    expressive accent illustrations. The Firefox sub-brand
+    introduces orange, red, and yellow as the flame gradient. The
+    light-mode role mapping below is brand-atoms' sensible
+    inversion (white canvas, dark wordmark) used in print and
+    light surfaces.
+
+swatches:
+  - id: mozilla-black
+    name: Mozilla Black
+    value: "#161616"
+    description: >
+      Corporate Mozilla identity color — the near-black canvas
+      that anchors the brand. Source: simple-icons mozilla,
+      brand.mozilla.com.
+  - id: firefox-orange
+    name: Firefox Orange
+    value: "#FF7139"
+    description: >
+      Primary Firefox brand color — the bright orange of the
+      Firefox flame mark.
+  - id: firefox-red
+    name: Firefox Red
+    value: "#E66000"
+    description: >
+      Deeper Firefox orange used in the flame gradient and for
+      hover states.
+  - id: firefox-yellow
+    name: Firefox Yellow
+    value: "#FFCB39"
+    description: >
+      Bright yellow used at the tip of the Firefox flame mark.
+  - id: firefox-blue
+    name: Firefox Blue
+    value: "#0060DF"
+    description: >
+      Firefox Blue used for the globe element behind the fox
+      mark and for product links.
+  - id: firefox-purple
+    name: Firefox Purple
+    value: "#9059FF"
+    description: >
+      Firefox Purple — supporting accent used in Mozilla product
+      surfaces (e.g. Pocket, Relay).
+  - id: mozilla-dark-canvas
+    name: Mozilla Dark Canvas
+    value: "#0C0C0D"
+    description: Deepest dark-mode canvas.
+  - id: mozilla-charcoal
+    name: Mozilla Charcoal
+    value: "#252525"
+    description: Elevated dark surface for cards and panels.
+  - id: mozilla-gray
+    name: Mozilla Gray
+    value: "#737373"
+    description: Mid neutral for body text.
+  - id: mozilla-light-gray
+    name: Mozilla Light Gray
+    value: "#D7D7DB"
+    description: Hairline borders on light canvas.
+  - id: mozilla-off-white
+    name: Mozilla Off-White
+    value: "#F9F9FA"
+    description: Subtle layered surface on light canvas.
+  - id: mozilla-white
+    name: Mozilla White
+    value: "#FFFFFF"
+    description: Page canvas in light mode.
+
+modes:
+  light:
+    roles:
+      background: mozilla-white
+      surface: mozilla-off-white
+      surface-elevated: mozilla-white
+      text-primary: mozilla-black
+      text-secondary: mozilla-gray
+      text-tertiary: firefox-red
+      primary: mozilla-black
+      primary-hover: firefox-red
+      accent: firefox-orange
+      accent-hover: firefox-red
+      warning: firefox-yellow
+      warning-hover: firefox-orange
+      error: firefox-red
+      success: firefox-blue
+  dark:
+    roles:
+      background: mozilla-dark-canvas
+      surface: mozilla-black
+      surface-elevated: mozilla-charcoal
+      text-primary: mozilla-white
+      text-secondary: mozilla-light-gray
+      text-tertiary: firefox-orange
+      primary: firefox-orange
+      primary-hover: firefox-yellow
+      accent: firefox-purple
+      accent-hover: firefox-blue
+      warning: firefox-yellow
+      warning-hover: firefox-orange
+      error: firefox-red
+      success: firefox-blue

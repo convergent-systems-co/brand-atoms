@@ -1,0 +1,174 @@
+id: react
+version: 1.0.0
+name: React
+description: >
+  React is a JavaScript library for building user interfaces — a
+  componentized, declarative model that has become the de facto
+  default for modern web UIs and the foundation of the React Native
+  cross-platform stack. The brand voice is pragmatic, technical,
+  and reference-quality: the docs surface (react.dev) is the brand.
+  Visually the identity is dark-first — the atom-orbit logo's
+  React Cyan (#61DAFB) reads against a near-black canvas
+  (#23272F), and the docs supplement the cyan with a documentation
+  blue ramp (#149ECA / #58C4DC) for AA-compliant links.
+tags: [react, library, javascript, meta, cyan, dark-first, open-source]
+
+provenance:
+  source: https://react.dev/
+  license: MIT
+  attribution: >
+    React is MIT-licensed; the react.dev codebase
+    (github.com/reactjs/react.dev) is MIT-licensed. The React
+    logo (atom orbiting an electron) is a trademark of Meta
+    Platforms, Inc. — historically released by Facebook under
+    BSD/Patents and now widely used across the ecosystem. Brand
+    palette values are captured verbatim from the react.dev
+    `colors.js` module on main; the React Cyan identity
+    (#61DAFB) is verified against the simple-icons project.
+  importedDate: 2026-05-18
+  notes: >
+    react.dev does not publish a standalone brand-guidelines
+    document; the colors.js module on the docs repository is the
+    canonical source. Meta's broader brand uses Optimistic
+    Display for marketing — that family is not in the catalog,
+    so this atom substitutes Inter (catalog) for both heading
+    and body roles, in keeping with the open-source spirit of
+    the React project.
+
+references:
+  palette: react@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: source-code-pro@1
+
+roles:
+  colors:
+    identity: react-cyan
+    on-identity: gray-90
+    primary: react-blue-50
+    primary-hover: react-blue-80
+    accent: react-cyan
+    accent-hover: react-blue-40
+    background: gray-90
+    surface: gray-80
+    text-primary: react-white
+    text-secondary: gray-30
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - composite-with-product-logo
+    severity: error
+    rationale: >
+      The React atom mark is a Meta trademark; recoloring,
+      rotating, or compositing it with a product's own logo
+      implies endorsement and is not permitted. Use the mark
+      monochrome or in canonical React Cyan only.
+
+  - type: colorChoice
+    target: roles.colors.identity
+    allowed:
+      - react-cyan
+    forbidden:
+      - react-blue-50
+      - react-blue-40
+      - react-blue-30
+    severity: warning
+    rationale: >
+      React Cyan (#61DAFB) is the canonical logo color across
+      the project's history and packaging. The docs-site blue
+      ramp (#087EA4 / #149ECA / #58C4DC) carries link / interactive
+      semantics on react.dev and should not be used as the mark
+      fill.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      White on Gray-90 (#23272F) exceeds 12:1 — well above the
+      WCAG AA threshold for body text. The react.dev dark
+      theme uses this pair as its primary text contrast.
+
+  - type: contrastRatio
+    target: roles.colors.accent
+    against: background
+    minRatio: 3.0
+    standard: WCAG-AA-large
+    severity: warning
+    rationale: >
+      React Cyan (#61DAFB) on Gray-90 sits around 8.5:1 —
+      clears AA for body text on dark surfaces. On light
+      surfaces it does NOT clear AA; use the docs blue ramp
+      (Blue 50 #087EA4) for interactive links on light
+      backgrounds instead.
+
+  - type: variantSelection
+    target: roles.colors.primary
+    when: { mode: "light" }
+    use: "react-blue-50"
+    severity: warning
+    rationale: >
+      The react.dev docs document Blue 50 (#087EA4) as the
+      AA-compliant link color on light surfaces. Use this token
+      for primary interactive elements in light mode rather
+      than React Cyan.
+
+  - type: variantSelection
+    target: roles.colors.primary
+    when: { mode: "dark" }
+    use: "react-blue-30"
+    severity: warning
+    rationale: >
+      The react.dev docs document Blue 30 (#58C4DC) as the
+      AA-compliant link color on dark surfaces. Use this token
+      for primary interactive elements in dark mode.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.25
+    severity: recommendation
+    rationale: >
+      react.dev uses a single sans for heading and body with
+      modest size differential. Maintain at least a 1.25×
+      heading-to-body ratio to preserve hierarchy.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) —
+      Level AA. react.dev's color token system is designed to
+      satisfy AA on both light and dark canvases; consumers
+      must not derive intermediate stops that defeat the AA
+      property.
+
+  - type: contextRestriction
+    target: roles.colors.identity
+    forbiddenContexts:
+      - background-fill
+      - large-marketing-block
+    severity: warning
+    rationale: >
+      React Cyan is the mark color — a thin accent against
+      dark canvas. Using it as a large background fill
+      compromises the dark-first brand voice; reserve it for
+      the logo and small-glyph accents.

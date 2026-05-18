@@ -1,0 +1,106 @@
+kind: palette
+id: svelte
+version: 1.0.0
+name: Svelte
+description: >
+  Svelte brand palette anchored on the project's signature flame
+  orange (#FF3E00) — the fill of the flame mark used across
+  svelte.dev, the npm package badges, and the brand assets repo
+  (github.com/sveltejs/branding). Supporting neutrals provide
+  light and dark page canvases.
+tags: [svelte, framework, javascript, orange, flame, open-source]
+
+provenance:
+  source: https://github.com/sveltejs/branding
+  license: MIT
+  attribution: >
+    Svelte is MIT-licensed; the Svelte brand assets repository
+    (github.com/sveltejs/branding) publishes the official flame
+    logo under the project's MIT terms with conditions of use
+    (no false endorsement, accuracy required). The flame orange
+    hex (#FF3E00) is the SVG fill value in the canonical logo
+    files and the value published by the simple-icons project.
+  importedDate: 2026-05-18
+  notes: >
+    The Svelte flame is rendered as a single solid color. The
+    dark-mode role mapping below is brand-atoms' sensible
+    inversion of the canonical orange-on-white treatment.
+
+swatches:
+  - id: svelte-orange
+    name: Svelte Orange
+    value: "#FF3E00"
+    description: >
+      Primary brand color — the fill of the Svelte flame mark.
+  - id: svelte-orange-dark
+    name: Svelte Orange Dark
+    value: "#D63300"
+    description: >
+      Darker orange used for hover states and shadowed accents.
+  - id: svelte-orange-bright
+    name: Svelte Orange Bright
+    value: "#FF6E40"
+    description: >
+      Brighter orange used on dark surfaces for legibility.
+  - id: svelte-black
+    name: Svelte Black
+    value: "#13151A"
+    description: Dark-mode page canvas.
+  - id: svelte-charcoal
+    name: Svelte Charcoal
+    value: "#222226"
+    description: Elevated dark surface.
+  - id: svelte-gray
+    name: Svelte Gray
+    value: "#676778"
+    description: Mid neutral.
+  - id: svelte-light-gray
+    name: Svelte Light Gray
+    value: "#D5D5D5"
+    description: Hairline borders.
+  - id: svelte-off-white
+    name: Svelte Off-White
+    value: "#F4F4F4"
+    description: Subtle layered surface.
+  - id: svelte-white
+    name: Svelte White
+    value: "#FFFFFF"
+    description: Page canvas in light mode.
+  - id: svelte-success
+    name: Svelte Success
+    value: "#40B22E"
+    description: Status success color.
+
+modes:
+  light:
+    roles:
+      background: svelte-white
+      surface: svelte-off-white
+      surface-elevated: svelte-white
+      text-primary: svelte-black
+      text-secondary: svelte-gray
+      text-tertiary: svelte-light-gray
+      primary: svelte-orange
+      primary-hover: svelte-orange-dark
+      accent: svelte-orange-dark
+      accent-hover: svelte-orange
+      warning: svelte-orange
+      warning-hover: svelte-orange-dark
+      error: svelte-orange-dark
+      success: svelte-success
+  dark:
+    roles:
+      background: svelte-black
+      surface: svelte-charcoal
+      surface-elevated: svelte-charcoal
+      text-primary: svelte-white
+      text-secondary: svelte-light-gray
+      text-tertiary: svelte-gray
+      primary: svelte-orange-bright
+      primary-hover: svelte-orange
+      accent: svelte-orange
+      accent-hover: svelte-orange-bright
+      warning: svelte-orange-bright
+      warning-hover: svelte-orange
+      error: svelte-orange
+      success: svelte-success

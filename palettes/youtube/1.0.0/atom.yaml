@@ -1,0 +1,121 @@
+kind: palette
+id: youtube
+version: 1.0.0
+name: YouTube
+description: >
+  YouTube corporate brand palette. YouTube (a Google LLC service) is
+  anchored on a single saturated red — YouTube Red (#FF0000) — used
+  on the play-button mark, the wordmark accent, and the highest-
+  priority interactive elements. The 2017 brand refresh reduced the
+  identity to this one red and the geometric play-button rectangle.
+  The consumer surface is bimodal: a clean white canvas for the
+  classic light mode and a near-black (#0F0F0F) canvas for the
+  dark-mode product, with both treated as canonical.
+tags: [streaming, video, youtube, google, red, bimodal]
+
+provenance:
+  source: https://www.youtube.com/about/brand-resources/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Google LLC — YouTube, the YouTube wordmark, and the play-button
+    mark are registered trademarks of Google LLC. The signature
+    YouTube Red (#FF0000) is documented across YouTube's brand-
+    resources page and verified against the deployed YouTube
+    logomark SVG. The dark-mode canvas value (#0F0F0F) is observable
+    in the deployed youtube.com dark-theme stylesheet.
+  importedDate: 2026-05-18
+  notes: >
+    YouTube treats both light and dark modes as canonical consumer
+    surfaces — the dark mode is not an authored inversion but a
+    first-class product surface with documented chrome values.
+    The wordmark and play-button mark have specific clearspace and
+    color rules in YouTube's brand-resources guidance.
+
+swatches:
+  # ─── Signature ─────────────────────────────────────────────────
+  - id: youtube-red
+    name: YouTube Red
+    value: "#FF0000"
+    description: Pure signature red — the play-button mark fill, the wordmark accent, and primary CTAs.
+  - id: youtube-red-dark
+    name: YouTube Red Dark
+    value: "#CC0000"
+    description: Darker red used for hover/pressed states on the primary red.
+  - id: youtube-red-light
+    name: YouTube Red Light
+    value: "#FF4444"
+    description: Lighter red used in marketing gradient surfaces and for emphasis on dark canvases.
+
+  # ─── Canvas ───────────────────────────────────────────────────
+  - id: youtube-black
+    name: YouTube Black
+    value: "#0F0F0F"
+    description: Canonical dark-mode canvas — the deployed youtube.com dark theme background.
+  - id: youtube-near-black
+    name: YouTube Near-Black
+    value: "#181818"
+    description: Elevated surface on dark mode — rows, cards, and modal headers.
+  - id: youtube-charcoal
+    name: YouTube Charcoal
+    value: "#272727"
+    description: Hovered surface and disabled-button background on dark mode.
+  - id: youtube-white
+    name: YouTube White
+    value: "#FFFFFF"
+    description: Canonical light-mode canvas — the classic YouTube surface.
+  - id: youtube-fog
+    name: YouTube Fog
+    value: "#F2F2F2"
+    description: Authored elevated surface on light mode.
+
+  # ─── Text/Neutrals ─────────────────────────────────────────────
+  - id: youtube-ink
+    name: YouTube Ink
+    value: "#030303"
+    description: Body text on the light canvas.
+  - id: youtube-graphite
+    name: YouTube Graphite
+    value: "#606060"
+    description: Secondary text and metadata across both modes.
+  - id: youtube-gray
+    name: YouTube Gray
+    value: "#AAAAAA"
+    description: Tertiary text and inactive icons on the dark canvas.
+  - id: youtube-divider
+    name: YouTube Divider
+    value: "#E5E5E5"
+    description: Authored hairline divider on light mode.
+
+modes:
+  light:
+    roles:
+      background: youtube-white
+      surface: youtube-fog
+      surface-elevated: youtube-white
+      text-primary: youtube-ink
+      text-secondary: youtube-graphite
+      text-tertiary: youtube-gray
+      primary: youtube-red
+      primary-hover: youtube-red-dark
+      accent: youtube-red
+      accent-hover: youtube-red-dark
+      warning: youtube-red-light
+      warning-hover: youtube-red
+      error: youtube-red-dark
+      success: youtube-graphite
+  dark:
+    roles:
+      background: youtube-black
+      surface: youtube-near-black
+      surface-elevated: youtube-charcoal
+      text-primary: youtube-white
+      text-secondary: youtube-gray
+      text-tertiary: youtube-graphite
+      primary: youtube-red
+      primary-hover: youtube-red-light
+      accent: youtube-red
+      accent-hover: youtube-red-light
+      warning: youtube-red-light
+      warning-hover: youtube-red
+      error: youtube-red-light
+      success: youtube-white

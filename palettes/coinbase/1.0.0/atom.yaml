@@ -1,0 +1,128 @@
+kind: palette
+id: coinbase
+version: 1.0.0
+name: Coinbase
+description: >
+  Coinbase corporate brand palette. The identity is anchored on a
+  single saturated blue (Coinbase Blue, #0052FF) — the wordmark, the
+  circular "C" mark, and primary CTAs all read as this one
+  unambiguous blue. The canvas leans light-first for marketing and
+  the retail product, with a near-black ink for body and a deep navy
+  for dark-mode product surfaces. Coinbase's brand voice is rational
+  and trust-leaning — a deliberate counterweight to crypto's
+  volatility narrative.
+tags: [fintech, crypto, coinbase, blue, corporate, light-first]
+
+provenance:
+  source: https://www.coinbase.com/en-de/press
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Coinbase Global, Inc. — Coinbase, the Coinbase wordmark, and the
+    circular "C" mark are registered trademarks of Coinbase Global,
+    Inc. The signature Coinbase Blue (#0052FF) is documented across
+    Coinbase's press kit and verified against the deployed Coinbase
+    logomark SVG. The 2021 brand refresh moved Coinbase to this
+    single-blue identity, simplifying the prior multi-color system.
+  importedDate: 2026-05-18
+  notes: >
+    Coinbase published a 2021 brand refresh that reduced the corporate
+    identity to one signature blue, one circular mark, and a custom
+    sans-serif. The dark-mode role mapping is provided for product
+    surfaces; light is the canonical Coinbase marketing surface.
+
+swatches:
+  # ─── Signature ─────────────────────────────────────────────────
+  - id: coinbase-blue
+    name: Coinbase Blue
+    value: "#0052FF"
+    description: Primary signature blue — the Coinbase wordmark, mark, and primary CTA color.
+  - id: coinbase-blue-hover
+    name: Coinbase Blue Hover
+    value: "#1652F0"
+    description: Darker blue for hover/pressed states on the primary action.
+  - id: coinbase-blue-deep
+    name: Coinbase Blue Deep
+    value: "#001A66"
+    description: Deep navy used for dark-mode canvas elements and emphasis text.
+
+  # ─── Forest green (secondary brand accent) ─────────────────────
+  - id: coinbase-forest
+    name: Coinbase Forest
+    value: "#00633A"
+    description: Forest green — secondary brand accent used for positive-state indicators (price up, gain).
+  - id: coinbase-green
+    name: Coinbase Green
+    value: "#05B169"
+    description: Brighter green — buy/positive-state action color in the retail product.
+  - id: coinbase-red
+    name: Coinbase Red
+    value: "#CF202F"
+    description: Sell/negative-state action color in the retail product.
+
+  # ─── Neutrals ──────────────────────────────────────────────────
+  - id: coinbase-ink
+    name: Coinbase Ink
+    value: "#0A0B0D"
+    description: Near-black for body text on light surfaces.
+  - id: coinbase-slate
+    name: Coinbase Slate
+    value: "#5B616E"
+    description: Secondary text on light backgrounds.
+  - id: coinbase-gray
+    name: Coinbase Gray
+    value: "#7C828C"
+    description: Tertiary text and metadata.
+  - id: coinbase-white
+    name: Coinbase White
+    value: "#FFFFFF"
+    description: Canonical light canvas.
+  - id: coinbase-fog
+    name: Coinbase Fog
+    value: "#F5F8FA"
+    description: Authored surface tone for cards and panels on light backgrounds.
+  - id: coinbase-divider
+    name: Coinbase Divider
+    value: "#DDE1E6"
+    description: Authored hairline divider tone.
+  - id: coinbase-canvas-dark
+    name: Coinbase Canvas Dark
+    value: "#0A0B0D"
+    description: Dark-mode canvas for the retail product.
+  - id: coinbase-surface-dark
+    name: Coinbase Surface Dark
+    value: "#1E2025"
+    description: Elevated surface on dark mode.
+
+modes:
+  light:
+    roles:
+      background: coinbase-white
+      surface: coinbase-fog
+      surface-elevated: coinbase-white
+      text-primary: coinbase-ink
+      text-secondary: coinbase-slate
+      text-tertiary: coinbase-gray
+      primary: coinbase-blue
+      primary-hover: coinbase-blue-hover
+      accent: coinbase-blue
+      accent-hover: coinbase-blue-hover
+      warning: coinbase-red
+      warning-hover: coinbase-red
+      error: coinbase-red
+      success: coinbase-green
+  dark:
+    roles:
+      background: coinbase-canvas-dark
+      surface: coinbase-surface-dark
+      surface-elevated: coinbase-surface-dark
+      text-primary: coinbase-white
+      text-secondary: coinbase-gray
+      text-tertiary: coinbase-slate
+      primary: coinbase-blue
+      primary-hover: coinbase-blue-hover
+      accent: coinbase-blue
+      accent-hover: coinbase-blue-hover
+      warning: coinbase-red
+      warning-hover: coinbase-red
+      error: coinbase-red
+      success: coinbase-green

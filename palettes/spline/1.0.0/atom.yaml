@@ -1,0 +1,108 @@
+kind: palette
+id: spline
+version: 1.0.0
+name: Spline
+description: >
+  Spline's brand palette, anchored on Spline Orange (#FF8B14) —
+  the signature warm orange that carries the 3D-cube mark. The
+  institutional voice pairs that orange with a clean white canvas
+  and near-black body text on marketing surfaces, with strong
+  use of 3D rendered hero imagery. Spline holds to a single
+  committed brand hue.
+tags: [saas, design-tools, spline, three-d, orange]
+
+provenance:
+  source: https://spline.design/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Spline and the Spline logo are trademarks of Spline, Inc. The
+    primary brand color Spline Orange (#FF8B14) is documented on
+    Spline's brand surfaces and is independently cross-referenced
+    by the simple-icons brand database, which cites spline.design
+    as the source.
+  importedDate: 2026-05-18
+  notes: >
+    Only Spline Orange (#FF8B14) is read directly from Spline's
+    public brand surfaces. Secondary neutrals (mid-grays, dark
+    canvas, hover orange) are authored neutral inversions
+    calibrated to support both modes consistently without
+    fabricating hex values that Spline does not publish.
+
+swatches:
+  # ─── Signature ─────────────────────────────────────────────────
+  - id: spline-orange
+    name: Spline Orange
+    value: "#FF8B14"
+    description: >
+      Signature warm orange. Primary brand color — used on the
+      cube mark, the wordmark, primary CTAs, and key interactive
+      surfaces.
+
+  # ─── Neutrals ──────────────────────────────────────────────────
+  - id: spline-white
+    name: Spline White
+    value: "#FFFFFF"
+    description: Canvas on light surfaces; reversed wordmark fill.
+  - id: spline-black
+    name: Spline Black
+    value: "#0E0E10"
+    description: Near-black body text on light backgrounds — Spline's marketing-page text tone.
+  - id: spline-canvas-dark
+    name: Spline Canvas Dark
+    value: "#0E0E10"
+    description: Authored dark-mode canvas aligned with the body-text tone.
+  - id: spline-surface-light
+    name: Spline Surface Light
+    value: "#F5F5F7"
+    description: Authored panel surface for light mode.
+  - id: spline-surface-dark
+    name: Spline Surface Dark
+    value: "#1E1E22"
+    description: Authored elevated surface on dark mode.
+  - id: spline-text-secondary
+    name: Spline Text Secondary
+    value: "#6B6B73"
+    description: Authored secondary text — neutral mid-gray on light canvas.
+  - id: spline-text-tertiary
+    name: Spline Text Tertiary
+    value: "#9D9DA8"
+    description: Authored tertiary / muted text.
+  - id: spline-orange-hover
+    name: Spline Orange Hover
+    value: "#FFA640"
+    description: Authored softer Spline Orange for hover / active states.
+
+modes:
+  light:
+    roles:
+      background: spline-white
+      surface: spline-surface-light
+      surface-elevated: spline-white
+      text-primary: spline-black
+      text-secondary: spline-text-secondary
+      text-tertiary: spline-text-tertiary
+      primary: spline-orange
+      primary-hover: spline-orange-hover
+      accent: spline-orange
+      accent-hover: spline-orange-hover
+      warning: spline-orange
+      warning-hover: spline-orange-hover
+      error: spline-orange
+      success: spline-orange
+
+  dark:
+    roles:
+      background: spline-canvas-dark
+      surface: spline-surface-dark
+      surface-elevated: spline-surface-dark
+      text-primary: spline-white
+      text-secondary: spline-text-tertiary
+      text-tertiary: spline-text-secondary
+      primary: spline-orange
+      primary-hover: spline-orange-hover
+      accent: spline-orange
+      accent-hover: spline-orange-hover
+      warning: spline-orange
+      warning-hover: spline-orange-hover
+      error: spline-orange
+      success: spline-orange

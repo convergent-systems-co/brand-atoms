@@ -1,0 +1,175 @@
+id: datadog
+version: 1.0.0
+name: Datadog
+description: >
+  Datadog, Inc. is the cloud-monitoring and observability platform
+  covering infrastructure metrics, APM tracing, log management,
+  real-user monitoring, synthetic testing, and security monitoring.
+  The brand identity is anchored on Datadog Purple (#632CA6) — the
+  fill of the dog-paw mark — paired with a secondary Datadog Yellow
+  accent and a deep near-black canvas that defines the Datadog
+  application chrome. The voice is operator-direct and metric-
+  forward: dashboards, alerts, and SLO compliance front and center,
+  with a strong preference for live signal over marketing claim.
+tags: [tech, observability, monitoring, datadog, devops, dark-canvas]
+
+provenance:
+  source: https://www.datadoghq.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Datadog and the Datadog logo are trademarks of Datadog, Inc.
+    Brand colors and identity guidance documented here are derived
+    from the visible style values on datadoghq.com, the Datadog
+    application chrome, and the Datadog press kit
+    (datadoghq.com/about/press-kit/).
+  importedDate: 2026-05-18
+  notes: >
+    Brand-atoms' read of Datadog's publicly available brand surface
+    and the visible application chrome. This file is not an official
+    Datadog brand-guidelines document. The Datadog application is
+    dark-first; the marketing site is light-first. Both modes are
+    authored. No asset files are bundled; the dog-paw mark is
+    trademarked.
+
+references:
+  palette: datadog@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    identity: datadog-purple
+    on-identity: datadog-white
+    primary: datadog-purple
+    primary-hover: datadog-purple-dark
+    accent: datadog-yellow
+    accent-hover: datadog-purple-light
+    background: datadog-white
+    surface: datadog-surface
+    surface-elevated: datadog-white
+    text-primary: datadog-ink
+    text-secondary: datadog-gray
+    text-tertiary: datadog-gray-light
+    chrome: datadog-canvas
+    chrome-deep: datadog-canvas-deep
+    mark: datadog-purple
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.paw.fill
+    allowed:
+      - datadog-purple
+      - datadog-white
+    forbidden:
+      - datadog-purple-dark
+      - datadog-purple-light
+      - datadog-yellow
+    severity: error
+    rationale: >
+      The Datadog dog-paw mark renders in Datadog Purple
+      (#632CA6) or reversed white. The hover/active variants and
+      the secondary yellow accent are not valid mark fills — the
+      yellow appears as an accessory detail (the "eye" inside
+      the paw on the published variant) but does not stand in
+      for the mark color.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - paw-detached-from-wordmark
+      - gradient-fill
+    severity: error
+    rationale: >
+      Datadog's brand guidelines explicitly prohibit altering the
+      proportions, color, or orientation of the dog-paw mark.
+      Gradient fills are not part of the published brand system,
+      and the paw must not be detached from the wordmark on
+      shared lockups.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Datadog Ink (#1B2730) on Datadog White gives ~14:1 — well
+      above WCAG 2.1 Level AA. The rule encodes the floor for
+      any new foreground/background pairing on datadoghq.com.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Datadog Purple (#632CA6) on Datadog White gives ~8:1 —
+      well above WCAG AA for body-sized text. The marketing
+      site's purple link/button labels rely on this contrast.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - datadog-white
+      - datadog-canvas
+      - datadog-canvas-deep
+      - datadog-yellow
+    doesNotPairWith:
+      - datadog-error
+    severity: recommendation
+    rationale: >
+      The canonical Datadog composition is purple-on-canvas or
+      purple-on-white, with the yellow accent as a brand-family
+      pair. Combining Datadog Purple directly with the alert red
+      reads as a status-color conflict on observability
+      dashboards.
+
+  - type: contextRestriction
+    target: roles.colors.accent
+    forbiddenContexts:
+      - error-state
+      - critical-alert
+    severity: error
+    rationale: >
+      Datadog Yellow is the secondary brand accent. The critical
+      / alerting context is reserved for Datadog Error red, and
+      the warning context is reserved for Datadog Warning amber.
+      Substituting yellow for red on critical alerts breaks the
+      monitoring-color contract.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) —
+      Level AA. Datadog's application is consumed by operators
+      across long incident-response sessions; AA is the floor
+      for dashboard-text legibility.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.4
+    severity: recommendation
+    rationale: >
+      Datadog's marketing surfaces use Inter for both heading and
+      body, with a modest size differential consistent with the
+      data-dense observability voice. A 1.4× floor preserves
+      the display-to-prose distinction without overpowering
+      dashboards.

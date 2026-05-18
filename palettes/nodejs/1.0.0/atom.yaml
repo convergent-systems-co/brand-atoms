@@ -1,0 +1,125 @@
+kind: palette
+id: nodejs
+version: 1.0.0
+name: Node.js
+description: >
+  Node.js brand palette anchored on Node Green (#5FA04E), the
+  signature green of the hexagon mark following the 2024 brand
+  refresh. The historic green (#339933) and Foundation-PDF Node
+  Green (#68A063) are preserved as supporting tones. The full
+  palette also includes Dark Green (#006837) and Light Green
+  (#39B54A) from the original Node.js Foundation Visual
+  Identity Guidelines, and a neutral set for light and dark
+  canvases.
+tags: [nodejs, javascript, runtime, server, green, open-source]
+
+provenance:
+  source: https://nodejs.org/static/documents/foundation-visual-guidelines.pdf
+  license: MIT
+  attribution: >
+    Node.js is MIT-licensed and stewarded by the OpenJS
+    Foundation. Brand colors documented here are the original
+    Node.js Foundation Visual Identity Guidelines palette
+    (Node Green #68A063, Dark Green #006837, Light Green
+    #39B54A), supplemented by the post-2024 refresh Node Green
+    (#5FA04E) used in the current logo and on nodejs.org and
+    published by the simple-icons project.
+  importedDate: 2026-05-18
+  notes: >
+    Node.js maintains two versions of its primary green: the
+    Foundation PDF v1.0 publishes #68A063 as the canonical
+    value; the current refreshed mark on nodejs.org and the
+    simple-icons project use #5FA04E. Both are captured here;
+    #5FA04E is the primary in role mappings since it is the
+    current published value.
+
+swatches:
+  - id: node-green
+    name: Node Green
+    value: "#5FA04E"
+    description: >
+      Primary brand color — the hexagon mark fill, post-2024
+      refresh. Source: nodejs.org current logo / simple-icons.
+  - id: node-green-classic
+    name: Node Green Classic
+    value: "#339933"
+    description: >
+      Historic Node Green used in earlier marks and still common
+      across badges and community materials. Preserved for legacy
+      surfaces.
+  - id: node-green-foundation
+    name: Node Green Foundation
+    value: "#68A063"
+    description: >
+      Node Green as published in the original Foundation Visual
+      Identity Guidelines PDF. PANTONE 7741 C.
+  - id: node-dark-green
+    name: Node Dark Green
+    value: "#006837"
+    description: >
+      Deep green used for hover states and shadowed accents per
+      the Foundation guidelines. PANTONE 361 C (approx).
+  - id: node-light-green
+    name: Node Light Green
+    value: "#39B54A"
+    description: >
+      Lighter green used for highlights per the Foundation
+      guidelines. PANTONE 360 C (approx).
+  - id: node-black
+    name: Node Black
+    value: "#000000"
+    description: Pure black per Foundation guidelines.
+  - id: node-charcoal
+    name: Node Charcoal
+    value: "#1C1C1C"
+    description: Dark-mode page canvas (brand-atoms inversion).
+  - id: node-gray
+    name: Node Gray
+    value: "#666666"
+    description: Mid neutral.
+  - id: node-light-gray
+    name: Node Light Gray
+    value: "#D5D5D5"
+    description: Hairline borders.
+  - id: node-off-white
+    name: Node Off-White
+    value: "#F4F4F4"
+    description: Subtle layered surface.
+  - id: node-white
+    name: Node White
+    value: "#FFFFFF"
+    description: Page canvas in light mode.
+
+modes:
+  light:
+    roles:
+      background: node-white
+      surface: node-off-white
+      surface-elevated: node-white
+      text-primary: node-black
+      text-secondary: node-gray
+      text-tertiary: node-dark-green
+      primary: node-green
+      primary-hover: node-dark-green
+      accent: node-light-green
+      accent-hover: node-green
+      warning: node-light-green
+      warning-hover: node-green
+      error: node-dark-green
+      success: node-green
+  dark:
+    roles:
+      background: node-charcoal
+      surface: node-black
+      surface-elevated: node-charcoal
+      text-primary: node-white
+      text-secondary: node-light-gray
+      text-tertiary: node-light-green
+      primary: node-light-green
+      primary-hover: node-green
+      accent: node-green
+      accent-hover: node-light-green
+      warning: node-light-green
+      warning-hover: node-green
+      error: node-dark-green
+      success: node-green

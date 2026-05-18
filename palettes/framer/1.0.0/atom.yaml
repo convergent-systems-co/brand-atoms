@@ -1,0 +1,121 @@
+kind: palette
+id: framer
+version: 1.0.0
+name: Framer
+description: >
+  Framer's brand palette — a dark-first identity built around
+  Framer Blue (#0055FF) on a near-black canvas. Framer's
+  marketing surfaces lead with a deep black background, large
+  white display type, and the saturated Framer Blue as the single
+  accent for CTAs and key interactive surfaces. Where Webflow and
+  Figma anchor on white, Framer's canvas is black.
+tags: [saas, no-code, framer, design-tools, dark-first, blue]
+
+provenance:
+  source: https://www.framer.com/press
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Framer and the Framer logo are trademarks of Framer B.V. The
+    primary brand color Framer Blue (#0055FF) is documented on
+    Framer's press resources and is independently cross-referenced
+    by the simple-icons brand database, which cites framer.com as
+    the source.
+  importedDate: 2026-05-18
+  notes: >
+    Only Framer Blue (#0055FF) and the canonical black/white
+    surface tones are read directly from Framer's brand surfaces.
+    Secondary neutrals (elevated dark surfaces, secondary text)
+    are authored neutral inversions calibrated to support Framer's
+    dark-first canvas consistently without fabricating hex values
+    that Framer does not publish.
+
+swatches:
+  # ─── Signature ─────────────────────────────────────────────────
+  - id: framer-blue
+    name: Framer Blue
+    value: "#0055FF"
+    description: >
+      Signature saturated blue. Primary brand color — used on
+      primary CTAs, the wordmark on light surfaces, and key
+      interactive accents on the dark canvas.
+
+  # ─── Canvas + Neutrals ────────────────────────────────────────
+  - id: framer-black
+    name: Framer Black
+    value: "#000000"
+    description: Canonical dark-mode canvas — the brand's primary surface.
+  - id: framer-white
+    name: Framer White
+    value: "#FFFFFF"
+    description: Display type on dark canvas; canvas on light mode.
+  - id: framer-canvas-near-black
+    name: Framer Canvas Near-Black
+    value: "#0A0A0A"
+    description: Authored near-black canvas — used for slight surface differentiation against pure black.
+  - id: framer-surface-dark
+    name: Framer Surface Dark
+    value: "#171717"
+    description: Authored elevated surface on the dark canvas.
+  - id: framer-surface-elevated-dark
+    name: Framer Surface Elevated (Dark)
+    value: "#262626"
+    description: Authored modal / popover surface on dark.
+  - id: framer-surface-light
+    name: Framer Surface Light
+    value: "#F4F4F4"
+    description: Authored panel surface for light mode.
+  - id: framer-text-secondary-dark
+    name: Framer Text Secondary (Dark)
+    value: "#B3B3B3"
+    description: Authored secondary text on the dark canvas.
+  - id: framer-text-tertiary-dark
+    name: Framer Text Tertiary (Dark)
+    value: "#777777"
+    description: Authored tertiary / muted text on the dark canvas.
+  - id: framer-text-secondary-light
+    name: Framer Text Secondary (Light)
+    value: "#4A4A4A"
+    description: Authored secondary text on the light canvas.
+  - id: framer-text-tertiary-light
+    name: Framer Text Tertiary (Light)
+    value: "#878787"
+    description: Authored tertiary / muted text on the light canvas.
+  - id: framer-blue-hover
+    name: Framer Blue Hover
+    value: "#3370FF"
+    description: Authored softer Framer Blue for hover / active states.
+
+modes:
+  light:
+    roles:
+      background: framer-white
+      surface: framer-surface-light
+      surface-elevated: framer-white
+      text-primary: framer-black
+      text-secondary: framer-text-secondary-light
+      text-tertiary: framer-text-tertiary-light
+      primary: framer-blue
+      primary-hover: framer-blue-hover
+      accent: framer-blue
+      accent-hover: framer-blue-hover
+      warning: framer-blue
+      warning-hover: framer-blue-hover
+      error: framer-blue
+      success: framer-blue
+
+  dark:
+    roles:
+      background: framer-black
+      surface: framer-surface-dark
+      surface-elevated: framer-surface-elevated-dark
+      text-primary: framer-white
+      text-secondary: framer-text-secondary-dark
+      text-tertiary: framer-text-tertiary-dark
+      primary: framer-blue
+      primary-hover: framer-blue-hover
+      accent: framer-blue
+      accent-hover: framer-blue-hover
+      warning: framer-blue
+      warning-hover: framer-blue-hover
+      error: framer-blue
+      success: framer-blue

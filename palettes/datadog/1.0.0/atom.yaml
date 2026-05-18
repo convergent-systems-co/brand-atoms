@@ -1,0 +1,134 @@
+kind: palette
+id: datadog
+version: 1.0.0
+name: Datadog
+description: >
+  Datadog brand palette anchored on Datadog Purple (#632CA6) — the
+  signature purple of the dog-paw mark and the principal accent
+  across datadoghq.com and the Datadog observability platform —
+  paired with the Datadog Yellow used on the secondary brand accent
+  and a deep canvas used in the Datadog application chrome (the
+  platform itself is dark-first).
+tags: [tech, observability, monitoring, datadog, purple, devops]
+
+provenance:
+  source: https://www.datadoghq.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Datadog and the Datadog logo are trademarks of Datadog, Inc.
+    Brand colors documented here are derived from the visible
+    style values on datadoghq.com and the Datadog application
+    chrome, plus the Datadog press kit (datadoghq.com/about/press-
+    kit/).
+  importedDate: 2026-05-18
+  notes: >
+    Datadog's marketing surface (datadoghq.com) is light-first;
+    the Datadog application itself is dark-first with a near-
+    black canvas. The signature purple is consistent across both
+    surfaces. The Datadog Yellow secondary accent appears on the
+    dog-paw mark and in marketing illustrations. Both modes are
+    authored here.
+
+swatches:
+  - id: datadog-purple
+    name: Datadog Purple
+    value: "#632CA6"
+    description: >
+      The Datadog signature purple — the fill of the dog-paw
+      mark and the principal accent across datadoghq.com.
+  - id: datadog-purple-dark
+    name: Datadog Purple Dark
+    value: "#4B1F80"
+    description: Pressed/active state for the primary CTA.
+  - id: datadog-purple-light
+    name: Datadog Purple Light
+    value: "#8E5DC9"
+    description: Soft accent used on dark-canvas surfaces.
+  - id: datadog-yellow
+    name: Datadog Yellow
+    value: "#F8B400"
+    description: >
+      Datadog secondary accent — used on the dog-paw mark
+      detail and in marketing illustrations.
+  - id: datadog-canvas
+    name: Datadog Canvas
+    value: "#1B1F23"
+    description: >
+      Datadog application canvas — the near-black chrome of
+      the Datadog dashboard and the dark-mode marketing hero.
+  - id: datadog-canvas-deep
+    name: Datadog Canvas Deep
+    value: "#0E1114"
+    description: Darkest canvas used as the page-level dark background.
+  - id: datadog-ink
+    name: Datadog Ink
+    value: "#1B2730"
+    description: Primary text on light surfaces.
+  - id: datadog-gray
+    name: Datadog Gray
+    value: "#5E6A75"
+    description: Secondary text and metadata.
+  - id: datadog-gray-light
+    name: Datadog Gray Light
+    value: "#8995A1"
+    description: Tertiary text and disabled UI.
+  - id: datadog-surface
+    name: Datadog Surface
+    value: "#F3F4F6"
+    description: Quiet surface — card backgrounds on the marketing site.
+  - id: datadog-border
+    name: Datadog Border
+    value: "#DCDFE3"
+    description: Hairline borders and dividers.
+  - id: datadog-white
+    name: Datadog White
+    value: "#FFFFFF"
+    description: Primary canvas on light surfaces.
+  - id: datadog-success
+    name: Datadog Success
+    value: "#3FAE2A"
+    description: Healthy / passing-monitor state.
+  - id: datadog-warning
+    name: Datadog Warning
+    value: "#FFB400"
+    description: Warning / degraded-state monitor.
+  - id: datadog-error
+    name: Datadog Error
+    value: "#D63B3B"
+    description: Critical / alerting-monitor state.
+
+modes:
+  light:
+    roles:
+      background: datadog-white
+      surface: datadog-surface
+      surface-elevated: datadog-white
+      text-primary: datadog-ink
+      text-secondary: datadog-gray
+      text-tertiary: datadog-gray-light
+      primary: datadog-purple
+      primary-hover: datadog-purple-dark
+      accent: datadog-yellow
+      accent-hover: datadog-purple-light
+      warning: datadog-warning
+      warning-hover: datadog-error
+      error: datadog-error
+      success: datadog-success
+      border: datadog-border
+  dark:
+    roles:
+      background: datadog-canvas-deep
+      surface: datadog-canvas
+      surface-elevated: datadog-purple-dark
+      text-primary: datadog-white
+      text-secondary: datadog-surface
+      text-tertiary: datadog-gray-light
+      primary: datadog-purple-light
+      primary-hover: datadog-purple
+      accent: datadog-yellow
+      accent-hover: datadog-purple-light
+      warning: datadog-warning
+      warning-hover: datadog-error
+      error: datadog-error
+      success: datadog-success
+      border: datadog-canvas

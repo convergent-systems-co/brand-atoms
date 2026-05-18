@@ -1,0 +1,171 @@
+id: zoom
+version: 1.0.0
+name: Zoom
+description: >
+  Zoom is a video communications and collaboration platform — meetings,
+  phone, chat, webinars, and contact-center surfaces. The brand voice
+  is clear, friendly, and utilitarian: a single bright Zoom Blue
+  accent (#2D8CFF) on a clean white canvas with near-black body text.
+  Where competing communications brands lean on illustrated or
+  multi-color identities, Zoom holds to a tight monochrome-plus-blue
+  composition that reads instantly on shared screens and call tiles.
+tags: [saas, productivity, zoom, communications, video]
+
+provenance:
+  source: https://brand.zoom.us/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Zoom and the Zoom logo are trademarks of Zoom Video Communications,
+    Inc. The primary brand color Zoom Blue (#2D8CFF) is documented on
+    Zoom's brand portal at brand.zoom.us. brand-atoms catalogues only
+    the publicly documented signature color and authored neutrals;
+    licensed application of the Zoom name and mark is governed by
+    Zoom's brand-use program at brand.zoom.us.
+  importedDate: 2026-05-18
+  notes: >
+    Zoom Sans, Zoom's proprietary corporate typeface, is the
+    canonical brand face. brand-atoms references Inter as the
+    open-source fallback (Inter is already in the catalog and is the
+    closest neutral-humanist sans available); consumers with a
+    licensed Zoom Sans file should override this reference at
+    consumption time.
+
+references:
+  palette: zoom@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # identity = the brand's signature surface. Zoom's identity reads
+    # as the wordmark in Zoom Blue on white — the blue carries the
+    # accent layer, white carries the canvas.
+    identity: zoom-blue
+    on-identity: zoom-white
+
+    primary: zoom-blue
+    primary-hover: zoom-blue-hover
+    accent: zoom-blue
+    accent-hover: zoom-blue-hover
+
+    success: zoom-blue
+    warning: zoom-blue
+    error: zoom-blue
+
+    background-light: zoom-white
+    background-dark: zoom-canvas-dark
+    surface-light: zoom-surface-light
+    surface-dark: zoom-surface-dark
+    text-primary-light: zoom-black
+    text-primary-dark: zoom-white
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.mark
+    allowed:
+      - zoom-blue
+      - zoom-white
+      - zoom-black
+    forbidden:
+      - any-non-brand-color
+    severity: error
+    rationale: >
+      The Zoom mark is rendered in Zoom Blue on light surfaces and in
+      white on dark surfaces. Zoom's brand guidance forbids recoloring
+      the mark into off-brand hues.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - gradient-fill
+    severity: error
+    rationale: >
+      Zoom's brand portal explicitly prohibits stretching, rotating,
+      recoloring, or applying effects to the Zoom logo. The mark
+      reads as a fixed wordmark composition.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      WCAG 2.1 Level AA contrast minimum for body text. Zoom Black
+      (#000000) on Zoom White (#FFFFFF) clears AA at 21:1.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: dark
+    use: logo-light
+    severity: error
+    rationale: >
+      On dark surfaces, use Zoom's documented light-fill wordmark
+      variant; do not invert the colored mark on the fly.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: light
+    use: logo-blue
+    severity: error
+    rationale: >
+      On light surfaces, use the Zoom-Blue wordmark variant. White
+      wordmarks on white canvases fail WCAG and Zoom's brand guidance.
+
+  - type: contextRestriction
+    target: roles.colors.identity
+    forbiddenContexts:
+      - product-of-competitor
+      - merchandise
+      - endorsement-implication
+      - company-name-or-domain
+    severity: error
+    rationale: >
+      Zoom's trademark guidelines forbid use of the Zoom name and
+      mark in third-party company names, product names, domains,
+      and uses that imply affiliation or endorsement.
+
+  - type: compositionConstraint
+    target: roles.colors.identity
+    pairsWith:
+      - zoom-white
+      - zoom-black
+    severity: recommendation
+    rationale: >
+      Zoom Blue is calibrated to read on white or near-black. Pairing
+      it with a third dominant hue breaks the clean meeting-tile
+      voice of the brand.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["500", "600", "700"]
+    severity: warning
+    rationale: >
+      Zoom's marketing surfaces render headings in the 500–700 band;
+      lighter weights compromise the confident, utility-forward
+      voice of the brand.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level AA.
+      Zoom-skinned surfaces must clear AA on body text; the
+      Black-on-White default starts at 21:1.

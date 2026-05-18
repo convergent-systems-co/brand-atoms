@@ -1,0 +1,177 @@
+id: framer
+version: 1.0.0
+name: Framer
+description: >
+  Framer is a design-to-production website builder — a designer-
+  led canvas that publishes as a real website with components,
+  CMS, animation, and AI surfaces. The brand is dark-first: the
+  canonical canvas is near-black, display type is large and
+  white, and a single saturated Framer Blue (#0055FF) carries the
+  CTAs and accent layer. Where Webflow anchors on white, Framer's
+  identity reads as a black gallery with a single blue spotlight.
+tags: [saas, no-code, framer, design-tools, dark-first]
+
+provenance:
+  source: https://www.framer.com/press
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Framer and the Framer logo are trademarks of Framer B.V. The
+    primary brand color Framer Blue (#0055FF) is documented on
+    Framer's press resources. brand-atoms catalogues only the
+    publicly documented signature color and authored neutrals;
+    licensed application of the Framer name and mark is governed
+    by Framer's brand-use guidance at framer.com/press.
+  importedDate: 2026-05-18
+  notes: >
+    Framer's marketing pages render in a neutral humanist sans
+    consistent with Inter; Inter is referenced here as the primary
+    face and is already in the brand-atoms catalog. Framer is a
+    dark-first brand — the canonical canvas is the near-black
+    surface, and the identity role is set to framer-black so
+    brand-badge surfaces render in the brand's true voice rather
+    than in the blue accent.
+
+references:
+  palette: framer@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # identity = the brand's signature surface. Framer is dark-first:
+    # the canonical canvas is framer-black. Setting identity to the
+    # black canvas lets brand-badge surfaces render in Framer's true
+    # voice — the blue is the accent, not the canvas.
+    identity: framer-black
+    on-identity: framer-white
+
+    # Dark-first canvas roles.
+    background: framer-black
+    surface: framer-surface-dark
+    surface-elevated: framer-surface-elevated-dark
+    text-primary: framer-white
+    text-secondary: framer-text-secondary-dark
+    text-tertiary: framer-text-tertiary-dark
+
+    primary: framer-blue
+    primary-hover: framer-blue-hover
+    accent: framer-blue
+    accent-hover: framer-blue-hover
+
+    success: framer-blue
+    warning: framer-blue
+    error: framer-blue
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.mark
+    allowed:
+      - framer-blue
+      - framer-white
+      - framer-black
+    forbidden:
+      - any-non-brand-color
+    severity: error
+    rationale: >
+      The Framer mark renders in white on the dark canonical
+      canvas and in black or Framer Blue on light surfaces.
+      Recoloring the mark into off-brand hues violates Framer's
+      brand-use guidance.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - gradient-fill
+    severity: error
+    rationale: >
+      Framer's press resources prohibit stretching, rotating,
+      recoloring, or applying decorative effects to the mark.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      WCAG 2.1 Level AA contrast minimum for body text. Framer
+      White (#FFFFFF) on Framer Black (#000000) clears AA at 21:1.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: dark
+    use: logo-light
+    severity: error
+    rationale: >
+      On the canonical dark canvas (Framer Black), use the
+      light-fill mark variant. Do not place a dark-fill mark on
+      the dark canvas.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: light
+    use: logo-dark
+    severity: error
+    rationale: >
+      On light surfaces, use the dark-fill mark variant or the
+      Framer Blue variant. Do not place a white mark on a white
+      canvas.
+
+  - type: contextRestriction
+    target: roles.colors.identity
+    forbiddenContexts:
+      - product-of-competitor
+      - merchandise
+      - endorsement-implication
+      - company-name-or-domain
+    severity: error
+    rationale: >
+      Framer's trademark guidance forbids use of the Framer name
+      and mark in third-party company names, domains, and uses
+      that imply affiliation or endorsement.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - framer-black
+      - framer-white
+    severity: recommendation
+    rationale: >
+      Framer Blue is calibrated to read on the near-black canvas
+      and on white. Pairing it with another saturated hue at the
+      same weight breaks the gallery-quiet voice of the dark-first
+      identity.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["500", "600", "700"]
+    severity: warning
+    rationale: >
+      Framer's marketing surfaces render display headings in the
+      500–700 band against the dark canvas; lighter weights lose
+      contrast and undermine the bold gallery voice.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level
+      AA. Framer-skinned surfaces — especially light text on the
+      dark canvas — must hold AA at minimum.

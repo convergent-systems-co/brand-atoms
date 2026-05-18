@@ -1,0 +1,174 @@
+id: azure
+version: 1.0.0
+name: Microsoft Azure
+description: >
+  Microsoft Azure is Microsoft's public-cloud platform, providing
+  compute, storage, networking, databases, AI/ML, identity, and
+  developer-platform services. The Azure sub-brand is anchored on a
+  single signature blue — Azure Blue (#0078D4), which doubles as the
+  Microsoft Fluent Communications primary — paired with the Fluent
+  neutral ramp and the Segoe UI typeface family inherited from the
+  Microsoft parent brand. Where the Microsoft parent identity uses
+  the four-square quadrant set, the Azure identity tightens to a
+  single hue so cloud surfaces read unambiguously as Azure rather
+  than corporate Microsoft. The voice is enterprise-clear and
+  architecture-forward: reference-architecture diagrams, ARM/Bicep
+  IaC, and the Azure Portal share the same chrome dialect.
+tags: [tech, cloud, azure, microsoft, fluent, enterprise, infrastructure]
+
+provenance:
+  source: https://www.microsoft.com/design/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Microsoft, Azure, the Azure logo, Fluent, and Segoe UI are
+    trademarks of the Microsoft group of companies. Brand colors and
+    identity guidance documented here are derived from
+    microsoft.com/design/, the Fluent 2 design system site
+    (fluent2.microsoft.design), and the publicly distributed Azure
+    architecture icon library (learn.microsoft.com/azure/architecture/
+    icons).
+  importedDate: 2026-05-18
+  notes: >
+    Azure is documented as a distinct brand atom because the cloud
+    surfaces tighten the Microsoft Fluent palette to a single signature
+    blue, distinct from the four-square corporate logo. Azure shares
+    the parent's Segoe UI typography. No assets are bundled here — the
+    Azure cloud-logo glyph and the Azure wordmark are trademarked and
+    must be retrieved from the Microsoft brand-resources site under
+    Microsoft's stated terms.
+
+references:
+  palette: azure@1
+  fonts:
+    heading: segoe-ui@1
+    body: segoe-ui@1
+    mono: cascadiacode-nerdfont@1
+
+roles:
+  colors:
+    identity: azure-blue
+    on-identity: fluent-white
+    primary: azure-blue
+    primary-hover: azure-blue-dark
+    accent: azure-blue-light
+    accent-hover: azure-blue
+    background: fluent-white
+    surface: fluent-gray-20
+    surface-elevated: fluent-white
+    text-primary: fluent-near-black
+    text-secondary: fluent-gray-160
+    text-tertiary: fluent-gray-130
+    chrome: azure-navy
+    chrome-deep: azure-navy-deep
+    mark: azure-blue
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.mark.fill
+    allowed:
+      - azure-blue
+      - azure-blue-light
+    forbidden:
+      - azure-blue-dark
+      - azure-navy
+      - fluent-near-black
+    severity: error
+    rationale: >
+      The Azure cloud-glyph fills in Azure Blue (#0078D4) with the
+      lighter cyan accent (#50E6FF) as the secondary cloud-tone. The
+      hover/pressed Azure Blue Dark and the Azure Navy chrome color
+      are interactive-state and canvas tokens — never logo fills.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - cloud-detached-from-wordmark
+    severity: error
+    rationale: >
+      Microsoft's brand guidelines explicitly prohibit altering the
+      proportions, color, or orientation of the Azure mark. The
+      cloud-glyph is part of the Azure lockup and must not be
+      detached from the Azure wordmark on shared surfaces.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Fluent Near-Black (#1F1F1F) on Fluent White gives ~17:1 —
+      comfortably above WCAG 2.1 Level AA. Fluent's accessibility
+      guidance specifies AA as the floor for text-on-background
+      pairings on Azure marketing and the Azure Portal.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Azure Blue on Fluent White gives ~4.8:1 — clearing WCAG AA
+      for body-sized text. Unlike many brand primaries, Azure Blue
+      is safe for interactive labels at standard body size; the
+      rule encodes the published Fluent guarantee.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - azure-navy
+      - fluent-white
+      - azure-blue-light
+    doesNotPairWith:
+      - azure-error
+    severity: recommendation
+    rationale: >
+      The canonical Azure composition is Azure Blue against Fluent
+      White or Azure Navy, with the lighter cyan as a paired accent.
+      Combining Azure Blue with the Fluent error red on the same
+      composition reads as a status conflict rather than a brand
+      signature.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level AA.
+      Fluent 2 tokens are AA-compliant by construction; the Azure
+      Portal and azure.microsoft.com both inherit that floor.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.4
+    severity: recommendation
+    rationale: >
+      Azure marketing surfaces and the Azure Portal both use Segoe UI
+      for heading and body, with a clear size differential. The
+      Fluent type ramp preserves hierarchy through size; a 1.4× floor
+      keeps the display-to-prose distinction intact when one family
+      does both jobs.
+
+  - type: enumMembership
+    target: typography.body.fontWeight
+    allowed: ["400", "600"]
+    severity: recommendation
+    rationale: >
+      Fluent's type ramp uses Segoe UI Regular (400) and Semibold
+      (600) for the majority of UI surfaces. Other weights exist but
+      are reserved for specific roles (Light for hero display, Bold
+      for emphasis).

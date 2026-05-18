@@ -1,0 +1,156 @@
+kind: palette
+id: bluesky
+version: 1.0.0
+name: Bluesky
+description: >
+  Bluesky social corporate palette, anchored on Bluesky Blue (#0085FF) —
+  the saturated sky-blue that carries the Bluesky butterfly mark and
+  the bsky.app product surface. Bluesky's identity is bi-modal: the
+  default mobile-app experience is dark-canvas with the Blue used on
+  the mark and primary affordances, while the marketing surface and
+  desktop product default to a light canvas. The supporting system is
+  intentionally restrained — one blue, two canvases, and a handful of
+  authored neutrals — letting posts and media drive the visual surface.
+tags: [social, decentralized, bluesky, blue, atproto]
+
+provenance:
+  source: https://bsky.app
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Bluesky and the Bluesky butterfly mark are trademarks of Bluesky
+    Social, PBC. The primary brand blue (~#0085FF) is verified via the
+    simple-icons brand database, which cites bsky.app as the source,
+    and is consistent with the brand-mark fill on the bsky.app
+    product surface and the Bluesky press kit. The Bluesky brand
+    guidance is published informally across bsky.social and the
+    bsky.app product; this atom catalogues the documented brand
+    color and authored neutral surfaces.
+  importedDate: 2026-05-18
+  notes: >
+    Bluesky's mobile client defaults to dark mode on platforms where the
+    OS prefers dark; the brand-identity surface is bi-modal. Authored
+    neutrals follow Bluesky's product-UI tones (near-black canvas
+    with cool gray-blue elevations) rather than fabricating an
+    independent dark palette.
+
+swatches:
+  # ─── Signature ─────────────────────────────────────────────────
+  - id: bluesky-blue
+    name: Bluesky Blue
+    value: "#0085FF"
+    description: >
+      Signature sky-blue — the primary brand color. The Bluesky
+      butterfly mark, the wordmark, and primary CTAs on bsky.app all
+      render in this hue. Verified hex via the simple-icons brand
+      database citing bsky.app.
+  - id: bluesky-blue-dark
+    name: Bluesky Blue Dark
+    value: "#0068C9"
+    description: Authored darker blue for hover, pressed, and active states on the primary CTA.
+  - id: bluesky-blue-light
+    name: Bluesky Blue Light
+    value: "#4FA9FF"
+    description: Authored lighter blue for link affordances on the dark canvas.
+
+  # ─── Neutrals (light) ──────────────────────────────────────────
+  - id: bluesky-white
+    name: Bluesky White
+    value: "#FFFFFF"
+    description: Canonical light canvas — bsky.app's light theme surface.
+  - id: bluesky-near-white
+    name: Bluesky Near-White
+    value: "#F1F3F5"
+    description: Authored panel surface on light mode.
+  - id: bluesky-text-primary
+    name: Bluesky Text Primary
+    value: "#0B0F14"
+    description: Authored body text and headline color on light backgrounds.
+  - id: bluesky-text-secondary
+    name: Bluesky Text Secondary
+    value: "#42576C"
+    description: Authored secondary text on light backgrounds.
+  - id: bluesky-text-tertiary
+    name: Bluesky Text Tertiary
+    value: "#788EA4"
+    description: Authored tertiary / muted text on light backgrounds.
+  - id: bluesky-divider-light
+    name: Bluesky Divider Light
+    value: "#D4DBE2"
+    description: Authored hairline divider on light canvas.
+
+  # ─── Neutrals (dark) ───────────────────────────────────────────
+  - id: bluesky-canvas-dark
+    name: Bluesky Canvas Dark
+    value: "#0B0F14"
+    description: >
+      Authored dark canvas matching bsky.app's dark theme — a deep
+      near-black with a cool blue undertone.
+  - id: bluesky-surface-dark
+    name: Bluesky Surface Dark
+    value: "#161E27"
+    description: Authored elevated surface on the dark canvas.
+  - id: bluesky-surface-elevated-dark
+    name: Bluesky Surface Elevated Dark
+    value: "#1E2936"
+    description: Authored deepest-elevated surface on dark mode — modals, popovers.
+  - id: bluesky-text-on-dark
+    name: Bluesky Text on Dark
+    value: "#F1F3F5"
+    description: Primary text on the dark canvas.
+  - id: bluesky-text-secondary-dark
+    name: Bluesky Text Secondary on Dark
+    value: "#A5B6C8"
+    description: Authored secondary text on the dark canvas.
+  - id: bluesky-divider-dark
+    name: Bluesky Divider Dark
+    value: "#2C3A4A"
+    description: Authored hairline divider on the dark canvas.
+
+  # ─── Status accents (authored, consistent with bsky.app) ───────
+  - id: bluesky-green
+    name: Bluesky Green
+    value: "#1A7F37"
+    description: Authored success accent for status affordances.
+  - id: bluesky-yellow
+    name: Bluesky Yellow
+    value: "#D9A026"
+    description: Authored warning accent.
+  - id: bluesky-red
+    name: Bluesky Red
+    value: "#E5484D"
+    description: Authored error / destructive accent.
+
+modes:
+  light:
+    roles:
+      background: bluesky-white
+      surface: bluesky-near-white
+      surface-elevated: bluesky-white
+      text-primary: bluesky-text-primary
+      text-secondary: bluesky-text-secondary
+      text-tertiary: bluesky-text-tertiary
+      primary: bluesky-blue
+      primary-hover: bluesky-blue-dark
+      accent: bluesky-blue
+      accent-hover: bluesky-blue-dark
+      warning: bluesky-yellow
+      warning-hover: bluesky-yellow
+      error: bluesky-red
+      success: bluesky-green
+
+  dark:
+    roles:
+      background: bluesky-canvas-dark
+      surface: bluesky-surface-dark
+      surface-elevated: bluesky-surface-elevated-dark
+      text-primary: bluesky-text-on-dark
+      text-secondary: bluesky-text-secondary-dark
+      text-tertiary: bluesky-text-secondary-dark
+      primary: bluesky-blue-light
+      primary-hover: bluesky-blue
+      accent: bluesky-blue-light
+      accent-hover: bluesky-blue
+      warning: bluesky-yellow
+      warning-hover: bluesky-yellow
+      error: bluesky-red
+      success: bluesky-green

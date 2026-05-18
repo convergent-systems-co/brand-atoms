@@ -1,0 +1,206 @@
+id: reddit
+version: 1.0.0
+name: Reddit
+description: >
+  Reddit is the network of communities — "the front page of the
+  internet" — founded in 2005 and centered on user-submitted content,
+  voting, and threaded discussion. The brand voice is irreverent,
+  community-first, and unpolished by design. Visually, Reddit is
+  anchored on Reddit Orange (#FF4500): a saturated red-orange that
+  carries the Snoo alien mark, the Reddit wordmark, and the up-vote
+  affordance that defines the platform. The brand surface is
+  bi-modal — the historical light canvas reads orange on white, and
+  the modern product surface defaults to the "new Reddit" near-black
+  canvas (#1A1A1B) with the orange retained as the constant.
+tags: [social, community, reddit, orange, consumer-tech, voting]
+
+provenance:
+  source: https://www.redditinc.com/brand
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Reddit, the Reddit logotype, and Snoo are registered trademarks
+    of Reddit, Inc. The brand-orange value (#FF4500) is documented
+    in Reddit's public brand kit at redditinc.com/brand and
+    independently verified via the simple-icons brand database, which
+    cites reddit.com as the source. The "new Reddit" dark canvas
+    (#1A1A1B) is documented in Reddit's redesign brand assets and
+    surfaced on the Reddit web product's dark theme.
+  importedDate: 2026-05-18
+  notes: >
+    Reddit's identity is bi-modal: the light canvas is the historical
+    canonical surface (orange on white, since 2005), while the modern
+    mobile-app default and the user-selectable web dark mode render
+    the orange on the published near-black canvas. The orange is the
+    invariant; the canvas is the variable. The IBM Plex Sans
+    reference is brand-atoms' read of Reddit's published typographic
+    direction — Reddit has used Plex prominently in marketing since
+    the 2023 brand evolution.
+
+references:
+  palette: reddit@1
+  fonts:
+    heading: ibm-plex-sans@1
+    body: ibm-plex-sans@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # identity = the brand's signature color. Reddit's identity IS
+    # the saturated red-orange — the Snoo mark, the up-vote, and the
+    # primary CTA all read in this hue.
+    identity: reddit-orange
+    on-identity: reddit-white
+
+    primary: reddit-orange
+    primary-hover: reddit-orange-dark
+    accent: reddit-orange
+    accent-hover: reddit-orange-dark
+    upvote: reddit-orange
+    downvote: reddit-downvote-blue
+
+    background-light: reddit-white
+    background-dark: reddit-canvas-dark
+    surface-light: reddit-near-white
+    surface-dark: reddit-surface-dark
+    surface-elevated-dark: reddit-surface-elevated-dark
+    text-primary-light: reddit-text-primary
+    text-primary-dark: reddit-text-on-dark
+    text-secondary-light: reddit-text-secondary
+    text-secondary-dark: reddit-text-secondary-dark
+    divider-light: reddit-divider-light
+    divider-dark: reddit-divider-dark
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.mark
+    allowed:
+      - reddit-orange
+      - reddit-white
+      - reddit-text-primary
+    forbidden:
+      - any-non-brand-color
+      - reddit-downvote-blue
+    severity: error
+    rationale: >
+      The Snoo mark and Reddit wordmark render in Reddit Orange, white
+      (on dark surfaces), or near-black (in monochrome contexts). The
+      complementary downvote-blue is reserved for the down-vote
+      affordance and never recolors the mark itself.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - inverted-without-variant
+      - snoo-redesign
+      - cropped
+    severity: error
+    rationale: >
+      Reddit's brand guidelines prescribe the Snoo mark and the
+      wordmark in approved variants only. Recoloring, redrawing Snoo,
+      or applying decorative effects violates the brand-use policy
+      published at redditinc.com/brand.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: dark
+    use: snoo-white
+    severity: error
+    rationale: >
+      On the "new Reddit" dark canvas, Snoo renders in white or in
+      the orange-on-dark variant. The orange-on-light variant must
+      not be placed directly on the dark canvas without sufficient
+      contrast against the surface.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: light
+    use: snoo-orange
+    severity: error
+    rationale: >
+      On light surfaces, Snoo renders in Reddit Orange. The white
+      variant is reserved for dark canvases.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      WCAG 2.1 Level AA contrast minimum for body text. Reddit's
+      near-black text (#1A1A1B) on Reddit White clears AA
+      comfortably; the dark-mode text tone (#D7DADC) on the
+      near-black canvas also clears AA.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 3.0
+    standard: WCAG-AA-large
+    severity: error
+    rationale: >
+      Reddit Orange (#FF4500) on white reads at ~3.3:1 — meeting
+      WCAG AA at large-text size. CTA buttons and primary
+      affordances must clear this threshold on light canvas; the
+      orange clears AA-large on the dark canvas as well.
+
+  - type: contextRestriction
+    target: roles.colors.identity
+    forbiddenContexts:
+      - product-of-competitor
+      - merchandise
+      - endorsement-implication
+      - subreddit-impersonation
+    severity: error
+    rationale: >
+      Reddit's brand-use guidance restricts use of the Snoo mark and
+      the Reddit wordmark in ways that imply official affiliation,
+      on competing-product surfaces, or on third-party merchandise
+      without explicit license. Use of the mark to impersonate a
+      Reddit-sanctioned subreddit is similarly forbidden.
+
+  - type: compositionConstraint
+    target: roles.colors.identity
+    pairsWith:
+      - reddit-white
+      - reddit-canvas-dark
+      - reddit-text-primary
+    severity: recommendation
+    rationale: >
+      Reddit Orange is calibrated to read on both the historical white
+      canvas and the new Reddit dark canvas. Pairing it with a third
+      dominant chromatic value breaks the calibrated bi-modal
+      composition.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["500", "600", "700"]
+    severity: warning
+    rationale: >
+      Reddit's display typography sits in the Medium (500), Semi-Bold
+      (600), and Bold (700) band on the marketing surface and the
+      product UI. Lighter cuts compromise the platform's confident
+      community voice.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level AA.
+      The bi-modal canvas requires contrast verification on both the
+      light and dark surfaces; AA is the floor on either.

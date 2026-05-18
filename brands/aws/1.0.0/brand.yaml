@@ -1,0 +1,190 @@
+id: aws
+version: 1.0.0
+name: Amazon Web Services
+description: >
+  Amazon Web Services (AWS) is the cloud-computing subsidiary of
+  Amazon.com, Inc., providing on-demand compute, storage, networking,
+  databases, machine-learning, and developer-platform services. The
+  AWS sub-brand carries Amazon Smile Orange forward — the same orange
+  arrow that signs the Amazon wordmark — but operates against a deep-
+  navy Squid Ink canvas (#232F3E) that defines the AWS Management
+  Console and the AWS architecture-diagram visual language. The voice
+  is engineering-direct, service-density forward, and welcoming to
+  the long-form technical reader: AWS docs, AWS re:Invent slides, and
+  AWS Architecture Center diagrams all share the same dark-canvas /
+  orange-accent dialect.
+tags: [tech, cloud, aws, amazon, infrastructure, dark-canvas, parent-amazon]
+
+provenance:
+  source: https://aws.amazon.com/architecture/icons/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Amazon Web Services, AWS, the AWS logo, the AWS arrow-and-smile,
+    Amazon, and Amazon Ember are trademarks of Amazon.com, Inc. or
+    its affiliates. Brand colors and identity guidance documented
+    here are derived from the AWS Architecture Icons toolkit
+    (aws.amazon.com/architecture/icons/), the AWS Brand Guidelines,
+    and the AWS Cloudscape Design System (cloudscape.design).
+  importedDate: 2026-05-18
+  notes: >
+    AWS is documented separately from the Amazon parent brand because
+    AWS carries its own canvas convention (dark-first navy), its own
+    interactive-blue link color (Cloudscape #0972D3), and its own
+    audience (developers and architects) distinct from the Amazon
+    retail consumer brand. The shared Smile Orange and Amazon Ember
+    typography preserve the Amazon family resemblance. No assets are
+    bundled here — AWS marks are trademarked and must be retrieved
+    from the AWS Architecture Icons toolkit under Amazon's stated
+    terms.
+
+references:
+  palette: aws@1
+  fonts:
+    heading: amazon-ember@1
+    body: amazon-ember@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # AWS is dark-canvas first — the brand block is the Squid Ink
+    # navy, not the orange. The orange is the signature accent that
+    # rides on top of the canvas. This matches the AWS Management
+    # Console and the AWS architecture-diagram visual language.
+    identity: aws-squid-ink
+    on-identity: aws-smile-orange
+
+    primary: aws-smile-orange
+    primary-hover: aws-rind
+    accent: aws-link
+    accent-hover: aws-link-hover
+    background: aws-white
+    surface: aws-surface
+    surface-elevated: aws-white
+    text-primary: aws-ink
+    text-secondary: aws-gray
+    text-tertiary: aws-gray-light
+    chrome: aws-squid-ink
+    chrome-deep: aws-anchor
+    chrome-light: aws-navy-light
+    mark-orange: aws-smile-orange
+    mark-canvas: aws-squid-ink
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.arrow.fill
+    allowed:
+      - aws-smile-orange
+    forbidden:
+      - aws-rind
+      - aws-warning
+      - aws-link
+    severity: error
+    rationale: >
+      The AWS arrow-and-smile is canonical Smile Orange (#FF9900) —
+      the same arrow as the Amazon parent wordmark. AWS Rind is a
+      pressed CTA hover, not a mark fill. The Cloudscape Warning
+      amber and Link blue carry semantic UI meanings and must not
+      substitute for the brand mark.
+
+  - type: colorChoice
+    target: roles.colors.chrome
+    allowed:
+      - aws-squid-ink
+      - aws-anchor
+      - aws-navy-light
+    forbidden:
+      - aws-smile-orange
+      - aws-white
+    severity: error
+    rationale: >
+      AWS Management Console chrome and AWS architecture-diagram
+      canvases use the Squid Ink navy family. Replacing the navy
+      chrome with Smile Orange or pure White breaks the AWS visual
+      contract — the orange is a signature accent, not the canvas.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - arrow-detached
+      - gradient-fill
+    severity: error
+    rationale: >
+      The AWS arrow-and-smile is a registered Amazon trademark. The
+      arrow must never be detached from the wordmark, recolored
+      outside Smile Orange, or composed against a busy photographic
+      surface that breaks its legibility. Gradient fills are not
+      part of the AWS visual system.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      AWS Ink (#16191F) on AWS White gives ~17:1 — comfortably above
+      WCAG 2.1 Level AA. Cloudscape's accessibility guidance
+      specifies AA as the floor for any text-on-background pairing
+      on the console and the docs site.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 3.0
+    standard: WCAG-AA-large
+    severity: error
+    rationale: >
+      Smile Orange on AWS White sits around 3:1 — it clears AA-large
+      for headlines and large interactive text but is unsafe for
+      body-sized text. The rule encodes the AA-large floor so the
+      orange CTA cannot be downsized into illegibility.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - aws-squid-ink
+      - aws-anchor
+      - aws-white
+    doesNotPairWith:
+      - aws-link
+      - aws-warning
+    severity: recommendation
+    rationale: >
+      The signature AWS composition is orange-on-navy or orange-on-
+      white. Pairing Smile Orange directly with the Cloudscape link
+      blue or warning amber creates a hue conflict that competes
+      with the AWS brand signature.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level AA.
+      Cloudscape's published tokens are AA-compliant by construction;
+      consumers must not derive intermediate stops that defeat that
+      property.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.4
+    severity: recommendation
+    rationale: >
+      AWS marketing and console surfaces use Amazon Ember at a
+      modest heading-to-body ratio — the dense technical-reference
+      voice of the AWS docs favors a tighter hierarchy than
+      marketing-led brands. A 1.4× floor preserves the display-to-
+      prose distinction without overpowering the content density.

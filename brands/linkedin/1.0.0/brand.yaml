@@ -1,0 +1,207 @@
+id: linkedin
+version: 1.0.0
+name: LinkedIn
+description: >
+  LinkedIn is the global professional-networking platform, a Microsoft
+  subsidiary since 2016. The brand voice is professional, optimistic,
+  and human — "connect the world's professionals to make them more
+  productive and successful." Visually, LinkedIn is anchored on
+  LinkedIn Blue (#0A66C2) — the saturated mid-blue introduced with the
+  2019 brand refresh (darkened from the original #0077B5 to clear WCAG
+  AA contrast on white at body size). The identity sits on a warm,
+  light-first canvas with Source Sans serving as the open-source proxy
+  for LinkedIn's in-house humanist sans.
+tags: [social, professional, linkedin, blue, corporate, light-first, microsoft]
+
+provenance:
+  source: https://brand.linkedin.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    LinkedIn and the LinkedIn "in" mark are registered trademarks of
+    LinkedIn Corporation (a Microsoft subsidiary). The primary brand
+    color (#0A66C2) is documented in LinkedIn's published brand
+    guidelines at brand.linkedin.com and independently verified via
+    the simple-icons brand database, which cites linkedin.com as the
+    source. LinkedIn's published typography stack uses a proprietary
+    humanist sans derived from Source Sans; brand-atoms references
+    Source Sans 3 (already in the catalog) as the open-source
+    equivalent.
+  importedDate: 2026-05-18
+  notes: >
+    LinkedIn's identity is light-first: the canonical product surface
+    is white with LinkedIn Blue on the in-bug, primary CTAs, and link
+    color. The dark-mode role mapping is an authored inversion
+    supporting LinkedIn's user-selectable product dark theme. The
+    2019 brand refresh darkened LinkedIn Blue from #0077B5 to #0A66C2
+    specifically to clear WCAG AA at body-text size.
+
+references:
+  palette: linkedin@1
+  fonts:
+    heading: source-sans-3@1
+    body: source-sans-3@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # identity = the brand's signature color. LinkedIn's identity IS
+    # the saturated mid-blue — used on the in-bug, primary affordances,
+    # and brand surfaces.
+    identity: linkedin-blue
+    on-identity: linkedin-white
+
+    primary: linkedin-blue
+    primary-hover: linkedin-blue-dark
+    accent: linkedin-blue
+    accent-hover: linkedin-blue-dark
+
+    success: linkedin-green
+    warning: linkedin-warm-orange
+    error: linkedin-warm-orange
+
+    background-light: linkedin-white
+    background-dark: linkedin-canvas-dark
+    surface-light: linkedin-near-white
+    surface-dark: linkedin-surface-dark
+    text-primary-light: linkedin-black
+    text-primary-dark: linkedin-white
+    text-secondary-light: linkedin-text-secondary
+    divider: linkedin-divider
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.mark
+    allowed:
+      - linkedin-blue
+      - linkedin-blue-dark
+      - linkedin-white
+      - linkedin-black-solid
+    forbidden:
+      - any-non-brand-color
+      - linkedin-warm-orange
+      - linkedin-green
+    severity: error
+    rationale: >
+      The LinkedIn in-bug renders in LinkedIn Blue, white (on dark
+      surfaces), or black (in monochrome contexts). The supporting
+      accents (warm orange, green) are reserved for product status
+      affordances and never recolor the mark itself.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - inverted-without-variant
+      - placed-without-clearspace
+      - cropped
+    severity: error
+    rationale: >
+      LinkedIn's brand guidance prescribes the in-bug only in approved
+      variants with adequate clearspace and forbids stretching,
+      rotating, or recoloring the mark. The lockup with the
+      "Linked" wordmark must respect the published proportions.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      WCAG 2.1 Level AA contrast minimum for body text. LinkedIn Black
+      (rgba black at 90% on white) clears AA comfortably; the
+      darkened 2019 LinkedIn Blue also clears AA on white at body
+      size, which was the explicit motivation for the refresh.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      LinkedIn Blue (#0A66C2) on white reads at ~4.6:1 — clearing
+      WCAG AA for body text. The 2019 refresh darkened the previous
+      LinkedIn Blue (#0077B5, ~3.8:1) specifically to clear this
+      threshold; the rule encodes that floor.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: dark
+    use: in-bug-white
+    severity: error
+    rationale: >
+      On dark surfaces, use the white in-bug variant for legibility.
+      Do not place the LinkedIn Blue in-bug on dark canvases where
+      it loses contrast against the background.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: light
+    use: in-bug-blue
+    severity: error
+    rationale: >
+      On light surfaces, the in-bug renders in LinkedIn Blue — the
+      canonical brand application across linkedin.com and marketing.
+
+  - type: contextRestriction
+    target: roles.colors.identity
+    forbiddenContexts:
+      - product-of-competitor
+      - merchandise
+      - endorsement-implication
+    severity: error
+    rationale: >
+      LinkedIn's brand-use guidance restricts use of the in-bug and
+      wordmark in ways that imply affiliation, on competing-product
+      surfaces, or on third-party merchandise without explicit
+      license.
+
+  - type: compositionConstraint
+    target: roles.colors.identity
+    pairsWith:
+      - linkedin-white
+      - linkedin-near-white
+      - linkedin-black-solid
+    doesNotPairWith:
+      - linkedin-warm-orange
+    severity: recommendation
+    rationale: >
+      LinkedIn Blue + Warm Orange creates a saturated complementary
+      tension that fights LinkedIn's calm professional voice. The
+      Blue pairs cleanly with the warm-white canvas and the near-black
+      text tone; reserve Warm Orange for editorial accents on a
+      neutral canvas.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["400", "600", "700"]
+    severity: warning
+    rationale: >
+      LinkedIn's display typography sits in the Regular (400),
+      Semi-Bold (600), and Bold (700) band. Lighter cuts compromise
+      the institutional, professional voice the platform's marketing
+      depends on.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level AA.
+      LinkedIn's 2019 brand refresh was driven specifically by AA
+      contrast considerations; the threshold is non-negotiable on
+      LinkedIn-skinned surfaces.

@@ -1,0 +1,160 @@
+id: svelte
+version: 1.0.0
+name: Svelte
+description: >
+  Svelte is a UI framework that compiles components to small,
+  imperative JavaScript at build time — no runtime virtual DOM,
+  no diffing, just direct DOM updates. The brand voice is sharp,
+  technical, and unapologetic about being a compiler-first
+  framework. The visual identity is a single flame mark in Svelte
+  Orange (#FF3E00), high-energy against either light or dark
+  canvases, with no two-tone or gradient treatment.
+tags: [svelte, framework, javascript, compiler, orange, open-source]
+
+provenance:
+  source: https://github.com/sveltejs/branding
+  license: MIT
+  attribution: >
+    Svelte is MIT-licensed; the official brand assets repository
+    (github.com/sveltejs/branding) publishes the flame logo
+    under the project's MIT terms with conditions of use that
+    prohibit false endorsement and require accuracy. The flame
+    orange (#FF3E00) is the SVG fill value in the canonical
+    logo files and is verified against the simple-icons
+    project. This atom encodes the published rules; no logos
+    are bundled.
+  importedDate: 2026-05-18
+  notes: >
+    The sveltejs/branding repository publishes the flame mark
+    in multiple aspect ratios (horizontal, vertical, square,
+    logotype, cutout). The shape of the flame is the brand;
+    any treatment that alters its silhouette is forbidden.
+
+references:
+  palette: svelte@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: source-code-pro@1
+
+roles:
+  colors:
+    identity: svelte-orange
+    on-identity: svelte-white
+    primary: svelte-orange
+    primary-hover: svelte-orange-dark
+    accent: svelte-orange-dark
+    accent-hover: svelte-orange
+    background: svelte-white
+    surface: svelte-off-white
+    text-primary: svelte-black
+    text-secondary: svelte-gray
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - flame-shape-modified
+      - recolored
+      - rotated
+      - skewed
+      - stretched
+      - gradient-fill
+      - drop-shadow
+      - on-busy-photo
+    severity: error
+    rationale: >
+      The sveltejs/branding repository's conditions of use
+      forbid alterations that imply false endorsement and
+      require accurate reproduction. Modifying the flame
+      silhouette, applying gradients or drop shadows, or
+      recoloring it changes the documented mark.
+
+  - type: colorChoice
+    target: roles.colors.identity
+    allowed:
+      - svelte-orange
+    forbidden:
+      - svelte-orange-dark
+      - svelte-orange-bright
+    severity: error
+    rationale: >
+      Svelte Orange (#FF3E00) is the single canonical mark
+      color. The darker and brighter variants in this palette
+      are for hover states and dark-surface legibility only —
+      they are not approved mark fills.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Svelte Black (#13151A) on Svelte White exceeds 18:1 —
+      well above the WCAG AA threshold for body text.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 3.0
+    standard: WCAG-AA-large
+    severity: warning
+    rationale: >
+      Svelte Orange (#FF3E00) on White sits around 4.1:1 —
+      clears AA-large for headlines and clears AA for body
+      text on most renderings. Consumers should verify
+      against the actual font weight.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.5
+    severity: recommendation
+    rationale: >
+      svelte.dev uses a single sans for heading and body.
+      Maintain at least a 1.5× heading-to-body ratio to
+      preserve hierarchy.
+
+  - type: compositionConstraint
+    target: roles.colors.identity
+    pairsWith:
+      - svelte-white
+      - svelte-black
+    doesNotPairWith:
+      - svelte-orange-bright
+    severity: recommendation
+    rationale: >
+      The flame canonically sits on white or near-black.
+      Pairing the canonical orange directly with the
+      brighter variant creates a visually unstable orange-
+      on-orange composition.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) —
+      Level AA. svelte.dev's documentation surfaces are
+      designed AA-compliant; consumers must not derive
+      intermediate stops that defeat that property.
+
+  - type: contextRestriction
+    target: trademark.use
+    forbiddenContexts:
+      - implied-endorsement
+      - product-name-prefix
+    severity: error
+    rationale: >
+      The sveltejs/branding repository's conditions of use
+      require that any logo usage not imply that the Svelte
+      project is sponsoring or endorsing the consumer's
+      product.

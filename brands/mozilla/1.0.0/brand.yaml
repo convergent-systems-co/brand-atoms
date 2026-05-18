@@ -1,0 +1,180 @@
+id: mozilla
+version: 1.0.0
+name: Mozilla
+description: >
+  Mozilla is the foundation and corporation behind Firefox,
+  steward of an independent, privacy-respecting open web. The
+  brand voice is mission-driven and direct: human rights on the
+  internet are not negotiable. The visual identity carries two
+  layers — Mozilla corporate (near-black wordmark with the
+  trailing "://" expressive colon, on a near-black canvas) and
+  the Firefox sub-brand (the fox-and-globe mark, anchored on
+  Firefox Orange #FF7139 with the supporting yellow, red, blue,
+  and purple from the flame gradient and product family).
+tags: [mozilla, firefox, browser, foundation, open-source, dark-first, privacy]
+
+provenance:
+  source: https://brand.mozilla.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Mozilla and Firefox are trademarks of the Mozilla Foundation,
+    used by the Mozilla Corporation. Brand colors documented
+    here are the values published on the Mozilla Brand Portal
+    (brand.mozilla.com) and verified against the simple-icons
+    project: Mozilla Black #161616 (corporate near-black);
+    Firefox Orange #FF7139 (the flame mark primary). The
+    Mozilla and Firefox marks are not redistributed by this
+    atom.
+  importedDate: 2026-05-18
+  notes: >
+    Mozilla and Firefox share a brand ecosystem but maintain
+    distinct expressions. The Mozilla corporate mark is the
+    "::" wordmark on near-black; the Firefox product mark is
+    the fox-circling-globe on the orange-yellow flame gradient.
+    This atom encodes both layers: `identity` points at Mozilla
+    Black (the corporate canvas), while the supporting palette
+    carries the full Firefox flame gradient and product family.
+
+references:
+  palette: mozilla@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: source-code-pro@1
+
+roles:
+  colors:
+    identity: mozilla-black
+    on-identity: mozilla-white
+    primary: mozilla-black
+    primary-hover: firefox-red
+    accent: firefox-orange
+    accent-hover: firefox-red
+    background: mozilla-white
+    surface: mozilla-off-white
+    text-primary: mozilla-black
+    text-secondary: mozilla-gray
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - wordmark-modified
+      - colon-detached
+      - flame-shape-modified
+      - recolored
+      - rotated
+      - stretched
+      - drop-shadow
+    severity: error
+    rationale: >
+      The Mozilla wordmark integrates the "://" character into
+      the typography — detaching, recoloring, or altering it
+      breaks the brand expression. The Firefox flame mark is
+      defined by its specific silhouette and the orange-yellow
+      gradient; altering either is not permitted.
+
+  - type: colorChoice
+    target: roles.colors.identity
+    allowed:
+      - mozilla-black
+      - firefox-orange
+    forbidden:
+      - firefox-yellow
+      - firefox-purple
+      - firefox-blue
+    severity: error
+    rationale: >
+      The Mozilla corporate identity color is Mozilla Black;
+      the Firefox sub-brand's primary is Firefox Orange. The
+      supporting Firefox hues (yellow, purple, blue) carry
+      product or accent semantics and must not stand in as
+      the brand identity.
+
+  - type: variantSelection
+    target: roles.colors.identity
+    when: { subbrand: "firefox" }
+    use: "firefox-orange"
+    severity: warning
+    rationale: >
+      When expressing the Firefox sub-brand specifically (the
+      browser product, the developer relations surface, the
+      Firefox Acorn design system), Firefox Orange (#FF7139)
+      takes the identity role in place of Mozilla Black.
+
+  - type: compositionConstraint
+    target: roles.colors.accent
+    pairsWith:
+      - firefox-yellow
+      - firefox-red
+    severity: recommendation
+    rationale: >
+      The Firefox flame is the canonical orange-yellow-red
+      gradient. Pairing Firefox Orange with its companion
+      yellow and red preserves the brand's documented
+      gradient expression; substituting unrelated hues
+      breaks it.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Mozilla Black (#161616) on Mozilla White exceeds 17:1 —
+      well above the WCAG AA threshold for body text.
+
+  - type: contrastRatio
+    target: roles.colors.accent
+    against: background
+    minRatio: 3.0
+    standard: WCAG-AA-large
+    severity: warning
+    rationale: >
+      Firefox Orange (#FF7139) on White sits around 3.3:1 —
+      clears AA-large for headlines but does NOT clear AA for
+      body text. Reserve the orange for large display, the
+      mark fill, and accent use; for body-text foreground,
+      use Firefox Red (#E66000) which clears AA at ~4.5:1.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.5
+    severity: recommendation
+    rationale: >
+      Mozilla and Firefox surfaces use a humanist sans for
+      both heading and body. Maintain at least a 1.5×
+      heading-to-body ratio to preserve hierarchy.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) —
+      Level AA. Mozilla's privacy- and accessibility-first
+      mission is reinforced by AA compliance on all
+      consumer surfaces.
+
+  - type: contextRestriction
+    target: trademark.use
+    forbiddenContexts:
+      - product-name-prefix
+      - implied-endorsement
+      - browser-extension-marketing-without-approval
+    severity: error
+    rationale: >
+      Mozilla's trademark policy forbids product names that
+      imply Mozilla or Firefox endorsement, and reserves the
+      use of the Firefox mark in extension marketing for
+      add-ons published through addons.mozilla.org or with
+      prior approval.

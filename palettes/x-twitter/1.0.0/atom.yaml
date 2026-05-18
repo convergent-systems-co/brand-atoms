@@ -1,0 +1,119 @@
+kind: palette
+id: x-twitter
+version: 1.0.0
+name: X (Twitter)
+description: >
+  X (formerly Twitter) corporate palette. Following the July 2023
+  rebrand, the X identity is a monochrome black-and-white system —
+  the X mark sits on either a black or white canvas with no chromatic
+  accent. The platform's product surface remains a multi-mode app
+  (default dark "Dim", "Lights Out" pure-black, and light) and the
+  legacy Twitter Blue (#1DA1F2) is retained only as a deprecated
+  reference for historical applications. The canonical brand surface
+  today is the black mark on white, or the white mark on black.
+tags: [social, x, twitter, monochrome, dark-first, consumer-tech]
+
+provenance:
+  source: https://about.x.com/en/who-we-are/brand-toolkit
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    X and the X mark are trademarks of X Corp. The black-and-white
+    monochrome identity is documented in X's public brand toolkit at
+    about.x.com/en/who-we-are/brand-toolkit. The legacy Twitter Blue
+    (#1DA1F2) is the historical Twitter brand color (pre-July 2023)
+    documented across the Twitter media-kit archive and the
+    simple-icons brand database.
+  importedDate: 2026-05-18
+  notes: >
+    X is dark-first by canonical identity: the X mark in white on a
+    black canvas is the most-recognized form on the X.com product and
+    in marketing. The light-mode role mapping is an authored
+    inversion — the mark renders in black on white — and is also
+    canonical per the brand toolkit. The platform's product UI
+    additionally supports a "Dim" near-navy canvas (#15202B) inherited
+    from the Twitter era; it is documented here as a surface neutral.
+
+swatches:
+  # ─── Canonical monochrome identity ─────────────────────────────
+  - id: x-black
+    name: X Black
+    value: "#000000"
+    description: Canonical canvas — the X identity reads as the white mark on black.
+  - id: x-white
+    name: X White
+    value: "#FFFFFF"
+    description: Inverse canvas / mark fill — the X mark renders white on black or black on white.
+
+  # ─── Product-surface neutrals (documented on x.com) ────────────
+  - id: x-dim
+    name: X Dim
+    value: "#15202B"
+    description: >
+      "Dim" surface — the desaturated near-navy product canvas inherited
+      from Twitter's three-mode theme system, still surfaced on
+      x.com under the Display settings.
+  - id: x-dim-elevated
+    name: X Dim Elevated
+    value: "#1E2732"
+    description: Authored elevated surface on the Dim canvas — modals, hover rows.
+  - id: x-charcoal
+    name: X Charcoal
+    value: "#16181C"
+    description: >
+      Authored elevated surface on the Lights Out (pure-black) canvas —
+      rows, tile borders, and modal backgrounds on x.com dark mode.
+  - id: x-gray
+    name: X Gray
+    value: "#71767B"
+    description: Secondary text and icon tone on the dark canvas.
+  - id: x-gray-light
+    name: X Gray Light
+    value: "#E7E9EA"
+    description: Primary text tone on the dark canvas (off-white).
+  - id: x-gray-border
+    name: X Gray Border
+    value: "#2F3336"
+    description: Hairline divider and border tone on the dark canvas.
+
+  # ─── Legacy / historical Twitter Blue (deprecated reference) ───
+  - id: twitter-blue-legacy
+    name: Twitter Blue (Legacy)
+    value: "#1DA1F2"
+    description: >
+      The pre-2023 Twitter Blue. Retained as a deprecated reference for
+      historical applications and migration documentation only; not part
+      of the current X monochrome identity.
+
+modes:
+  light:
+    roles:
+      background: x-white
+      surface: x-white
+      surface-elevated: x-white
+      text-primary: x-black
+      text-secondary: x-gray
+      text-tertiary: x-gray
+      primary: x-black
+      primary-hover: x-charcoal
+      accent: x-black
+      accent-hover: x-charcoal
+      warning: x-black
+      warning-hover: x-charcoal
+      error: x-black
+      success: x-black
+  dark:
+    roles:
+      background: x-black
+      surface: x-charcoal
+      surface-elevated: x-dim-elevated
+      text-primary: x-gray-light
+      text-secondary: x-gray
+      text-tertiary: x-gray
+      primary: x-white
+      primary-hover: x-gray-light
+      accent: x-white
+      accent-hover: x-gray-light
+      warning: x-white
+      warning-hover: x-gray-light
+      error: x-white
+      success: x-white

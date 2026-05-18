@@ -1,0 +1,228 @@
+id: discord
+version: 1.0.0
+name: Discord
+description: >
+  Discord is the voice-, video-, and text-chat platform for
+  communities — originally built around gaming, now spanning every
+  kind of social server from study groups to creative collectives.
+  The brand voice is playful, irreverent, and warm — "your place to
+  talk." Visually, Discord is anchored on Blurple (#5865F2), the
+  saturated indigo-purple introduced with the 2021 brand refresh
+  (an evolved, more accessible hue replacing the original 2015
+  #7289DA Blurple). Discord is dark-first by canonical identity:
+  the desktop and mobile client renders Blurple and a set of
+  authored neutrals on a deep gray-blue canvas where motion, emoji,
+  and voice-state color carry the brand voice.
+tags: [social, gaming, discord, blurple, dark-first, voice]
+
+provenance:
+  source: https://discord.com/branding
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Discord and the Discord logo are registered trademarks of
+    Discord, Inc. The Blurple value (#5865F2) introduced with the
+    2021 brand refresh is documented at discord.com/branding and
+    independently verified via the simple-icons brand database,
+    which cites discord.com as the source. The supporting palette
+    (Old Blurple, Greyple, Dark-but-not-Black, Not-Quite-Black) is
+    documented in the same brand page. Whitney is Discord's
+    licensed corporate typeface (designed by Tobias Frere-Jones for
+    Hoefler&Co. / Monotype) and is referenced here with a public-web
+    fallback to Inter when the licensed file is unavailable.
+  importedDate: 2026-05-18
+  notes: >
+    Discord's canonical brand surface is dark-first: the Discord
+    client, the discord.com marketing site, and the Wumpus / mark
+    art all live on a near-black canvas with Blurple used as the
+    primary identity accent. The light-mode role mapping is an
+    authored inversion supporting the user-selectable light theme.
+    Old Blurple (#7289DA) is retained as a deprecated reference in
+    the palette atom for pre-2021 applications.
+
+references:
+  palette: discord@1
+  fonts:
+    heading: whitney@1
+    body: whitney@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # identity = the brand's signature surface. Discord is dark-first:
+    # Canvas Dark (#313338) IS the brand canvas, with Blurple serving
+    # as the primary accent on the mark and key interactive surfaces.
+    identity: discord-canvas-dark
+    on-identity: discord-text-on-dark
+
+    background: discord-canvas-dark
+    surface: discord-canvas-darker
+    surface-elevated: discord-canvas-darkest
+    text-primary: discord-text-on-dark
+    text-secondary: discord-text-secondary-dark
+    text-tertiary: discord-text-tertiary-dark
+
+    primary: discord-blurple
+    primary-hover: discord-blurple-dark
+    accent: discord-blurple
+    accent-hover: discord-blurple-dark
+    mark: discord-blurple
+
+    success: discord-green
+    warning: discord-yellow
+    error: discord-red
+    boost: discord-fuchsia
+  typography:
+    display: heading
+    prose: body
+    wordmark: heading
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.mark
+    allowed:
+      - discord-blurple
+      - discord-white
+      - discord-not-quite-black
+    forbidden:
+      - discord-old-blurple
+      - discord-greyple
+      - discord-fuchsia
+      - discord-red
+      - discord-green
+      - discord-yellow
+    severity: error
+    rationale: >
+      The Discord wordmark and Wumpus mark render in Blurple, white
+      (on dark surfaces), or Not Quite Black (in monochrome contexts).
+      Old Blurple is deprecated. Status accents (green, yellow, red)
+      and the Boost / Nitro fuchsia are reserved for product UI and
+      never recolor the mark.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - inverted-without-variant
+      - wumpus-redraw
+      - old-blurple-recolor
+    severity: error
+    rationale: >
+      Discord's brand page prescribes the wordmark and Wumpus mark in
+      approved variants only. Recoloring into Old Blurple, redrawing
+      Wumpus, or applying decorative effects violates the brand-use
+      policy published at discord.com/branding.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: dark
+    use: wordmark-white
+    severity: error
+    rationale: >
+      On the canonical Canvas Dark surface, the white wordmark
+      variant is required for legibility. The Blurple wordmark must
+      not be placed directly on Canvas Dark where contrast drops.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: light
+    use: wordmark-blurple
+    severity: error
+    rationale: >
+      On light surfaces, the wordmark renders in Blurple. Do not
+      invert the white wordmark onto a light canvas.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      WCAG 2.1 Level AA contrast minimum for body text. Discord Text
+      on Dark (#F2F3F5) on Canvas Dark (#313338) reads comfortably
+      above AA. The rule encodes the floor for any new
+      foreground/background pairing introduced on Discord surfaces.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 3.0
+    standard: WCAG-AA-large
+    severity: error
+    rationale: >
+      Discord Blurple (#5865F2) on Canvas Dark must remain perceptible
+      at interactive sizes. The 2021 brand refresh specifically
+      tuned the Blurple from Old Blurple (#7289DA) toward higher
+      saturation; falling below 3:1 (AA-large) breaks the interactive
+      affordance of the primary CTA.
+
+  - type: contextRestriction
+    target: roles.colors.identity
+    forbiddenContexts:
+      - product-of-competitor
+      - merchandise
+      - endorsement-implication
+      - server-impersonation
+    severity: error
+    rationale: >
+      Discord's brand guidelines restrict use of the Discord wordmark,
+      Wumpus, and Blurple in ways that imply official affiliation or
+      Discord endorsement of a third-party server, on competing-
+      product surfaces, or on unlicensed merchandise.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - discord-canvas-dark
+      - discord-canvas-darker
+      - discord-white
+    doesNotPairWith:
+      - discord-old-blurple
+      - discord-fuchsia
+    severity: recommendation
+    rationale: >
+      Blurple is calibrated to read on Discord's deep canvases and
+      on white. Pairing the current Blurple with Old Blurple creates
+      a visible regression; pairing it with Fuchsia (a different
+      brand-accent role) breaks the calibrated primary-vs-secondary
+      hierarchy.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["500", "600", "700"]
+    severity: warning
+    rationale: >
+      Whitney is distributed in Light (300), Book (400), Medium (500),
+      Semi-Bold (600), and Bold (700). Discord's display lockups and
+      marketing headlines sit in the 500–700 band; lighter cuts
+      compromise the warm, declarative voice the brand depends on.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level AA.
+      The dark-first canvas makes contrast checks the default
+      verification on any new role pairing introduced on
+      Discord-skinned surfaces.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.5
+    severity: warning
+    rationale: >
+      Discord's marketing headlines run substantially larger than
+      body copy. A 1.5× minimum size ratio preserves the
+      display-to-prose hierarchy the brand voice depends on.

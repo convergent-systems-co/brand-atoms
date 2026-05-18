@@ -1,0 +1,181 @@
+id: golang
+version: 1.0.0
+name: Go
+description: >
+  Go (golang) is an open-source programming language that enables
+  the production of simple, efficient, and reliable software at
+  scale. The brand voice is the one the Go Brand Book documents:
+  thoughtful, simple, efficient, reliable, productive, friendly.
+  Gophers communicate concisely, genuinely, friendly, directly,
+  thoughtfully, humbly — never verbose, dubious, exclusive,
+  ambiguous, reactive, or haughty. Visually, the brand is led by
+  Gopher Blue (#00ADD8), supported by Aqua, Fuchsia, Light Blue,
+  Yellow, and Black, with Work Sans for headlines, Roboto for body,
+  and the Go font (Source Code Pro fallback) for source code.
+tags: [golang, go, programming-language, google, open-source, brand]
+
+provenance:
+  source: https://go.dev/blog/go-brand
+  license: CC-BY-3.0
+  attribution: >
+    The Go gopher and the Go brand are works of Renee French,
+    used under the Creative Commons Attribution 3.0 license per
+    the project's brand guidelines (go.dev/brand). The Go and Go
+    gopher word marks are trademarks of Google LLC. Brand identity
+    values are drawn verbatim from the Go Brand Book v1.0 PDF
+    (go.dev/s/brandbook). This atom is brand-atoms' machine-
+    readable encoding; no logos or wordmarks are bundled here.
+  importedDate: 2026-05-18
+  importedFromVersion: "Go Brand Book v1.0"
+  notes: >
+    The Brand Book designates Work Sans for headlines / subheads
+    and Roboto for body copy. The Go font (Bigelow & Holmes, for
+    source code) is not in the brand-atoms catalog and is not
+    proprietary in the redistribution sense, but the Brand Book
+    explicitly designates Source Code Pro as the fallback —
+    this atom uses Source Code Pro from the catalog as the mono
+    role per the Brand Book's documented fallback path.
+
+references:
+  palette: golang@1
+  fonts:
+    heading: work-sans@1
+    body: roboto@1
+    mono: source-code-pro@1
+
+roles:
+  colors:
+    identity: gopher-blue
+    on-identity: go-white
+    primary: gopher-blue
+    primary-hover: dark-cyan
+    accent: fuchsia
+    accent-hover: plum
+    background: go-white
+    surface: light-gray
+    text-primary: go-black
+    text-secondary: cool-gray
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - elongated
+      - distorted
+      - recolored
+      - illegible-color
+      - dominant-element
+      - implied-google-endorsement
+    severity: error
+    rationale: >
+      The Go Brand Book v1.0 §2.0.2 ("Unacceptable logo use")
+      explicitly forbids modifying the Go mark by adding,
+      subtracting, rearranging, stretching, elongating, or
+      distorting it; choosing a color that renders it illegible;
+      using it as the most-prominent element on a page; or using
+      the Go name or logo in a way that implies Google is
+      affiliated with or endorses the consumer's product.
+
+  - type: colorChoice
+    target: roles.colors.primary
+    allowed:
+      - gopher-blue
+    forbidden:
+      - fuchsia
+      - go-yellow
+      - aqua
+    severity: error
+    rationale: >
+      The Brand Book §2.1 designates Gopher Blue as the lead
+      primary color. Fuchsia, Aqua, and Yellow are documented as
+      secondary / accent roles and must not stand in as the
+      brand identity color.
+
+  - type: compositionConstraint
+    target: roles.colors.identity
+    pairsWith:
+      - go-black
+      - go-white
+      - aqua
+      - light-blue
+    severity: recommendation
+    rationale: >
+      The Brand Book documents Black as the high-contrast
+      foundation and Aqua / Light Blue as the canonical
+      gradient companions for Gopher Blue. Pair the identity
+      color with these companions to stay consistent with the
+      published voice.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Black on White exceeds 21:1 — well above the WCAG AA
+      threshold for body text.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 3.0
+    standard: WCAG-AA-large
+    severity: warning
+    rationale: >
+      Gopher Blue (#00ADD8) on White sits around 2.6:1 — does
+      NOT clear AA-large for headlines on white. Reserve it for
+      large display contexts or pair with the dark canvas; for
+      body-text foreground use Dark Cyan (#00758D) which clears
+      AA at ~5.6:1.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.5
+    severity: warning
+    rationale: >
+      The Brand Book pairs Work Sans (headlines) with Roboto
+      (body). Maintaining at least a 1.5× heading-to-body
+      ratio preserves the documented typographic hierarchy.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["500", "600", "700", "800", "900"]
+    severity: warning
+    rationale: >
+      The Brand Book §2.2 reserves Work Sans Black and Bold for
+      "prominent copy or to emphasize body copy" — heading
+      weights live between Medium (500) and Black (900). The
+      lightest weights (ExtraLight, Thin) are reserved for
+      callouts and large-scale copy over 36pt.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) —
+      Level AA. The Brand Book's primary palette pairs are
+      designed around Black-as-foundation; consumers must
+      not derive intermediate stops that defeat AA contrast.
+
+  - type: contextRestriction
+    target: trademark.use
+    forbiddenContexts:
+      - product-name-prefix
+      - implied-endorsement
+    severity: error
+    rationale: >
+      Per the Go Brand and Trademark Usage Guidelines, the Go
+      name and logo must not appear as the most-prominent
+      element of a third-party page or be used in a way that
+      implies Google's affiliation or endorsement.

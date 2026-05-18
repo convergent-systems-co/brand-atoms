@@ -1,0 +1,58 @@
+kind: font
+id: whitney
+version: 1.0.0
+name: Whitney
+description: >
+  Whitney — a proprietary humanist sans-serif designed by Tobias
+  Frere-Jones for Hoefler & Co. (now Hoefler&Co. / Monotype). Originally
+  commissioned in 2004 for the Whitney Museum of American Art, Whitney
+  is licensed to Discord, Inc. and serves as Discord's primary
+  display and UI face across the Discord client, marketing site, and
+  brand materials. A compact-but-warm humanist sans tuned for both
+  signage and dense screen UI.
+family: Whitney
+classification: sans-serif
+tags: [proprietary, custom, humanist, hoefler, brand-only]
+
+provenance:
+  source: https://discord.com/branding
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Whitney is a proprietary typeface designed by Tobias Frere-Jones
+    and licensed by Hoefler&Co. (now part of Monotype). Discord, Inc.
+    licenses Whitney as its corporate typeface for use across the
+    Discord product and marketing. brand-atoms documents the face for
+    reference only — no binaries are mirrored or redistributed by
+    this catalog. End-consumers must obtain a Whitney license
+    independently from Hoefler&Co. / Monotype.
+  importedDate: 2026-05-18
+  notes: >
+    Whitney is not publicly distributed. Public web rendering by
+    consumers without a Whitney license must fall back to a comparable
+    humanist sans. The recommended public-web fallback is Inter
+    (already in the brand-atoms catalog) — a similarly humanist sans
+    that approximates Whitney's reading rhythm at UI sizes.
+
+source:
+  kind: external
+  family: Whitney
+  notes: >
+    Licensed font; no public CDN. Distributed under license from
+    Hoefler&Co. (Monotype). CSS @font-face declarations must reference
+    internally hosted files under the consumer's own Whitney license.
+
+fallbackStack:
+  - Inter
+  - -apple-system
+  - BlinkMacSystemFont
+  - Segoe UI
+  - Helvetica Neue
+  - Arial
+  - sans-serif
+
+availableStyles:
+  - { weight: 300, style: normal }
+  - { weight: 400, style: normal }
+  - { weight: 500, style: normal }
+  - { weight: 600, style: normal }
+  - { weight: 700, style: normal }

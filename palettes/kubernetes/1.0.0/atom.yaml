@@ -1,0 +1,136 @@
+kind: palette
+id: kubernetes
+version: 1.0.0
+name: Kubernetes
+description: >
+  Kubernetes brand palette anchored on Kubernetes Blue (#326CE5) —
+  the signature blue of the seven-spoked helm-wheel mark and the
+  principal accent across kubernetes.io. The palette pairs the
+  signature blue with a darker navy used in dark-mode marketing and
+  a neutral ramp for body copy and documentation surfaces.
+  Kubernetes is an open-source project hosted by the Cloud Native
+  Computing Foundation (CNCF); the brand assets are governed by the
+  CNCF brand guidelines and the project's CONTRIBUTING surface.
+tags: [tech, kubernetes, k8s, cncf, open-source, infrastructure, blue]
+
+provenance:
+  source: https://kubernetes.io/community/branding/
+  license: Apache-2.0
+  attribution: >
+    Kubernetes is a registered trademark of The Linux Foundation /
+    Cloud Native Computing Foundation. The Kubernetes name and
+    logo are used under the CNCF trademark usage guidelines. The
+    Kubernetes project itself is licensed under Apache License
+    2.0; brand colors documented here are sourced from the
+    project's branding page (kubernetes.io/community/branding/),
+    the kubernetes/community repository, and the CNCF Style
+    Guide. Copyright The Kubernetes Authors / Cloud Native
+    Computing Foundation.
+  importedDate: 2026-05-18
+  notes: >
+    The Kubernetes Blue (#326CE5) hex value is documented in the
+    kubernetes/community repository (devel/sig-docs/style/* and
+    branding/*) and on the kubernetes.io branding page. The
+    palette is intentionally restrained — the project leans on
+    the signature blue plus a neutral documentation ramp. Both
+    light and dark modes are authored; the dark variant follows
+    the kubernetes.io site's published dark theme.
+
+swatches:
+  - id: k8s-blue
+    name: Kubernetes Blue
+    value: "#326CE5"
+    description: >
+      The Kubernetes signature blue — the fill of the helm-wheel
+      mark and the principal accent across kubernetes.io.
+  - id: k8s-blue-dark
+    name: Kubernetes Blue Dark
+    value: "#2956B2"
+    description: Pressed/active state for the primary CTA.
+  - id: k8s-blue-light
+    name: Kubernetes Blue Light
+    value: "#7493E0"
+    description: Soft accent used on illustrations and tags.
+  - id: k8s-navy
+    name: Kubernetes Navy
+    value: "#0B132B"
+    description: >
+      Dark-mode canvas color — the navy used on the
+      kubernetes.io dark-theme hero and on CNCF presentation
+      chrome.
+  - id: k8s-navy-deep
+    name: Kubernetes Navy Deep
+    value: "#050911"
+    description: Darkest navy used as the page-level dark canvas.
+  - id: k8s-ink
+    name: Kubernetes Ink
+    value: "#303030"
+    description: Primary text on light surfaces.
+  - id: k8s-gray
+    name: Kubernetes Gray
+    value: "#5F6368"
+    description: Secondary text and metadata.
+  - id: k8s-gray-light
+    name: Kubernetes Gray Light
+    value: "#9AA0A6"
+    description: Tertiary text and disabled UI.
+  - id: k8s-surface
+    name: Kubernetes Surface
+    value: "#F1F3F4"
+    description: Quiet surface — card backgrounds on kubernetes.io.
+  - id: k8s-border
+    name: Kubernetes Border
+    value: "#DADCE0"
+    description: Hairline borders and dividers.
+  - id: k8s-white
+    name: Kubernetes White
+    value: "#FFFFFF"
+    description: Primary canvas on light surfaces.
+  - id: k8s-success
+    name: Kubernetes Success
+    value: "#0F9D58"
+    description: Healthy / ready pod state.
+  - id: k8s-warning
+    name: Kubernetes Warning
+    value: "#F4B400"
+    description: Pending / scheduling state.
+  - id: k8s-error
+    name: Kubernetes Error
+    value: "#DB4437"
+    description: Failed / crash-loop state.
+
+modes:
+  light:
+    roles:
+      background: k8s-white
+      surface: k8s-surface
+      surface-elevated: k8s-white
+      text-primary: k8s-ink
+      text-secondary: k8s-gray
+      text-tertiary: k8s-gray-light
+      primary: k8s-blue
+      primary-hover: k8s-blue-dark
+      accent: k8s-blue-light
+      accent-hover: k8s-blue
+      warning: k8s-warning
+      warning-hover: k8s-error
+      error: k8s-error
+      success: k8s-success
+      border: k8s-border
+  dark:
+    roles:
+      background: k8s-navy-deep
+      surface: k8s-navy
+      surface-elevated: k8s-blue-dark
+      text-primary: k8s-white
+      text-secondary: k8s-surface
+      text-tertiary: k8s-gray-light
+      primary: k8s-blue-light
+      primary-hover: k8s-blue
+      accent: k8s-blue
+      accent-hover: k8s-blue-light
+      warning: k8s-warning
+      warning-hover: k8s-error
+      error: k8s-error
+      success: k8s-success
+      border: k8s-blue-dark

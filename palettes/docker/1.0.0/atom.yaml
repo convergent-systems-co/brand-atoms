@@ -1,0 +1,129 @@
+kind: palette
+id: docker
+version: 1.0.0
+name: Docker
+description: >
+  Docker brand palette anchored on Docker Blue (#2496ED) — the
+  signature blue of the Moby whale logo and the principal accent
+  across docker.com and Docker Desktop. The palette pairs Docker
+  Blue with a deeper Navy used in dark-canvas marketing and on
+  Docker Hub chrome, plus a Material-style neutral ramp for body
+  copy and UI surfaces.
+tags: [tech, containers, docker, blue, devops, infrastructure]
+
+provenance:
+  source: https://www.docker.com/company/newsroom/media-resources/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Docker and the Docker logo are trademarks of Docker, Inc. The
+    Docker Blue (#2496ED) hex value is documented on the Docker
+    media-resources / brand-press surface and is consistently
+    rendered as the Moby whale fill on docker.com, Docker Desktop,
+    and the Docker Hub chrome.
+  importedDate: 2026-05-18
+  notes: >
+    Docker's marketing site is light-first; Docker Desktop ships
+    bilingual light/dark themes. The deeper navy (#0DB7ED variants
+    and #0db7ed-darkened shades) appears on dark-mode hero
+    surfaces. Both modes are authored here.
+
+swatches:
+  - id: docker-blue
+    name: Docker Blue
+    value: "#2496ED"
+    description: >
+      Primary Docker brand blue — the fill of the Moby whale and
+      the principal CTA color across docker.com and Docker
+      Desktop.
+  - id: docker-blue-bright
+    name: Docker Blue Bright
+    value: "#0DB7ED"
+    description: >
+      Brighter cyan-blue used in Docker marketing illustrations
+      and on dark-canvas hero compositions.
+  - id: docker-navy
+    name: Docker Navy
+    value: "#0A1F44"
+    description: >
+      Deep navy used in dark-mode marketing surfaces and as the
+      chrome canvas for Docker Hub on dark theme.
+  - id: docker-navy-deep
+    name: Docker Navy Deep
+    value: "#06122A"
+    description: Darkest navy used on dark-mode page canvas.
+  - id: docker-blue-dark
+    name: Docker Blue Dark
+    value: "#1769A6"
+    description: Pressed/active state for the primary CTA on light surfaces.
+  - id: docker-ink
+    name: Docker Ink
+    value: "#17191E"
+    description: Primary text on light surfaces.
+  - id: docker-gray
+    name: Docker Gray
+    value: "#677285"
+    description: Secondary text and metadata.
+  - id: docker-gray-light
+    name: Docker Gray Light
+    value: "#8993A5"
+    description: Tertiary text and disabled UI.
+  - id: docker-surface
+    name: Docker Surface
+    value: "#F4F6F9"
+    description: Quiet surface — card backgrounds on docker.com.
+  - id: docker-border
+    name: Docker Border
+    value: "#E1E2E6"
+    description: Hairline borders and dividers.
+  - id: docker-white
+    name: Docker White
+    value: "#FFFFFF"
+    description: Primary canvas on light surfaces.
+  - id: docker-success
+    name: Docker Success
+    value: "#1CB97A"
+    description: Confirmation / healthy-container state.
+  - id: docker-warning
+    name: Docker Warning
+    value: "#F2A33A"
+    description: Caution state on Docker Desktop chrome.
+  - id: docker-error
+    name: Docker Error
+    value: "#E2574C"
+    description: Destructive / unhealthy-container state.
+
+modes:
+  light:
+    roles:
+      background: docker-white
+      surface: docker-surface
+      surface-elevated: docker-white
+      text-primary: docker-ink
+      text-secondary: docker-gray
+      text-tertiary: docker-gray-light
+      primary: docker-blue
+      primary-hover: docker-blue-dark
+      accent: docker-blue-bright
+      accent-hover: docker-blue
+      warning: docker-warning
+      warning-hover: docker-error
+      error: docker-error
+      success: docker-success
+      border: docker-border
+  dark:
+    roles:
+      background: docker-navy-deep
+      surface: docker-navy
+      surface-elevated: docker-blue-dark
+      text-primary: docker-white
+      text-secondary: docker-surface
+      text-tertiary: docker-gray-light
+      primary: docker-blue-bright
+      primary-hover: docker-blue
+      accent: docker-blue
+      accent-hover: docker-blue-bright
+      warning: docker-warning
+      warning-hover: docker-error
+      error: docker-error
+      success: docker-success
+      border: docker-blue-dark

@@ -1,0 +1,131 @@
+kind: palette
+id: golang
+version: 1.0.0
+name: Go (golang)
+description: >
+  Go language brand palette captured verbatim from the Go Brand Book
+  v1.0. The brand is led by Gopher Blue (#00ADD8) and supported by
+  Light Blue (#5DC9E2) and Fuchsia (#CE3262). Secondary swatches add
+  Aqua (#00A29C), Black, and Yellow (#FDDD00). "More colors" sit
+  below as supporting tones (Dark Blue #00758D, Cool Gray #555759,
+  Plum #402B56, Light Gray #DBD9D6). Black is documented as the
+  high-contrast foundation.
+tags: [golang, go, programming-language, cyan, gopher, open-source]
+
+provenance:
+  source: https://go.dev/blog/go-brand
+  license: CC-BY-3.0
+  attribution: >
+    The Go gopher and Go brand identity are works of Renee French,
+    used under CC-BY-3.0 per the project's brand guidelines. Brand
+    colors documented here are published verbatim in the Go Brand
+    Book v1.0 (go.dev/s/brandbook), section 2.1. The Go and Go
+    gopher marks are trademarks of Google LLC.
+  importedDate: 2026-05-18
+  importedFromVersion: "Brand Book v1.0"
+  notes: >
+    Hex values resolved from the Go Brand Book v1.0 PDF (go.dev/s/
+    brandbook), page 16. The dark-mode role mapping is brand-atoms'
+    sensible inversion (Black canvas, Gopher Blue identity
+    preserved); the Brand Book is light-first and does not enumerate
+    a dark mode but explicitly designates Black as the
+    "high-contrast foundation."
+
+swatches:
+  # ─── Primary ───────────────────────────────────────────────────
+  - id: gopher-blue
+    name: Gopher Blue
+    value: "#00ADD8"
+    description: >
+      Primary brand color — the signature cyan that anchors the Go
+      gopher, the wordmark, and primary calls-to-action. PANTONE
+      638C.
+  - id: light-blue
+    name: Light Blue
+    value: "#5DC9E2"
+    description: >
+      Supporting tint used in gradients and secondary surfaces.
+      PANTONE 310U.
+  - id: fuchsia
+    name: Fuchsia
+    value: "#CE3262"
+    description: >
+      Secondary brand color — accent for callouts, highlights, and
+      "what NOT to do" markers in the Brand Book. PANTONE 7635C.
+
+  # ─── Secondary ─────────────────────────────────────────────────
+  - id: aqua
+    name: Aqua
+    value: "#00A29C"
+    description: >
+      Secondary brand color — teal accent used in the Go gradient
+      and supporting illustrations. PANTONE 3265C.
+  - id: go-black
+    name: Black
+    value: "#000000"
+    description: >
+      High-contrast foundation — used as a canvas under the white
+      gopher mark and for primary text on light surfaces. PANTONE
+      Black C.
+  - id: go-yellow
+    name: Yellow
+    value: "#FDDD00"
+    description: >
+      Tertiary accent used sparingly for spotlight callouts.
+      PANTONE Yellow C.
+
+  # ─── "More colors" (supporting) ────────────────────────────────
+  - id: dark-cyan
+    name: Dark Cyan
+    value: "#00758D"
+    description: PANTONE 3145C — deeper cyan for hover states and shadows.
+  - id: cool-gray
+    name: Cool Gray
+    value: "#555759"
+    description: PANTONE 425C — neutral text and dividers.
+  - id: plum
+    name: Plum
+    value: "#402B56"
+    description: PANTONE 669C — deep accent for tertiary surfaces.
+  - id: light-gray
+    name: Light Gray
+    value: "#DBD9D6"
+    description: PANTONE Cool Gray 1C — light hairline surfaces.
+  - id: go-white
+    name: White
+    value: "#FFFFFF"
+    description: Page canvas in light mode; reversed mark color on Black.
+
+modes:
+  light:
+    roles:
+      background: go-white
+      surface: light-gray
+      surface-elevated: go-white
+      text-primary: go-black
+      text-secondary: cool-gray
+      text-tertiary: dark-cyan
+      primary: gopher-blue
+      primary-hover: dark-cyan
+      accent: fuchsia
+      accent-hover: plum
+      warning: go-yellow
+      warning-hover: fuchsia
+      error: fuchsia
+      success: aqua
+  dark:
+    roles:
+      background: go-black
+      surface: plum
+      surface-elevated: cool-gray
+      text-primary: go-white
+      text-secondary: light-gray
+      text-tertiary: light-blue
+      primary: gopher-blue
+      primary-hover: light-blue
+      accent: fuchsia
+      accent-hover: light-blue
+      warning: go-yellow
+      warning-hover: fuchsia
+      error: fuchsia
+      success: aqua

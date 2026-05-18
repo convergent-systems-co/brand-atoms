@@ -1,0 +1,210 @@
+id: pinterest
+version: 1.0.0
+name: Pinterest
+description: >
+  Pinterest is the visual-discovery platform — a place to find ideas
+  for cooking, style, home, travel, and projects. Founded in 2010,
+  Pinterest's brand voice is warm, optimistic, and inspiration-first.
+  Visually, the identity is anchored on Pinterest Red (#E60023) — the
+  saturated red that has carried the Pinterest "P" mark since the
+  company's founding. The supporting system is intentionally recessive:
+  white canvas, near-black text, and a tight set of UI grays let the
+  user's pinned imagery — the actual content — carry the visual
+  weight of every surface.
+tags: [social, discovery, pinterest, red, light-first, consumer-tech]
+
+provenance:
+  source: https://newsroom.pinterest.com/en/brand-guidelines
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Pinterest, the Pinterest "P" mark, and the Pinterest wordmark are
+    registered trademarks of Pinterest, Inc. Pinterest Red (#E60023)
+    is documented across Pinterest's brand guidelines on the
+    Pinterest newsroom and independently verified via the
+    simple-icons brand database, which cites pinterest.com as the
+    source. Pinterest Sans is Pinterest's proprietary corporate
+    typeface and is referenced here with a public-web fallback to
+    Inter when the licensed file is unavailable.
+  importedDate: 2026-05-18
+  notes: >
+    Pinterest's brand voice intentionally recedes behind the user's
+    pins: a tight palette of one red, one white, one near-black, and
+    a handful of UI grays is the entire brand surface. The dark-mode
+    role mapping is an authored inversion supporting Pinterest's
+    user-selectable dark theme; the canonical brand canvas remains
+    light-first.
+
+references:
+  palette: pinterest@1
+  fonts:
+    heading: pinterest-sans@1
+    body: pinterest-sans@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # identity = the brand's signature color. Pinterest's identity IS
+    # Pinterest Red — used on the "P" mark, the "Save" pin button, and
+    # the highest-priority calls to action.
+    identity: pinterest-red
+    on-identity: pinterest-white
+
+    primary: pinterest-red
+    primary-hover: pinterest-red-dark
+    accent: pinterest-red
+    accent-hover: pinterest-red-dark
+
+    success: pinterest-green
+    warning: pinterest-yellow
+    error: pinterest-red
+
+    background-light: pinterest-white
+    background-dark: pinterest-canvas-dark
+    surface-light: pinterest-near-white
+    surface-dark: pinterest-surface-dark
+    surface-elevated-dark: pinterest-surface-elevated-dark
+    text-primary-light: pinterest-text-primary
+    text-primary-dark: pinterest-text-on-dark
+    text-secondary-light: pinterest-text-secondary
+    text-secondary-dark: pinterest-text-secondary-dark
+    divider: pinterest-divider-light
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.mark
+    allowed:
+      - pinterest-red
+      - pinterest-white
+      - pinterest-text-primary
+    forbidden:
+      - any-non-brand-color
+      - pinterest-yellow
+      - pinterest-green
+    severity: error
+    rationale: >
+      The Pinterest "P" mark and wordmark render in Pinterest Red,
+      white (on dark surfaces), or near-black (in monochrome
+      contexts). The status accents (yellow, green) are reserved for
+      product affordances and never recolor the mark.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - inverted-without-variant
+      - cropped
+      - p-redrawn
+    severity: error
+    rationale: >
+      Pinterest's brand guidelines prescribe the "P" mark and wordmark
+      in approved variants only. Recoloring, redrawing, or applying
+      decorative effects violates the brand-use policy published at
+      newsroom.pinterest.com.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: dark
+    use: p-white
+    severity: error
+    rationale: >
+      On dark surfaces, the "P" mark renders in white for legibility.
+      Pinterest Red on dark canvas can lose legibility against
+      photographic pin imagery; the white variant is required.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: light
+    use: p-red
+    severity: error
+    rationale: >
+      On light surfaces, the "P" mark renders in Pinterest Red — the
+      canonical brand application on pinterest.com and across
+      marketing materials.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      WCAG 2.1 Level AA contrast minimum for body text. Pinterest's
+      near-black text (#111111) on Pinterest White clears AA
+      comfortably; the dark-mode text tone (#E9E9E9) on the
+      dark canvas also clears AA.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Pinterest Red (#E60023) on white reads at ~5.4:1 — clearing
+      WCAG AA for body-text contrast. CTA buttons and the "Save"
+      affordance must hold this threshold; failure compromises the
+      interactive contract Pinterest's product depends on.
+
+  - type: contextRestriction
+    target: roles.colors.identity
+    forbiddenContexts:
+      - product-of-competitor
+      - merchandise
+      - endorsement-implication
+      - busy-photographic-overlay
+    severity: error
+    rationale: >
+      Pinterest's brand-use guidance restricts use of the "P" mark
+      and wordmark in ways that imply affiliation, on
+      competing-product surfaces, on third-party merchandise without
+      license, or directly over busy photographic pin imagery where
+      the mark loses contrast.
+
+  - type: compositionConstraint
+    target: roles.colors.identity
+    pairsWith:
+      - pinterest-white
+      - pinterest-near-white
+      - pinterest-text-primary
+    doesNotPairWith:
+      - pinterest-yellow
+    severity: recommendation
+    rationale: >
+      Pinterest Red pairs cleanly with the warm-white canvas and the
+      near-black text tone. Pairing Red with Yellow creates an
+      unintended hot saturation that fights the inspirational, calm
+      voice the platform's marketing depends on; reserve yellow for
+      editorial accents on a neutral canvas.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["500", "600", "700", "800"]
+    severity: warning
+    rationale: >
+      Pinterest's display typography sits in the Medium (500) through
+      Extra-Bold (800) band on the marketing surface and the product
+      UI. Lighter cuts compromise the warm-but-confident voice the
+      brand depends on.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level AA.
+      The light-first canvas combined with photographic content
+      surfaces makes contrast verification mandatory on every new
+      role pairing.

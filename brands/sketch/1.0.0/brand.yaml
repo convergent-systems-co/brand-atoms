@@ -1,0 +1,165 @@
+id: sketch
+version: 1.0.0
+name: Sketch
+description: >
+  Sketch is a Mac-native vector design tool that pioneered the
+  modern app-design workflow — symbols, libraries, components,
+  and Cloud handoff. The brand voice is craft-forward, precise,
+  and Mac-aligned. Visually, the identity is the diamond mark in
+  Sketch Yellow (#FDB300) on a clean white canvas with near-black
+  body text. Where competing design tools commit to blues and
+  purples, Sketch keeps its distinctive warm yellow.
+tags: [saas, design-tools, sketch, vector-design]
+
+provenance:
+  source: https://www.sketch.com/press
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Sketch and the Sketch logo are trademarks of Sketch B.V. The
+    primary brand color Sketch Yellow (#FDB300) is documented on
+    Sketch's press resources. brand-atoms catalogues only the
+    publicly documented signature color and authored neutrals;
+    licensed application of the Sketch name and mark is governed
+    by Sketch's brand-use guidance at sketch.com/press.
+  importedDate: 2026-05-18
+  notes: >
+    Sketch's marketing pages render in a neutral humanist sans
+    consistent with Inter; Inter is referenced here as the primary
+    face and is already in the brand-atoms catalog.
+
+references:
+  palette: sketch@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # identity = the brand's signature surface. Sketch's identity is
+    # the diamond mark in Sketch Yellow — the yellow carries the
+    # institutional voice on the clean white canvas.
+    identity: sketch-yellow
+    on-identity: sketch-black
+
+    primary: sketch-yellow
+    primary-hover: sketch-yellow-hover
+    accent: sketch-yellow
+    accent-hover: sketch-yellow-hover
+
+    success: sketch-yellow
+    warning: sketch-yellow
+    error: sketch-yellow
+
+    background-light: sketch-white
+    background-dark: sketch-canvas-dark
+    surface-light: sketch-surface-light
+    surface-dark: sketch-surface-dark
+    text-primary-light: sketch-black
+    text-primary-dark: sketch-white
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.mark
+    allowed:
+      - sketch-yellow
+      - sketch-white
+      - sketch-black
+    forbidden:
+      - any-non-brand-color
+    severity: error
+    rationale: >
+      The Sketch diamond mark renders in Sketch Yellow as the
+      canonical fill. Recoloring the mark into off-brand hues
+      violates Sketch's brand-use guidance.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - gradient-fill
+    severity: error
+    rationale: >
+      Sketch's press resources prohibit stretching, rotating,
+      recoloring, or applying decorative effects to the diamond
+      mark.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      WCAG 2.1 Level AA contrast minimum for body text. Sketch
+      Black (#000000) on Sketch White (#FFFFFF) clears AA at
+      21:1. Note: Sketch Yellow on white fails AA for small text
+      and should not be used as a body-text color.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: dark
+    use: logo-light
+    severity: error
+    rationale: >
+      On dark surfaces, place the yellow diamond on the dark
+      canvas (which clears AA at large sizes) or use a
+      monochrome white variant for small wordmark lockups.
+
+  - type: contextRestriction
+    target: roles.colors.identity
+    forbiddenContexts:
+      - product-of-competitor
+      - merchandise
+      - endorsement-implication
+      - company-name-or-domain
+    severity: error
+    rationale: >
+      Sketch's trademark guidance forbids use of the Sketch name
+      and mark in third-party company names, domains, and uses
+      that imply affiliation or endorsement.
+
+  - type: compositionConstraint
+    target: roles.colors.identity
+    pairsWith:
+      - sketch-white
+      - sketch-black
+      - sketch-canvas-dark
+    doesNotPairWith:
+      - sketch-surface-light
+    severity: recommendation
+    rationale: >
+      Sketch Yellow reads cleanly against pure white and against
+      near-black; on a warm off-white surface the yellow loses
+      separation and the mark muddies.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["500", "600", "700"]
+    severity: warning
+    rationale: >
+      Sketch's marketing surfaces render headings in the 500–700
+      band; lighter weights undermine the craft-forward voice of
+      the brand.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level
+      AA. Sketch-skinned surfaces must clear AA on body text;
+      Sketch Yellow must not be used as a body-text color on
+      light backgrounds because it fails AA.

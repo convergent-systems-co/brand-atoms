@@ -1,0 +1,188 @@
+id: paypal
+version: 1.0.0
+name: PayPal
+description: >
+  PayPal Holdings, Inc. is the global online payments platform that
+  established the modern consumer-payments category. The brand is
+  light-first, trust-leaning, and disciplined: a deep navy-blue
+  wordmark next to the two-tone "PP" monogram on a white canvas. The
+  signature gold "Pay with PayPal" button is one of the most-deployed
+  brand elements in commerce. The voice is direct and consumer-facing
+  — "fast, easy, secure" — built around reliability rather than
+  flourish.
+tags: [fintech, payments, paypal, blue, light-first, consumer]
+
+provenance:
+  source: https://newsroom.paypal-corp.com/Brand-Center
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    PayPal Holdings, Inc. — PayPal, the PayPal wordmark, and the
+    two-tone "PP" monogram are registered trademarks of PayPal
+    Holdings, Inc. The signature blue duotone (#003087 + #009CDE) and
+    the merchant gold (#FFC439) are documented across PayPal's
+    Brand Center press kit. PayPal Sans is the proprietary corporate
+    typeface; Inter is referenced here as the open-source fallback.
+  importedDate: 2026-05-18
+  notes: >
+    PayPal Sans is not publicly distributed. This atom references
+    Inter for both heading and body roles and notes PayPal Sans as
+    the proprietary primary in provenance. The signature gold button
+    ("Pay with PayPal") is a regulated merchant-button color — its
+    use in the wild is governed by PayPal's button-style spec.
+
+references:
+  palette: paypal@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # identity = the brand's signature surface. PayPal is light-first
+    # with the blue duotone monogram and wordmark carrying identity.
+    identity: paypal-blue
+    on-identity: paypal-white
+
+    primary: paypal-blue
+    primary-hover: paypal-blue-deep
+    accent: paypal-cobalt
+    accent-hover: paypal-blue
+    mark: paypal-blue
+    mark-secondary: paypal-cobalt
+
+    success: paypal-cobalt
+    warning: paypal-gold
+    error: paypal-blue-deep
+
+    text-primary-light: paypal-ink
+    text-primary-dark: paypal-white
+    text-secondary-light: paypal-graphite
+    background-light: paypal-white
+    background-dark: paypal-canvas-dark
+    surface-light: paypal-fog
+    surface-dark: paypal-surface-dark
+    divider: paypal-divider
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.wordmark.fill
+    allowed:
+      - paypal-blue
+      - paypal-white
+      - paypal-ink
+    forbidden:
+      - paypal-cobalt
+      - paypal-gold
+      - paypal-blue-deep
+      - paypal-gray
+    severity: error
+    rationale: >
+      The PayPal wordmark renders only in PayPal Blue (#003087), in
+      reversed white on dark surfaces, or in monochrome ink for
+      print/embossed use. Cobalt is the monogram's front-P, not the
+      wordmark fill; gold is reserved for the merchant button only.
+
+  - type: colorChoice
+    target: logo.monogram
+    allowed:
+      - paypal-blue
+      - paypal-cobalt
+    forbidden:
+      - paypal-gold
+      - paypal-blue-deep
+    severity: error
+    rationale: >
+      The "PP" monogram is a duotone composition: PayPal Blue back-P
+      paired with PayPal Cobalt front-P. Single-color or off-brand
+      variants violate the published mark.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - inverted-without-variant
+    severity: error
+    rationale: >
+      PayPal's brand-center program forbids modifying the marks. Apply
+      only PayPal-approved variants with the documented clearspace.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      PayPal Ink (#2C2E2F) on PayPal White (#FFFFFF) gives ~13:1 —
+      well above WCAG 2.1 Level AA. This rule guards the floor for
+      any new foreground/background pairing.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      PayPal Blue (#003087) on white reaches ~13:1 — well above AA.
+      The deep navy carries primary actions cleanly; this rule guards
+      link usage so future palette additions cannot regress.
+
+  - type: contextRestriction
+    target: roles.colors.warning
+    forbiddenContexts:
+      - body-text
+      - secondary-link
+      - error-state
+    severity: error
+    rationale: >
+      PayPal Gold (#FFC439) is reserved for the merchant "Pay with
+      PayPal" button per PayPal's button-style spec. Using it as
+      body color, link color, or for error states conflicts with its
+      established merchant-button semantics.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["500", "600", "700"]
+    severity: warning
+    rationale: >
+      PayPal Sans headlines on paypal.com and Brand Center surfaces
+      sit in the Medium (500), Semibold (600), and Bold (700) band.
+      Lighter cuts compromise the confident, trust-leaning voice;
+      heavier cuts are outside the documented marketing kit.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level AA.
+      Fintech surfaces have an elevated trust requirement; AA is the
+      floor on any new role pairing.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - paypal-cobalt
+      - paypal-white
+      - paypal-fog
+    doesNotPairWith:
+      - paypal-gold
+    severity: recommendation
+    rationale: >
+      The blue duotone (Blue + Cobalt) pairs cleanly with neutrals.
+      Mixing the brand blue with the merchant gold on the same
+      surface conflicts with the published button-style separation
+      between corporate identity and merchant CTA.

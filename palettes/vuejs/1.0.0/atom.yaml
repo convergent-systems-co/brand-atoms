@@ -1,0 +1,110 @@
+kind: palette
+id: vuejs
+version: 1.0.0
+name: Vue.js
+description: >
+  Vue.js brand palette anchored on the two-tone pairing visible in
+  the Vue chevron mark: Vue Green (#4FC08D) on top of a deeper
+  navy (#35495E). The combination is the project's identity across
+  vuejs.org, the Vue logo SVG, and the marketing surfaces. A
+  supporting neutral set provides the page-level light and dark
+  canvases.
+tags: [vuejs, vue, javascript, framework, green, open-source]
+
+provenance:
+  source: https://vuejs.org/
+  license: MIT
+  attribution: >
+    Vue.js is MIT-licensed. The Vue chevron logo and word mark
+    are copyright Yuxi (Evan) You and the Vue.js contributors.
+    Brand colors documented here are the published Vue Green
+    (#4FC08D) and Navy (#35495E) from the Vue.js logo SVG,
+    verified against the simple-icons project.
+  importedDate: 2026-05-18
+  notes: >
+    The Vue chevron mark layers a lighter green chevron over a
+    darker green chevron — the two-tone is the brand. The dark
+    navy (#35495E) appears in marketing material as the brand's
+    body-text and dark-surface color.
+
+swatches:
+  - id: vue-green
+    name: Vue Green
+    value: "#4FC08D"
+    description: >
+      Primary brand color — the lighter top chevron of the Vue
+      mark and the project's identity green.
+  - id: vue-green-dark
+    name: Vue Green Dark
+    value: "#42B883"
+    description: >
+      Secondary brand green — the darker bottom chevron of the
+      mark; also the hover state on Vue Green.
+  - id: vue-navy
+    name: Vue Navy
+    value: "#35495E"
+    description: >
+      Companion dark color — used as body text on light surfaces
+      and as the dark-mode canvas anchor.
+  - id: vue-navy-light
+    name: Vue Navy Light
+    value: "#476582"
+    description: Lighter navy used for secondary text and dividers.
+  - id: vue-black
+    name: Vue Black
+    value: "#1A1A1A"
+    description: Deep canvas for dark-mode page background.
+  - id: vue-charcoal
+    name: Vue Charcoal
+    value: "#242424"
+    description: Elevated dark surface.
+  - id: vue-gray
+    name: Vue Gray
+    value: "#7E7E7E"
+    description: Mid neutral.
+  - id: vue-light-gray
+    name: Vue Light Gray
+    value: "#D5D5D5"
+    description: Hairline borders.
+  - id: vue-off-white
+    name: Vue Off-White
+    value: "#F6F6F7"
+    description: Subtle layered surface.
+  - id: vue-white
+    name: Vue White
+    value: "#FFFFFF"
+    description: Page canvas in light mode.
+
+modes:
+  light:
+    roles:
+      background: vue-white
+      surface: vue-off-white
+      surface-elevated: vue-white
+      text-primary: vue-navy
+      text-secondary: vue-navy-light
+      text-tertiary: vue-gray
+      primary: vue-green
+      primary-hover: vue-green-dark
+      accent: vue-navy
+      accent-hover: vue-navy-light
+      warning: vue-green-dark
+      warning-hover: vue-green
+      error: vue-green-dark
+      success: vue-green
+  dark:
+    roles:
+      background: vue-black
+      surface: vue-charcoal
+      surface-elevated: vue-navy
+      text-primary: vue-white
+      text-secondary: vue-light-gray
+      text-tertiary: vue-gray
+      primary: vue-green
+      primary-hover: vue-green-dark
+      accent: vue-navy-light
+      accent-hover: vue-light-gray
+      warning: vue-green-dark
+      warning-hover: vue-green
+      error: vue-green-dark
+      success: vue-green

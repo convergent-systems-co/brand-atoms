@@ -1,0 +1,173 @@
+id: shopify
+version: 1.0.0
+name: Shopify
+description: >
+  Shopify Inc. is the Ottawa-headquartered commerce platform that
+  powers millions of merchants worldwide. The corporate brand is
+  light-first, warm, and unapologetically merchant-facing: the
+  Shopify Green shopping-bag mark on white canvas, with the
+  modernized #008060 corporate green carrying primary CTAs. The
+  voice is plain-spoken and operator-oriented ("Start your business
+  today"), built around the merchant rather than around the tech.
+  This brand atom captures the corporate marketing surface; consumers
+  who want the merchant-admin design tokens should reference the
+  separate Polaris design system (palettes/polaris/1.0.0).
+tags: [ecommerce, commerce, shopify, merchant, light-first, brand]
+
+provenance:
+  source: https://www.shopify.com/brand-assets
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Shopify Inc. — Shopify, the Shopify wordmark, and the shopping-bag
+    mark are registered trademarks of Shopify Inc. Hex values are
+    documented across the Shopify brand-assets page and the public
+    Polaris design-token source. Shopify Sans is the corporate
+    proprietary typeface; Inter is referenced here as the open-source
+    fallback because Shopify Sans is not publicly distributed.
+  importedDate: 2026-05-18
+  notes: >
+    Shopify Sans (proprietary) is the corporate brand face. It is not
+    publicly distributed, so this atom references Inter for both
+    heading and body roles and notes Shopify Sans as the proprietary
+    primary in provenance. The Polaris-system tokens are intentionally
+    separate (palettes/polaris/1.0.0) — consumers building merchant
+    admin surfaces should switch the palette reference to polaris@1.
+
+references:
+  palette: shopify@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # identity = the brand's signature surface. Shopify is light-first
+    # with the green shopping-bag mark carrying the identity.
+    identity: shopify-green
+    on-identity: shopify-white
+
+    primary: shopify-green
+    primary-hover: shopify-green-deep
+    accent: shopify-green
+    accent-hover: shopify-green-deep
+    mark: shopify-green-heritage
+
+    text-primary-light: shopify-ink
+    text-primary-dark: shopify-white
+    text-secondary-light: shopify-gray
+    background-light: shopify-white
+    background-dark: shopify-canvas-dark
+    surface-light: shopify-fog
+    surface-dark: shopify-graphite
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.mark.fill
+    allowed:
+      - shopify-green-heritage
+      - shopify-green
+      - shopify-white
+      - shopify-ink
+    forbidden:
+      - shopify-green-deep
+      - shopify-gray
+      - shopify-gray-light
+    severity: error
+    rationale: >
+      The Shopify shopping-bag mark renders in the heritage leaf-green
+      (#95BF47) or the modernized corporate green (#008060), or in
+      monochrome white / ink reversal variants. The deep-green and
+      gray tones are interactive-state or text values, not mark fills.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - inverted-without-variant
+    severity: error
+    rationale: >
+      Shopify's brand-assets program forbids modifying the mark or
+      wordmark. Apply only the Shopify-approved variants with
+      respected clearspace; never render the green mark over busy
+      photography where it loses legibility.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Shopify Ink (#1A1A1A) on Shopify White (#FFFFFF) gives ~17:1 —
+      well above WCAG 2.1 Level AA. This rule guards the floor for
+      any new foreground/background pairing.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Shopify Green (#008060) on white reaches ~4.9:1 — clears AA for
+      normal text. Buttons using the green fill with white text exceed
+      6:1; this rule guards link usage so the brand interactive color
+      stays AA-compliant against the canvas.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["500", "600", "700"]
+    severity: warning
+    rationale: >
+      Shopify Sans headlines on shopify.com sit in the Medium (500),
+      Semibold (600), and Bold (700) band. Lighter cuts read as body
+      and compromise the confident merchant-facing voice; heavier
+      cuts are outside the corporate kit.
+
+  - type: contextRestriction
+    target: roles.colors.mark
+    forbiddenContexts:
+      - body-text
+      - secondary-link
+    severity: error
+    rationale: >
+      The heritage leaf-green (#95BF47) is reserved for the
+      shopping-bag mark fill. Using it inside body copy or for
+      secondary links dilutes the dual-tone wordmark+mark relationship
+      and degrades brand recognition.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level AA.
+      The default verification on any new role pairing on Shopify
+      surfaces.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - shopify-white
+      - shopify-fog
+      - shopify-ink
+    doesNotPairWith:
+      - shopify-green-heritage
+    severity: recommendation
+    rationale: >
+      The corporate green pairs cleanly with neutrals (white, fog, ink).
+      Combining the corporate #008060 and the heritage #95BF47 on the
+      same surface creates a muddy two-green composition that reads as
+      inconsistency between modernized and heritage brand surfaces.

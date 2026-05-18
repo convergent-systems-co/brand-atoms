@@ -1,0 +1,184 @@
+id: google-cloud
+version: 1.0.0
+name: Google Cloud
+description: >
+  Google Cloud (GCP) is Google's public-cloud platform, providing
+  compute, storage, networking, databases, AI/ML, and developer-
+  platform services. The Google Cloud sub-brand carries the parent
+  Google four-color identity (Blue / Red / Yellow / Green) forward
+  and ties it to a deeper interactive Cloud Blue (#1A73E8) used in
+  the Google Cloud Console chrome and as the primary action color
+  on cloud.google.com. Typography is Google Sans for display, Roboto
+  for body and UI. The voice is product-clear and architecture-
+  forward: GCP reference architectures, the Cloud Console, and the
+  Google Cloud Skills Boost surfaces share the same four-color
+  dialect against a Material neutral canvas.
+tags: [tech, cloud, gcp, google, four-color, infrastructure, material]
+
+provenance:
+  source: https://cloud.google.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Google, Google Cloud, the Google Cloud logo, the Google four-
+    color brand palette, Google Sans, and Roboto are trademarks
+    of Google LLC. Brand colors and identity guidance documented
+    here are derived from cloud.google.com, the Google brand-
+    resources surface, and the Google Material Design 2 color
+    reference (material.io/design/color).
+  importedDate: 2026-05-18
+  notes: >
+    Google Cloud is documented as a distinct brand atom because
+    the cloud surfaces tie the parent four-color palette to the
+    deeper Cloud Blue 600 interactive primary and use Google Sans
+    in a more reserved register than the consumer Google brand.
+    No assets are bundled here — Google Cloud's marks are
+    trademarked and must be retrieved from the Google brand-
+    resources site under Google's stated terms.
+
+references:
+  palette: google-cloud@1
+  fonts:
+    heading: google-sans@1
+    body: roboto@1
+    mono: roboto@1
+
+roles:
+  colors:
+    identity: cloud-blue-600
+    on-identity: google-white
+    primary: cloud-blue-600
+    primary-hover: cloud-blue-700
+    accent: google-blue
+    accent-hover: cloud-blue-600
+    background: google-white
+    surface: google-grey-50
+    surface-elevated: google-white
+    text-primary: google-grey-900
+    text-secondary: google-grey-700
+    text-tertiary: google-grey-500
+    logo-quadrant-blue: google-blue
+    logo-quadrant-red: google-red
+    logo-quadrant-yellow: google-yellow
+    logo-quadrant-green: google-green
+    mark: cloud-blue-600
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.four-color
+    allowed:
+      - google-blue
+      - google-red
+      - google-yellow
+      - google-green
+    forbidden:
+      - cloud-blue-600
+      - cloud-blue-700
+      - google-grey-900
+    severity: error
+    rationale: >
+      The Google Cloud four-color mark uses the canonical Google
+      brand hues (#4285F4 / #EA4335 / #FBBC04 / #34A853). The
+      Cloud Blue 600 interactive variant is a UI primary, not a
+      logo fill, and the neutral text greys are never used as
+      mark colors.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - mark-reordered
+      - mark-monochrome
+    severity: error
+    rationale: >
+      Google's brand guidelines explicitly prohibit altering the
+      proportions, colors, or arrangement of the Google Cloud
+      mark. The four-color order is fixed; monochrome treatments
+      are not part of the published brand system.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Google Grey 900 (#202124) on Google White gives ~16:1 —
+      well above WCAG 2.1 Level AA. Material Design's
+      accessibility guidance specifies AA as the floor for
+      text-on-background pairings on Google Cloud surfaces.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Cloud Blue 600 (#1A73E8) on Google White gives ~5.0:1 —
+      clearing WCAG AA for body-sized interactive text. The
+      console's link / button labels rely on this contrast to
+      stay legible at standard body sizes.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - google-white
+      - google-grey-50
+      - google-grey-100
+    doesNotPairWith:
+      - google-red
+      - google-yellow
+    severity: recommendation
+    rationale: >
+      The console primary Cloud Blue pairs cleanly against the
+      neutral surface ramp. Placing Cloud Blue directly adjacent
+      to large fills of Google Red or Yellow creates a status-
+      color conflict (error/warning hues against the primary
+      action) that reads as a UI defect rather than a brand
+      composition.
+
+  - type: contextRestriction
+    target: roles.colors.accent
+    forbiddenContexts:
+      - error-state
+      - validation-failure
+      - destructive-action
+    severity: error
+    rationale: >
+      Google Blue is the brand accent and link color. The
+      destructive / error role is reserved for Google Red.
+      Substituting blue for red on destructive surfaces breaks
+      the Material color-meaning contract.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) —
+      Level AA. Material Design tokens are AA-compliant by
+      construction; cloud.google.com and the Cloud Console
+      both inherit that floor.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.5
+    severity: recommendation
+    rationale: >
+      Google Cloud surfaces use Google Sans for display and
+      Roboto for body — two distinct families. A 1.5× heading-
+      to-body ratio preserves the typographic distinction
+      between the marketing display voice and the dense
+      reference-documentation body.

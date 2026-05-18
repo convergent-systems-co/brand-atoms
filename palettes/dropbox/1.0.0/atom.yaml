@@ -1,0 +1,108 @@
+kind: palette
+id: dropbox
+version: 1.0.0
+name: Dropbox
+description: >
+  Dropbox's brand palette, anchored on Dropbox Blue (#0061FF) — the
+  signature open-box blue that has carried the brand since its 2017
+  Collins-led refresh. The institutional voice pairs that saturated
+  blue with a near-black canvas for text-forward marketing and a
+  clean white for product surfaces. Where competing storage brands
+  lean on cool neutrals, Dropbox commits to one strong blue.
+tags: [saas, productivity, dropbox, storage, blue]
+
+provenance:
+  source: https://www.dropbox.com/branding
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Dropbox and the Dropbox logo are trademarks of Dropbox, Inc. The
+    primary brand color Dropbox Blue (#0061FF) is documented on
+    Dropbox's brand and press resources and is independently
+    cross-referenced by the simple-icons brand database, which cites
+    dropbox.com as the source.
+  importedDate: 2026-05-18
+  notes: >
+    Only Dropbox Blue (#0061FF) and the canonical white/black surface
+    tones are read directly from Dropbox's brand surfaces. Secondary
+    neutrals (mid-grays, dark canvas, hover blue) are authored neutral
+    inversions calibrated to support both modes consistently without
+    fabricating hex values that Dropbox does not publish.
+
+swatches:
+  # ─── Signature ─────────────────────────────────────────────────
+  - id: dropbox-blue
+    name: Dropbox Blue
+    value: "#0061FF"
+    description: >
+      Signature saturated blue. Primary brand color — used on the
+      wordmark, the open-box icon, primary CTAs, and key interactive
+      surfaces.
+
+  # ─── Neutrals ──────────────────────────────────────────────────
+  - id: dropbox-white
+    name: Dropbox White
+    value: "#FFFFFF"
+    description: Canvas on light surfaces; reversed wordmark fill.
+  - id: dropbox-black
+    name: Dropbox Black
+    value: "#000000"
+    description: Wordmark on light backgrounds; near-black marketing canvas.
+  - id: dropbox-canvas-dark
+    name: Dropbox Canvas Dark
+    value: "#1E1919"
+    description: Authored dark-mode canvas — warm near-black consistent with Dropbox's text-forward marketing pages.
+  - id: dropbox-surface-light
+    name: Dropbox Surface Light
+    value: "#F7F5F2"
+    description: Authored warm panel surface for light mode.
+  - id: dropbox-surface-dark
+    name: Dropbox Surface Dark
+    value: "#2C2727"
+    description: Authored elevated surface on dark mode.
+  - id: dropbox-text-secondary
+    name: Dropbox Text Secondary
+    value: "#5A5A5A"
+    description: Authored secondary text — neutral mid-gray on light canvas.
+  - id: dropbox-text-tertiary
+    name: Dropbox Text Tertiary
+    value: "#909090"
+    description: Authored tertiary / muted text.
+  - id: dropbox-blue-hover
+    name: Dropbox Blue Hover
+    value: "#3D85FF"
+    description: Authored softer Dropbox Blue for hover / active states.
+
+modes:
+  light:
+    roles:
+      background: dropbox-white
+      surface: dropbox-surface-light
+      surface-elevated: dropbox-white
+      text-primary: dropbox-black
+      text-secondary: dropbox-text-secondary
+      text-tertiary: dropbox-text-tertiary
+      primary: dropbox-blue
+      primary-hover: dropbox-blue-hover
+      accent: dropbox-blue
+      accent-hover: dropbox-blue-hover
+      warning: dropbox-blue
+      warning-hover: dropbox-blue-hover
+      error: dropbox-blue
+      success: dropbox-blue
+
+  dark:
+    roles:
+      background: dropbox-canvas-dark
+      surface: dropbox-surface-dark
+      surface-elevated: dropbox-surface-dark
+      text-primary: dropbox-white
+      text-secondary: dropbox-text-tertiary
+      text-tertiary: dropbox-text-secondary
+      primary: dropbox-blue
+      primary-hover: dropbox-blue-hover
+      accent: dropbox-blue
+      accent-hover: dropbox-blue-hover
+      warning: dropbox-blue
+      warning-hover: dropbox-blue-hover
+      error: dropbox-blue
+      success: dropbox-blue

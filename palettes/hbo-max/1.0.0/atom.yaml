@@ -1,0 +1,119 @@
+kind: palette
+id: hbo-max
+version: 1.0.0
+name: HBO Max
+description: >
+  HBO Max (now branded as Max) corporate palette. The Warner Bros.
+  Discovery streaming service was rebranded from HBO Max to Max in
+  May 2023, retaining the saturated purple-to-blue gradient identity
+  that distinguished HBO Max at launch. The palette is anchored on
+  Max Purple (#B535F6) running through to a deeper blue (#0046FE), on
+  a near-black canvas. The brand is dark-first — the consumer
+  product, marketing surfaces, and the Max wordmark all live on
+  black or near-black surfaces with the purple-blue gradient reading
+  as the brand signature.
+tags: [streaming, entertainment, hbo, max, warner-bros, purple, dark-first]
+
+provenance:
+  source: https://press.wbd.com/us/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Warner Bros. Discovery, Inc. — HBO Max, Max, the Max wordmark,
+    and the HBO Max brand assets are registered trademarks of
+    Warner Bros. Discovery, Inc. The signature purple-to-blue
+    gradient is documented across HBO Max's launch brand-system
+    materials and the WBD press kit. Max Purple (#B535F6) and the
+    paired Max Blue (#0046FE) are the dominant gradient anchors.
+  importedDate: 2026-05-18
+  notes: >
+    The HBO Max brand was rebranded to Max in May 2023 when
+    Warner Bros. Discovery consolidated its streaming services. The
+    visual identity retained the purple-blue gradient and dark
+    canvas; this atom captures the brand as HBO Max / Max with the
+    documented gradient anchors. The light-mode role mapping is an
+    authored inversion; dark is the canonical Max surface.
+
+swatches:
+  # ─── Signature gradient ────────────────────────────────────────
+  - id: max-purple
+    name: Max Purple
+    value: "#B535F6"
+    description: Primary signature purple — the dominant brand color in the gradient and the wordmark accent.
+  - id: max-purple-deep
+    name: Max Purple Deep
+    value: "#7A1FB8"
+    description: Deeper purple used on pressed states and as the mid-gradient anchor.
+  - id: max-blue
+    name: Max Blue
+    value: "#0046FE"
+    description: Saturated blue — the paired end of the purple-to-blue gradient that defines the brand surface.
+  - id: max-blue-bright
+    name: Max Blue Bright
+    value: "#3D7AFF"
+    description: Lighter blue used on hover/highlight states and as a secondary accent.
+
+  # ─── Canvas ───────────────────────────────────────────────────
+  - id: max-black
+    name: Max Black
+    value: "#000000"
+    description: Canonical canvas — the Max consumer surface is solid black.
+  - id: max-near-black
+    name: Max Near-Black
+    value: "#0A0A14"
+    description: Elevated surface — rows, tiles, and modal backgrounds sit on this slightly purple-tinted near-black.
+  - id: max-charcoal
+    name: Max Charcoal
+    value: "#1A1A2E"
+    description: Elevated surface — used on hover states, expanded title cards, and modal headers.
+
+  # ─── Text/Neutrals ─────────────────────────────────────────────
+  - id: max-white
+    name: Max White
+    value: "#FFFFFF"
+    description: Primary text on the dark canvas; reversed wordmark fill on light backgrounds.
+  - id: max-gray-light
+    name: Max Gray Light
+    value: "#B8B8C8"
+    description: Tertiary text and metadata on the dark canvas.
+  - id: max-gray
+    name: Max Gray
+    value: "#5A5A6E"
+    description: Secondary text and divider color on the dark canvas.
+  - id: max-fog
+    name: Max Fog
+    value: "#F5F5FA"
+    description: Authored light-mode canvas — for marketing surfaces that require a light treatment.
+
+modes:
+  light:
+    roles:
+      background: max-fog
+      surface: max-white
+      surface-elevated: max-white
+      text-primary: max-near-black
+      text-secondary: max-gray
+      text-tertiary: max-gray-light
+      primary: max-purple
+      primary-hover: max-purple-deep
+      accent: max-blue
+      accent-hover: max-blue-bright
+      warning: max-purple-deep
+      warning-hover: max-purple
+      error: max-purple-deep
+      success: max-blue-bright
+  dark:
+    roles:
+      background: max-black
+      surface: max-near-black
+      surface-elevated: max-charcoal
+      text-primary: max-white
+      text-secondary: max-gray-light
+      text-tertiary: max-gray
+      primary: max-purple
+      primary-hover: max-purple-deep
+      accent: max-blue
+      accent-hover: max-blue-bright
+      warning: max-purple
+      warning-hover: max-purple-deep
+      error: max-purple
+      success: max-blue-bright
