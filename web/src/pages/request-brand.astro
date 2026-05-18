@@ -1,0 +1,368 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getBrands } from '../lib/encyclopedia.js';
+
+const brandCount = new Set(getBrands().map((b) => b.slug)).size;
+---
+
+<Layout
+  title="Request a brand — Brand Atoms"
+  description="Submit a brand to be documented in the brand-atoms.com encyclopedia. Provide the brand's public webpage; a maintainer will review."
+  section="request"
+>
+  <header class="hero">
+    <h1>Request a brand</h1>
+    <p class="lede">
+      Want a brand documented that isn't in the catalog yet? Tell us
+      the brand and where to find its public colors and fonts. A
+      maintainer will triage the request and add the atom by hand.
+    </p>
+    <p class="note">
+      <strong>No automated pipeline yet.</strong> Each request opens
+      a GitHub issue against the encyclopedia repo. Requests are
+      reviewed manually, real hex values are pulled from your linked
+      page, and the brand becomes available as
+      <code>&lt;slug&gt;@&lt;version&gt;</code> once it lands.
+      Catalog has <strong>{brandCount}</strong> brands today.
+    </p>
+  </header>
+
+  <form id="request-form" class="request-form" novalidate>
+    <div class="field">
+      <label for="brand-name">Brand name <span class="req">*</span></label>
+      <input
+        type="text"
+        id="brand-name"
+        name="brand-name"
+        required
+        autocomplete="off"
+        placeholder="e.g. Notion, Stripe, your own brand"
+        maxlength="80"
+      />
+      <p class="hint">The name people use when they say it out loud.</p>
+    </div>
+
+    <div class="field">
+      <label for="brand-url">Public webpage URL <span class="req">*</span></label>
+      <input
+        type="url"
+        id="brand-url"
+        name="brand-url"
+        required
+        autocomplete="off"
+        placeholder="https://example.com or a press / brand kit page"
+        pattern="https?://.+"
+      />
+      <p class="hint">
+        The brand's public site — homepage, press kit, or brand
+        guidelines page. We pull real published hex values from this
+        URL; no second-hand citations. <strong>Required.</strong>
+      </p>
+    </div>
+
+    <div class="field">
+      <label for="brand-relationship">Your relationship to the brand</label>
+      <select id="brand-relationship" name="brand-relationship">
+        <option value="external-fan">I'm just a user who wants it in the catalog</option>
+        <option value="employee">I work at this company</option>
+        <option value="brand-team">I'm on the brand / design team</option>
+        <option value="other">Other (explain in notes)</option>
+      </select>
+      <p class="hint">
+        Optional. If you're on the brand team and want to send
+        official assets, say so — we'll get in touch about
+        attribution.
+      </p>
+    </div>
+
+    <div class="field">
+      <label for="brand-notes">Notes</label>
+      <textarea
+        id="brand-notes"
+        name="brand-notes"
+        rows="5"
+        maxlength="2000"
+        placeholder="Anything we should know — proprietary fonts, dark-first preference, specific brand-guidelines page, etc."
+      ></textarea>
+      <p class="hint">
+        Optional. Two thousand characters max. Pasted brand guidelines
+        snippets are welcome.
+      </p>
+    </div>
+
+    <div class="actions">
+      <button type="submit" class="btn-primary" data-action="submit-request">
+        Open a GitHub issue
+      </button>
+      <a
+        class="btn-secondary"
+        href="https://github.com/convergent-systems-co/branding-library/issues/new?labels=brand-request"
+        target="_blank"
+        rel="noopener"
+      >
+        Skip the form — file directly
+      </a>
+    </div>
+  </form>
+
+  <section class="explainer">
+    <h2>What happens next</h2>
+    <ol class="steps">
+      <li>
+        Submitting the form opens a new GitHub issue with the brand
+        name, URL, and your notes pre-filled. You'll review it on
+        GitHub before posting.
+      </li>
+      <li>
+        A maintainer triages the issue, fetches the public webpage,
+        and pulls real hex values, fonts, and any structural rules
+        from the published source. No fabricated data.
+      </li>
+      <li>
+        The brand lands as <code>&lt;slug&gt;@1.0.0</code> in the
+        encyclopedia. It then resolves at
+        <code>brand-atoms.com/dist/brands/&lt;slug&gt;/1.0.0/json/brand.json</code>
+        and shows up in <code>brandatom brands list</code>.
+      </li>
+      <li>
+        Trademarked logos are not redistributed. Brand colors and
+        fonts are documented under fair-use editorial reference, with
+        attribution to the trademark owner. If you're the brand owner
+        and want different terms, mention it in the request.
+      </li>
+    </ol>
+    <p class="footer-note">
+      Future: an AI agent will read your linked page and propose a
+      draft brand atom automatically for human review. That pipeline
+      isn't built yet — every brand right now is documented by hand.
+    </p>
+  </section>
+
+  <script is:inline>
+    (() => {
+      const form = document.getElementById('request-form');
+      if (!form) return;
+      const REPO = 'convergent-systems-co/branding-library';
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const data = new FormData(form);
+        const name = String(data.get('brand-name') || '').trim();
+        const url = String(data.get('brand-url') || '').trim();
+        const relationship = String(data.get('brand-relationship') || '').trim();
+        const notes = String(data.get('brand-notes') || '').trim();
+
+        if (!name || !url) {
+          form.reportValidity();
+          return;
+        }
+        let parsedUrl;
+        try {
+          parsedUrl = new URL(url);
+        } catch {
+          form.reportValidity();
+          return;
+        }
+        if (parsedUrl.protocol !== 'http:' && parsedUrl.protocol !== 'https:') {
+          alert('Webpage URL must be http:// or https://');
+          return;
+        }
+
+        const slug = name
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/^-|-$/g, '')
+          .slice(0, 60);
+
+        const title = `Brand request: ${name}`;
+        const body = [
+          '## Brand request',
+          '',
+          `**Brand name:** ${name}`,
+          `**Public webpage:** ${url}`,
+          `**Suggested slug:** \`${slug || '<derive-at-triage>'}\``,
+          `**Relationship to brand:** ${relationship || '(not specified)'}`,
+          '',
+          '## Notes',
+          notes || '_(none)_',
+          '',
+          '---',
+          '_Submitted via the [/request-brand](https://brand-atoms.com/request-brand) form._',
+        ].join('\n');
+
+        const issueUrl = new URL(`https://github.com/${REPO}/issues/new`);
+        issueUrl.searchParams.set('title', title);
+        issueUrl.searchParams.set('body', body);
+        issueUrl.searchParams.set('labels', 'brand-request');
+
+        window.open(issueUrl.toString(), '_blank', 'noopener');
+      });
+    })();
+  </script>
+
+  <style>
+    .hero {
+      padding: 32px 0 16px;
+      max-width: 760px;
+    }
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin: 0 0 12px;
+      line-height: 1;
+    }
+    .lede {
+      font-size: 17px;
+      color: var(--text-secondary);
+      max-width: 640px;
+      margin: 0 0 16px;
+    }
+    .note {
+      font-size: 14px;
+      color: var(--text-secondary);
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+      margin: 0;
+      max-width: 640px;
+    }
+    .note code {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      background: var(--surface-elevated);
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+
+    .request-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 24px 0 32px;
+      max-width: 640px;
+    }
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .field label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-tertiary);
+    }
+    .field label .req {
+      color: var(--warning);
+    }
+    .field input,
+    .field select,
+    .field textarea {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      color: var(--text-primary);
+      background: var(--surface);
+      border: 1px solid var(--surface-elevated);
+      border-radius: 8px;
+      padding: 10px 12px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    .field textarea {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      line-height: 1.55;
+      resize: vertical;
+    }
+    .field .hint {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: var(--bg);
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: opacity 0.12s ease;
+    }
+    .btn-primary:hover {
+      opacity: 0.92;
+    }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 18px;
+      border-radius: 8px;
+      border: 1px solid var(--surface-elevated);
+      background: var(--surface);
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-decoration: none;
+    }
+    .btn-secondary:hover {
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .explainer {
+      padding: 32px 0;
+      max-width: 760px;
+    }
+    .explainer h2 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 0 0 12px;
+    }
+    .steps {
+      padding-left: 24px;
+      margin: 0 0 20px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+    .steps > li { margin-bottom: 12px; }
+    .steps > li::marker { color: var(--primary); font-weight: 700; }
+    .steps code {
+      font-family: var(--font-mono);
+      font-size: 0.9em;
+      background: var(--surface);
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+    .footer-note {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      font-style: italic;
+      margin: 0;
+      padding: 14px 16px;
+      background: var(--surface);
+      border-radius: 8px;
+      max-width: 640px;
+    }
+  </style>
+</Layout>

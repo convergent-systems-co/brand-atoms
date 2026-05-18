@@ -4,7 +4,7 @@ import { brandTheme, getResolvedBrandBySlug } from '../lib/encyclopedia.js';
 export interface Props {
   title: string;
   description?: string;
-  section?: 'home' | 'brands' | 'palettes' | 'fonts' | 'builder' | 'instructions';
+  section?: 'home' | 'brands' | 'palettes' | 'fonts' | 'builder' | 'instructions' | 'request';
 }
 
 const { title, description, section = 'home' } = Astro.props;
@@ -16,6 +16,7 @@ const navItems = [
   { id: 'fonts', label: 'Fonts', href: '/fonts' },
   { id: 'builder', label: 'Builder', href: '/builder' },
   { id: 'instructions', label: 'Instructions', href: '/instructions' },
+  { id: 'request', label: 'Request a brand', href: '/request-brand' },
 ] as const;
 
 // The site IS the Convergent Systems brand. Drive every CSS variable from
