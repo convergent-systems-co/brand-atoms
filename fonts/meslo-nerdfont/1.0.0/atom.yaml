@@ -1,0 +1,64 @@
+kind: font
+id: meslo-nerdfont
+version: 1.0.0
+name: Meslo Nerd Font
+description: >
+  Meslo LG monospaced font with Nerd Fonts glyph augmentation. André Berg's customizable fork of Apple's Menlo with adjustable line-gap (S/M/L) and optional zero with a slash (DZ); patched with ~10,000 additional icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.). Popular default for Oh My Zsh / Powerlevel10k.
+family: MesloLGM Nerd Font
+classification: monospace
+tags: [ nerd-font, monospace, menlo, powerline, terminal, oh-my-zsh ]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: OFL-1.1
+  attribution: >
+    Meslo LG, Copyright André Berg (https://github.com/andreberg/Meslo-Font), based on Apple's Menlo (a derivative of Bitstream Vera Sans Mono). Meslo LG is licensed under the Apache License, Version 2.0; Nerd Fonts redistributes it under SIL OFL 1.1. Nerd Fonts patching by Ryan L McIntyre, MIT license.
+  importedDate: 2026-05-19
+  importedFromVersion: v3.4.0
+  notes: >
+    Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Meslo.zip. Meslo ships three line-gap variants (S = small, M = medium = default, L = large) and an optional "DZ" cut with a slashed zero (so six combinations total). This atom canonicalizes on the M (medium) line-gap as the default family name "MesloLGM"; the S/L and DZ variants are also represented in cdnUrls for direct addressing.
+
+source:
+  kind: external
+  family: MesloLGM Nerd Font
+  notes: >
+    Nerd-Font-patched build of Meslo LG. Not available via Google Fonts. Download woff2/ttf files from the Nerd Fonts GitHub release and self-host, or install system-wide for terminal use. Six family variants ship — MesloLGS, MesloLGM, MesloLGL (small/medium/large line-gap) and their DZ (slashed-zero) twins. Pick the variant by filename; each is its own CSS font-family.
+
+fallbackStack:
+  - Meslo LG M
+  - Menlo
+  - Monaco
+  - Consolas
+  - Liberation Mono
+  - monospace
+
+availableStyles:
+  - { weight: 400, style: normal }
+  - { weight: 400, style: italic }
+  - { weight: 700, style: normal }
+  - { weight: 700, style: italic }
+cdnUrls:
+  MesloLGMNerdFontMono-Regular.ttf: https://cdn.brand-atoms.com/fonts/meslo-nerdfont/1.0.0/MesloLGMNerdFontMono-Regular.ttf
+  MesloLGMNerdFontMono-Italic.ttf: https://cdn.brand-atoms.com/fonts/meslo-nerdfont/1.0.0/MesloLGMNerdFontMono-Italic.ttf
+  MesloLGMNerdFontMono-Bold.ttf: https://cdn.brand-atoms.com/fonts/meslo-nerdfont/1.0.0/MesloLGMNerdFontMono-Bold.ttf
+  MesloLGMNerdFontMono-BoldItalic.ttf: https://cdn.brand-atoms.com/fonts/meslo-nerdfont/1.0.0/MesloLGMNerdFontMono-BoldItalic.ttf
+  MesloLGMDZNerdFontMono-Regular.ttf: https://cdn.brand-atoms.com/fonts/meslo-nerdfont/1.0.0/MesloLGMDZNerdFontMono-Regular.ttf
+  MesloLGMDZNerdFontMono-Italic.ttf: https://cdn.brand-atoms.com/fonts/meslo-nerdfont/1.0.0/MesloLGMDZNerdFontMono-Italic.ttf
+  MesloLGMDZNerdFontMono-Bold.ttf: https://cdn.brand-atoms.com/fonts/meslo-nerdfont/1.0.0/MesloLGMDZNerdFontMono-Bold.ttf
+  MesloLGMDZNerdFontMono-BoldItalic.ttf: https://cdn.brand-atoms.com/fonts/meslo-nerdfont/1.0.0/MesloLGMDZNerdFontMono-BoldItalic.ttf
+  MesloLGSNerdFontMono-Regular.ttf: https://cdn.brand-atoms.com/fonts/meslo-nerdfont/1.0.0/MesloLGSNerdFontMono-Regular.ttf
+  MesloLGSNerdFontMono-Italic.ttf: https://cdn.brand-atoms.com/fonts/meslo-nerdfont/1.0.0/MesloLGSNerdFontMono-Italic.ttf
+  MesloLGSNerdFontMono-Bold.ttf: https://cdn.brand-atoms.com/fonts/meslo-nerdfont/1.0.0/MesloLGSNerdFontMono-Bold.ttf
+  MesloLGSNerdFontMono-BoldItalic.ttf: https://cdn.brand-atoms.com/fonts/meslo-nerdfont/1.0.0/MesloLGSNerdFontMono-BoldItalic.ttf
+  MesloLGSDZNerdFontMono-Regular.ttf: https://cdn.brand-atoms.com/fonts/meslo-nerdfont/1.0.0/MesloLGSDZNerdFontMono-Regular.ttf
+  MesloLGSDZNerdFontMono-Italic.ttf: https://cdn.brand-atoms.com/fonts/meslo-nerdfont/1.0.0/MesloLGSDZNerdFontMono-Italic.ttf
+  MesloLGSDZNerdFontMono-Bold.ttf: https://cdn.brand-atoms.com/fonts/meslo-nerdfont/1.0.0/MesloLGSDZNerdFontMono-Bold.ttf
+  MesloLGSDZNerdFontMono-BoldItalic.ttf: https://cdn.brand-atoms.com/fonts/meslo-nerdfont/1.0.0/MesloLGSDZNerdFontMono-BoldItalic.ttf
+  MesloLGLNerdFontMono-Regular.ttf: https://cdn.brand-atoms.com/fonts/meslo-nerdfont/1.0.0/MesloLGLNerdFontMono-Regular.ttf
+  MesloLGLNerdFontMono-Italic.ttf: https://cdn.brand-atoms.com/fonts/meslo-nerdfont/1.0.0/MesloLGLNerdFontMono-Italic.ttf
+  MesloLGLNerdFontMono-Bold.ttf: https://cdn.brand-atoms.com/fonts/meslo-nerdfont/1.0.0/MesloLGLNerdFontMono-Bold.ttf
+  MesloLGLNerdFontMono-BoldItalic.ttf: https://cdn.brand-atoms.com/fonts/meslo-nerdfont/1.0.0/MesloLGLNerdFontMono-BoldItalic.ttf
+  MesloLGLDZNerdFontMono-Regular.ttf: https://cdn.brand-atoms.com/fonts/meslo-nerdfont/1.0.0/MesloLGLDZNerdFontMono-Regular.ttf
+  MesloLGLDZNerdFontMono-Italic.ttf: https://cdn.brand-atoms.com/fonts/meslo-nerdfont/1.0.0/MesloLGLDZNerdFontMono-Italic.ttf
+  MesloLGLDZNerdFontMono-Bold.ttf: https://cdn.brand-atoms.com/fonts/meslo-nerdfont/1.0.0/MesloLGLDZNerdFontMono-Bold.ttf
+  MesloLGLDZNerdFontMono-BoldItalic.ttf: https://cdn.brand-atoms.com/fonts/meslo-nerdfont/1.0.0/MesloLGLDZNerdFontMono-BoldItalic.ttf

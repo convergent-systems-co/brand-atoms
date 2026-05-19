@@ -1,0 +1,43 @@
+kind: font
+id: lekton-nerdfont
+version: 1.0.0
+name: Lekton Nerd Font
+description: >
+  Lekton monospaced font with Nerd Fonts glyph augmentation. ISIA Urbino's typewriter-inspired typeface based on the metal Olivetti typefaces, with humanist proportions; patched with ~10,000 additional icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.).
+family: Lekton Nerd Font
+classification: monospace
+tags: [ nerd-font, monospace, typewriter, olivetti, code ]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: OFL-1.1
+  attribution: >
+    Lekton, Copyright ISIA Urbino (Italy), licensed under the SIL Open Font License, Version 1.1. Inspired by Olivetti typewriter typefaces. Nerd Fonts patching by Ryan L McIntyre, MIT license.
+  importedDate: 2026-05-19
+  importedFromVersion: v3.4.0
+  notes: >
+    Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Lekton.zip. Note from upstream README: the `fi` and `fl` ligatures are removed in the Nerd-Font-patched build because they map to only one advance width.
+
+source:
+  kind: external
+  family: Lekton Nerd Font
+  notes: >
+    Nerd-Font-patched build of Lekton. Not available via Google Fonts as a Nerd Font (the base Lekton is on Google Fonts). Download woff2/ttf files from the Nerd Fonts GitHub release and self-host, or install system-wide for terminal/editor use. Ships Regular, Bold, and Italic only (no Bold Italic in the patched build).
+
+fallbackStack:
+  - Lekton
+  - Courier New
+  - Menlo
+  - Monaco
+  - Consolas
+  - Liberation Mono
+  - monospace
+
+availableStyles:
+  - { weight: 400, style: normal }
+  - { weight: 400, style: italic }
+  - { weight: 700, style: normal }
+cdnUrls:
+  LektonNerdFontMono-Regular.ttf: https://cdn.brand-atoms.com/fonts/lekton-nerdfont/1.0.0/LektonNerdFontMono-Regular.ttf
+  LektonNerdFontMono-Italic.ttf: https://cdn.brand-atoms.com/fonts/lekton-nerdfont/1.0.0/LektonNerdFontMono-Italic.ttf
+  LektonNerdFontMono-Bold.ttf: https://cdn.brand-atoms.com/fonts/lekton-nerdfont/1.0.0/LektonNerdFontMono-Bold.ttf

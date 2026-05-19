@@ -1,0 +1,45 @@
+kind: font
+id: inconsolata-lgc-nerdfont
+version: 1.0.0
+name: Inconsolata LGC Nerd Font
+description: >
+  Inconsolata LGC monospaced font with Nerd Fonts glyph augmentation. Mikhail Bakhtiarov's extension of Inconsolata adding Latin/Greek/Cyrillic coverage and italics; patched with ~10,000 additional icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.).
+family: Inconsolata LGC Nerd Font
+classification: monospace
+tags: [ nerd-font, monospace, cyrillic, greek, code, terminal ]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: OFL-1.1
+  attribution: >
+    Inconsolata LGC, Copyright Mikhail Bakhtiarov, an extension of Inconsolata by Raph Levien, licensed under the SIL Open Font License, Version 1.1. Nerd Fonts patching by Ryan L McIntyre, MIT license.
+  importedDate: 2026-05-19
+  importedFromVersion: v3.4.0
+  notes: >
+    Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/InconsolataLGC.zip
+
+source:
+  kind: external
+  family: Inconsolata LGC Nerd Font
+  notes: >
+    Nerd-Font-patched build of Inconsolata LGC. Not available via Google Fonts. Download woff2/ttf files from the Nerd Fonts GitHub release and self-host, or install system-wide for terminal/editor use. Extends Inconsolata's Latin coverage with Greek and Cyrillic.
+
+fallbackStack:
+  - Inconsolata LGC
+  - Inconsolata
+  - Menlo
+  - Monaco
+  - Consolas
+  - Liberation Mono
+  - monospace
+
+availableStyles:
+  - { weight: 400, style: normal }
+  - { weight: 400, style: italic }
+  - { weight: 700, style: normal }
+  - { weight: 700, style: italic }
+cdnUrls:
+  InconsolataLGCNerdFontMono-Regular.ttf: https://cdn.brand-atoms.com/fonts/inconsolata-lgc-nerdfont/1.0.0/InconsolataLGCNerdFontMono-Regular.ttf
+  InconsolataLGCNerdFontMono-Italic.ttf: https://cdn.brand-atoms.com/fonts/inconsolata-lgc-nerdfont/1.0.0/InconsolataLGCNerdFontMono-Italic.ttf
+  InconsolataLGCNerdFontMono-Bold.ttf: https://cdn.brand-atoms.com/fonts/inconsolata-lgc-nerdfont/1.0.0/InconsolataLGCNerdFontMono-Bold.ttf
+  InconsolataLGCNerdFontMono-BoldItalic.ttf: https://cdn.brand-atoms.com/fonts/inconsolata-lgc-nerdfont/1.0.0/InconsolataLGCNerdFontMono-BoldItalic.ttf

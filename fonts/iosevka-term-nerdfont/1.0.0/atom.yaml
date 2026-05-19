@@ -1,0 +1,83 @@
+kind: font
+id: iosevka-term-nerdfont
+version: 1.0.0
+name: Iosevka Term Nerd Font
+description: >
+  Iosevka Term monospaced font with Nerd Fonts glyph augmentation. Terminal-tuned cut of Iosevka with ligatures disabled and ambiguous shapes (l vs I vs 1, O vs 0) emphasized for code display; patched with ~10,000 additional icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.).
+family: Iosevka Term Nerd Font
+classification: monospace
+tags: [ nerd-font, monospace, narrow, terminal, code ]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: OFL-1.1
+  attribution: >
+    Iosevka Term, Copyright Belleve Invis (https://github.com/be5invis/Iosevka), licensed under the SIL Open Font License, Version 1.1. Nerd Fonts patching by Ryan L McIntyre, MIT license.
+  importedDate: 2026-05-19
+  importedFromVersion: v3.4.0
+  notes: >
+    Base font version: Iosevka 33.2.1. Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/IosevkaTerm.zip. Terminal-tuned variant — for the default cut see iosevka-nerdfont; for slab serifs see iosevka-term-slab-nerdfont.
+
+source:
+  kind: external
+  family: Iosevka Term Nerd Font
+  notes: >
+    Nerd-Font-patched build of Iosevka Term. Not available via Google Fonts. Download woff2/ttf files from the Nerd Fonts GitHub release and self-host, or install system-wide for terminal/editor use. Ships nine weights (Thin through Heavy) with italic and oblique cuts of each.
+
+fallbackStack:
+  - Iosevka Term
+  - Iosevka
+  - JetBrains Mono
+  - Menlo
+  - Monaco
+  - Consolas
+  - Liberation Mono
+  - monospace
+
+availableStyles:
+  - { weight: 100, style: normal }
+  - { weight: 100, style: italic }
+  - { weight: 200, style: normal }
+  - { weight: 200, style: italic }
+  - { weight: 300, style: normal }
+  - { weight: 300, style: italic }
+  - { weight: 400, style: normal }
+  - { weight: 400, style: italic }
+  - { weight: 500, style: normal }
+  - { weight: 500, style: italic }
+  - { weight: 600, style: normal }
+  - { weight: 600, style: italic }
+  - { weight: 700, style: normal }
+  - { weight: 700, style: italic }
+  - { weight: 800, style: normal }
+  - { weight: 800, style: italic }
+  - { weight: 900, style: normal }
+  - { weight: 900, style: italic }
+cdnUrls:
+  IosevkaTermNerdFontMono-Thin.ttf: https://cdn.brand-atoms.com/fonts/iosevka-term-nerdfont/1.0.0/IosevkaTermNerdFontMono-Thin.ttf
+  IosevkaTermNerdFontMono-ThinItalic.ttf: https://cdn.brand-atoms.com/fonts/iosevka-term-nerdfont/1.0.0/IosevkaTermNerdFontMono-ThinItalic.ttf
+  IosevkaTermNerdFontMono-ThinOblique.ttf: https://cdn.brand-atoms.com/fonts/iosevka-term-nerdfont/1.0.0/IosevkaTermNerdFontMono-ThinOblique.ttf
+  IosevkaTermNerdFontMono-ExtraLight.ttf: https://cdn.brand-atoms.com/fonts/iosevka-term-nerdfont/1.0.0/IosevkaTermNerdFontMono-ExtraLight.ttf
+  IosevkaTermNerdFontMono-ExtraLightItalic.ttf: https://cdn.brand-atoms.com/fonts/iosevka-term-nerdfont/1.0.0/IosevkaTermNerdFontMono-ExtraLightItalic.ttf
+  IosevkaTermNerdFontMono-ExtraLightOblique.ttf: https://cdn.brand-atoms.com/fonts/iosevka-term-nerdfont/1.0.0/IosevkaTermNerdFontMono-ExtraLightOblique.ttf
+  IosevkaTermNerdFontMono-Light.ttf: https://cdn.brand-atoms.com/fonts/iosevka-term-nerdfont/1.0.0/IosevkaTermNerdFontMono-Light.ttf
+  IosevkaTermNerdFontMono-LightItalic.ttf: https://cdn.brand-atoms.com/fonts/iosevka-term-nerdfont/1.0.0/IosevkaTermNerdFontMono-LightItalic.ttf
+  IosevkaTermNerdFontMono-LightOblique.ttf: https://cdn.brand-atoms.com/fonts/iosevka-term-nerdfont/1.0.0/IosevkaTermNerdFontMono-LightOblique.ttf
+  IosevkaTermNerdFontMono-Regular.ttf: https://cdn.brand-atoms.com/fonts/iosevka-term-nerdfont/1.0.0/IosevkaTermNerdFontMono-Regular.ttf
+  IosevkaTermNerdFontMono-Italic.ttf: https://cdn.brand-atoms.com/fonts/iosevka-term-nerdfont/1.0.0/IosevkaTermNerdFontMono-Italic.ttf
+  IosevkaTermNerdFontMono-Oblique.ttf: https://cdn.brand-atoms.com/fonts/iosevka-term-nerdfont/1.0.0/IosevkaTermNerdFontMono-Oblique.ttf
+  IosevkaTermNerdFontMono-Medium.ttf: https://cdn.brand-atoms.com/fonts/iosevka-term-nerdfont/1.0.0/IosevkaTermNerdFontMono-Medium.ttf
+  IosevkaTermNerdFontMono-MediumItalic.ttf: https://cdn.brand-atoms.com/fonts/iosevka-term-nerdfont/1.0.0/IosevkaTermNerdFontMono-MediumItalic.ttf
+  IosevkaTermNerdFontMono-MediumOblique.ttf: https://cdn.brand-atoms.com/fonts/iosevka-term-nerdfont/1.0.0/IosevkaTermNerdFontMono-MediumOblique.ttf
+  IosevkaTermNerdFontMono-SemiBold.ttf: https://cdn.brand-atoms.com/fonts/iosevka-term-nerdfont/1.0.0/IosevkaTermNerdFontMono-SemiBold.ttf
+  IosevkaTermNerdFontMono-SemiBoldItalic.ttf: https://cdn.brand-atoms.com/fonts/iosevka-term-nerdfont/1.0.0/IosevkaTermNerdFontMono-SemiBoldItalic.ttf
+  IosevkaTermNerdFontMono-SemiBoldOblique.ttf: https://cdn.brand-atoms.com/fonts/iosevka-term-nerdfont/1.0.0/IosevkaTermNerdFontMono-SemiBoldOblique.ttf
+  IosevkaTermNerdFontMono-Bold.ttf: https://cdn.brand-atoms.com/fonts/iosevka-term-nerdfont/1.0.0/IosevkaTermNerdFontMono-Bold.ttf
+  IosevkaTermNerdFontMono-BoldItalic.ttf: https://cdn.brand-atoms.com/fonts/iosevka-term-nerdfont/1.0.0/IosevkaTermNerdFontMono-BoldItalic.ttf
+  IosevkaTermNerdFontMono-BoldOblique.ttf: https://cdn.brand-atoms.com/fonts/iosevka-term-nerdfont/1.0.0/IosevkaTermNerdFontMono-BoldOblique.ttf
+  IosevkaTermNerdFontMono-ExtraBold.ttf: https://cdn.brand-atoms.com/fonts/iosevka-term-nerdfont/1.0.0/IosevkaTermNerdFontMono-ExtraBold.ttf
+  IosevkaTermNerdFontMono-ExtraBoldItalic.ttf: https://cdn.brand-atoms.com/fonts/iosevka-term-nerdfont/1.0.0/IosevkaTermNerdFontMono-ExtraBoldItalic.ttf
+  IosevkaTermNerdFontMono-ExtraBoldOblique.ttf: https://cdn.brand-atoms.com/fonts/iosevka-term-nerdfont/1.0.0/IosevkaTermNerdFontMono-ExtraBoldOblique.ttf
+  IosevkaTermNerdFontMono-Heavy.ttf: https://cdn.brand-atoms.com/fonts/iosevka-term-nerdfont/1.0.0/IosevkaTermNerdFontMono-Heavy.ttf
+  IosevkaTermNerdFontMono-HeavyItalic.ttf: https://cdn.brand-atoms.com/fonts/iosevka-term-nerdfont/1.0.0/IosevkaTermNerdFontMono-HeavyItalic.ttf
+  IosevkaTermNerdFontMono-HeavyOblique.ttf: https://cdn.brand-atoms.com/fonts/iosevka-term-nerdfont/1.0.0/IosevkaTermNerdFontMono-HeavyOblique.ttf

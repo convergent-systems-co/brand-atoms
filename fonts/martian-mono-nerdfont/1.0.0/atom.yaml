@@ -1,0 +1,46 @@
+kind: font
+id: martian-mono-nerdfont
+version: 1.0.0
+name: Martian Mono Nerd Font
+description: >
+  Martian Mono monospaced font with Nerd Fonts glyph augmentation. Roman Shamin's narrow, geometric programmer typeface (a monospaced cut of Martian Grotesk) with Standard and Condensed widths; patched with ~10,000 additional icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.).
+family: MartianMono Nerd Font
+classification: monospace
+tags: [ nerd-font, monospace, geometric, narrow, condensed, code ]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: OFL-1.1
+  attribution: >
+    Martian Mono, Copyright Roman Shamin (https://github.com/evilmartians/mono), licensed under the SIL Open Font License, Version 1.1. Distributed by Evil Martians. Nerd Fonts patching by Ryan L McIntyre, MIT license.
+  importedDate: 2026-05-19
+  importedFromVersion: v3.4.0
+  notes: >
+    Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/MartianMono.zip. Nerd Fonts ships two widths — Standard (Regular, Medium, Bold) and Condensed (Regular, Medium, Bold). No italics in the patched build. The Condensed width is encoded in the filename rather than as a wdth axis.
+
+source:
+  kind: external
+  family: MartianMono Nerd Font
+  notes: >
+    Nerd-Font-patched build of Martian Mono. Not available via Google Fonts. Download woff2/ttf files from the Nerd Fonts GitHub release and self-host, or install system-wide for terminal/editor use. The Condensed variants share the same CSS family — select via filename, not font-style.
+
+fallbackStack:
+  - Martian Mono
+  - JetBrains Mono
+  - Menlo
+  - Monaco
+  - Consolas
+  - Liberation Mono
+  - monospace
+
+availableStyles:
+  - { weight: 400, style: normal }
+  - { weight: 500, style: normal }
+  - { weight: 700, style: normal }
+cdnUrls:
+  MartianMonoNerdFontMono-Regular.ttf: https://cdn.brand-atoms.com/fonts/martian-mono-nerdfont/1.0.0/MartianMonoNerdFontMono-Regular.ttf
+  MartianMonoNerdFontMono-Medium.ttf: https://cdn.brand-atoms.com/fonts/martian-mono-nerdfont/1.0.0/MartianMonoNerdFontMono-Medium.ttf
+  MartianMonoNerdFontMono-Bold.ttf: https://cdn.brand-atoms.com/fonts/martian-mono-nerdfont/1.0.0/MartianMonoNerdFontMono-Bold.ttf
+  MartianMonoNerdFontMono-CondensedRegular.ttf: https://cdn.brand-atoms.com/fonts/martian-mono-nerdfont/1.0.0/MartianMonoNerdFontMono-CondensedRegular.ttf
+  MartianMonoNerdFontMono-CondensedMedium.ttf: https://cdn.brand-atoms.com/fonts/martian-mono-nerdfont/1.0.0/MartianMonoNerdFontMono-CondensedMedium.ttf
+  MartianMonoNerdFontMono-CondensedBold.ttf: https://cdn.brand-atoms.com/fonts/martian-mono-nerdfont/1.0.0/MartianMonoNerdFontMono-CondensedBold.ttf

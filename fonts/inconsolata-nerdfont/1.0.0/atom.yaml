@@ -1,0 +1,40 @@
+kind: font
+id: inconsolata-nerdfont
+version: 1.0.0
+name: Inconsolata Nerd Font
+description: >
+  Inconsolata humanist monospaced font with Nerd Fonts glyph augmentation. Raph Levien's classic code-listing typeface drawing on Letter Gothic and Consolas; patched with ~10,000 additional icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.).
+family: Inconsolata Nerd Font
+classification: monospace
+tags: [ nerd-font, monospace, humanist, code, terminal ]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: OFL-1.1
+  attribution: >
+    Inconsolata, Copyright 2006 The Inconsolata Project Authors (Raph Levien), licensed under the SIL Open Font License, Version 1.1. Nerd Fonts patching by Ryan L McIntyre, MIT license.
+  importedDate: 2026-05-19
+  importedFromVersion: v3.4.0
+  notes: >
+    Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Inconsolata.zip. Nerd Fonts ships only Regular and Bold for this family (no italic in the patched build).
+
+source:
+  kind: external
+  family: Inconsolata Nerd Font
+  notes: >
+    Nerd-Font-patched build of Inconsolata. Distinct from the Google-Fonts Inconsolata (variable wght/wdth) — this static build was patched once and shipped as discrete files. Download woff2/ttf files from the Nerd Fonts GitHub release and self-host, or install system-wide for terminal/editor use.
+
+fallbackStack:
+  - Inconsolata
+  - Menlo
+  - Monaco
+  - Consolas
+  - Liberation Mono
+  - monospace
+
+availableStyles:
+  - { weight: 400, style: normal }
+  - { weight: 700, style: normal }
+cdnUrls:
+  InconsolataNerdFontMono-Regular.ttf: https://cdn.brand-atoms.com/fonts/inconsolata-nerdfont/1.0.0/InconsolataNerdFontMono-Regular.ttf
+  InconsolataNerdFontMono-Bold.ttf: https://cdn.brand-atoms.com/fonts/inconsolata-nerdfont/1.0.0/InconsolataNerdFontMono-Bold.ttf

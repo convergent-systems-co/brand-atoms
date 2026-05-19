@@ -1,0 +1,86 @@
+kind: font
+id: monaspace-nerdfont
+version: 1.0.0
+name: Monaspace Nerd Font
+description: >
+  GitHub Monaspace texture-healing family (Argon, Krypton, Neon, Radon, Xenon variants) with Nerd Fonts glyph augmentation. The five variants share metrics so they can be mixed without breaking layout — texture healing. Patched with ~10,000 additional icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.).
+family: Monaspice Nerd Font
+classification: monospace
+tags: [ nerd-font, monospace, github, texture-healing, programming-ligatures, terminal ]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: OFL-1.1
+  attribution: >
+    Monaspace, Copyright GitHub, Inc. with Reserved Font Name "Monaspace" (https://github.com/githubnext/monaspace), licensed under the SIL Open Font License, Version 1.1. Designed by Lippert + Soulellis. Five-variant superfamily — Argon (neo-grotesque), Krypton (mechanical sans), Neon (modern), Radon (handwritten), Xenon (slab serif). Nerd Fonts patching by Ryan L McIntyre, MIT license. Note: Nerd-Font-patched build is distributed under the family name "Monaspice" to comply with the OFL Reserved Font Name clause.
+  importedDate: 2026-05-19
+  importedFromVersion: v3.4.0
+  notes: >
+    Base font version: Monaspace 1.200 (Light weight added after v3.1.0). Upstream source: https://github.com/githubnext/monaspace. Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Monaspace.zip. Filename prefixes encode the variant: MonaspiceAr* = Argon, MonaspiceKr* = Krypton, MonaspiceNe* = Neon, MonaspiceRn* = Radon, MonaspiceXe* = Xenon. Each variant ships four weights (Light, Regular, Medium, Bold) with matching italics, in OTF format.
+
+source:
+  kind: external
+  family: Monaspice Nerd Font
+  notes: >
+    Nerd-Font-patched build of GitHub Monaspace (renamed "Monaspice" for distribution per OFL Reserved Font Name). Not available via Google Fonts. Download otf files from the Nerd Fonts GitHub release and self-host, or install system-wide for terminal/editor use. The five variants are separate CSS font-families (MonaspiceAr, MonaspiceKr, MonaspiceNe, MonaspiceRn, MonaspiceXe) but share metrics — mix freely within the same line without breaking grid alignment.
+
+fallbackStack:
+  - Monaspace Argon
+  - Monaspace Neon
+  - JetBrains Mono
+  - Menlo
+  - Monaco
+  - Consolas
+  - Liberation Mono
+  - monospace
+
+availableStyles:
+  - { weight: 300, style: normal }
+  - { weight: 300, style: italic }
+  - { weight: 400, style: normal }
+  - { weight: 400, style: italic }
+  - { weight: 500, style: normal }
+  - { weight: 500, style: italic }
+  - { weight: 700, style: normal }
+  - { weight: 700, style: italic }
+cdnUrls:
+  MonaspiceArNerdFontMono-Light.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceArNerdFontMono-Light.otf
+  MonaspiceArNerdFontMono-LightItalic.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceArNerdFontMono-LightItalic.otf
+  MonaspiceArNerdFontMono-Regular.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceArNerdFontMono-Regular.otf
+  MonaspiceArNerdFontMono-Italic.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceArNerdFontMono-Italic.otf
+  MonaspiceArNerdFontMono-Medium.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceArNerdFontMono-Medium.otf
+  MonaspiceArNerdFontMono-MediumItalic.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceArNerdFontMono-MediumItalic.otf
+  MonaspiceArNerdFontMono-Bold.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceArNerdFontMono-Bold.otf
+  MonaspiceArNerdFontMono-BoldItalic.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceArNerdFontMono-BoldItalic.otf
+  MonaspiceKrNerdFontMono-Light.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceKrNerdFontMono-Light.otf
+  MonaspiceKrNerdFontMono-LightItalic.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceKrNerdFontMono-LightItalic.otf
+  MonaspiceKrNerdFontMono-Regular.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceKrNerdFontMono-Regular.otf
+  MonaspiceKrNerdFontMono-Italic.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceKrNerdFontMono-Italic.otf
+  MonaspiceKrNerdFontMono-Medium.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceKrNerdFontMono-Medium.otf
+  MonaspiceKrNerdFontMono-MediumItalic.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceKrNerdFontMono-MediumItalic.otf
+  MonaspiceKrNerdFontMono-Bold.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceKrNerdFontMono-Bold.otf
+  MonaspiceKrNerdFontMono-BoldItalic.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceKrNerdFontMono-BoldItalic.otf
+  MonaspiceNeNerdFontMono-Light.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceNeNerdFontMono-Light.otf
+  MonaspiceNeNerdFontMono-LightItalic.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceNeNerdFontMono-LightItalic.otf
+  MonaspiceNeNerdFontMono-Regular.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceNeNerdFontMono-Regular.otf
+  MonaspiceNeNerdFontMono-Italic.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceNeNerdFontMono-Italic.otf
+  MonaspiceNeNerdFontMono-Medium.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceNeNerdFontMono-Medium.otf
+  MonaspiceNeNerdFontMono-MediumItalic.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceNeNerdFontMono-MediumItalic.otf
+  MonaspiceNeNerdFontMono-Bold.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceNeNerdFontMono-Bold.otf
+  MonaspiceNeNerdFontMono-BoldItalic.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceNeNerdFontMono-BoldItalic.otf
+  MonaspiceRnNerdFontMono-Light.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceRnNerdFontMono-Light.otf
+  MonaspiceRnNerdFontMono-LightItalic.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceRnNerdFontMono-LightItalic.otf
+  MonaspiceRnNerdFontMono-Regular.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceRnNerdFontMono-Regular.otf
+  MonaspiceRnNerdFontMono-Italic.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceRnNerdFontMono-Italic.otf
+  MonaspiceRnNerdFontMono-Medium.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceRnNerdFontMono-Medium.otf
+  MonaspiceRnNerdFontMono-MediumItalic.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceRnNerdFontMono-MediumItalic.otf
+  MonaspiceRnNerdFontMono-Bold.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceRnNerdFontMono-Bold.otf
+  MonaspiceRnNerdFontMono-BoldItalic.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceRnNerdFontMono-BoldItalic.otf
+  MonaspiceXeNerdFontMono-Light.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceXeNerdFontMono-Light.otf
+  MonaspiceXeNerdFontMono-LightItalic.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceXeNerdFontMono-LightItalic.otf
+  MonaspiceXeNerdFontMono-Regular.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceXeNerdFontMono-Regular.otf
+  MonaspiceXeNerdFontMono-Italic.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceXeNerdFontMono-Italic.otf
+  MonaspiceXeNerdFontMono-Medium.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceXeNerdFontMono-Medium.otf
+  MonaspiceXeNerdFontMono-MediumItalic.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceXeNerdFontMono-MediumItalic.otf
+  MonaspiceXeNerdFontMono-Bold.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceXeNerdFontMono-Bold.otf
+  MonaspiceXeNerdFontMono-BoldItalic.otf: https://cdn.brand-atoms.com/fonts/monaspace-nerdfont/1.0.0/MonaspiceXeNerdFontMono-BoldItalic.otf

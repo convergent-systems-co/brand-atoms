@@ -1,0 +1,58 @@
+kind: font
+id: lilex-nerdfont
+version: 1.0.0
+name: Lilex Nerd Font
+description: >
+  Lilex monospaced font with Nerd Fonts glyph augmentation. Mikhail Sharanda's IBM Plex Mono fork with extensive programming ligatures and a smoother italic; patched with ~10,000 additional icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.).
+family: Lilex Nerd Font
+classification: monospace
+tags: [ nerd-font, monospace, programming-ligatures, ibm-plex, code, terminal ]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: OFL-1.1
+  attribution: >
+    Lilex, Copyright Mikhail Sharanda (https://github.com/mishamyrt/Lilex), licensed under the SIL Open Font License, Version 1.1. Derived from IBM Plex Mono. Nerd Fonts patching by Ryan L McIntyre, MIT license.
+  importedDate: 2026-05-19
+  importedFromVersion: v3.4.0
+  notes: >
+    Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Lilex.zip. Nerd Fonts ships five weights (Thin, ExtraLight, Regular, Medium, Bold) with matching italics — no Light, SemiBold, or ExtraBold in the patched build.
+
+source:
+  kind: external
+  family: Lilex Nerd Font
+  notes: >
+    Nerd-Font-patched build of Lilex. Not available via Google Fonts. Download woff2/ttf files from the Nerd Fonts GitHub release and self-host, or install system-wide for terminal/editor use.
+
+fallbackStack:
+  - Lilex
+  - IBM Plex Mono
+  - JetBrains Mono
+  - Menlo
+  - Monaco
+  - Consolas
+  - Liberation Mono
+  - monospace
+
+availableStyles:
+  - { weight: 100, style: normal }
+  - { weight: 100, style: italic }
+  - { weight: 200, style: normal }
+  - { weight: 200, style: italic }
+  - { weight: 400, style: normal }
+  - { weight: 400, style: italic }
+  - { weight: 500, style: normal }
+  - { weight: 500, style: italic }
+  - { weight: 700, style: normal }
+  - { weight: 700, style: italic }
+cdnUrls:
+  LilexNerdFontMono-Thin.ttf: https://cdn.brand-atoms.com/fonts/lilex-nerdfont/1.0.0/LilexNerdFontMono-Thin.ttf
+  LilexNerdFontMono-ThinItalic.ttf: https://cdn.brand-atoms.com/fonts/lilex-nerdfont/1.0.0/LilexNerdFontMono-ThinItalic.ttf
+  LilexNerdFontMono-ExtraLight.ttf: https://cdn.brand-atoms.com/fonts/lilex-nerdfont/1.0.0/LilexNerdFontMono-ExtraLight.ttf
+  LilexNerdFontMono-ExtraLightItalic.ttf: https://cdn.brand-atoms.com/fonts/lilex-nerdfont/1.0.0/LilexNerdFontMono-ExtraLightItalic.ttf
+  LilexNerdFontMono-Regular.ttf: https://cdn.brand-atoms.com/fonts/lilex-nerdfont/1.0.0/LilexNerdFontMono-Regular.ttf
+  LilexNerdFontMono-Italic.ttf: https://cdn.brand-atoms.com/fonts/lilex-nerdfont/1.0.0/LilexNerdFontMono-Italic.ttf
+  LilexNerdFontMono-Medium.ttf: https://cdn.brand-atoms.com/fonts/lilex-nerdfont/1.0.0/LilexNerdFontMono-Medium.ttf
+  LilexNerdFontMono-MediumItalic.ttf: https://cdn.brand-atoms.com/fonts/lilex-nerdfont/1.0.0/LilexNerdFontMono-MediumItalic.ttf
+  LilexNerdFontMono-Bold.ttf: https://cdn.brand-atoms.com/fonts/lilex-nerdfont/1.0.0/LilexNerdFontMono-Bold.ttf
+  LilexNerdFontMono-BoldItalic.ttf: https://cdn.brand-atoms.com/fonts/lilex-nerdfont/1.0.0/LilexNerdFontMono-BoldItalic.ttf

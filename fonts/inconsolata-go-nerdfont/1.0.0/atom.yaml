@@ -1,0 +1,41 @@
+kind: font
+id: inconsolata-go-nerdfont
+version: 1.0.0
+name: Inconsolata Go Nerd Font
+description: >
+  Inconsolata Go monospaced font with Nerd Fonts glyph augmentation. Google-tuned variant of Raph Levien's Inconsolata with straight-quote brackets and a more conventional shape; patched with ~10,000 additional icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.).
+family: Inconsolata Go Nerd Font
+classification: monospace
+tags: [ nerd-font, monospace, humanist, code, terminal ]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: OFL-1.1
+  attribution: >
+    Inconsolata Go, Copyright 2006 The Inconsolata Project Authors (Raph Levien) with adjustments by The Go Authors, licensed under the SIL Open Font License, Version 1.1. Nerd Fonts patching by Ryan L McIntyre, MIT license.
+  importedDate: 2026-05-19
+  importedFromVersion: v3.4.0
+  notes: >
+    Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/InconsolataGo.zip. Nerd Fonts ships only Regular and Bold for this family (no italic in the patched build).
+
+source:
+  kind: external
+  family: Inconsolata Go Nerd Font
+  notes: >
+    Nerd-Font-patched build of Inconsolata Go. Not available via Google Fonts. Download woff2/ttf files from the Nerd Fonts GitHub release and self-host, or install system-wide for terminal/editor use.
+
+fallbackStack:
+  - Inconsolata Go
+  - Inconsolata
+  - Menlo
+  - Monaco
+  - Consolas
+  - Liberation Mono
+  - monospace
+
+availableStyles:
+  - { weight: 400, style: normal }
+  - { weight: 700, style: normal }
+cdnUrls:
+  InconsolataGoNerdFontMono-Regular.ttf: https://cdn.brand-atoms.com/fonts/inconsolata-go-nerdfont/1.0.0/InconsolataGoNerdFontMono-Regular.ttf
+  InconsolataGoNerdFontMono-Bold.ttf: https://cdn.brand-atoms.com/fonts/inconsolata-go-nerdfont/1.0.0/InconsolataGoNerdFontMono-Bold.ttf
