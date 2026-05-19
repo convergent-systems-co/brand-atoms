@@ -1,0 +1,198 @@
+id: reuters
+version: 1.0.0
+name: Reuters
+description: >
+  Reuters is the global wire service of record — fast, factual,
+  and built for redistribution into every newsroom on earth. The
+  visual identity is anchored by the signature Reuters orange
+  (#FA6400), instantly recognizable across the ticker, the
+  wordmark, and the news graphics. Body content sits in a warm
+  near-black on white; trusted-source links use the deep Reuters
+  blue (#005DA2). The proprietary Knowledge typeface (the
+  Reuters editorial type system) and Reuters Sans carry the
+  voice; graphics and data viz draw from a published 9-hue, 6-step
+  palette.
+
+tags: [reuters, news, wire-service, journalism, brand, orange, sans, light-first]
+
+provenance:
+  source: https://github.com/reuters-graphics/graphics-svelte-components/blob/main/src/lib/SiteHeader/scss/_colors.scss
+  license: ISC / MIT (reuters-graphics open-source); brand identity remains property of Thomson Reuters
+  attribution: >
+    Thomson Reuters — visual identity captured from the published
+    reuters-graphics open-source SCSS at github.com/
+    reuters-graphics/graphics-svelte-components/SiteHeader/scss/
+    _colors.scss. Reuters, the Thomson Reuters mark, and the
+    Knowledge / Reuters Sans typefaces are property of Thomson
+    Reuters.
+  importedDate: 2026-05-19
+  notes: >
+    Derived from the reuters-graphics open-source SCSS tokens on
+    2026-05-19. The consumer reuters.com site was not directly
+    reachable from this fetch context (datadome bot protection),
+    so the brand atom relies on the verified open-source token
+    file maintained by the same organization. The proprietary
+    Knowledge / Reuters Sans typefaces are not publicly
+    distributed; open-source substitute (Inter@1) is referenced.
+
+references:
+  palette: reuters@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    serif: pt-serif@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    identity: tr-orange
+    on-identity: white
+
+    primary: tr-dark-blue
+    primary-hover: tr-light-blue
+    accent: tr-orange
+    accent-hover: tr-dark-orange
+    mark: tr-orange
+    success: tr-dark-green
+    warning: tr-light-orange
+    error: tr-dark-red
+    text-primary-light: tr-dark-grey
+    text-primary-dark: white
+    background-light: white
+    background-dark: tr-dark-grey
+    surface-light: tr-ultra-light-grey
+    surface-dark: tr-medium-grey
+    text-secondary-light: tr-medium-grey
+    text-tertiary-light: tr-light-grey
+    border-light: tr-muted-grey
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 7.0
+    standard: WCAG-AAA
+    severity: error
+    rationale: >
+      Reuters Dark Grey (#404040) on white gives ~10.4:1 — past
+      AAA. The wire-service voice favors quick, repeatable
+      reading; the AAA contrast target supports the dense data
+      tables and headline grids that define Reuters layouts.
+
+  - type: colorChoice
+    target: roles.colors.mark
+    allowed:
+      - tr-orange
+      - tr-dark-orange
+      - black
+    forbidden:
+      - tr-dark-blue
+      - tr-light-blue
+      - tr-dark-red
+      - tr-light-purple
+    severity: error
+    rationale: >
+      The Reuters mark is rendered in Reuters orange or black —
+      the orange variant is the signature wire-service identity.
+      Recoloring the mark in the link blue or any secondary
+      accent would conflict with the wordmark's place in the
+      published asset standards.
+
+  - type: contextRestriction
+    target: roles.colors.accent
+    allowedContexts:
+      - wordmark
+      - editorial-emphasis
+      - ticker
+      - kicker
+      - call-to-action
+    forbiddenContexts:
+      - default-link
+      - body-text
+      - error-state
+    severity: error
+    rationale: >
+      Reuters orange carries identity meaning. The in-copy link
+      color is tr-dark-blue; substituting the orange for a link
+      would conflate the brand's identity signal with a
+      navigation affordance.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+    severity: error
+    rationale: >
+      The Reuters wordmark is a globally distributed identity
+      mark that appears across thousands of partner publications
+      every day. Stretching, rotating, recoloring, or applying
+      gradients would erode the consistency that makes Reuters
+      a trusted wire-service signal.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.25
+    severity: warning
+    rationale: >
+      Reuters editorial layouts pair a tighter display weight
+      with the body sans at a measured size step. A 1.25× minimum
+      preserves the wire-service grid rhythm where headline and
+      lede share the same horizontal column.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AAA
+    criterion: "1.4.6"
+    severity: warning
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.6 (Contrast Enhanced) —
+      Level AAA. Reuters serves a global, multilingual audience
+      including data-table-heavy financial readers; the
+      enhanced contrast target preserves legibility under
+      reduced screen quality and high ambient light.
+
+  - type: contextRestriction
+    target: roles.colors.success
+    allowedContexts:
+      - data-viz-positive
+      - confirmation
+      - market-up
+    forbiddenContexts:
+      - error-state
+      - destructive-action
+    severity: error
+    rationale: >
+      Reuters Dark Green is used in financial data viz to signal
+      positive market movement. Reusing it for failure or
+      destructive states would conflict with the established
+      market-data color semantics.
+
+  - type: compositionConstraint
+    target: roles.colors.accent
+    pairsWith:
+      - white
+      - tr-dark-grey
+      - tr-ultra-light-grey
+    doesNotPairWith:
+      - tr-dark-red
+      - tr-light-red
+      - tr-light-orange
+    severity: recommendation
+    rationale: >
+      Reuters orange reads cleanest against white or the warm
+      dark-grey body color. Placing it adjacent to the alert reds
+      or the lighter orange ramp collapses the chromatic
+      hierarchy between identity (orange) and semantic state
+      (red).

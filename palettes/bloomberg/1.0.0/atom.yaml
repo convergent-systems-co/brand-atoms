@@ -1,0 +1,187 @@
+kind: palette
+id: bloomberg
+version: 1.0.0
+name: Bloomberg
+description: >
+  The Bloomberg palette as deployed on bloomberg.com, captured
+  from the published Phoenix ("phx") design-system tokens served
+  alongside the consumer site. The identity is built on a precise,
+  data-terminal feel: near-black on white, deep ink dark mode,
+  and a signature Bloomberg yellow (#FFCD1E) reserved for the
+  ticker accent and editorial emphasis. The system publishes a
+  full 9-step ramp across gray, red, green, yellow, opinion blue,
+  and subscription violet — designed for chart legibility on the
+  terminal as much as the editorial page.
+
+tags: [bloomberg, news, finance, journalism, brand, yellow, terminal, light-first]
+
+provenance:
+  source: https://www.bloomberg.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Bloomberg L.P. — palette values captured from the deployed
+    Phoenix design-system CSS tokens at assets.bwbx.io (the
+    Next.js asset CDN that serves bloomberg.com). Bloomberg, the
+    Bloomberg Terminal, and the Mecano / Avenir Next / Publico
+    typefaces are property of Bloomberg L.P.
+  importedDate: 2026-05-19
+  notes: >
+    Derived from live --phx-color-* CSS custom-property tokens
+    extracted from bloomberg.com Next.js stylesheets on
+    2026-05-19; no public brand guide located. The proprietary
+    Bloomberg Mecano (display) typeface, Avenir Next variant
+    (sans), and Publico Head / Publico Text (serif) are
+    referenced in the live CSS but are not publicly distributed.
+    Open-source substitutes — source-serif-4@1 for the serif
+    role and inter@1 for sans — are referenced from the brand
+    atom.
+
+swatches:
+  - id: black
+    name: Black
+    value: "#000000"
+    description: phx-color-core-black — terminal-black canvas in dark mode.
+  - id: gray-1000
+    name: Gray 1000
+    value: "#1C1C1C"
+    description: phx-color-core-gray-1000 — deepest gray ink.
+  - id: gray-900
+    name: Gray 900
+    value: "#262626"
+    description: phx-color-core-gray-900 — primary body text on light.
+  - id: gray-800
+    name: Gray 800
+    value: "#3C3C3C"
+    description: phx-color-core-gray-800 — secondary heading text.
+  - id: gray-700
+    name: Gray 700
+    value: "#545454"
+    description: phx-color-core-gray-700 — secondary body text.
+  - id: gray-600
+    name: Gray 600
+    value: "#767676"
+    description: phx-color-core-gray-600 — tertiary meta text.
+  - id: gray-500
+    name: Gray 500
+    value: "#999999"
+    description: phx-color-core-gray-500 — disabled text on light.
+  - id: gray-400
+    name: Gray 400
+    value: "#B3B3B3"
+    description: phx-color-core-gray-400 — border weight.
+  - id: gray-300
+    name: Gray 300
+    value: "#CCCCCC"
+    description: phx-color-core-gray-300 — quiet divider.
+  - id: gray-200
+    name: Gray 200
+    value: "#EFEFEF"
+    description: phx-color-core-gray-200 — quiet inset surface.
+  - id: gray-100
+    name: Gray 100
+    value: "#F8F8F8"
+    description: phx-color-core-gray-100 — lightest surface tint.
+  - id: white
+    name: White
+    value: "#FFFFFF"
+    description: phx-color-core-white — page canvas.
+
+  - id: yellow-400
+    name: Bloomberg Yellow 400
+    value: "#FFCD1E"
+    description: phx-color-core-yellow-400 — signature Bloomberg yellow; ticker accent.
+  - id: yellow-300
+    name: Yellow 300
+    value: "#FFDA5D"
+    description: phx-color-core-yellow-300 — lighter yellow accent.
+  - id: yellow-500
+    name: Yellow 500
+    value: "#E6B120"
+    description: phx-color-core-yellow-500 — pressed yellow.
+  - id: yellow-600
+    name: Yellow 600
+    value: "#C48600"
+    description: phx-color-core-yellow-600 — deepest emphasis yellow.
+
+  - id: red-500
+    name: Red 500
+    value: "#E51503"
+    description: phx-color-core-red-500 — alert / breaking-news red.
+  - id: red-400
+    name: Red 400
+    value: "#F05143"
+    description: phx-color-core-red-400 — quiet alert state.
+  - id: red-600
+    name: Red 600
+    value: "#B20E01"
+    description: phx-color-core-red-600 — pressed alert.
+
+  - id: green-500
+    name: Green 500
+    value: "#338736"
+    description: phx-color-core-green-500 — market-up signal.
+  - id: green-400
+    name: Green 400
+    value: "#4DB250"
+    description: phx-color-core-green-400 — quiet positive.
+  - id: green-600
+    name: Green 600
+    value: "#146917"
+    description: phx-color-core-green-600 — pressed positive.
+
+  - id: opinion-500
+    name: Opinion Blue 500
+    value: "#0064FA"
+    description: phx-color-secondary-opinion-500 — Bloomberg Opinion link blue.
+  - id: opinion-600
+    name: Opinion Blue 600
+    value: "#004EC4"
+    description: phx-color-secondary-opinion-600 — pressed Opinion link.
+  - id: opinion-200
+    name: Opinion Blue 200
+    value: "#D4E5FF"
+    description: phx-color-secondary-opinion-200 — quiet Opinion surface tint.
+
+  - id: subscription-500
+    name: Subscription Violet 500
+    value: "#4F4FFF"
+    description: phx-color-secondary-subscription-500 — Bloomberg subscription-product accent.
+  - id: subscription-700
+    name: Subscription Violet 700
+    value: "#2800D7"
+    description: phx-color-secondary-subscription-700 — deep subscription accent.
+
+modes:
+  light:
+    roles:
+      background: white
+      surface: gray-100
+      surface-elevated: white
+      text-primary: gray-1000
+      text-secondary: gray-700
+      text-tertiary: gray-600
+      primary: opinion-500
+      primary-hover: opinion-600
+      accent: yellow-400
+      accent-hover: yellow-500
+      warning: yellow-600
+      error: red-500
+      success: green-500
+      border: gray-300
+
+  dark:
+    roles:
+      background: black
+      surface: gray-1000
+      surface-elevated: gray-900
+      text-primary: white
+      text-secondary: gray-200
+      text-tertiary: gray-400
+      primary: opinion-500
+      primary-hover: opinion-200
+      accent: yellow-400
+      accent-hover: yellow-300
+      warning: yellow-300
+      error: red-400
+      success: green-400
+      border: gray-700

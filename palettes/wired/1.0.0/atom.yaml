@@ -1,0 +1,130 @@
+kind: palette
+id: wired
+version: 1.0.0
+name: Wired
+description: >
+  The Wired palette as deployed on wired.com (Condé Nast). The
+  identity reads as zine-meets-print: absolute black on cream
+  newsprint, a bright signature red (#EB0000) used aggressively in
+  the masthead and section markers, an espresso brown (#2B1000)
+  for warm body emphasis, and a saturated yellow (#FDC11C /
+  #FFC035) for kicker tags. The proprietary Wired Display, Wired
+  Display Slab, and Wired Mono types — paired with Apercu,
+  Proxima Nova, and Lab Grotesque — carry the magazine voice.
+
+tags: [wired, tech, magazine, conde-nast, brand, red, cream, light-first]
+
+provenance:
+  source: https://www.wired.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Condé Nast — palette values captured from the deployed HTML
+    and inline styles at wired.com. WIRED, Condé Nast, and the
+    Wired Display / Wired Display Slab / Wired Mono / Apercu /
+    Proxima Nova / Breve Text / Lab Grotesque typefaces are
+    property of Condé Nast.
+  importedDate: 2026-05-19
+  notes: >
+    Derived from live site CSS at https://www.wired.com/ on
+    2026-05-19; no public brand guide located. The proprietary
+    Wired Display, Wired Display Slab, and Wired Mono typefaces
+    are declared on the live stylesheet but are not publicly
+    distributed. Open-source substitutes — playfair-display@1
+    for the display role, pt-serif@1 where a serif body is
+    needed, and inter@1 for sans — are referenced from the
+    brand atom.
+
+swatches:
+  - id: black
+    name: Black
+    value: "#000000"
+    description: Primary ink — the Wired absolute black.
+  - id: espresso
+    name: Espresso
+    value: "#2B1000"
+    description: Warm dark brown — body emphasis and feature surface.
+
+  - id: cream
+    name: Cream
+    value: "#FAF8F1"
+    description: Newsprint-like cream canvas — the Wired paper tone.
+  - id: cream-light
+    name: Cream Light
+    value: "#FEFCF5"
+    description: Lighter cream — quiet inset surface.
+  - id: cream-pale
+    name: Cream Pale
+    value: "#F9F7EF"
+    description: Pale cream — alternate background.
+  - id: white
+    name: White
+    value: "#FFFFFF"
+    description: Bright white — high-contrast canvas alternate.
+
+  - id: gray-divider
+    name: Gray Divider
+    value: "#E5E5E5"
+    description: Quiet rule weight.
+
+  - id: signature-red
+    name: Signature Red
+    value: "#EB0000"
+    description: The Wired masthead red — the brand's identity color.
+  - id: signature-red-deep
+    name: Signature Red Deep
+    value: "#D00000"
+    description: Deeper red — pressed and editorial emphasis.
+  - id: signature-red-bright
+    name: Signature Red Bright
+    value: "#FF3030"
+    description: Brighter red for live-update pulses and accents.
+  - id: red-faint
+    name: Red Faint
+    value: "#FFB0B0"
+    description: Pale red surface tint.
+
+  - id: kicker-yellow
+    name: Kicker Yellow
+    value: "#FDC11C"
+    description: Section-tag yellow — the kicker accent.
+  - id: kicker-yellow-warm
+    name: Kicker Yellow Warm
+    value: "#FFC035"
+    description: Warmer yellow variant; quiet kicker.
+  - id: amber
+    name: Amber
+    value: "#FFA922"
+    description: Amber accent — feature highlights.
+
+modes:
+  light:
+    roles:
+      background: cream
+      surface: cream-light
+      surface-elevated: white
+      text-primary: black
+      text-secondary: espresso
+      text-tertiary: gray-divider
+      primary: signature-red
+      primary-hover: signature-red-deep
+      accent: kicker-yellow
+      accent-hover: amber
+      warning: amber
+      error: signature-red-deep
+      border: gray-divider
+
+  dark:
+    roles:
+      background: black
+      surface: espresso
+      surface-elevated: espresso
+      text-primary: cream
+      text-secondary: cream-pale
+      text-tertiary: gray-divider
+      primary: signature-red
+      primary-hover: signature-red-bright
+      accent: kicker-yellow
+      accent-hover: kicker-yellow-warm
+      warning: amber
+      error: signature-red-bright
+      border: espresso

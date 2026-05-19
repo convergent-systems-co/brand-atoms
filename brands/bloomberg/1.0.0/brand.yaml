@@ -1,0 +1,211 @@
+id: bloomberg
+version: 1.0.0
+name: Bloomberg
+description: >
+  Bloomberg is the financial-media and data-services powerhouse —
+  the Bloomberg Terminal anchors the franchise, with Bloomberg
+  News, Bloomberg Opinion, Businessweek, and Bloomberg
+  Government extending the brand across consumer and B2B
+  surfaces. The visual identity is engineered for data legibility:
+  precise grays, terminal-black, and the unmistakable Bloomberg
+  yellow (#FFCD1E) reserved for the ticker accent and editorial
+  emphasis. Bloomberg Opinion uses a distinct deep blue link
+  color (#0064FA). Type pairs Mecano (display) with Avenir Next
+  (sans) and Publico Head / Publico Text (serif).
+
+tags: [bloomberg, news, finance, journalism, brand, yellow, terminal, business, light-first]
+
+provenance:
+  source: https://www.bloomberg.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Bloomberg L.P. — visual identity captured from the deployed
+    Phoenix design-system tokens (--phx-color-*) on
+    assets.bwbx.io, the Next.js asset CDN that serves
+    bloomberg.com. Bloomberg, the Bloomberg Terminal, Mecano,
+    Avenir Next, and Publico Head / Publico Text are property
+    of Bloomberg L.P.
+  importedDate: 2026-05-19
+  notes: >
+    Derived from live site CSS at https://www.bloomberg.com/ on
+    2026-05-19; no public brand guide located. The proprietary
+    Bloomberg Mecano (display serif/sans), Avenir Next (sans),
+    and Publico Head / Publico Text (serif) typefaces are
+    declared in the live stylesheet but are not publicly
+    distributed. Open-source substitutes — source-serif-4@1 for
+    the serif role and inter@1 for the sans role — are
+    referenced from this brand atom.
+
+references:
+  palette: bloomberg@1
+  fonts:
+    heading: source-serif-4@1
+    body: source-serif-4@1
+    sans: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    identity: black
+    on-identity: yellow-400
+
+    primary: opinion-500
+    primary-hover: opinion-600
+    accent: yellow-400
+    accent-hover: yellow-500
+    mark: yellow-400
+    success: green-500
+    warning: yellow-600
+    error: red-500
+    text-primary-light: gray-1000
+    text-primary-dark: white
+    background-light: white
+    background-dark: black
+    surface-light: gray-100
+    surface-dark: gray-1000
+    text-secondary-light: gray-700
+    text-tertiary-light: gray-600
+    border-light: gray-300
+  typography:
+    display: heading
+    prose: body
+    ui: sans
+    code: mono
+
+assets: []
+
+rules:
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 7.0
+    standard: WCAG-AAA
+    severity: error
+    rationale: >
+      Gray 1000 (#1C1C1C) on white gives ~16:1 — past AAA.
+      Bloomberg's editorial surfaces sit alongside dense data
+      tables and chart legends. The AAA contrast target supports
+      both the long-form journalism and the data-density that
+      define the brand.
+
+  - type: colorChoice
+    target: roles.colors.accent
+    allowed:
+      - yellow-400
+      - yellow-500
+      - yellow-300
+    forbidden:
+      - opinion-500
+      - subscription-500
+      - red-500
+    severity: error
+    rationale: >
+      Bloomberg yellow is the singular brand identity color
+      across the Terminal and consumer surfaces. The opinion
+      blue is reserved for Bloomberg Opinion link affordances,
+      and the subscription violet for subscription product
+      accents — neither stands in for the accent role without
+      breaking the brand's editorial taxonomy.
+
+  - type: contextRestriction
+    target: roles.colors.primary
+    allowedContexts:
+      - opinion
+      - default-link
+      - editorial-cta
+    forbiddenContexts:
+      - terminal-chrome
+      - ticker-accent
+      - subscription-marketing
+    severity: error
+    rationale: >
+      Opinion blue (#0064FA) is published in Phoenix tokens as a
+      secondary-opinion color — it carries link semantics for
+      Bloomberg Opinion content. Using it for terminal chrome
+      or subscription marketing would conflict with the
+      Phoenix-defined product hierarchy.
+
+  - type: fontPairing
+    target: typography.display
+    requires: prose
+    minSizeRatio: 1.5
+    severity: error
+    rationale: >
+      Bloomberg's editorial pages pair Mecano display headlines
+      with Publico Text body. The display-to-prose hierarchy is
+      part of the editorial voice; a 1.5× minimum ratio
+      preserves it when open-source substitutes (Source Serif
+      4) stand in for the proprietary primaries.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+    severity: error
+    rationale: >
+      The Bloomberg wordmark and the Terminal logotype are
+      tightly governed brand assets. Recoloring (especially
+      away from black or yellow), stretching, or applying
+      gradients conflicts with the brand's data-precision voice.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AAA
+    criterion: "1.4.6"
+    severity: warning
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.6 (Contrast Enhanced) —
+      Level AAA. Bloomberg readers spend long sessions on data
+      tables, chart legends, and dense prose; the enhanced
+      contrast target supports that reading posture.
+
+  - type: contextRestriction
+    target: roles.colors.success
+    allowedContexts:
+      - market-up
+      - data-viz-positive
+      - confirmation
+    forbiddenContexts:
+      - error-state
+      - destructive-action
+    severity: error
+    rationale: >
+      In Bloomberg market data, green signals positive movement.
+      Reusing it for failure states would conflict with the
+      established market-color semantics that underpin every
+      financial chart on the Terminal.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["400", "500", "600", "700", "800"]
+    severity: warning
+    rationale: >
+      Mecano and Avenir Next on Bloomberg pages cover Regular
+      through Extra-Bold. Heavier weights beyond the licensed
+      cut are not represented in the live stylesheet; the
+      Source Serif 4 / Inter substitutes should mirror the
+      same range.
+
+  - type: compositionConstraint
+    target: roles.colors.accent
+    pairsWith:
+      - black
+      - gray-1000
+      - white
+      - gray-100
+    doesNotPairWith:
+      - opinion-500
+      - subscription-500
+      - red-500
+    severity: recommendation
+    rationale: >
+      Bloomberg yellow reads cleanest against the terminal black
+      or the white canvas. Placing it adjacent to the opinion
+      blue or subscription violet introduces a chromatic
+      collision between identity-yellow and product-accent
+      colors that Phoenix treats as a hierarchy violation.

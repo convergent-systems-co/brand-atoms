@@ -1,0 +1,186 @@
+id: wired
+version: 1.0.0
+name: Wired
+description: >
+  Wired is Condé Nast's tech-and-culture magazine — founded 1993,
+  with a brand voice that runs from skeptical-future to
+  zine-irreverent. The visual identity is aggressively typographic
+  and uses high-contrast cream-and-black newsprint as canvas with
+  the signature Wired red (#EB0000) deployed loudly in mastheads,
+  section markers, and section tags. A bright kicker yellow
+  (#FDC11C) marks editorial categories. The proprietary Wired
+  Display, Wired Display Slab, and Wired Mono types carry the
+  magazine voice.
+
+tags: [wired, tech, magazine, conde-nast, brand, red, cream, zine]
+
+provenance:
+  source: https://www.wired.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Condé Nast — visual identity captured from the deployed HTML
+    and inline styles at wired.com. WIRED, Condé Nast, the Wired
+    Display / Wired Display Slab / Wired Mono / Apercu / Proxima
+    Nova / Breve Text / Lab Grotesque typefaces are property of
+    Condé Nast.
+  importedDate: 2026-05-19
+  notes: >
+    Derived from live site CSS at https://www.wired.com/ on
+    2026-05-19; no public brand guide located. The proprietary
+    Wired Display, Wired Display Slab, and Wired Mono typefaces
+    are declared on the live site (font-family declarations
+    extracted from the HTML head) but are not publicly
+    distributed. Open-source substitutes — playfair-display@1
+    for the display serif/slab role, pt-serif@1 for body
+    prose, inter@1 for sans — are referenced from the brand
+    atom.
+
+references:
+  palette: wired@1
+  fonts:
+    heading: playfair-display@1
+    body: pt-serif@1
+    sans: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    identity: cream
+    on-identity: black
+
+    primary: signature-red
+    primary-hover: signature-red-deep
+    accent: kicker-yellow
+    accent-hover: amber
+    mark: signature-red
+    warning: amber
+    error: signature-red-deep
+    text-primary-light: black
+    text-primary-dark: cream
+    background-light: cream
+    background-dark: black
+    surface-light: cream-light
+    surface-dark: espresso
+    text-secondary-light: espresso
+    text-tertiary-light: gray-divider
+    border-light: gray-divider
+  typography:
+    display: heading
+    prose: body
+    ui: sans
+    code: mono
+
+assets: []
+
+rules:
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 7.0
+    standard: WCAG-AAA
+    severity: error
+    rationale: >
+      Black (#000000) on cream (#FAF8F1) gives ~19:1 — past AAA.
+      The Wired magazine voice depends on dense, type-heavy
+      pages; the enhanced contrast target supports the long
+      feature format and the type-led identity system.
+
+  - type: colorChoice
+    target: roles.colors.mark
+    allowed:
+      - signature-red
+      - signature-red-deep
+      - black
+    forbidden:
+      - kicker-yellow
+      - amber
+      - signature-red-bright
+    severity: error
+    rationale: >
+      The Wired wordmark is rendered in signature red or black.
+      The kicker yellow is reserved for section markers (the
+      brand's signature yellow tags) — substituting it for the
+      mark would conflict with the published masthead identity.
+
+  - type: contextRestriction
+    target: roles.colors.accent
+    allowedContexts:
+      - kicker
+      - section-tag
+      - editorial-category
+      - feature-highlight
+    forbiddenContexts:
+      - default-link
+      - error-state
+      - body-emphasis
+    severity: error
+    rationale: >
+      The Wired kicker yellow signals editorial categories — it
+      is a tag color, not a link or emphasis color. Using it
+      for body emphasis or default links would dilute the
+      magazine's section-marking grammar.
+
+  - type: fontPairing
+    target: typography.display
+    requires: prose
+    minSizeRatio: 1.75
+    severity: error
+    rationale: >
+      Wired feature openers pair the Wired Display face with
+      body type at an aggressive size step — display headlines
+      are dramatically larger than body to support the
+      magazine-feature voice. A 1.75× minimum ratio preserves
+      that hierarchy when the Playfair Display substitute
+      stands in.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+    severity: error
+    rationale: >
+      The Wired wordmark is a heavily standardized identity mark
+      across thirty years of issue covers. Recoloring, stretching,
+      rotating, or applying gradients conflicts with the
+      magazine's identity discipline.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AAA
+    criterion: "1.4.6"
+    severity: warning
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.6 (Contrast Enhanced) —
+      Level AAA. Wired's long-form features and reading-app
+      surfaces benefit from the enhanced contrast target,
+      especially given the warm cream canvas vs. cooler white.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["400", "500", "600", "700", "800", "900"]
+    severity: warning
+    rationale: >
+      Wired Display is published across Regular through Black on
+      the live site. The display weight range is integral to the
+      magazine's typographic voice; weights outside this band
+      should be avoided in the Playfair Display substitute.
+
+  - type: compositionConstraint
+    target: roles.colors.accent
+    pairsWith:
+      - black
+      - cream
+      - cream-light
+    doesNotPairWith:
+      - signature-red
+      - signature-red-bright
+    severity: recommendation
+    rationale: >
+      Kicker yellow reads cleanest on black, the cream canvas,
+      or its cream-light variant. Placing it adjacent to the
+      signature red collapses the chromatic hierarchy that
+      separates section-tag (yellow) from identity (red).

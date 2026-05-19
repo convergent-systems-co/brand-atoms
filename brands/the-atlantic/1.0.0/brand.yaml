@@ -1,0 +1,190 @@
+id: the-atlantic
+version: 1.0.0
+name: The Atlantic
+description: >
+  The Atlantic is a 165-year-old American magazine — founded 1857
+  — known for long-form essay journalism on politics, ideas, and
+  culture. The visual identity is paper-toned and considered:
+  warm cream canvas, deep ink body, a signature ™-red (#E7131A)
+  for the masthead lockup, and a calm cyan-blue for trusted-source
+  link affordances. The proprietary Lyon (display serif),
+  Atlantic Condensed, Druk, and Goldwyn carry the editorial voice,
+  with Graphik handling sans-serif chrome.
+
+tags: [the-atlantic, atlantic, magazine, journalism, brand, red, cream, serif, essay]
+
+provenance:
+  source: https://www.theatlantic.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    The Atlantic Monthly Group LLC — visual identity captured
+    from the deployed Next.js stylesheet at cdn.theatlantic.com/
+    _next/static/css/. The Atlantic, the Lyon / Atlantic
+    Condensed / Druk / Goldwyn / Graphik typefaces are property
+    of The Atlantic.
+  importedDate: 2026-05-19
+  notes: >
+    Derived from live site CSS at https://www.theatlantic.com/ on
+    2026-05-19; no public brand guide located. The proprietary
+    Lyon (display serif — Kai Bernau's design, licensed by The
+    Atlantic), Atlantic Condensed, Druk (display sans by
+    Commercial Type), Goldwyn, and Graphik (sans by Commercial
+    Type) typefaces are declared on the live stylesheet but are
+    not publicly distributed in the cuts The Atlantic licenses.
+    Open-source substitutes — lora@1 for body prose,
+    playfair-display@1 for the display serif role, inter@1 for
+    sans — are referenced from the brand atom.
+
+references:
+  palette: the-atlantic@1
+  fonts:
+    heading: playfair-display@1
+    body: lora@1
+    sans: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    identity: cream
+    on-identity: ink
+
+    primary: blue-link
+    primary-hover: blue-link-deep
+    accent: signature-red
+    accent-hover: red-deep
+    mark: signature-red
+    warning: gold
+    error: red-deep
+    text-primary-light: ink
+    text-primary-dark: cream
+    background-light: cream
+    background-dark: ink
+    surface-light: surface-light
+    surface-dark: graphite
+    text-secondary-light: graphite
+    text-tertiary-light: graphite-quiet
+    border-light: gray-divider
+  typography:
+    display: heading
+    prose: body
+    ui: sans
+    code: mono
+
+assets: []
+
+rules:
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 7.0
+    standard: WCAG-AAA
+    severity: error
+    rationale: >
+      Ink (#1E1E1E) on cream (#FAF4EB) gives ~15:1 — past AAA.
+      The Atlantic's long-form essay format is the canonical
+      reading posture for the brand; the AAA contrast target
+      preserves legibility through long article sessions.
+
+  - type: colorChoice
+    target: roles.colors.mark
+    allowed:
+      - signature-red
+      - red-deep
+      - ink
+    forbidden:
+      - blue-link
+      - cyan-deep
+      - gold
+      - navy
+    severity: error
+    rationale: >
+      The Atlantic ™ mark is rendered in the signature red on
+      cream or white. The blue, cyan, gold, and navy colors are
+      reserved for link/data/warning roles; recoloring the mark
+      would conflict with the editorial-identity hierarchy.
+
+  - type: contextRestriction
+    target: roles.colors.accent
+    allowedContexts:
+      - masthead
+      - mark
+      - editorial-emphasis
+      - feature-callout
+    forbiddenContexts:
+      - default-link
+      - error-state
+      - body-emphasis
+    severity: error
+    rationale: >
+      The Atlantic red carries masthead and ™ semantic weight.
+      The default link affordance is blue-link (#0076BF); using
+      red as the in-copy link color would conflate identity-red
+      with link-blue meaning.
+
+  - type: fontPairing
+    target: typography.display
+    requires: prose
+    minSizeRatio: 1.5
+    severity: error
+    rationale: >
+      The Atlantic pairs Lyon display serif with Lyon Text for
+      body — the same family at distinct optical sizes. The
+      display-to-prose hierarchy is central to the magazine's
+      voice; a 1.5× minimum ratio preserves it when open-source
+      substitutes (Playfair Display, Lora) stand in.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+    severity: error
+    rationale: >
+      The Atlantic's ™ wordmark — the script "The" over Atlantic
+      Condensed — is a heavily standardized mark. Recoloring it
+      away from the signature red, stretching, or applying
+      effects conflicts with the brand's print-magazine voice.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AAA
+    criterion: "1.4.6"
+    severity: warning
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.6 (Contrast Enhanced) —
+      Level AAA. The Atlantic's reader profile skews toward long,
+      reflective reading sessions; the enhanced contrast target
+      supports that posture, especially against the warm cream
+      canvas.
+
+  - type: enumMembership
+    target: typography.body.fontStyle
+    allowed: ["normal", "italic"]
+    forbidden: ["oblique"]
+    severity: warning
+    rationale: >
+      Lyon Text ships true italics as a separate face — synthetic
+      oblique skews are forbidden in The Atlantic's typesetting
+      and would degrade the substituting Lora face equivalently.
+
+  - type: compositionConstraint
+    target: roles.colors.accent
+    pairsWith:
+      - cream
+      - white
+      - ink
+    doesNotPairWith:
+      - blue-link
+      - cyan-deep
+      - gold
+    severity: recommendation
+    rationale: >
+      The Atlantic red reads cleanest on the warm cream canvas,
+      against the ink, or on bright white. Placing it adjacent
+      to the link blue, cyan, or gold introduces a chromatic
+      conflict between identity-red and semantic-state colors
+      that the magazine layouts treat as distinct registers.

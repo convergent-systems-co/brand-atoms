@@ -1,0 +1,124 @@
+kind: palette
+id: propublica
+version: 1.0.0
+name: ProPublica
+description: >
+  The ProPublica palette as deployed on propublica.org. The
+  Pulitzer-winning investigative nonprofit newsroom's identity is
+  built on a quiet warm-white canvas (#F2F1ED), a warm near-black
+  ink (#111110) for body content, and a saturated investigative
+  red (#D92D03) used as the call-to-action and promo accent. The
+  proprietary Feature Headline (serif display) and Tiempos Text
+  (serif body) typefaces — paired with Brut Grotesque (sans) —
+  carry the long-form investigative voice.
+
+tags: [propublica, news, journalism, nonprofit, investigative, brand, red, paper, light-first]
+
+provenance:
+  source: https://www.propublica.org/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    ProPublica, Inc. — palette values captured from the deployed
+    concatenated WordPress stylesheet at propublica.org/_static/.
+    ProPublica and the Feature Headline / Tiempos Text / Brut
+    Grotesque typefaces are property of ProPublica, Inc.
+  importedDate: 2026-05-19
+  notes: >
+    Derived from live --p-color-* CSS custom-property tokens on
+    propublica.org on 2026-05-19; no public brand guide located.
+    The proprietary Feature Headline (display serif), Tiempos
+    Text (serif body, licensed from Klim Type Foundry), and Brut
+    Grotesque (sans) typefaces are declared on the live
+    stylesheet but are not publicly distributed in the cuts
+    ProPublica licenses. Open-source substitutes — lora@1 for
+    body prose, playfair-display@1 for the display serif role,
+    inter@1 for sans — are referenced from the brand atom.
+
+swatches:
+  - id: warm-black
+    name: Warm Black
+    value: "#111110"
+    description: --p-color-warm-black — primary text and warm ink.
+  - id: black
+    name: Black
+    value: "#000000"
+    description: --p-color-black — absolute black; mark fills.
+
+  - id: warm-white
+    name: Warm White
+    value: "#F2F1ED"
+    description: --p-color-warm-white — the warm cream canvas.
+  - id: white
+    name: White
+    value: "#FFFFFF"
+    description: --p-color-white — bright canvas alternate.
+
+  - id: investigative-red
+    name: Investigative Red
+    value: "#D92D03"
+    description: ProPublica promo red — the CTA and emphasis color.
+  - id: investigative-red-deep
+    name: Investigative Red Deep
+    value: "#A00000"
+    description: Pressed / active variant of investigative red.
+
+  - id: theme-blue
+    name: Theme Blue
+    value: "#304154"
+    description: Deep slate-blue theme accent from the propublica-2026 theme.
+
+  - id: gray-warm
+    name: Gray Warm
+    value: "#5A5A5A"
+    description: Warm gray secondary text.
+  - id: gray-medium
+    name: Gray Medium
+    value: "#727272"
+    description: Medium gray tertiary text and meta.
+  - id: gray-quiet
+    name: Gray Quiet
+    value: "#979797"
+    description: Quiet gray for disabled / meta.
+  - id: gray-border
+    name: Gray Border
+    value: "#C7C7C7"
+    description: Heavier border weight.
+  - id: gray-divider
+    name: Gray Divider
+    value: "#DFDFDF"
+    description: Quiet rule weight.
+  - id: gray-tint
+    name: Gray Tint
+    value: "#EBEBEB"
+    description: Quiet surface tint.
+
+modes:
+  light:
+    roles:
+      background: warm-white
+      surface: gray-tint
+      surface-elevated: white
+      text-primary: warm-black
+      text-secondary: gray-warm
+      text-tertiary: gray-medium
+      primary: investigative-red
+      primary-hover: investigative-red-deep
+      accent: investigative-red
+      accent-hover: investigative-red-deep
+      error: investigative-red-deep
+      border: gray-divider
+
+  dark:
+    roles:
+      background: warm-black
+      surface: theme-blue
+      surface-elevated: gray-warm
+      text-primary: warm-white
+      text-secondary: gray-divider
+      text-tertiary: gray-border
+      primary: investigative-red
+      primary-hover: investigative-red-deep
+      accent: investigative-red
+      accent-hover: investigative-red-deep
+      error: investigative-red
+      border: gray-warm

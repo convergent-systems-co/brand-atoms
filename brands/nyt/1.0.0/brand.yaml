@@ -1,0 +1,185 @@
+id: nyt
+version: 1.0.0
+name: The New York Times
+description: >
+  The New York Times is the paper of record — a 170-year-old
+  newsroom whose brand voice is authoritative, considered, and
+  visually anchored in serif typography on bright white. The
+  identity on nytimes.com renders as near-black ink on paper-white,
+  with a desaturated reading blue for in-copy links and the
+  masthead's deep red reserved for breaking-news bridges. The
+  proprietary type family — Cheltenham (display serif), Imperial
+  (body serif), and Franklin (sans) — carries the editorial voice.
+
+tags: [nyt, new-york-times, news, journalism, brand, serif, paper, light-first]
+
+provenance:
+  source: https://www.nytimes.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    The New York Times Company — visual identity captured from
+    the deployed HTML and inline CSS on nytimes.com. The New York
+    Times, its masthead, and the Cheltenham / Imperial / Franklin
+    typefaces are property of The New York Times Company.
+  importedDate: 2026-05-19
+  notes: >
+    Derived from live site CSS at https://www.nytimes.com/ on
+    2026-05-19; no public brand guide located. The proprietary
+    NYT type family (nyt-cheltenham, nyt-imperial, nyt-franklin)
+    is declared in @font-face on the live site but is not
+    publicly distributed. Open-source substitutes are referenced
+    here — playfair-display@1 for the display serif, pt-serif@1
+    for body prose, and inter@1 for the sans role.
+
+references:
+  palette: nyt@1
+  fonts:
+    heading: playfair-display@1
+    body: pt-serif@1
+    sans: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    identity: white
+    on-identity: ink-black
+
+    primary: reading-blue
+    primary-hover: reading-blue-hover
+    accent: masthead-red
+    accent-hover: masthead-red-bright
+    mark: ink-black
+    error: masthead-red
+    text-primary-light: ink-black
+    text-primary-dark: white
+    background-light: white
+    background-dark: ink-black
+    surface-light: paper
+    surface-dark: ink-medium
+    text-secondary-light: ink-medium
+    text-tertiary-light: ink-light
+    border-light: gray-divider
+  typography:
+    display: heading
+    prose: body
+    ui: sans
+    code: mono
+
+assets: []
+
+rules:
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 7.0
+    standard: WCAG-AAA
+    severity: error
+    rationale: >
+      Ink Black (#121212) on White (#FFFFFF) gives ~18:1 — well
+      past AAA. The NYT's long-form reading posture and the
+      density of body type on a typical article page justify
+      the AAA enhanced contrast target rather than the AA floor.
+
+  - type: colorChoice
+    target: roles.colors.accent
+    allowed:
+      - masthead-red
+      - masthead-red-bright
+    forbidden:
+      - reading-blue
+      - reading-blue-hover
+    severity: error
+    rationale: >
+      The masthead red (#D0021B) is reserved for breaking-news
+      bridges, live-update kickers, and the legacy masthead
+      bridge. Substituting reading-blue (the in-copy link color)
+      for the accent role would conflate the link-affordance
+      meaning with the breaking-news meaning.
+
+  - type: contextRestriction
+    target: roles.colors.accent
+    allowedContexts:
+      - breaking-news
+      - live-update
+      - editorial-kicker
+      - masthead
+    forbiddenContexts:
+      - default-link
+      - body-emphasis
+      - cta
+    severity: error
+    rationale: >
+      Masthead Red carries semantic weight in NYT's editorial
+      grammar — it signals urgency and live coverage. Using it
+      as a default CTA or in-copy link color would dilute that
+      meaning and conflict with the editorial taxonomy.
+
+  - type: fontPairing
+    target: typography.display
+    requires: prose
+    minSizeRatio: 1.5
+    severity: error
+    rationale: >
+      NYT pairs the Cheltenham display serif with Imperial for
+      body prose at a clear size step. The display-to-prose
+      hierarchy is part of how the page reads as a newspaper
+      — a 1.5× minimum ratio preserves that hierarchy when
+      open-source substitutes (Playfair Display / PT Serif)
+      stand in for the proprietary primaries.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+      - cropped
+    severity: error
+    rationale: >
+      The NYT Old English masthead is a near-sacred mark. Any
+      recoloring, rotation, gradient, or skew would conflict
+      with the brand's authority and is forbidden by the NYT
+      brand standards reflected in every published rendering.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AAA
+    criterion: "1.4.6"
+    severity: warning
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.6 (Contrast Enhanced) —
+      Level AAA. NYT's body type is dense; readers spend long
+      sessions on article pages. The AAA contrast target serves
+      that reading posture better than the AA floor.
+
+  - type: enumMembership
+    target: typography.prose.fontStyle
+    allowed: ["normal", "italic"]
+    forbidden: ["oblique"]
+    severity: warning
+    rationale: >
+      Imperial (and the PT Serif substitute) ships true italics
+      cut as a separate face. Synthetic oblique skews are
+      forbidden — they degrade legibility of the body face and
+      conflict with the typographic discipline that defines the
+      NYT reading experience.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - white
+      - paper
+      - ink-black
+    doesNotPairWith:
+      - masthead-red
+      - masthead-red-bright
+    severity: recommendation
+    rationale: >
+      Reading Blue (#346EB7) reads cleanest on the paper canvas
+      or against ink. Placing it adjacent to the masthead red
+      introduces an editorial-color collision — the page loses
+      its hierarchy because two competing accent signals fight
+      for attention.

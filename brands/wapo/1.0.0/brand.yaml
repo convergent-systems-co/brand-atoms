@@ -1,0 +1,187 @@
+id: wapo
+version: 1.0.0
+name: The Washington Post
+description: >
+  The Washington Post is the capital-bureau paper of record —
+  serious, accountability-driven, with a brand voice built around
+  the tagline "Democracy Dies in Darkness." The Washington Post
+  Design System (WPDS) makes the brand legible at the token level:
+  near-black ink on white, a deliberate primary blue for CTAs and
+  trusted-source links, deep newsroom red for breaking-news
+  emphasis, and a published 9-step gray scale. The proprietary
+  Postoni Wide (display serif) and Franklin (sans) typefaces
+  carry the editorial voice.
+
+tags: [washington-post, wapo, news, journalism, brand, blue, serif, light-first]
+
+provenance:
+  source: https://github.com/washingtonpost/tachyons-css/blob/main/src/wpds-colors-tokens.css
+  license: Proprietary brand identity; design-token source under repository license
+  attribution: >
+    The Washington Post (WP Company LLC) — visual identity captured
+    from the published Washington Post Design System (WPDS) color
+    tokens at github.com/washingtonpost/tachyons-css. The
+    Washington Post, the masthead, and the Postoni / Franklin
+    typefaces are property of WP Company LLC.
+  importedDate: 2026-05-19
+  notes: >
+    Derived from the WPDS published color tokens on 2026-05-19;
+    no consumer-facing brand guide located. The proprietary
+    typefaces (Postoni Wide for display, Franklin / Franklin
+    ITC variants for sans/text) are referenced in the design
+    system but are not publicly distributed. Open-source
+    substitutes are referenced — playfair-display@1 for the
+    display serif, pt-serif@1 for body prose, and inter@1 for
+    the sans role.
+
+references:
+  palette: wapo@1
+  fonts:
+    heading: playfair-display@1
+    body: pt-serif@1
+    sans: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    identity: gray-700
+    on-identity: gray-20
+
+    primary: blue-100
+    primary-hover: blue-80
+    accent: red-80
+    accent-hover: red-60
+    mark: gray-0
+    success: green-80
+    warning: orange-80
+    error: red-100
+    text-primary-light: gray-20
+    text-primary-dark: gray-700
+    background-light: gray-700
+    background-dark: gray-20
+    surface-light: gray-600
+    surface-dark: gray-40
+    text-secondary-light: gray-60
+    text-tertiary-light: gray-80
+    border-light: gray-300
+  typography:
+    display: heading
+    prose: body
+    ui: sans
+    code: mono
+
+assets: []
+
+rules:
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 7.0
+    standard: WCAG-AAA
+    severity: error
+    rationale: >
+      Gray 20 (#111111) on white gives ~19:1 — well past AAA.
+      WPDS treats the gray-20-on-gray-700 pair as the canonical
+      text/background combination for body prose; the
+      accountability-journalism voice and long article sessions
+      justify the AAA enhanced contrast target.
+
+  - type: colorChoice
+    target: roles.colors.primary
+    allowed:
+      - blue-100
+      - blue-80
+      - blue-60
+    forbidden:
+      - red-100
+      - red-80
+      - orange-80
+    severity: error
+    rationale: >
+      WPDS scopes blue as the primary CTA and trusted-link family.
+      Substituting red (the breaking-news emphasis color) for the
+      primary role would collapse two distinct semantic meanings
+      in the design system — links and emergencies.
+
+  - type: contextRestriction
+    target: roles.colors.accent
+    allowedContexts:
+      - breaking-news
+      - editorial-emphasis
+      - opinion-tag
+      - live-update
+    forbiddenContexts:
+      - default-link
+      - body-emphasis
+      - default-cta
+    severity: error
+    rationale: >
+      The WaPo red (red-80 / red-100) carries breaking-news and
+      editorial-category meaning in WPDS. Using it as a default
+      CTA color would dilute the semantic weight and conflict
+      with WPDS role mappings (cta = blue100).
+
+  - type: fontPairing
+    target: typography.display
+    requires: prose
+    minSizeRatio: 1.5
+    severity: error
+    rationale: >
+      WaPo pairs Postoni Wide (a tall display serif) with
+      Franklin for sans headings and Franklin / serif for body.
+      The display-to-prose hierarchy is a defining element of
+      the article-page identity; a 1.5× minimum size ratio
+      preserves it when open-source substitutes stand in.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+    severity: error
+    rationale: >
+      The Old English wordmark is the institutional mark of the
+      paper. Recoloring, rotation, gradients, or skewing
+      conflict with the brand's voice of authority and the
+      published WPDS asset guidance.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AAA
+    criterion: "1.4.6"
+    severity: warning
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.6 (Contrast Enhanced) —
+      Level AAA. WaPo's accountability-journalism mission and
+      its long-form article format justify the enhanced 7:1
+      target.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["400", "500", "600", "700", "900"]
+    severity: warning
+    rationale: >
+      Postoni Wide ships in Regular through Black. Heading
+      weights below Regular and synthetic Heavy beyond the
+      Black cut would degrade the masthead-character of WaPo
+      display type.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - gray-700
+      - gray-20
+      - gray-600
+    doesNotPairWith:
+      - red-80
+      - red-100
+    severity: recommendation
+    rationale: >
+      Blue 100 on the white canvas or against ink reads cleanly
+      as a link or CTA. Placing it adjacent to the breaking-news
+      red collapses the editorial-color hierarchy that WPDS
+      establishes between informational blue and urgency red.

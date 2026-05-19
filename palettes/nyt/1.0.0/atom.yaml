@@ -1,0 +1,125 @@
+kind: palette
+id: nyt
+version: 1.0.0
+name: The New York Times
+description: >
+  The New York Times palette as deployed on nytimes.com. The brand
+  is paper-toned and ink-led: a near-black "Ink" body color on a
+  bright white canvas, with a small accent set — a desaturated
+  link blue ("Reading Blue"), the masthead's deep red ("Masthead
+  Red"), and a tight gray scale used for rules, captions, and
+  meta. The result reads as authoritative print on screen.
+
+tags: [nyt, new-york-times, news, journalism, paper, serif, light-first]
+
+provenance:
+  source: https://www.nytimes.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    The New York Times Company — palette values captured from the
+    deployed HTML and inline styles on nytimes.com. The New York
+    Times, its masthead, and associated marks are property of The
+    New York Times Company.
+  importedDate: 2026-05-19
+  notes: >
+    Hex values extracted from the live nytimes.com homepage on
+    2026-05-19; no public brand guide located. The masthead red
+    (#D0021B) appears in editorial breaking-news labels and
+    legacy print bridges; #346EB7 is the in-copy link blue.
+    Cheltenham, Imperial, and Franklin are NYT proprietary
+    typefaces and are not publicly distributed.
+
+swatches:
+  - id: ink-black
+    name: Ink Black
+    value: "#121212"
+    description: Primary body text; the deep ink of a newspaper print page.
+  - id: ink-medium
+    name: Ink Medium
+    value: "#363636"
+    description: Secondary text; deck and byline weight.
+  - id: ink-light
+    name: Ink Light
+    value: "#5A5A5A"
+    description: Tertiary text; meta, timestamps, kicker labels.
+
+  - id: gray-light
+    name: Gray Light
+    value: "#727272"
+    description: Quiet meta text; disabled captions.
+  - id: gray-rule
+    name: Gray Rule
+    value: "#979797"
+    description: Hairline rule between stories; column dividers.
+  - id: gray-border
+    name: Gray Border
+    value: "#C7C7C7"
+    description: Heavier border; card outlines.
+  - id: gray-divider
+    name: Gray Divider
+    value: "#DFDFDF"
+    description: Section divider; quiet block boundary.
+  - id: gray-tint
+    name: Gray Tint
+    value: "#EBEBEB"
+    description: Pull-quote background; chip surface.
+  - id: gray-surface
+    name: Gray Surface
+    value: "#F7F7F7"
+    description: Alternating row tint; subtle inset surface.
+  - id: paper
+    name: Paper
+    value: "#F8F8F8"
+    description: Newsprint-like off-white; quiet section canvas.
+  - id: white
+    name: White
+    value: "#FFFFFF"
+    description: Primary page canvas; the bright digital sheet.
+
+  - id: reading-blue
+    name: Reading Blue
+    value: "#346EB7"
+    description: In-copy link color; the desaturated NYT blue.
+  - id: reading-blue-hover
+    name: Reading Blue Hover
+    value: "#2B8AD8"
+    description: Brighter blue for link hover and interactive emphasis.
+  - id: masthead-red
+    name: Masthead Red
+    value: "#D0021B"
+    description: Breaking-news red; masthead-bridge accent.
+  - id: masthead-red-bright
+    name: Masthead Red Bright
+    value: "#F4564A"
+    description: Brighter red used in live-update pulses and tags.
+
+modes:
+  light:
+    roles:
+      background: white
+      surface: paper
+      surface-elevated: white
+      text-primary: ink-black
+      text-secondary: ink-medium
+      text-tertiary: ink-light
+      primary: reading-blue
+      primary-hover: reading-blue-hover
+      accent: masthead-red
+      accent-hover: masthead-red-bright
+      error: masthead-red
+      border: gray-divider
+
+  dark:
+    roles:
+      background: ink-black
+      surface: ink-medium
+      surface-elevated: ink-light
+      text-primary: white
+      text-secondary: gray-divider
+      text-tertiary: gray-border
+      primary: reading-blue-hover
+      primary-hover: reading-blue
+      accent: masthead-red-bright
+      accent-hover: masthead-red
+      error: masthead-red-bright
+      border: ink-light

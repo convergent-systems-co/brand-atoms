@@ -1,0 +1,169 @@
+kind: palette
+id: the-verge
+version: 1.0.0
+name: The Verge
+description: >
+  The Verge palette as deployed since the 2022 brand refresh —
+  Vox Media's tech-and-culture publication. The identity reads as
+  digital-native: deep ink (#131313) on quiet off-white, a
+  saturated electric purple (#5200FF) for primary action, and a
+  neon mint (#3CFFD0) for accent emphasis. A secondary "Verge
+  green" (#309875) handles status surfaces. The display face
+  Manuka and the geometric Polysans family carry the editorial
+  voice.
+
+tags: [the-verge, verge, vox-media, tech, news, brand, electric, dark-first]
+
+provenance:
+  source: https://www.theverge.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Vox Media — palette values captured from the deployed Next.js
+    stylesheet at theverge.com/_next/static/css/. The Verge,
+    Vox Media, and the Manuka / Polysans / FK Roman Standard
+    typefaces are property of Vox Media, LLC.
+  importedDate: 2026-05-19
+  notes: >
+    Derived from live site CSS at https://www.theverge.com/ on
+    2026-05-19; no public brand guide located. The proprietary
+    Manuka (display), Polysans (sans), FK Roman Standard
+    (serif), and PolySansMono (mono) typefaces are declared on
+    the live stylesheet but are not publicly distributed.
+    Open-source substitutes — playfair-display@1 for the serif
+    display role, inter@1 for the sans role, and
+    jetbrainsmono-nerdfont@1 for mono — are referenced from the
+    brand atom.
+
+swatches:
+  - id: ink
+    name: Ink
+    value: "#131313"
+    description: Primary text and dark surface — the Verge ink.
+  - id: black
+    name: Black
+    value: "#000000"
+    description: Absolute black; mark fills.
+  - id: gray-bright
+    name: Gray Bright
+    value: "#313131"
+    description: Elevated surface in dark mode; secondary text.
+  - id: gray-medium
+    name: Gray Medium
+    value: "#4A4A4A"
+    description: Secondary body text on light surfaces.
+  - id: gray-muted
+    name: Gray Muted
+    value: "#636363"
+    description: Tertiary text; muted captions.
+  - id: gray-quiet
+    name: Gray Quiet
+    value: "#949494"
+    description: Disabled text and quiet meta.
+  - id: gray-border
+    name: Gray Border
+    value: "#BDBDBD"
+    description: Heavy border weight.
+  - id: gray-divider
+    name: Gray Divider
+    value: "#E9E9E9"
+    description: Quiet rule weight.
+  - id: gray-tint
+    name: Gray Tint
+    value: "#EFEFEF"
+    description: Quiet surface tint.
+  - id: gray-surface
+    name: Gray Surface
+    value: "#F6F6F6"
+    description: Subtle inset surface.
+  - id: white
+    name: White
+    value: "#FFFFFF"
+    description: Page canvas — the Verge bright sheet.
+
+  - id: electric-purple
+    name: Electric Purple
+    value: "#5200FF"
+    description: Primary action color — the Verge electric accent.
+  - id: electric-purple-pressed
+    name: Electric Purple Pressed
+    value: "#3D00BF"
+    description: Pressed / active variant of electric-purple.
+  - id: electric-purple-light
+    name: Electric Purple Light
+    value: "#A980FF"
+    description: Lighter electric purple — quiet emphasis.
+  - id: electric-purple-tint
+    name: Electric Purple Tint
+    value: "#DFCFFF"
+    description: Quiet surface tint of electric purple.
+  - id: electric-purple-faint
+    name: Electric Purple Faint
+    value: "#EEE6FF"
+    description: Faint background tint.
+
+  - id: neon-mint
+    name: Neon Mint
+    value: "#3CFFD0"
+    description: Bright accent — the Verge mint signal color.
+  - id: neon-mint-tint
+    name: Neon Mint Tint
+    value: "#D8F0E8"
+    description: Quiet mint surface tint.
+
+  - id: verge-green
+    name: Verge Green
+    value: "#309875"
+    description: Status / success green — the Verge confirmation color.
+
+  - id: yellow-bright
+    name: Yellow Bright
+    value: "#D6F31F"
+    description: Verge accent yellow — quote highlights and tags.
+  - id: yellow-faint
+    name: Yellow Faint
+    value: "#FFFCD4"
+    description: Faint yellow surface tint.
+
+  - id: peach-faint
+    name: Peach Faint
+    value: "#FFD5C8"
+    description: Faint coral surface.
+  - id: rose-faint
+    name: Rose Faint
+    value: "#FFC2E7"
+    description: Faint rose surface.
+
+modes:
+  light:
+    roles:
+      background: white
+      surface: gray-surface
+      surface-elevated: white
+      text-primary: ink
+      text-secondary: gray-medium
+      text-tertiary: gray-muted
+      primary: electric-purple
+      primary-hover: electric-purple-pressed
+      accent: neon-mint
+      accent-hover: verge-green
+      warning: yellow-bright
+      error: electric-purple-pressed
+      success: verge-green
+      border: gray-divider
+
+  dark:
+    roles:
+      background: ink
+      surface: gray-bright
+      surface-elevated: gray-medium
+      text-primary: white
+      text-secondary: gray-divider
+      text-tertiary: gray-border
+      primary: electric-purple-light
+      primary-hover: electric-purple
+      accent: neon-mint
+      accent-hover: verge-green
+      warning: yellow-bright
+      error: electric-purple-light
+      success: neon-mint
+      border: gray-bright

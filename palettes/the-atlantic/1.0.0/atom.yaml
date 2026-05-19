@@ -1,0 +1,172 @@
+kind: palette
+id: the-atlantic
+version: 1.0.0
+name: The Atlantic
+description: >
+  The Atlantic palette as deployed on theatlantic.com. The 165-year
+  publication's identity is anchored by the signature Atlantic red
+  (#E7131A) — the masthead and ™ accent — paired with a deep
+  graphite ink on a warm cream canvas (#FAF4EB). Secondary
+  desaturated grays and a calm teal-cyan handle data viz and
+  interactive emphasis. The proprietary Lyon (display serif),
+  Atlantic Condensed, Druk (display), Goldwyn, and Graphik (sans)
+  typefaces carry the long-form essay voice.
+
+tags: [the-atlantic, atlantic, magazine, journalism, brand, red, cream, serif, light-first]
+
+provenance:
+  source: https://www.theatlantic.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    The Atlantic Monthly Group LLC — palette values captured from
+    the deployed Next.js stylesheet at cdn.theatlantic.com/
+    _next/static/css/. The Atlantic, the Lyon / Atlantic
+    Condensed / Druk / Goldwyn / Graphik / Adobe Garamond Pro
+    typefaces are property of The Atlantic.
+  importedDate: 2026-05-19
+  notes: >
+    Derived from live site CSS at https://www.theatlantic.com/
+    on 2026-05-19; no public brand guide located. The
+    proprietary Lyon (the magazine's display serif), Atlantic
+    Condensed, Druk, Goldwyn, and Graphik typefaces are declared
+    on the live stylesheet but are not publicly distributed.
+    Open-source substitutes — lora@1 for the serif body role,
+    playfair-display@1 for the display serif role, inter@1 for
+    sans — are referenced from the brand atom. Adobe Garamond
+    Pro is used in archival/legacy contexts on the site.
+
+swatches:
+  - id: signature-red
+    name: Atlantic Red
+    value: "#E7131A"
+    description: The signature Atlantic red — masthead and ™ accent.
+  - id: red-bright
+    name: Red Bright
+    value: "#F0204F"
+    description: Brighter red for live-update and emphasis.
+  - id: red-deep
+    name: Red Deep
+    value: "#D0021B"
+    description: Deeper red — pressed states and editorial emphasis.
+
+  - id: cream
+    name: Cream
+    value: "#FAF4EB"
+    description: Warm cream canvas — the Atlantic paper tone.
+  - id: white
+    name: White
+    value: "#FFFFFF"
+    description: Bright white — high-contrast canvas alternate.
+  - id: surface-light
+    name: Surface Light
+    value: "#F7F7F7"
+    description: Cool quiet surface.
+  - id: surface-tint
+    name: Surface Tint
+    value: "#F5F5F5"
+    description: Lighter cool surface.
+  - id: surface-quiet
+    name: Surface Quiet
+    value: "#F4F4F4"
+    description: Subtle inset surface.
+  - id: surface-faint
+    name: Surface Faint
+    value: "#F0F0F0"
+    description: Faintest quiet surface tint.
+
+  - id: ink
+    name: Ink
+    value: "#1E1E1E"
+    description: Primary body text — the Atlantic ink.
+  - id: ink-warm
+    name: Ink Warm
+    value: "#2C2C2C"
+    description: Warm body text variant.
+  - id: ink-cool
+    name: Ink Cool
+    value: "#2D2D2D"
+    description: Cool body text variant.
+  - id: graphite
+    name: Graphite
+    value: "#39434B"
+    description: Cool graphite — heading and deck color.
+  - id: graphite-medium
+    name: Graphite Medium
+    value: "#484542"
+    description: Warm graphite — alternate body.
+  - id: graphite-quiet
+    name: Graphite Quiet
+    value: "#5E6A74"
+    description: Quiet graphite — secondary text on light.
+
+  - id: gray-disabled
+    name: Gray Disabled
+    value: "#9B9B9B"
+    description: Disabled text; quiet meta.
+  - id: gray-border
+    name: Gray Border
+    value: "#C1C1C1"
+    description: Heavy border weight.
+  - id: gray-divider
+    name: Gray Divider
+    value: "#DBDBDB"
+    description: Quiet rule weight.
+
+  - id: cyan-deep
+    name: Cyan Deep
+    value: "#00ADC3"
+    description: Calm cyan — data viz and interactive emphasis.
+  - id: cyan-bright
+    name: Cyan Bright
+    value: "#31C6CC"
+    description: Brighter cyan for hover and accent.
+  - id: blue-link
+    name: Blue Link
+    value: "#0076BF"
+    description: Trusted-source link blue.
+  - id: blue-link-deep
+    name: Blue Link Deep
+    value: "#0066BE"
+    description: Pressed blue link.
+  - id: navy
+    name: Navy
+    value: "#000929"
+    description: Deep navy — dark accent surface.
+
+  - id: gold
+    name: Gold
+    value: "#FFC200"
+    description: Warning gold; quiet editorial highlight.
+
+modes:
+  light:
+    roles:
+      background: cream
+      surface: surface-light
+      surface-elevated: white
+      text-primary: ink
+      text-secondary: graphite
+      text-tertiary: graphite-quiet
+      primary: blue-link
+      primary-hover: blue-link-deep
+      accent: signature-red
+      accent-hover: red-deep
+      warning: gold
+      error: red-deep
+      border: gray-divider
+
+  dark:
+    roles:
+      background: ink
+      surface: graphite
+      surface-elevated: graphite-medium
+      text-primary: cream
+      text-secondary: gray-divider
+      text-tertiary: gray-border
+      primary: cyan-bright
+      primary-hover: cyan-deep
+      accent: signature-red
+      accent-hover: red-bright
+      warning: gold
+      error: red-bright
+      border: graphite

@@ -1,0 +1,192 @@
+id: propublica
+version: 1.0.0
+name: ProPublica
+description: >
+  ProPublica is the nonprofit, independent investigative newsroom
+  founded 2007 — winner of nine Pulitzer Prizes for journalism
+  that "exposes abuses of power and betrayals of the public
+  trust." The visual identity is restrained and authority-led:
+  a warm-white canvas (#F2F1ED), warm-black body ink (#111110),
+  a single saturated investigative red (#D92D03) as the
+  call-to-action accent, and a quiet warm-gray scale for meta.
+  The proprietary Feature Headline (display serif) and Tiempos
+  Text (serif body) — paired with Brut Grotesque (sans) — carry
+  the long-form investigative voice.
+
+tags: [propublica, news, journalism, nonprofit, investigative, brand, red, paper, light-first]
+
+provenance:
+  source: https://www.propublica.org/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    ProPublica, Inc. — visual identity captured from the deployed
+    concatenated WordPress stylesheet at propublica.org/_static/.
+    ProPublica, the Feature Headline / Tiempos Text / Brut
+    Grotesque typefaces are property of ProPublica, Inc. (or
+    their licensors, e.g., Klim Type Foundry for Tiempos).
+  importedDate: 2026-05-19
+  notes: >
+    Derived from live site CSS at https://www.propublica.org/
+    on 2026-05-19; no public brand guide located. The
+    propublica-2026 theme exposes --p-color-* and --p-fonts-*
+    custom properties in the concatenated stylesheet. Tiempos
+    Text is licensed from Klim Type Foundry; Feature Headline
+    and Brut Grotesque are the newsroom's proprietary cuts.
+    Open-source substitutes — lora@1 for body prose,
+    playfair-display@1 for the display serif role, inter@1 for
+    sans — are referenced from the brand atom.
+
+references:
+  palette: propublica@1
+  fonts:
+    heading: playfair-display@1
+    body: lora@1
+    sans: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    identity: warm-white
+    on-identity: warm-black
+
+    primary: investigative-red
+    primary-hover: investigative-red-deep
+    accent: investigative-red
+    accent-hover: investigative-red-deep
+    mark: warm-black
+    error: investigative-red-deep
+    text-primary-light: warm-black
+    text-primary-dark: warm-white
+    background-light: warm-white
+    background-dark: warm-black
+    surface-light: gray-tint
+    surface-dark: theme-blue
+    text-secondary-light: gray-warm
+    text-tertiary-light: gray-medium
+    border-light: gray-divider
+  typography:
+    display: heading
+    prose: body
+    ui: sans
+    code: mono
+
+assets: []
+
+rules:
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 7.0
+    standard: WCAG-AAA
+    severity: error
+    rationale: >
+      Warm Black (#111110) on warm white (#F2F1ED) gives ~16:1
+      — past AAA. ProPublica's investigative-feature format
+      involves long article sessions and dense data tables; the
+      enhanced contrast target supports that reading posture
+      and the newsroom's commitment to accessibility.
+
+  - type: colorChoice
+    target: roles.colors.accent
+    allowed:
+      - investigative-red
+      - investigative-red-deep
+    forbidden:
+      - theme-blue
+      - gray-warm
+      - black
+    severity: error
+    rationale: >
+      ProPublica's accent palette is intentionally minimal —
+      a single investigative red carries CTA and emphasis
+      semantics. Substituting the theme-blue or any gray for
+      the accent would conflate the newsroom's deliberate
+      monochrome-with-red voice with chrome colors.
+
+  - type: contextRestriction
+    target: roles.colors.primary
+    allowedContexts:
+      - cta
+      - donate
+      - editorial-emphasis
+      - feature-callout
+      - support-button
+    forbiddenContexts:
+      - default-link
+      - body-text
+    severity: error
+    rationale: >
+      The investigative red is reserved for high-emphasis
+      surfaces — the "Donate" / "Support" CTAs, feature
+      callouts, and editorial bridges. Using it as the in-copy
+      link color would dilute the high-signal weight the
+      newsroom assigns to this color in --promo-banner tokens.
+
+  - type: fontPairing
+    target: typography.display
+    requires: prose
+    minSizeRatio: 1.5
+    severity: error
+    rationale: >
+      ProPublica pairs Feature Headline (a tall display serif)
+      with Tiempos Text for body prose at a clear size step.
+      The display-to-prose hierarchy is part of the
+      investigative-feature page identity; a 1.5× minimum ratio
+      preserves it when open-source substitutes (Playfair
+      Display, Lora) stand in.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+    severity: error
+    rationale: >
+      The ProPublica wordmark is a restrained, type-led mark
+      consistent with the newsroom's investigative-authority
+      voice. Recoloring, stretching, rotating, or applying
+      gradients conflicts with the brand's editorial discipline.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AAA
+    criterion: "1.4.6"
+    severity: warning
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.6 (Contrast Enhanced) —
+      Level AAA. ProPublica's mission of producing journalism
+      "in the public interest" includes universal access;
+      the AAA target is the natural expression of that mission
+      in the design tokens.
+
+  - type: enumMembership
+    target: typography.body.fontStyle
+    allowed: ["normal", "italic"]
+    forbidden: ["oblique"]
+    severity: warning
+    rationale: >
+      Tiempos Text ships true italics as a separate face — the
+      Klim Type Foundry license includes the italic cut.
+      Synthetic oblique skews are forbidden, both for the
+      proprietary face and for the Lora substitute.
+
+  - type: compositionConstraint
+    target: roles.colors.accent
+    pairsWith:
+      - warm-white
+      - white
+      - warm-black
+    doesNotPairWith:
+      - theme-blue
+      - gray-warm
+    severity: recommendation
+    rationale: >
+      Investigative red reads cleanest on the warm-white canvas
+      or against warm-black ink. Placing it adjacent to the
+      theme-blue or gray-warm surfaces collapses the
+      monochrome-with-red hierarchy that defines the brand's
+      visual restraint.

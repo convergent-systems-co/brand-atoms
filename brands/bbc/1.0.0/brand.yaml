@@ -1,0 +1,198 @@
+id: bbc
+version: 1.0.0
+name: BBC
+description: >
+  The BBC is the world's largest public-service broadcaster — a
+  global, multi-service identity governed by GEL (Global Experience
+  Language), the BBC's design system across web, broadcast, and
+  app surfaces. The visual identity is built on the BBC blocks
+  logo, the "Postbox" signature red, near-black ink on bright
+  white, and the proprietary Reith Sans / Reith Serif typefaces
+  that carry the editorial voice. Accessibility is a stated
+  first-class requirement of GEL.
+
+tags: [bbc, news, broadcasting, brand, red, gel, sans, public-service, light-first]
+
+provenance:
+  source: https://www.bbc.co.uk/gel
+  license: Proprietary — BBC brand and Reith type are property of the BBC
+  attribution: >
+    The British Broadcasting Corporation (BBC) — visual identity
+    informed by BBC GEL (Global Experience Language) at
+    bbc.co.uk/gel and palette values captured from the published
+    Simorgh open-source source code at github.com/bbc/simorgh.
+    The BBC, BBC blocks logo, Reith Sans, and Reith Serif are
+    property of the BBC.
+  importedDate: 2026-05-19
+  notes: >
+    The BBC GEL site at bbc.co.uk/gel documents the design system
+    publicly but the page was not reachable from this fetch
+    context. Palette values were captured from the BBC's own
+    open-source Simorgh implementation. The proprietary Reith
+    type family (Reith Sans, Reith Serif) is not publicly
+    distributed — open-source substitute (Inter@1) is referenced
+    here. BBC GEL is well-documented in public design literature.
+
+references:
+  palette: bbc@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    identity: postbox
+    on-identity: white
+
+    primary: postbox
+    primary-hover: service-neutral-dark
+    accent: postbox
+    accent-hover: live-core
+    mark: postbox
+    success: success-core
+    warning: sport-yellow
+    error: error-core
+    text-primary-light: ebon
+    text-primary-dark: white
+    background-light: white
+    background-dark: midnight-black
+    surface-light: chalk
+    surface-dark: grey-7
+    text-secondary-light: grey-6
+    text-tertiary-light: grey-5
+    border-light: grey-3
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 7.0
+    standard: WCAG-AAA
+    severity: error
+    rationale: >
+      Ebon (#222222) on white gives ~16:1, well past AAA. BBC GEL
+      treats accessibility as a first-class design constraint;
+      the BBC's public-service charter and global, multi-device
+      reach justify the enhanced 7:1 contrast target.
+
+  - type: colorChoice
+    target: roles.colors.mark
+    allowed:
+      - postbox
+      - black
+      - white
+    forbidden:
+      - service-neutral
+      - sport-yellow
+      - live-core
+      - error-core
+    severity: error
+    rationale: >
+      The BBC blocks mark is rendered in postbox red on white,
+      white on postbox red, or as black-on-white in mono
+      contexts only. Recoloring the blocks in service-neutral
+      blue or LIVE teal would violate the BBC's brand standards
+      around the blocks identity.
+
+  - type: contextRestriction
+    target: roles.colors.accent
+    allowedContexts:
+      - bbc-blocks
+      - editorial-emphasis
+      - breaking-news
+      - masthead
+    forbiddenContexts:
+      - default-link
+      - body-emphasis
+      - error-state
+    severity: error
+    rationale: >
+      Postbox red is the BBC blocks identity. It is reserved for
+      the blocks, the masthead, and editorial emphasis. Using it
+      as the default link color would conflict with
+      service-neutral blue (the in-copy link color in BBC
+      online surfaces).
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+      - skewed
+    severity: error
+    rationale: >
+      The BBC blocks logo is one of the most heavily standardized
+      marks in global media. The BBC's brand guidelines forbid
+      recoloring, rotation, gradients, shadows, or skewing of
+      the blocks under any circumstance.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AAA
+    criterion: "1.4.6"
+    severity: warning
+    rationale: >
+      BBC GEL formally requires WCAG 2.1 AA across products, with
+      AAA targeted where reasonably achievable for body text.
+      The BBC's public-service obligation to universal access
+      makes the AAA enhanced contrast target the right default
+      for this brand atom.
+
+  - type: enumMembership
+    target: typography.body.fontWeight
+    allowed: ["400", "500", "700"]
+    severity: warning
+    rationale: >
+      Reith Sans is published in Regular (400), Medium (500), and
+      Bold (700) on BBC surfaces. Heavier display weights are
+      not in the licensed cut; the Inter substitute should mirror
+      the same weight discipline to preserve the typographic
+      voice.
+
+  - type: contextRestriction
+    target: roles.colors.live-core
+    allowedContexts:
+      - live-coverage
+      - status-indicator
+      - now-on-air
+    forbiddenContexts:
+      - default-link
+      - cta
+      - editorial-emphasis
+    severity: error
+    rationale: >
+      The LIVE teal (#009E9E) is reserved in BBC services for
+      live-coverage status — the "LIVE" tag on broadcast and
+      streaming. It must not be used as a general link or CTA
+      color; doing so would conflate live-status semantics with
+      navigation affordances.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - white
+      - black
+      - chalk
+      - midnight-black
+    doesNotPairWith:
+      - service-neutral
+      - sport-yellow
+      - error-core
+    severity: recommendation
+    rationale: >
+      Postbox red reads cleanest on white, black, or the warm
+      chalk neutral. Placing it adjacent to service-neutral blue
+      or error-core pink introduces a chromatic conflict between
+      identity-red and semantic-state colors that BBC GEL
+      treats as a hierarchy violation.

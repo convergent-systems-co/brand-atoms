@@ -1,0 +1,164 @@
+kind: palette
+id: wapo
+version: 1.0.0
+name: The Washington Post
+description: >
+  The Washington Post palette, captured from the open-source
+  Washington Post Design System (WPDS) tokens. The brand is a
+  near-black ink ("gray20") on white, with a deliberate blue
+  primary CTA (the WPDS "blue100") and a deep newsroom red
+  reserved for breaking-news and emphasis. WPDS exposes a full
+  9-step gray scale and tonal ramps across blue, red, orange,
+  green, gold, teal, purple, and pink.
+
+tags: [washington-post, news, journalism, brand, blue, serif, light-first]
+
+provenance:
+  source: https://github.com/washingtonpost/tachyons-css/blob/main/src/wpds-colors-tokens.css
+  license: Proprietary brand identity; design-token source code under repository license
+  attribution: >
+    The Washington Post — palette values captured from the
+    published WPDS color tokens at github.com/washingtonpost/
+    tachyons-css/src/wpds-colors-tokens.css. The Washington Post,
+    its masthead, and Postoni / Franklin typefaces are property
+    of WP Company LLC.
+  importedDate: 2026-05-19
+  notes: >
+    Hex values converted from the rgba() tokens published in
+    the WPDS source on 2026-05-19. The proprietary Postoni Wide
+    (display serif) and Franklin (sans) families are referenced
+    in the design system but are not publicly distributed —
+    open-source substitutes (Playfair Display, PT Serif, Inter)
+    are referenced from the brand atom.
+
+swatches:
+  - id: gray-0
+    name: Gray 0
+    value: "#000000"
+    description: WPDS gray0 — absolute black; mark fills.
+  - id: gray-20
+    name: Gray 20
+    value: "#111111"
+    description: WPDS gray20 — primary text; the WaPo ink.
+  - id: gray-40
+    name: Gray 40
+    value: "#2A2A2A"
+    description: WPDS gray40 — heading deck and body emphasis.
+  - id: gray-60
+    name: Gray 60
+    value: "#494949"
+    description: WPDS gray60 — secondary text.
+  - id: gray-80
+    name: Gray 80
+    value: "#666666"
+    description: WPDS gray80 — accessible quiet text on white.
+  - id: gray-100
+    name: Gray 100
+    value: "#737373"
+    description: WPDS gray100 — meta text; tertiary surfaces.
+  - id: gray-200
+    name: Gray 200
+    value: "#AAAAAA"
+    description: WPDS gray200 — divider weight.
+  - id: gray-300
+    name: Gray 300
+    value: "#D4D4D4"
+    description: WPDS gray300 — border on light.
+  - id: gray-400
+    name: Gray 400
+    value: "#E9E9E9"
+    description: WPDS gray400 — quiet surface tint.
+  - id: gray-500
+    name: Gray 500
+    value: "#F0F0F0"
+    description: WPDS gray500 — alternating row tint.
+  - id: gray-600
+    name: Gray 600
+    value: "#F7F7F7"
+    description: WPDS gray600 — subtle inset surface.
+  - id: gray-700
+    name: Gray 700
+    value: "#FFFFFF"
+    description: WPDS gray700 — white canvas.
+
+  - id: blue-40
+    name: Blue 40
+    value: "#0A3258"
+    description: WPDS blue40 — deepest navy ink-blue.
+  - id: blue-60
+    name: Blue 60
+    value: "#0F4B84"
+    description: WPDS blue60 — heading-blue and trusted-source link.
+  - id: blue-80
+    name: Blue 80
+    value: "#1366B3"
+    description: WPDS blue80 — quiet primary on dark surfaces.
+  - id: blue-100
+    name: Blue 100
+    value: "#166DFC"
+    description: WPDS blue100 — primary CTA blue.
+  - id: blue-200
+    name: Blue 200
+    value: "#5784C5"
+    description: WPDS blue200 — calmer link on lighter contexts.
+
+  - id: red-60
+    name: Red 60
+    value: "#8E1F1B"
+    description: WPDS red60 — deep newsroom red.
+  - id: red-80
+    name: Red 80
+    value: "#BE2C25"
+    description: WPDS red80 — emphasis and breaking-news pulse.
+  - id: red-100
+    name: Red 100
+    value: "#EA0017"
+    description: WPDS red100 — masthead-bright breaking red.
+
+  - id: orange-80
+    name: Orange 80
+    value: "#D86100"
+    description: WPDS orange80 — warning emphasis.
+  - id: green-80
+    name: Green 80
+    value: "#499327"
+    description: WPDS green80 — confirmation / positive change.
+  - id: gold-60
+    name: Gold 60
+    value: "#9E6105"
+    description: WPDS gold60 — opinion/analysis category accent.
+
+modes:
+  light:
+    roles:
+      background: gray-700
+      surface: gray-600
+      surface-elevated: gray-700
+      text-primary: gray-20
+      text-secondary: gray-60
+      text-tertiary: gray-80
+      primary: blue-100
+      primary-hover: blue-80
+      accent: red-80
+      accent-hover: red-60
+      warning: orange-80
+      error: red-100
+      success: green-80
+      border: gray-300
+
+  dark:
+    roles:
+      background: gray-20
+      surface: gray-40
+      surface-elevated: gray-60
+      text-primary: gray-700
+      text-secondary: gray-400
+      text-tertiary: gray-300
+      primary: blue-200
+      primary-hover: blue-100
+      accent: red-80
+      accent-hover: red-100
+      warning: orange-80
+      error: red-100
+      success: green-80
+      border: gray-60

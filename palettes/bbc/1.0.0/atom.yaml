@@ -1,0 +1,169 @@
+kind: palette
+id: bbc
+version: 1.0.0
+name: BBC
+description: >
+  The BBC palette, captured from the open-source Simorgh design
+  system that powers BBC News across services. Anchored by
+  "Postbox" (#B80000) — the signature BBC red — the system pairs
+  near-black on white for body content with a published gray
+  scale, a service-neutral blue, news/sport accent colors, and
+  the LIVE teal used for live-coverage states. Globally accessible,
+  service-driven, with the BBC GEL (Global Experience Language)
+  governing layout, type, and accessibility floor.
+
+tags: [bbc, news, journalism, brand, red, gel, sans, light-first]
+
+provenance:
+  source: https://github.com/bbc/simorgh/blob/latest/src/app/components/ThemeProvider/palette.ts
+  license: Apache-2.0 (simorgh source); brand identity remains property of the BBC
+  attribution: >
+    The British Broadcasting Corporation (BBC) — palette values
+    captured from the published Simorgh palette source at
+    github.com/bbc/simorgh/src/app/components/ThemeProvider/
+    palette.ts. The BBC, the BBC blocks logo, "Postbox," and the
+    Reith Sans / Reith Serif typefaces are property of the BBC.
+  importedDate: 2026-05-19
+  notes: >
+    Hex values captured from the Simorgh palette source on
+    2026-05-19. The Apache-2.0 license covers the source code;
+    the BBC's brand identity and the Reith typeface family
+    remain proprietary. Open-source substitute (Inter) is
+    referenced from the brand atom; BBC GEL is documented at
+    bbc.co.uk/gel but the documentation site was not directly
+    reachable from this fetch context.
+
+swatches:
+  - id: postbox
+    name: Postbox
+    value: "#B80000"
+    description: BBC signature red — the brand's primary identity color.
+  - id: postbox-30
+    name: Postbox 30
+    value: "#EAB3B3"
+    description: Light tint of postbox — quiet emphasis backgrounds.
+
+  - id: black
+    name: Black
+    value: "#000000"
+    description: BBC blocks logo black; the primary text on white.
+  - id: ebon
+    name: Ebon
+    value: "#222222"
+    description: Body text on light surfaces.
+  - id: midnight-black
+    name: Midnight Black
+    value: "#121212"
+    description: Dark-mode canvas; the deep BBC night surface.
+  - id: white
+    name: White
+    value: "#FFFFFF"
+    description: Page canvas — bright BBC background.
+  - id: ghost
+    name: Ghost
+    value: "#FDFDFD"
+    description: Faintly warm off-white — large-area canvas alternative.
+
+  - id: chalk
+    name: Chalk
+    value: "#ECEAE7"
+    description: Warm neutral background — the BBC paper tone.
+  - id: oat-light
+    name: Oat Light
+    value: "#F5F3F1"
+    description: Lighter warm-paper tone for elevated surfaces.
+  - id: lunar
+    name: Lunar
+    value: "#F2F2F2"
+    description: Cool quiet surface; alternate page tint.
+  - id: lunar-light
+    name: Lunar Light
+    value: "#F8F8F8"
+    description: Lightest cool surface — quiet inset.
+
+  - id: grey-3
+    name: Grey 3
+    value: "#E6E8EA"
+    description: Hairline divider; quiet card border.
+  - id: grey-4
+    name: Grey 4
+    value: "#B0B2B4"
+    description: Disabled / decorative border weight.
+  - id: grey-5
+    name: Grey 5
+    value: "#8A8C8E"
+    description: Quiet meta text on light surface.
+  - id: grey-6
+    name: Grey 6
+    value: "#545658"
+    description: Secondary body text.
+  - id: grey-7
+    name: Grey 7
+    value: "#3A3C3E"
+    description: Dark surface; secondary text on dark.
+
+  - id: service-neutral
+    name: Service Neutral
+    value: "#0071F1"
+    description: Service-neutral link blue.
+  - id: service-neutral-dark
+    name: Service Neutral Dark
+    value: "#0051AD"
+    description: Pressed / active variant of service-neutral.
+
+  - id: live-core
+    name: Live Core
+    value: "#009E9E"
+    description: BBC LIVE teal — live-coverage status color.
+  - id: live-light
+    name: Live Light
+    value: "#00CCC7"
+    description: Brighter LIVE teal for dark surfaces.
+
+  - id: sport-yellow
+    name: Sport Yellow
+    value: "#FFD230"
+    description: BBC Sport accent yellow.
+  - id: error-core
+    name: Error Core
+    value: "#E51854"
+    description: Error / failure state color (Simorgh standard).
+  - id: success-core
+    name: Success Core
+    value: "#148A00"
+    description: Confirmation / success state.
+
+modes:
+  light:
+    roles:
+      background: white
+      surface: chalk
+      surface-elevated: white
+      text-primary: ebon
+      text-secondary: grey-6
+      text-tertiary: grey-5
+      primary: postbox
+      primary-hover: service-neutral-dark
+      accent: postbox
+      accent-hover: service-neutral
+      warning: sport-yellow
+      error: error-core
+      success: success-core
+      border: grey-3
+
+  dark:
+    roles:
+      background: midnight-black
+      surface: grey-7
+      surface-elevated: grey-6
+      text-primary: white
+      text-secondary: grey-3
+      text-tertiary: grey-4
+      primary: postbox
+      primary-hover: postbox-30
+      accent: postbox
+      accent-hover: live-light
+      warning: sport-yellow
+      error: error-core
+      success: success-core
+      border: grey-6
