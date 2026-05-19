@@ -1,0 +1,130 @@
+kind: palette
+id: adobe
+version: 1.0.0
+name: Adobe Spectrum
+description: >
+  Adobe Spectrum's color system — the design system that powers Adobe's
+  product surfaces (Creative Cloud, Document Cloud, Experience Cloud).
+  Spectrum is built on tonally-paired neutral and chromatic scales (gray,
+  blue, red, orange, yellow, chartreuse, celery, green, seafoam, cyan,
+  indigo, purple, fuchsia, magenta), each running 100 → 1600 with a
+  light-mode hex and a dark-mode counterpart. The brand accent on
+  product surfaces is Spectrum Blue 900 (#3B63FB light / #5681FF dark) —
+  the same swatch that backs the `accent-background-color-default`
+  token. Semantic role tokens (positive, negative, notice, informative)
+  map onto the same scales: positive=green-900, negative=red-900,
+  notice=orange-900, informative=blue-900.
+
+tags: [adobe, spectrum, design-system, role-based, dual-mode]
+
+provenance:
+  source: https://github.com/adobe/spectrum-css/blob/main/tokens/dist/json/tokens.json
+  license: Apache-2.0
+  attribution: >
+    Adobe Spectrum design tokens, Copyright Adobe Inc., licensed under
+    Apache-2.0. Hex values mirrored from the Spectrum CSS token export
+    (`tokens/dist/json/tokens.json`) on the `main` branch. Adobe, Adobe
+    Spectrum, and associated marks are property of Adobe Inc.
+  importedDate: 2026-05-19
+  importedFromVersion: "@spectrum-css/tokens main@2026-05"
+  notes: >
+    Spectrum is dual-mode by construction: every scale stop has both a
+    light and dark hex. The catalogue captures both stops as separate
+    swatches (e.g., `blue-900` for light, `blue-900-dark` for dark) so
+    that mode mappings can name a single swatch ID per role. Spectrum
+    ships chromatic scales we have not enumerated in full (every stop
+    of every family); the swatches below cover the canonical anchors
+    needed for the role mappings — neutrals across the full range,
+    chromatics at the 100 / 700 / 900 / 1100 stops that the design
+    system uses for fill, primary, accent, and pressed states.
+
+swatches:
+  # ─── Neutrals (light scale) ────────────────────────────────────
+  - { id: gray-25,  name: Gray 25,  value: "#FFFFFF", description: "Light canvas. The brightest neutral; pairs with text-primary on light surfaces." }
+  - { id: gray-50,  name: Gray 50,  value: "#F8F8F8" }
+  - { id: gray-75,  name: Gray 75,  value: "#F3F3F3" }
+  - { id: gray-100, name: Gray 100, value: "#E9E9E9", description: "Light surface — Spectrum default surface in light mode." }
+  - { id: gray-200, name: Gray 200, value: "#E1E1E1" }
+  - { id: gray-300, name: Gray 300, value: "#DADADA", description: "Subtle border in light mode." }
+  - { id: gray-400, name: Gray 400, value: "#C6C6C6" }
+  - { id: gray-500, name: Gray 500, value: "#8F8F8F" }
+  - { id: gray-600, name: Gray 600, value: "#717171", description: "Tertiary text on light surfaces." }
+  - { id: gray-700, name: Gray 700, value: "#505050", description: "Secondary text on light surfaces." }
+  - { id: gray-800, name: Gray 800, value: "#292929", description: "High-contrast text on light surfaces." }
+  - { id: gray-900, name: Gray 900, value: "#131313", description: "Primary text on light surfaces." }
+
+  # ─── Neutrals (dark scale — Spectrum's dark mode counterparts) ──
+  - { id: gray-25-dark,  name: Gray 25 Dark,  value: "#111111", description: "Dark canvas." }
+  - { id: gray-50-dark,  name: Gray 50 Dark,  value: "#1B1B1B" }
+  - { id: gray-100-dark, name: Gray 100 Dark, value: "#2C2C2C", description: "Dark surface — Spectrum default surface in dark mode." }
+  - { id: gray-300-dark, name: Gray 300 Dark, value: "#393939", description: "Subtle border in dark mode." }
+  - { id: gray-700-dark, name: Gray 700 Dark, value: "#AFAFAF", description: "Secondary text on dark surfaces." }
+  - { id: gray-800-dark, name: Gray 800 Dark, value: "#DBDBDB" }
+  - { id: gray-900-dark, name: Gray 900 Dark, value: "#F2F2F2", description: "Primary text on dark surfaces." }
+
+  # ─── Accent / Blue (Spectrum's primary interactive) ────────────
+  - { id: blue-100, name: Blue 100, value: "#F5F9FF", description: "Subtle blue background; matches accent-color-100." }
+  - { id: blue-700, name: Blue 700, value: "#5D89FF", description: "Pressed / hover variant of accent on light." }
+  - { id: blue-900, name: Blue 900, value: "#3B63FB", description: "Spectrum primary interactive — accent-background-color-default (light)." }
+  - { id: blue-1000, name: Blue 1000, value: "#274DEA", description: "Accent pressed (light)." }
+  - { id: blue-1100, name: Blue 1100, value: "#1D3ECF" }
+  - { id: blue-900-dark,  name: Blue 900 Dark,  value: "#5681FF", description: "Spectrum primary interactive — dark mode." }
+  - { id: blue-1000-dark, name: Blue 1000 Dark, value: "#6995FE", description: "Accent hover — dark mode." }
+
+  # ─── Red (negative) ────────────────────────────────────────────
+  - { id: red-900,  name: Red 900,  value: "#D73220", description: "Spectrum negative semantic color (light)." }
+  - { id: red-700,  name: Red 700,  value: "#FF513D" }
+  - { id: red-900-dark, name: Red 900 Dark, value: "#FC432E", description: "Spectrum negative — dark mode." }
+
+  # ─── Orange (notice) ───────────────────────────────────────────
+  - { id: orange-900,  name: Orange 900,  value: "#C24E00", description: "Spectrum notice semantic color (light)." }
+  - { id: orange-700,  name: Orange 700,  value: "#E86A00" }
+  - { id: orange-900-dark, name: Orange 900 Dark, value: "#E06400", description: "Spectrum notice — dark mode." }
+
+  # ─── Green (positive) ──────────────────────────────────────────
+  - { id: green-900,  name: Green 900,  value: "#05834E", description: "Spectrum positive semantic color (light)." }
+  - { id: green-900-dark, name: Green 900 Dark, value: "#099D59", description: "Spectrum positive — dark mode." }
+
+  # ─── Auxiliary chromatic family anchors ────────────────────────
+  - { id: indigo-900, name: Indigo 900, value: "#5151E0", description: "Indigo accent anchor used in marketing/illustration." }
+  - { id: purple-900, name: Purple 900, value: "#893DE7", description: "Purple accent anchor." }
+  - { id: magenta-900, name: Magenta 900, value: "#D135AC", description: "Magenta accent anchor." }
+  - { id: seafoam-900, name: Seafoam 900, value: "#008C8C", description: "Seafoam accent anchor." }
+  - { id: yellow-900, name: Yellow 900, value: "#A37B00", description: "Yellow at AA-readable stop." }
+
+modes:
+  light:
+    roles:
+      background: gray-25
+      surface: gray-100
+      surface-elevated: gray-25
+      text-primary: gray-900
+      text-secondary: gray-700
+      text-tertiary: gray-600
+      primary: blue-900
+      primary-hover: blue-1000
+      accent: blue-900
+      accent-hover: blue-1000
+      warning: orange-900
+      warning-hover: orange-700
+      error: red-900
+      success: green-900
+      border: gray-300
+
+  dark:
+    roles:
+      background: gray-25-dark
+      surface: gray-100-dark
+      surface-elevated: gray-50-dark
+      text-primary: gray-900-dark
+      text-secondary: gray-700-dark
+      text-tertiary: gray-800-dark
+      primary: blue-900-dark
+      primary-hover: blue-1000-dark
+      accent: blue-900-dark
+      accent-hover: blue-1000-dark
+      warning: orange-900-dark
+      warning-hover: orange-900
+      error: red-900-dark
+      success: green-900-dark
+      border: gray-300-dark

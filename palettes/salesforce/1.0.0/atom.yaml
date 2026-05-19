@@ -1,0 +1,142 @@
+kind: palette
+id: salesforce
+version: 1.0.0
+name: Salesforce
+description: >
+  Salesforce's design-token palette, sourced from the public
+  Salesforce Lightning Design System (SLDS) repository
+  (`salesforce-ux/design-system`). Twelve chromatic families
+  (Blue, Cloud Blue, Green, Hot Orange, Indigo, Orange, Pink,
+  Purple, Red, Teal, Violet, Yellow) plus warm-gray and cool-gray
+  neutrals. Each family runs 10 → 95 in non-uniform stops; the
+  10/15/20-band is the darkest, the 90/95-band is the lightest.
+  The documented Salesforce brand-primary color resolves to
+  Palette Blue 50 (#0176D3) — the canonical SLDS interactive blue
+  that ships in the Aloha and Lightning themes. Warm Gray is
+  Salesforce's default neutral scale; Cool Gray is the alternate.
+
+tags: [salesforce, slds, lightning, design-system, role-based, dual-mode]
+
+provenance:
+  source: https://github.com/salesforce-ux/design-system/blob/main/design-tokens/aliases/color-palettes.yml
+  license: BSD-3-Clause
+  attribution: >
+    Salesforce Lightning Design System color tokens, Copyright
+    salesforce.com inc., licensed under BSD-3-Clause. Hex values
+    mirrored from `design-tokens/aliases/color-palettes.yml` on
+    the `main` branch. Salesforce, Lightning Design System, SLDS,
+    and associated marks are property of salesforce.com inc.
+  importedDate: 2026-05-19
+  importedFromVersion: "salesforce-ux/design-system main@2026-05"
+  notes: >
+    SLDS's `BRAND_PRIMARY` token resolves to PALETTE_BLUE_50
+    (#0176D3); `BRAND_PRIMARY_ACTIVE` resolves to PALETTE_BLUE_50
+    again under the renamed alias (the older guidance had it at
+    blue-30); `BRAND_LIGHT` is `#F4F6FE`. The catalogue captures
+    the anchor stops (20 / 50 / 60 / 90 / 95) across each
+    chromatic family and the full Warm Gray scale that drives
+    canvas, surface, and text.
+
+swatches:
+  # ─── Warm Gray (Salesforce's default neutral) ──────────────────
+  - { id: warm-gray-1,  name: Warm Gray 1,  value: "#FFFFFF", description: "Light canvas." }
+  - { id: warm-gray-2,  name: Warm Gray 2,  value: "#FAFAF9", description: "Light surface." }
+  - { id: warm-gray-3,  name: Warm Gray 3,  value: "#F3F2F2" }
+  - { id: warm-gray-4,  name: Warm Gray 4,  value: "#ECEBEA" }
+  - { id: warm-gray-5,  name: Warm Gray 5,  value: "#DDDBDA", description: "Default border on light." }
+  - { id: warm-gray-6,  name: Warm Gray 6,  value: "#C9C7C5" }
+  - { id: warm-gray-7,  name: Warm Gray 7,  value: "#B0ADAB" }
+  - { id: warm-gray-8,  name: Warm Gray 8,  value: "#969492" }
+  - { id: warm-gray-9,  name: Warm Gray 9,  value: "#706E6B", description: "Secondary text on light." }
+  - { id: warm-gray-10, name: Warm Gray 10, value: "#514F4D" }
+  - { id: warm-gray-11, name: Warm Gray 11, value: "#3E3E3C" }
+  - { id: warm-gray-12, name: Warm Gray 12, value: "#2B2826", description: "Dark surface." }
+  - { id: warm-gray-13, name: Warm Gray 13, value: "#080707", description: "Primary text on light; dark canvas." }
+
+  # ─── Cool Gray (alternate neutral) ─────────────────────────────
+  - { id: cool-gray-2, name: Cool Gray 2, value: "#F9F9FA" }
+  - { id: cool-gray-9, name: Cool Gray 9, value: "#6B6D70" }
+  - { id: cool-gray-13, name: Cool Gray 13, value: "#070808" }
+
+  # ─── Blue (Salesforce brand primary) ───────────────────────────
+  - { id: blue-20, name: Blue 20, value: "#032D60" }
+  - { id: blue-30, name: Blue 30, value: "#014486" }
+  - { id: blue-40, name: Blue 40, value: "#0B5CAB" }
+  - { id: blue-50, name: Blue 50, value: "#0176D3", description: "Salesforce BRAND_PRIMARY — the canonical SLDS blue." }
+  - { id: blue-60, name: Blue 60, value: "#1B96FF", description: "Brand primary on dark surfaces." }
+  - { id: blue-90, name: Blue 90, value: "#D8E6FE" }
+  - { id: blue-95, name: Blue 95, value: "#EEF4FF" }
+
+  # ─── Green (success) ───────────────────────────────────────────
+  - { id: green-20, name: Green 20, value: "#1C3326" }
+  - { id: green-50, name: Green 50, value: "#2E844A", description: "Success on light surfaces." }
+  - { id: green-60, name: Green 60, value: "#3BA755" }
+  - { id: green-90, name: Green 90, value: "#CDEFC4" }
+
+  # ─── Red (error) ───────────────────────────────────────────────
+  - { id: red-40, name: Red 40, value: "#BA0517" }
+  - { id: red-50, name: Red 50, value: "#EA001E", description: "Error / destructive (light)." }
+  - { id: red-60, name: Red 60, value: "#FE5C4C", description: "Error / destructive (dark)." }
+  - { id: red-90, name: Red 90, value: "#FFCDC9" }
+
+  # ─── Yellow (warning) ──────────────────────────────────────────
+  - { id: yellow-40, name: Yellow 40, value: "#8C4B02" }
+  - { id: yellow-50, name: Yellow 50, value: "#A86403", description: "Warning on light surfaces." }
+  - { id: yellow-60, name: Yellow 60, value: "#CA8501" }
+  - { id: yellow-90, name: Yellow 90, value: "#FCEAB3" }
+
+  # ─── Orange (notice) ───────────────────────────────────────────
+  - { id: orange-50, name: Orange 50, value: "#A96404" }
+  - { id: orange-60, name: Orange 60, value: "#DD7A01" }
+  - { id: orange-70, name: Orange 70, value: "#FE9339" }
+
+  # ─── Cloud Blue / Teal / Pink / Indigo / Purple / Violet ───────
+  - { id: cloud-blue-50, name: Cloud Blue 50, value: "#107CAD" }
+  - { id: cloud-blue-70, name: Cloud Blue 70, value: "#1AB9FF" }
+  - { id: teal-50, name: Teal 50, value: "#0B827C" }
+  - { id: teal-60, name: Teal 60, value: "#06A59A" }
+  - { id: pink-50, name: Pink 50, value: "#E3066A" }
+  - { id: pink-60, name: Pink 60, value: "#FF538A" }
+  - { id: indigo-50, name: Indigo 50, value: "#5867E8" }
+  - { id: indigo-60, name: Indigo 60, value: "#7F8CED" }
+  - { id: purple-50, name: Purple 50, value: "#9050E9" }
+  - { id: purple-60, name: Purple 60, value: "#AD7BEE" }
+  - { id: violet-50, name: Violet 50, value: "#BA01FF" }
+  - { id: violet-60, name: Violet 60, value: "#CB65FF" }
+
+modes:
+  light:
+    roles:
+      background: warm-gray-1
+      surface: warm-gray-2
+      surface-elevated: warm-gray-1
+      text-primary: warm-gray-13
+      text-secondary: warm-gray-9
+      text-tertiary: warm-gray-10
+      primary: blue-50
+      primary-hover: blue-40
+      accent: blue-50
+      accent-hover: blue-40
+      warning: yellow-50
+      warning-hover: yellow-40
+      error: red-50
+      success: green-50
+      border: warm-gray-5
+
+  dark:
+    roles:
+      background: warm-gray-13
+      surface: warm-gray-12
+      surface-elevated: warm-gray-11
+      text-primary: warm-gray-2
+      text-secondary: warm-gray-6
+      text-tertiary: warm-gray-7
+      primary: blue-60
+      primary-hover: blue-50
+      accent: blue-60
+      accent-hover: blue-50
+      warning: yellow-60
+      warning-hover: yellow-50
+      error: red-60
+      success: green-60
+      border: warm-gray-11

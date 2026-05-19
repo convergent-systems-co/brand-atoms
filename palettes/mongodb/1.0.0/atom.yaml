@@ -1,0 +1,130 @@
+kind: palette
+id: mongodb
+version: 1.0.0
+name: MongoDB
+description: >
+  MongoDB's design-token palette, sourced from the open-source
+  LeafyGreen UI library (`mongodb/leafygreen-ui`) — the React
+  component library and design system that backs MongoDB Atlas,
+  Compass, the MongoDB.com marketing surface, and the documentation
+  portal. The palette is anchored on MongoDB Green (#00ED64, the
+  brand-defining signature) and a deep MongoDB Black (#001E2B, a
+  blue-black canvas color, NOT pure black). Six chromatic families
+  (Green, Blue, Yellow, Red, Purple, plus Gray) each ship in a
+  base value with light1/light2/light3 and dark1/dark2/dark3
+  variants — the "base" is the canonical brand stop, lighter for
+  backgrounds, darker for text/contrast.
+
+tags: [mongodb, leafygreen, atlas, design-system, role-based, dual-mode]
+
+provenance:
+  source: https://github.com/mongodb/leafygreen-ui/blob/main/packages/palette/src/palette.ts
+  license: Apache-2.0
+  attribution: >
+    MongoDB LeafyGreen UI palette, Copyright MongoDB Inc., licensed
+    under Apache-2.0. Hex values mirrored from
+    `packages/palette/src/palette.ts` on the `main` branch. MongoDB,
+    Atlas, Compass, LeafyGreen, and the green-leaf mark are
+    trademarks of MongoDB Inc.
+  importedDate: 2026-05-19
+  importedFromVersion: "mongodb/leafygreen-ui main@2026-05"
+  notes: >
+    MongoDB's Black is a blue-black (#001E2B) — distinct from pure
+    black — that LeafyGreen uses as the dark-mode canvas and as the
+    primary text color in light mode. MongoDB Green base (#00ED64)
+    is the vivid signature; dark1 (#00A35C) is the accessible
+    on-light interactive variant, dark2 (#00684A) and dark3
+    (#023430) are the deeper grounds. The Gray scale runs dark4 →
+    light3 (eight stops); chromatic families ship base plus three
+    light and (typically) three dark variants.
+
+swatches:
+  - { id: white, name: White, value: "#FFFFFF" }
+  - { id: black, name: Black, value: "#001E2B", description: "MongoDB Black — a blue-black, NOT pure black; the brand canvas." }
+
+  # ─── Gray scale ────────────────────────────────────────────────
+  - { id: gray-dark4, name: Gray Dark 4, value: "#112733" }
+  - { id: gray-dark3, name: Gray Dark 3, value: "#1C2D38", description: "Dark surface in dark mode." }
+  - { id: gray-dark2, name: Gray Dark 2, value: "#3D4F58" }
+  - { id: gray-dark1, name: Gray Dark 1, value: "#5C6C75", description: "Secondary text on light surfaces." }
+  - { id: gray-base,  name: Gray Base,   value: "#889397" }
+  - { id: gray-light1, name: Gray Light 1, value: "#C1C7C6", description: "Default border on light surfaces." }
+  - { id: gray-light2, name: Gray Light 2, value: "#E8EDEB" }
+  - { id: gray-light3, name: Gray Light 3, value: "#F9FBFA", description: "Light surface — subtle elevation." }
+
+  # ─── Green (MongoDB signature) ─────────────────────────────────
+  - { id: green-dark3, name: Green Dark 3, value: "#023430", description: "Deepest green ground." }
+  - { id: green-dark2, name: Green Dark 2, value: "#00684A", description: "Green hover/active variant on light." }
+  - { id: green-dark1, name: Green Dark 1, value: "#00A35C", description: "Accessible interactive green on light surfaces (AA-compliant against white)." }
+  - { id: green-base,  name: Green Base,   value: "#00ED64", description: "MongoDB Green — the brand-defining vivid signature; used as the primary interactive on dark surfaces and as the brand accent on hero surfaces." }
+  - { id: green-light1, name: Green Light 1, value: "#71F6BA" }
+  - { id: green-light2, name: Green Light 2, value: "#C0FAE6" }
+  - { id: green-light3, name: Green Light 3, value: "#E3FCF7" }
+
+  # ─── Blue (info / links) ───────────────────────────────────────
+  - { id: blue-dark3, name: Blue Dark 3, value: "#0C2657" }
+  - { id: blue-dark2, name: Blue Dark 2, value: "#083C90" }
+  - { id: blue-dark1, name: Blue Dark 1, value: "#1254B7", description: "Info / link on light surfaces." }
+  - { id: blue-base,  name: Blue Base,   value: "#016BF8", description: "Blue accent base." }
+  - { id: blue-light1, name: Blue Light 1, value: "#0498EC" }
+  - { id: blue-light2, name: Blue Light 2, value: "#C3E7FE" }
+  - { id: blue-light3, name: Blue Light 3, value: "#E1F7FF" }
+
+  # ─── Red (error) ───────────────────────────────────────────────
+  - { id: red-dark3, name: Red Dark 3, value: "#5B0000" }
+  - { id: red-dark2, name: Red Dark 2, value: "#970606", description: "Error on light surfaces." }
+  - { id: red-base,  name: Red Base,   value: "#DB3030", description: "Red accent base." }
+  - { id: red-light1, name: Red Light 1, value: "#FF6960" }
+  - { id: red-light2, name: Red Light 2, value: "#FFCDC7" }
+  - { id: red-light3, name: Red Light 3, value: "#FFEAE5" }
+
+  # ─── Yellow (warning) ──────────────────────────────────────────
+  - { id: yellow-dark3, name: Yellow Dark 3, value: "#4C2100" }
+  - { id: yellow-dark2, name: Yellow Dark 2, value: "#944F01", description: "Warning on light surfaces." }
+  - { id: yellow-base,  name: Yellow Base,   value: "#FFC010" }
+  - { id: yellow-light2, name: Yellow Light 2, value: "#FFEC9E" }
+  - { id: yellow-light3, name: Yellow Light 3, value: "#FEF7DB" }
+
+  # ─── Purple (accent / data-viz) ────────────────────────────────
+  - { id: purple-dark3, name: Purple Dark 3, value: "#2D0B59" }
+  - { id: purple-dark2, name: Purple Dark 2, value: "#5E0C9E" }
+  - { id: purple-base,  name: Purple Base,   value: "#B45AF2" }
+  - { id: purple-light2, name: Purple Light 2, value: "#F1D4FD" }
+  - { id: purple-light3, name: Purple Light 3, value: "#F9EBFF" }
+
+modes:
+  light:
+    roles:
+      background: white
+      surface: gray-light3
+      surface-elevated: white
+      text-primary: black
+      text-secondary: gray-dark1
+      text-tertiary: gray-base
+      primary: green-dark2
+      primary-hover: green-dark3
+      accent: green-base
+      accent-hover: green-dark1
+      warning: yellow-dark2
+      warning-hover: yellow-dark3
+      error: red-dark2
+      success: green-dark2
+      border: gray-light1
+
+  dark:
+    roles:
+      background: black
+      surface: gray-dark3
+      surface-elevated: gray-dark2
+      text-primary: gray-light2
+      text-secondary: gray-light1
+      text-tertiary: gray-base
+      primary: green-base
+      primary-hover: green-light1
+      accent: green-base
+      accent-hover: green-light1
+      warning: yellow-base
+      warning-hover: yellow-light2
+      error: red-light1
+      success: green-base
+      border: gray-dark2

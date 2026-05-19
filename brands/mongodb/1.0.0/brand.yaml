@@ -1,0 +1,238 @@
+id: mongodb
+version: 1.0.0
+name: MongoDB
+description: >
+  MongoDB Inc. (NASDAQ: MDB) is the company behind the document-
+  oriented NoSQL database of the same name and MongoDB Atlas, the
+  managed cloud database that runs across AWS, Google Cloud, and
+  Azure. The brand voice is technical, builder-friendly, and
+  unmistakably green: MongoDB Green (#00ED64) is the vivid
+  signature, the "leaf" mark color, and the wordmark accent.
+  MongoDB Black is a documented blue-black (#001E2B), not pure
+  black — it serves as the dark-mode canvas, the dark wordmark, and
+  the primary text color on light surfaces. The design system that
+  backs MongoDB Atlas and Compass is LeafyGreen UI, the open-source
+  React library that publishes the palette mirrored here. The
+  proprietary typeface is Euclid Circular (with MongoDB-branded
+  customizations); it is not publicly licensed, so this atom
+  references Inter as the open rendering substitute.
+
+tags: [mongodb, leafygreen, atlas, database, nosql, design-system]
+
+provenance:
+  source: https://www.mongodb.design/
+  license: Proprietary — All Rights Reserved (LeafyGreen tokens Apache-2.0)
+  attribution: >
+    MongoDB LeafyGreen UI tokens are licensed Apache-2.0 (see the
+    matching palette atom). The MongoDB green-leaf mark, the
+    MongoDB wordmark, the Euclid Circular proprietary typeface, and
+    the MongoDB, Atlas, and Compass trademarks are property of
+    MongoDB Inc.
+  importedDate: 2026-05-19
+  notes: >
+    MongoDB Green base (#00ED64) is the vivid brand accent but does
+    NOT clear WCAG AA against white at typical text sizes; the
+    primary interactive role on light surfaces resolves to Green
+    Dark 2 (#00684A) — the AA-readable variant LeafyGreen uses for
+    buttons and links — while Green base carries the role on dark
+    surfaces and on hero/identity blocks. Euclid Circular is not
+    publicly licensed; Inter is referenced as the rendering
+    substitute for sans (heading, body).
+
+references:
+  palette: mongodb@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # MongoDB's institutional surface is the green leaf on the dark
+    # blue-black canvas — the identity surface IS dark-first. The
+    # leaf mark renders in Green base over the Black canvas on the
+    # hero block of mongodb.com and on Atlas's marketing surfaces.
+    identity: black
+    on-identity: green-base
+
+    primary: green-dark2
+    primary-hover: green-dark3
+    accent: green-base
+    accent-hover: green-dark1
+    mark: green-base
+    success: green-dark2
+    warning: yellow-dark2
+    error: red-dark2
+    text-primary-light: black
+    text-primary-dark: gray-light2
+    background-light: white
+    background-dark: black
+    surface-light: gray-light3
+    surface-dark: gray-dark3
+    text-secondary-light: gray-dark1
+    text-tertiary-light: gray-base
+    border-light: gray-light1
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: roles.colors.mark
+    allowed:
+      - green-base
+      - green-dark1
+      - green-dark2
+      - white
+      - black
+    forbidden:
+      - blue-base
+      - red-base
+      - yellow-base
+      - purple-base
+    severity: error
+    rationale: >
+      The MongoDB leaf mark renders in Green base on dark canvases,
+      Green Dark 1 or Dark 2 where contrast against light surfaces
+      is required, or in solid white / solid black for monochrome
+      treatments. Recoloring the leaf to blue, red, yellow, or
+      purple violates MongoDB's documented brand-mark usage.
+
+  - type: colorChoice
+    target: roles.colors.primary
+    allowed:
+      - green-dark2
+      - green-dark3
+      - green-dark1
+      - green-base
+    forbidden:
+      - blue-base
+      - red-base
+      - purple-base
+      - yellow-base
+    severity: error
+    rationale: >
+      MongoDB's primary interactive color is documented as Green
+      Dark 2 (#00684A) on light surfaces and Green base (#00ED64)
+      on dark surfaces. The other chromatic base swatches are
+      reserved for semantic and data-viz roles.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      LeafyGreen UI's published accessibility commitment targets
+      WCAG 2.1 AA. MongoDB Black (#001E2B) on white clears AA at
+      ~17:1; Gray Light 2 (#E8EDEB) on Black clears AA at ~14:1 —
+      both modes' primary text/background pairs satisfy the floor.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - outlined
+      - on-busy-photo
+      - tilted
+    severity: error
+    rationale: >
+      MongoDB's brand-resource guidelines prohibit stretching,
+      rotating, recoloring, outlining, adding shadows, or applying
+      decorative effects to the leaf mark and wordmark. The
+      wordmark renders in Black on light surfaces and White on
+      dark surfaces; the leaf renders in Green base or in the
+      documented monochrome variants only.
+
+  - type: contextRestriction
+    target: roles.colors.accent
+    allowedContexts:
+      - brand-block
+      - hero
+      - cta
+      - data-viz-positive
+      - illustration
+    forbiddenContexts:
+      - body-text
+      - small-text
+    severity: error
+    rationale: >
+      MongoDB Green base (#00ED64) is intentionally vivid and does
+      NOT clear WCAG AA for body or small-text use against white.
+      It is the brand accent for hero blocks, CTAs at button-text
+      size, and illustration — not for paragraph or fine-print
+      copy. Use Green Dark 2 for accessible text-weight uses.
+
+  - type: contextRestriction
+    target: roles.colors.identity
+    forbiddenContexts:
+      - product-of-competitor
+      - merchandise
+      - endorsement-implication
+      - company-name-or-domain
+    severity: error
+    rationale: >
+      MongoDB's trademark guidance forbids using the MongoDB name,
+      the leaf mark, or the green-on-black brand treatment in
+      third-party company names, domains, merchandise, or any
+      context that implies affiliation or endorsement.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["400", "500", "600", "700"]
+    severity: warning
+    rationale: >
+      LeafyGreen UI's documented type ramp anchors on Regular (400),
+      Medium (500), Semibold (600), and Bold (700) — the weights
+      Euclid Circular and the documented sans substitute both ship.
+      Lighter or heavier display cuts are not part of the defined
+      system ramp.
+
+  - type: fontPairing
+    target: typography.display
+    requires: prose
+    minSizeRatio: 1.5
+    severity: error
+    rationale: >
+      MongoDB's marketing and product surfaces maintain at least a
+      1.5× ratio between heading and body to preserve the type
+      hierarchy LeafyGreen components depend on for scannability
+      on dense data surfaces (Atlas dashboards, Compass).
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level
+      AA. LeafyGreen UI's published accessibility commitment treats
+      AA as the floor for every MongoDB-branded component and the
+      tokens that back them.
+
+  - type: compositionConstraint
+    target: roles.colors.mark
+    pairsWith:
+      - black
+      - white
+      - gray-light3
+      - gray-dark3
+    doesNotPairWith:
+      - red-base
+      - purple-base
+      - yellow-base
+    severity: recommendation
+    rationale: >
+      MongoDB Green is calibrated to read on the brand black canvas,
+      on white, and on the documented neutral light/dark surfaces.
+      Placing it adjacent to red-base, purple-base, or yellow-base
+      at equal weight produces chromatic conflict and breaks the
+      confident, builder-focused voice of the brand surface.

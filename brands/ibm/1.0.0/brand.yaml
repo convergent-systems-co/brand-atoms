@@ -1,0 +1,217 @@
+id: ibm
+version: 1.0.0
+name: IBM
+description: >
+  IBM (International Business Machines) is the company behind the
+  Carbon Design System — the open-source design system that backs
+  IBM's enterprise software surfaces (Cloud, watsonx, Db2, MQ, Power,
+  Z, Storage, the consulting practice, and ibm.com). Carbon is built
+  on a four-theme model: "White" and "g10" are the light themes,
+  "g90" and "g100" are the dark themes. The primary interactive color
+  is Blue 60 (#0F62FE) across every theme; semantic tokens map to
+  Red 60 (danger), Green 50 (success), and Yellow 30 (warning).
+  Typography is the proprietary IBM Plex family — Plex Sans, Plex
+  Serif, and Plex Mono — released open-source under the SIL Open Font
+  License and already present in this catalogue.
+
+tags: [ibm, carbon, design-system, enterprise, role-based, dual-mode]
+
+provenance:
+  source: https://carbondesignsystem.com/
+  license: Proprietary — All Rights Reserved (Carbon tokens Apache-2.0; Plex SIL OFL)
+  attribution: >
+    The Carbon Design System is published by IBM Corp. under
+    Apache-2.0 (see `carbon-design-system/carbon`). IBM Plex is
+    licensed under the SIL Open Font License. The IBM 8-bar mark,
+    the IBM wordmark, and "IBM" are registered trademarks of
+    International Business Machines Corporation.
+  importedDate: 2026-05-19
+  notes: >
+    This brand atom reuses the existing `carbon@1` palette atom
+    rather than duplicating IBM-specific colors. Carbon is the
+    authoritative published color system for the IBM brand on
+    digital surfaces; the brand atom adds the IBM-specific
+    typography references and the trademark / logo-usage rules
+    Carbon does not itself encode. The g100 theme (dark mode)
+    documented in the Carbon source uses gray-100 as the canvas
+    and Blue 60 as the unchanged interactive color.
+
+references:
+  palette: carbon@1
+  fonts:
+    heading: ibm-plex-sans@1
+    body: ibm-plex-sans@1
+    serif: ibm-plex-serif@1
+    mono: ibm-plex-mono@1
+
+roles:
+  colors:
+    # IBM's institutional identity on digital surfaces is the white
+    # canvas paired with the IBM 8-bar mark; in product surfaces
+    # the Carbon White theme (white canvas, gray-100 text) carries
+    # the brand voice. `identity` names that canvas; on-identity is
+    # the canonical near-black text.
+    identity: white
+    on-identity: gray-100
+
+    primary: blue-60
+    primary-hover: blue-70
+    accent: blue-60
+    accent-hover: blue-70
+    mark: blue-60
+    success: green-50
+    warning: yellow-30
+    error: red-60
+    text-primary-light: gray-100
+    text-primary-dark: gray-10
+    background-light: white
+    background-dark: gray-100
+    surface-light: gray-10
+    surface-dark: gray-90
+    text-secondary-light: gray-70
+    text-tertiary-light: gray-60
+    border-light: gray-30
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: roles.colors.primary
+    allowed:
+      - blue-60
+      - blue-70
+    forbidden:
+      - red-60
+      - green-50
+      - purple-60
+      - cyan-60
+      - teal-60
+    severity: error
+    rationale: >
+      Carbon's `interactive-01` token resolves to Blue 60 (#0F62FE)
+      on the White, g10, g90, and g100 themes; Blue 70 (#0043CE) is
+      the documented active/pressed state on the light themes. The
+      other chromatic 60-stops are reserved for tags, data-viz
+      categories, and notification accents, not for the primary
+      interactive role.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Carbon's published accessibility commitment targets WCAG 2.1
+      AA at minimum. Gray 100 (#161616) on white clears AA at ~19:1
+      and Gray 10 (#F4F4F4) on Gray 100 clears AA at ~17:1 — both
+      the light and dark theme primary text/background pairs satisfy
+      the documented floor.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - outlined
+      - gradient-fill
+      - on-busy-photo
+      - tilted
+    severity: error
+    rationale: >
+      IBM's brand-experience guidelines prohibit stretching,
+      rotating, recoloring, outlining, or applying decorative
+      treatments to the 8-bar IBM mark and wordmark. The mark
+      renders in solid black or solid white only, on a clear
+      space at least one bar-height on every side.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["300", "400", "500", "600", "700"]
+    severity: warning
+    rationale: >
+      IBM Plex Sans ships in Thin, ExtraLight, Light (300), Regular
+      (400), Text (450), Medium (500), SemiBold (600), and Bold
+      (700). Carbon's documented type ramp anchors at Light,
+      Regular, SemiBold, and Bold — heavier display cuts are not
+      defined in Carbon's expressive heading scale.
+
+  - type: contextRestriction
+    target: roles.colors.error
+    allowedContexts:
+      - error-state
+      - destructive-action
+      - validation-failure
+    forbiddenContexts:
+      - confirmation
+      - completion
+      - data-viz-positive
+    severity: error
+    rationale: >
+      Carbon's `support-error` token resolves to Red 60 (#DA1E28).
+      Reusing it for confirmation or positive data points inverts
+      the established meaning Carbon-skinned IBM products rely on.
+
+  - type: contextRestriction
+    target: roles.colors.success
+    allowedContexts:
+      - confirmation
+      - completion
+      - data-viz-positive
+    forbiddenContexts:
+      - error-state
+      - destructive-action
+    severity: error
+    rationale: >
+      Carbon's `support-success` token resolves to Green 50 (#24A148)
+      — the documented success/positive-state color across the
+      White, g10, g90, and g100 themes. Using it for error states
+      is incompatible with Carbon's semantic role contract.
+
+  - type: fontPairing
+    target: typography.display
+    requires: prose
+    minSizeRatio: 1.5
+    severity: error
+    rationale: >
+      Carbon's productive and expressive type ramps both maintain
+      at least a 1.5× ratio between heading and body. Plex Sans
+      display at the same size as body destroys the hierarchy
+      Carbon's components rely on for scannability.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level
+      AA. Carbon publishes AA as its baseline conformance target
+      across all four themes; consumers shipping IBM-branded
+      surfaces must meet it.
+
+  - type: compositionConstraint
+    target: roles.colors.mark
+    pairsWith:
+      - white
+      - gray-10
+      - gray-100
+    doesNotPairWith:
+      - red-60
+      - magenta-60
+      - orange-60
+      - yellow-30
+    severity: recommendation
+    rationale: >
+      The IBM 8-bar mark is calibrated to read as a solid block on
+      white, near-white (Gray 10), or near-black (Gray 100). Placing
+      Blue 60 — used as the brand-block fill on color treatments —
+      adjacent to red-60, magenta-60, orange-60, or yellow-30 at
+      equal weight produces chromatic vibration that conflicts with
+      the institutional voice.

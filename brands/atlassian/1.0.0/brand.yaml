@@ -1,0 +1,229 @@
+id: atlassian
+version: 1.0.0
+name: Atlassian
+description: >
+  Atlassian Pty Ltd is the Australian software company behind Jira,
+  Confluence, Bitbucket, Trello, Compass, Loom, and Statuspage. The
+  brand voice is open, optimistic, and "team-first" — direct without
+  being formal, warm without being saccharine. Atlassian Design is
+  the system that backs every product surface; the `@atlaskit/tokens`
+  palette is its authoritative color source. The signature mark is
+  the blue chevron-A in Atlassian Blue 700 (#1868DB); product UIs
+  render on a clean neutral canvas with that blue as the primary
+  interactive color on light surfaces and a calibrated Blue 400
+  (#669DF1) on dark surfaces. Sub-brands in the Atlassian portfolio
+  (Trello in particular — see the separate `trello@1` atom — plus
+  Jira, Confluence, Bitbucket) inherit the Atlassian Design product
+  surface language while carrying their own signature marks.
+
+tags: [atlassian, atlaskit, jira, confluence, bitbucket, trello, design-system]
+
+provenance:
+  source: https://atlassian.design/
+  license: Proprietary — All Rights Reserved (design tokens Apache-2.0)
+  attribution: >
+    Atlassian Design tokens are licensed Apache-2.0 (see the
+    `atlassian-frontend` mirror referenced in the matching palette
+    atom). The Atlassian wordmark, the blue chevron-A mark, the
+    Charlie Display proprietary typeface, and the Atlassian, Jira,
+    Confluence, Bitbucket, Trello, Compass, Loom, and Statuspage
+    trademarks are property of Atlassian Pty Ltd.
+  importedDate: 2026-05-19
+  notes: >
+    The Trello brand has a separate atom (`trello@1`) that catalogues
+    its signature Trello Blue. This Atlassian atom catalogues the
+    parent design-system palette and the cross-portfolio rules; it
+    does NOT imply formal inheritance — Trello, Jira, Confluence,
+    and Bitbucket are referenced descriptively, not via Zod-level
+    cross-references. Atlassian's proprietary Charlie Display
+    typeface is not publicly licensed; Inter is used as the open
+    rendering substitute for sans (heading, body).
+
+references:
+  palette: atlassian@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # Atlassian's institutional surface is the clean white canvas
+    # carrying the blue chevron mark. `identity` names the canvas;
+    # `on-identity` is the documented Neutral 1100 near-black that
+    # Atlassian Design uses for primary text on light surfaces.
+    identity: neutral-0
+    on-identity: neutral-1100
+
+    primary: blue-700
+    primary-hover: blue-800
+    accent: blue-700
+    accent-hover: blue-800
+    mark: blue-700
+    success: green-700
+    warning: yellow-700
+    error: red-700
+    text-primary-light: neutral-1100
+    text-primary-dark: neutral-100
+    background-light: neutral-0
+    background-dark: neutral-1100
+    surface-light: neutral-100
+    surface-dark: neutral-1000
+    text-secondary-light: neutral-700
+    text-tertiary-light: neutral-600
+    border-light: neutral-300
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: roles.colors.primary
+    allowed:
+      - blue-700
+      - blue-800
+      - blue-400
+    forbidden:
+      - red-700
+      - green-700
+      - yellow-700
+      - orange-700
+      - magenta-700
+      - purple-700
+    severity: error
+    rationale: >
+      Atlassian Design's documented `color.background.brand` token
+      resolves to Blue 700 on light surfaces and Blue 400 on dark
+      surfaces; Blue 800 is the pressed/active variant. Other
+      chromatic 700-stops are reserved for status, tag, and
+      data-viz roles and must not stand in for the primary
+      interactive color.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - outlined
+      - on-busy-photo
+    severity: error
+    rationale: >
+      Atlassian's brand-use guidance prohibits stretching, rotating,
+      recoloring, outlining, or applying decorative effects to the
+      Atlassian wordmark, the chevron-A mark, and the marks of
+      portfolio products (Jira, Confluence, Bitbucket, Trello,
+      Compass, Loom, Statuspage).
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Atlassian Design publishes WCAG 2.1 AA as its baseline
+      conformance target. Neutral 1100 (#1E1F21) on Neutral 0
+      (#FFFFFF) clears AA at ~18:1, and Neutral 100 (#F8F8F8) on
+      Neutral 1100 clears AA at ~17:1 — both light and dark mode
+      primary text/background pairs satisfy the floor.
+
+  - type: contextRestriction
+    target: roles.colors.identity
+    forbiddenContexts:
+      - product-of-competitor
+      - merchandise
+      - endorsement-implication
+      - company-name-or-domain
+    severity: error
+    rationale: >
+      Atlassian's trademark guidance forbids using the Atlassian
+      name, marks, or distinctive color treatment in third-party
+      company names, domains, merchandise, or any context that
+      implies affiliation or endorsement. The same constraint
+      governs portfolio marks (Jira, Confluence, Bitbucket, Trello).
+
+  - type: contextRestriction
+    target: roles.colors.error
+    allowedContexts:
+      - error-state
+      - destructive-action
+      - validation-failure
+    forbiddenContexts:
+      - confirmation
+      - data-viz-positive
+    severity: error
+    rationale: >
+      Atlassian Design's `color.text.danger` and
+      `color.background.danger.bold` tokens resolve to Red 700 on
+      light and Red 400 on dark. Reusing those swatches for
+      confirmation or positive data points inverts the established
+      semantic meaning across the portfolio.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["400", "500", "600", "700"]
+    severity: warning
+    rationale: >
+      Atlassian Design's documented type ramp anchors on Regular
+      (400), Medium (500), SemiBold (600), and Bold (700) — the
+      weights Charlie Display and the documented sans substitute
+      both ship. Heavier or lighter cuts are not part of the
+      defined ramp.
+
+  - type: fontPairing
+    target: typography.display
+    requires: prose
+    minSizeRatio: 1.5
+    severity: error
+    rationale: >
+      Atlassian's type scale maintains at least a 1.5× ratio
+      between heading and body to preserve the hierarchy that
+      Atlassian Design's components depend on for scannability
+      across dense product surfaces.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level
+      AA. Atlassian Design's accessibility commitment treats AA
+      as the floor for all product surfaces and the design tokens
+      that back them.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - neutral-0
+      - neutral-100
+      - neutral-1100
+    doesNotPairWith:
+      - red-700
+      - magenta-700
+      - purple-700
+    severity: recommendation
+    rationale: >
+      Atlassian Blue is calibrated to read on the Neutral 0 / 100
+      canvas and on the Neutral 1100 dark canvas. Placing it
+      adjacent to red-700, magenta-700, or purple-700 at equal
+      weight produces chromatic conflict that fights the focused,
+      team-first voice of the brand surface.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: dark
+    use: logo-light
+    severity: error
+    rationale: >
+      On dark surfaces, use Atlassian's documented light-fill
+      variant of the chevron mark and wordmark. Inverting the
+      blue mark on the fly produces an off-brand teal that does
+      not match Atlassian's published assets.

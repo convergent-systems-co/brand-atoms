@@ -1,0 +1,223 @@
+id: salesforce
+version: 1.0.0
+name: Salesforce
+description: >
+  Salesforce is the enterprise CRM company behind the Sales Cloud,
+  Service Cloud, Marketing Cloud, Data Cloud, MuleSoft, Tableau, and
+  Slack product families. Salesforce Lightning Design System (SLDS)
+  is the open-source design system that powers Lightning Experience
+  and the Aloha admin surfaces. The signature brand color is
+  Salesforce Blue (Palette Blue 50, #0176D3) — the canonical SLDS
+  `BRAND_PRIMARY` interactive color across light themes. Warm Gray
+  is the documented default neutral scale; semantic tokens map to
+  Green 50 (success), Red 50 (error), Yellow 50 (warning). The
+  proprietary typeface is Salesforce Sans (and SF Sans Display for
+  marketing); it is not publicly licensed, so this atom references
+  Inter as the open rendering substitute.
+
+tags: [salesforce, slds, lightning, design-system, crm, enterprise]
+
+provenance:
+  source: https://www.lightningdesignsystem.com/
+  license: Proprietary — All Rights Reserved (design tokens BSD-3-Clause)
+  attribution: >
+    Salesforce Lightning Design System design tokens are licensed
+    BSD-3-Clause (see the matching palette atom). The Salesforce
+    cloud-mark wordmark, the Salesforce Sans typeface family, and
+    the Salesforce, Lightning, SLDS, Sales Cloud, Service Cloud,
+    Marketing Cloud, Data Cloud, MuleSoft, Tableau, and Slack
+    trademarks are property of salesforce.com inc.
+  importedDate: 2026-05-19
+  notes: >
+    SLDS's published `BRAND_PRIMARY` alias resolves to PALETTE_BLUE_50
+    (#0176D3); the older theme exposes that swatch as
+    `--slds-g-color-brand-base-50`. Salesforce Sans is not publicly
+    licensed; Inter is referenced as the rendering substitute for
+    sans on both heading and body. Slack — acquired by Salesforce
+    in 2021 — has its own separate brand atom (`slack@1`) in this
+    catalogue and is NOT reskinned to SLDS.
+
+references:
+  palette: salesforce@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # Salesforce's institutional identity on digital surfaces is the
+    # warm-white canvas paired with the cloud wordmark. `identity`
+    # names that canvas; `on-identity` is the documented Warm Gray
+    # 13 near-black SLDS uses for primary text on light surfaces.
+    identity: warm-gray-1
+    on-identity: warm-gray-13
+
+    primary: blue-50
+    primary-hover: blue-40
+    accent: blue-50
+    accent-hover: blue-40
+    mark: blue-50
+    success: green-50
+    warning: yellow-50
+    error: red-50
+    text-primary-light: warm-gray-13
+    text-primary-dark: warm-gray-2
+    background-light: warm-gray-1
+    background-dark: warm-gray-13
+    surface-light: warm-gray-2
+    surface-dark: warm-gray-12
+    text-secondary-light: warm-gray-9
+    text-tertiary-light: warm-gray-10
+    border-light: warm-gray-5
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: roles.colors.primary
+    allowed:
+      - blue-50
+      - blue-40
+      - blue-60
+    forbidden:
+      - red-50
+      - green-50
+      - yellow-50
+      - orange-60
+      - pink-50
+      - violet-50
+    severity: error
+    rationale: >
+      SLDS's `BRAND_PRIMARY` alias resolves to PALETTE_BLUE_50
+      (#0176D3); Blue 40 (#0B5CAB) is the documented active/pressed
+      state on light, and Blue 60 (#1B96FF) is the dark-mode
+      counterpart. Other chromatic 50-stops are reserved for
+      semantic (red/yellow/green) and data-viz (pink/violet) roles
+      and must not stand in for the primary brand color.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - outlined
+      - on-busy-photo
+    severity: error
+    rationale: >
+      Salesforce's brand-use guidance prohibits stretching, rotating,
+      recoloring, outlining, or applying decorative effects to the
+      Salesforce cloud-mark wordmark or to the marks of cloud
+      products (Sales Cloud, Service Cloud, etc.).
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      SLDS publishes WCAG 2.1 AA as its accessibility floor across
+      Lightning surfaces. Warm Gray 13 (#080707) on Warm Gray 1
+      (#FFFFFF) clears AA at ~20:1, and Warm Gray 2 (#FAFAF9) on
+      Warm Gray 13 clears AA at ~19:1.
+
+  - type: contextRestriction
+    target: roles.colors.identity
+    forbiddenContexts:
+      - product-of-competitor
+      - merchandise
+      - endorsement-implication
+      - company-name-or-domain
+    severity: error
+    rationale: >
+      Salesforce's trademark guidance forbids using the Salesforce
+      name, the cloud-mark, or the SLDS brand color treatment in
+      third-party company names, domains, merchandise, or any
+      context that implies affiliation or endorsement.
+
+  - type: contextRestriction
+    target: roles.colors.error
+    allowedContexts:
+      - error-state
+      - destructive-action
+      - validation-failure
+    forbiddenContexts:
+      - confirmation
+      - data-viz-positive
+    severity: error
+    rationale: >
+      SLDS's `color-text-error` and `color-background-destructive`
+      tokens resolve to Red 50 (#EA001E) on light. Reusing it for
+      confirmation or positive data points inverts the established
+      semantic meaning across Lightning surfaces.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["400", "500", "600", "700"]
+    severity: warning
+    rationale: >
+      Salesforce Sans ships in Regular (400), Medium (500), Semibold
+      (600), and Bold (700) — the weights SLDS's documented type
+      ramp anchors on. Heavier display cuts are not part of the
+      defined system ramp.
+
+  - type: fontPairing
+    target: typography.display
+    requires: prose
+    minSizeRatio: 1.5
+    severity: error
+    rationale: >
+      SLDS's documented type scale maintains at least a 1.5× ratio
+      between heading and body to preserve the hierarchy Lightning
+      components depend on at dense data-table densities.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level
+      AA. SLDS's published accessibility commitment treats AA as
+      the floor for every Lightning component and the design tokens
+      that back them.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - warm-gray-1
+      - warm-gray-2
+      - warm-gray-13
+      - blue-95
+    doesNotPairWith:
+      - pink-50
+      - violet-50
+      - red-50
+    severity: recommendation
+    rationale: >
+      Salesforce Blue is calibrated to read against the Warm Gray
+      canvas (Warm Gray 1 / 2) on light surfaces and Warm Gray 13
+      on dark. Placing Blue 50 adjacent to pink-50, violet-50, or
+      red-50 at equal weight produces chromatic conflict and
+      breaks the calm, enterprise-confident voice SLDS surfaces
+      depend on.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: dark
+    use: logo-light
+    severity: error
+    rationale: >
+      On dark surfaces, use Salesforce's documented light-fill
+      variant of the cloud-mark wordmark; inverting the blue mark
+      on the fly produces an off-brand cyan that does not match
+      Salesforce's published assets.

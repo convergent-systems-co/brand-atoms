@@ -1,0 +1,219 @@
+id: adobe
+version: 1.0.0
+name: Adobe
+description: >
+  Adobe Inc. is the creator of Photoshop, Illustrator, InDesign, Acrobat,
+  and the Creative / Document / Experience Cloud product families. Adobe
+  Spectrum is the design system that backs Adobe's product surfaces — a
+  tonally-paired, dual-mode token system (light and dark hex pairs for
+  every chromatic stop) anchored on a primary accent blue (#3B63FB on
+  light, #5681FF on dark). The marketing brand is a separate, more
+  saturated red (the wordmark), but product UIs render in Spectrum's
+  calmer accent blue and neutral grays. The proprietary typeface family
+  is Adobe Clean (sans), Adobe Clean Serif, and Source Code Pro for mono;
+  Adobe Clean is not publicly distributed, so this atom references
+  Inter as the open rendering substitute for sans and Source Sans 3 as
+  a closer Source-family fallback, with Source Code Pro for monospace.
+
+tags: [adobe, spectrum, design-system, creative-cloud, document-cloud, dual-mode]
+
+provenance:
+  source: https://spectrum.adobe.com/
+  license: Proprietary — All Rights Reserved (palette tokens Apache-2.0)
+  attribution: >
+    Adobe Spectrum design tokens are licensed Apache-2.0 (see the
+    `adobe/spectrum-css` repository). The Adobe wordmark, the Adobe
+    Clean typeface family, and the Adobe trademark are property of
+    Adobe Inc. This atom catalogues only the public, documented design-
+    system surface; trademark and typeface use remain Adobe's.
+  importedDate: 2026-05-19
+  notes: >
+    Spectrum is dual-mode by construction: every accent / surface /
+    text token resolves to one hex on light and a paired hex on dark.
+    This brand atom names light-mode swatches in the role map and lets
+    the palette's `modes.dark` block do the swap at consumption time.
+    The proprietary Adobe Clean family is not publicly licensed; Inter
+    is referenced as the rendering substitute for sans (heading, body)
+    and Source Sans 3 covers the Source-family marketing surface.
+
+references:
+  palette: adobe@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    serif: source-sans-3@1
+    mono: source-code-pro@1
+
+roles:
+  colors:
+    # The Spectrum brand identity surface is the light gray-25 canvas
+    # carrying Spectrum's accent blue — not a saturated brand block.
+    # `identity` names the canvas; `on-identity` is the text color on it.
+    identity: gray-25
+    on-identity: gray-900
+
+    primary: blue-900
+    primary-hover: blue-1000
+    accent: blue-900
+    accent-hover: blue-1000
+    mark: blue-900
+    success: green-900
+    warning: orange-900
+    error: red-900
+    text-primary-light: gray-900
+    text-primary-dark: gray-900-dark
+    background-light: gray-25
+    background-dark: gray-25-dark
+    surface-light: gray-100
+    surface-dark: gray-100-dark
+    text-secondary-light: gray-700
+    text-tertiary-light: gray-600
+    border-light: gray-300
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Spectrum is positioned as a production design system for Adobe's
+      shipped product surfaces; the documented contrast floor is WCAG
+      2.1 AA. Gray 900 (#131313) on Gray 25 (#FFFFFF) clears AA at
+      ~20:1, and Gray 900 Dark (#F2F2F2) on Gray 25 Dark (#111111)
+      clears AA at ~18:1.
+
+  - type: colorChoice
+    target: roles.colors.primary
+    allowed:
+      - blue-900
+      - blue-1000
+    forbidden:
+      - red-900
+      - orange-900
+      - green-900
+      - purple-900
+      - magenta-900
+    severity: error
+    rationale: >
+      Spectrum's accent-background-color-default resolves to blue-900
+      on light and the paired blue-900-dark on dark. Other chromatic
+      anchors (red, orange, green, purple, magenta) are reserved for
+      semantic and illustrative roles and must not stand in for the
+      primary interactive color.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+    severity: error
+    rationale: >
+      Adobe's brand-guidelines treatment of the red Adobe wordmark and
+      the corporate "A" mark prohibits stretching, rotating, recoloring,
+      adding effects, or placing the mark on visually busy backgrounds.
+      Spectrum surfaces inherit the same constraints.
+
+  - type: contextRestriction
+    target: roles.colors.error
+    allowedContexts:
+      - error-state
+      - destructive-action
+      - validation-failure
+    forbiddenContexts:
+      - confirmation
+      - data-viz-positive
+    severity: error
+    rationale: >
+      Spectrum's negative semantic token (negative-color-900 = red-900)
+      maps to error, destructive, and validation-failure states. Using
+      it for confirmation or positive data-viz inverts the established
+      meaning and breaks user expectations across Adobe products.
+
+  - type: contextRestriction
+    target: roles.colors.success
+    allowedContexts:
+      - confirmation
+      - completion
+      - data-viz-positive
+    forbiddenContexts:
+      - error-state
+      - destructive-action
+    severity: error
+    rationale: >
+      Spectrum's positive semantic token (positive-color-900 = green-900)
+      is reserved for confirmation, completion, and positive data-viz.
+      Using it for error or destructive states inverts the documented
+      semantic meaning.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["400", "500", "700", "800", "900"]
+    severity: warning
+    rationale: >
+      Adobe Clean ships in Regular (400), Medium (500), Bold (700),
+      Black (800), and Extra Bold (900) — the weights Spectrum's
+      typography scale references. Lighter weights are not part of
+      the licensed cut and read off-brand on product surfaces.
+
+  - type: fontPairing
+    target: typography.display
+    requires: prose
+    minSizeRatio: 1.5
+    severity: error
+    rationale: >
+      Spectrum's type ramp pairs a display weight of Adobe Clean with
+      body weight at a documented minimum ratio of 1.5× to preserve
+      the hierarchy that Spectrum's components depend on.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level AA.
+      Spectrum's published accessibility commitment treats AA as the
+      floor across product surfaces; AAA is encouraged where contrast
+      permits but is not the system-wide minimum.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - gray-25
+      - gray-50
+      - gray-100
+      - gray-900
+    doesNotPairWith:
+      - red-900
+      - orange-900
+      - magenta-900
+    severity: recommendation
+    rationale: >
+      Spectrum accent blue is calibrated to read against neutral grays
+      — Gray 25 / 50 / 100 surfaces and Gray 900 text. Placing it
+      adjacent to red-900, orange-900, or magenta-900 at equal weight
+      produces chromatic conflict and undermines the calm, focused
+      voice Spectrum is built for.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: dark
+    use: logo-light
+    severity: error
+    rationale: >
+      On dark surfaces, use the documented light-fill variant of the
+      Adobe mark. Inverting the red wordmark on the fly produces an
+      off-brand pink that does not match Adobe's published assets.

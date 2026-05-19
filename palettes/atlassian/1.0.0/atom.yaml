@@ -1,0 +1,145 @@
+kind: palette
+id: atlassian
+version: 1.0.0
+name: Atlassian
+description: >
+  Atlassian's design-token palette, sourced from the
+  `@atlaskit/tokens` package — the package that backs every product
+  surface in the Atlassian portfolio (Jira, Confluence, Trello,
+  Bitbucket, Compass, Loom, Statuspage). Ten chromatic families
+  (Blue, Teal, Purple, Magenta, Red, Orange, Yellow, Green, Lime,
+  Neutral) running 100 → 1000+ with a 250 / 850 odd-stop. Atlassian
+  Blue 800 (#1558BC) anchors the primary interactive role on light
+  surfaces; Blue 400 (#669DF1) takes that role on dark surfaces.
+  The Neutral scale supplies the canvas, surface, and text tokens
+  for both modes.
+
+tags: [atlassian, atlaskit, design-system, role-based, dual-mode]
+
+provenance:
+  source: https://github.com/pioug/atlassian-frontend-mirror/blob/main/design-system/tokens/src/artifacts/palettes-raw/palette.tsx
+  license: Apache-2.0
+  attribution: >
+    Atlassian design tokens, Copyright Atlassian Pty Ltd, published
+    under Apache-2.0 in the `@atlaskit/tokens` package. Hex values
+    mirrored from the codegen palette artifact in the public
+    `atlassian-frontend` mirror. Atlassian, Jira, Confluence, Trello,
+    and associated marks are property of Atlassian Pty Ltd.
+  importedDate: 2026-05-19
+  importedFromVersion: "atlassian-frontend palettes-raw@2026-05"
+  notes: >
+    Atlassian's palette uses a 100..1000 scale with a 250 odd-stop
+    for accessibility-tuned mid-tones and an 850 odd-stop for
+    contrast-paired darks. The catalogue captures the anchor stops
+    (100 / 200 / 400 / 700 / 800 / 900) for every family — the
+    stops Atlassian's semantic tokens map onto — plus the full
+    Neutral scale that drives canvas, surface, and text.
+
+swatches:
+  # ─── Neutrals ──────────────────────────────────────────────────
+  - { id: neutral-0,    name: Neutral 0,    value: "#FFFFFF", description: "Light canvas." }
+  - { id: neutral-100,  name: Neutral 100,  value: "#F8F8F8", description: "Light surface — subtle elevation." }
+  - { id: neutral-200,  name: Neutral 200,  value: "#F0F1F2" }
+  - { id: neutral-300,  name: Neutral 300,  value: "#DDDEE1", description: "Default border on light." }
+  - { id: neutral-400,  name: Neutral 400,  value: "#B7B9BE" }
+  - { id: neutral-500,  name: Neutral 500,  value: "#8C8F97" }
+  - { id: neutral-600,  name: Neutral 600,  value: "#7D818A" }
+  - { id: neutral-700,  name: Neutral 700,  value: "#6B6E76", description: "Secondary text on light." }
+  - { id: neutral-800,  name: Neutral 800,  value: "#505258" }
+  - { id: neutral-900,  name: Neutral 900,  value: "#3B3D42" }
+  - { id: neutral-1000, name: Neutral 1000, value: "#292A2E", description: "Dark surface (canvas in dark mode)." }
+  - { id: neutral-1100, name: Neutral 1100, value: "#1E1F21", description: "Dark canvas / deepest neutral." }
+
+  # ─── Blue (Atlassian primary) ──────────────────────────────────
+  - { id: blue-100, name: Blue 100, value: "#E9F2FE" }
+  - { id: blue-200, name: Blue 200, value: "#CFE1FD" }
+  - { id: blue-400, name: Blue 400, value: "#669DF1", description: "Primary interactive (dark mode)." }
+  - { id: blue-500, name: Blue 500, value: "#4688EC" }
+  - { id: blue-700, name: Blue 700, value: "#1868DB", description: "Atlassian's most-recognized brand blue; primary on light surfaces." }
+  - { id: blue-800, name: Blue 800, value: "#1558BC", description: "Pressed / active variant on light." }
+  - { id: blue-900, name: Blue 900, value: "#123263" }
+
+  # ─── Teal ──────────────────────────────────────────────────────
+  - { id: teal-100, name: Teal 100, value: "#E7F9FF" }
+  - { id: teal-400, name: Teal 400, value: "#6CC3E0" }
+  - { id: teal-700, name: Teal 700, value: "#227D9B" }
+  - { id: teal-900, name: Teal 900, value: "#164555" }
+
+  # ─── Green (success) ───────────────────────────────────────────
+  - { id: green-100, name: Green 100, value: "#DCFFF1" }
+  - { id: green-400, name: Green 400, value: "#4BCE97", description: "Success on dark surfaces." }
+  - { id: green-700, name: Green 700, value: "#1F845A", description: "Success on light surfaces." }
+  - { id: green-900, name: Green 900, value: "#164B35" }
+
+  # ─── Yellow (warning) ──────────────────────────────────────────
+  - { id: yellow-100, name: Yellow 100, value: "#FEF7C8" }
+  - { id: yellow-400, name: Yellow 400, value: "#DDB30E" }
+  - { id: yellow-700, name: Yellow 700, value: "#946F00", description: "Warning on light surfaces." }
+  - { id: yellow-900, name: Yellow 900, value: "#533F04" }
+
+  # ─── Orange ────────────────────────────────────────────────────
+  - { id: orange-100, name: Orange 100, value: "#FFF5DB" }
+  - { id: orange-400, name: Orange 400, value: "#FCA700" }
+  - { id: orange-700, name: Orange 700, value: "#BD5B00" }
+  - { id: orange-900, name: Orange 900, value: "#693200" }
+
+  # ─── Red (error) ───────────────────────────────────────────────
+  - { id: red-100, name: Red 100, value: "#FFECEB" }
+  - { id: red-400, name: Red 400, value: "#F87168", description: "Error on dark surfaces." }
+  - { id: red-700, name: Red 700, value: "#C9372C", description: "Error on light surfaces." }
+  - { id: red-900, name: Red 900, value: "#5D1F1A" }
+
+  # ─── Purple ────────────────────────────────────────────────────
+  - { id: purple-100, name: Purple 100, value: "#F8EEFE" }
+  - { id: purple-400, name: Purple 400, value: "#C97CF4" }
+  - { id: purple-700, name: Purple 700, value: "#964AC0" }
+  - { id: purple-900, name: Purple 900, value: "#48245D" }
+
+  # ─── Magenta ───────────────────────────────────────────────────
+  - { id: magenta-100, name: Magenta 100, value: "#FFECF8" }
+  - { id: magenta-400, name: Magenta 400, value: "#E774BB" }
+  - { id: magenta-700, name: Magenta 700, value: "#AE4787" }
+  - { id: magenta-900, name: Magenta 900, value: "#50253F" }
+
+  # ─── Lime ──────────────────────────────────────────────────────
+  - { id: lime-100, name: Lime 100, value: "#EFFFD6" }
+  - { id: lime-400, name: Lime 400, value: "#94C748" }
+  - { id: lime-700, name: Lime 700, value: "#5B7F24" }
+  - { id: lime-900, name: Lime 900, value: "#37471F" }
+
+modes:
+  light:
+    roles:
+      background: neutral-0
+      surface: neutral-100
+      surface-elevated: neutral-0
+      text-primary: neutral-1100
+      text-secondary: neutral-700
+      text-tertiary: neutral-600
+      primary: blue-700
+      primary-hover: blue-800
+      accent: blue-700
+      accent-hover: blue-800
+      warning: yellow-700
+      warning-hover: orange-700
+      error: red-700
+      success: green-700
+      border: neutral-300
+
+  dark:
+    roles:
+      background: neutral-1100
+      surface: neutral-1000
+      surface-elevated: neutral-900
+      text-primary: neutral-100
+      text-secondary: neutral-300
+      text-tertiary: neutral-400
+      primary: blue-400
+      primary-hover: blue-500
+      accent: blue-400
+      accent-hover: blue-500
+      warning: yellow-400
+      warning-hover: orange-400
+      error: red-400
+      success: green-400
+      border: neutral-800
