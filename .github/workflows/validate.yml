@@ -10,6 +10,11 @@ concurrency:
   group: validate-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  # Opt every javascript-based action into Node 24 ahead of the
+  # 2026-06-02 deprecation of Node 20 on GitHub Actions runners.
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
 jobs:
   validate:
     runs-on: ubuntu-latest
