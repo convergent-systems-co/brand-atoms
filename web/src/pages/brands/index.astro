@@ -19,6 +19,21 @@ const brands = getResolvedBrands()
     };
   })
   .sort((a, b) => a.name.localeCompare(b.name));
+
+// Dedup: brands with identical identity AND primary colors render as a single
+// tabbed card. Click a tab to swap the card to that sibling brand in place.
+type Brand = (typeof brands)[number];
+const groupMap = new Map<string, Brand[]>();
+for (const b of brands) {
+  const key = `${b.theme.identity}|${b.theme.primary}`;
+  const arr = groupMap.get(key);
+  if (arr) arr.push(b);
+  else groupMap.set(key, [b]);
+}
+const groups: Brand[][] = Array.from(groupMap.values()).sort((a, b) =>
+  a[0].name.localeCompare(b[0].name),
+);
+const duplicateGroupCount = groups.filter((g) => g.length > 1).length;
 ---
 
 <Layout title="Brands — Brand Atoms" section="brands">
@@ -31,72 +46,169 @@ const brands = getResolvedBrands()
     </p>
     <p class="meta">
       {brands.length} brand{brands.length === 1 ? '' : 's'}
+      {duplicateGroupCount > 0 && (
+        <span class="meta-sub"> · {duplicateGroupCount} visual duplicate group{duplicateGroupCount === 1 ? '' : 's'} (tabbed)</span>
+      )}
     </p>
   </header>
 
   <div class="grid">
-    {brands.map((b) => (
-      <a
-        class="card"
-        href={`/brands/${b.slug}`}
-        style={`
-          --row-primary: ${b.theme.primary};
-          --row-primary-hover: ${b.theme.primaryHover};
-          --row-surface: ${b.theme.surface};
-          --row-surface-elevated: ${b.theme.surfaceElevated};
-          --row-background: ${b.theme.background};
-          --row-text: ${b.theme.textPrimary};
-          --row-text-secondary: ${b.theme.textSecondary};
-          --row-text-tertiary: ${b.theme.textTertiary};
-          --row-accent: ${b.theme.accent};
-          --row-on-primary: ${b.theme.onPrimary};
-          --row-identity: ${b.theme.identity};
-          --row-on-identity: ${b.theme.onIdentity};
-          --row-heading-font: ${b.theme.headingFont};
-          --row-body-font: ${b.theme.bodyFont};
-        `}
-      >
-        <header class="card-head">
-          <div class="card-head-row">
-            <h2>{b.name}</h2>
-            <code class="ref">{b.slug}@{b.version}</code>
-          </div>
-        </header>
+    {groups.map((group) => {
+      if (group.length === 1) {
+        const b = group[0];
+        return (
+          <a
+            class="card"
+            href={`/brands/${b.slug}`}
+            style={`
+              --row-primary: ${b.theme.primary};
+              --row-primary-hover: ${b.theme.primaryHover};
+              --row-surface: ${b.theme.surface};
+              --row-surface-elevated: ${b.theme.surfaceElevated};
+              --row-background: ${b.theme.background};
+              --row-text: ${b.theme.textPrimary};
+              --row-text-secondary: ${b.theme.textSecondary};
+              --row-text-tertiary: ${b.theme.textTertiary};
+              --row-accent: ${b.theme.accent};
+              --row-on-primary: ${b.theme.onPrimary};
+              --row-identity: ${b.theme.identity};
+              --row-on-identity: ${b.theme.onIdentity};
+              --row-heading-font: ${b.theme.headingFont};
+              --row-body-font: ${b.theme.bodyFont};
+            `}
+          >
+            <header class="card-head">
+              <div class="card-head-row">
+                <h2>{b.name}</h2>
+                <code class="ref">{b.slug}@{b.version}</code>
+              </div>
+            </header>
 
-        <div class="card-body">
-          {b.description && <p class="desc">{b.description}</p>}
+            <div class="card-body">
+              {b.description && <p class="desc">{b.description}</p>}
 
-          <div class="metrics">
-            <div class="metric">
-              <div class="metric-value">1</div>
-              <div class="metric-label">palette</div>
-              <code class="metric-sub">{b.paletteRef}</code>
-            </div>
-            <div class="metric">
-              <div class="metric-value">{b.fontCount}</div>
-              <div class="metric-label">font{b.fontCount === 1 ? '' : 's'}</div>
-              <code class="metric-sub">via role keys</code>
-            </div>
-            <div class="metric">
-              <div class="metric-value">{b.assetCount}</div>
-              <div class="metric-label">asset{b.assetCount === 1 ? '' : 's'}</div>
-              <code class="metric-sub">logos / favicons</code>
-            </div>
-            <div class="metric">
-              <div class="metric-value">{b.ruleCount}</div>
-              <div class="metric-label">rule{b.ruleCount === 1 ? '' : 's'}</div>
-              <code class="metric-sub">typed constraints</code>
-            </div>
-          </div>
+              <div class="metrics">
+                <div class="metric">
+                  <div class="metric-value">1</div>
+                  <div class="metric-label">palette</div>
+                  <code class="metric-sub">{b.paletteRef}</code>
+                </div>
+                <div class="metric">
+                  <div class="metric-value">{b.fontCount}</div>
+                  <div class="metric-label">font{b.fontCount === 1 ? '' : 's'}</div>
+                  <code class="metric-sub">via role keys</code>
+                </div>
+                <div class="metric">
+                  <div class="metric-value">{b.assetCount}</div>
+                  <div class="metric-label">asset{b.assetCount === 1 ? '' : 's'}</div>
+                  <code class="metric-sub">logos / favicons</code>
+                </div>
+                <div class="metric">
+                  <div class="metric-value">{b.ruleCount}</div>
+                  <div class="metric-label">rule{b.ruleCount === 1 ? '' : 's'}</div>
+                  <code class="metric-sub">typed constraints</code>
+                </div>
+              </div>
 
-          {b.tags.length > 0 && (
-            <div class="tags">
-              {b.tags.map((t) => <code class="tag">{t}</code>)}
+              {b.tags.length > 0 && (
+                <div class="tags">
+                  {b.tags.map((t) => <code class="tag">{t}</code>)}
+                </div>
+              )}
             </div>
-          )}
+          </a>
+        );
+      }
+
+      // Multi-brand group — share identity + primary. Render variants, toggle
+      // via tabs in the card header.
+      return (
+        <div class="card multi" data-multi data-active="0">
+          {group.map((b, i) => (
+            <div
+              class="variant"
+              data-variant-index={String(i)}
+              hidden={i > 0}
+              style={`
+                --row-primary: ${b.theme.primary};
+                --row-primary-hover: ${b.theme.primaryHover};
+                --row-surface: ${b.theme.surface};
+                --row-surface-elevated: ${b.theme.surfaceElevated};
+                --row-background: ${b.theme.background};
+                --row-text: ${b.theme.textPrimary};
+                --row-text-secondary: ${b.theme.textSecondary};
+                --row-text-tertiary: ${b.theme.textTertiary};
+                --row-accent: ${b.theme.accent};
+                --row-on-primary: ${b.theme.onPrimary};
+                --row-identity: ${b.theme.identity};
+                --row-on-identity: ${b.theme.onIdentity};
+                --row-heading-font: ${b.theme.headingFont};
+                --row-body-font: ${b.theme.bodyFont};
+              `}
+            >
+              <header class="card-head">
+                <div class="card-head-row">
+                  <a class="card-name" href={`/brands/${b.slug}`}>
+                    <h2>{b.name}</h2>
+                  </a>
+                  <div class="card-tabs" role="tablist" aria-label={`Other brands sharing this identity (${group.length - 1})`}>
+                    {group.map((sib, sibIdx) =>
+                      sibIdx === i ? null : (
+                        <button
+                          type="button"
+                          class="tab"
+                          role="tab"
+                          data-target-index={String(sibIdx)}
+                          aria-label={`Switch to ${sib.name}`}
+                        >
+                          {sib.name}
+                        </button>
+                      ),
+                    )}
+                  </div>
+                </div>
+                <code class="ref">{b.slug}@{b.version}</code>
+              </header>
+
+              <a class="card-body-link" href={`/brands/${b.slug}`}>
+                <div class="card-body">
+                  {b.description && <p class="desc">{b.description}</p>}
+
+                  <div class="metrics">
+                    <div class="metric">
+                      <div class="metric-value">1</div>
+                      <div class="metric-label">palette</div>
+                      <code class="metric-sub">{b.paletteRef}</code>
+                    </div>
+                    <div class="metric">
+                      <div class="metric-value">{b.fontCount}</div>
+                      <div class="metric-label">font{b.fontCount === 1 ? '' : 's'}</div>
+                      <code class="metric-sub">via role keys</code>
+                    </div>
+                    <div class="metric">
+                      <div class="metric-value">{b.assetCount}</div>
+                      <div class="metric-label">asset{b.assetCount === 1 ? '' : 's'}</div>
+                      <code class="metric-sub">logos / favicons</code>
+                    </div>
+                    <div class="metric">
+                      <div class="metric-value">{b.ruleCount}</div>
+                      <div class="metric-label">rule{b.ruleCount === 1 ? '' : 's'}</div>
+                      <code class="metric-sub">typed constraints</code>
+                    </div>
+                  </div>
+
+                  {b.tags.length > 0 && (
+                    <div class="tags">
+                      {b.tags.map((t) => <code class="tag">{t}</code>)}
+                    </div>
+                  )}
+                </div>
+              </a>
+            </div>
+          ))}
         </div>
-      </a>
-    ))}
+      );
+    })}
   </div>
 
   <style>
@@ -123,6 +235,9 @@ const brands = getResolvedBrands()
       color: var(--text-tertiary);
       margin: 0;
     }
+    .meta-sub {
+      color: var(--accent);
+    }
 
     .grid {
       display: grid;
@@ -146,6 +261,35 @@ const brands = getResolvedBrands()
       transform: translateY(-2px);
       box-shadow: 0 18px 40px -22px rgba(0, 0, 0, 0.35);
     }
+    .card.multi {
+      /* Multi-brand cards have inner variants that set their own
+         row-* vars; the outer container stays neutral. */
+      background: transparent;
+      border-color: transparent;
+      box-shadow: none;
+      overflow: visible;
+    }
+    .card.multi:hover {
+      transform: none;
+      box-shadow: none;
+    }
+
+    .variant {
+      background: var(--row-background, var(--surface));
+      color: var(--row-text, var(--text-primary));
+      border: 2px solid var(--row-accent);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+    }
+    .variant:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px -22px rgba(0, 0, 0, 0.35);
+    }
+    .variant[hidden] {
+      display: none;
+    }
 
     .card-head {
       background: var(--row-identity);
@@ -156,9 +300,10 @@ const brands = getResolvedBrands()
     .card-head-row {
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
-      gap: 12px;
+      align-items: center;
+      gap: 16px;
       flex-wrap: wrap;
+      margin-bottom: 4px;
     }
     .card h2 {
       font-family: var(--row-heading-font);
@@ -169,11 +314,56 @@ const brands = getResolvedBrands()
       color: var(--row-on-identity);
       line-height: 1.1;
     }
+    .card-name {
+      text-decoration: none;
+      color: inherit;
+      display: inline-block;
+    }
+    .card-name:hover h2 {
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+    }
     .ref {
       font-family: var(--font-mono);
       font-size: 12px;
       color: var(--row-on-identity);
       opacity: 0.75;
+    }
+
+    .card-tabs {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .tab {
+      font-family: var(--row-heading-font);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--row-on-identity) 12%, transparent);
+      color: var(--row-on-identity);
+      border: 1px solid color-mix(in srgb, var(--row-on-identity) 25%, transparent);
+      cursor: pointer;
+      transition: background 0.12s ease, transform 0.1s ease;
+      white-space: nowrap;
+      letter-spacing: -0.005em;
+    }
+    .tab:hover {
+      background: color-mix(in srgb, var(--row-on-identity) 22%, transparent);
+      transform: translateY(-1px);
+    }
+    .tab:focus-visible {
+      outline: 2px solid var(--row-primary);
+      outline-offset: 2px;
+    }
+
+    .card-body-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
     }
 
     .card-body {
@@ -240,4 +430,24 @@ const brands = getResolvedBrands()
       border: 1px solid var(--row-surface-elevated);
     }
   </style>
+
+  <script is:inline>
+    // Tab swap for duplicate-brand cards: clicking a tab hides the current
+    // variant and shows the target sibling variant in place.
+    document.querySelectorAll('.card.multi').forEach((card) => {
+      const variants = card.querySelectorAll(':scope > .variant');
+      card.addEventListener('click', (e) => {
+        const tab = e.target instanceof Element ? e.target.closest('button.tab') : null;
+        if (!tab || !card.contains(tab)) return;
+        e.preventDefault();
+        e.stopPropagation();
+        const targetIdx = tab.getAttribute('data-target-index');
+        if (targetIdx == null) return;
+        variants.forEach((v) => {
+          v.hidden = v.getAttribute('data-variant-index') !== targetIdx;
+        });
+        card.setAttribute('data-active', targetIdx);
+      });
+    });
+  </script>
 </Layout>
