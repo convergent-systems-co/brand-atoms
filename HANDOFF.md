@@ -8,15 +8,15 @@ This is a living document: edit it as items move between sections.
 
 ## Snapshot (2026-05-19)
 
-- **Brands:** 100
-- **Palettes:** 167
+- **Brands:** 144
+- **Palettes:** 210
 - **Fonts:** 69
 - **Output formats per brand:** 9 (YAML, JSON, W3C tokens, CSS, SCSS,
   Tailwind, Figma tokens, Swift, Kotlin, Markdown)
 - **Live site:** [brand-atoms.com](https://brand-atoms.com)
 - **CLI:** `brandatom` v0.1.1 — brew + scoop install live
-- **Last commit on `main`:** `c4267cd` (pre-handoff bump)
-- **Session commit count:** 34 (Wave-4 added 2 brand commits)
+- **Last commit on `main`:** `43ee387` (pre-handoff bump)
+- **Session commit count:** 43 (Wave-5 added 8 cluster commits)
 
 ## What "complete" means
 
@@ -56,22 +56,30 @@ decreasing order of usefulness for the catalog's primary audiences
 - [x] **AI labs (4):** Mistral, Cohere, Perplexity, xAI — landed in `7518580` (#23). Anthropic + OpenAI already in catalog. Audit resolved 2026-05-19: Cohere `identity: ink` kept — the brand-badge canvas is the Command product UI (dark), not the marketing chrome (light); consistent with other AI-lab identity surfaces.
 - [x] **Email / productivity (5):** Gmail, Outlook, Superhuman, HEY, Fastmail — landed in `ba99e02` (#24). Gmail/Outlook documented as product-brands under Google/Microsoft via `provenance.notes` only (no inheritance machinery).
 
-### Lower-priority brand gaps
+### Lower-priority brand gaps — Wave-5 (all landed 2026-05-19)
 
-- [ ] **Gaming platforms / engines (8):** Steam/Valve, Epic Games,
+- [x] **Gaming platforms / engines (8):** Steam/Valve, Epic Games,
       Nintendo, PlayStation, Xbox, Roblox, Unity, Unreal Engine
-- [ ] **News / journalism (8):** New York Times, Washington Post,
-      BBC, Reuters, Bloomberg, The Verge, Wired, The Atlantic,
-      ProPublica
-- [ ] **Music streaming (4):** Apple Music, SoundCloud, Bandcamp, Tidal
-- [ ] **Travel / transport (~6):** Uber, Lyft, DoorDash, Booking,
-      Tesla, Rivian
-- [ ] **Education (4):** Duolingo, Coursera, Khan Academy, Codecademy
-- [ ] **Universities (~5):** MIT, Stanford, Harvard, Oxford, Cambridge
-- [ ] **Government / civic (~3):** US Web Design System (palette exists
-      as `uswds`; add the brand atom), GOV.UK, European Digital Identity
-- [ ] **Foundations / registries (~5):** Apache, Linux Foundation,
-      Mozilla (have), Eclipse, npm, PyPI
+      — `ffd1d51` (#25)
+- [x] **News / journalism (9):** NYT, Washington Post, BBC, Reuters,
+      Bloomberg, The Verge, Wired, The Atlantic, ProPublica
+      — `43ee387` (#26)
+- [x] **Music streaming (4):** Apple Music, SoundCloud, Bandcamp, Tidal
+      — `3d2dd9f` (#27). Apple Music documented as product-brand
+      under existing Apple atom via provenance.notes only.
+- [x] **Travel / transport (6):** Uber, Lyft, DoorDash, Booking,
+      Tesla, Rivian — `f3c5a99` (#28). Tesla and Rivian dark-first.
+- [x] **Education (4):** Duolingo, Coursera, Khan Academy, Codecademy
+      — `71f04ca` (#29)
+- [x] **Universities (5):** MIT, Stanford, Harvard, Oxford, Cambridge
+      — `55b0987` (#30). Parent institution only — sub-brand schools
+      deferred. MIT Red corrected to #750014 (official) from the
+      initial brief's #A31F34.
+- [x] **Government / civic (3):** USWDS, GOV.UK, European Digital
+      Identity — `9ed379b` (#31). USWDS brand reuses existing
+      `uswds@1` palette.
+- [x] **Foundations / registries (5):** Apache, Linux Foundation,
+      Eclipse, npm, PyPI — `6b897c5` (#32). Mozilla already in catalog.
 
 ### Font additions worth considering
 
