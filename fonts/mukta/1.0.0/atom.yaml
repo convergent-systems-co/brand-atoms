@@ -1,0 +1,40 @@
+kind: font
+id: mukta
+version: 1.0.0
+name: Mukta
+family: Mukta
+classification: sans-serif
+tags:
+  - sans-serif
+provenance:
+  source: https://raw.githubusercontent.com/google/fonts/main/ofl/mukta/METADATA.pb
+  license: OFL-1.1
+  attribution: Designed by Ek Type. Copyright (c) 2014, Girish Dalvi, Ek Type. All rights reserved. Licensed under the SIL Open Font License, Version 1.1.
+  importedDate: 2026-05-17
+source:
+  kind: google-fonts
+  family: Mukta
+  url: https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap
+fallbackStack:
+  - -apple-system
+  - BlinkMacSystemFont
+  - Segoe UI
+  - Roboto
+  - Helvetica Neue
+  - Arial
+  - sans-serif
+availableStyles:
+  - weight: 200
+    style: normal
+  - weight: 300
+    style: normal
+  - weight: 400
+    style: normal
+  - weight: 500
+    style: normal
+  - weight: 600
+    style: normal
+  - weight: 700
+    style: normal
+  - weight: 800
+    style: normal

@@ -1,0 +1,31 @@
+kind: font
+id: oldstandardtt
+version: 1.0.0
+name: Old Standard TT
+family: Old Standard TT
+classification: slab-serif
+tags:
+  - slab
+provenance:
+  source: https://raw.githubusercontent.com/google/fonts/main/ofl/oldstandardtt/METADATA.pb
+  license: OFL-1.1
+  attribution: Designed by Alexey Kryukov. Copyright 2011 The Old Standard Project Authors (amkryukov@gmail.com) Licensed under the SIL Open Font License, Version 1.1.
+  importedDate: 2026-05-17
+source:
+  kind: google-fonts
+  family: Old Standard TT
+  url: https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap
+fallbackStack:
+  - Rockwell
+  - Courier Bold
+  - Courier
+  - Georgia
+  - Times
+  - serif
+availableStyles:
+  - weight: 400
+    style: normal
+  - weight: 400
+    style: italic
+  - weight: 700
+    style: normal

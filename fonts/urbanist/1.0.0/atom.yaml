@@ -1,0 +1,31 @@
+kind: font
+id: urbanist
+version: 1.0.0
+name: Urbanist
+family: Urbanist
+classification: sans-serif
+tags:
+  - sans-serif
+  - variable-font
+provenance:
+  source: https://raw.githubusercontent.com/google/fonts/main/ofl/urbanist/METADATA.pb
+  license: OFL-1.1
+  attribution: Designed by Corey Hu. Copyright 2021 The Urbanist Project Authors (https://github.com/coreyhu/Urbanist) Licensed under the SIL Open Font License, Version 1.1.
+  importedDate: 2026-05-17
+source:
+  kind: google-fonts
+  family: Urbanist
+  url: https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap
+fallbackStack:
+  - -apple-system
+  - BlinkMacSystemFont
+  - Segoe UI
+  - Roboto
+  - Helvetica Neue
+  - Arial
+  - sans-serif
+availableStyles:
+  - weight: 400
+    style: normal
+  - weight: 400
+    style: italic

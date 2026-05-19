@@ -1,0 +1,32 @@
+kind: font
+id: gentiumplus
+version: 1.0.0
+name: Gentium Plus
+family: Gentium Plus
+classification: serif
+tags:
+  - serif
+provenance:
+  source: https://raw.githubusercontent.com/google/fonts/main/ofl/gentiumplus/METADATA.pb
+  license: OFL-1.1
+  attribution: Designed by SIL International. Copyright (c) 2003-2022 SIL International Licensed under the SIL Open Font License, Version 1.1.
+  importedDate: 2026-05-17
+source:
+  kind: google-fonts
+  family: Gentium Plus
+  url: https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap
+fallbackStack:
+  - Georgia
+  - Cambria
+  - Times New Roman
+  - Times
+  - serif
+availableStyles:
+  - weight: 400
+    style: normal
+  - weight: 400
+    style: italic
+  - weight: 700
+    style: normal
+  - weight: 700
+    style: italic

@@ -1,0 +1,28 @@
+kind: font
+id: overpassmono
+version: 1.0.0
+name: Overpass Mono
+family: Overpass Mono
+classification: monospace
+tags:
+  - monospace
+  - variable-font
+provenance:
+  source: https://raw.githubusercontent.com/google/fonts/main/ofl/overpassmono/METADATA.pb
+  license: OFL-1.1
+  attribution: Designed by Delve Withrington, Dave Bailey, Thomas Jockin. Copyright 2021 The Overpass Project Authors (https://github.com/RedHatOfficial/Overpass) Licensed under the SIL Open Font License, Version 1.1.
+  importedDate: 2026-05-17
+source:
+  kind: google-fonts
+  family: Overpass Mono
+  url: https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300..700&display=swap
+fallbackStack:
+  - Menlo
+  - Monaco
+  - Consolas
+  - Liberation Mono
+  - Courier New
+  - monospace
+availableStyles:
+  - weight: 400
+    style: normal

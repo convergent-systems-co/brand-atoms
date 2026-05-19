@@ -1,0 +1,30 @@
+kind: font
+id: jetbrainsmono
+version: 1.0.0
+name: JetBrains Mono
+family: JetBrains Mono
+classification: monospace
+tags:
+  - monospace
+  - variable-font
+provenance:
+  source: https://raw.githubusercontent.com/google/fonts/main/ofl/jetbrainsmono/METADATA.pb
+  license: OFL-1.1
+  attribution: Designed by JetBrains, Philipp Nurullin, Konstantin Bulenkov. Copyright 2020 The JetBrains Mono Project Authors (https://github.com/JetBrains/JetBrainsMono) Licensed under the SIL Open Font License, Version 1.1.
+  importedDate: 2026-05-17
+source:
+  kind: google-fonts
+  family: JetBrains Mono
+  url: https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap
+fallbackStack:
+  - Menlo
+  - Monaco
+  - Consolas
+  - Liberation Mono
+  - Courier New
+  - monospace
+availableStyles:
+  - weight: 400
+    style: normal
+  - weight: 400
+    style: italic

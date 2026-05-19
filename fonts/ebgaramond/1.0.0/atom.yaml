@@ -1,0 +1,29 @@
+kind: font
+id: ebgaramond
+version: 1.0.0
+name: EB Garamond
+family: EB Garamond
+classification: serif
+tags:
+  - serif
+  - variable-font
+provenance:
+  source: https://raw.githubusercontent.com/google/fonts/main/ofl/ebgaramond/METADATA.pb
+  license: OFL-1.1
+  attribution: Designed by Georg Duffner, Octavio Pardo. Copyright 2017 The EB Garamond Project Authors (https://github.com/octaviopardo/EBGaramond12) Licensed under the SIL Open Font License, Version 1.1.
+  importedDate: 2026-05-17
+source:
+  kind: google-fonts
+  family: EB Garamond
+  url: https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap
+fallbackStack:
+  - Georgia
+  - Cambria
+  - Times New Roman
+  - Times
+  - serif
+availableStyles:
+  - weight: 400
+    style: normal
+  - weight: 400
+    style: italic

@@ -1,0 +1,34 @@
+kind: font
+id: ptsans
+version: 1.0.0
+name: PT Sans
+family: PT Sans
+classification: sans-serif
+tags:
+  - sans-serif
+provenance:
+  source: https://raw.githubusercontent.com/google/fonts/main/ofl/ptsans/METADATA.pb
+  license: OFL-1.1
+  attribution: Designed by ParaType. Copyright © 2009 ParaType Ltd (yakupov@paratype.com). All rights reserved. Licensed under the SIL Open Font License, Version 1.1.
+  importedDate: 2026-05-17
+source:
+  kind: google-fonts
+  family: PT Sans
+  url: https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap
+fallbackStack:
+  - -apple-system
+  - BlinkMacSystemFont
+  - Segoe UI
+  - Roboto
+  - Helvetica Neue
+  - Arial
+  - sans-serif
+availableStyles:
+  - weight: 400
+    style: normal
+  - weight: 400
+    style: italic
+  - weight: 700
+    style: normal
+  - weight: 700
+    style: italic

@@ -1,0 +1,36 @@
+kind: font
+id: crimsontext
+version: 1.0.0
+name: Crimson Text
+family: Crimson Text
+classification: serif
+tags:
+  - serif
+provenance:
+  source: https://raw.githubusercontent.com/google/fonts/main/ofl/crimsontext/METADATA.pb
+  license: OFL-1.1
+  attribution: Designed by Sebastian Kosch. Copyright 2010 The Crimson Text Project Authors (https://github.com/googlefonts/Crimson) Licensed under the SIL Open Font License, Version 1.1.
+  importedDate: 2026-05-17
+source:
+  kind: google-fonts
+  family: Crimson Text
+  url: https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap
+fallbackStack:
+  - Georgia
+  - Cambria
+  - Times New Roman
+  - Times
+  - serif
+availableStyles:
+  - weight: 400
+    style: normal
+  - weight: 400
+    style: italic
+  - weight: 600
+    style: normal
+  - weight: 600
+    style: italic
+  - weight: 700
+    style: normal
+  - weight: 700
+    style: italic
