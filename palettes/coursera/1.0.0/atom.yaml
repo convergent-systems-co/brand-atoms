@@ -1,0 +1,158 @@
+kind: palette
+id: coursera
+version: 1.0.0
+name: Coursera
+description: >
+  Coursera's brand palette, captured from the live marketing
+  site (coursera.org) where the Coursera Design System exposes
+  named color tokens — most visibly the BLUE primary
+  (#0056D2), the deep-navy text color (#1F1F1F), and the
+  BLUISH_WHITE soft surface tint (#F3F8FF). The system is
+  corporate, considered, and reader-friendly: a single deep
+  signature blue against near-white surfaces with a restrained
+  neutral grey scale.
+
+  Coursera is light-first; the marketing canvas is White, with
+  Bluish White as the surface tint and Coursera Blue as the
+  brand action.
+
+tags: [coursera, education, mooc, brand, light-first, blue, corporate]
+
+provenance:
+  source: https://www.coursera.org/about/press
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Coursera, Inc. — palette values captured from the deployed
+    bundles on coursera.org on 2026-05-19 (the BLUE, BLUISH_WHITE,
+    and WHITE constants exposed in the Coursera Design System
+    (CDS) shipped with the front-page application). The Coursera
+    logo and associated marks are property of Coursera, Inc.
+  importedDate: 2026-05-19
+  notes: >
+    The CDS token names are exposed via the live JavaScript
+    bundle as ALL_CAPS constants (BLUE, BLUISH_WHITE, WHITE).
+    Coursera's text neutral scale (#1F1F1F / #303030 / #616161)
+    follows a Material-like 50→900 grey ramp; ink-50 was
+    selected as the canonical body text color from the
+    deployed CSS. Coursera does NOT use pure black for body
+    text on the marketing site.
+
+swatches:
+  # ─── Primary Coursera Blue ──────────────────────────────────────
+  - id: coursera-blue
+    name: Coursera Blue
+    value: "#0056D2"
+    description: The Coursera Design System primary blue (CDS BLUE). The brand's signature action color.
+    aliases: [blue, primary]
+  - id: bluish-white
+    name: Bluish White
+    value: "#F3F8FF"
+    description: Soft blue-tinted surface (CDS BLUISH_WHITE). The brand's primary surface accent.
+  - id: blue-dark
+    name: Blue Dark
+    value: "#003C8F"
+    description: Pressed / active variant of Coursera Blue — derived deepened tone for hover/active states.
+  - id: blue-pale
+    name: Blue Pale
+    value: "#E3EEFF"
+    description: Pale blue background accent — used in info banners.
+  - id: blue-deep
+    name: Blue Deep
+    value: "#002761"
+    description: Deepest navy-blue — used for callouts and contrast accents.
+
+  # ─── Neutral Ink scale ──────────────────────────────────────────
+  - id: ink-50
+    name: Ink 50
+    value: "#1F1F1F"
+    description: The canonical body text color on coursera.org — near-black but not pure black.
+    aliases: [text-primary]
+  - id: ink-100
+    name: Ink 100
+    value: "#303030"
+    description: Default text color — slightly lighter than Ink 50.
+  - id: ink-300
+    name: Ink 300
+    value: "#616161"
+    description: Secondary text color — captions and supporting copy.
+  - id: ink-500
+    name: Ink 500
+    value: "#757575"
+    description: Tertiary text color — derived from the press-page logo fill (#757575).
+  - id: ink-700
+    name: Ink 700
+    value: "#9E9E9E"
+    description: Disabled text and quiet borders.
+
+  # ─── Surface neutrals ───────────────────────────────────────────
+  - id: white
+    name: White
+    value: "#FFFFFF"
+    description: Page canvas in light mode (CDS WHITE).
+  - id: surface
+    name: Surface
+    value: "#FAFAFA"
+    description: Subtle elevated surface tint.
+  - id: surface-2
+    name: Surface 2
+    value: "#F5F5F5"
+    description: Secondary surface — card and panel backgrounds.
+  - id: border
+    name: Border
+    value: "#E0E0E0"
+    description: Quiet divider — borders and rules.
+
+  # ─── Semantic accents (derived from CDS tokens) ─────────────────
+  - id: success
+    name: Success
+    value: "#1B8057"
+    description: Success / completion green — derived from the published callouts-success scale.
+  - id: warning
+    name: Warning
+    value: "#F28100"
+    description: Warning amber — derived from the orange-500 callout scale on coursera.org.
+  - id: error
+    name: Error
+    value: "#F44336"
+    description: Error / destructive red — published in the CDS callouts-error scale.
+  - id: error-deep
+    name: Error Deep
+    value: "#66000F"
+    description: Deepest red — used for error-state callout strokes.
+
+modes:
+  light:
+    roles:
+      background: white
+      surface: bluish-white
+      surface-elevated: white
+      text-primary: ink-50
+      text-secondary: ink-300
+      text-tertiary: ink-500
+      primary: coursera-blue
+      primary-hover: blue-dark
+      accent: coursera-blue
+      accent-hover: blue-dark
+      warning: warning
+      warning-hover: warning
+      error: error
+      success: success
+      border: border
+
+  dark:
+    roles:
+      background: ink-50
+      surface: ink-100
+      surface-elevated: ink-300
+      text-primary: white
+      text-secondary: surface-2
+      text-tertiary: ink-700
+      primary: coursera-blue
+      primary-hover: bluish-white
+      accent: bluish-white
+      accent-hover: blue-pale
+      warning: warning
+      warning-hover: warning
+      error: error
+      success: success
+      border: ink-300

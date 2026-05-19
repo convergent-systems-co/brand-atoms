@@ -1,0 +1,247 @@
+id: khan-academy
+version: 1.0.0
+name: Khan Academy
+description: >
+  Khan Academy is a nonprofit education platform delivering
+  free K-12 and early-college instruction across math, science,
+  computing, economics, arts, and humanities — with Khanmigo as
+  the integrated AI tutor product. The brand voice is patient,
+  classroom-bright, and student-first: explainer videos,
+  practice problems, mastery progress, and unhurried prose.
+  Visually, Khan Academy is light-first with an Off White
+  canvas, Off Black ink (the brand explicitly avoids pure
+  #000000), and Khan Academy Blue (#1865F2) as the primary
+  brand action color. The semantic system is animal-direct —
+  Green for correct, Red for wrong, Gold for streaks, Purple
+  for editorial — and Eggplant is the dedicated Khanmigo AI
+  brand accent. Typography is Inter across body and headings,
+  the open-source typeface Wonder Blocks recommends.
+
+tags: [khan-academy, education, k12, nonprofit, brand, light-first, blue, wonder-blocks]
+
+provenance:
+  source: https://github.com/Khan/wonder-blocks
+  license: MIT
+  attribution: >
+    Khan Academy, Inc. — visual identity captured from the
+    Khan/wonder-blocks open-source design system repository
+    on 2026-05-19. Wonder Blocks is published under the MIT
+    license. Khan Academy, Khanmigo, and associated marks
+    remain property of Khan Academy, Inc.
+  importedDate: 2026-05-19
+  notes: >
+    Khan Academy publishes Wonder Blocks as an open-source
+    design system (MIT) — token names and hex values are
+    upstream-verified. The live site preloads inter-var.woff2
+    and declares Inter as the canonical font on every text
+    surface; this atom references inter@1 as the canonical
+    body and heading face. The Khanmigo brand accent
+    (Eggplant) is reserved for the AI tutor product surface
+    and is encoded as a contextRestriction rule below.
+
+references:
+  palette: khan-academy@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # Khan Academy is light-first; the brand identity surface
+    # is the Off White / White canvas with Khan Academy Blue
+    # as the signature accent. A brand badge renders KA Blue
+    # on White.
+    identity: white
+    on-identity: off-black
+
+    primary: blue
+    primary-hover: blue-hover
+    accent: blue
+    accent-hover: blue-hover
+    mark: blue
+    success: green
+    warning: gold
+    error: red
+    text-primary-light: off-black
+    text-primary-dark: white
+    background-light: white
+    background-dark: off-black
+    surface-light: off-white
+    surface-dark: dark-blue
+    text-secondary-light: off-black
+    border-light: off-white
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: roles.colors.primary
+    allowed:
+      - blue
+      - blue-hover
+    forbidden:
+      - dark-blue
+      - teal
+      - eggplant
+      - purple
+      - green
+      - gold
+      - red
+    severity: error
+    rationale: >
+      Khan Academy Blue (#1865F2) is the single signature
+      primary across Wonder Blocks. Dark Blue is a brand-tier
+      hero anchor; Teal and Purple are editorial accents;
+      Eggplant is reserved for Khanmigo. Repurposing the
+      semantic colors (Green correct, Gold streak, Red
+      error) as the primary action color conflicts with
+      their established meaning in the learner interface.
+
+  - type: colorChoice
+    target: roles.colors.text-primary-light
+    allowed:
+      - off-black
+    forbidden:
+      - black
+    severity: error
+    rationale: >
+      Wonder Blocks deliberately avoids pure #000000 for body
+      copy. The canonical text ink is Off Black (#21242C);
+      the slightly-warmed near-black reads more comfortably
+      on the Off White canvas across the long-form
+      explainers and practice prose that fill the learner
+      interface.
+
+  - type: contextRestriction
+    target: roles.colors.mark
+    allowedContexts:
+      - mark
+      - logo
+      - cta
+      - link
+      - focus-ring
+    forbiddenContexts:
+      - khanmigo-surface
+      - ai-tutor-context
+    severity: warning
+    rationale: >
+      Khan Academy Blue is the brand mark for the core Khan
+      Academy product. The Khanmigo AI tutor product
+      surface uses Eggplant (#5F1E5C) as its brand accent.
+      Mixing the two on the same surface confuses the
+      product-tier signal — learners read Khanmigo as the
+      AI experience and the rest of the platform as the
+      core learning experience.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - skewed
+      - rotated
+      - drop-shadow
+      - recolored-non-brand
+      - on-busy-photo
+    severity: error
+    rationale: >
+      Khan Academy's mark and the Wonder Blocks brand colors
+      are precise institutional assets used by schools,
+      teachers, and nonprofit partners worldwide. Skew,
+      rotation, drop shadow, or arbitrary recoloring
+      conflict with the brand's patient, classroom-bright
+      posture.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 7.0
+    standard: WCAG-AAA
+    severity: error
+    rationale: >
+      Off Black (#21242C) on White (#FFFFFF) gives roughly
+      14:1 — clears AAA decisively. Khan Academy's K-12
+      learner audience and long-form explainer prose
+      justify an AAA contrast target rather than the AA
+      floor; many learners read on shared devices, low-cost
+      tablets, and aging school hardware.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["400", "500", "600", "700"]
+    severity: warning
+    rationale: >
+      The Khan Academy site uses Inter at Regular (400),
+      Medium (500), SemiBold (600), and Bold (700). Wonder
+      Blocks does not use Light (300) or Black (900) weights
+      on learner surfaces — they conflict with the friendly,
+      patient typographic voice.
+
+  - type: fontPairing
+    target: typography.display
+    requires: prose
+    minSizeRatio: 1.4
+    severity: error
+    rationale: >
+      Inter serves both display and prose roles on
+      khanacademy.org; the typographic hierarchy is
+      established by size and weight within a single family.
+      A 1.4× minimum display-to-prose ratio preserves the
+      lesson-heading-to-body relationship that makes module
+      navigation legible.
+
+  - type: contextRestriction
+    target: roles.colors.error
+    allowedContexts:
+      - error-state
+      - wrong-answer
+      - destructive-action
+    forbiddenContexts:
+      - confirmation
+      - mastery-attained
+      - completion
+    severity: error
+    rationale: >
+      Red (#D92916) is reserved for the "wrong answer" / error
+      / destructive signal in the learner interface. Using
+      Red to celebrate completion or mastery would invert
+      the meaning students have learned — Red means stop and
+      reconsider; Green means proceed.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - white
+      - off-white
+      - off-black
+      - dark-blue
+    doesNotPairWith:
+      - red
+      - gold
+      - eggplant
+    severity: recommendation
+    rationale: >
+      Khan Academy Blue reads cleanest on White or Off
+      White, or as a fill on the Off Black / Dark Blue
+      canvas. Placing KA Blue adjacent to Red, Gold, or
+      Eggplant introduces chromatic conflict — the cool
+      primary blue fights the warm semantic accents (or
+      the Khanmigo brand purple) for the same eye
+      position.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) —
+      Level AA. Khan Academy's audience is global,
+      cross-device, and includes children, students with
+      learning differences, and adult learners; consumers
+      composing in-brand surfaces must preserve the AA
+      contrast floor on every text-on-color combination.

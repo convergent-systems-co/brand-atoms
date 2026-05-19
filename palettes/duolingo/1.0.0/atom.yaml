@@ -1,0 +1,209 @@
+kind: palette
+id: duolingo
+version: 1.0.0
+name: Duolingo
+description: >
+  Duolingo's brand palette, captured directly from the published
+  brand guidelines at design.duolingo.com. The system is famously
+  animal-named — every color is a creature — and the primary
+  brand color is Feather Green (the Owl), the signature of
+  Duo the mascot. The light-first surface canvas is Snow on
+  Polar, with Eel as the deep ink text color. Secondary
+  characters Macaw (blue), Cardinal (rose-red), Bee (yellow),
+  Beetle (purple), and Fox (orange) round out the playful
+  educational identity.
+
+  Duolingo's product UI is light-first by default; a dark mode
+  flips Eel to canvas and Snow to text.
+
+tags: [duolingo, education, language-learning, brand, light-first, green, feather, owl, animal-named]
+
+provenance:
+  source: https://design.duolingo.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Duolingo, Inc. — palette values captured from the published
+    Duolingo Brand Guidelines (design.duolingo.com) on
+    2026-05-19. Color names mirror Duolingo's own animal-named
+    swatch vocabulary. Duolingo, Duo, the green owl, and
+    associated marks are property of Duolingo, Inc.
+  importedDate: 2026-05-19
+  notes: >
+    The animal-named palette is the publicly published brand
+    color system. Hex values were extracted from the
+    design.duolingo.com bundle as 24-bit integers and converted
+    to hex. Feather Green (#58CC02 / Owl) is the canonical
+    primary; Mask Green (#89E219) is the brighter signage
+    sibling. Eel (#4B4B4B) is the canonical text ink — Duolingo
+    deliberately avoids pure #000000 in body copy.
+
+swatches:
+  # ─── Greens (Owl signature) ─────────────────────────────────────
+  - id: feather-green
+    name: Feather Green (Owl)
+    value: "#58CC02"
+    description: Duo the owl's signature green. The brand's primary action and identity color.
+    aliases: [owl]
+  - id: mask-green
+    name: Mask Green
+    value: "#89E219"
+    description: Brighter sibling of Feather Green — used for signage and lighting accents on the mascot's face mask.
+  - id: tree-frog
+    name: Tree Frog
+    value: "#58A700"
+    description: Pressed / active variant of Feather Green; the deeper-shadow green.
+  - id: sea-sponge
+    name: Sea Sponge
+    value: "#D7FFB8"
+    description: Pale lesson-complete green tint.
+  - id: turtle
+    name: Turtle
+    value: "#A5ED6E"
+    description: Mid-pale green — secondary accent and badge fill.
+
+  # ─── Neutrals (greyscale) ───────────────────────────────────────
+  - id: snow
+    name: Snow
+    value: "#FFFFFF"
+    description: Pure white — page canvas in light mode.
+  - id: polar
+    name: Polar
+    value: "#F7F7F7"
+    description: Off-white surface tint; the canonical page background hint.
+  - id: swan
+    name: Swan
+    value: "#E5E5E5"
+    description: Border / quiet divider color on Polar.
+  - id: hare
+    name: Hare
+    value: "#AFAFAF"
+    description: Mid grey — disabled state and tertiary text.
+  - id: wolf
+    name: Wolf
+    value: "#777777"
+    description: Deep grey — secondary text on light surfaces.
+  - id: eel
+    name: Eel
+    value: "#4B4B4B"
+    description: The canonical Duolingo text ink. Used in place of pure black for body copy.
+
+  # ─── Reds / Cardinal family (semantic error, mistakes) ─────────
+  - id: cardinal
+    name: Cardinal
+    value: "#FF4B4B"
+    description: Duolingo's error / wrong-answer red. The most recognizable red in the system.
+  - id: fire-ant
+    name: Fire Ant
+    value: "#EA2B2B"
+    description: Pressed / active variant of Cardinal — destructive confirmation.
+  - id: crab
+    name: Crab
+    value: "#FF7878"
+    description: Soft red — hover tint and error background.
+  - id: flamingo
+    name: Flamingo
+    value: "#FFB2B2"
+    description: Pale rose-pink — error background wash.
+
+  # ─── Yellows (Bee family — streaks, gold) ───────────────────────
+  - id: bee
+    name: Bee
+    value: "#FFC800"
+    description: Streak / achievement gold. The motivational yellow.
+  - id: lion
+    name: Lion
+    value: "#FFB100"
+    description: Slightly deeper variant of Bee — pressed gold.
+  - id: fox
+    name: Fox
+    value: "#FF9600"
+    description: Vivid orange — celebration and tier-up moments.
+  - id: duck
+    name: Duck
+    value: "#FBE56D"
+    description: Pale lemon yellow — soft yellow background.
+  - id: canary
+    name: Canary
+    value: "#FFF5D3"
+    description: Pale cream — gentle warning background.
+
+  # ─── Blues (Macaw / Whale family — info, links) ─────────────────
+  - id: macaw
+    name: Macaw
+    value: "#1CB0F6"
+    description: Duolingo's signature info-blue. Links, hints, and learning-tip accents.
+  - id: whale
+    name: Whale
+    value: "#1899D6"
+    description: Pressed / active variant of Macaw.
+  - id: humpback
+    name: Humpback
+    value: "#2B70C9"
+    description: Deeper navy-blue — secondary info accent.
+  - id: narwhal
+    name: Narwhal
+    value: "#1453A3"
+    description: Deepest navy — chart and data-viz anchor.
+  - id: blue-jay
+    name: Blue Jay
+    value: "#84D8FF"
+    description: Pale sky blue — soft hint accent.
+  - id: moon-jelly
+    name: Moon Jelly
+    value: "#7AF0F2"
+    description: Soft cyan — illustration accent.
+
+  # ─── Purples (Beetle — Super / premium) ─────────────────────────
+  - id: beetle
+    name: Beetle
+    value: "#CE82FF"
+    description: Soft purple — the recognizable Super Duolingo subscription accent.
+  - id: betta
+    name: Betta
+    value: "#9069CD"
+    description: Mid-purple — pressed Super accent.
+  - id: butterfly
+    name: Butterfly
+    value: "#6F4EA1"
+    description: Deep purple — Super hero gradient anchor.
+  - id: starfish
+    name: Starfish
+    value: "#FFAADE"
+    description: Pale pink — illustration accent paired with purples.
+
+modes:
+  light:
+    roles:
+      background: snow
+      surface: polar
+      surface-elevated: snow
+      text-primary: eel
+      text-secondary: wolf
+      text-tertiary: hare
+      primary: feather-green
+      primary-hover: tree-frog
+      accent: macaw
+      accent-hover: whale
+      warning: bee
+      warning-hover: lion
+      error: cardinal
+      success: feather-green
+      border: swan
+
+  dark:
+    roles:
+      background: eel
+      surface: wolf
+      surface-elevated: hare
+      text-primary: snow
+      text-secondary: polar
+      text-tertiary: swan
+      primary: feather-green
+      primary-hover: mask-green
+      accent: macaw
+      accent-hover: blue-jay
+      warning: bee
+      warning-hover: lion
+      error: cardinal
+      success: mask-green
+      border: wolf

@@ -1,0 +1,225 @@
+kind: palette
+id: codecademy
+version: 1.0.0
+name: Codecademy
+description: >
+  Codecademy's brand palette, captured directly from the
+  open-source Gamut design system that powers
+  codecademy.com. Gamut publishes the canonical named
+  swatches in a scale-100→900 vocabulary anchored by the
+  deep Navy (#10162F) ink, the Hyper (#3A10E5 / #5533FF)
+  electric brand purple-blue, and a Lime Green family
+  (#AEE938 / #008A27) for completion / success. The
+  identity is developer-focused, dark-canvas-capable, and
+  code-editor adjacent.
+
+  Codecademy is dark-first on lesson surfaces and
+  light-first on marketing — the brand canonical canvas
+  for editor / IDE chrome is the Navy ink, while the
+  marketing canvas is White / Beige with Navy ink.
+
+tags: [codecademy, education, programming, learn-to-code, brand, navy, hyper, lime-green, developer]
+
+provenance:
+  source: https://github.com/Codecademy/gamut/blob/main/packages/gamut-styles/src/variables/colors.ts
+  license: MIT
+  attribution: >
+    Codecademy, LLC — palette values captured directly from
+    the Codecademy/gamut open-source repository
+    (packages/gamut-styles/src/variables/colors.ts) on
+    2026-05-19. Gamut is published under the MIT license,
+    which permits this redistribution of the color tokens.
+    Codecademy and associated marks remain property of
+    Codecademy, LLC (a Skillsoft brand).
+  importedDate: 2026-05-19
+  notes: >
+    Codecademy publishes Gamut as an open-source design
+    system (MIT) — the token names and hex values here are
+    upstream-verified. The Navy scale 100-900 in Gamut is
+    defined as alpha tints of the #10162F base; the values
+    captured below are the documented opaque anchor stops
+    (navy-800 / navy-900). The "Hyper" pair (#5533FF /
+    #3A10E5) is the brand's recognizable electric purple-blue,
+    treated as primary on marketing surfaces.
+
+swatches:
+  # ─── Navy (canonical ink, dark canvas) ──────────────────────────
+  - id: navy
+    name: Navy
+    value: "#10162F"
+    description: Codecademy's signature deep navy. Both the body text ink on light surfaces and the canvas in dark mode.
+    aliases: [navy-800, ink, primary-dark]
+  - id: navy-900
+    name: Navy 900
+    value: "#0A0D1C"
+    description: Deepest navy — pressed Navy / hero anchor.
+
+  # ─── Hyper (electric brand accent) ──────────────────────────────
+  - id: hyper
+    name: Hyper
+    value: "#3A10E5"
+    description: Codecademy's signature electric purple-blue. The primary brand action color on marketing surfaces.
+    aliases: [hyper-500, brand]
+  - id: hyper-light
+    name: Hyper Light
+    value: "#5533FF"
+    description: Slightly brighter Hyper — hover and accent moment.
+    aliases: [hyper-400]
+
+  # ─── Blue scale ─────────────────────────────────────────────────
+  - id: blue
+    name: Blue
+    value: "#1557FF"
+    description: Mid-blue accent (Gamut blue-500) — link and focus state.
+    aliases: [blue-500]
+  - id: blue-light
+    name: Blue Light
+    value: "#3388FF"
+    description: Brighter blue accent (Gamut blue-400).
+  - id: blue-300
+    name: Blue 300
+    value: "#66C4FF"
+    description: Pale info-blue (Gamut blue-300).
+  - id: blue-pale
+    name: Blue Pale
+    value: "#D3F2FF"
+    description: Pale blue surface tint (Gamut blue-100).
+  - id: blue-0
+    name: Blue 0
+    value: "#F5FCFF"
+    description: Faintest blue surface wash (Gamut blue-0).
+
+  # ─── Green family (completion / success) ────────────────────────
+  - id: green
+    name: Green
+    value: "#008A27"
+    description: Codecademy's success green (Gamut green-700).
+    aliases: [success]
+  - id: green-light
+    name: Green Light
+    value: "#AEE938"
+    description: Lime green accent (Gamut green-400) — celebration and completion.
+    aliases: [lime]
+  - id: green-pale
+    name: Green Pale
+    value: "#EAFDC6"
+    description: Pale green surface tint (Gamut green-100).
+  - id: green-0
+    name: Green 0
+    value: "#F5FFE3"
+    description: Faintest green wash (Gamut green-0).
+
+  # ─── Yellow family (warning / streak) ───────────────────────────
+  - id: yellow
+    name: Yellow
+    value: "#FFD300"
+    description: Warning / streak yellow (Gamut yellow-500).
+    aliases: [warning]
+  - id: yellow-dark
+    name: Yellow Dark
+    value: "#CCA900"
+    description: Pressed yellow (Gamut yellow-400).
+  - id: yellow-0
+    name: Yellow 0
+    value: "#FFFAE5"
+    description: Faintest yellow surface wash (Gamut yellow-0).
+
+  # ─── Red family (error / destructive) ───────────────────────────
+  - id: red
+    name: Red
+    value: "#E91C11"
+    description: Error / destructive red (Gamut red-500).
+    aliases: [error]
+  - id: red-dark
+    name: Red Dark
+    value: "#BE1809"
+    description: Pressed error red (Gamut red-600).
+  - id: red-soft
+    name: Red Soft
+    value: "#DC5879"
+    description: Soft rose-red (Gamut red-400).
+  - id: red-0
+    name: Red 0
+    value: "#FBF1F0"
+    description: Faintest red surface wash (Gamut red-0).
+
+  # ─── Pink / Orange editorial ────────────────────────────────────
+  - id: pink
+    name: Pink
+    value: "#F966FF"
+    description: Editorial pink (Gamut pink-400).
+  - id: orange
+    name: Orange
+    value: "#FF8C00"
+    description: Editorial orange (Gamut orange-500).
+  - id: beige
+    name: Beige
+    value: "#FFF0E5"
+    description: Warm beige surface tint (Gamut beige-100) — used in marketing hero washes.
+
+  # ─── Greyscale ──────────────────────────────────────────────────
+  - id: white
+    name: White
+    value: "#FFFFFF"
+    description: Pure white — marketing canvas.
+  - id: gray-100
+    name: Gray 100
+    value: "#F5F5F5"
+    description: Lightest grey surface (Gamut gray-100).
+  - id: gray-200
+    name: Gray 200
+    value: "#EEEEEE"
+    description: Light grey surface (Gamut gray-200).
+  - id: gray-300
+    name: Gray 300
+    value: "#E0E0E0"
+    description: Border / divider grey (Gamut gray-300).
+  - id: gray-600
+    name: Gray 600
+    value: "#9E9E9E"
+    description: Tertiary text grey (Gamut gray-600).
+  - id: gray-800
+    name: Gray 800
+    value: "#616161"
+    description: Secondary text grey (Gamut gray-800).
+  - id: gray-900
+    name: Gray 900
+    value: "#424242"
+    description: Deep grey (Gamut gray-900).
+
+modes:
+  light:
+    roles:
+      background: white
+      surface: gray-100
+      surface-elevated: white
+      text-primary: navy
+      text-secondary: gray-800
+      text-tertiary: gray-600
+      primary: hyper
+      primary-hover: hyper-light
+      accent: hyper-light
+      accent-hover: hyper
+      warning: yellow
+      warning-hover: yellow-dark
+      error: red
+      success: green
+      border: gray-300
+
+  dark:
+    roles:
+      background: navy
+      surface: navy-900
+      surface-elevated: navy
+      text-primary: white
+      text-secondary: gray-300
+      text-tertiary: gray-600
+      primary: hyper-light
+      primary-hover: hyper
+      accent: green-light
+      accent-hover: green
+      warning: yellow
+      warning-hover: yellow-dark
+      error: red-soft
+      success: green-light
+      border: gray-900

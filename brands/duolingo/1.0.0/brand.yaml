@@ -1,0 +1,250 @@
+id: duolingo
+version: 1.0.0
+name: Duolingo
+description: >
+  Duolingo is the world's largest language-learning platform —
+  free, gamified, mobile-first, and anchored by Duo the green
+  owl, one of the most recognizable mascots in consumer
+  software. The brand voice is playful, character-led, and
+  unapologetically extrinsic: streaks, hearts, gems, leagues,
+  push notifications with personality. Visually, Duolingo is
+  light-first with Snow / Polar canvases, an Eel ink text color
+  (never pure black), and the famous Feather Green (#58CC02) as
+  the primary action and identity color. The entire palette is
+  animal-named — Owl, Macaw, Cardinal, Bee, Beetle, Eel, Swan,
+  Hare — and that vocabulary is itself part of the brand's
+  voice. Typography is the proprietary DIN Round Pro (body) and
+  Feather Bold (display).
+
+tags: [duolingo, education, language-learning, gamified, brand, light-first, green, feather, owl]
+
+provenance:
+  source: https://design.duolingo.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Duolingo, Inc. — visual identity captured from the published
+    Duolingo Brand Guidelines (design.duolingo.com) and the
+    deployed stylesheet on duolingo.com. The animal-named
+    palette is the brand's own vocabulary. Duolingo, Duo, the
+    green owl, the Feather typeface, and associated marks are
+    property of Duolingo, Inc.
+  importedDate: 2026-05-19
+  notes: >
+    Duolingo's proprietary typefaces are DIN Round Pro (Regular,
+    Medium, Bold) for body and Feather Bold for display
+    headings. Neither is publicly distributed; this atom
+    references inter@1 as the open-source substitute for both
+    the display and body roles, with jetbrainsmono-nerdfont@1
+    for incidental code snippets in support content. The
+    canonical text ink is Eel (#4B4B4B), NOT pure #000000 —
+    pure black is forbidden in body copy per the published
+    guidelines, which is encoded as a colorChoice rule below.
+
+references:
+  palette: duolingo@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # Duolingo is light-first; the brand identity surface is
+    # the Snow / Polar canvas with Feather Green as the
+    # signature accent. A brand badge renders Feather Green
+    # on Snow.
+    identity: snow
+    on-identity: eel
+
+    primary: feather-green
+    primary-hover: tree-frog
+    accent: macaw
+    accent-hover: whale
+    mark: feather-green
+    success: feather-green
+    warning: bee
+    error: cardinal
+    text-primary-light: eel
+    text-primary-dark: snow
+    background-light: snow
+    background-dark: eel
+    surface-light: polar
+    surface-dark: wolf
+    text-secondary-light: wolf
+    text-tertiary-light: hare
+    border-light: swan
+    border-dark: wolf
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: roles.colors.primary
+    allowed:
+      - feather-green
+      - tree-frog
+    forbidden:
+      - mask-green
+      - macaw
+      - bee
+      - cardinal
+      - beetle
+      - fox
+    severity: error
+    rationale: >
+      Feather Green (#58CC02) is Duo the owl's signature color
+      and the brand's primary action color across every
+      surface in the product. Mask Green is the brighter
+      signage sibling reserved for illustration; Macaw, Bee,
+      Cardinal, Beetle, and Fox are character / semantic
+      secondaries that must not stand in for the primary brand
+      action color.
+
+  - type: colorChoice
+    target: roles.colors.text-primary-light
+    allowed:
+      - eel
+      - wolf
+    forbidden:
+      - black
+    severity: error
+    rationale: >
+      Duolingo's published guidelines explicitly avoid pure
+      #000000 for body copy. The canonical text ink is Eel
+      (#4B4B4B) on light surfaces; Wolf (#777777) is the
+      secondary text grey. Pure black reads too harsh against
+      the brand's playful, child-friendly posture and breaks
+      the warmth of the Snow / Polar canvas.
+
+  - type: colorChoice
+    target: roles.colors.mark
+    allowed:
+      - feather-green
+    forbidden:
+      - tree-frog
+      - mask-green
+      - macaw
+      - bee
+      - cardinal
+      - beetle
+    severity: error
+    rationale: >
+      Duo the owl mascot's body fill is Feather Green
+      specifically. Tree Frog is the pressed / shadow variant
+      and must not be used as the mark fill itself. Recolored
+      mascots — purple Duo, blue Duo, red Duo — only appear in
+      sanctioned editorial moments (e.g., Super promotional
+      art) and are not part of the standard mark vocabulary.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - skewed
+      - rotated
+      - drop-shadow
+      - recolored-arbitrary
+      - on-busy-photo
+      - low-contrast-fill
+    severity: error
+    rationale: >
+      Duo the owl and the Duolingo wordmark are precise brand
+      assets. The mascot has a documented set of poses and
+      emotions; arbitrary skew, rotation, or recoloring breaks
+      the character vocabulary. Drop shadows conflict with the
+      brand's flat, illustration-first visual system.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Eel (#4B4B4B) on Snow (#FFFFFF) gives roughly 9.5:1 —
+      clears AA decisively. Duolingo's product surfaces are
+      used by children and language learners worldwide; the
+      AA contrast floor is the floor and consumers must not
+      drop below it when composing custom text colors on the
+      Snow / Polar canvas.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["500", "700"]
+    severity: warning
+    rationale: >
+      Duolingo's product UI uses DIN Round Pro at Medium (500)
+      and Bold (700) for body and headings, with Feather Bold
+      (700) for display. The brand does not use Light (300) or
+      Black (900) weights on product surfaces — they conflict
+      with the rounded, friendly type voice. Inter substitutes
+      preserve the same weight band.
+
+  - type: fontPairing
+    target: typography.display
+    requires: prose
+    minSizeRatio: 1.5
+    severity: error
+    rationale: >
+      Duolingo pairs the heavier Feather Bold display face with
+      DIN Round Pro for body prose on lesson and marketing
+      surfaces. A 1.5× minimum display-to-prose size ratio
+      preserves the typographic hierarchy that makes streak
+      counters, XP rewards, and lesson titles read as
+      celebrations rather than as labels.
+
+  - type: contextRestriction
+    target: roles.colors.error
+    allowedContexts:
+      - error-state
+      - destructive-action
+      - data-viz-negative
+    forbiddenContexts:
+      - confirmation
+      - completion
+      - large-fill
+      - hero
+    severity: error
+    rationale: >
+      Cardinal (#FF4B4B) is reserved for wrong-answer feedback,
+      streak-loss warnings, and destructive confirmations.
+      Using Cardinal as a large background fill or hero accent
+      conflicts with its established negative-feedback meaning
+      in the product — learners read large red surfaces as
+      mistakes.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - snow
+      - polar
+      - eel
+      - tree-frog
+    doesNotPairWith:
+      - mask-green
+      - bee
+      - fox
+    severity: recommendation
+    rationale: >
+      Feather Green reads cleanest against the Snow / Polar
+      canvas or as a fill on the Eel ink. Placing Feather
+      Green adjacent to Mask Green creates near-identical
+      green-on-green; adjacent Bee and Fox introduce
+      warm-cool conflict that fights the green for the same
+      eye position without resolving into hierarchy.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) —
+      Level AA. Duolingo serves a global K-12 and adult
+      learner audience; consumers composing in-brand
+      surfaces must preserve the AA contrast floor on every
+      text-on-color combination.

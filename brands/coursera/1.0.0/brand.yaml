@@ -1,0 +1,228 @@
+id: coursera
+version: 1.0.0
+name: Coursera
+description: >
+  Coursera is one of the largest online learning platforms, host
+  to university and industry partner courses, professional
+  certificates, and full degree programs. The brand voice is
+  considered, credentialing, and outcomes-focused — Coursera is
+  positioned closer to a university than to a consumer app.
+  Visually, the identity is a single deep signature blue
+  (#0056D2 — Coursera Blue) against a light, generous White
+  canvas, supported by a soft Bluish White surface tint and a
+  restrained near-black ink text scale that deliberately avoids
+  pure #000000. Typography is Source Sans Pro across body and
+  headings, with Boutros Coursera as the bilingual / Arabic
+  display companion.
+
+tags: [coursera, education, mooc, online-learning, brand, light-first, blue, corporate]
+
+provenance:
+  source: https://www.coursera.org/about/press
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Coursera, Inc. — visual identity captured from the deployed
+    front-page application on coursera.org (the Coursera Design
+    System exposes BLUE / BLUISH_WHITE / WHITE constants and
+    the --cds-color-* / --cds-font-family-* CSS custom-property
+    families). The Coursera press kit on dropbox.com is
+    referenced from /about/press as the official media asset
+    source. The Coursera logo and associated marks are
+    property of Coursera, Inc.
+  importedDate: 2026-05-19
+  notes: >
+    Coursera's font stack on the live site is Source Sans Pro
+    (open source, SIL OFL) for Latin scripts and Boutros
+    Coursera (proprietary) for Arabic. This atom references
+    source-sans-3@1 as the canonical body and heading face —
+    Source Sans 3 is the maintained successor to Source Sans
+    Pro by Adobe / Google. The Boutros Coursera bilingual
+    companion has no open-source substitute documented here.
+
+references:
+  palette: coursera@1
+  fonts:
+    heading: source-sans-3@1
+    body: source-sans-3@1
+    mono: source-code-pro@1
+
+roles:
+  colors:
+    # Coursera is light-first; the brand identity surface is
+    # the White / Bluish White canvas with Coursera Blue as
+    # the signature accent. A brand badge renders Coursera
+    # Blue on White.
+    identity: white
+    on-identity: ink-50
+
+    primary: coursera-blue
+    primary-hover: blue-dark
+    accent: coursera-blue
+    accent-hover: blue-dark
+    mark: coursera-blue
+    success: success
+    warning: warning
+    error: error
+    text-primary-light: ink-50
+    text-primary-dark: white
+    background-light: white
+    background-dark: ink-50
+    surface-light: bluish-white
+    surface-dark: ink-100
+    text-secondary-light: ink-300
+    text-tertiary-light: ink-500
+    border-light: border
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: roles.colors.primary
+    allowed:
+      - coursera-blue
+      - blue-dark
+    forbidden:
+      - bluish-white
+      - blue-pale
+      - blue-deep
+      - success
+      - warning
+      - error
+    severity: error
+    rationale: >
+      Coursera Blue (#0056D2) is the single signature primary
+      across the entire CDS. Bluish White and Blue Pale are
+      surface tints, not action colors; Blue Deep is a
+      callout / hero anchor. Repurposing semantic colors
+      (success green, warning orange, error red) as the
+      primary action color conflicts with their established
+      semantic meaning in the product.
+
+  - type: colorChoice
+    target: roles.colors.text-primary-light
+    allowed:
+      - ink-50
+      - ink-100
+    forbidden:
+      - black
+    severity: error
+    rationale: >
+      Coursera's canonical body text on coursera.org is Ink 50
+      (#1F1F1F) or Ink 100 (#303030). The CDS does not use
+      pure #000000 for body copy — the near-black scale was
+      chosen deliberately for reader comfort on the long-form
+      course-syllabus and reading material the platform
+      hosts.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - skewed
+      - rotated
+      - drop-shadow
+      - recolored-non-brand
+      - on-busy-photo
+      - low-contrast-fill
+    severity: error
+    rationale: >
+      The Coursera wordmark and Coursera Blue are precise
+      brand assets used across institutional and partner
+      surfaces. Skew, rotation, drop shadow, or recoloring
+      conflict with the brand's credentialing,
+      university-adjacent posture; the press kit on
+      coursera.org/about/press documents the allowed
+      treatments.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 7.0
+    standard: WCAG-AAA
+    severity: error
+    rationale: >
+      Ink 50 (#1F1F1F) on White (#FFFFFF) gives roughly 16:1
+      — clears AAA decisively. Coursera's long-form
+      course-reading posture, with syllabi, transcripts, and
+      academic prose, justifies an AAA contrast target
+      rather than the AA floor.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["300", "400", "600", "700"]
+    severity: warning
+    rationale: >
+      The Coursera live site uses Source Sans Pro at Light
+      (300) for hero copy, Regular (400) for body, SemiBold
+      (600) for emphasis, and Bold (700) for headings.
+      Source Sans 3 — the open-source successor referenced
+      here — ships the same weight band.
+
+  - type: fontPairing
+    target: typography.display
+    requires: prose
+    minSizeRatio: 1.4
+    severity: error
+    rationale: >
+      Source Sans Pro serves both display and prose roles on
+      coursera.org; the typographic hierarchy is established
+      by size and weight within a single family. A 1.4×
+      minimum display-to-prose ratio preserves that hierarchy
+      for course titles and module headings.
+
+  - type: contextRestriction
+    target: roles.colors.primary
+    allowedContexts:
+      - cta
+      - link
+      - focus-ring
+      - mark
+      - data-viz-primary
+    forbiddenContexts:
+      - large-fill
+      - hero
+      - background
+    severity: warning
+    rationale: >
+      Coursera Blue is concentrated in CTAs, links, and the
+      mark — never as a flood-fill background. The brand
+      canvas is the White / Bluish White surface; Coursera
+      Blue is the accent that punctuates that surface, not
+      replaces it.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) —
+      Level AA. Coursera's audience includes adult learners,
+      institutional partners, and degree-program students;
+      consumers composing in-brand surfaces must preserve
+      the AA contrast floor on every text-on-color
+      combination.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - white
+      - bluish-white
+      - ink-50
+      - blue-pale
+    doesNotPairWith:
+      - warning
+      - error
+      - error-deep
+    severity: recommendation
+    rationale: >
+      Coursera Blue reads cleanest on White or Bluish White,
+      or as a fill on the Ink 50 dark canvas. Placing
+      Coursera Blue adjacent to the orange warning or red
+      error colors introduces chromatic conflict — the cool
+      brand blue and the warm semantic accents fight for the
+      same eye position without resolving into hierarchy.

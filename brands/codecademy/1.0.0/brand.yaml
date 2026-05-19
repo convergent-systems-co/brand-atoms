@@ -1,0 +1,245 @@
+id: codecademy
+version: 1.0.0
+name: Codecademy
+description: >
+  Codecademy is a learn-to-code platform delivering interactive
+  programming courses across web development, data science,
+  machine learning, mobile, game development, and DevOps. The
+  brand voice is practitioner-focused, IDE-adjacent, and
+  unabashedly developer-native: real code in the browser,
+  immediate feedback, working projects. Visually, Codecademy
+  pairs a deep Navy (#10162F) canvas — the same near-black ink
+  that anchors code editors — with the electric Hyper purple-blue
+  (#3A10E5) as the primary brand action and the Lime Green
+  family (#AEE938 / #008A27) for completion. The brand is
+  dark-canvas-capable in the IDE / lesson runner and light-first
+  on the marketing site. Typography is proprietary Apercu Pro
+  for prose and Suisse Intl Mono for code, with an open-source
+  fallback stack of Inter and a monospace alternative.
+
+tags: [codecademy, education, programming, learn-to-code, brand, navy, hyper, lime-green, developer]
+
+provenance:
+  source: https://github.com/Codecademy/gamut
+  license: MIT
+  attribution: >
+    Codecademy, LLC — visual identity captured from the
+    Codecademy/gamut open-source design system repository on
+    2026-05-19, supplemented by the deployed CSS on
+    codecademy.com. Gamut is published under the MIT license.
+    Codecademy and associated marks remain property of
+    Codecademy, LLC (a Skillsoft brand).
+  importedDate: 2026-05-19
+  notes: >
+    Codecademy publishes Gamut as an open-source design system
+    (MIT) — color token names and hex values are
+    upstream-verified. The codecademy.com font stack preloads
+    Apercu Pro (Regular / Italic / Bold / Bold Italic) and
+    Suisse Intl Mono (Regular / Bold) from /gamut/ — both are
+    proprietary, commercially licensed faces with no
+    publicly-distributable open-source equivalent. This atom
+    references inter@1 as the substitute body / heading face
+    and geist-mono@1 as the substitute monospace face for the
+    code-runner surface. The browser theme-color meta on
+    codecademy.com is #10162F (Navy), confirming Navy as the
+    brand identity surface.
+
+references:
+  palette: codecademy@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: geist-mono@1
+
+roles:
+  colors:
+    # Codecademy's brand identity surface is the Navy canvas
+    # used across the lesson runner, code editor chrome, and
+    # the deployed theme-color meta tag. The marketing site
+    # uses White as default canvas but the identity color —
+    # the one a "brand badge" renders on — is Navy.
+    identity: navy
+    on-identity: white
+
+    primary: hyper
+    primary-hover: hyper-light
+    accent: green-light
+    accent-hover: green
+    mark: hyper
+    success: green
+    warning: yellow
+    error: red
+    text-primary-light: navy
+    text-primary-dark: white
+    background-light: white
+    background-dark: navy
+    surface-light: gray-100
+    surface-dark: navy-900
+    text-secondary-light: gray-800
+    text-tertiary-light: gray-600
+    border-light: gray-300
+    border-dark: gray-900
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: roles.colors.primary
+    allowed:
+      - hyper
+      - hyper-light
+    forbidden:
+      - blue
+      - blue-light
+      - green
+      - green-light
+      - yellow
+      - red
+      - pink
+    severity: error
+    rationale: >
+      Hyper (#3A10E5) and its lighter sibling Hyper Light
+      (#5533FF) are the brand's electric primary action colors
+      on marketing surfaces. Blue is a link / focus state, not
+      a brand primary; Green is success; Yellow is warning;
+      Red is error; Pink is editorial. Using any of those as
+      the primary action conflicts with their semantic
+      meaning in the product.
+
+  - type: colorChoice
+    target: roles.colors.identity
+    allowed:
+      - navy
+      - navy-900
+    forbidden:
+      - white
+      - hyper
+      - green
+      - blue
+    severity: error
+    rationale: >
+      Codecademy's identity surface is the Navy canvas — the
+      meta theme-color on codecademy.com is #10162F (Navy),
+      and the lesson runner / code editor chrome is dark-Navy
+      throughout the product. The marketing White canvas is a
+      secondary mode; the brand badge renders ON Navy, not on
+      White. Hyper is the brand action color, not the canvas.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - skewed
+      - rotated
+      - drop-shadow
+      - recolored-non-brand
+      - on-busy-photo
+      - low-contrast-fill
+    severity: error
+    rationale: >
+      The Codecademy wordmark and the Hyper / Navy color pair
+      are precise brand assets. The mark may render in Hyper
+      on Navy, in Navy on White, or in White on Navy —
+      arbitrary recoloring, skew, rotation, or drop shadow
+      conflicts with the brand's precise, developer-native
+      posture.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 7.0
+    standard: WCAG-AAA
+    severity: error
+    rationale: >
+      Navy (#10162F) on White (#FFFFFF) gives roughly 17:1
+      and White on Navy gives the same — both clear AAA
+      decisively. Codecademy's lesson surfaces include
+      long-form code blocks, terminal output, and reference
+      documentation; the AAA contrast target is appropriate
+      for the long-form reading and code-comprehension load
+      the platform asks of learners.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["400", "700"]
+    severity: warning
+    rationale: >
+      Codecademy preloads Apercu Pro Regular (400), Italic
+      (400), Bold (700), and Bold Italic (700) on the live
+      site — those are the only weights in the licensed
+      cut. The substitute Inter face here is constrained to
+      the same band so consumers do not specify weights the
+      brand never used.
+
+  - type: fontPairing
+    target: typography.display
+    requires: prose
+    minSizeRatio: 1.4
+    severity: error
+    rationale: >
+      Apercu Pro serves both display and prose roles on
+      codecademy.com; the typographic hierarchy is
+      established by size and weight within a single family.
+      A 1.4× minimum display-to-prose ratio preserves the
+      title-to-body relationship that makes lesson
+      navigation legible.
+
+  - type: contextRestriction
+    target: roles.colors.mark
+    allowedContexts:
+      - mark
+      - logo
+      - cta
+      - link
+      - focus-ring
+    forbiddenContexts:
+      - large-fill
+      - hero
+      - background
+    severity: warning
+    rationale: >
+      Hyper (#3A10E5) is the brand action color, concentrated
+      in CTAs, links, the mark, and focus rings. The brand
+      canvas is the Navy ink (dark) or the White marketing
+      surface (light); flooding a hero or background with
+      Hyper conflicts with the brand's restraint and
+      reduces the electric accent to wallpaper.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - navy
+      - navy-900
+      - white
+      - green-light
+    doesNotPairWith:
+      - blue
+      - blue-light
+      - pink
+      - red
+    severity: recommendation
+    rationale: >
+      Hyper reads cleanest on the Navy canvas, on White, or
+      alongside the Lime Green completion accent. Placing
+      Hyper adjacent to Blue or Blue Light creates
+      near-identical blue-on-blue; adjacent Pink and Red
+      introduce warm-cool conflict that fights for the same
+      eye position without resolving into hierarchy.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) —
+      Level AA. Codecademy's learner audience includes
+      adult professionals, career-switchers, and university
+      students reading long-form code in browser-based
+      editors; consumers composing in-brand surfaces must
+      preserve the AA contrast floor on every text-on-color
+      combination.

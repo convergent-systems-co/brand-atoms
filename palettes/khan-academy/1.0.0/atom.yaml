@@ -1,0 +1,156 @@
+kind: palette
+id: khan-academy
+version: 1.0.0
+name: Khan Academy
+description: >
+  Khan Academy's brand palette, captured directly from the
+  open-source Wonder Blocks design system that powers
+  khanacademy.org. Wonder Blocks publishes the canonical
+  named base swatches — Blue (#1865F2 primary), Green (#00A60E),
+  Gold (#FFB100), Red (#D92916), Purple (#9059FF) — alongside
+  the brand neutrals Off Black (#21242C), Off White (#F7F8FA),
+  and the Khanmigo Eggplant (#5F1E5C) accent reserved for the
+  AI tutoring product line. The brand identity is friendly,
+  classroom-bright, and reader-first.
+
+  Khan Academy is light-first; the canvas is Off White / White
+  with Off Black ink, and Khan Academy Blue is the primary
+  action color.
+
+tags: [khan-academy, education, k12, brand, light-first, blue, wonder-blocks, open-source]
+
+provenance:
+  source: https://github.com/Khan/wonder-blocks/blob/main/packages/wonder-blocks-tokens/src/tokens/color.ts
+  license: MIT
+  attribution: >
+    Khan Academy, Inc. — palette values captured directly from
+    the Khan/wonder-blocks open-source repository
+    (packages/wonder-blocks-tokens/src/tokens/color.ts) on
+    2026-05-19. Wonder Blocks is published under the MIT
+    license, which permits this redistribution of the color
+    tokens. Khan Academy, Khanmigo, and associated marks
+    remain property of Khan Academy, Inc.
+  importedDate: 2026-05-19
+  notes: >
+    Khan Academy publishes Wonder Blocks as an open-source
+    design system under MIT — the token names and hex values
+    captured here are the exact values from the upstream
+    source. The Khanmigo Eggplant (#5F1E5C) is a brand-tier
+    accent reserved for the AI tutor product surface and
+    must not be used as a general-purpose accent.
+
+swatches:
+  # ─── Product colors (Wonder Blocks base) ─────────────────────────
+  - id: blue
+    name: Blue
+    value: "#1865F2"
+    description: Khan Academy's primary brand blue (Wonder Blocks blue). The signature action color.
+    aliases: [primary, ka-blue]
+  - id: green
+    name: Green
+    value: "#00A60E"
+    description: Mastery / completion green — the "correct answer" signal.
+    aliases: [success]
+  - id: gold
+    name: Gold
+    value: "#FFB100"
+    description: Achievement / streak gold — the motivational accent.
+    aliases: [yellow]
+  - id: red
+    name: Red
+    value: "#D92916"
+    description: Error / destructive red — the "wrong answer" signal.
+    aliases: [error]
+  - id: purple
+    name: Purple
+    value: "#9059FF"
+    description: Editorial purple — secondary accent in illustrations and badges.
+
+  # ─── Brand neutrals (Wonder Blocks base) ────────────────────────
+  - id: off-black
+    name: Off Black
+    value: "#21242C"
+    description: Canonical text ink — Wonder Blocks deliberately avoids pure #000000 for body copy.
+    aliases: [text-primary, ink]
+  - id: off-white
+    name: Off White
+    value: "#F7F8FA"
+    description: Default surface canvas — Wonder Blocks light-mode background.
+    aliases: [surface]
+  - id: white
+    name: White
+    value: "#FFFFFF"
+    description: Pure white — elevated surface and card background.
+
+  # ─── Brand-tier secondaries ─────────────────────────────────────
+  - id: dark-blue
+    name: Dark Blue
+    value: "#0B2149"
+    description: Wonder Blocks brand-tier deep navy — hero callouts and chart anchor.
+  - id: teal
+    name: Teal
+    value: "#14BF96"
+    description: Wonder Blocks brand-tier teal — secondary accent and editorial highlight.
+  - id: eggplant
+    name: Eggplant (Khanmigo)
+    value: "#5F1E5C"
+    description: The Khanmigo AI tutor brand accent. Reserved for the AI product surface.
+
+  # ─── Derived blue scale (for hover / faded states) ──────────────
+  - id: blue-hover
+    name: Blue Hover
+    value: "#11459E"
+    description: Pressed / active variant of Khan Academy Blue — derived for hover/active states.
+  - id: blue-pale
+    name: Blue Pale
+    value: "#E5EEFE"
+    description: Pale blue surface tint — Wonder Blocks faded-blue background.
+  - id: red-pale
+    name: Red Pale
+    value: "#FBE7E5"
+    description: Pale red surface tint — Wonder Blocks faded-red background.
+  - id: green-pale
+    name: Green Pale
+    value: "#E0F4E1"
+    description: Pale green surface tint — Wonder Blocks faded-green background.
+  - id: gold-pale
+    name: Gold Pale
+    value: "#FFF6E0"
+    description: Pale gold surface tint — Wonder Blocks faded-gold background.
+
+modes:
+  light:
+    roles:
+      background: white
+      surface: off-white
+      surface-elevated: white
+      text-primary: off-black
+      text-secondary: off-black
+      text-tertiary: off-black
+      primary: blue
+      primary-hover: blue-hover
+      accent: blue
+      accent-hover: blue-hover
+      warning: gold
+      warning-hover: gold
+      error: red
+      success: green
+      border: off-white
+
+  dark:
+    roles:
+      background: off-black
+      surface: dark-blue
+      surface-elevated: off-black
+      text-primary: white
+      text-secondary: off-white
+      text-tertiary: off-white
+      primary: blue
+      primary-hover: blue-pale
+      accent: teal
+      accent-hover: green
+      warning: gold
+      warning-hover: gold-pale
+      error: red
+      success: green
+      border: dark-blue
