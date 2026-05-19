@@ -1,0 +1,227 @@
+id: xai
+version: 1.0.0
+name: xAI
+description: >
+  xAI is Elon Musk's AI research company — maker of the Grok
+  conversational model family and the Colossus training-cluster
+  build. The brand voice is stark and engineering-spec terse:
+  short technical paragraphs, model cards, infrastructure
+  disclosures, no marketing flourish. Visually, xAI is the most
+  reductive identity in the modern AI-lab cohort — a pure-black
+  "Void" canvas, the white X mark as monogram, a calibrated five-
+  stop Ash neutral ramp for surfaces, and two restrained signature
+  accents (a bright lime "Spark" for active state and an ember
+  "Pulse" orange for the Grok mark) used sparingly. Typography is
+  the proprietary universalSans / universalSansDisplay family paired
+  with the licensed GeistMono distribution for code.
+
+tags: [xai, grok, ai, brand, dark-first, monochrome, minimal, stark]
+
+provenance:
+  source: https://x.ai/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    X.AI Corp — visual identity captured from the deployed
+    stylesheet on x.ai (Tailwind-class neutral ramp, gradient
+    stops, and the proprietary universalSans / universalSansDisplay
+    / GeistMono font-family stack). xAI, Grok, Colossus, and
+    associated marks are property of X.AI Corp.
+  importedDate: 2026-05-18
+  notes: >
+    Derived from live site CSS at https://x.ai/ on 2026-05-18
+    (fetched via web.archive.org snapshot dated 2026-01-01 because
+    x.ai serves a 403 to unauthenticated programmatic clients);
+    no public brand guide located. The proprietary universalSans
+    and universalSansDisplay faces are declared on x.ai via
+    @font-face but are not publicly distributed. GeistMono is
+    referenced by name and is the open-source Vercel typeface;
+    this atom uses geist@1 as the substitute for the sans/display
+    role and geist-mono@1 for the mono role.
+
+references:
+  palette: xai@1
+  fonts:
+    heading: geist@1
+    body: geist@1
+    mono: geist-mono@1
+
+roles:
+  colors:
+    # xAI is monochrome dark-first by construction: the Void
+    # canvas IS the brand identity surface. Naming `identity`
+    # here lets consumers render brand-badge surfaces in the
+    # stark dark voice without falling back to `primary` (which
+    # is white-on-Void at the action level).
+    identity: void
+    on-identity: paper-pure
+
+    primary: paper-pure
+    primary-hover: ash-600
+    accent: spark
+    accent-hover: spark
+    mark: paper-pure
+    success: spark
+    warning: ember-warning
+    error: ember-error
+    text-primary-light: ink-heading
+    text-primary-dark: paper-pure
+    background-light: paper-pure
+    background-dark: void
+    surface-light: paper-cream
+    surface-dark: ash-100
+    text-secondary-light: ink-body
+    text-tertiary-light: ink-quiet
+    border-light: ink-border
+    border-dark: ash-200
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 7.0
+    standard: WCAG-AAA
+    severity: error
+    rationale: >
+      Pure white (#FFFFFF) on Void (#0A0A0A) gives roughly 20:1 —
+      the brand's monochrome construction clears AAA by design.
+      This rule guards against consumers swapping in mid-Ash
+      neutrals that would defeat the property.
+
+  - type: colorChoice
+    target: roles.colors.primary
+    allowed:
+      - paper-pure
+      - void
+    forbidden:
+      - spark
+      - pulse
+      - link-blue
+      - ember-warning
+      - ember-error
+    severity: error
+    rationale: >
+      xAI's primary brand color is monochrome — white-on-Void in
+      dark mode, Void-on-paper in light mode. The Spark / Pulse /
+      Link-blue accents are reserved for active state, the Grok
+      product mark, and long-form prose links — never as the
+      brand interactive primary.
+
+  - type: colorChoice
+    target: roles.colors.identity
+    allowed:
+      - void
+      - void-pure
+      - void-deep
+    forbidden:
+      - paper-pure
+      - spark
+      - pulse
+      - link-blue
+    severity: error
+    rationale: >
+      xAI is dark-first by construction; the documented site canvas
+      is #0A0A0A. The identity surface is the Void canvas — the
+      Spark and Pulse accents flow ACROSS it sparingly as state
+      and product marks, but never replace the Void as the
+      identity ground.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - outlined
+      - on-busy-photo
+    severity: error
+    rationale: >
+      xAI's X mark is monochrome and geometric. Recolored, skewed,
+      drop-shadowed, or outlined variants conflict with the
+      brand's stark engineering-spec posture. The mark is white
+      on Void, or Void on Paper — no other treatment is
+      documented on x.ai.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["400", "500", "600", "700"]
+    severity: warning
+    rationale: >
+      universalSansDisplay on x.ai is delivered with Regular (400),
+      Medium (500), SemiBold (600), and Bold (700) cuts. The
+      stark editorial composition of x.ai uses 400 for body and
+      700 for hero headings almost exclusively; weights outside
+      this band are not in the licensed variable-font cut.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.5
+    severity: error
+    rationale: >
+      universalSans / universalSansDisplay is the only display
+      face on x.ai; the visual hierarchy is established entirely
+      by size and weight within a single family (paired with
+      GeistMono for inline code). A 1.5× minimum heading-to-body
+      ratio preserves the hierarchy without introducing a second
+      family.
+
+  - type: contextRestriction
+    target: roles.colors.accent
+    allowedContexts:
+      - link
+      - focus-ring
+      - active-state
+      - live-data
+      - data-viz-primary
+    forbiddenContexts:
+      - large-fill
+      - background
+      - hero
+    severity: error
+    rationale: >
+      Spark (#75FBA6) appears at small sizes — active state, live-
+      data indicator, focus ring — never as a large background
+      fill. Large Spark fills conflict with the brand's
+      monochrome Void canvas where bright accents are signals,
+      not surfaces.
+
+  - type: compositionConstraint
+    target: roles.colors.identity
+    pairsWith:
+      - paper-pure
+      - paper-warm
+      - ash-100
+      - ash-200
+    doesNotPairWith:
+      - spark
+      - pulse
+      - link-blue
+      - ember-error
+    severity: error
+    rationale: >
+      The identity block is white-on-Void or Void-on-paper.
+      Placing the brand identity surface directly against a Spark
+      or Pulse background breaks the documented monochrome
+      treatment — the accents are signals atop the identity, not
+      backgrounds behind it.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AAA
+    criterion: "1.4.6"
+    severity: warning
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.6 (Contrast Enhanced) — Level
+      AAA. The brand's monochrome construction clears AAA
+      effortlessly; consumers must preserve the property when
+      composing Ash neutrals against the Void canvas (mid-Ash
+      tokens between Ash-400 and Ash-700 fail AAA against Void
+      and must not stand in for primary text).

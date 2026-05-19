@@ -1,0 +1,219 @@
+id: cohere
+version: 1.0.0
+name: Cohere
+description: >
+  Cohere is an enterprise AI company building the Command family of
+  large language models, the Embed family of retrieval embeddings,
+  and the Rerank reranking model — distributed via cloud APIs and
+  on-prem deployment. The brand voice is enterprise-grounded and
+  practitioner-first: model cards, retrieval benchmarks, and
+  deployment guides over marketing slogans. Visually, Cohere's
+  optical signature is a tropical three-stop gradient (coral →
+  mauve → cobalt) painted across the brand's proprietary
+  CohereColor display face, anchored to a near-black "Ink" canvas
+  on product surfaces and a near-white "Paper" canvas on the
+  marketing site. Typography is the proprietary CohereVariable /
+  CohereText / CohereMono family with Space Grotesk and Inter as
+  documented fallbacks.
+
+tags: [cohere, ai, llm, enterprise, brand, dark-first, gradient, coral, cobalt]
+
+provenance:
+  source: https://cohere.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Cohere — visual identity captured from the deployed stylesheet
+    on cohere.com (Tailwind utility-class palette and the
+    proprietary CohereVariable / CohereText / CohereMono /
+    CohereColor font-family stack). Cohere, Command, Embed, Rerank
+    and associated marks are property of Cohere.
+  importedDate: 2026-05-18
+  notes: >
+    Derived from live site CSS at https://cohere.com/ on 2026-05-18;
+    no public brand guide located. The proprietary CohereVariable
+    family is declared on cohere.com via @font-face but is not
+    publicly distributed; the live site stack falls back to
+    Space Grotesk and Inter. This atom references space-grotesk@1
+    as the open-source rendering substitute for the sans/display
+    role and geist-mono@1 as the substitute for the mono role.
+
+references:
+  palette: cohere@1
+  fonts:
+    heading: space-grotesk@1
+    body: space-grotesk@1
+    mono: geist-mono@1
+
+roles:
+  colors:
+    # Cohere's brand identity surface is the dark Ink canvas used
+    # across Command, the docs reader, and hero modules. The
+    # marketing site uses Paper as default, but the identity
+    # color — the one a "brand badge" should render on — is Ink.
+    identity: ink
+    on-identity: paper
+
+    primary: coral
+    primary-hover: coral-deep
+    accent: cobalt
+    accent-hover: navy-mid
+    mark: coral
+    success: jade
+    warning: coral-soft
+    error: ember
+    text-primary-light: text-on-paper
+    text-primary-dark: paper
+    background-light: paper
+    background-dark: ink
+    surface-light: paper-elevated
+    surface-dark: ink-elevated
+    text-secondary-light: text-secondary
+    text-tertiary-light: text-tertiary
+    border-light: paper-quiet
+    border-dark: ink-quiet
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 7.0
+    standard: WCAG-AAA
+    severity: error
+    rationale: >
+      Paper (#FAFAFA) on Ink (#17171C) gives roughly 17:1 — clears
+      AAA decisively in both modes. Cohere's enterprise-reader
+      posture, with long benchmark tables and model-card prose,
+      justifies an AAA target rather than the AA floor.
+
+  - type: colorChoice
+    target: roles.colors.primary
+    allowed:
+      - coral
+      - coral-deep
+    forbidden:
+      - mauve
+      - cobalt
+      - violet
+      - ember
+      - navy
+    severity: error
+    rationale: >
+      Coral (#FF7759) is the gradient origin and the dominant brand
+      action color on cohere.com. Mauve and cobalt are the second
+      and third gradient stops — they belong WITH coral as a ramp,
+      not standing alone as the interactive primary. Violet, ember,
+      and navy are editorial secondaries reserved for data viz and
+      illustration accents.
+
+  - type: colorChoice
+    target: roles.colors.identity
+    allowed:
+      - ink
+      - ink-deep
+    forbidden:
+      - paper
+      - coral
+      - cobalt
+      - mauve
+    severity: error
+    rationale: >
+      Cohere's identity surface is the dark Ink canvas (#17171C) —
+      Command product surfaces, the docs reader, and the hero
+      gradient module all render on Ink ground. The marketing
+      Paper canvas is the secondary mode. The gradient colors
+      flow ACROSS the identity surface; they are never the
+      identity ground themselves.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - drop-shadow
+      - on-busy-photo
+      - recolored-non-gradient
+      - low-contrast-fill
+    severity: error
+    rationale: >
+      The Cohere wordmark and the coral-mauve-cobalt gradient are
+      precise brand assets. The mark may carry the documented
+      gradient fill, but arbitrary single-color recoloring,
+      skewing, or drop-shadow effects conflict with the brand's
+      precise, enterprise posture.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["400", "500", "600", "700"]
+    severity: warning
+    rationale: >
+      The CohereVariable family is delivered on cohere.com with
+      Regular (400), Medium (500), SemiBold (600), and Bold (700)
+      cuts. Display weights outside this band are not in the
+      licensed variable-font cut on the live site.
+
+  - type: fontPairing
+    target: typography.display
+    requires: prose
+    minSizeRatio: 1.5
+    severity: error
+    rationale: >
+      CohereVariable serves both display and prose roles on
+      cohere.com — the typographic hierarchy is established by
+      size and weight within a single family. A 1.5× minimum
+      display-to-prose size ratio preserves that hierarchy.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - ink
+      - ink-deep
+      - paper
+      - mauve
+      - cobalt
+    doesNotPairWith:
+      - ember
+      - violet
+      - navy
+    severity: recommendation
+    rationale: >
+      Coral reads cleanest against the dark Ink canvas, the light
+      Paper canvas, or its sibling gradient stops (mauve, cobalt).
+      Placing coral adjacent to ember, violet, or navy introduces
+      chromatic conflict — the warm-red and the cool-violet fight
+      for the same eye position without resolving into a ramp.
+
+  - type: contextRestriction
+    target: roles.colors.accent
+    allowedContexts:
+      - link
+      - focus-ring
+      - data-viz-primary
+      - gradient-stop
+    forbiddenContexts:
+      - large-fill
+      - background
+      - hero
+    severity: warning
+    rationale: >
+      Cobalt (#4C6EE6) is the gradient endpoint and appears as a
+      link / focus state on cohere.com. Large cobalt background
+      fills conflict with the brand's Ink-and-Paper canvas system
+      where the gradient is a directional arc, not a flood fill.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level
+      AA. The brand's Paper-and-Ink composition clears AA
+      effortlessly; consumers must preserve the property when
+      composing coral, mauve, or cobalt tints against either
+      canvas.

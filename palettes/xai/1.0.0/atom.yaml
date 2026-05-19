@@ -1,0 +1,190 @@
+kind: palette
+id: xai
+version: 1.0.0
+name: xAI
+description: >
+  xAI's brand palette as captured from the live site (x.ai). The
+  brand is stark dark-first by construction: a pure-black "Void"
+  canvas (#0A0A0A) with pure-white inverse, a calibrated five-stop
+  neutral ramp for surfaces and quiet emphasis, and a deliberately
+  minimal set of accent colors. The brand reads as engineering-spec
+  minimal — closer to a research paper than a marketing site —
+  with the white-on-black X mark as the dominant visual signature.
+
+  Two restrained signature accents appear in the live CSS — a
+  bright lime "Spark" (#75FBA6) used for active state and a deep
+  ember "Pulse" (#FF6308) used for the Grok product mark — but
+  the brand's identity is defined first by its absence of color,
+  not its presence.
+
+tags: [xai, ai, grok, brand, dark-first, monochrome, minimal]
+
+provenance:
+  source: https://x.ai/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    X.AI Corp — palette values captured from the deployed
+    stylesheet on x.ai (Tailwind-class neutral ramp, gradient
+    stops, and rendered accent colors). xAI, Grok, Colossus, and
+    associated marks are property of X.AI Corp.
+  importedDate: 2026-05-18
+  notes: >
+    Derived from live site CSS at https://x.ai/ on 2026-05-18
+    (fetched via web.archive.org snapshot dated 2026-01-01 because
+    x.ai serves a 403 to unauthenticated programmatic clients);
+    no public brand guide located. The proprietary brand display
+    face universalSans / universalSansDisplay is declared on x.ai
+    via @font-face but is not publicly distributed; the proprietary
+    GeistMono distribution is also declared. This atom records
+    the live-site canvas (#0A0A0A), neutral ramp, and the two
+    accent literals observed in CSS (#75FBA6 spark-green and
+    #FF6308 pulse-orange). The brand's dominant posture is
+    monochrome — the accents appear sparingly.
+
+swatches:
+  # ─── Void (dark canvas) ─────────────────────────────────────────
+  - id: void
+    name: Void
+    value: "#0A0A0A"
+    description: Primary dark canvas — xAI's documented near-black.
+  - id: void-deep
+    name: Void Deep
+    value: "#0C0C0B"
+    description: Deepest near-black — gradient endpoint.
+  - id: void-pure
+    name: Void Pure
+    value: "#000000"
+    description: Pure black for hero artwork and the X mark ground.
+
+  # ─── Neutral ramp (light-on-dark) ───────────────────────────────
+  - id: ash-100
+    name: Ash 100
+    value: "#171717"
+    description: Subtle elevated surface on Void canvas.
+  - id: ash-200
+    name: Ash 200
+    value: "#18181B"
+    description: Borders / quiet dividers on Void canvas.
+  - id: ash-300
+    name: Ash 300
+    value: "#262626"
+    description: Mid surface — card background on Void.
+  - id: ash-400
+    name: Ash 400
+    value: "#27272A"
+    description: Hover surface on Void canvas.
+  - id: ash-500
+    name: Ash 500
+    value: "#2B2B2B"
+    description: Elevated card surface.
+  - id: ash-600
+    name: Ash 600
+    value: "#404040"
+    description: Tertiary text on Void canvas.
+  - id: ash-700
+    name: Ash 700
+    value: "#525252"
+    description: Secondary text on Void canvas.
+  - id: ash-800
+    name: Ash 800
+    value: "#545454"
+    description: Mid-tone neutral.
+  - id: ash-900
+    name: Ash 900
+    value: "#696969"
+    description: Tertiary text — quietest readable on Void.
+
+  # ─── Paper (light inverse) ──────────────────────────────────────
+  - id: paper-pure
+    name: Paper Pure
+    value: "#FFFFFF"
+    description: Pure white — light canvas and on-Void foreground.
+  - id: paper-warm
+    name: Paper Warm
+    value: "#FEFEFE"
+    description: Near-white — soft inverse.
+  - id: paper-cream
+    name: Paper Cream
+    value: "#F8F7F5"
+    description: Warm cream — quiet surface on light canvas.
+
+  # ─── Accents (sparingly used) ───────────────────────────────────
+  - id: spark
+    name: Spark
+    value: "#75FBA6"
+    description: Bright lime spark — active state and live-data accent.
+  - id: pulse
+    name: Pulse
+    value: "#FF6308"
+    description: Ember orange — Grok mark and high-attention accent.
+  - id: pulse-soft
+    name: Pulse Soft
+    value: "#FFA07A"
+    description: Soft ember tint for hover states.
+  - id: link-blue
+    name: Link Blue
+    value: "#2563EB"
+    description: Documented link color in long-form prose.
+  - id: ember-warning
+    name: Ember Warning
+    value: "#F5AB35"
+    description: Marigold warning state.
+  - id: ember-error
+    name: Ember Error
+    value: "#D91E18"
+    description: Deep red error state.
+
+  # ─── Light-mode prose tokens ────────────────────────────────────
+  - id: ink-body
+    name: Ink Body
+    value: "#374151"
+    description: Body text on Paper canvas — prose-body token.
+  - id: ink-heading
+    name: Ink Heading
+    value: "#111827"
+    description: Heading text on Paper canvas.
+  - id: ink-quiet
+    name: Ink Quiet
+    value: "#6B7280"
+    description: Tertiary text on Paper canvas.
+  - id: ink-border
+    name: Ink Border
+    value: "#E5E7EB"
+    description: Border on Paper canvas.
+
+modes:
+  light:
+    roles:
+      background: paper-pure
+      surface: paper-cream
+      surface-elevated: paper-pure
+      text-primary: ink-heading
+      text-secondary: ink-body
+      text-tertiary: ink-quiet
+      primary: void
+      primary-hover: ash-300
+      accent: link-blue
+      accent-hover: link-blue
+      warning: ember-warning
+      warning-hover: pulse
+      error: ember-error
+      success: spark
+      border: ink-border
+
+  dark:
+    roles:
+      background: void
+      surface: ash-100
+      surface-elevated: ash-300
+      text-primary: paper-pure
+      text-secondary: ash-900
+      text-tertiary: ash-700
+      primary: paper-pure
+      primary-hover: ash-600
+      accent: spark
+      accent-hover: spark
+      warning: ember-warning
+      warning-hover: pulse
+      error: ember-error
+      success: spark
+      border: ash-200

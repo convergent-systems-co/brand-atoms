@@ -1,0 +1,190 @@
+kind: palette
+id: cohere
+version: 1.0.0
+name: Cohere
+description: >
+  Cohere's brand palette as captured from the live marketing site
+  (cohere.com). The brand's optical signature is a tropical
+  three-stop gradient — coral (#FF7759) → mauve (#7670C5) → cobalt
+  (#4C6EE6) — that travels across product surfaces and the
+  CohereColor display face. Surrounding the gradient is a calibrated
+  neutral system: a near-white "Paper" canvas in light mode and a
+  near-black "Ink" canvas in dark mode (Command product surfaces
+  use the dark Ink ground as their primary canvas).
+
+  Secondary accent colors — a magenta-violet, a deep-jade, a navy,
+  and an ember-red — appear in editorial and data-viz contexts but
+  the coral-mauve-cobalt gradient is the dominant brand cue.
+
+tags: [cohere, ai, brand, dark-first, gradient, coral, cobalt, tropical]
+
+provenance:
+  source: https://cohere.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Cohere — palette values captured from the deployed stylesheet
+    on cohere.com (Tailwind utility classes, gradient stop colors,
+    and inline color literals). Cohere, Command, and associated
+    marks are property of Cohere.
+  importedDate: 2026-05-18
+  notes: >
+    Derived from live site CSS at https://cohere.com/ on 2026-05-18;
+    no public brand guide located. The marketing homepage uses a
+    near-white Paper canvas (#FAFAFA), but Command product surfaces,
+    the docs reader, and the brand's hero modules use the dark Ink
+    canvas (#17171C) — the brand atom treats dark as the primary
+    mode per encyclopedia convention for AI-lab identities. The
+    proprietary brand display face CohereVariable (and the
+    CohereColor / CohereText / CohereMono family) is declared on
+    cohere.com via @font-face but is not publicly distributed;
+    space-grotesk@1 is the published fallback referenced on the
+    live site. This atom substitutes space-grotesk@1 for the
+    sans roles and geist-mono@1 for the mono role.
+
+swatches:
+  # ─── Ink (dark canvas) ──────────────────────────────────────────
+  - id: ink-deep
+    name: Ink Deep
+    value: "#101010"
+    description: Deepest near-black accent — gradient ground.
+  - id: ink
+    name: Ink
+    value: "#17171C"
+    description: Primary dark canvas — Cohere Command surface ground.
+  - id: ink-elevated
+    name: Ink Elevated
+    value: "#212121"
+    description: Elevated surface on dark canvas.
+  - id: ink-quiet
+    name: Ink Quiet
+    value: "#2E2E2E"
+    description: Subtle border on dark canvas.
+
+  # ─── Paper (light canvas) ───────────────────────────────────────
+  - id: paper
+    name: Paper
+    value: "#FAFAFA"
+    description: Light canvas — near-white marketing surface.
+  - id: paper-elevated
+    name: Paper Elevated
+    value: "#F2F2F2"
+    description: Subtle elevated surface on paper canvas.
+  - id: paper-quiet
+    name: Paper Quiet
+    value: "#E0E0E0"
+    description: Border / quiet divider on paper canvas.
+
+  # ─── Tropical gradient (signature) ──────────────────────────────
+  - id: coral
+    name: Coral
+    value: "#FF7759"
+    description: Coral — the signature gradient origin stop.
+  - id: coral-soft
+    name: Coral Soft
+    value: "#FFD9D0"
+    description: Pale coral — tinted backgrounds and quiet accents.
+  - id: coral-deep
+    name: Coral Deep
+    value: "#CA492D"
+    description: Pressed-coral variant for hover state.
+  - id: mauve
+    name: Mauve
+    value: "#7670C5"
+    description: Mid gradient stop — mauve violet.
+  - id: cobalt
+    name: Cobalt
+    value: "#4C6EE6"
+    description: Cobalt — the signature gradient endpoint.
+  - id: cobalt-soft
+    name: Cobalt Soft
+    value: "#8FA6F9"
+    description: Soft cobalt for tinted surfaces.
+  - id: cobalt-pale
+    name: Cobalt Pale
+    value: "#E5EBFF"
+    description: Pale cobalt — tinted background.
+
+  # ─── Secondary accents ──────────────────────────────────────────
+  - id: violet
+    name: Violet
+    value: "#9B60AA"
+    description: Magenta-violet secondary accent.
+  - id: violet-soft
+    name: Violet Soft
+    value: "#D18EE2"
+    description: Soft violet for tinted backgrounds.
+  - id: violet-pale
+    name: Violet Pale
+    value: "#EDDAF4"
+    description: Pale violet tint.
+  - id: jade
+    name: Jade
+    value: "#355146"
+    description: Deep jade — editorial and data-viz accent.
+  - id: jade-soft
+    name: Jade Soft
+    value: "#71867E"
+    description: Soft jade for borders and quiet accents.
+  - id: navy
+    name: Navy
+    value: "#142253"
+    description: Deep navy — editorial accent.
+  - id: navy-mid
+    name: Navy Mid
+    value: "#2D4CB9"
+    description: Mid navy — link / focus state.
+  - id: ember
+    name: Ember
+    value: "#B30000"
+    description: Ember-red — destructive action.
+
+  # ─── Neutral text scale ─────────────────────────────────────────
+  - id: text-on-paper
+    name: Text on Paper
+    value: "#17171C"
+    description: Body text on the Paper canvas.
+  - id: text-secondary
+    name: Text Secondary
+    value: "#616161"
+    description: Secondary text on Paper canvas.
+  - id: text-tertiary
+    name: Text Tertiary
+    value: "#9CA3AF"
+    description: Tertiary text on Paper canvas.
+
+modes:
+  light:
+    roles:
+      background: paper
+      surface: paper-elevated
+      surface-elevated: paper
+      text-primary: text-on-paper
+      text-secondary: text-secondary
+      text-tertiary: text-tertiary
+      primary: coral
+      primary-hover: coral-deep
+      accent: cobalt
+      accent-hover: navy-mid
+      warning: coral-soft
+      warning-hover: coral
+      error: ember
+      success: jade
+      border: paper-quiet
+
+  dark:
+    roles:
+      background: ink
+      surface: ink-elevated
+      surface-elevated: ink-quiet
+      text-primary: paper
+      text-secondary: paper-quiet
+      text-tertiary: text-tertiary
+      primary: coral
+      primary-hover: coral-deep
+      accent: cobalt-soft
+      accent-hover: cobalt
+      warning: coral-soft
+      warning-hover: coral
+      error: ember
+      success: jade-soft
+      border: ink-quiet

@@ -1,0 +1,202 @@
+kind: palette
+id: mistral
+version: 1.0.0
+name: Mistral AI
+description: >
+  Mistral AI's brand palette as captured from the live marketing
+  site (mistral.ai). The brand is dark-first: a near-black "Matt"
+  canvas with a warm cream "Beige" inverse, fronted by Mistral's
+  signature "Sunshine" ramp — a six-stop orange-to-coral arc that
+  travels from sunshine yellow (#FFD900) through marigold and
+  pumpkin to deep ember-red (#E10500). The brand's footer band
+  renders the full Sunshine ramp as a horizontal stripe, which is
+  the visual signature of the identity.
+
+  Mistral is dark-first; the light mode used on documentation and
+  reading surfaces flips Matt-black to a warm Beige canvas with
+  near-black text.
+
+tags: [mistral, ai, brand, dark-first, orange, sunshine, gradient]
+
+provenance:
+  source: https://mistral.ai/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Mistral AI — palette values captured from the deployed
+    stylesheet on mistral.ai (--color-mistral-sunshine-*,
+    --mistral-beige-*, --mistral-black-matt-*, --mistral-footer-band-*
+    CSS custom-property families). Mistral, Mistral AI, and
+    associated marks are property of Mistral AI.
+  importedDate: 2026-05-18
+  notes: >
+    Derived from live site CSS at https://mistral.ai/ on 2026-05-18;
+    no public brand guide located. Sunshine ramp 50→950 mirrors
+    Mistral's own internal naming (--color-mistral-sunshine-50
+    through --color-mistral-sunshine-950). The "footer band" tokens
+    are the six discrete stops Mistral renders as a horizontal
+    rainbow stripe across the site footer. The proprietary display
+    face Pixelbasel and the proprietary mono FragmentMono are
+    declared on mistral.ai via @font-face but are not publicly
+    distributed; brand atom substitutes inter@1 and geist-mono@1.
+
+swatches:
+  # ─── Matt (dark canvas) ─────────────────────────────────────────
+  - id: matt-deep
+    name: Matt Deep
+    value: "#000000"
+    description: Pure black — deepest accent on dark canvas.
+  - id: matt-black
+    name: Matt Black
+    value: "#1F1F1F"
+    description: Primary dark canvas — Mistral's matt black surface.
+  - id: matt-black-tint
+    name: Matt Black Tint
+    value: "#3D3D3D"
+    description: Elevated surface on dark canvas.
+
+  # ─── Beige (light inverse) ──────────────────────────────────────
+  - id: beige-light
+    name: Beige Light
+    value: "#FFF7E0"
+    description: Light canvas — warm cream paper tone.
+  - id: beige-deep
+    name: Beige Deep
+    value: "#FCEFC6"
+    description: Elevated surface on beige canvas.
+  - id: beige-deeper
+    name: Beige Deeper
+    value: "#E6D2A0"
+    description: Border / quiet divider on beige canvas.
+
+  # ─── Sunshine (Mistral signature ramp) ──────────────────────────
+  - id: sunshine-50
+    name: Sunshine 50
+    value: "#FFF0C3"
+    description: Palest sunshine — surface tint.
+  - id: sunshine-100
+    name: Sunshine 100
+    value: "#FFE295"
+    description: Pale sunshine yellow.
+  - id: sunshine-200
+    name: Sunshine 200
+    value: "#FFDD8A"
+    description: Soft yellow.
+  - id: sunshine-300
+    name: Sunshine 300
+    value: "#FFD06A"
+    description: Warm amber-yellow.
+  - id: sunshine-400
+    name: Sunshine 400
+    value: "#FFC452"
+    description: Marigold.
+  - id: sunshine-500
+    name: Sunshine 500
+    value: "#FFB83E"
+    description: Mid sunshine — pumpkin gold.
+  - id: sunshine-600
+    name: Sunshine 600
+    value: "#FFAD2E"
+    description: Deep marigold.
+  - id: sunshine-700
+    name: Sunshine 700
+    value: "#FFA110"
+    description: Bright orange.
+  - id: sunshine-750
+    name: Sunshine 750
+    value: "#F2920B"
+    description: Pressed-orange variant for hover state.
+  - id: sunshine-800
+    name: Sunshine 800
+    value: "#FF9500"
+    description: Pumpkin.
+  - id: sunshine-900
+    name: Sunshine 900
+    value: "#FF8A00"
+    description: Burnt orange.
+  - id: sunshine-950
+    name: Sunshine 950
+    value: "#FF7F00"
+    description: Deepest sunshine — ember orange.
+
+  # ─── Brand accents (signature) ──────────────────────────────────
+  - id: mistral-orange
+    name: Mistral Orange
+    value: "#FA500F"
+    description: Mistral's signature warm orange — the primary brand accent.
+  - id: mistral-orange-bright
+    name: Mistral Orange Bright
+    value: "#FF6D05"
+    description: Brighter pumpkin-orange variant.
+  - id: mistral-red
+    name: Mistral Red
+    value: "#E10500"
+    description: Deepest ember-red — endpoint of the Sunshine arc.
+
+  # ─── Footer band (rainbow stripe order) ─────────────────────────
+  - id: footer-yellow
+    name: Footer Band Yellow
+    value: "#FFD800"
+    description: Footer rainbow stripe — high-yellow stop.
+  - id: footer-marigold
+    name: Footer Band Marigold
+    value: "#FFAF00"
+    description: Footer rainbow stripe — marigold stop.
+
+  # ─── Neutral ramp ───────────────────────────────────────────────
+  - id: gray-100
+    name: Gray 100
+    value: "#F3F4F6"
+    description: Subtle elevated surface on beige canvas.
+  - id: gray-300
+    name: Gray 300
+    value: "#D1D5DC"
+    description: Borders / quiet dividers on beige canvas.
+  - id: gray-500
+    name: Gray 500
+    value: "#6A7282"
+    description: Tertiary text.
+  - id: gray-700
+    name: Gray 700
+    value: "#364153"
+    description: Secondary text on beige canvas.
+  - id: gray-900
+    name: Gray 900
+    value: "#101828"
+    description: Deep ink for text on beige canvas.
+
+modes:
+  light:
+    roles:
+      background: beige-light
+      surface: beige-deep
+      surface-elevated: beige-light
+      text-primary: matt-black
+      text-secondary: gray-700
+      text-tertiary: gray-500
+      primary: mistral-orange
+      primary-hover: sunshine-750
+      accent: mistral-orange
+      accent-hover: sunshine-750
+      warning: sunshine-700
+      warning-hover: sunshine-800
+      error: mistral-red
+      success: sunshine-500
+      border: beige-deeper
+
+  dark:
+    roles:
+      background: matt-black
+      surface: matt-black-tint
+      surface-elevated: matt-black-tint
+      text-primary: beige-light
+      text-secondary: beige-deep
+      text-tertiary: gray-300
+      primary: mistral-orange
+      primary-hover: sunshine-700
+      accent: mistral-orange
+      accent-hover: sunshine-700
+      warning: sunshine-500
+      warning-hover: sunshine-600
+      error: mistral-red
+      success: sunshine-400
+      border: matt-black-tint

@@ -1,0 +1,219 @@
+id: mistral
+version: 1.0.0
+name: Mistral AI
+description: >
+  Mistral AI is a Paris-based AI research company and the maker of
+  open-weight large language models including Mistral 7B, Mixtral
+  8x7B/8x22B, and the Mistral Large family. The brand voice is
+  precise, European-engineering-confident, and unapologetically
+  technical — research-paper density over marketing gloss. Visually,
+  Mistral is dark-first and warm: a near-black "Matt" canvas, a
+  signature Sunshine ramp that travels from pale yellow through
+  pumpkin to ember-red, and a horizontal rainbow stripe rendered
+  across the site footer as the identity's optical signature.
+  Typography is the proprietary Pixelbasel display face paired with
+  FragmentMono for code.
+
+tags: [mistral, ai, llm, open-weight, brand, dark-first, orange, european]
+
+provenance:
+  source: https://mistral.ai/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Mistral AI — visual identity captured from the deployed
+    stylesheet on mistral.ai (--color-mistral-sunshine-*,
+    --mistral-beige-*, --mistral-black-matt-*, --mistral-orange,
+    --mistral-red, --mistral-footer-band-* token families).
+    Mistral, Mistral AI, and associated marks are property of
+    Mistral AI.
+  importedDate: 2026-05-18
+  notes: >
+    Derived from live site CSS at https://mistral.ai/ on 2026-05-18;
+    no public brand guide located. The proprietary display face
+    Pixelbasel and proprietary mono FragmentMono are declared on
+    mistral.ai via @font-face but are not publicly distributed.
+    This atom references inter@1 as the open-source rendering
+    substitute for the sans/display role and geist-mono@1 as the
+    open-source rendering substitute for the mono role.
+
+references:
+  palette: mistral@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: geist-mono@1
+
+roles:
+  colors:
+    # Mistral is dark-first: the Matt-black canvas IS the brand
+    # identity surface. Naming `identity` here lets consumers
+    # render brand-badge surfaces in the dark voice without
+    # falling back to `primary` (which is the warm orange accent).
+    identity: matt-black
+    on-identity: beige-light
+
+    primary: mistral-orange
+    primary-hover: sunshine-750
+    accent: mistral-orange
+    accent-hover: sunshine-700
+    mark: mistral-orange
+    success: sunshine-400
+    warning: sunshine-500
+    error: mistral-red
+    text-primary-light: matt-black
+    text-primary-dark: beige-light
+    background-light: beige-light
+    background-dark: matt-black
+    surface-light: beige-deep
+    surface-dark: matt-black-tint
+    text-secondary-light: gray-700
+    text-tertiary-light: gray-500
+    border-light: beige-deeper
+    border-dark: matt-black-tint
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 7.0
+    standard: WCAG-AAA
+    severity: error
+    rationale: >
+      Beige Light (#FFF7E0) on Matt Black (#1F1F1F) gives roughly
+      16:1 — clears AAA decisively in both modes. The brand's
+      dense, research-paper reading posture justifies an AAA
+      target rather than the AA floor.
+
+  - type: colorChoice
+    target: roles.colors.primary
+    allowed:
+      - mistral-orange
+      - mistral-orange-bright
+      - sunshine-700
+      - sunshine-750
+    forbidden:
+      - mistral-red
+      - sunshine-50
+      - sunshine-100
+      - footer-yellow
+      - footer-marigold
+    severity: error
+    rationale: >
+      Mistral Orange (#FA500F) is the brand's documented primary —
+      it is the action color on buttons and the dominant accent on
+      mistral.ai. Sunshine-700 / 750 are valid hover/pressed
+      variants. Mistral-red is reserved for the deepest endpoint
+      of the Sunshine arc and footer-band stops, not as the
+      interactive primary. The pale Sunshine 50 / 100 tints lack
+      enough contrast on either canvas to serve as primary.
+
+  - type: colorChoice
+    target: roles.colors.identity
+    allowed:
+      - matt-black
+      - matt-deep
+    forbidden:
+      - mistral-orange
+      - mistral-red
+      - sunshine-500
+      - beige-light
+    severity: error
+    rationale: >
+      Mistral is dark-first by construction. The identity surface
+      is the Matt-black canvas (#1F1F1F) or the deeper #000000
+      variant — the Sunshine ramp colors flow ACROSS it as
+      gradient and accent, but the brand's identity ground is
+      always the dark Matt.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - low-contrast-fill
+    severity: error
+    rationale: >
+      Mistral's wordmark and the rainbow-stripe footer band are
+      precise typographic and chromatic artifacts. Recoloring,
+      skewing, or applying drop-shadow to the mark conflicts with
+      the brand's exact-engineering posture.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["400", "500", "600", "700"]
+    severity: warning
+    rationale: >
+      Mistral's marketing site uses Regular (400) for body,
+      Medium (500) and SemiBold (600) for emphasis, and Bold (700)
+      for hero headings — the typical variable-font cut. Display
+      weights outside this band are not in the licensed Pixelbasel
+      delivery on mistral.ai.
+
+  - type: fontPairing
+    target: typography.display
+    requires: code
+    minSizeRatio: 1.5
+    severity: warning
+    rationale: >
+      The Pixelbasel display face pairs with FragmentMono for code
+      and inline-technical contexts on mistral.ai. A 1.5× minimum
+      display-to-mono size ratio preserves the typographic
+      hierarchy when both faces appear adjacent in research
+      tables, model spec sheets, and CLI illustrations.
+
+  - type: contextRestriction
+    target: roles.colors.error
+    allowedContexts:
+      - error-state
+      - destructive-action
+      - data-viz-negative
+    forbiddenContexts:
+      - large-fill
+      - background
+      - hero
+    severity: error
+    rationale: >
+      Mistral Red (#E10500) is the deepest endpoint of the
+      Sunshine arc — it reads as alarm and as the destructive-
+      action color. Large background fills in Mistral Red conflict
+      with the documented brand posture where the dark Matt
+      canvas is the ground.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - matt-black
+      - matt-deep
+      - beige-light
+      - beige-deep
+    doesNotPairWith:
+      - mistral-red
+      - footer-yellow
+    severity: recommendation
+    rationale: >
+      Mistral Orange reads cleanest on the Matt-black canvas or
+      the warm Beige canvas. Placing it adjacent to Mistral Red
+      or Footer Yellow creates a Sunshine-ramp chromatic conflict
+      — they belong together AS the ramp, not as competing
+      foreground/background pairs.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level
+      AA. The brand's dark-first composition with the bright
+      Sunshine accent clears AA effortlessly; consumers must
+      preserve the property when composing Sunshine tints against
+      the Matt canvas.

@@ -1,0 +1,228 @@
+id: perplexity
+version: 1.0.0
+name: Perplexity
+description: >
+  Perplexity is an AI-native answer engine — a conversational
+  search product that returns cited, sourced answers in place of
+  the traditional ten-blue-links results page. The brand voice is
+  authoritative and reference-grade: every claim is footnoted with
+  primary sources, every answer cards a citation rail. Visually,
+  Perplexity is dark-first and cool: a deep "Inky" near-black
+  canvas with a warm "Paper" cream inverse, fronted by the
+  signature Peacock teal — a cyan-green accent that marks every
+  citation, action button, and Pro upgrade surface. Typography is
+  the proprietary FK Grotesk Neue paired with Newsreader for serif
+  passages and Berkeley Mono for code.
+
+tags: [perplexity, ai, search, answer-engine, brand, dark-first, teal, citation]
+
+provenance:
+  source: https://www.perplexity.ai/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Perplexity AI, Inc. — visual identity captured from the
+    deployed stylesheet on perplexity.ai (OKLCH token families
+    --pale-cyan-*, --pale-yellow-*, --costa-*, --pale-blue-*) and
+    the docs.perplexity.ai documentation surface (rendered
+    accent-button colors). Perplexity, the Perplexity wordmark,
+    and associated marks are property of Perplexity AI, Inc.
+  importedDate: 2026-05-18
+  notes: >
+    Derived from live site CSS at https://www.perplexity.ai/ on
+    2026-05-18 (theme-color meta tags and the /_spa/assets/
+    spa-shell-*.css bundle) and from https://docs.perplexity.ai/
+    where the same peacock teal renders as the primary button.
+    No public brand guide located. The proprietary FK Grotesk
+    Neue, Newsreader serif, and Berkeley Mono faces are declared
+    on perplexity.ai via @font-face but are not publicly
+    distributed. This atom references space-grotesk@1 as the
+    open-source rendering substitute for the sans/display role,
+    pt-serif@1 as the substitute for the serif role used in
+    answer body prose, and geist-mono@1 as the substitute for
+    the mono role.
+
+references:
+  palette: perplexity@1
+  fonts:
+    heading: space-grotesk@1
+    body: space-grotesk@1
+    serif: pt-serif@1
+    mono: geist-mono@1
+
+roles:
+  colors:
+    # Perplexity is dark-first: the deep Inky canvas IS the brand
+    # identity surface. Naming `identity` here lets consumers
+    # render brand-badge surfaces in the dark voice without
+    # falling back to `primary` (which is the Peacock teal accent).
+    identity: inky
+    on-identity: text-on-inky
+
+    primary: peacock-bright
+    primary-hover: peacock-soft
+    accent: peacock
+    accent-hover: peacock-deep
+    mark: peacock
+    success: peacock-pale
+    warning: marigold
+    error: ember
+    text-primary-light: text-on-paper
+    text-primary-dark: text-on-inky
+    background-light: paper
+    background-dark: inky
+    surface-light: paper-elevated
+    surface-dark: inky-elevated
+    text-secondary-light: text-secondary
+    text-tertiary-light: border-quiet
+    border-light: paper-elevated
+    border-dark: inky-quiet
+  typography:
+    display: heading
+    prose: body
+    serif: serif
+    code: mono
+
+assets: []
+
+rules:
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 7.0
+    standard: WCAG-AAA
+    severity: error
+    rationale: >
+      Soft warm-white (#E0E0E0) on Inky (#100E12) gives roughly
+      15:1 — clears AAA decisively. Perplexity's reference-grade
+      reading posture, with dense citation rails and long-form
+      sourced answers, justifies an AAA target rather than the
+      AA floor.
+
+  - type: colorChoice
+    target: roles.colors.primary
+    allowed:
+      - peacock
+      - peacock-bright
+      - peacock-deep
+      - peacock-button
+    forbidden:
+      - marigold
+      - ember
+      - rust
+      - violet-soft
+    severity: error
+    rationale: >
+      Peacock teal (#1FB8CD / #32B8C6 / #35BDC8) is Perplexity's
+      signature accent and the action color on perplexity.ai and
+      docs.perplexity.ai. Marigold is reserved for Pro / Max
+      surface indicators, ember for destructive actions, rust and
+      violet-soft for editorial illustration only — none of these
+      substitute for the Peacock primary.
+
+  - type: colorChoice
+    target: roles.colors.identity
+    allowed:
+      - inky
+      - inky-deep
+    forbidden:
+      - paper
+      - peacock
+      - peacock-bright
+      - marigold
+    severity: error
+    rationale: >
+      Perplexity is dark-first by construction; the documented
+      dark theme-color meta is #100E12. The identity surface is
+      the Inky canvas — Peacock teal flows across it as accent,
+      not as the identity ground. The Paper canvas is the
+      secondary mode reserved for users who prefer light.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+    severity: error
+    rationale: >
+      Perplexity's wordmark and citation glyph are precise brand
+      assets. Recoloring, skewing, or applying gradient fills
+      conflicts with the brand's reference-grade, citation-first
+      posture where every visual element is exact.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["400", "500", "600", "700"]
+    severity: warning
+    rationale: >
+      FK Grotesk Neue is delivered on perplexity.ai with Regular
+      (400), Medium (500), SemiBold (600), and Bold (700) cuts.
+      The marketing and product surfaces use 400 for body, 500–600
+      for emphasis, and 700 for hero headings. Display weights
+      outside this band are not in the licensed variable-font cut.
+
+  - type: fontPairing
+    target: typography.display
+    requires: serif
+    minSizeRatio: 1.5
+    severity: warning
+    rationale: >
+      FK Grotesk Neue pairs with Newsreader serif on perplexity.ai
+      — sans for interface chrome and citation rails, serif for
+      long-form answer body prose. A 1.5× minimum display-to-serif
+      size ratio preserves the typographic hierarchy when an
+      answer renders headings, body, and citations together.
+
+  - type: contextRestriction
+    target: roles.colors.accent
+    allowedContexts:
+      - link
+      - focus-ring
+      - data-viz-primary
+      - citation-marker
+      - cta
+    forbiddenContexts:
+      - large-fill
+      - hero-background
+    severity: warning
+    rationale: >
+      Peacock teal is the link / citation / CTA color on
+      perplexity.ai — bright, small-area, attention-drawing.
+      Large peacock background fills conflict with the brand's
+      Inky-canvas dark posture where the teal is a directional
+      signal, not a flood fill.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - inky
+      - inky-deep
+      - paper
+      - paper-warm
+    doesNotPairWith:
+      - marigold
+      - rust
+      - ember
+    severity: recommendation
+    rationale: >
+      Peacock teal reads cleanest against the dark Inky canvas or
+      the warm Paper canvas. Placing it adjacent to marigold,
+      rust, or ember introduces a warm-cool chromatic conflict
+      that fights for attention — these accents belong in
+      separated regions (citations vs. status indicators vs.
+      destructive confirmations), not as adjacent foreground/
+      background pairs.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AAA
+    criterion: "1.4.6"
+    severity: warning
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.6 (Contrast Enhanced) — Level
+      AAA. The brand's dense citation-rail and long-form sourced
+      answer surface justifies the enhanced 7:1 target rather than
+      the AA 4.5:1 floor.

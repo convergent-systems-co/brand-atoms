@@ -1,0 +1,185 @@
+kind: palette
+id: perplexity
+version: 1.0.0
+name: Perplexity
+description: >
+  Perplexity's brand palette as captured from the live answer engine
+  (perplexity.ai) and the docs surface (docs.perplexity.ai). The
+  brand is dark-first by default: a deep "Inky" near-black canvas
+  with a warm "Paper" cream inverse, fronted by Perplexity's
+  signature "Peacock" teal accent — a calibrated cyan-green that
+  appears as the action color across answer cards, citations, and
+  Pro upgrade surfaces. A muted secondary palette of pale-yellow
+  paper tones and OKLCH-pale-cyan neutrals carries the typography.
+
+  Perplexity is dark-first; the light mode used by users who
+  prefer it flips Inky to a warm Paper canvas with deep ink text.
+
+tags: [perplexity, ai, search, brand, dark-first, teal, peacock]
+
+provenance:
+  source: https://www.perplexity.ai/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Perplexity AI, Inc. — palette values captured from the deployed
+    stylesheet on perplexity.ai (--pale-cyan-*, --pale-yellow-*,
+    --costa-*, --pale-blue-* OKLCH token families) and the
+    docs.perplexity.ai documentation surface. Perplexity, the
+    Perplexity wordmark, and associated marks are property of
+    Perplexity AI, Inc.
+  importedDate: 2026-05-18
+  notes: >
+    Derived from live site CSS at https://www.perplexity.ai/ on
+    2026-05-18 (via the rendered theme-color meta tags and the
+    /_spa/assets/spa-shell-Cx9sHPyb.css bundle) and from
+    https://docs.perplexity.ai/ where the same teal accent renders
+    as button-primary. No public brand guide located. Perplexity's
+    source-of-truth token system uses OKLCH; hex values here are
+    sampled from the live theme-color meta tags and rendered
+    accent buttons. The proprietary brand faces FK Grotesk Neue,
+    Newsreader (serif), and Berkeley Mono are declared on
+    perplexity.ai via @font-face but are not publicly distributed.
+
+swatches:
+  # ─── Inky (dark canvas) ─────────────────────────────────────────
+  - id: inky
+    name: Inky
+    value: "#100E12"
+    description: Primary dark canvas — Perplexity's documented dark theme-color meta.
+  - id: inky-deep
+    name: Inky Deep
+    value: "#082125"
+    description: Deepest near-black accent with cool cyan undertone.
+  - id: inky-elevated
+    name: Inky Elevated
+    value: "#1F2121"
+    description: Elevated surface on dark canvas.
+  - id: inky-quiet
+    name: Inky Quiet
+    value: "#211B1A"
+    description: Subtle surface accent on dark canvas.
+
+  # ─── Paper (light canvas) ───────────────────────────────────────
+  - id: paper
+    name: Paper
+    value: "#FCFCF9"
+    description: Light canvas — Perplexity's documented light theme-color meta.
+  - id: paper-elevated
+    name: Paper Elevated
+    value: "#F5F5F5"
+    description: Subtle elevated surface on Paper canvas.
+  - id: paper-warm
+    name: Paper Warm
+    value: "#F7F7F8"
+    description: Off-white text on dark canvas; warm fallback.
+
+  # ─── Peacock (signature teal accent) ────────────────────────────
+  - id: peacock
+    name: Peacock
+    value: "#1FB8CD"
+    description: Perplexity's signature peacock teal — the primary brand accent.
+  - id: peacock-bright
+    name: Peacock Bright
+    value: "#32B8C6"
+    description: Bright peacock variant — primary action button.
+  - id: peacock-deep
+    name: Peacock Deep
+    value: "#139FB2"
+    description: Pressed-peacock variant for hover state.
+  - id: peacock-soft
+    name: Peacock Soft
+    value: "#92DCE2"
+    description: Soft peacock for tinted backgrounds and hover states.
+  - id: peacock-button
+    name: Peacock Button
+    value: "#35BDC8"
+    description: Bright teal as rendered on docs primary buttons.
+  - id: peacock-banner
+    name: Peacock Banner
+    value: "#1A6872"
+    description: Deep peacock — banner / dark-mode primary surface.
+  - id: peacock-pale
+    name: Peacock Pale
+    value: "#27CAE0"
+    description: Pale peacock — soft tint variant.
+
+  # ─── Secondary editorial accents ────────────────────────────────
+  - id: marigold
+    name: Marigold
+    value: "#F0B435"
+    description: Marigold gold — editorial accent (Pro / Max indicators).
+  - id: marigold-soft
+    name: Marigold Soft
+    value: "#FFAB44"
+    description: Soft marigold tint.
+  - id: marigold-pale
+    name: Marigold Pale
+    value: "#FEF08A"
+    description: Pale marigold tint.
+  - id: rust
+    name: Rust
+    value: "#E68161"
+    description: Rust orange — editorial accent.
+  - id: ember
+    name: Ember
+    value: "#E10600"
+    description: Ember red — destructive action.
+  - id: violet-soft
+    name: Violet Soft
+    value: "#C48ED8"
+    description: Soft violet — data-viz accent.
+
+  # ─── Neutral text scale ─────────────────────────────────────────
+  - id: text-on-paper
+    name: Text on Paper
+    value: "#121516"
+    description: Body text on the Paper canvas — deep ink.
+  - id: text-on-inky
+    name: Text on Inky
+    value: "#E0E0E0"
+    description: Body text on the Inky canvas — soft warm white.
+  - id: text-secondary
+    name: Text Secondary
+    value: "#5D5F5F"
+    description: Secondary text on either canvas.
+  - id: border-quiet
+    name: Border Quiet
+    value: "#84754E"
+    description: Quiet border — captured in dark-mode dot-bg literals.
+
+modes:
+  light:
+    roles:
+      background: paper
+      surface: paper-elevated
+      surface-elevated: paper
+      text-primary: text-on-paper
+      text-secondary: text-secondary
+      text-tertiary: border-quiet
+      primary: peacock-deep
+      primary-hover: peacock-banner
+      accent: peacock
+      accent-hover: peacock-deep
+      warning: marigold
+      warning-hover: marigold-soft
+      error: ember
+      success: peacock
+      border: paper-elevated
+
+  dark:
+    roles:
+      background: inky
+      surface: inky-elevated
+      surface-elevated: inky-quiet
+      text-primary: text-on-inky
+      text-secondary: paper-warm
+      text-tertiary: text-secondary
+      primary: peacock-bright
+      primary-hover: peacock-soft
+      accent: peacock
+      accent-hover: peacock-soft
+      warning: marigold
+      warning-hover: marigold-soft
+      error: ember
+      success: peacock-pale
+      border: inky-quiet
