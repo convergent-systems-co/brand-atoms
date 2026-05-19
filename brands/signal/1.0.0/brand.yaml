@@ -1,0 +1,235 @@
+id: signal
+version: 1.0.0
+name: Signal
+description: >
+  Signal is the end-to-end-encrypted messaging, voice-, and video-call
+  service built by Signal Messenger LLC under the non-profit Signal
+  Technology Foundation. Signal is the reference implementation of
+  the Signal Protocol — the cryptographic backbone also licensed by
+  WhatsApp, Google Messages, and Meta Messenger — and the brand voice
+  is principled, technical, and earnest: "say 'hello' to privacy."
+  Visually, Signal is anchored on Signal Blue (#3A76F0), the saturated
+  brand blue used on the speech-bubble mark, primary CTAs, and the
+  outgoing-message bubble. Signal is dual-mode by canonical identity:
+  the desktop and mobile clients render the blue accent on a near-
+  white canvas (light) or a deep near-black canvas #1B1E20 (dark),
+  with the blue serving as the consistent primary across both
+  surfaces. The Signal client further uses a small per-thread
+  "color of conversation" spectrum to tint individual chats.
+
+tags: [signal, messaging, privacy, blue, communications, encryption, open-source, non-profit]
+
+provenance:
+  source: https://signal.org/brand
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Signal and the Signal logo are trademarks of Signal Messenger,
+    LLC. The Signal Brand Trademark Guidelines published at
+    signal.org/brand enumerate the use restrictions encoded in the
+    rules below — including the 0.5× clear-space requirement, the
+    26×26 minimum glyph size, prohibition on stretching/rotating/
+    outlining the mark, no domain-name use, no merchandise without
+    permission, and the trademark-as-adjective grammar rule. The
+    signature Signal Blue (#3A76F0) is documented in the simple-
+    icons brand database (citing signal.org) and corroborated via
+    the deployed signal.org marketing-site stylesheet.
+  importedDate: 2026-05-18
+  notes: >
+    Derived from live site CSS at https://signal.org/ on 2026-05-18;
+    the published signal.org/brand page is policy- and asset-link
+    only (no hex codes in the visible content), so the supporting
+    palette was captured from the deployed marketing-site stylesheet.
+    Signal's marketing site uses Proxima Nova (sans) and roca
+    (display serif); the mobile clients use platform system fonts
+    (SF Pro on iOS, Roboto on Android). This atom references
+    Proxima Nova@1 for the sans roles consistent with the marketing
+    surface, with Inter@1 carrying nothing here — Proxima Nova is
+    the open-source-licensed face surfaced by signal.org. The
+    Signal brand policy expressly forbids combining the marks with
+    other logos to imply partnership, modifying the wordmark, or
+    monetising brand assets on merchandise — so `assets: []` is the
+    correct posture for this catalog.
+
+references:
+  palette: signal@1
+  fonts:
+    heading: proxima-nova@1
+    body: proxima-nova@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # Signal is dual-mode (light + dark); the brand-identity surface
+    # is white-on-blue on the speech-bubble mark, so `identity`
+    # resolves to the signature blue rather than the canvas.
+    identity: signal-blue
+    on-identity: signal-white
+
+    background: signal-white
+    surface: signal-surface-light
+    surface-elevated: signal-white
+    text-primary: signal-text-on-light
+    text-secondary: signal-text-secondary-light
+
+    primary: signal-blue
+    primary-hover: signal-blue-deep
+    accent: signal-blue
+    accent-hover: signal-blue-action
+    mark: signal-blue
+
+    success: signal-success
+    warning: signal-warning
+    error: signal-error
+  typography:
+    display: heading
+    prose: body
+    wordmark: heading
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.mark
+    allowed:
+      - signal-blue
+      - signal-white
+    forbidden:
+      - signal-bubble-purple
+      - signal-bubble-violet
+      - signal-bubble-crimson
+      - signal-bubble-rust
+      - signal-bubble-amber
+      - signal-bubble-green
+    severity: error
+    rationale: >
+      The Signal Brand Trademark Guidelines (signal.org/brand)
+      prohibit altering the Signal mark via rotation, stretching,
+      outlining, or "effects" — which includes recoloring. The
+      speech-bubble mark renders in Signal Blue (#3A76F0) on
+      light surfaces and reverses to white on the dark canvas. The
+      per-thread "color of conversation" swatches are reserved for
+      product-internal chat-bubble tinting and must not be used to
+      recolor the mark itself.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - outlined
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+      - combined-with-other-logo
+      - wordmark-modified
+      - smaller-than-26px
+    severity: error
+    rationale: >
+      The Signal Brand Trademark Guidelines explicitly enumerate
+      these prohibitions: "Don't alter logos via rotation,
+      stretching, outlining, or effects," "Don't modify the Signal
+      wordmark typography," "Don't combine Signal assets with
+      other logos implying partnership," and "never show the
+      glyph smaller than 26×26 pixels." Encoding them as a
+      forbidden-treatment rule lets consumers reject impermissible
+      placements at validation time.
+
+  - type: numericRange
+    target: logo.minWidth
+    min: 26
+    unit: px
+    severity: error
+    rationale: >
+      The Signal Brand Trademark Guidelines specify a hard floor —
+      "never show the glyph smaller than 26×26 pixels" — to
+      preserve mark legibility at small render sizes. Encoding
+      the floor here lets layout validators reject undersized
+      placements of the speech-bubble glyph.
+
+  - type: numericRatio
+    target: logo.clearSpace
+    min: 0.5
+    severity: error
+    rationale: >
+      The Signal Brand Trademark Guidelines specify a clear-space
+      requirement of "at least half (0.5x) the size of the logo
+      around it." The 0.5× ratio is the floor; consumers may
+      enforce stricter values per their layout system but must
+      not reduce the clear-space allotment below this threshold.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      WCAG 2.1 Level AA contrast minimum for body text. Signal Text
+      on Light (#1B1E20) on the white canvas reads at roughly
+      17:1, and Text on Dark (#FFFFFF) on Canvas Dark (#1B1E20)
+      reads at roughly 17:1 — both clear AA decisively. The rule
+      encodes the floor for any new foreground/background
+      pairing introduced on Signal-skinned surfaces.
+
+  - type: contextRestriction
+    target: roles.colors.identity
+    forbiddenContexts:
+      - product-of-competitor
+      - merchandise
+      - endorsement-implication
+      - sponsorship-implication
+      - domain-name
+      - social-media-handle
+    severity: error
+    rationale: >
+      The Signal Brand Trademark Guidelines specifically prohibit
+      use of the Signal trademarks "in social media account names
+      or profiles," "in domain names," in unlicensed merchandise,
+      or combined with other logos "implying partnership without
+      permission." Encoding these as forbidden contexts lets
+      consumers reject impermissible placements.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - signal-white
+      - signal-canvas-dark
+      - signal-text-on-light
+      - signal-surface-light
+    doesNotPairWith:
+      - signal-bubble-purple
+      - signal-bubble-crimson
+      - signal-bubble-amber
+    severity: recommendation
+    rationale: >
+      Signal Blue reads cleanest against white, the deep near-
+      black dark canvas, or the very-dark text tone. Pairing the
+      primary blue adjacent to a thread-tint purple, crimson, or
+      amber (which are reserved for per-conversation chat-bubble
+      coloring) breaks the calibrated primary-vs-secondary
+      hierarchy and visually competes with the brand mark.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["400", "600", "700"]
+    severity: warning
+    rationale: >
+      Proxima Nova ships in Thin (100) through Black (900), but
+      Signal's marketing display and product UI sit in the
+      Regular (400), Semibold (600), and Bold (700) band on the
+      deployed signal.org marketing surface. Lighter or heavier
+      cuts drift from the brand's earnest, principled voice.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level
+      AA. Signal's accessibility-conscious posture and the dual
+      light/dark canvas commitment make AA contrast checks the
+      default verification on any new role pairing introduced on
+      Signal-skinned surfaces.

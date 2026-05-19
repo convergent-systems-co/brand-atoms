@@ -1,0 +1,241 @@
+id: whatsapp
+version: 1.0.0
+name: WhatsApp
+description: >
+  WhatsApp is the cross-platform messaging and voice-/video-calling
+  service from WhatsApp LLC (a Meta company), used by over two billion
+  people for end-to-end-encrypted real-time communication. The brand
+  voice is warm, practical, and globally egalitarian — "simple,
+  reliable, secure messaging." Visually, WhatsApp is anchored on
+  WhatsApp Green (#25D366), the signature emerald used on the
+  telephone-in-a-bubble mark, primary CTAs, the floating-action
+  button, and the read-receipt double-check. WhatsApp is dual-mode
+  by canonical identity: the mobile and web clients render the green
+  accent on a near-white canvas (light) or a deep blue-black canvas
+  #0B141A (dark), with the green serving as the consistent primary
+  across both surfaces.
+
+tags: [whatsapp, meta, messaging, green, communications, mobile-first, e2e-encryption]
+
+provenance:
+  source: https://www.meta.com/brand/resources/whatsapp/whatsapp-brand/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    WhatsApp and the WhatsApp logo are trademarks of WhatsApp LLC, a
+    Meta Platforms company. The WhatsApp Brand Resources policy
+    published at meta.com/brand/resources/whatsapp/whatsapp-brand/
+    enumerates the non-modification, no-verb, no-merchandise, and
+    no-derogatory-use prohibitions encoded in the rules below. The
+    signature WhatsApp Green (#25D366) is documented in the
+    simple-icons brand database (citing whatsapp.com) and corroborated
+    via the live web.whatsapp.com client CSS, which exposes a tonal
+    green scale (--green-0 … --green-100) keyed off the same primary.
+  importedDate: 2026-05-18
+  notes: >
+    Derived from live site CSS at https://web.whatsapp.com/ on
+    2026-05-18; the published Meta-hosted WhatsApp brand guide is
+    policy-only (no hex codes), so the supporting green scale was
+    captured from the deployed client's CSS custom properties.
+    WhatsApp's proprietary type family — Super Sans VF, Super Serif VF,
+    Super Sans Mono VF — is declared on the deployed client via
+    @font-face but is not publicly distributed. This atom references
+    Inter@1 as the open-source rendering substitute for the sans
+    roles and notes the proprietary primaries here. The brand-asset
+    policy expressly forbids re-distribution of WhatsApp marks, so
+    `assets: []` is the correct posture for this catalog.
+
+references:
+  palette: whatsapp@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # WhatsApp is dual-mode (light + dark); the brand-identity surface
+    # is the white-on-green CTA / mark, so `identity` resolves to the
+    # signature green rather than the canvas.
+    identity: whatsapp-green
+    on-identity: whatsapp-white
+
+    background: whatsapp-white
+    surface: whatsapp-surface-light
+    surface-elevated: whatsapp-white
+    text-primary: whatsapp-text-on-light
+    text-secondary: whatsapp-text-secondary-light
+
+    primary: whatsapp-green
+    primary-hover: whatsapp-green-dark
+    accent: whatsapp-green
+    accent-hover: whatsapp-green-dark
+    mark: whatsapp-green
+
+    success: whatsapp-green
+    warning: whatsapp-green-300
+    error: whatsapp-green-dark
+  typography:
+    display: heading
+    prose: body
+    wordmark: heading
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.mark
+    allowed:
+      - whatsapp-green
+      - whatsapp-white
+    forbidden:
+      - whatsapp-teal-dark
+      - whatsapp-green-dark
+      - whatsapp-green-1000
+      - whatsapp-canvas-dark
+    severity: error
+    rationale: >
+      The Meta-hosted WhatsApp brand guide
+      (meta.com/brand/resources/whatsapp/whatsapp-brand/) prohibits
+      modifying the colors of the WhatsApp marks: "you shouldn't
+      modify any colors in our logos." The telephone-bubble mark
+      renders in WhatsApp Green (#25D366) on light surfaces and
+      reverses to white on the dark canvas. Recoloring into the
+      legacy teal (#075E54), the deeper action green, or any of the
+      scale tints violates the published policy.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+      - combined-with-other-logo
+      - used-as-verb
+      - most-distinctive-element
+      - phonetic-variation
+      - merchandise
+    severity: error
+    rationale: >
+      The published WhatsApp Brand Resources policy enumerates these
+      prohibitions explicitly: do not combine the WhatsApp marks with
+      other logos, do not use WhatsApp as a verb ("WhatsApp your
+      friends"), do not make the marks the most distinctive element
+      of a third-party design, do not use phonetic variations
+      (WhatsAp, WatsApp), do not manufacture merchandise bearing the
+      marks. Treatments not in the approved palette violate the
+      brand-use license.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      WCAG 2.1 Level AA contrast minimum for body text. WhatsApp
+      Text on Light (#111B21) on the white canvas reads at roughly
+      17:1, and Text on Dark (#E9EDEF) on Canvas Dark (#0B141A)
+      reads at roughly 16:1 — both clear AA decisively. The rule
+      encodes the floor for any new foreground/background pairing
+      introduced on WhatsApp-skinned surfaces.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 3.0
+    standard: WCAG-AA-large
+    severity: error
+    rationale: >
+      WhatsApp Green (#25D366) on the white canvas must remain
+      perceptible at interactive-button sizes. Falling below 3:1
+      (AA-large) compromises the affordance of the primary CTA and
+      the floating-action send button — both of which read as
+      green-on-white in the canonical product surface.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: dark
+    use: mark-white
+    severity: error
+    rationale: >
+      On the canonical WhatsApp Canvas Dark surface (#0B141A) the
+      telephone-bubble mark renders in white for legibility. The
+      green-on-dark mark variant must not be used on the dark
+      canvas where contrast against the surface drops.
+
+  - type: contextRestriction
+    target: roles.colors.identity
+    forbiddenContexts:
+      - product-of-competitor
+      - merchandise
+      - endorsement-implication
+      - sponsorship-implication
+    severity: error
+    rationale: >
+      The WhatsApp Brand Resources policy prohibits use of the
+      WhatsApp name, marks, or signature green "in a way that
+      implies partnership, sponsorship, or endorsement by WhatsApp
+      or any of its affiliates," on merchandise, or in the name of
+      a competing product. Encoding the policy as a context
+      restriction lets consumers reject impermissible placements.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - whatsapp-white
+      - whatsapp-canvas-dark
+      - whatsapp-text-on-light
+      - whatsapp-surface-light
+    doesNotPairWith:
+      - whatsapp-teal-dark
+      - whatsapp-chat-bg-light
+    severity: recommendation
+    rationale: >
+      WhatsApp Green reads cleanest against white, the deep blue-
+      black dark canvas, or the very-dark text tone. Pairing the
+      current green adjacent to the legacy teal (#075E54) creates a
+      visible regression to the pre-2020 chrome; pairing it on the
+      warm beige chat-bg (#E5DDD5) muddies the saturation that
+      makes the brand recognisable.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["400", "500", "600", "700"]
+    severity: warning
+    rationale: >
+      The deployed WhatsApp client surfaces Super Sans VF (a
+      variable-axis cut) at the 400 / 500 / 600 / 700 weights for
+      marketing headlines, chat-list titles, and primary CTAs.
+      Substituting Inter at heavier weights drifts from the brand's
+      practical, warm voice; lighter cuts compromise the chat-list
+      readability at small sizes.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level
+      AA. WhatsApp's global, accessibility-conscious posture and
+      the dual light/dark canvas commitment make AA contrast
+      checks the default verification on any new role pairing
+      introduced on WhatsApp-skinned surfaces.
+
+  - type: fontPairing
+    target: typography.display
+    requires: prose
+    minSizeRatio: 1.4
+    severity: warning
+    rationale: >
+      WhatsApp's marketing display runs substantially larger than
+      the body chat copy on the marketing site. A 1.4× minimum
+      size ratio between display and prose preserves the
+      announcement-style hierarchy the brand voice depends on
+      when the Super Sans VF / Super Serif VF pairing reduces to
+      the Inter substitute.

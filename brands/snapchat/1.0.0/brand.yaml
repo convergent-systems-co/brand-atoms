@@ -1,0 +1,238 @@
+id: snapchat
+version: 1.0.0
+name: Snapchat
+description: >
+  Snapchat is the multimedia messaging, camera-first social network,
+  and AR-lens platform built by Snap Inc., used by hundreds of
+  millions of daily users to send ephemeral photo / video "Snaps,"
+  AR-filtered stories, and direct messages. The brand voice is
+  playful, immediate, and youth-forward — "the camera company."
+  Visually, Snapchat is anchored on Snapchat Yellow (#FFFC00), the
+  saturated near-fluorescent yellow that fills the entire ghost-
+  mark canvas, the launch splash screen, and the primary CTA across
+  the app and snap.com marketing surfaces. Snapchat is yellow-first
+  by canonical identity: the brand block IS the yellow canvas with
+  the black-outlined ghost mark, distinct from most light/dark-first
+  identities — the yellow surface is the brand surface.
+
+tags: [snapchat, snap, social, yellow, communications, mobile-first, camera, ar]
+
+provenance:
+  source: https://snap.com/en-US/brand-guidelines
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Snapchat and the Snapchat ghost logo are trademarks of Snap Inc.
+    The Snap Inc. brand-guidelines portal at snap.com/brand-guidelines
+    is the canonical brand-asset entry point; the full guidelines
+    are distributed as the downloadable Snapchat_Web-Brand-Guidelines
+    _September-2025.pdf. The signature Snapchat Yellow (#FFFC00) is
+    documented in the simple-icons brand database (citing snap.com)
+    and corroborated via the deployed snap.com/brand-guidelines CSS.
+    The supporting Snap product-family palette (Snap Blue #0096E5,
+    Magenta #8936B6, Red #E1143D, Green #00A179, Orange #E57200)
+    was captured from the same deployed stylesheet.
+  importedDate: 2026-05-18
+  notes: >
+    Derived from live site CSS at https://snap.com/brand-guidelines
+    on 2026-05-18; the full Snap Inc. brand guidelines are
+    distributed as a downloadable PDF and not surfaced in the
+    page's visible HTML, so the deployed brand-guidelines-page CSS
+    was the most direct grounded source for the supporting palette.
+    Snap's proprietary brand typeface Program OT is declared on
+    snap.com via @font-face but is not publicly distributed. Snap
+    publishes Avenir Next as the licensed corporate typeface for
+    marketing — also non-free. This atom references Inter@1 as the
+    open-source rendering substitute for both faces. The Snap
+    brand-asset policy expressly forbids redistribution of Snap
+    marks, so `assets: []` is the correct posture for this catalog.
+
+references:
+  palette: snapchat@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # Snapchat is yellow-first by canonical identity: the brand
+    # block IS the yellow canvas with the black-outlined ghost
+    # mark. `identity` resolves to the yellow surface, with black
+    # as the on-identity text/mark color.
+    identity: snapchat-yellow
+    on-identity: snapchat-black
+
+    background: snapchat-yellow
+    surface: snapchat-white
+    surface-elevated: snapchat-yellow-pale
+    text-primary: snapchat-black
+    text-secondary: snapchat-text-secondary
+
+    primary: snapchat-yellow
+    primary-hover: snapchat-yellow-dark
+    accent: snapchat-yellow
+    accent-hover: snapchat-yellow-dark
+    mark: snapchat-yellow
+
+    success: snapchat-green
+    warning: snapchat-orange
+    error: snapchat-red
+  typography:
+    display: heading
+    prose: body
+    wordmark: heading
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.mark
+    allowed:
+      - snapchat-yellow
+      - snapchat-black
+      - snapchat-white
+    forbidden:
+      - snapchat-yellow-warm
+      - snapchat-yellow-pale
+      - snapchat-blue
+      - snapchat-magenta
+      - snapchat-red
+      - snapchat-green
+      - snapchat-orange
+    severity: error
+    rationale: >
+      Snap Inc.'s brand-guidelines policy prescribes the ghost
+      mark in its approved color treatments only: yellow canvas
+      with the black-outlined ghost (the canonical product mark),
+      black-on-white in monochrome reproductions, and white-on-
+      black on the dark canvas. The supporting Snap product-family
+      palette (blues, magentas, reds, greens, oranges) is reserved
+      for product UI and marketing illustration and must not be
+      used to recolor the ghost mark itself.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+      - ghost-redraw
+      - mark-cropped
+      - combined-with-other-logo
+      - merchandise-without-permission
+    severity: error
+    rationale: >
+      Snap Inc.'s published brand guidelines (snap.com/brand-
+      guidelines) prescribe the ghost mark in approved variants
+      only. Redrawing the ghost silhouette, cropping the mark,
+      applying decorative effects, combining the mark with a
+      third-party logo, or selling unlicensed merchandise bearing
+      the mark violates the brand-use policy.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      WCAG 2.1 Level AA contrast minimum for body text. Snap Black
+      (#000000) on Snapchat Yellow (#FFFC00) reads at roughly
+      20:1 — clears AA decisively. The yellow-first brand canvas
+      makes contrast checks particularly load-bearing because
+      white text on the yellow canvas falls below the AA floor;
+      the rule enforces black-on-yellow as the canonical
+      text/canvas pairing.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: dark
+    use: ghost-white-on-black
+    severity: error
+    rationale: >
+      On the Snap dark canvas (#262626) the ghost mark renders in
+      white-on-black for legibility. The yellow-canvas ghost
+      variant must not be placed on the dark surface where the
+      yellow fills compete with the surrounding canvas.
+
+  - type: contextRestriction
+    target: roles.colors.identity
+    forbiddenContexts:
+      - product-of-competitor
+      - merchandise
+      - endorsement-implication
+      - sponsorship-implication
+      - app-impersonation
+    severity: error
+    rationale: >
+      Snap Inc.'s brand-guidelines policy restricts use of the
+      Snapchat ghost mark, the wordmark, and Snapchat Yellow in
+      ways that imply official affiliation or Snap endorsement,
+      on competing-app surfaces, or on unlicensed merchandise.
+      Encoding the policy as a context restriction lets
+      consumers reject impermissible placements.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - snapchat-black
+      - snapchat-white
+      - snapchat-canvas-dark
+    doesNotPairWith:
+      - snapchat-yellow-warm
+      - snapchat-yellow-pale
+      - snapchat-yellow-dark
+    severity: recommendation
+    rationale: >
+      Snapchat Yellow reads cleanest against pure black, pure
+      white, or the deep near-black dark canvas. Pairing the
+      signature yellow adjacent to the warm-yellow (#FFD301),
+      pale-yellow (#FEFF85), or dark-yellow (#FCF000) tints
+      collapses the calibrated saturation that makes the brand
+      surface recognisable — the slight shifts read as a printing
+      error or color-management drift rather than as an
+      intentional palette.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["400", "500", "700", "800"]
+    severity: warning
+    rationale: >
+      Avenir Next, Snap's licensed corporate typeface, ships
+      across Ultra Light through Heavy. Snap's marketing display
+      and product UI sit in the Regular (400), Medium (500),
+      Bold (700), and Heavy (800) band — the four weights
+      surfaced on the deployed snap.com brand-guidelines page.
+      Lighter or heavier cuts drift from the brand's
+      youth-forward, playful voice when rendered through the
+      Inter substitute.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level
+      AA. The yellow-first brand canvas makes contrast checks
+      particularly load-bearing: white-on-yellow falls below the
+      AA floor, so every new role pairing introduced on Snap-
+      skinned surfaces must be verified before deployment.
+
+  - type: fontPairing
+    target: typography.display
+    requires: prose
+    minSizeRatio: 1.5
+    severity: warning
+    rationale: >
+      Snap's marketing display runs substantially larger than the
+      prose copy on snap.com — the brand voice depends on the
+      youth-forward, large-display posture. A 1.5× minimum size
+      ratio between display and prose preserves the
+      announcement-style hierarchy when Avenir Next reduces to
+      the Inter substitute.

@@ -1,0 +1,190 @@
+kind: palette
+id: whatsapp
+version: 1.0.0
+name: WhatsApp
+description: >
+  WhatsApp's brand palette is anchored on the signature WhatsApp Green
+  (#25D366) — the saturated emerald used on the telephone-in-a-bubble
+  mark, the primary CTA, the outgoing-message bubble, and the read-
+  receipt double-check. The supporting palette is a tonal green scale
+  (light tints for chat surfaces, dark teal-greens for the dark-mode
+  client) plus a neutral Teal accent (#075E54) historically associated
+  with the WhatsApp header chrome before the 2020 visual refresh, and
+  a quiet near-black canvas (#0B141A) for the dark-mode chat surface.
+
+tags: [whatsapp, meta, messaging, green, communications, mobile-first]
+
+provenance:
+  source: https://www.meta.com/brand/resources/whatsapp/whatsapp-brand/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    WhatsApp and the WhatsApp logo are trademarks of WhatsApp LLC, a
+    Meta company. The signature WhatsApp Green (#25D366) is the value
+    documented in the simple-icons brand database (which cites
+    whatsapp.com as the source) and is corroborated by the deployed
+    web.whatsapp.com client CSS, which exposes a tonal green scale
+    (green-0 #F4FDFA through green-100 #17261F) keyed off the same
+    primary hue. The chat-surface tones (#DCF8C6 outgoing-bubble,
+    #E5DDD5 chat background, #075E54 header chrome, #128C7E action
+    accent) are well-documented WhatsApp client values surfaced in
+    the published brand-asset kit.
+  importedDate: 2026-05-18
+  notes: >
+    Derived from live site CSS at https://web.whatsapp.com/ on
+    2026-05-18; the published WhatsApp brand guide at
+    meta.com/brand/resources/whatsapp/whatsapp-brand/ is policy-only
+    (no hex codes), so the green scale was captured from the deployed
+    client's --green-0..--green-100 CSS custom-property family. The
+    proprietary brand typefaces (Super Sans VF / Super Serif VF /
+    Super Sans Mono VF) are declared on the deployed client via
+    @font-face but are not publicly distributed — the brand atom
+    substitutes Inter as the open-source rendering pair.
+
+swatches:
+  # ─── Signature green ───────────────────────────────────────────
+  - id: whatsapp-green
+    name: WhatsApp Green
+    value: "#25D366"
+    description: >
+      Signature WhatsApp emerald — the brand's primary color, used on
+      the telephone-bubble mark, the floating-action button, primary
+      CTAs, and the read-receipt double-check.
+  - id: whatsapp-green-dark
+    name: WhatsApp Green Dark
+    value: "#128C7E"
+    description: >
+      Deeper teal-green action color — used on hover/pressed states
+      and on the legacy header chrome of the mobile client.
+  - id: whatsapp-teal-dark
+    name: WhatsApp Teal Dark
+    value: "#075E54"
+    description: >
+      Deep teal — the legacy WhatsApp header chrome (pre-2020 visual
+      refresh), retained as a brand-recognised secondary.
+
+  # ─── Brand green scale (web client) ────────────────────────────
+  - id: whatsapp-green-50
+    name: WhatsApp Green 50
+    value: "#F4FDFA"
+    description: Lightest green tint — used as a hover wash on green surfaces (--green-0).
+  - id: whatsapp-green-100
+    name: WhatsApp Green 100
+    value: "#D5F7EB"
+    description: Pale green tint — used on subtle highlight surfaces (--green-10).
+  - id: whatsapp-green-200
+    name: WhatsApp Green 200
+    value: "#98EBCD"
+    description: Mid-light green — used in illustration accents (--green-20).
+  - id: whatsapp-green-300
+    name: WhatsApp Green 300
+    value: "#3AC7A1"
+    description: Mid green — used as a secondary action accent (--green-30).
+  - id: whatsapp-green-400
+    name: WhatsApp Green 400
+    value: "#26A28B"
+    description: Brand green mid-tone — chat-surface accent (--green-40).
+  - id: whatsapp-green-600
+    name: WhatsApp Green 600
+    value: "#148072"
+    description: Deeper brand green — used on dark-mode action affordances (--green-60).
+  - id: whatsapp-green-800
+    name: WhatsApp Green 800
+    value: "#005C54"
+    description: Very deep green — used on dark-mode header surfaces (--green-80).
+  - id: whatsapp-green-900
+    name: WhatsApp Green 900
+    value: "#0C4243"
+    description: Deepest green — used as a dark-mode tertiary surface (--green-90).
+  - id: whatsapp-green-1000
+    name: WhatsApp Green 1000
+    value: "#17261F"
+    description: Near-black green — used on dark-mode canvas accents (--green-100).
+
+  # ─── Chat surface tones (mobile client) ────────────────────────
+  - id: whatsapp-bubble-out
+    name: WhatsApp Bubble Out
+    value: "#DCF8C6"
+    description: >
+      Pale green — the outgoing-message chat bubble color on the
+      legacy mobile client. Visually distinct from incoming bubbles.
+  - id: whatsapp-chat-bg-light
+    name: WhatsApp Chat Background Light
+    value: "#E5DDD5"
+    description: >
+      Warm beige — the historical WhatsApp chat-screen background
+      tone (the "WhatsApp wallpaper default").
+
+  # ─── Neutrals (light) ──────────────────────────────────────────
+  - id: whatsapp-white
+    name: WhatsApp White
+    value: "#FFFFFF"
+    description: Pure white — primary text on dark canvas, surface fill on light mode.
+  - id: whatsapp-surface-light
+    name: WhatsApp Surface Light
+    value: "#F0F2F5"
+    description: Light-mode elevated surface — used for the chat-list rail.
+  - id: whatsapp-text-on-light
+    name: WhatsApp Text on Light
+    value: "#111B21"
+    description: Primary text on light-mode surfaces.
+  - id: whatsapp-text-secondary-light
+    name: WhatsApp Text Secondary Light
+    value: "#667781"
+    description: Secondary text and timestamps on light-mode surfaces.
+
+  # ─── Dark-mode canvas ──────────────────────────────────────────
+  - id: whatsapp-canvas-dark
+    name: WhatsApp Canvas Dark
+    value: "#0B141A"
+    description: >
+      Deep blue-black — the WhatsApp dark-mode chat canvas. Tuned
+      for OLED-friendly viewing.
+  - id: whatsapp-surface-dark
+    name: WhatsApp Surface Dark
+    value: "#202C33"
+    description: Dark-mode elevated surface — chat-list rail, top bar.
+  - id: whatsapp-bubble-out-dark
+    name: WhatsApp Bubble Out Dark
+    value: "#005C4B"
+    description: Dark-mode outgoing-message bubble — deep teal-green.
+  - id: whatsapp-text-on-dark
+    name: WhatsApp Text on Dark
+    value: "#E9EDEF"
+    description: Primary text on the dark-mode canvas.
+
+modes:
+  light:
+    roles:
+      background: whatsapp-white
+      surface: whatsapp-surface-light
+      surface-elevated: whatsapp-white
+      text-primary: whatsapp-text-on-light
+      text-secondary: whatsapp-text-secondary-light
+      text-tertiary: whatsapp-text-secondary-light
+      primary: whatsapp-green
+      primary-hover: whatsapp-green-dark
+      accent: whatsapp-green
+      accent-hover: whatsapp-green-dark
+      warning: whatsapp-green-300
+      warning-hover: whatsapp-green-400
+      error: whatsapp-green-dark
+      success: whatsapp-green
+      border: whatsapp-surface-light
+
+  dark:
+    roles:
+      background: whatsapp-canvas-dark
+      surface: whatsapp-surface-dark
+      surface-elevated: whatsapp-surface-dark
+      text-primary: whatsapp-text-on-dark
+      text-secondary: whatsapp-green-200
+      text-tertiary: whatsapp-green-300
+      primary: whatsapp-green
+      primary-hover: whatsapp-green-600
+      accent: whatsapp-green
+      accent-hover: whatsapp-green-600
+      warning: whatsapp-green-300
+      warning-hover: whatsapp-green-400
+      error: whatsapp-green-dark
+      success: whatsapp-green
+      border: whatsapp-green-1000

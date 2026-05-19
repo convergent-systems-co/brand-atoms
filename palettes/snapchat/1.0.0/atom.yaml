@@ -1,0 +1,202 @@
+kind: palette
+id: snapchat
+version: 1.0.0
+name: Snapchat
+description: >
+  Snapchat's brand palette is anchored on the signature Snapchat
+  Yellow (#FFFC00) — the saturated near-fluorescent yellow that fills
+  the entire ghost-mark canvas, the splash-screen background, and
+  the primary CTA across the Snapchat app and snap.com marketing
+  surfaces. The supporting palette is the published Snap Inc.
+  brand-guidelines spectrum captured directly from the deployed
+  snap.com/brand-guidelines CSS: a darker brand yellow (#FCF000), a
+  warm yellow (#FFD301), pure black (#000000) for the ghost mark
+  outline and wordmark, plus a small secondary scale (Snap blues
+  #0096E5 / #049EEE, magentas #8936B6 / #C195DE, reds #E1143D /
+  #C50A33, greens #00A179 / #00A881, oranges #E57200 / #FF8A00)
+  used in the supporting Snap-Inc. product family.
+
+tags: [snapchat, snap, social, yellow, communications, mobile-first, camera]
+
+provenance:
+  source: https://snap.com/en-US/brand-guidelines
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Snapchat and the Snapchat ghost logo are trademarks of Snap Inc.
+    The Snap Inc. brand-guidelines page at snap.com/brand-guidelines
+    is the canonical brand-portal entry. The signature Snapchat
+    Yellow (#FFFC00) is exposed on the deployed brand-guidelines
+    CSS, corroborated by the simple-icons brand database (citing
+    snap.com). The supporting palette (#FCF000 brand-yellow-dark,
+    #FFD301 warm yellow, #000000 Snap Black, blues #0096E5 /
+    #049EEE, magentas #8936B6 / #C195DE, reds #E1143D / #C50A33,
+    greens #00A179 / #00A881, oranges #E57200 / #FF8A00) was
+    captured from the same deployed snap.com brand-guidelines
+    stylesheet.
+  importedDate: 2026-05-18
+  notes: >
+    Derived from live site CSS at https://snap.com/brand-guidelines
+    on 2026-05-18; the full Snap Inc. brand guidelines are
+    distributed as a downloadable PDF (Snapchat_Web-Brand-
+    Guidelines_September-2025.pdf) and not in the page's visible
+    HTML, so the published-page CSS was the most direct grounded
+    source. The Snapchat product surface itself is the canonical
+    application of the brand — Snapchat Yellow (#FFFC00) fills
+    the ghost-mark canvas, the launch splash, and the primary
+    CTA. The proprietary brand typeface Program OT is declared on
+    snap.com via @font-face but is not publicly distributed; Snap
+    publishes Avenir Next as the licensed corporate typeface for
+    marketing applications. This atom is paired in the brand atom
+    with Inter@1 as the open-source rendering substitute for both.
+
+swatches:
+  # ─── Signature yellow ──────────────────────────────────────────
+  - id: snapchat-yellow
+    name: Snapchat Yellow
+    value: "#FFFC00"
+    description: >
+      Signature Snapchat near-fluorescent yellow — the brand's
+      primary color, used as the ghost-mark canvas, the splash-
+      screen background, and the primary CTA across the
+      Snapchat app and snap.com marketing surfaces.
+  - id: snapchat-yellow-dark
+    name: Snapchat Yellow Dark
+    value: "#FCF000"
+    description: >
+      Slightly deeper brand yellow — used as the pressed / active
+      variant of the primary CTA on the brand-guidelines surface.
+  - id: snapchat-yellow-warm
+    name: Snapchat Yellow Warm
+    value: "#FFD301"
+    description: Warm yellow — used in marketing illustration and secondary accents.
+  - id: snapchat-yellow-pale
+    name: Snapchat Yellow Pale
+    value: "#FEFF85"
+    description: Pale yellow tint — used as a hover wash on yellow surfaces.
+
+  # ─── Snap Black & White ─────────────────────────────────────────
+  - id: snapchat-black
+    name: Snap Black
+    value: "#000000"
+    description: >
+      Pure black — used on the ghost-mark outline, the Snapchat
+      wordmark, and as the primary text tone across the Snap Inc.
+      brand surfaces.
+  - id: snapchat-white
+    name: Snap White
+    value: "#FFFFFF"
+    description: Pure white — surface fill on light marketing surfaces.
+
+  # ─── Snap product-family secondary palette ─────────────────────
+  - id: snapchat-blue
+    name: Snap Blue
+    value: "#0096E5"
+    description: Snap secondary blue — used in product-family iconography (Snap Lens, Spectacles).
+  - id: snapchat-blue-light
+    name: Snap Blue Light
+    value: "#049EEE"
+    description: Lighter Snap blue — used in marketing illustration.
+  - id: snapchat-blue-bright
+    name: Snap Blue Bright
+    value: "#0EADFF"
+    description: Bright Snap blue — used on hover states of blue surfaces.
+  - id: snapchat-magenta
+    name: Snap Magenta
+    value: "#8936B6"
+    description: Snap secondary magenta — used in marketing illustration.
+  - id: snapchat-magenta-light
+    name: Snap Magenta Light
+    value: "#C195DE"
+    description: Lighter Snap magenta accent.
+  - id: snapchat-red
+    name: Snap Red
+    value: "#E1143D"
+    description: Snap secondary red — used on error / destructive affordances.
+  - id: snapchat-red-deep
+    name: Snap Red Deep
+    value: "#C50A33"
+    description: Deeper Snap red — pressed state on red affordances.
+  - id: snapchat-green
+    name: Snap Green
+    value: "#00A179"
+    description: Snap secondary green — used on success affordances.
+  - id: snapchat-green-light
+    name: Snap Green Light
+    value: "#00A881"
+    description: Lighter Snap green accent.
+  - id: snapchat-orange
+    name: Snap Orange
+    value: "#E57200"
+    description: Snap secondary orange — used in marketing illustration.
+  - id: snapchat-orange-bright
+    name: Snap Orange Bright
+    value: "#FF8A00"
+    description: Brighter Snap orange — used on hover states.
+
+  # ─── Neutrals (light surface) ──────────────────────────────────
+  - id: snapchat-surface-light
+    name: Snap Surface Light
+    value: "#F1F1F1"
+    description: Light-mode elevated surface on the brand-guidelines marketing site.
+  - id: snapchat-border-light
+    name: Snap Border Light
+    value: "#D9D9D9"
+    description: Quiet divider on the marketing-site surface.
+  - id: snapchat-text-secondary
+    name: Snap Text Secondary
+    value: "#595959"
+    description: Secondary text on light-mode surfaces.
+
+  # ─── Dark canvas (Snap product) ────────────────────────────────
+  - id: snapchat-canvas-dark
+    name: Snap Canvas Dark
+    value: "#262626"
+    description: >
+      Deep near-black — Snapchat's dark-mode chat/camera canvas
+      tone, captured from the snap.com brand-guidelines dark
+      stylesheet.
+  - id: snapchat-surface-dark
+    name: Snap Surface Dark
+    value: "#404040"
+    description: Dark-mode elevated surface.
+  - id: snapchat-text-on-dark
+    name: Snap Text on Dark
+    value: "#FFFFFF"
+    description: Primary text on the dark-mode canvas.
+
+modes:
+  light:
+    roles:
+      background: snapchat-yellow
+      surface: snapchat-white
+      surface-elevated: snapchat-yellow-pale
+      text-primary: snapchat-black
+      text-secondary: snapchat-text-secondary
+      text-tertiary: snapchat-text-secondary
+      primary: snapchat-yellow
+      primary-hover: snapchat-yellow-dark
+      accent: snapchat-yellow
+      accent-hover: snapchat-yellow-dark
+      warning: snapchat-orange
+      warning-hover: snapchat-orange-bright
+      error: snapchat-red
+      success: snapchat-green
+      border: snapchat-border-light
+
+  dark:
+    roles:
+      background: snapchat-canvas-dark
+      surface: snapchat-surface-dark
+      surface-elevated: snapchat-surface-dark
+      text-primary: snapchat-text-on-dark
+      text-secondary: snapchat-border-light
+      text-tertiary: snapchat-text-secondary
+      primary: snapchat-yellow
+      primary-hover: snapchat-yellow-warm
+      accent: snapchat-yellow
+      accent-hover: snapchat-yellow-warm
+      warning: snapchat-orange-bright
+      warning-hover: snapchat-orange
+      error: snapchat-red
+      success: snapchat-green-light
+      border: snapchat-surface-dark

@@ -1,0 +1,198 @@
+kind: palette
+id: signal
+version: 1.0.0
+name: Signal
+description: >
+  Signal's brand palette is anchored on Signal Blue (#3A76F0) — the
+  saturated brand blue documented in the simple-icons brand database
+  (citing signal.org) and used as the signature accent on the Signal
+  paper-plane / speech-bubble mark, primary CTAs, and the outgoing-
+  message bubble of the desktop and mobile clients. The supporting
+  palette is the published chat-bubble swatch set captured from the
+  deployed signal.org marketing surface — a "color of conversation"
+  spectrum (#2C8948 green, #6A2D8E purple, #C7354C crimson, #FFC107
+  amber, #BA481E rust, #1A77C0 navy-blue, #7C25B1 violet) that the
+  Signal client uses to color individual chat threads — plus a quiet
+  neutral scale ranging from white (#FFFFFF) to a near-black canvas
+  (#1B1E20) used on the dark-mode chat surface.
+
+tags: [signal, messaging, privacy, blue, communications, encryption, open-source]
+
+provenance:
+  source: https://signal.org/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Signal and the Signal logo are trademarks of Signal Messenger,
+    LLC / Signal Technology Foundation. The signature Signal Blue
+    (#3A76F0) is documented in the simple-icons brand database
+    (citing signal.org) and is corroborated by the deployed
+    signal.org marketing surface, whose primary-action button uses
+    a calibrated blue in the same family (#2563EB in the marketing
+    CSS, the Tailwind-blue-600 token). The conversation-bubble
+    spectrum (#2C8948, #6A2D8E, #C7354C, #FFC107, #BA481E, #1A77C0,
+    #7C25B1, #287B41, #43955C) and the dark-canvas surface tones
+    (#1B1E20, #2D3236, #303A49, #495056) were captured from the
+    same deployed signal.org stylesheet.
+  importedDate: 2026-05-18
+  notes: >
+    Derived from live site CSS at https://signal.org/ on 2026-05-18;
+    the published signal.org/brand page is policy- and asset-link
+    only (no hex codes in the visible content), so the supporting
+    palette was captured from the deployed marketing-site stylesheet.
+    Signal does not ship a proprietary type family — the deployed
+    marketing site uses Proxima Nova (sans) and roca (display
+    serif), and the mobile clients use the platform system fonts
+    (SF Pro on iOS, Roboto on Android). This atom is paired in the
+    brand atom with Proxima Nova@1 for the sans roles and Inter@1
+    as a public-web fallback consistent with the documented system-
+    font posture.
+
+swatches:
+  # ─── Signature blue ────────────────────────────────────────────
+  - id: signal-blue
+    name: Signal Blue
+    value: "#3A76F0"
+    description: >
+      Signature Signal blue — the brand's primary color, used on the
+      Signal mark, primary CTAs, and the outgoing-message bubble.
+  - id: signal-blue-deep
+    name: Signal Blue Deep
+    value: "#2563EB"
+    description: >
+      Deeper marketing-site primary-action blue — used on the hero
+      CTA button across signal.org.
+  - id: signal-blue-action
+    name: Signal Blue Action
+    value: "#1A77C0"
+    description: Deeper interactive blue — used on link hover and pressed states.
+
+  # ─── Conversation-bubble spectrum (Signal client thread colors) ─
+  - id: signal-bubble-blue
+    name: Signal Bubble Blue
+    value: "#1A77C0"
+    description: Chat-thread blue color.
+  - id: signal-bubble-green
+    name: Signal Bubble Green
+    value: "#2C8948"
+    description: Chat-thread green color.
+  - id: signal-bubble-green-light
+    name: Signal Bubble Green Light
+    value: "#43955C"
+    description: Chat-thread lighter green color.
+  - id: signal-bubble-purple
+    name: Signal Bubble Purple
+    value: "#6A2D8E"
+    description: Chat-thread purple color.
+  - id: signal-bubble-violet
+    name: Signal Bubble Violet
+    value: "#7C25B1"
+    description: Chat-thread violet color.
+  - id: signal-bubble-crimson
+    name: Signal Bubble Crimson
+    value: "#C7354C"
+    description: Chat-thread crimson / red color.
+  - id: signal-bubble-rust
+    name: Signal Bubble Rust
+    value: "#BA481E"
+    description: Chat-thread rust / burnt-orange color.
+  - id: signal-bubble-amber
+    name: Signal Bubble Amber
+    value: "#FFC107"
+    description: Chat-thread amber / yellow color (the Signal "yellow bubble").
+
+  # ─── Status accents ────────────────────────────────────────────
+  - id: signal-success
+    name: Signal Success
+    value: "#287B41"
+    description: Authored success / sent-status green.
+  - id: signal-error
+    name: Signal Error
+    value: "#C01D36"
+    description: Authored error / failed-send red.
+  - id: signal-warning
+    name: Signal Warning
+    value: "#E57200"
+    description: Authored warning amber.
+
+  # ─── Neutrals (light surface) ──────────────────────────────────
+  - id: signal-white
+    name: Signal White
+    value: "#FFFFFF"
+    description: Pure white — primary surface on the marketing site and light-mode chat canvas.
+  - id: signal-surface-light
+    name: Signal Surface Light
+    value: "#F4F5F5"
+    description: Light-mode elevated surface — chat-list rail.
+  - id: signal-border-light
+    name: Signal Border Light
+    value: "#E0E2E3"
+    description: Quiet divider on the marketing-site surface.
+  - id: signal-text-on-light
+    name: Signal Text on Light
+    value: "#1B1E20"
+    description: Primary text on the marketing-site and light-mode chat canvas.
+  - id: signal-text-secondary-light
+    name: Signal Text Secondary Light
+    value: "#5B646C"
+    description: Secondary text on light-mode surfaces.
+
+  # ─── Dark-mode canvas (Signal Desktop dark theme) ─────────────
+  - id: signal-canvas-dark
+    name: Signal Canvas Dark
+    value: "#1B1E20"
+    description: >
+      Deep near-black — Signal's dark-mode chat canvas tone,
+      captured from the deployed signal.org dark stylesheet.
+  - id: signal-surface-dark
+    name: Signal Surface Dark
+    value: "#2D3236"
+    description: Dark-mode elevated surface — chat-list rail.
+  - id: signal-surface-dark-elevated
+    name: Signal Surface Dark Elevated
+    value: "#303A49"
+    description: Dark-mode deepest-elevated surface.
+  - id: signal-text-on-dark
+    name: Signal Text on Dark
+    value: "#FFFFFF"
+    description: Primary text on the dark-mode canvas.
+  - id: signal-text-secondary-dark
+    name: Signal Text Secondary Dark
+    value: "#A7AFBC"
+    description: Secondary text and timestamps on the dark canvas.
+
+modes:
+  light:
+    roles:
+      background: signal-white
+      surface: signal-surface-light
+      surface-elevated: signal-white
+      text-primary: signal-text-on-light
+      text-secondary: signal-text-secondary-light
+      text-tertiary: signal-text-secondary-light
+      primary: signal-blue
+      primary-hover: signal-blue-deep
+      accent: signal-blue
+      accent-hover: signal-blue-action
+      warning: signal-warning
+      warning-hover: signal-bubble-rust
+      error: signal-error
+      success: signal-success
+      border: signal-border-light
+
+  dark:
+    roles:
+      background: signal-canvas-dark
+      surface: signal-surface-dark
+      surface-elevated: signal-surface-dark-elevated
+      text-primary: signal-text-on-dark
+      text-secondary: signal-text-secondary-dark
+      text-tertiary: signal-text-secondary-dark
+      primary: signal-blue
+      primary-hover: signal-blue-deep
+      accent: signal-blue
+      accent-hover: signal-blue-action
+      warning: signal-bubble-amber
+      warning-hover: signal-warning
+      error: signal-bubble-crimson
+      success: signal-bubble-green
+      border: signal-surface-dark-elevated

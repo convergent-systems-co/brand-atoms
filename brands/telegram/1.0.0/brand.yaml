@@ -1,0 +1,238 @@
+id: telegram
+version: 1.0.0
+name: Telegram
+description: >
+  Telegram is the cloud-based messaging, voice-, video-, and channel-
+  broadcast platform built by Telegram FZ-LLC / Telegram Messenger
+  Inc., serving over 900 million monthly users with a posture
+  oriented around speed, openness (a documented API), and optional
+  end-to-end encryption ("Secret Chats"). The brand voice is
+  technical, candid, and confident — "simple. private. fast." Visually,
+  Telegram is anchored on Telegram Blue (#0088CC), the saturated sky-
+  blue used on the paper-plane mark, primary CTAs, links across the
+  marketing site, and the outgoing-message bubble. Telegram is dual-
+  mode by canonical identity: the desktop and mobile clients render
+  the blue accent on a near-white canvas (light) or a deep slate
+  canvas #212429 (dark), with the blue serving as the consistent
+  primary across both surfaces.
+
+tags: [telegram, messaging, blue, communications, mobile-first, cloud, open-api]
+
+provenance:
+  source: https://telegram.org/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Telegram and the Telegram paper-plane logo are trademarks of
+    Telegram FZ-LLC / Telegram Messenger Inc. Brand-asset distribution
+    policy and the press-kit logo files are linked from
+    telegram.org/brand; the signature Telegram Blue (#0088CC) is
+    documented in the simple-icons brand database (citing
+    telegram.org) and corroborated by the deployed telegram.org
+    marketing surface, where every anchor link resolves to
+    rgb(0,136,204). Supporting blue/neutral tones in the brand atom
+    were captured from the same deployed CSS.
+  importedDate: 2026-05-18
+  notes: >
+    Derived from live site CSS at https://telegram.org/ on 2026-05-18;
+    the published telegram.org/brand page is policy- and asset-link
+    only (no hex codes in the visible content), so the supporting
+    scale was captured from the deployed marketing-site stylesheet.
+    Telegram does not ship a proprietary type family — the marketing
+    site uses Lucida Grande / Helvetica Neue system stacks, the
+    Android client uses Roboto, and iOS / macOS use SF Pro. This atom
+    references Roboto@1 as the open-source rendering substitute
+    consistent with the Android client (Telegram's most-installed
+    surface). The brand-asset policy expressly forbids re-distribution
+    outside the documented press-kit channels, so `assets: []` is the
+    correct posture for this catalog.
+
+references:
+  palette: telegram@1
+  fonts:
+    heading: roboto@1
+    body: roboto@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # Telegram is dual-mode (light + dark); the brand-identity
+    # surface is white-on-blue on the paper-plane mark, so `identity`
+    # resolves to the signature blue rather than the canvas.
+    identity: telegram-blue
+    on-identity: telegram-white
+
+    background: telegram-white
+    surface: telegram-surface-light
+    surface-elevated: telegram-white
+    text-primary: telegram-text-on-light
+    text-secondary: telegram-text-secondary-light
+
+    primary: telegram-blue
+    primary-hover: telegram-blue-800
+    accent: telegram-blue
+    accent-hover: telegram-blue-700
+    mark: telegram-blue
+
+    success: telegram-blue
+    warning: telegram-blue-400
+    error: telegram-blue-dark
+  typography:
+    display: heading
+    prose: body
+    wordmark: heading
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.mark
+    allowed:
+      - telegram-blue
+      - telegram-white
+    forbidden:
+      - telegram-blue-100
+      - telegram-blue-dark
+      - telegram-canvas-dark
+    severity: error
+    rationale: >
+      The Telegram paper-plane mark renders in Telegram Blue
+      (#0088CC) on light surfaces and reverses to white on the
+      dark canvas — the two approved color treatments documented
+      in the press-kit assets linked from telegram.org/brand.
+      Recoloring into a pale tint, the pressed-state dark blue,
+      or any of the supporting surface neutrals violates the
+      brand-mark policy.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+      - flattened-paper-plane
+      - combined-with-other-logo
+      - used-as-verb
+    severity: error
+    rationale: >
+      The Telegram brand-asset policy prescribes the paper-plane
+      mark in its approved variants only. Recoloring the mark,
+      flattening the paper-plane silhouette, applying decorative
+      effects, or combining the mark with a third-party logo to
+      imply partnership violates the brand-use license linked
+      from telegram.org/brand.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      WCAG 2.1 Level AA contrast minimum for body text. Telegram
+      Text on Light (#333333) on the white canvas reads at roughly
+      12.6:1, and Text on Dark (#FFFFFF) on Canvas Dark (#212429)
+      reads at roughly 15.4:1 — both clear AA decisively. The
+      rule encodes the floor for any new foreground/background
+      pairing introduced on Telegram-skinned surfaces.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 3.0
+    standard: WCAG-AA-large
+    severity: error
+    rationale: >
+      Telegram Blue (#0088CC) on the white canvas must remain
+      perceptible at interactive sizes. Falling below 3:1
+      (AA-large) compromises the affordance of the primary CTA,
+      the inline link color, and the paper-plane send button —
+      all of which read as blue-on-white in the canonical
+      product surface.
+
+  - type: variantSelection
+    target: logo
+    when:
+      backgroundColorScheme: dark
+    use: mark-white
+    severity: error
+    rationale: >
+      On the canonical Telegram Canvas Dark surface (#212429) the
+      paper-plane mark renders in white for legibility. The
+      blue-on-dark mark variant must not be used on the dark
+      canvas where contrast against the surface drops below the
+      AA-large floor for interactive elements.
+
+  - type: contextRestriction
+    target: roles.colors.identity
+    forbiddenContexts:
+      - product-of-competitor
+      - merchandise
+      - endorsement-implication
+      - sponsorship-implication
+      - app-impersonation
+    severity: error
+    rationale: >
+      Telegram's brand-asset policy prohibits use of the Telegram
+      name, paper-plane mark, or signature blue in ways that
+      imply official affiliation or endorsement, on unlicensed
+      merchandise, or on a competing messaging app's surface.
+      Encoding the policy as a context restriction lets consumers
+      reject impermissible placements.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - telegram-white
+      - telegram-canvas-dark
+      - telegram-text-on-light
+      - telegram-surface-light
+    doesNotPairWith:
+      - telegram-blue-100
+      - telegram-blue-300
+    severity: recommendation
+    rationale: >
+      Telegram Blue reads cleanest against white, the deep slate
+      dark canvas, or the very-dark text tone. Pairing the primary
+      blue adjacent to the pale tint (#E5F1FA) or the mid-light
+      blue-300 (#3CA1EB) collapses the primary-vs-secondary
+      hierarchy and washes the brand's recognisable saturation.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["400", "500", "700"]
+    severity: warning
+    rationale: >
+      Roboto, the type family used by the Telegram Android client,
+      ships across Thin (100) through Black (900) but Telegram's
+      product UI sits in the Regular (400), Medium (500), and
+      Bold (700) band — the same three weights surfaced in the
+      Android client's typography spec. Lighter or heavier cuts
+      drift from the brand's practical, technical voice.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level
+      AA. Telegram's global user base and the dual light/dark
+      canvas commitment make AA contrast checks the default
+      verification on any new role pairing introduced on
+      Telegram-skinned surfaces.
+
+  - type: fontPairing
+    target: typography.display
+    requires: prose
+    minSizeRatio: 1.5
+    severity: warning
+    rationale: >
+      Telegram's marketing display runs substantially larger than
+      the chat / prose copy on the telegram.org marketing site.
+      A 1.5× minimum size ratio between display and prose
+      preserves the announcement-style hierarchy the brand voice
+      depends on when rendered through the Roboto substitute.

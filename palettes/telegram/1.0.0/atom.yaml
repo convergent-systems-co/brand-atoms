@@ -1,0 +1,175 @@
+kind: palette
+id: telegram
+version: 1.0.0
+name: Telegram
+description: >
+  Telegram's brand palette is anchored on the signature Telegram Blue
+  (#0088CC) — the saturated sky-blue used on the paper-plane mark,
+  primary CTAs, links, and the outgoing-message bubble of the
+  desktop and mobile clients. The supporting palette is a tonal blue
+  scale captured from the deployed telegram.org marketing surface
+  (light tints for hover states; deeper navy variants for dark-mode
+  surfaces and the iOS gradient mark) plus a quiet neutral scale
+  ranging from white-on-canvas to a deep slate (#212429) used as
+  the dark-mode canvas across the official clients.
+
+tags: [telegram, messaging, blue, communications, mobile-first, encryption]
+
+provenance:
+  source: https://telegram.org/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Telegram and the Telegram paper-plane logo are trademarks of
+    Telegram FZ-LLC / Telegram Messenger Inc. The signature Telegram
+    Blue (#0088CC) is documented in the simple-icons brand database
+    (citing telegram.org) and is corroborated by the deployed
+    telegram.org marketing surface, whose anchor link color resolves
+    to rgb(0,136,204) on every page. The deeper navy variants and the
+    light/dark scale (#1C93E3, #1A8AD5, #2481CC, #1482D1, #30AAFD,
+    #3CA1EB, #E5F1FA, #212429, #23313E, #262A2E, #33373D, #363B40)
+    were captured from the deployed CSS on the same page.
+  importedDate: 2026-05-18
+  notes: >
+    Derived from live site CSS at https://telegram.org/ on 2026-05-18;
+    the documented brand page at telegram.org/brand renders no hex
+    codes in its visible content (policy text and downloadable
+    assets only), so the palette was captured from the deployed
+    marketing-surface stylesheet. Telegram clients do not ship a
+    proprietary type family — the marketing site uses Lucida Grande
+    / Helvetica Neue system stacks; the Android client uses Roboto;
+    iOS / macOS use SF Pro. This atom is paired in the brand atom
+    with Roboto@1 as the open-source rendering substitute.
+
+swatches:
+  # ─── Signature blue ────────────────────────────────────────────
+  - id: telegram-blue
+    name: Telegram Blue
+    value: "#0088CC"
+    description: >
+      Signature Telegram sky-blue — the brand's primary color, used
+      on the paper-plane mark, primary CTAs, links across the
+      marketing site, and the outgoing-message bubble.
+  - id: telegram-blue-dark
+    name: Telegram Blue Dark
+    value: "#006699"
+    description: >
+      Pressed / active variant of Telegram Blue — used on the hover
+      and pressed states of primary buttons.
+
+  # ─── Brand blue scale (telegram.org marketing CSS) ────────────
+  - id: telegram-blue-100
+    name: Telegram Blue 100
+    value: "#E5F1FA"
+    description: Pale tint — used as a hover wash and link-highlight surface.
+  - id: telegram-blue-300
+    name: Telegram Blue 300
+    value: "#3CA1EB"
+    description: Mid-light blue — used in illustration and link-hover states.
+  - id: telegram-blue-400
+    name: Telegram Blue 400
+    value: "#30AAFD"
+    description: Bright blue accent — the brightest blue used on the marketing surface.
+  - id: telegram-blue-500
+    name: Telegram Blue 500
+    value: "#2481CC"
+    description: Telegram's "Apple-app store" blue tone — used in promotional iconography.
+  - id: telegram-blue-600
+    name: Telegram Blue 600
+    value: "#1C93E3"
+    description: Deeper marketing accent blue.
+  - id: telegram-blue-700
+    name: Telegram Blue 700
+    value: "#1A8AD5"
+    description: Header accent blue — used on the marketing-site nav highlight.
+  - id: telegram-blue-800
+    name: Telegram Blue 800
+    value: "#1482D1"
+    description: Deep accent — used on the marketing-site button-hover.
+
+  # ─── Neutrals (light surface) ──────────────────────────────────
+  - id: telegram-white
+    name: Telegram White
+    value: "#FFFFFF"
+    description: Pure white — primary surface on the marketing site and light-mode chat canvas.
+  - id: telegram-surface-light
+    name: Telegram Surface Light
+    value: "#F7F7F7"
+    description: Light-mode elevated surface — the chat-list rail on the iOS client.
+  - id: telegram-border-light
+    name: Telegram Border Light
+    value: "#E6E6E6"
+    description: Quiet divider on the marketing-site surface.
+  - id: telegram-text-on-light
+    name: Telegram Text on Light
+    value: "#333333"
+    description: Primary text on the marketing-site and light-mode chat canvas.
+  - id: telegram-text-secondary-light
+    name: Telegram Text Secondary Light
+    value: "#7D7F81"
+    description: Secondary text on light-mode surfaces.
+
+  # ─── Dark-mode canvas (Telegram Desktop dark theme) ────────────
+  - id: telegram-canvas-dark
+    name: Telegram Canvas Dark
+    value: "#212429"
+    description: >
+      Deep slate — Telegram's dark-mode chat canvas tone (the
+      "Night" theme baseline), captured from the deployed
+      telegram.org dark-mode stylesheet.
+  - id: telegram-surface-dark
+    name: Telegram Surface Dark
+    value: "#262A2E"
+    description: Dark-mode elevated surface — chat-list rail and top bar.
+  - id: telegram-surface-dark-elevated
+    name: Telegram Surface Dark Elevated
+    value: "#33373D"
+    description: Dark-mode deepest-elevated surface.
+  - id: telegram-text-on-dark
+    name: Telegram Text on Dark
+    value: "#FFFFFF"
+    description: Primary text on the dark-mode canvas.
+  - id: telegram-text-secondary-dark
+    name: Telegram Text Secondary Dark
+    value: "#84888C"
+    description: Secondary text and timestamps on the dark canvas.
+  - id: telegram-surface-dark-deep
+    name: Telegram Surface Dark Deep
+    value: "#1E1E1E"
+    description: Deepest dark surface — used as the chat-input background.
+
+modes:
+  light:
+    roles:
+      background: telegram-white
+      surface: telegram-surface-light
+      surface-elevated: telegram-white
+      text-primary: telegram-text-on-light
+      text-secondary: telegram-text-secondary-light
+      text-tertiary: telegram-text-secondary-light
+      primary: telegram-blue
+      primary-hover: telegram-blue-800
+      accent: telegram-blue
+      accent-hover: telegram-blue-700
+      warning: telegram-blue-400
+      warning-hover: telegram-blue-700
+      error: telegram-blue-dark
+      success: telegram-blue
+      border: telegram-border-light
+
+  dark:
+    roles:
+      background: telegram-canvas-dark
+      surface: telegram-surface-dark
+      surface-elevated: telegram-surface-dark-elevated
+      text-primary: telegram-text-on-dark
+      text-secondary: telegram-text-secondary-dark
+      text-tertiary: telegram-text-secondary-dark
+      primary: telegram-blue-300
+      primary-hover: telegram-blue-400
+      accent: telegram-blue-300
+      accent-hover: telegram-blue-400
+      warning: telegram-blue-400
+      warning-hover: telegram-blue-700
+      error: telegram-blue-dark
+      success: telegram-blue-300
+      border: telegram-surface-dark-elevated
