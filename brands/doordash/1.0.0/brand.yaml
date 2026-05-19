@@ -1,0 +1,188 @@
+id: doordash
+version: 1.0.0
+name: DoorDash
+description: >
+  DoorDash is the U.S.-anchored last-mile logistics platform —
+  restaurant delivery, grocery, retail — founded in 2013. The
+  brand identity centers on DoorDash Red (#FF3038), a warm,
+  slightly orange-leaning red carried on the wordmark, the
+  rolling-dot mark, and the primary CTA. The red reads against
+  near-white canvases with deep neutral type. doordash.design is
+  DoorDash's public design system. The voice is direct, friendly,
+  and product-forward — the brand chrome stays out of the way of
+  the marketplace it surfaces.
+tags: [doordash, delivery, food, brand, red, light-first]
+
+provenance:
+  source: https://raw.githubusercontent.com/simple-icons/simple-icons/13.0.0/_data/simple-icons.json
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    DoorDash, Inc. — DoorDash and the DoorDash wordmark are
+    trademarks of DoorDash, Inc. The signature red (#FF3038) is
+    verified via the simple-icons brand database (v13.0.0).
+    doordash.design is DoorDash's publicly available
+    design-system surface and informs the role mappings here.
+  importedDate: 2026-05-19
+  notes: >
+    DoorDash's marketing and product surfaces use bespoke
+    typography that is not publicly distributed. This atom
+    references Inter@1 as the open-source rendering substitute
+    for the sans roles. Supporting neutral and functional swatches
+    in the palette are authored complements faithful to
+    doordash.design; see the palette atom notes.
+
+references:
+  palette: doordash@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # DoorDash's identity IS the red. Naming `identity` as the
+    # signature red lets consumers render brand-badge surfaces in
+    # the warm-red voice rather than landing on a neutral.
+    identity: doordash-red
+    on-identity: doordash-white
+
+    primary: doordash-red
+    primary-hover: doordash-red-pressed
+    accent: doordash-red
+    accent-hover: doordash-red-pressed
+    mark: doordash-red
+
+    success: doordash-success
+    warning: doordash-warning
+    error: doordash-red-pressed
+
+    background-light: doordash-white
+    background-dark: doordash-ink
+    surface-light: doordash-fog
+    surface-dark: doordash-charcoal
+    text-primary-light: doordash-ink
+    text-primary-dark: doordash-white
+    text-secondary-light: doordash-charcoal
+    text-tertiary-light: doordash-graphite
+    border-light: doordash-mist
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.wordmark.fill
+    allowed:
+      - doordash-red
+      - doordash-white
+      - doordash-ink
+    forbidden:
+      - doordash-red-pressed
+      - doordash-warning
+      - doordash-success
+      - doordash-graphite
+    severity: error
+    rationale: >
+      The DoorDash wordmark renders in DoorDash Red on light
+      surfaces, in white on dark surfaces, or in DoorDash Ink for
+      monochrome applications. The pressed-red variant is an
+      interactive-state value, not a wordmark fill. Functional
+      warning / success hues must never substitute for the brand
+      red.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+      - placed-without-clearspace
+    severity: error
+    rationale: >
+      DoorDash's wordmark is flat in the signature red with
+      generous clearspace. Gradients, shadows, and recolorings
+      compromise the warm-red optical recognition the brand
+      depends on across delivery surfaces, app icons, and
+      driver-facing collateral.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      DoorDash Ink (#191919) on DoorDash White (#FFFFFF) gives
+      ~17:1 — well above the WCAG AA 4.5:1 floor for body text.
+      The rule codifies the floor for new foreground/background
+      pairings introduced on DoorDash surfaces.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 3.0
+    standard: WCAG-AA-large
+    severity: error
+    rationale: >
+      DoorDash Red on DoorDash White must clear 3:1 at
+      large-text and UI-component sizes (WCAG AA-large) to keep
+      the primary CTA perceptible. The warm red is comfortably
+      above the floor against white but the rule encodes the
+      expectation explicitly.
+
+  - type: contextRestriction
+    target: roles.colors.primary
+    forbiddenContexts:
+      - body-text
+      - secondary-link
+      - subtle-divider
+    severity: error
+    rationale: >
+      DoorDash Red is reserved for the wordmark, the mark, and
+      the primary call to action. Using it inside body copy or
+      for subtle dividers dilutes the signature accent and
+      weakens the visual hierarchy the brand voice depends on.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["500", "600", "700"]
+    severity: warning
+    rationale: >
+      DoorDash's marketing headlines on doordash.com and
+      doordash.design sit in the Medium (500) through Bold (700)
+      band. Lighter weights compromise the direct, confident
+      voice; heavier weights are not part of the standard kit.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level
+      AA. DoorDash surfaces are used by consumers, dashers, and
+      merchants under varied conditions; AA is the floor for any
+      text on any DoorDash surface.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - doordash-white
+      - doordash-fog
+      - doordash-ink
+    doesNotPairWith:
+      - doordash-warning
+      - doordash-success
+    severity: recommendation
+    rationale: >
+      DoorDash Red reads cleanest against the white canvas, the
+      lightest fog neutral, or the deep ink dark canvas. Pairing
+      it adjacent to the warning amber or the green success hue
+      introduces a chromatic conflict that fights for attention
+      without resolving into hierarchy.

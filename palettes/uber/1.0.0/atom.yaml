@@ -1,0 +1,125 @@
+kind: palette
+id: uber
+version: 1.0.0
+name: Uber
+description: >
+  Uber's corporate palette is built on a disciplined monochrome
+  spine: Uber Black (#000000) is the primary brand color, paired
+  with white surfaces and a deep neutral ramp. The Base design
+  system that powers Uber's marketing and rider/driver apps treats
+  black as the dominant chrome, with white space and a small neutral
+  scale doing the structural work. There is no chromatic "signature
+  accent" in the corporate identity — when accent is needed, the
+  product surfaces lean on functional greens and reds rather than
+  a brand-owned hue.
+tags: [uber, mobility, ridesharing, brand, monochrome, light-first]
+
+provenance:
+  source: https://raw.githubusercontent.com/simple-icons/simple-icons/13.0.0/_data/simple-icons.json
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Uber Technologies, Inc. — the "Uber" wordmark and brand black
+    (#000000) are property of Uber. The primary brand hex is
+    verified via the simple-icons brand database (v13.0.0), which
+    cites Uber as the canonical source. The Base design system
+    (base.uber.com) is Uber's public design-system surface.
+  importedDate: 2026-05-19
+  notes: >
+    Uber's identity black is verified from simple-icons. The
+    surrounding neutral ramp (Uber Gray 50–900) and white surfaces
+    in this atom are authored complements faithful to Base design
+    system conventions (a monochrome neutral spine with discrete
+    100-step increments). They are not lifted as exact hex values
+    from a single Uber-published token table; they are documented
+    here as authored neutrals so consumers can render Uber-skinned
+    surfaces against a coherent gray scale.
+
+swatches:
+  - id: uber-black
+    name: Uber Black
+    value: "#000000"
+    description: Uber's primary brand color — the wordmark, mark, and dominant chrome on Uber surfaces.
+
+  - id: uber-white
+    name: Uber White
+    value: "#FFFFFF"
+    description: Primary canvas — the rider and marketing surfaces default to white space against Uber Black chrome.
+
+  - id: uber-gray-50
+    name: Uber Gray 50
+    value: "#F6F6F6"
+    description: Subtle elevated surface on white — hover states and quiet panels.
+
+  - id: uber-gray-100
+    name: Uber Gray 100
+    value: "#EEEEEE"
+    description: Card and divider surface on white canvas.
+
+  - id: uber-gray-200
+    name: Uber Gray 200
+    value: "#E2E2E2"
+    description: Border on white surfaces.
+
+  - id: uber-gray-300
+    name: Uber Gray 300
+    value: "#CBCBCB"
+    description: Disabled foreground; quiet stroke.
+
+  - id: uber-gray-500
+    name: Uber Gray 500
+    value: "#757575"
+    description: Tertiary text and icon color.
+
+  - id: uber-gray-700
+    name: Uber Gray 700
+    value: "#3F3F3F"
+    description: Secondary text on white; elevated surface in dark mode.
+
+  - id: uber-gray-900
+    name: Uber Gray 900
+    value: "#1F1F1F"
+    description: Surface in dark mode — sits just above Uber Black.
+
+  - id: uber-green
+    name: Uber Green
+    value: "#0E8345"
+    description: Functional success — confirmation states on product surfaces.
+
+  - id: uber-red
+    name: Uber Red
+    value: "#E11900"
+    description: Functional error / destructive — never used as a brand accent.
+
+modes:
+  light:
+    roles:
+      background: uber-white
+      surface: uber-gray-50
+      surface-elevated: uber-white
+      text-primary: uber-black
+      text-secondary: uber-gray-700
+      text-tertiary: uber-gray-500
+      primary: uber-black
+      primary-hover: uber-gray-900
+      accent: uber-black
+      accent-hover: uber-gray-900
+      success: uber-green
+      warning: uber-red
+      error: uber-red
+      border: uber-gray-200
+  dark:
+    roles:
+      background: uber-black
+      surface: uber-gray-900
+      surface-elevated: uber-gray-700
+      text-primary: uber-white
+      text-secondary: uber-gray-200
+      text-tertiary: uber-gray-300
+      primary: uber-white
+      primary-hover: uber-gray-50
+      accent: uber-white
+      accent-hover: uber-gray-50
+      success: uber-green
+      warning: uber-red
+      error: uber-red
+      border: uber-gray-700

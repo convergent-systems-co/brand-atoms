@@ -1,0 +1,114 @@
+kind: palette
+id: doordash
+version: 1.0.0
+name: DoorDash
+description: >
+  DoorDash's brand palette is centered on DoorDash Red (#FF3038),
+  a warm, slightly orange-leaning red that carries the wordmark
+  and the primary CTA across the marketing site and consumer app.
+  The red reads against a near-white canvas with deep neutral
+  text, supported by a small functional ramp. doordash.design
+  documents the design system; the brand voice is direct,
+  friendly, and product-forward.
+tags: [doordash, delivery, food, brand, red, light-first]
+
+provenance:
+  source: https://raw.githubusercontent.com/simple-icons/simple-icons/13.0.0/_data/simple-icons.json
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    DoorDash, Inc. — DoorDash and the DoorDash wordmark are
+    trademarks of DoorDash, Inc. The signature red (#FF3038) is
+    verified via the simple-icons brand database (v13.0.0).
+    doordash.design is DoorDash's public design-system surface.
+  importedDate: 2026-05-19
+  notes: >
+    Only DoorDash Red (#FF3038) is verified from a single
+    authoritative source. The supporting neutrals and functional
+    success / warning hues are authored complements faithful to
+    the doordash.design aesthetic rather than lifted verbatim from
+    a single DoorDash-published token table.
+
+swatches:
+  - id: doordash-red
+    name: DoorDash Red
+    value: "#FF3038"
+    description: DoorDash's signature brand red — the wordmark, mark, and primary CTA color.
+
+  - id: doordash-red-pressed
+    name: DoorDash Red Pressed
+    value: "#D9242B"
+    description: Pressed / hover variant of DoorDash Red for interactive states.
+
+  - id: doordash-ink
+    name: DoorDash Ink
+    value: "#191919"
+    description: Primary text color on light surfaces; canvas color in dark mode.
+
+  - id: doordash-charcoal
+    name: DoorDash Charcoal
+    value: "#2D2D2D"
+    description: Elevated dark surface; secondary text on light.
+
+  - id: doordash-graphite
+    name: DoorDash Graphite
+    value: "#767676"
+    description: Tertiary text and icon color.
+
+  - id: doordash-mist
+    name: DoorDash Mist
+    value: "#E3E3E3"
+    description: Border and quiet divider on light canvas.
+
+  - id: doordash-fog
+    name: DoorDash Fog
+    value: "#F5F5F5"
+    description: Subtle elevated surface on white.
+
+  - id: doordash-white
+    name: DoorDash White
+    value: "#FFFFFF"
+    description: Primary canvas — DoorDash consumer surfaces default to white.
+
+  - id: doordash-success
+    name: DoorDash Success
+    value: "#1E874B"
+    description: Functional success — order confirmation, delivery completion.
+
+  - id: doordash-warning
+    name: DoorDash Warning
+    value: "#E58A00"
+    description: Functional warning — delay advisories, low stock.
+
+modes:
+  light:
+    roles:
+      background: doordash-white
+      surface: doordash-fog
+      surface-elevated: doordash-white
+      text-primary: doordash-ink
+      text-secondary: doordash-charcoal
+      text-tertiary: doordash-graphite
+      primary: doordash-red
+      primary-hover: doordash-red-pressed
+      accent: doordash-red
+      accent-hover: doordash-red-pressed
+      success: doordash-success
+      warning: doordash-warning
+      error: doordash-red-pressed
+      border: doordash-mist
+  dark:
+    roles:
+      background: doordash-ink
+      surface: doordash-charcoal
+      surface-elevated: doordash-graphite
+      text-primary: doordash-white
+      text-secondary: doordash-mist
+      text-tertiary: doordash-graphite
+      primary: doordash-red
+      primary-hover: doordash-red-pressed
+      accent: doordash-red
+      accent-hover: doordash-red-pressed
+      success: doordash-success
+      warning: doordash-warning
+      error: doordash-red-pressed
+      border: doordash-charcoal

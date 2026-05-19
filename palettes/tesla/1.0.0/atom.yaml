@@ -1,0 +1,111 @@
+kind: palette
+id: tesla
+version: 1.0.0
+name: Tesla
+description: >
+  Tesla's brand palette is built on Tesla Red (#E82127) and a
+  dark-first canvas. The brand identity is restrained and
+  technical: the saturated red wordmark and "T" mark against a
+  deep, near-black canvas, with white type and a small neutral
+  ramp. Tesla is a dark-first surface in its consumer product
+  (the in-car UI is dark by design) and in its marketing site's
+  hero treatments; the brand atom declares dark as identity.
+tags: [tesla, automotive, ev, brand, red, dark-first]
+
+provenance:
+  source: https://raw.githubusercontent.com/simple-icons/simple-icons/13.0.0/_data/simple-icons.json
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Tesla, Inc. — Tesla, the Tesla wordmark, and the Tesla "T"
+    mark are trademarks of Tesla, Inc. The signature red
+    (#E82127) is verified via the simple-icons brand database
+    (v13.0.0).
+  importedDate: 2026-05-19
+  notes: >
+    Only Tesla Red (#E82127) is verified from a single
+    authoritative source. The supporting near-black canvas,
+    surface ramp, and white text values are authored complements
+    faithful to tesla.com's product chrome and the in-car UI
+    aesthetic; they are not lifted verbatim from a single
+    Tesla-published token table. Tesla does not maintain a
+    publicly visible brand-guidelines page.
+
+swatches:
+  - id: tesla-red
+    name: Tesla Red
+    value: "#E82127"
+    description: Tesla's signature brand red — the wordmark, the "T" mark, and high-priority highlights.
+
+  - id: tesla-red-deep
+    name: Tesla Red Deep
+    value: "#B91A1F"
+    description: Pressed / hover variant of Tesla Red for interactive states.
+
+  - id: tesla-black
+    name: Tesla Black
+    value: "#000000"
+    description: Canonical canvas — the brand's identity surface; Tesla.com hero modules and the in-car UI default to black.
+
+  - id: tesla-near-black
+    name: Tesla Near-Black
+    value: "#0F0F10"
+    description: Surface color just above true black — used for the dark product chrome and elevated dark surfaces.
+
+  - id: tesla-charcoal
+    name: Tesla Charcoal
+    value: "#1C1C1F"
+    description: Elevated surface — modal headers, card backgrounds on the dark canvas.
+
+  - id: tesla-graphite
+    name: Tesla Graphite
+    value: "#3A3A3D"
+    description: Border on dark surfaces; secondary surface on light.
+
+  - id: tesla-silver
+    name: Tesla Silver
+    value: "#86868B"
+    description: Tertiary text and icon color on the dark canvas; secondary text on light.
+
+  - id: tesla-pearl
+    name: Tesla Pearl
+    value: "#D6D6D9"
+    description: Light surface neutral; secondary text on dark.
+
+  - id: tesla-white
+    name: Tesla White
+    value: "#FFFFFF"
+    description: Primary text on the dark canvas; canvas for light-mode marketing surfaces.
+
+modes:
+  light:
+    roles:
+      background: tesla-white
+      surface: tesla-pearl
+      surface-elevated: tesla-white
+      text-primary: tesla-black
+      text-secondary: tesla-charcoal
+      text-tertiary: tesla-silver
+      primary: tesla-red
+      primary-hover: tesla-red-deep
+      accent: tesla-red
+      accent-hover: tesla-red-deep
+      success: tesla-silver
+      warning: tesla-red
+      error: tesla-red-deep
+      border: tesla-pearl
+  dark:
+    roles:
+      background: tesla-black
+      surface: tesla-near-black
+      surface-elevated: tesla-charcoal
+      text-primary: tesla-white
+      text-secondary: tesla-pearl
+      text-tertiary: tesla-silver
+      primary: tesla-red
+      primary-hover: tesla-red-deep
+      accent: tesla-red
+      accent-hover: tesla-red-deep
+      success: tesla-white
+      warning: tesla-red
+      error: tesla-red-deep
+      border: tesla-graphite

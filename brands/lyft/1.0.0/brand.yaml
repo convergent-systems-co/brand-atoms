@@ -1,0 +1,192 @@
+id: lyft
+version: 1.0.0
+name: Lyft
+description: >
+  Lyft is a North American mobility company — rides, bikes,
+  scooters — founded in 2012. The brand voice is friendly,
+  optimistic, and human-scaled; the visual identity centers on
+  Lyft Pink (#FF00BF), a saturated near-fluorescent magenta
+  introduced with the 2019 rebrand and tied historically to the
+  fuzzy pink "carstache" that marked early Lyft vehicles. Lyft
+  Pink carries the wordmark and primary CTAs against a near-white
+  canvas with deep ink type. The proprietary Lyft Pro typeface
+  sets headlines and brand chrome on lyft.com and design.lyft.com.
+tags: [lyft, mobility, ridesharing, brand, magenta, pink, light-first]
+
+provenance:
+  source: https://raw.githubusercontent.com/simple-icons/simple-icons/13.0.0/_data/simple-icons.json
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Lyft, Inc. — Lyft, the Lyft wordmark, Lyft Pink, and Lyft Pro
+    are trademarks of Lyft, Inc. The signature pink (#FF00BF) is
+    verified via the simple-icons brand database (v13.0.0).
+    design.lyft.com is Lyft's publicly available design-system
+    surface and informs the role mappings here.
+  importedDate: 2026-05-19
+  notes: >
+    Lyft Pro is a proprietary corporate typeface and is not
+    publicly distributed. This atom references Inter@1 as the
+    open-source rendering substitute for the sans roles. The
+    supporting neutral and functional swatches in the referenced
+    palette are authored complements faithful to design.lyft.com
+    rather than lifted verbatim from a single Lyft-published token
+    table; see the palette atom notes.
+
+references:
+  palette: lyft@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # Lyft's identity IS the saturated pink against a white canvas.
+    # `identity` names lyft-pink so consumers render brand-badge
+    # surfaces in the signature voice rather than landing on a
+    # neutral surface.
+    identity: lyft-pink
+    on-identity: lyft-white
+
+    primary: lyft-pink
+    primary-hover: lyft-pink-pressed
+    accent: lyft-pink
+    accent-hover: lyft-pink-pressed
+    mark: lyft-pink
+
+    success: lyft-success
+    warning: lyft-warning
+    error: lyft-pink-pressed
+
+    background-light: lyft-white
+    background-dark: lyft-ink
+    surface-light: lyft-fog
+    surface-dark: lyft-charcoal
+    text-primary-light: lyft-ink
+    text-primary-dark: lyft-white
+    text-secondary-light: lyft-charcoal
+    text-tertiary-light: lyft-graphite
+    border-light: lyft-mist
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.wordmark.fill
+    allowed:
+      - lyft-pink
+      - lyft-white
+      - lyft-ink
+    forbidden:
+      - lyft-pink-legacy
+      - lyft-warning
+      - lyft-success
+      - lyft-graphite
+    severity: error
+    rationale: >
+      The Lyft wordmark renders in Lyft Pink on light surfaces, in
+      white on dark surfaces, or in Lyft Ink for monochrome
+      applications. The pre-2019 legacy pink (#EA0B8C) is retained
+      for historical reference only and must not stand in for the
+      current brand pink. Functional warning/success hues are
+      never wordmark fills.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+      - placed-without-clearspace
+    severity: error
+    rationale: >
+      Lyft's wordmark is rendered flat in the signature pink with
+      generous clearspace. Gradients, shadows, recolorings, or
+      busy-background placements compromise the saturated
+      magenta's optical impact, which is the brand's primary
+      recognition asset.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Lyft Ink (#11111F) on Lyft White (#FFFFFF) gives ~19:1 —
+      well above the WCAG AA 4.5:1 floor for body text. The rule
+      codifies the floor for any new foreground/background pairing
+      on Lyft surfaces.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 3.0
+    standard: WCAG-AA-large
+    severity: error
+    rationale: >
+      Lyft Pink (#FF00BF) on Lyft White must clear 3:1 at
+      large-text and UI-component sizes (WCAG AA-large) so the
+      primary CTA remains perceptible. The saturated magenta is
+      well above the floor against white but the rule encodes the
+      expectation explicitly.
+
+  - type: contextRestriction
+    target: roles.colors.primary
+    forbiddenContexts:
+      - body-text
+      - secondary-link
+      - subtle-divider
+    severity: error
+    rationale: >
+      Lyft Pink is reserved for the wordmark, the mark, and the
+      primary call to action. Using it inside body copy or for
+      subtle dividers dilutes the signature accent and weakens
+      the visual hierarchy the brand voice depends on.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["500", "600", "700"]
+    severity: warning
+    rationale: >
+      The Lyft Pro headline cuts most commonly seen on lyft.com
+      and design.lyft.com sit in the Medium (500) through Bold
+      (700) band. Lighter weights compromise the friendly-but-
+      confident voice; heavier weights are not in the standard
+      kit.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level
+      AA. Lyft's mobility surfaces are used in motion and across
+      a wide range of devices; AA is the floor for any text on
+      any Lyft surface.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - lyft-white
+      - lyft-fog
+      - lyft-ink
+    doesNotPairWith:
+      - lyft-warning
+      - lyft-success
+      - lyft-pink-legacy
+    severity: recommendation
+    rationale: >
+      Lyft Pink reads cleanest against white, the lightest fog
+      neutral, or the deep ink dark canvas. Pairing it adjacent
+      to the warm warning amber, the green success, or the legacy
+      pink introduces a chromatic conflict that fights for
+      attention without resolving into hierarchy.

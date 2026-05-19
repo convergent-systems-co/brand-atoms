@@ -1,0 +1,207 @@
+id: rivian
+version: 1.0.0
+name: Rivian
+description: >
+  Rivian Automotive, Inc. is a U.S.-anchored electric-vehicle
+  company founded in 2009, anchored on the R1T pickup and R1S
+  SUV adventure platform. The brand identity is cinematic,
+  outdoor-leaning, and dark-first: a deep Rivian Blue (#004B87)
+  wordmark and corporate chrome, with a saturated Rivian Lemon
+  yellow used as the adventure-line accent on launch livery and
+  high-priority moments. The marketing site leads with dark hero
+  modules and landscape photography; the brand's identity canvas
+  is the near-black surface. The voice is confident, exploratory,
+  and engineered.
+tags: [rivian, automotive, ev, adventure, brand, navy, lemon, dark-first]
+
+provenance:
+  source: https://raw.githubusercontent.com/simple-icons/simple-icons/13.0.0/_data/simple-icons.json
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Rivian Automotive, Inc. — Rivian, the Rivian wordmark, and
+    the Rivian "R" mark are trademarks of Rivian Automotive, Inc.
+    The signature blue (#004B87) is verified via the simple-icons
+    brand database (v13.0.0). Rivian does not maintain a publicly
+    visible brand-guidelines or design-system page; rivian.com is
+    the primary reference for product chrome.
+  importedDate: 2026-05-19
+  notes: >
+    Rivian uses a proprietary corporate sans on its marketing
+    site that is not publicly distributed. This atom references
+    Inter@1 as the open-source rendering substitute for the sans
+    roles. The supporting neutral ramp and the Rivian Lemon
+    adventure accent in the referenced palette are authored
+    complements faithful to rivian.com's chrome rather than
+    lifted from a single Rivian-published token table; see the
+    palette atom notes. Dark is declared as identity per the
+    brand's actual deployment surface.
+
+references:
+  palette: rivian@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # Rivian is dark-first by deployment — rivian.com leads with
+    # cinematic dark hero modules. `identity` names rivian-black
+    # explicitly so consumers render brand-badge surfaces in the
+    # canonical dark voice rather than landing on a light canvas.
+    identity: rivian-black
+    on-identity: rivian-white
+
+    background: rivian-black
+    surface: rivian-near-black
+    surface-elevated: rivian-charcoal
+    text-primary: rivian-white
+    text-secondary: rivian-fog
+    text-tertiary: rivian-stone
+
+    primary: rivian-blue
+    primary-hover: rivian-blue-deep
+    accent: rivian-lemon
+    accent-hover: rivian-lemon
+    mark: rivian-blue
+
+    success: rivian-success
+    warning: rivian-lemon
+    error: rivian-error
+
+    background-light: rivian-white
+    background-dark: rivian-black
+    surface-light: rivian-fog
+    surface-dark: rivian-near-black
+    text-primary-light: rivian-black
+    text-primary-dark: rivian-white
+    text-secondary-light: rivian-charcoal
+    text-tertiary-light: rivian-stone
+    border-light: rivian-fog
+  typography:
+    display: heading
+    prose: body
+    wordmark: heading
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.wordmark.fill
+    allowed:
+      - rivian-blue
+      - rivian-white
+      - rivian-black
+    forbidden:
+      - rivian-lemon
+      - rivian-blue-deep
+      - rivian-stone
+      - rivian-graphite
+    severity: error
+    rationale: >
+      The Rivian wordmark renders in Rivian Blue, white, or black
+      depending on the surface. The Rivian Lemon adventure
+      accent is a livery and CTA hue — not a wordmark fill. The
+      pressed-blue variant is an interactive-state value, and the
+      neutral grays are surface / text colors.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+      - placed-without-clearspace
+      - inverted-without-variant
+    severity: error
+    rationale: >
+      The Rivian wordmark and "R" mark are rendered flat with
+      generous clearspace. Gradients, shadows, recolorings, and
+      busy-background placements compromise the cinematic,
+      engineered identity Rivian's brand depends on against
+      landscape photography.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Rivian White (#FFFFFF) on Rivian Black (#000000) gives
+      21:1 — the maximum contrast achievable. The dark-first
+      canvas makes contrast checks the default verification on
+      any new role pairing; AA is the floor.
+
+  - type: contrastRatio
+    target: roles.colors.accent
+    against: background
+    minRatio: 3.0
+    standard: WCAG-AA-large
+    severity: error
+    rationale: >
+      Rivian Lemon (#FCE300) on Rivian Black (#000000) gives
+      ~17:1 — well above the 3:1 large-text / UI-component AA
+      floor. Because Lemon carries high-priority highlights on
+      the dark canvas, the rule encodes the expectation
+      explicitly.
+
+  - type: contextRestriction
+    target: roles.colors.accent
+    allowedContexts:
+      - call-to-action
+      - high-priority-promotion
+      - adventure-livery
+    forbiddenContexts:
+      - body-text
+      - subtle-divider
+      - error-state
+    severity: error
+    rationale: >
+      Rivian Lemon is reserved for high-priority CTAs, adventure
+      livery moments, and the R1T/R1S launch line. Using it in
+      body copy, as a subtle divider, or as an error-state hue
+      conflicts with its established adventure / promotional
+      meaning and weakens the saturated yellow's optical impact.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["400", "500", "700"]
+    severity: warning
+    rationale: >
+      Rivian's marketing and product headlines on rivian.com sit
+      most commonly in the Regular (400) through Bold (700) band.
+      Lighter and heavier extremes are not part of the standard
+      brand chrome.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level
+      AA. The dark-first canvas and the safety-critical contexts
+      Rivian surfaces appear in (in-vehicle UI, charge-status
+      monitoring) make contrast checks the non-negotiable floor.
+
+  - type: compositionConstraint
+    target: roles.colors.accent
+    pairsWith:
+      - rivian-black
+      - rivian-near-black
+      - rivian-charcoal
+    doesNotPairWith:
+      - rivian-blue
+      - rivian-error
+    severity: recommendation
+    rationale: >
+      Rivian Lemon reads cleanest against the near-black dark
+      canvas. Pairing it adjacent to the deep navy brand blue or
+      the functional error red creates a chromatic conflict — the
+      adventure accent fights for attention with the corporate
+      chrome or signals a status meaning it does not carry.

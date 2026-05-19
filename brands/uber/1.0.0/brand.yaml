@@ -1,0 +1,181 @@
+id: uber
+version: 1.0.0
+name: Uber
+description: >
+  Uber is a global mobility platform — rides, delivery, freight —
+  founded in 2009. The brand identity centers on Uber Black: a
+  flat, unadorned black wordmark set in the proprietary Uber Move
+  typeface, dropped on white space with disciplined neutral chrome.
+  The 2018 rebrand stripped the identity to its essentials:
+  monochrome, geometric, durable. Base design system
+  (base.uber.com) is Uber's public component library and codifies
+  the same monochrome spine across the rider, driver, and
+  marketing surfaces. The brand's accent is its absence — there is
+  no signature chromatic color; black against white IS the brand.
+tags: [uber, mobility, ridesharing, delivery, brand, monochrome, base-design-system]
+
+provenance:
+  source: https://raw.githubusercontent.com/simple-icons/simple-icons/13.0.0/_data/simple-icons.json
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Uber Technologies, Inc. — Uber, the Uber wordmark, and Uber
+    Move are trademarks of Uber Technologies, Inc. Uber's brand
+    black (#000000) is verified via the simple-icons brand
+    database (v13.0.0). The Base design system at base.uber.com is
+    Uber's publicly available design-system surface and is the
+    reference for the role mappings here.
+  importedDate: 2026-05-19
+  notes: >
+    Uber Move is a proprietary corporate typeface and is not
+    publicly distributed. This atom references Inter@1 as the
+    open-source rendering substitute for the sans roles. The
+    neutral ramp in the referenced palette is authored to mirror
+    Base design system conventions rather than copied verbatim
+    from a single Uber-published token table; see the palette atom
+    notes for detail.
+
+references:
+  palette: uber@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # Uber's identity IS the monochrome — black on white. Naming
+    # `identity` as uber-black lets consumers render brand-badge
+    # surfaces in the disciplined Uber voice without hunting for it
+    # in role state.
+    identity: uber-black
+    on-identity: uber-white
+
+    primary: uber-black
+    primary-hover: uber-gray-900
+    accent: uber-black
+    accent-hover: uber-gray-900
+    mark: uber-black
+
+    success: uber-green
+    warning: uber-red
+    error: uber-red
+
+    background-light: uber-white
+    background-dark: uber-black
+    surface-light: uber-gray-50
+    surface-dark: uber-gray-900
+    text-primary-light: uber-black
+    text-primary-dark: uber-white
+    text-secondary-light: uber-gray-700
+    text-tertiary-light: uber-gray-500
+    border-light: uber-gray-200
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.wordmark.fill
+    allowed:
+      - uber-black
+      - uber-white
+    forbidden:
+      - uber-green
+      - uber-red
+      - uber-gray-500
+      - uber-gray-700
+    severity: error
+    rationale: >
+      The Uber wordmark renders in Uber Black on light surfaces or
+      Uber White on dark surfaces. The functional green and red on
+      product surfaces are NOT brand-accent colors and must never
+      fill the wordmark. Gray tones are interactive-state values,
+      not wordmark fills.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+      - placed-without-clearspace
+    severity: error
+    rationale: >
+      The 2018 rebrand resolved Uber's mark to a flat, unadorned
+      wordmark. Gradients, shadows, and recolorings reintroduce the
+      visual noise the rebrand deliberately removed. Per Uber's
+      brand discipline, the wordmark stands on its own with
+      generous clearspace.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 7.0
+    standard: WCAG-AAA
+    severity: error
+    rationale: >
+      Uber Black (#000000) on Uber White (#FFFFFF) gives 21:1 — the
+      maximum contrast achievable. Uber's monochrome identity makes
+      AAA the natural floor rather than the AA minimum; new
+      foreground/background pairings on Uber surfaces should clear
+      7:1.
+
+  - type: contextRestriction
+    target: roles.colors.warning
+    allowedContexts:
+      - error-state
+      - destructive-action
+    forbiddenContexts:
+      - brand-accent
+      - call-to-action
+      - marketing-hero
+    severity: error
+    rationale: >
+      Uber Red (#E11900) is a functional color reserved for
+      destructive and error states on product surfaces. Using it
+      as a brand accent or marketing CTA fill conflicts with
+      Uber's monochrome identity and creates a false-error signal
+      in the product.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["400", "500", "700"]
+    severity: warning
+    rationale: >
+      Uber Move ships in Regular (400), Medium (500), and Bold
+      (700) cuts for marketing and product headlines. Lighter and
+      heavier extremes are not part of the standard Base design
+      system specimen.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level
+      AA. Uber's mobility surfaces are used in motion, often
+      outdoors, on a variety of devices; AA is the floor for any
+      text on any Uber surface.
+
+  - type: compositionConstraint
+    target: roles.colors.identity
+    pairsWith:
+      - uber-white
+      - uber-gray-50
+      - uber-gray-100
+    doesNotPairWith:
+      - uber-green
+      - uber-red
+    severity: recommendation
+    rationale: >
+      The Uber Black identity reads cleanest against white or the
+      lightest neutral surfaces. Placing it adjacent to the
+      functional success or error hues introduces a chromatic
+      conflict and dilutes Uber's deliberate monochrome voice.

@@ -1,0 +1,199 @@
+id: booking
+version: 1.0.0
+name: Booking.com
+description: >
+  Booking.com is a global online travel agency — accommodations,
+  flights, car rentals, attractions — founded in Amsterdam in 1996
+  and acquired by Priceline (now Booking Holdings) in 2005. The
+  brand identity is utilitarian rather than expressive: the deep
+  Booking Blue (#003580) wordmark and chrome carry the brand
+  against dense, information-rich product surfaces. A secondary
+  Booking Yellow is used historically for the "Genius" loyalty
+  program and high-priority CTAs. The voice is direct,
+  transactional, and trust-oriented; the brand chrome stays out
+  of the way of the inventory.
+tags: [booking, travel, hospitality, ota, brand, navy, blue, light-first]
+
+provenance:
+  source: https://raw.githubusercontent.com/simple-icons/simple-icons/13.0.0/_data/simple-icons.json
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Booking.com B.V. — Booking.com, the Booking.com wordmark, and
+    the Genius program marks are trademarks of Booking.com B.V.
+    The signature navy (#003580) is verified via the simple-icons
+    brand database (v13.0.0). Booking.com does not maintain a
+    widely visible public design-system page; the homepage is the
+    primary reference for product chrome.
+  importedDate: 2026-05-19
+  notes: >
+    Booking.com does not publish a public brand-guidelines or
+    design-system surface that exposes its full token table. This
+    atom captures the verified primary brand navy and authors a
+    faithful set of supporting neutrals and functional swatches
+    consistent with the booking.com product chrome; see the
+    palette atom notes. Booking's product typography is a system
+    sans on most surfaces — this atom references Inter@1 as the
+    open-source rendering substitute.
+
+references:
+  palette: booking@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # Booking's identity IS the deep navy chrome — the wordmark and
+    # the global nav are the recognition anchor. `identity` names
+    # booking-blue so consumers render brand-badge surfaces in
+    # that voice rather than landing on a neutral.
+    identity: booking-blue
+    on-identity: booking-white
+
+    primary: booking-blue
+    primary-hover: booking-blue-deep
+    accent: booking-yellow
+    accent-hover: booking-yellow
+    mark: booking-blue
+
+    success: booking-success
+    warning: booking-yellow
+    error: booking-error
+
+    background-light: booking-white
+    background-dark: booking-ink
+    surface-light: booking-fog
+    surface-dark: booking-charcoal
+    text-primary-light: booking-ink
+    text-primary-dark: booking-white
+    text-secondary-light: booking-charcoal
+    text-tertiary-light: booking-graphite
+    border-light: booking-mist
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.wordmark.fill
+    allowed:
+      - booking-blue
+      - booking-white
+    forbidden:
+      - booking-blue-bright
+      - booking-blue-deep
+      - booking-yellow
+      - booking-error
+    severity: error
+    rationale: >
+      The Booking.com wordmark renders in Booking Blue on light
+      surfaces or in white on dark surfaces. The brighter mid-blue
+      and the deep blue are interactive-state and link variants on
+      product surfaces — they are NOT wordmark fills. The
+      secondary yellow is a CTA / Genius hue and never substitutes
+      for the brand navy in the mark.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+      - placed-without-clearspace
+    severity: error
+    rationale: >
+      Booking.com's wordmark is rendered flat in the signature
+      navy with generous clearspace. Gradients, shadows, and
+      recolorings compromise the deliberate, trust-anchoring
+      monochrome wordmark, which is the brand's primary
+      recognition asset across a dense, transactional product
+      surface.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Booking Ink (#1A1A1A) on Booking White (#FFFFFF) gives
+      ~17:1 — well above the WCAG AA 4.5:1 floor for body text.
+      The rule encodes the floor for any new foreground/background
+      pairing on booking.com surfaces, where body text density is
+      already high and contrast headroom matters.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Booking Blue (#003580) on Booking White (#FFFFFF) gives
+      ~12:1 — well above the WCAG AA 4.5:1 floor. Because Booking
+      Blue carries the wordmark AND functions as the primary
+      link/CTA color in dense product copy, it must clear the
+      full body-text AA contrast (not just the AA-large floor).
+
+  - type: contextRestriction
+    target: roles.colors.accent
+    allowedContexts:
+      - call-to-action
+      - loyalty-program
+      - high-priority-promotion
+    forbiddenContexts:
+      - body-text
+      - subtle-divider
+      - error-state
+    severity: error
+    rationale: >
+      Booking Yellow is reserved for high-priority CTAs, the
+      Genius loyalty program, and promotional moments. Using it
+      inside body copy, as a subtle divider, or as a stand-in
+      for error states conflicts with its established
+      promotional / loyalty meaning on booking.com surfaces.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["400", "500", "700"]
+    severity: warning
+    rationale: >
+      Booking.com's product typography on the live site uses
+      Regular (400), Medium (500), and Bold (700) cuts of its
+      system sans for headlines and surfaces. Lighter and heavier
+      extremes are not part of the standard product chrome.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level
+      AA. Booking.com is a transactional, information-dense
+      product used globally on every device class; AA is the
+      non-negotiable floor for any text on any Booking surface.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - booking-white
+      - booking-fog
+      - booking-yellow
+    doesNotPairWith:
+      - booking-error
+      - booking-success
+    severity: recommendation
+    rationale: >
+      Booking Blue reads cleanest against white, the lightest fog
+      neutral, or the brand yellow CTA. Pairing it adjacent to
+      the functional error red or success green introduces a
+      chromatic conflict and confuses the brand-navy with a
+      status signal.

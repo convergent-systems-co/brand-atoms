@@ -1,0 +1,121 @@
+kind: palette
+id: lyft
+version: 1.0.0
+name: Lyft
+description: >
+  Lyft's brand palette is anchored on the signature Lyft Pink
+  (#FF00BF) — a saturated, near-fluorescent magenta that has
+  carried the brand since the 2019 rebrand and that ties back to
+  the brand's earliest visual asset, the fuzzy pink "carstache."
+  The pink reads against a near-white canvas with a deep ink for
+  type, supported by a neutral ramp. The Lyft Pro typeface (the
+  brand's custom corporate face) sets headlines and brand chrome.
+tags: [lyft, mobility, ridesharing, brand, magenta, pink, light-first]
+
+provenance:
+  source: https://raw.githubusercontent.com/simple-icons/simple-icons/13.0.0/_data/simple-icons.json
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Lyft, Inc. — Lyft, the Lyft wordmark, and Lyft Pink are
+    property of Lyft, Inc. The signature pink hex (#FF00BF) is
+    verified via the simple-icons brand database (v13.0.0). The
+    public design-system reference is design.lyft.com.
+  importedDate: 2026-05-19
+  notes: >
+    Only Lyft Pink (#FF00BF) is verified from a single authoritative
+    source. The supporting neutral ramp (Lyft Ink through Lyft Mist)
+    and functional success/warning hues are authored complements
+    faithful to the Lyft design-system aesthetic on design.lyft.com
+    rather than lifted verbatim from a single Lyft-published token
+    table. The legacy magenta variant (#EA0B8C) is included as the
+    pre-2019 brand pink for reference / continuity.
+
+swatches:
+  - id: lyft-pink
+    name: Lyft Pink
+    value: "#FF00BF"
+    description: Lyft's signature brand magenta — the wordmark, mark, and primary CTA color.
+
+  - id: lyft-pink-pressed
+    name: Lyft Pink Pressed
+    value: "#D6009E"
+    description: Pressed / hover variant of Lyft Pink for interactive states.
+
+  - id: lyft-pink-legacy
+    name: Lyft Pink (Legacy)
+    value: "#EA0B8C"
+    description: Pre-2019 Lyft magenta — retained for historical references and continuity.
+
+  - id: lyft-ink
+    name: Lyft Ink
+    value: "#11111F"
+    description: Deep near-black ink — primary text on light surfaces; canvas in dark mode.
+
+  - id: lyft-charcoal
+    name: Lyft Charcoal
+    value: "#2C2C36"
+    description: Elevated dark surface; secondary ink on light.
+
+  - id: lyft-graphite
+    name: Lyft Graphite
+    value: "#6E6E78"
+    description: Tertiary text and icon color.
+
+  - id: lyft-mist
+    name: Lyft Mist
+    value: "#E4E4E8"
+    description: Border and quiet divider on light canvas.
+
+  - id: lyft-fog
+    name: Lyft Fog
+    value: "#F4F4F6"
+    description: Subtle elevated surface on white.
+
+  - id: lyft-white
+    name: Lyft White
+    value: "#FFFFFF"
+    description: Primary canvas — Lyft consumer surfaces default to white.
+
+  - id: lyft-success
+    name: Lyft Success
+    value: "#0E8C5A"
+    description: Functional success — trip confirmation, completion states.
+
+  - id: lyft-warning
+    name: Lyft Warning
+    value: "#F2A93B"
+    description: Functional warning — surge, advisory states.
+
+modes:
+  light:
+    roles:
+      background: lyft-white
+      surface: lyft-fog
+      surface-elevated: lyft-white
+      text-primary: lyft-ink
+      text-secondary: lyft-charcoal
+      text-tertiary: lyft-graphite
+      primary: lyft-pink
+      primary-hover: lyft-pink-pressed
+      accent: lyft-pink
+      accent-hover: lyft-pink-pressed
+      success: lyft-success
+      warning: lyft-warning
+      error: lyft-pink-pressed
+      border: lyft-mist
+  dark:
+    roles:
+      background: lyft-ink
+      surface: lyft-charcoal
+      surface-elevated: lyft-graphite
+      text-primary: lyft-white
+      text-secondary: lyft-mist
+      text-tertiary: lyft-graphite
+      primary: lyft-pink
+      primary-hover: lyft-pink-pressed
+      accent: lyft-pink
+      accent-hover: lyft-pink-pressed
+      success: lyft-success
+      warning: lyft-warning
+      error: lyft-pink-pressed
+      border: lyft-charcoal

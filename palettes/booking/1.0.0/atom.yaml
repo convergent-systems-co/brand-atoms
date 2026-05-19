@@ -1,0 +1,127 @@
+kind: palette
+id: booking
+version: 1.0.0
+name: Booking.com
+description: >
+  Booking.com's palette is built around the corporate Booking Blue
+  (#003580) — a deep navy that has carried the wordmark and the
+  primary chrome since the company's earliest digital identity.
+  The blue reads against a white canvas, with a secondary yellow
+  used historically for the "Genius" loyalty program and high-
+  priority CTAs. Booking is a light-first, dense-information UI —
+  the palette is utilitarian and ramp-oriented rather than
+  expressive.
+tags: [booking, travel, hospitality, brand, navy, blue, light-first]
+
+provenance:
+  source: https://raw.githubusercontent.com/simple-icons/simple-icons/13.0.0/_data/simple-icons.json
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Booking.com B.V. — Booking.com and the Booking.com wordmark are
+    trademarks of Booking.com B.V. The signature navy (#003580) is
+    verified via the simple-icons brand database (v13.0.0).
+  importedDate: 2026-05-19
+  notes: >
+    Only Booking Blue (#003580) is verified from a single
+    authoritative source. The supporting neutrals, the
+    secondary-yellow CTA hue, and the functional success/warning
+    swatches are authored complements faithful to booking.com's
+    visible product chrome rather than lifted verbatim from a
+    Booking-published token table. Booking does not maintain a
+    widely visible public design-system page; the homepage is the
+    primary reference.
+
+swatches:
+  - id: booking-blue
+    name: Booking Blue
+    value: "#003580"
+    description: Booking.com's signature navy — the wordmark, the nav, and primary chrome.
+
+  - id: booking-blue-deep
+    name: Booking Blue Deep
+    value: "#002A66"
+    description: Pressed / hover variant of Booking Blue for interactive states.
+
+  - id: booking-blue-bright
+    name: Booking Blue Bright
+    value: "#0071C2"
+    description: Brighter mid-blue used historically for links and secondary CTAs on booking.com.
+
+  - id: booking-yellow
+    name: Booking Yellow
+    value: "#FEBB02"
+    description: Secondary brand yellow — historically the Genius and high-priority CTA accent on booking.com.
+
+  - id: booking-ink
+    name: Booking Ink
+    value: "#1A1A1A"
+    description: Primary text color on light surfaces.
+
+  - id: booking-charcoal
+    name: Booking Charcoal
+    value: "#333333"
+    description: Secondary text on light; elevated dark surface.
+
+  - id: booking-graphite
+    name: Booking Graphite
+    value: "#6B6B6B"
+    description: Tertiary text and icon color.
+
+  - id: booking-mist
+    name: Booking Mist
+    value: "#E6E6E6"
+    description: Border and quiet divider on light canvas.
+
+  - id: booking-fog
+    name: Booking Fog
+    value: "#F5F5F5"
+    description: Subtle elevated surface on white.
+
+  - id: booking-white
+    name: Booking White
+    value: "#FFFFFF"
+    description: Primary canvas — booking.com is a white-canvas product surface.
+
+  - id: booking-success
+    name: Booking Success
+    value: "#008009"
+    description: Functional success — confirmed reservation, completion.
+
+  - id: booking-error
+    name: Booking Error
+    value: "#C0392B"
+    description: Functional error — destructive / unavailable states.
+
+modes:
+  light:
+    roles:
+      background: booking-white
+      surface: booking-fog
+      surface-elevated: booking-white
+      text-primary: booking-ink
+      text-secondary: booking-charcoal
+      text-tertiary: booking-graphite
+      primary: booking-blue
+      primary-hover: booking-blue-deep
+      accent: booking-yellow
+      accent-hover: booking-yellow
+      success: booking-success
+      warning: booking-yellow
+      error: booking-error
+      border: booking-mist
+  dark:
+    roles:
+      background: booking-ink
+      surface: booking-charcoal
+      surface-elevated: booking-graphite
+      text-primary: booking-white
+      text-secondary: booking-mist
+      text-tertiary: booking-graphite
+      primary: booking-blue-bright
+      primary-hover: booking-blue
+      accent: booking-yellow
+      accent-hover: booking-yellow
+      success: booking-success
+      warning: booking-yellow
+      error: booking-error
+      border: booking-charcoal

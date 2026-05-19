@@ -1,0 +1,199 @@
+id: tesla
+version: 1.0.0
+name: Tesla
+description: >
+  Tesla, Inc. is the U.S.-anchored electric-vehicle and energy
+  company founded in 2003. The brand identity is restrained,
+  engineered, and dark-first: the saturated Tesla Red (#E82127)
+  wordmark and "T" mark against a near-black canvas, with white
+  type and a small neutral ramp. The in-car UI is dark by design;
+  the marketing site's hero treatments lead with dark surfaces.
+  This atom declares dark as the brand's identity canvas
+  explicitly. The voice is technical, minimal, and product-
+  forward — the chrome stays out of the way of the vehicles.
+tags: [tesla, automotive, ev, energy, brand, red, dark-first]
+
+provenance:
+  source: https://raw.githubusercontent.com/simple-icons/simple-icons/13.0.0/_data/simple-icons.json
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Tesla, Inc. — Tesla, the Tesla wordmark, and the Tesla "T"
+    mark are trademarks of Tesla, Inc. The signature red
+    (#E82127) is verified via the simple-icons brand database
+    (v13.0.0). Tesla does not maintain a publicly visible
+    brand-guidelines or design-system page; tesla.com is the
+    primary reference for product chrome.
+  importedDate: 2026-05-19
+  notes: >
+    Tesla uses a proprietary custom typeface (Tesla's "Gotham"-
+    family corporate face) that is not publicly distributed. This
+    atom references Inter@1 as the open-source rendering
+    substitute for the sans roles. The supporting neutral ramp in
+    the referenced palette is authored faithfully to tesla.com's
+    chrome rather than lifted from a single Tesla-published
+    token table; see the palette atom notes. Dark is declared as
+    identity per the brand's actual deployment surface.
+
+references:
+  palette: tesla@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # Tesla is dark-first by deployment — the in-car UI, the
+    # marketing hero modules, and the brand's identity surface
+    # are the near-black canvas. `identity` names tesla-black
+    # explicitly so consumers render brand-badge surfaces in the
+    # canonical dark voice rather than landing on a light canvas.
+    identity: tesla-black
+    on-identity: tesla-red
+
+    background: tesla-black
+    surface: tesla-near-black
+    surface-elevated: tesla-charcoal
+    text-primary: tesla-white
+    text-secondary: tesla-pearl
+    text-tertiary: tesla-silver
+
+    primary: tesla-red
+    primary-hover: tesla-red-deep
+    accent: tesla-red
+    accent-hover: tesla-red-deep
+    mark: tesla-red
+
+    success: tesla-white
+    warning: tesla-red
+    error: tesla-red-deep
+
+    background-light: tesla-white
+    background-dark: tesla-black
+    surface-light: tesla-pearl
+    surface-dark: tesla-near-black
+    text-primary-light: tesla-black
+    text-primary-dark: tesla-white
+    text-secondary-light: tesla-charcoal
+    text-tertiary-light: tesla-silver
+    border-light: tesla-pearl
+  typography:
+    display: heading
+    prose: body
+    wordmark: heading
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.wordmark.fill
+    allowed:
+      - tesla-red
+      - tesla-white
+      - tesla-black
+    forbidden:
+      - tesla-red-deep
+      - tesla-silver
+      - tesla-graphite
+      - tesla-pearl
+    severity: error
+    rationale: >
+      The Tesla wordmark and "T" mark render in Tesla Red,
+      Tesla White, or Tesla Black depending on the surface. The
+      pressed-red variant is an interactive-state value, not a
+      wordmark fill. The neutral grays are surface and text
+      colors, not brand-mark fills.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+      - placed-without-clearspace
+      - inverted-without-variant
+    severity: error
+    rationale: >
+      The Tesla wordmark and "T" mark are rendered flat with
+      generous clearspace. Gradients, shadows, recolorings, and
+      busy-background placements compromise the engineered,
+      restrained identity Tesla's brand depends on across
+      automotive, energy, and storefront contexts.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Tesla White (#FFFFFF) on Tesla Black (#000000) gives 21:1 —
+      the maximum contrast achievable. The dark-first canvas makes
+      contrast checks the default verification on any new role
+      pairing; AA is the floor.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 3.0
+    standard: WCAG-AA-large
+    severity: error
+    rationale: >
+      Tesla Red on Tesla Black must clear 3:1 at large-text and
+      UI-component sizes (WCAG AA-large) so the primary mark and
+      CTA remain perceptible against the dark canvas.
+
+  - type: contextRestriction
+    target: roles.colors.primary
+    forbiddenContexts:
+      - body-text
+      - secondary-link
+      - subtle-divider
+    severity: error
+    rationale: >
+      Tesla Red is reserved for the brand mark, the wordmark, and
+      the primary action / high-priority highlight. Using it
+      inside body copy or for secondary links dilutes the
+      signature accent and weakens the visual hierarchy the
+      brand's restrained voice depends on.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["400", "500", "700"]
+    severity: warning
+    rationale: >
+      Tesla's marketing and product headlines on tesla.com sit
+      most commonly in the Regular (400) through Bold (700) band.
+      Lighter and heavier extremes compromise the engineered,
+      technical voice and are not part of the standard chrome.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level
+      AA. The dark-first canvas and the safety-critical contexts
+      Tesla surfaces appear in (in-car UI, energy-product
+      monitoring) make contrast checks the non-negotiable floor.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - tesla-black
+      - tesla-near-black
+      - tesla-white
+    doesNotPairWith:
+      - tesla-red-deep
+      - tesla-silver
+    severity: recommendation
+    rationale: >
+      Tesla Red reads cleanest against the near-black dark canvas
+      or pure white. Placing it adjacent to the pressed-red
+      variant or the silver neutral creates a near-tone collision
+      that weakens the saturated brand red's optical impact.

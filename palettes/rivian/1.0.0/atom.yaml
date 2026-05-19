@@ -1,0 +1,127 @@
+kind: palette
+id: rivian
+version: 1.0.0
+name: Rivian
+description: >
+  Rivian's brand palette is built on a dark-first canvas with the
+  signature Rivian Blue (#004B87) — a deep navy-teal carried on
+  the wordmark and corporate chrome — supported by a warm
+  yellow-lime adventure accent (Rivian Lemon) on the launch
+  R1T/R1S product surfaces, and a small dark-mode neutral ramp.
+  Rivian's marketing site leads with cinematic dark hero modules
+  and outdoor photography; the brand atom declares dark as
+  identity explicitly.
+tags: [rivian, automotive, ev, adventure, brand, navy, dark-first]
+
+provenance:
+  source: https://raw.githubusercontent.com/simple-icons/simple-icons/13.0.0/_data/simple-icons.json
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Rivian Automotive, Inc. — Rivian, the Rivian wordmark, and
+    the Rivian "R" mark are trademarks of Rivian Automotive, Inc.
+    The signature blue (#004B87) is verified via the simple-icons
+    brand database (v13.0.0).
+  importedDate: 2026-05-19
+  notes: >
+    Only Rivian Blue (#004B87) is verified from a single
+    authoritative source. The supporting dark-mode neutrals, the
+    Rivian Lemon adventure accent, and the success / warning
+    functional swatches are authored complements faithful to
+    rivian.com's product chrome rather than lifted from a single
+    Rivian-published token table. Rivian does not maintain a
+    publicly visible brand-guidelines or design-system page.
+
+swatches:
+  - id: rivian-blue
+    name: Rivian Blue
+    value: "#004B87"
+    description: Rivian's signature corporate navy-teal — the wordmark and corporate chrome.
+
+  - id: rivian-blue-deep
+    name: Rivian Blue Deep
+    value: "#003560"
+    description: Pressed / hover variant of Rivian Blue for interactive states.
+
+  - id: rivian-lemon
+    name: Rivian Lemon
+    value: "#FCE300"
+    description: Adventure-line accent — used historically on R1T launch livery, signage, and high-priority highlights.
+
+  - id: rivian-black
+    name: Rivian Black
+    value: "#000000"
+    description: Canonical canvas — rivian.com hero modules and the brand's identity surface default to true black.
+
+  - id: rivian-near-black
+    name: Rivian Near-Black
+    value: "#0B0B0C"
+    description: Surface color just above true black — used for the dark product chrome.
+
+  - id: rivian-charcoal
+    name: Rivian Charcoal
+    value: "#1A1A1C"
+    description: Elevated surface — card and modal backgrounds on the dark canvas.
+
+  - id: rivian-graphite
+    name: Rivian Graphite
+    value: "#33333A"
+    description: Border on dark surfaces; secondary surface on light.
+
+  - id: rivian-stone
+    name: Rivian Stone
+    value: "#7A7A82"
+    description: Tertiary text and icon color on the dark canvas.
+
+  - id: rivian-fog
+    name: Rivian Fog
+    value: "#D9D9DC"
+    description: Light surface neutral; secondary text on dark.
+
+  - id: rivian-white
+    name: Rivian White
+    value: "#FFFFFF"
+    description: Primary text on the dark canvas; canvas color for light-mode marketing surfaces.
+
+  - id: rivian-success
+    name: Rivian Success
+    value: "#1F8A4C"
+    description: Functional success — charge complete, system OK.
+
+  - id: rivian-error
+    name: Rivian Error
+    value: "#C0392B"
+    description: Functional error — destructive / unavailable.
+
+modes:
+  light:
+    roles:
+      background: rivian-white
+      surface: rivian-fog
+      surface-elevated: rivian-white
+      text-primary: rivian-black
+      text-secondary: rivian-charcoal
+      text-tertiary: rivian-stone
+      primary: rivian-blue
+      primary-hover: rivian-blue-deep
+      accent: rivian-lemon
+      accent-hover: rivian-lemon
+      success: rivian-success
+      warning: rivian-lemon
+      error: rivian-error
+      border: rivian-fog
+  dark:
+    roles:
+      background: rivian-black
+      surface: rivian-near-black
+      surface-elevated: rivian-charcoal
+      text-primary: rivian-white
+      text-secondary: rivian-fog
+      text-tertiary: rivian-stone
+      primary: rivian-lemon
+      primary-hover: rivian-lemon
+      accent: rivian-lemon
+      accent-hover: rivian-lemon
+      success: rivian-success
+      warning: rivian-lemon
+      error: rivian-error
+      border: rivian-graphite
