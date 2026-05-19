@@ -149,10 +149,9 @@ pass('web build (astro) present');
 // `pnpm add wrangler` at the workspace root, which pnpm rejects without
 // -w. wrangler is a devDep in web/, so we exec it directly via pnpm.
 type StepWithDir = Step & { 'working-directory'?: string };
-const deploy = findStep(
-  steps,
-  (s) => /\bwrangler\s+pages\s+deploy\b/.test(s.run ?? ''),
-) as StepWithDir | undefined;
+const deploy = findStep(steps, (s) => /\bwrangler\s+pages\s+deploy\b/.test(s.run ?? '')) as
+  | StepWithDir
+  | undefined;
 assert.ok(deploy, 'must have a deploy step that runs `wrangler pages deploy`');
 pass('wrangler-pages-deploy step present');
 

@@ -2,13 +2,8 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative, sep } from 'node:path';
 import { emitterMap, emitters } from './emitters/index.js';
-import {
-  type AtomRecord,
-  type FontAtomRecord,
-  loadAll,
-  type PaletteAtomRecord,
-} from './loader.js';
-import { resolveBrand, type ResolvedBrand } from './resolver.js';
+import { type AtomRecord, type FontAtomRecord, type PaletteAtomRecord, loadAll } from './loader.js';
+import { type ResolvedBrand, resolveBrand } from './resolver.js';
 
 type CliArgs = {
   brandRefs: string[];
@@ -215,10 +210,7 @@ const fontEntry = (atom: FontAtomRecord): CatalogFontEntry => {
   };
 };
 
-const buildCatalogIndex = (
-  resolvedBrands: ResolvedBrand[],
-  atoms: AtomRecord[],
-): CatalogIndex => {
+const buildCatalogIndex = (resolvedBrands: ResolvedBrand[], atoms: AtomRecord[]): CatalogIndex => {
   // Latest version per slug for atoms.
   const latestPalettes = new Map<string, PaletteAtomRecord>();
   const latestFonts = new Map<string, FontAtomRecord>();
