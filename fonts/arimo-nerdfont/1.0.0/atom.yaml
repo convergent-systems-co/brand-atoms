@@ -1,0 +1,43 @@
+kind: font
+id: arimo-nerdfont
+version: 1.0.0
+name: Arimo Nerd Font
+description: >
+  Arimo sans-serif font with Nerd Fonts glyph augmentation. Arimo is Google's metric-compatible substitute for Arial — a humanist sans-serif by Steve Matteson at Ascender Corp. The Nerd Fonts build patches Arimo with ~10,000 additional icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.) and ships without a Mono variant because Arimo is proportional.
+family: Arimo Nerd Font
+classification: sans-serif
+tags: [ nerd-font, sans-serif, arial-compatible, ui ]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: Apache-2.0
+  attribution: >
+    Arimo, designed by Steve Matteson at Ascender Corp, distributed by Google Fonts (https://github.com/googlefonts/Arimo). Licensed under the Apache License, Version 2.0. Nerd Fonts patching by Ryan L McIntyre, MIT license.
+  importedDate: 2026-05-19
+  importedFromVersion: v3.4.0
+  notes: >
+    Base font version: Arimo 1.33. Arimo is not monospaced; the upstream README explicitly warns that letter widths differ and the font will render unevenly in terminal "cells". This atom is classified as sans-serif accordingly. Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Arimo.zip
+
+source:
+  kind: external
+  family: Arimo Nerd Font
+  notes: >
+    Nerd-Font-patched build of Arimo. The release archive contains no *NerdFontMono* variant because Arimo is proportional, so the unsuffixed *NerdFont* files are used here. Arimo is also available via Google Fonts (unpatched). Download ttf files from the Nerd Fonts GitHub release and self-host, or install system-wide.
+
+fallbackStack:
+  - Arimo
+  - Arial
+  - Helvetica
+  - Liberation Sans
+  - sans-serif
+
+availableStyles:
+  - { weight: 400, style: normal }
+  - { weight: 400, style: italic }
+  - { weight: 700, style: normal }
+  - { weight: 700, style: italic }
+cdnUrls:
+  ArimoNerdFont-Regular.ttf: https://cdn.brand-atoms.com/fonts/arimo-nerdfont/1.0.0/ArimoNerdFont-Regular.ttf
+  ArimoNerdFont-Italic.ttf: https://cdn.brand-atoms.com/fonts/arimo-nerdfont/1.0.0/ArimoNerdFont-Italic.ttf
+  ArimoNerdFont-Bold.ttf: https://cdn.brand-atoms.com/fonts/arimo-nerdfont/1.0.0/ArimoNerdFont-Bold.ttf
+  ArimoNerdFont-BoldItalic.ttf: https://cdn.brand-atoms.com/fonts/arimo-nerdfont/1.0.0/ArimoNerdFont-BoldItalic.ttf

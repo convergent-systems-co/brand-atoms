@@ -1,0 +1,69 @@
+kind: font
+id: ibm-plex-mono-nerdfont
+version: 1.0.0
+name: BlexMono Nerd Font
+description: >
+  IBM Plex Mono with Nerd Fonts glyph augmentation, distributed under the renamed family "BlexMono" to comply with the OFL Reserved Font Name on "Plex". IBM Plex Mono is the monospaced member of IBM's corporate typeface system, a humanist grotesque tuned for code. Patched with ~10,000 additional icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.).
+family: BlexMono Nerd Font
+classification: monospace
+tags: [ nerd-font, monospace, ibm, plex, terminal, code ]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: OFL-1.1
+  attribution: >
+    IBM Plex Mono, Copyright 2017 IBM Corp. (https://github.com/IBM/plex), with Reserved Font Name "Plex". Licensed under the SIL Open Font License, Version 1.1. The patched Nerd Fonts build is renamed "BlexMono" per the OFL Reserved Font Name mechanism. Nerd Fonts patching by Ryan L McIntyre, MIT license.
+  importedDate: 2026-05-19
+  importedFromVersion: v3.4.0
+  notes: >
+    Base font version: IBM Plex Mono 2.004 (upstream Plex release v6.4.0). The Nerd-Font-patched binaries ship under "BlexMono*" filenames because OFL §3 forbids the modified version from using the Reserved Font Name "Plex". An unpatched IBM Plex Mono atom already exists at fonts/ibm-plex-mono — this atom is distinct and additive. Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/IBMPlexMono.zip
+
+source:
+  kind: external
+  family: BlexMono Nerd Font
+  notes: >
+    Nerd-Font-patched build of IBM Plex Mono, redistributed under the OFL-mandated rename "BlexMono". The unpatched IBM Plex Mono is available via Google Fonts; this patched build is not. Download ttf files from the Nerd Fonts GitHub release and self-host, or install system-wide.
+
+fallbackStack:
+  - IBM Plex Mono
+  - JetBrains Mono
+  - Menlo
+  - Monaco
+  - Consolas
+  - Liberation Mono
+  - monospace
+
+availableStyles:
+  - { weight: 100, style: normal }
+  - { weight: 100, style: italic }
+  - { weight: 200, style: normal }
+  - { weight: 200, style: italic }
+  - { weight: 300, style: normal }
+  - { weight: 300, style: italic }
+  - { weight: 400, style: normal }
+  - { weight: 400, style: italic }
+  - { weight: 450, style: normal }
+  - { weight: 450, style: italic }
+  - { weight: 500, style: normal }
+  - { weight: 500, style: italic }
+  - { weight: 600, style: normal }
+  - { weight: 600, style: italic }
+  - { weight: 700, style: normal }
+  - { weight: 700, style: italic }
+cdnUrls:
+  BlexMonoNerdFontMono-Thin.ttf: https://cdn.brand-atoms.com/fonts/ibm-plex-mono-nerdfont/1.0.0/BlexMonoNerdFontMono-Thin.ttf
+  BlexMonoNerdFontMono-ThinItalic.ttf: https://cdn.brand-atoms.com/fonts/ibm-plex-mono-nerdfont/1.0.0/BlexMonoNerdFontMono-ThinItalic.ttf
+  BlexMonoNerdFontMono-ExtraLight.ttf: https://cdn.brand-atoms.com/fonts/ibm-plex-mono-nerdfont/1.0.0/BlexMonoNerdFontMono-ExtraLight.ttf
+  BlexMonoNerdFontMono-ExtraLightItalic.ttf: https://cdn.brand-atoms.com/fonts/ibm-plex-mono-nerdfont/1.0.0/BlexMonoNerdFontMono-ExtraLightItalic.ttf
+  BlexMonoNerdFontMono-Light.ttf: https://cdn.brand-atoms.com/fonts/ibm-plex-mono-nerdfont/1.0.0/BlexMonoNerdFontMono-Light.ttf
+  BlexMonoNerdFontMono-LightItalic.ttf: https://cdn.brand-atoms.com/fonts/ibm-plex-mono-nerdfont/1.0.0/BlexMonoNerdFontMono-LightItalic.ttf
+  BlexMonoNerdFontMono-Regular.ttf: https://cdn.brand-atoms.com/fonts/ibm-plex-mono-nerdfont/1.0.0/BlexMonoNerdFontMono-Regular.ttf
+  BlexMonoNerdFontMono-Italic.ttf: https://cdn.brand-atoms.com/fonts/ibm-plex-mono-nerdfont/1.0.0/BlexMonoNerdFontMono-Italic.ttf
+  BlexMonoNerdFontMono-Text.ttf: https://cdn.brand-atoms.com/fonts/ibm-plex-mono-nerdfont/1.0.0/BlexMonoNerdFontMono-Text.ttf
+  BlexMonoNerdFontMono-TextItalic.ttf: https://cdn.brand-atoms.com/fonts/ibm-plex-mono-nerdfont/1.0.0/BlexMonoNerdFontMono-TextItalic.ttf
+  BlexMonoNerdFontMono-Medium.ttf: https://cdn.brand-atoms.com/fonts/ibm-plex-mono-nerdfont/1.0.0/BlexMonoNerdFontMono-Medium.ttf
+  BlexMonoNerdFontMono-MediumItalic.ttf: https://cdn.brand-atoms.com/fonts/ibm-plex-mono-nerdfont/1.0.0/BlexMonoNerdFontMono-MediumItalic.ttf
+  BlexMonoNerdFontMono-SemiBold.ttf: https://cdn.brand-atoms.com/fonts/ibm-plex-mono-nerdfont/1.0.0/BlexMonoNerdFontMono-SemiBold.ttf
+  BlexMonoNerdFontMono-SemiBoldItalic.ttf: https://cdn.brand-atoms.com/fonts/ibm-plex-mono-nerdfont/1.0.0/BlexMonoNerdFontMono-SemiBoldItalic.ttf
+  BlexMonoNerdFontMono-Bold.ttf: https://cdn.brand-atoms.com/fonts/ibm-plex-mono-nerdfont/1.0.0/BlexMonoNerdFontMono-Bold.ttf
+  BlexMonoNerdFontMono-BoldItalic.ttf: https://cdn.brand-atoms.com/fonts/ibm-plex-mono-nerdfont/1.0.0/BlexMonoNerdFontMono-BoldItalic.ttf

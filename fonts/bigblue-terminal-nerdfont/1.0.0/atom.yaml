@@ -1,0 +1,39 @@
+kind: font
+id: bigblue-terminal-nerdfont
+version: 1.0.0
+name: BigBlueTerminal Nerd Font
+description: >
+  BigBlue Terminal monospaced pixel font with Nerd Fonts glyph augmentation. BigBlue Terminal is VileR's modern revival of the IBM PC EGA/VGA 8x14 text-mode charset, designed for fixed-width terminal/console use at the historic 9pt/12px size. Patched with ~10,000 additional icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.).
+family: BigBlueTerminal Nerd Font
+classification: monospace
+tags: [ nerd-font, monospace, pixel, retro, terminal, dos ]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: CC-BY-SA-4.0
+  attribution: >
+    BigBlue Terminal, Copyright 2015 VileR (https://int10h.org/oldschool-pc-fonts/). Licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. Nerd Fonts patching by Ryan L McIntyre, MIT license.
+  importedDate: 2026-05-19
+  importedFromVersion: v3.4.0
+  notes: >
+    Base font version: BigBlue Terminal v1.00. License is CC-BY-SA-4.0 per the upstream README — NOT OFL-1.1 — so downstream use must comply with the ShareAlike clause. The release ships two variants: the standard "BigBlueTerm437" (CP437 character set) and "BigBlueTermPlus" (extended). Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/BigBlueTerminal.zip
+
+source:
+  kind: external
+  family: BigBlueTerminal Nerd Font
+  notes: >
+    Nerd-Font-patched build of BigBlue Terminal. Includes both the CP437-scoped "BigBlueTerm437" and the extended "BigBlueTermPlus" variants. Single weight (Regular) per variant. Not available via Google Fonts. Download ttf files from the Nerd Fonts GitHub release and self-host, or install system-wide for terminal use.
+
+fallbackStack:
+  - BigBlue Terminal
+  - Px437 IBM VGA
+  - Consolas
+  - Lucida Console
+  - Menlo
+  - monospace
+
+availableStyles:
+  - { weight: 400, style: normal }
+cdnUrls:
+  BigBlueTerm437NerdFontMono-Regular.ttf: https://cdn.brand-atoms.com/fonts/bigblue-terminal-nerdfont/1.0.0/BigBlueTerm437NerdFontMono-Regular.ttf
+  BigBlueTermPlusNerdFontMono-Regular.ttf: https://cdn.brand-atoms.com/fonts/bigblue-terminal-nerdfont/1.0.0/BigBlueTermPlusNerdFontMono-Regular.ttf

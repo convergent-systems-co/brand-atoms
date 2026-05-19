@@ -1,0 +1,45 @@
+kind: font
+id: anonymouspro-nerdfont
+version: 1.0.0
+name: AnonymicePro Nerd Font
+description: >
+  Anonymous Pro monospaced font with Nerd Fonts glyph augmentation, distributed under the renamed family "AnonymicePro" to comply with the OFL Reserved Font Name. Anonymous Pro is Mark Simonson's 2009 revival of the early-1990s Anonymous bitmap font, tuned for code legibility at small sizes. Patched with ~10,000 additional icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.).
+family: AnonymicePro Nerd Font
+classification: monospace
+tags: [ nerd-font, monospace, programming, terminal, code ]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: OFL-1.1
+  attribution: >
+    Anonymous Pro, Copyright 2009 Mark Simonson (http://www.ms-studio.com, mark@marksimonson.com), with Reserved Font Name "Anonymous Pro". Licensed under the SIL Open Font License, Version 1.1. The patched Nerd Fonts build is renamed "AnonymicePro" per the OFL Reserved Font Name mechanism. Nerd Fonts patching by Ryan L McIntyre, MIT license.
+  importedDate: 2026-05-19
+  importedFromVersion: v3.4.0
+  notes: >
+    Base font version: Anonymous Pro 1.002. The Nerd-Font-patched binaries ship under "AnonymicePro*" filenames because OFL §3 (Reserved Font Name) forbids the modified version from using "Anonymous Pro". Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/AnonymousPro.zip
+
+source:
+  kind: external
+  family: AnonymicePro Nerd Font
+  notes: >
+    Nerd-Font-patched build of Anonymous Pro, redistributed under the OFL-mandated rename "AnonymicePro". Not available via Google Fonts. Download ttf files from the Nerd Fonts GitHub release and self-host, or install system-wide for terminal/editor use.
+
+fallbackStack:
+  - Anonymous Pro
+  - JetBrains Mono
+  - Menlo
+  - Monaco
+  - Consolas
+  - Liberation Mono
+  - monospace
+
+availableStyles:
+  - { weight: 400, style: normal }
+  - { weight: 400, style: italic }
+  - { weight: 700, style: normal }
+  - { weight: 700, style: italic }
+cdnUrls:
+  AnonymiceProNerdFontMono-Regular.ttf: https://cdn.brand-atoms.com/fonts/anonymouspro-nerdfont/1.0.0/AnonymiceProNerdFontMono-Regular.ttf
+  AnonymiceProNerdFontMono-Italic.ttf: https://cdn.brand-atoms.com/fonts/anonymouspro-nerdfont/1.0.0/AnonymiceProNerdFontMono-Italic.ttf
+  AnonymiceProNerdFontMono-Bold.ttf: https://cdn.brand-atoms.com/fonts/anonymouspro-nerdfont/1.0.0/AnonymiceProNerdFontMono-Bold.ttf
+  AnonymiceProNerdFontMono-BoldItalic.ttf: https://cdn.brand-atoms.com/fonts/anonymouspro-nerdfont/1.0.0/AnonymiceProNerdFontMono-BoldItalic.ttf

@@ -1,0 +1,61 @@
+kind: font
+id: cascadia-mono-nerdfont
+version: 1.0.0
+name: CaskaydiaMono Nerd Font
+description: >
+  Cascadia Mono with Nerd Fonts glyph augmentation, distributed under the renamed family "CaskaydiaMono" to comply with the OFL Reserved Font Name on "Cascadia Code". Cascadia Mono is Microsoft's monospaced typeface — the ligature-free sibling of Cascadia Code — designed for the Windows Terminal and Visual Studio. Patched with ~10,000 additional icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.).
+family: CaskaydiaMono Nerd Font
+classification: monospace
+tags: [ nerd-font, monospace, microsoft, terminal, code ]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: OFL-1.1
+  attribution: >
+    Cascadia Code (and Cascadia Mono), Copyright (c) 2019–Present, Microsoft Corporation (https://github.com/microsoft/cascadia-code), with Reserved Font Name "Cascadia Code". Licensed under the SIL Open Font License, Version 1.1. The patched Nerd Fonts build is renamed "CaskaydiaMono" per the OFL Reserved Font Name mechanism. Nerd Fonts patching by Ryan L McIntyre, MIT license.
+  importedDate: 2026-05-19
+  importedFromVersion: v3.4.0
+  notes: >
+    Base font version: Cascadia Mono 2407.24. This atom is distinct from the existing cascadiacode-nerdfont — Cascadia Mono is the ligature-free variant. The Nerd-Font-patched binaries ship under "CaskaydiaMono*" filenames because OFL §3 forbids the modified version from using the Reserved Font Name. Cascadia Mono is also distributed by Microsoft as a static-hinted preprocessed source per the upstream README. Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/CascadiaMono.zip
+
+source:
+  kind: external
+  family: CaskaydiaMono Nerd Font
+  notes: >
+    Nerd-Font-patched build of Cascadia Mono, redistributed under the OFL-mandated rename "CaskaydiaMono". Not available via Google Fonts; the unpatched Cascadia Mono is hosted by Microsoft. Download ttf files from the Nerd Fonts GitHub release and self-host, or install system-wide.
+
+fallbackStack:
+  - Cascadia Mono
+  - Cascadia Code
+  - Consolas
+  - Menlo
+  - Monaco
+  - Liberation Mono
+  - monospace
+
+availableStyles:
+  - { weight: 200, style: normal }
+  - { weight: 200, style: italic }
+  - { weight: 300, style: normal }
+  - { weight: 300, style: italic }
+  - { weight: 350, style: normal }
+  - { weight: 350, style: italic }
+  - { weight: 400, style: normal }
+  - { weight: 400, style: italic }
+  - { weight: 600, style: normal }
+  - { weight: 600, style: italic }
+  - { weight: 700, style: normal }
+  - { weight: 700, style: italic }
+cdnUrls:
+  CaskaydiaMonoNerdFontMono-ExtraLight.ttf: https://cdn.brand-atoms.com/fonts/cascadia-mono-nerdfont/1.0.0/CaskaydiaMonoNerdFontMono-ExtraLight.ttf
+  CaskaydiaMonoNerdFontMono-ExtraLightItalic.ttf: https://cdn.brand-atoms.com/fonts/cascadia-mono-nerdfont/1.0.0/CaskaydiaMonoNerdFontMono-ExtraLightItalic.ttf
+  CaskaydiaMonoNerdFontMono-Light.ttf: https://cdn.brand-atoms.com/fonts/cascadia-mono-nerdfont/1.0.0/CaskaydiaMonoNerdFontMono-Light.ttf
+  CaskaydiaMonoNerdFontMono-LightItalic.ttf: https://cdn.brand-atoms.com/fonts/cascadia-mono-nerdfont/1.0.0/CaskaydiaMonoNerdFontMono-LightItalic.ttf
+  CaskaydiaMonoNerdFontMono-SemiLight.ttf: https://cdn.brand-atoms.com/fonts/cascadia-mono-nerdfont/1.0.0/CaskaydiaMonoNerdFontMono-SemiLight.ttf
+  CaskaydiaMonoNerdFontMono-SemiLightItalic.ttf: https://cdn.brand-atoms.com/fonts/cascadia-mono-nerdfont/1.0.0/CaskaydiaMonoNerdFontMono-SemiLightItalic.ttf
+  CaskaydiaMonoNerdFontMono-Regular.ttf: https://cdn.brand-atoms.com/fonts/cascadia-mono-nerdfont/1.0.0/CaskaydiaMonoNerdFontMono-Regular.ttf
+  CaskaydiaMonoNerdFontMono-Italic.ttf: https://cdn.brand-atoms.com/fonts/cascadia-mono-nerdfont/1.0.0/CaskaydiaMonoNerdFontMono-Italic.ttf
+  CaskaydiaMonoNerdFontMono-SemiBold.ttf: https://cdn.brand-atoms.com/fonts/cascadia-mono-nerdfont/1.0.0/CaskaydiaMonoNerdFontMono-SemiBold.ttf
+  CaskaydiaMonoNerdFontMono-SemiBoldItalic.ttf: https://cdn.brand-atoms.com/fonts/cascadia-mono-nerdfont/1.0.0/CaskaydiaMonoNerdFontMono-SemiBoldItalic.ttf
+  CaskaydiaMonoNerdFontMono-Bold.ttf: https://cdn.brand-atoms.com/fonts/cascadia-mono-nerdfont/1.0.0/CaskaydiaMonoNerdFontMono-Bold.ttf
+  CaskaydiaMonoNerdFontMono-BoldItalic.ttf: https://cdn.brand-atoms.com/fonts/cascadia-mono-nerdfont/1.0.0/CaskaydiaMonoNerdFontMono-BoldItalic.ttf

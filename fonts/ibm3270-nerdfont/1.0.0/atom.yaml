@@ -1,0 +1,41 @@
+kind: font
+id: ibm3270-nerdfont
+version: 1.0.0
+name: 3270 Nerd Font
+description: >
+  3270 monospaced bitmap-style font with Nerd Fonts glyph augmentation. The 3270 font is a modern OpenType revival of the IBM 3270 terminal typeface, derived from the x3270 emulator project. Patched with ~10,000 additional icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.).
+family: 3270 Nerd Font
+classification: monospace
+tags: [ nerd-font, monospace, terminal, ibm, retro ]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: BSD-3-Clause
+  attribution: >
+    3270 font, Copyright 2022 The 3270font Authors (https://github.com/rbanffy/3270font); includes contributions from Ricardo Banffy (2011–2022), Paul Mattes (1993–2011), Don Russell (2004–2005), Dick Altenbern (2004), Jeff Sparkes (1990), and Georgia Tech Research Corporation (1989). Distributed under the 3-Clause BSD License. Nerd Fonts patching by Ryan L McIntyre, MIT license.
+  importedDate: 2026-05-19
+  importedFromVersion: v3.4.0
+  notes: >
+    Base font version: 3270 3.0.1. Upstream slug is "3270"; the atom slug is "ibm3270-nerdfont" because the Slug schema requires a letter-first identifier and the typeface revives the IBM 3270 terminal face. Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/3270.zip
+
+source:
+  kind: external
+  family: 3270 Nerd Font
+  notes: >
+    Nerd-Font-patched build of the 3270 OpenType revival. Not available via Google Fonts. Download ttf files from the Nerd Fonts GitHub release and self-host, or install system-wide.
+
+fallbackStack:
+  - 3270 Nerd Font Mono
+  - IBM Plex Mono
+  - Menlo
+  - Monaco
+  - Consolas
+  - Liberation Mono
+  - monospace
+
+availableStyles:
+  - { weight: 400, style: normal }
+cdnUrls:
+  3270NerdFontMono-Regular.ttf: https://cdn.brand-atoms.com/fonts/ibm3270-nerdfont/1.0.0/3270NerdFontMono-Regular.ttf
+  3270NerdFontMono-SemiCondensed.ttf: https://cdn.brand-atoms.com/fonts/ibm3270-nerdfont/1.0.0/3270NerdFontMono-SemiCondensed.ttf
+  3270NerdFontMono-Condensed.ttf: https://cdn.brand-atoms.com/fonts/ibm3270-nerdfont/1.0.0/3270NerdFontMono-Condensed.ttf

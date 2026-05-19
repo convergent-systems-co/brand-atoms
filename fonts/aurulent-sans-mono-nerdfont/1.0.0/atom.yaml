@@ -1,0 +1,39 @@
+kind: font
+id: aurulent-sans-mono-nerdfont
+version: 1.0.0
+name: AurulentSansM Nerd Font
+description: >
+  Aurulent Sans Mono with Nerd Fonts glyph augmentation, distributed under the renamed family "AurulentSansM" to comply with the OFL Reserved Font Name. Aurulent Sans Mono is a humanist sans-serif monospace by Stephen G. Hartke (who also created Verily Serif Mono). Patched with ~10,000 additional icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.).
+family: AurulentSansM Nerd Font
+classification: monospace
+tags: [ nerd-font, monospace, sans-serif, terminal, code ]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: OFL-1.1
+  attribution: >
+    Aurulent Sans Mono, designed by Stephen G. Hartke. Licensed under the SIL Open Font License, Version 1.1. The patched Nerd Fonts build is renamed "AurulentSansM" per the OFL Reserved Font Name mechanism. Nerd Fonts patching by Ryan L McIntyre, MIT license.
+  importedDate: 2026-05-19
+  importedFromVersion: v3.4.0
+  notes: >
+    Binaries ship as OpenType (.otf). Single weight (Regular only). Filenames use the "AurulentSansM*" rename per OFL §3. Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/AurulentSansMono.zip
+
+source:
+  kind: external
+  family: AurulentSansM Nerd Font
+  notes: >
+    Nerd-Font-patched build of Aurulent Sans Mono, redistributed under the OFL-mandated rename "AurulentSansM". Binaries are .otf. Not available via Google Fonts. Download from the Nerd Fonts GitHub release and self-host, or install system-wide.
+
+fallbackStack:
+  - Aurulent Sans Mono
+  - DejaVu Sans Mono
+  - Menlo
+  - Monaco
+  - Consolas
+  - Liberation Mono
+  - monospace
+
+availableStyles:
+  - { weight: 400, style: normal }
+cdnUrls:
+  AurulentSansMNerdFontMono-Regular.otf: https://cdn.brand-atoms.com/fonts/aurulent-sans-mono-nerdfont/1.0.0/AurulentSansMNerdFontMono-Regular.otf

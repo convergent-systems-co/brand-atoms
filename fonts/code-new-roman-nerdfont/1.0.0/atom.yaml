@@ -1,0 +1,43 @@
+kind: font
+id: code-new-roman-nerdfont
+version: 1.0.0
+name: CodeNewRoman Nerd Font
+description: >
+  Code New Roman with Nerd Fonts glyph augmentation. Code New Roman is Sam Radian's monospaced programming face, drawing on Monaco, Consolas, Bitstream Vera Sans Mono, and Mac OS Western New Roman for a comfortable extended-reading rhythm. Patched with ~10,000 additional icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.).
+family: CodeNewRoman Nerd Font
+classification: monospace
+tags: [ nerd-font, monospace, programming, terminal, code ]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: OFL-1.1
+  attribution: >
+    Code New Roman, Copyright 2014 Sam Radian (SamRadian@gmail.com, http://smallapp.wordpress.com/code-new-roman). Licensed under the SIL Open Font License, Version 1.1. Nerd Fonts patching by Ryan L McIntyre, MIT license.
+  importedDate: 2026-05-19
+  importedFromVersion: v3.4.0
+  notes: >
+    Base font version: Code New Roman 2.0. Binaries ship as OpenType (.otf). Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/CodeNewRoman.zip
+
+source:
+  kind: external
+  family: CodeNewRoman Nerd Font
+  notes: >
+    Nerd-Font-patched build of Code New Roman. Binaries are .otf. Not available via Google Fonts. Download from the Nerd Fonts GitHub release and self-host, or install system-wide for terminal/editor use.
+
+fallbackStack:
+  - Code New Roman
+  - Consolas
+  - Bitstream Vera Sans Mono
+  - Menlo
+  - Monaco
+  - Liberation Mono
+  - monospace
+
+availableStyles:
+  - { weight: 400, style: normal }
+  - { weight: 400, style: italic }
+  - { weight: 700, style: normal }
+cdnUrls:
+  CodeNewRomanNerdFontMono-Regular.otf: https://cdn.brand-atoms.com/fonts/code-new-roman-nerdfont/1.0.0/CodeNewRomanNerdFontMono-Regular.otf
+  CodeNewRomanNerdFontMono-Italic.otf: https://cdn.brand-atoms.com/fonts/code-new-roman-nerdfont/1.0.0/CodeNewRomanNerdFontMono-Italic.otf
+  CodeNewRomanNerdFontMono-Bold.otf: https://cdn.brand-atoms.com/fonts/code-new-roman-nerdfont/1.0.0/CodeNewRomanNerdFontMono-Bold.otf

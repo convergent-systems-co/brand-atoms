@@ -1,0 +1,45 @@
+kind: font
+id: bitstream-vera-sans-mono-nerdfont
+version: 1.0.0
+name: BitstromWera Nerd Font
+description: >
+  Bitstream Vera Sans Mono with Nerd Fonts glyph augmentation, distributed under the renamed family "BitstromWera" to comply with the Bitstream Vera license clause forbidding modified versions from carrying the "Bitstream" or "Vera" names. Bitstream Vera is a foundational humanist sans-serif monospace from 2003, the ancestor of DejaVu Sans Mono. Patched with ~10,000 additional icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.).
+family: BitstromWera Nerd Font
+classification: monospace
+tags: [ nerd-font, monospace, classic, terminal, code ]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: Bitstream-Vera
+  attribution: >
+    Bitstream Vera Sans Mono, Copyright 2003 Bitstream, Inc. All Rights Reserved. "Bitstream Vera" is a trademark of Bitstream, Inc. Distributed under the Bitstream Vera Fonts Copyright (a permissive license; derivatives must be renamed to remove "Bitstream" and "Vera"). The patched Nerd Fonts build is renamed "BitstromWera" to comply with that rename clause. Nerd Fonts patching by Ryan L McIntyre, MIT license.
+  importedDate: 2026-05-19
+  importedFromVersion: v3.4.0
+  notes: >
+    Base font version: Bitstream Vera 1.1. License is the custom Bitstream Vera Fonts Copyright — NOT OFL-1.1 and NOT Apache-2.0 — though it is permissive in spirit. The rename "BitstromWera" exists because the upstream license forbids modified versions from using "Bitstream" or "Vera" in the name. Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/BitstreamVeraSansMono.zip
+
+source:
+  kind: external
+  family: BitstromWera Nerd Font
+  notes: >
+    Nerd-Font-patched build of Bitstream Vera Sans Mono, redistributed under the rename-mandated "BitstromWera". Not available via Google Fonts (Google Fonts hosts the DejaVu and Liberation derivatives instead). Download ttf files from the Nerd Fonts GitHub release and self-host, or install system-wide.
+
+fallbackStack:
+  - Bitstream Vera Sans Mono
+  - DejaVu Sans Mono
+  - Liberation Mono
+  - Menlo
+  - Monaco
+  - Consolas
+  - monospace
+
+availableStyles:
+  - { weight: 400, style: normal }
+  - { weight: 400, style: italic }
+  - { weight: 700, style: normal }
+  - { weight: 700, style: italic }
+cdnUrls:
+  BitstromWeraNerdFontMono-Regular.ttf: https://cdn.brand-atoms.com/fonts/bitstream-vera-sans-mono-nerdfont/1.0.0/BitstromWeraNerdFontMono-Regular.ttf
+  BitstromWeraNerdFontMono-Oblique.ttf: https://cdn.brand-atoms.com/fonts/bitstream-vera-sans-mono-nerdfont/1.0.0/BitstromWeraNerdFontMono-Oblique.ttf
+  BitstromWeraNerdFontMono-Bold.ttf: https://cdn.brand-atoms.com/fonts/bitstream-vera-sans-mono-nerdfont/1.0.0/BitstromWeraNerdFontMono-Bold.ttf
+  BitstromWeraNerdFontMono-BoldOblique.ttf: https://cdn.brand-atoms.com/fonts/bitstream-vera-sans-mono-nerdfont/1.0.0/BitstromWeraNerdFontMono-BoldOblique.ttf

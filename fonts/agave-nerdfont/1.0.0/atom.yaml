@@ -1,0 +1,41 @@
+kind: font
+id: agave-nerdfont
+version: 1.0.0
+name: Agave Nerd Font
+description: >
+  Agave monospaced programming font with Nerd Fonts glyph augmentation. Agave is a "succulent" monospaced typeface by type agaric / blobject, with a clean geometric character set tuned for code. Patched with ~10,000 additional icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.).
+family: Agave Nerd Font
+classification: monospace
+tags: [ nerd-font, monospace, programming, terminal, code ]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: MIT
+  attribution: >
+    Agave, Copyright 2013–2021 type agaric <agaric@protonmail.com> (https://github.com/blobject/agave), licensed under the MIT License. Nerd Fonts patching by Ryan L McIntyre, MIT license.
+  importedDate: 2026-05-19
+  importedFromVersion: v3.4.0
+  notes: >
+    Base font version: Agave v37. Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Agave.zip
+
+source:
+  kind: external
+  family: Agave Nerd Font
+  notes: >
+    Nerd-Font-patched build of Agave. Not available via Google Fonts. Download ttf files from the Nerd Fonts GitHub release and self-host, or install system-wide for terminal/editor use.
+
+fallbackStack:
+  - Agave
+  - JetBrains Mono
+  - Menlo
+  - Monaco
+  - Consolas
+  - Liberation Mono
+  - monospace
+
+availableStyles:
+  - { weight: 400, style: normal }
+  - { weight: 700, style: normal }
+cdnUrls:
+  AgaveNerdFontMono-Regular.ttf: https://cdn.brand-atoms.com/fonts/agave-nerdfont/1.0.0/AgaveNerdFontMono-Regular.ttf
+  AgaveNerdFontMono-Bold.ttf: https://cdn.brand-atoms.com/fonts/agave-nerdfont/1.0.0/AgaveNerdFontMono-Bold.ttf

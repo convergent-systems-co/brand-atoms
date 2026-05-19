@@ -1,0 +1,53 @@
+kind: font
+id: atkinson-hyperlegible-mono-nerdfont
+version: 1.0.0
+name: AtkynsonMono Nerd Font
+description: >
+  Atkinson Hyperlegible Mono with Nerd Fonts glyph augmentation, distributed under the renamed family "AtkynsonMono" to comply with the OFL Reserved Font Name. Atkinson Hyperlegible Mono is the Braille Institute's monospaced typeface engineered to maximize legibility for readers with low vision. Patched with ~10,000 additional icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.).
+family: AtkynsonMono Nerd Font
+classification: monospace
+tags: [ nerd-font, monospace, accessibility, low-vision, code ]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: OFL-1.1
+  attribution: >
+    Atkinson Hyperlegible Mono, Copyright 2020 Braille Institute of America, Inc. (https://www.brailleinstitute.org/), with Reserved Font Names "ATKINSON" and "HYPERLEGIBLE". Licensed under the SIL Open Font License, Version 1.1. The patched Nerd Fonts build is renamed "AtkynsonMono" per the OFL Reserved Font Name mechanism. Nerd Fonts patching by Ryan L McIntyre, MIT license.
+  importedDate: 2026-05-19
+  importedFromVersion: v3.4.0
+  notes: >
+    The Nerd-Font-patched binaries ship as OpenType (.otf), not TrueType. Filenames use the "AtkynsonMono*" rename because OFL §3 (Reserved Font Name) forbids the modified version from using "Atkinson" or "Hyperlegible". Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/AtkinsonHyperlegibleMono.zip
+
+source:
+  kind: external
+  family: AtkynsonMono Nerd Font
+  notes: >
+    Nerd-Font-patched build of Atkinson Hyperlegible Mono, redistributed under the OFL-mandated rename "AtkynsonMono". Binaries are .otf. Not available via Google Fonts. Download from the Nerd Fonts GitHub release and self-host, or install system-wide.
+
+fallbackStack:
+  - Atkinson Hyperlegible Mono
+  - JetBrains Mono
+  - Menlo
+  - Monaco
+  - Consolas
+  - Liberation Mono
+  - monospace
+
+availableStyles:
+  - { weight: 300, style: normal }
+  - { weight: 300, style: italic }
+  - { weight: 400, style: normal }
+  - { weight: 400, style: italic }
+  - { weight: 500, style: normal }
+  - { weight: 500, style: italic }
+  - { weight: 700, style: normal }
+  - { weight: 700, style: italic }
+cdnUrls:
+  AtkynsonMonoNerdFontMono-Regular.otf: https://cdn.brand-atoms.com/fonts/atkinson-hyperlegible-mono-nerdfont/1.0.0/AtkynsonMonoNerdFontMono-Regular.otf
+  AtkynsonMonoNerdFontMono-Italic.otf: https://cdn.brand-atoms.com/fonts/atkinson-hyperlegible-mono-nerdfont/1.0.0/AtkynsonMonoNerdFontMono-Italic.otf
+  AtkynsonMonoNerdFontMono-Light.otf: https://cdn.brand-atoms.com/fonts/atkinson-hyperlegible-mono-nerdfont/1.0.0/AtkynsonMonoNerdFontMono-Light.otf
+  AtkynsonMonoNerdFontMono-LightItalic.otf: https://cdn.brand-atoms.com/fonts/atkinson-hyperlegible-mono-nerdfont/1.0.0/AtkynsonMonoNerdFontMono-LightItalic.otf
+  AtkynsonMonoNerdFontMono-Medium.otf: https://cdn.brand-atoms.com/fonts/atkinson-hyperlegible-mono-nerdfont/1.0.0/AtkynsonMonoNerdFontMono-Medium.otf
+  AtkynsonMonoNerdFontMono-MediumItalic.otf: https://cdn.brand-atoms.com/fonts/atkinson-hyperlegible-mono-nerdfont/1.0.0/AtkynsonMonoNerdFontMono-MediumItalic.otf
+  AtkynsonMonoNerdFontMono-Bold.otf: https://cdn.brand-atoms.com/fonts/atkinson-hyperlegible-mono-nerdfont/1.0.0/AtkynsonMonoNerdFontMono-Bold.otf
+  AtkynsonMonoNerdFontMono-BoldItalic.otf: https://cdn.brand-atoms.com/fonts/atkinson-hyperlegible-mono-nerdfont/1.0.0/AtkynsonMonoNerdFontMono-BoldItalic.otf

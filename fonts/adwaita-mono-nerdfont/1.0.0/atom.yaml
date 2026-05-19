@@ -1,0 +1,46 @@
+kind: font
+id: adwaita-mono-nerdfont
+version: 1.0.0
+name: Adwaita Mono Nerd Font
+description: >
+  Adwaita Mono monospaced font with Nerd Fonts glyph augmentation. Adwaita Mono is the default monospace face for GNOME 48+, derived from Iosevka and tuned to harmonize with Adwaita Sans (an Inter variant with a disambiguated lowercase L). Patched with ~10,000 additional icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.).
+family: AdwaitaMono Nerd Font
+classification: monospace
+tags: [ nerd-font, monospace, gnome, iosevka, terminal ]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: OFL-1.1
+  attribution: >
+    Adwaita Mono is derived from Iosevka; Copyright 2015–2025 Renzhi Li (aka Belleve Invis, belleve@typeof.net), Copyright 2025 Jamie Gravendeel (https://jamie.garden), Copyright 2025 Florian Müllner, and Copyright 2016 The Inter Project Authors (https://github.com/rsms/inter). Licensed under the SIL Open Font License, Version 1.1. Nerd Fonts patching by Ryan L McIntyre, MIT license.
+  importedDate: 2026-05-19
+  importedFromVersion: v3.4.0
+  notes: >
+    Base font version: Adwaita Mono 32.4. Upstream source: https://gitlab.gnome.org/GNOME/adwaita-fonts. Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/AdwaitaMono.zip
+
+source:
+  kind: external
+  family: AdwaitaMono Nerd Font
+  notes: >
+    Nerd-Font-patched build of Adwaita Mono. Not available via Google Fonts. Download ttf files from the Nerd Fonts GitHub release and self-host, or install system-wide for terminal/editor use.
+
+fallbackStack:
+  - Adwaita Mono
+  - Iosevka
+  - JetBrains Mono
+  - Menlo
+  - Monaco
+  - Consolas
+  - Liberation Mono
+  - monospace
+
+availableStyles:
+  - { weight: 400, style: normal }
+  - { weight: 400, style: italic }
+  - { weight: 700, style: normal }
+  - { weight: 700, style: italic }
+cdnUrls:
+  AdwaitaMonoNerdFontMono-Regular.ttf: https://cdn.brand-atoms.com/fonts/adwaita-mono-nerdfont/1.0.0/AdwaitaMonoNerdFontMono-Regular.ttf
+  AdwaitaMonoNerdFontMono-Italic.ttf: https://cdn.brand-atoms.com/fonts/adwaita-mono-nerdfont/1.0.0/AdwaitaMonoNerdFontMono-Italic.ttf
+  AdwaitaMonoNerdFontMono-Bold.ttf: https://cdn.brand-atoms.com/fonts/adwaita-mono-nerdfont/1.0.0/AdwaitaMonoNerdFontMono-Bold.ttf
+  AdwaitaMonoNerdFontMono-BoldItalic.ttf: https://cdn.brand-atoms.com/fonts/adwaita-mono-nerdfont/1.0.0/AdwaitaMonoNerdFontMono-BoldItalic.ttf

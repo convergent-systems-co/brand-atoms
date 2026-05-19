@@ -1,0 +1,44 @@
+kind: font
+id: oxproto-nerdfont
+version: 1.0.0
+name: 0xProto Nerd Font
+description: >
+  0xProto monospaced programming font with Nerd Fonts glyph augmentation. 0xProto is a source-code typeface from the 0xType project, designed for legibility of code-specific characters. Patched with ~10,000 additional icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.).
+family: 0xProto Nerd Font
+classification: monospace
+tags: [ nerd-font, monospace, programming, terminal, code ]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: OFL-1.1
+  attribution: >
+    0xProto, Copyright 2023 0xType Project Authors (https://github.com/0xType), licensed under the SIL Open Font License, Version 1.1. Nerd Fonts patching by Ryan L McIntyre, MIT license.
+  importedDate: 2026-05-19
+  importedFromVersion: v3.4.0
+  notes: >
+    Canonical upstream slug is "0xProto"; the leading digit is dropped in the atom slug because the Slug schema requires a letter-first identifier. Base font version: 0xProto 2.300. Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/0xProto.zip
+
+source:
+  kind: external
+  family: 0xProto Nerd Font
+  notes: >
+    Nerd-Font-patched build of 0xProto. Not available via Google Fonts. Download ttf files from the Nerd Fonts GitHub release and self-host, or install system-wide for terminal/editor use.
+
+fallbackStack:
+  - 0xProto
+  - JetBrains Mono
+  - Fira Code
+  - Menlo
+  - Monaco
+  - Consolas
+  - Liberation Mono
+  - monospace
+
+availableStyles:
+  - { weight: 400, style: normal }
+  - { weight: 400, style: italic }
+  - { weight: 700, style: normal }
+cdnUrls:
+  0xProtoNerdFontMono-Regular.ttf: https://cdn.brand-atoms.com/fonts/oxproto-nerdfont/1.0.0/0xProtoNerdFontMono-Regular.ttf
+  0xProtoNerdFontMono-Italic.ttf: https://cdn.brand-atoms.com/fonts/oxproto-nerdfont/1.0.0/0xProtoNerdFontMono-Italic.ttf
+  0xProtoNerdFontMono-Bold.ttf: https://cdn.brand-atoms.com/fonts/oxproto-nerdfont/1.0.0/0xProtoNerdFontMono-Bold.ttf
