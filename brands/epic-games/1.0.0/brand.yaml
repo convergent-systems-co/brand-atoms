@@ -1,0 +1,231 @@
+id: epic-games
+version: 1.0.0
+name: Epic Games
+description: >
+  Epic Games is the North Carolina–headquartered game developer
+  and publisher behind Fortnite, Rocket League, the Epic Games
+  Store, and the Unreal Engine real-time 3D platform. The Epic
+  Games Store is the company's direct-to-consumer PC games
+  storefront and free-weekly game distribution channel. The
+  brand voice on the store is product-driven and reductive: hero
+  art carries the color, while the chrome itself is a deep "Ink"
+  near-black canvas with a white primary CTA and an Inter
+  typographic stack. There is no chromatic brand primary in the
+  storefront chrome — the structural identity reads as
+  monochrome ink-on-white-on-ink, leaving the published-game
+  artwork to provide chromatic variety.
+
+  Unreal Engine is a separate brand cluster under the Epic Games
+  umbrella and is documented in its own atom (unreal-engine@1).
+
+tags: [epic-games, gaming, store, fortnite, dark-first, monochrome]
+
+provenance:
+  source: https://store.epicgames.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Epic Games, Inc. — visual identity captured from the deployed
+    stylesheet on store.epicgames.com (html background, Inter
+    font-family declaration, primary and secondary button fills).
+    Epic Games, the Epic Games logo, the Epic Games Store logo,
+    Fortnite, Rocket League, Unreal, and associated marks are
+    trademarks of Epic Games, Inc.
+  importedDate: 2026-05-19
+  notes: >
+    Derived from live site CSS at https://store.epicgames.com/ on
+    2026-05-19; no public Epic Games brand guide located. Epic
+    Games' storefront uses Inter as the declared sans family
+    (--font-family-sans-serif and computed body fontFamily =
+    "Inter, sans-serif"), which is open-source — the inter@1 atom
+    is the exact rendering. assets: [] per the encyclopedia's
+    trademark-redistribution policy. Unreal Engine, also an Epic
+    property, has its own atom (unreal-engine@1) with a distinct
+    visual identity.
+
+references:
+  palette: epic-games@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # Epic Games Store is monochrome dark-first by construction.
+    # The brand block is the Ink canvas with a Snow (white) mark
+    # / primary CTA. Naming `identity` to Ink and `on-identity`
+    # to Snow mirrors the canonical store-chrome pairing.
+    identity: ink
+    on-identity: snow
+
+    primary: snow
+    primary-hover: fog-light
+    accent: action-blue
+    accent-hover: action-blue
+    mark: snow
+    success: signal-green
+    warning: hot-pink
+    error: alert-red
+    text-primary-light: ink
+    text-primary-dark: snow
+    background-light: snow
+    background-dark: ink
+    surface-light: snow-mid
+    surface-dark: graphite
+    text-secondary-light: fog-dark
+    text-tertiary-light: fog
+    border-light: fog-light
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: roles.colors.mark
+    allowed:
+      - snow
+      - ink
+    forbidden:
+      - action-blue
+      - hot-pink
+      - signal-green
+      - alert-red
+      - fog
+      - graphite-light
+    severity: error
+    rationale: >
+      The Epic Games and Epic Games Store wordmarks render in
+      pure monochrome on the live storefront — white-on-Ink in
+      the standard dark chrome and Ink-on-white in inverted
+      contexts. The store's promotional accents (hot-pink for
+      discount stickers, signal-green for free-claim banners,
+      action-blue for inline links) are content affordances, not
+      identity colors; substituting them for the mark fill reads
+      as a co-branded lockup, not as Epic.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+      - outlined
+    severity: error
+    rationale: >
+      Epic Games' identity is reductive by design — the
+      storefront chrome itself uses no gradient, drop-shadow, or
+      photo-embedded logo treatments. Recoloring, rotating,
+      gradient-filling, or placing the mark on a busy photo
+      conflicts with the brand's deliberate restraint.
+
+  - type: colorChoice
+    target: roles.colors.primary
+    allowed:
+      - snow
+      - ink
+      - graphite-light
+    forbidden:
+      - action-blue
+      - hot-pink
+      - signal-green
+      - alert-red
+    severity: error
+    rationale: >
+      The Epic Games Store's primary action is a white surface
+      with Ink text — observed as the canonical "Save Now /
+      Get / Buy" CTA on the live store. The accent colors
+      (action-blue, hot-pink, signal-green, alert-red) carry
+      links, promotional stickers, free-claim banners, and
+      destructive affordances respectively; substituting any of
+      them for the primary action breaks the store's monochrome
+      chrome grammar.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 7.0
+    standard: WCAG-AAA
+    severity: error
+    rationale: >
+      Snow (#FFFFFF) on Ink (#101014) measures ~19:1 — clears
+      AAA decisively. The monochrome chrome is designed around
+      this high-contrast pairing; consumers should not weaken
+      it.
+
+  - type: contextRestriction
+    target: roles.colors.accent
+    allowedContexts:
+      - inline-link
+      - focus-ring
+      - active-state
+    forbiddenContexts:
+      - logo
+      - hero-headline
+      - brand-badge
+      - primary-cta
+    severity: warning
+    rationale: >
+      Action-blue (#0078F2) is an inline-link affordance inside
+      the storefront's product chrome — links inside descriptions,
+      focus rings, hover states. It must not appear as headline
+      color, logo fill, or primary CTA — the store's primary CTA
+      is the monochrome snow-on-ink (or ink-on-snow) surface.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["400", "500", "600", "700"]
+    severity: warning
+    rationale: >
+      Epic Games' storefront uses Inter at Regular (400), Medium
+      (500), SemiBold (600), and Bold (700) — observed on the
+      live h1 (font-weight: 700) and the body computed font
+      stack. The lighter cuts (100, 200, 300) and heavier cuts
+      (800, 900) are not exercised by the store chrome.
+
+  - type: fontPairing
+    target: typography.display
+    requires: prose
+    minSizeRatio: 1.5
+    severity: recommendation
+    rationale: >
+      The Epic Games Store uses Inter for both display headlines
+      and body text, distinguished by size and weight rather
+      than two families. Maintain at least a 1.5× display-to-
+      prose size ratio to preserve hierarchy when one family
+      carries both roles.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level
+      AA. The monochrome storefront pairs clear AA at the body-
+      text floor with significant headroom; the snow-on-ink
+      pairing (per the contrastRatio rule above) is held to AAA.
+
+  - type: compositionConstraint
+    target: roles.colors.mark
+    pairsWith:
+      - ink
+      - snow
+      - graphite
+      - graphite-mid
+    doesNotPairWith:
+      - hot-pink
+      - signal-green
+      - action-blue
+    severity: error
+    rationale: >
+      The Epic Games mark pairs only with the monochrome
+      neutrals — Ink, Graphite, Snow. Placing the mark on the
+      promotional hot-pink, signal-green, or action-blue
+      surfaces reads as a co-branded lockup or sub-brand
+      treatment, not as the parent Epic Games identity.

@@ -1,0 +1,248 @@
+id: unity
+version: 1.0.0
+name: Unity
+description: >
+  Unity is the San Francisco-headquartered real-time 3D engine and
+  developer-platform company behind the Unity Editor, the runtime
+  for thousands of shipped games (including a large share of the
+  mobile and indie PC market), Unity Cloud, Unity AI, Unity DOTS,
+  and the Unity Ads / IronSource monetization stack. The brand
+  voice under the recent "Mango" design system is product-tooling
+  professional: developer-first marketing, deep feature
+  documentation, and a calibrated mix of light marketing chrome
+  with a stark black header treatment. Visually, Unity is light-
+  first with a black navigation surface: a paper canvas (#FFFFFF)
+  carries the marketing surfaces and the Unity cube mark, a pure-
+  black header chrome (#000000) inverts to white type, and the
+  Mango Blue (#3358D4) family carries the primary action across
+  the design system.
+
+  Typography is Inter (open-source) for both sans body and headings,
+  with the proprietary Platform and Nohemi families declared on the
+  live site for hero display use.
+
+tags: [unity, gaming, engine, real-time-3d, developer-tooling, blue]
+
+provenance:
+  source: https://unity.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Unity Technologies — visual identity captured from the
+    deployed "Mango" design-system tokens on unity.com (--color-
+    mango-*, --color-gray-*, --color-blue-*, --font-platform,
+    --font-inter, --font-nohemi CSS custom-property families).
+    Unity, the Unity logo, the Unity cube mark, Unity DOTS,
+    Unity Cloud, and associated marks are trademarks of Unity
+    Technologies.
+  importedDate: 2026-05-19
+  notes: >
+    Derived from live site CSS at https://unity.com/ on
+    2026-05-19. The Unity brand page (https://unity.com/brand)
+    returned a 403 to programmatic clients on this fetch; this
+    atom captures the live marketing-site CSS only. The primary
+    typeface is Inter (--font-inter, open-source) for body and
+    most marketing copy; the proprietary Platform face
+    (--font-platform, declared via @font-face but not publicly
+    distributed) and Nohemi (--font-nohemi, also proprietary)
+    are reserved for hero display use. This atom references
+    inter@1 for all roles. assets: [] per the encyclopedia's
+    trademark-redistribution policy.
+
+references:
+  palette: unity@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # Unity is light-first with a black navigation chrome. The
+    # brand block uses the white canvas with the Unity cube
+    # mark rendered in black for the canonical wordmark / mark
+    # pairing, while Mango Blue carries the primary action.
+    identity: mango-white
+    on-identity: mango-black
+
+    primary: mango-blue
+    primary-hover: mango-blue-hover
+    accent: blue-base
+    accent-hover: blue-dark
+    mark: mango-black
+    success: mango-success
+    warning: mango-warning
+    error: mango-error
+    text-primary-light: mango-gray-900
+    text-primary-dark: mango-white
+    background-light: mango-white
+    background-dark: mango-black
+    surface-light: mango-gray-50
+    surface-dark: mango-gray-950
+    text-secondary-light: mango-gray-700
+    text-tertiary-light: mango-gray-500
+    border-light: mango-gray-300
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: roles.colors.mark
+    allowed:
+      - mango-black
+      - mango-white
+    forbidden:
+      - mango-blue
+      - blue-base
+      - mango-success
+      - mango-warning
+      - mango-error
+      - brand-red
+    severity: error
+    rationale: >
+      The Unity cube mark and wordmark render in monochrome
+      across the live marketing site — pure black (#000000) on
+      light surfaces and pure white on dark surfaces. The Mango
+      Blue is the *action* color, not the mark fill;
+      substituting any of the status colors (success, warning,
+      error) or the bright brand-red for the mark fill
+      misrepresents the brand's documented monochrome posture.
+
+  - type: colorChoice
+    target: roles.colors.primary
+    allowed:
+      - mango-blue
+      - mango-blue-hover
+      - mango-blue-deep
+      - blue-base
+    forbidden:
+      - mango-success
+      - mango-warning
+      - mango-error
+      - brand-red
+    severity: error
+    rationale: >
+      Unity's primary action color across the Mango design
+      system is the blue family — observed on the live "Get
+      Started", "Download Unity", and "Plans and pricing" CTAs
+      as the --color-mango-blue-500 fill. The status colors
+      (green, amber, red) are reserved for confirmation, alert,
+      and error states respectively; substituting any of them
+      for the primary inverts the documented action grammar.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+      - outlined
+      - distorted
+    severity: error
+    rationale: >
+      Unity's wordmark and cube mark are fixed-proportion
+      identities. The brand's published assets render only in
+      solid monochrome with documented clearspace; gradient-
+      filling, drop-shadowing, skewing, rotating, or placing
+      the mark on a busy photo conflicts with the brand's
+      developer-tooling restraint.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 7.0
+    standard: WCAG-AAA
+    severity: error
+    rationale: >
+      Mango Gray 900 (#242424) on Mango White (#FFFFFF) measures
+      ~16:1 — clears WCAG AAA decisively. Unity's marketing
+      surfaces carry long-form technical documentation, code
+      snippets, and dense feature comparison tables; the AAA
+      contrast floor matches the long-read posture.
+
+  - type: contextRestriction
+    target: roles.colors.primary
+    allowedContexts:
+      - primary-cta
+      - inline-link
+      - focus-ring
+      - active-state
+    forbiddenContexts:
+      - background
+      - large-surface
+      - hero-headline
+    severity: warning
+    rationale: >
+      Mango Blue is a focal action accent — observed only on
+      CTA fills, focus rings, and inline links on the live
+      marketing site. Unity's hero headlines, large surfaces,
+      and page backgrounds are monochrome (paper canvas with
+      black navigation); a blue hero background or blue
+      headline treatment would read as a sub-product page
+      (e.g., Unity Cloud), not as the parent Unity identity.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["400", "500", "600", "700"]
+    severity: warning
+    rationale: >
+      Unity's live marketing CSS declares Inter at Light (300),
+      Regular (400), Medium (500), SemiBold (600), and Bold
+      (700) via --font-weight-light, --font-weight-normal,
+      --font-weight-medium, --font-weight-semibold, and --font-
+      weight-bold. Heading roles use 400–700; Light (300) is
+      reserved for body / legal text. The Thin (100)
+      --font-weight-thin token exists but is not exercised by
+      the live chrome.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - mango-white
+      - mango-gray-50
+      - mango-black
+      - mango-gray-950
+    doesNotPairWith:
+      - brand-red
+      - mango-warning
+      - mango-success
+    severity: recommendation
+    rationale: >
+      Mango Blue reads cleanest against the white / lightest-
+      gray canvases or the inverted black chrome. Placing it
+      directly adjacent to the status colors (success green,
+      warning amber, brand red) introduces chromatic conflict
+      — the live site keeps these channels structurally
+      separated with neutral surfaces.
+
+  - type: fontPairing
+    target: typography.display
+    requires: prose
+    minSizeRatio: 1.5
+    severity: recommendation
+    rationale: >
+      Unity's live marketing chrome pairs the proprietary
+      Platform display face (--font-platform) with Inter for
+      body. When Platform is unavailable, Inter Bold (700)
+      carries the display role at a 1.5× minimum size ratio
+      over Inter Regular (400) prose to preserve hierarchy
+      from a single family.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AAA
+    criterion: "1.4.6"
+    severity: warning
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.6 (Contrast Enhanced) —
+      Level AAA. Unity's marketing surfaces carry long-form
+      technical documentation and the Unity Editor's product
+      surfaces specifically (which run for hours of focused
+      work) benefit from the AAA contrast band rather than the
+      AA floor.

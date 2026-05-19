@@ -1,0 +1,177 @@
+kind: palette
+id: epic-games
+version: 1.0.0
+name: Epic Games
+description: >
+  Epic Games' brand palette as captured from the live Epic Games
+  Store stylesheet on store.epicgames.com. The store identity is
+  the most reductive in the modern gaming-storefront cohort: a
+  near-black "Ink" canvas (#101014), white-on-black type, and a
+  white primary CTA that inverts to a black-on-white fill. There
+  is no chromatic primary in the storefront chrome — promotional
+  artwork carries color, while the structural identity reads as
+  monochrome.
+
+  The neutral ramp scales from a true #FFFFFF white through a
+  near-white pale, a mid-fog gray for tertiary text, a deep
+  graphite for secondary buttons (#404044), and a deep ink for
+  the canvas itself. Inter is the declared sans family.
+
+tags: [epic-games, gaming, store, dark-first, monochrome, minimal]
+
+provenance:
+  source: https://store.epicgames.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Epic Games, Inc. — palette values captured from the deployed
+    stylesheet on store.epicgames.com (html background, Inter
+    font-family declaration, secondary-button fills observed in
+    the page chrome). Epic Games, the Epic Games logo, the Epic
+    Games Store logo, and associated marks are trademarks of
+    Epic Games, Inc.
+  importedDate: 2026-05-19
+  notes: >
+    Derived from live site CSS at https://store.epicgames.com/ on
+    2026-05-19; no public Epic Games brand-guidelines page with
+    hex specifications is available. The storefront declares
+    --swiper-theme-color (#007AFF, third-party Swiper library
+    default, not used as a brand color) and otherwise leans on
+    in-line styles rather than design-system custom properties.
+    The values captured here come from the live computed-style
+    output of the html element, primary CTA buttons, and the
+    secondary button family.
+
+swatches:
+  # ─── Ink (dark canvas) ──────────────────────────────────────────
+  - id: ink
+    name: Ink
+    value: "#101014"
+    description: >
+      Page canvas — the Epic Games Store's primary dark
+      background. Captured from the html background-color on
+      store.epicgames.com.
+  - id: ink-deep
+    name: Ink Deep
+    value: "#000000"
+    description: >
+      Pure black for hero artwork grounds and modal scrims.
+  - id: graphite
+    name: Graphite
+    value: "#202024"
+    description: >
+      Elevated surface on the Ink canvas — card backgrounds and
+      header chrome.
+  - id: graphite-mid
+    name: Graphite Mid
+    value: "#2A2A2E"
+    description: >
+      Mid graphite — secondary card surfaces and quiet panel
+      backgrounds.
+  - id: graphite-light
+    name: Graphite Light
+    value: "#404044"
+    description: >
+      Secondary button surface — observed as the default fill on
+      the page chrome's secondary buttons.
+
+  # ─── Fog (neutral text scale) ───────────────────────────────────
+  - id: fog-dark
+    name: Fog Dark
+    value: "#5A5A5E"
+    description: >
+      Tertiary text on dark canvas; quiet icon fills.
+  - id: fog
+    name: Fog
+    value: "#A6A6A6"
+    description: >
+      Secondary text on dark canvas; observed as rgba(255,255,255,
+      0.65) on disabled link affordances.
+  - id: fog-light
+    name: Fog Light
+    value: "#D0D0D0"
+    description: >
+      Quiet body-on-dark text and pale icon fills.
+
+  # ─── Snow (light surfaces) ──────────────────────────────────────
+  - id: snow
+    name: Snow
+    value: "#FFFFFF"
+    description: >
+      Pure white — the Epic Games Store's primary CTA fill (white
+      surface with Ink text). Also the brand mark's positive fill.
+  - id: snow-mid
+    name: Snow Mid
+    value: "#F5F5F5"
+    description: >
+      Pale surface — alternate card background and quiet
+      promotional treatments.
+
+  # ─── Action (interactive accents observed on the store) ─────────
+  - id: action-blue
+    name: Action Blue
+    value: "#0078F2"
+    description: >
+      Inline link accent observed on the marketing-site link
+      surfaces. Not the primary CTA — Epic's primary action is a
+      white surface with ink text — but the established hue for
+      inline links and focus rings.
+  - id: hot-pink
+    name: Hot Pink
+    value: "#FF1F8A"
+    description: >
+      Promotional / discount sticker accent observed on hero
+      banners and sale stickers across the storefront.
+  - id: signal-green
+    name: Signal Green
+    value: "#26BBA4"
+    description: >
+      Free-claim / "now free" sticker accent observed on the
+      weekly free-game banners.
+  - id: alert-red
+    name: Alert Red
+    value: "#D8453A"
+    description: >
+      Destructive-action / error red used for "remove from
+      wishlist" and refund-related affordances.
+
+modes:
+  light:
+    roles:
+      # Epic Games Store has no canonical light mode — the
+      # storefront is dark-only. These mappings exist so that
+      # partner-portal and marketing-export consumers rendering
+      # in light contexts retain the monochrome posture: ink type
+      # on snow surfaces with the same accent grammar.
+      background: snow
+      surface: snow-mid
+      surface-elevated: snow
+      text-primary: ink
+      text-secondary: fog-dark
+      text-tertiary: fog
+      primary: ink
+      primary-hover: graphite-light
+      accent: action-blue
+      accent-hover: action-blue
+      warning: hot-pink
+      warning-hover: hot-pink
+      error: alert-red
+      success: signal-green
+      border: fog-light
+
+  dark:
+    roles:
+      background: ink
+      surface: graphite
+      surface-elevated: graphite-mid
+      text-primary: snow
+      text-secondary: fog-light
+      text-tertiary: fog
+      primary: snow
+      primary-hover: fog-light
+      accent: action-blue
+      accent-hover: action-blue
+      warning: hot-pink
+      warning-hover: hot-pink
+      error: alert-red
+      success: signal-green
+      border: graphite-light

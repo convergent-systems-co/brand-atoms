@@ -1,0 +1,229 @@
+kind: palette
+id: unity
+version: 1.0.0
+name: Unity
+description: >
+  Unity's brand palette as captured from the live unity.com
+  "Mango" design-system tokens (--color-mango-*, --color-gray-*,
+  --color-blue, --color-blue-dark, --color-blue-light token
+  families). The brand is light-first with a black header
+  treatment: a paper canvas (#FFFFFF) carries the primary
+  marketing surface, the page header inverts to a pure-black
+  (#000000) navigation bar, and a calibrated "Mango Blue"
+  (#3358D4) is the primary CTA fill across the deployed CSS.
+  A neutral grayscale ramp from pure white through Mango Gray
+  950 (#1D1D1D) supports text, borders, and surface chrome.
+
+  Typography is Inter for sans body, with the proprietary
+  Platform / Nohemi families declared for display use.
+
+tags: [unity, gaming, engine, real-time-3d, light-first, blue]
+
+provenance:
+  source: https://unity.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Unity Technologies — palette values captured from the
+    deployed "Mango" design-system tokens on unity.com (--color-
+    mango-*, --color-gray-*, --color-blue, --background-image-
+    primary-btn-hover, --font-platform, --font-inter, --font-
+    nohemi CSS custom-property families). Unity, the Unity
+    logo, the Unity cube mark, and associated marks are
+    trademarks of Unity Technologies.
+  importedDate: 2026-05-19
+  notes: >
+    Derived from live site CSS at https://unity.com/ on
+    2026-05-19. The Unity brand page (https://unity.com/brand)
+    returned a 403 to programmatic clients on this fetch — so
+    this atom captures only the live homepage CSS, not the
+    brand-portal hex specifications. The primary typeface is
+    Inter (--font-inter, open-source); the display typeface is
+    Platform (--font-platform, proprietary) with Nohemi
+    (--font-nohemi, proprietary) as a secondary display face.
+    This atom references inter@1 for both display and prose;
+    consumers who license Platform / Nohemi can override the
+    references in derived atoms.
+
+swatches:
+  # ─── Mango Blue (primary brand) ─────────────────────────────────
+  - id: mango-blue
+    name: Mango Blue
+    value: "#3358D4"
+    description: >
+      Primary brand action — --color-mango-blue-500. The Unity
+      Download / Get Started CTA fill on the live marketing
+      site.
+  - id: mango-blue-hover
+    name: Mango Blue Hover
+    value: "#2B4FCA"
+    description: >
+      Hover variant — --color-mango-blue-600.
+  - id: mango-blue-deep
+    name: Mango Blue Deep
+    value: "#2746A7"
+    description: >
+      Deep / pressed variant — --color-mango-blue-700.
+  - id: mango-blue-light
+    name: Mango Blue Light
+    value: "#5779E8"
+    description: >
+      Light variant — --color-mango-blue-400.
+  - id: mango-blue-focus
+    name: Mango Blue Focus
+    value: "#238CEC"
+    description: >
+      Focus-ring blue — --color-mango-blue-focus.
+  - id: blue-dark
+    name: Blue Dark
+    value: "#0A5CF5"
+    description: >
+      Documented marketing-link blue — --color-blue-dark and
+      --color-sky-700.
+  - id: blue-base
+    name: Blue Base
+    value: "#3A5BC7"
+    description: >
+      Documented brand blue — --color-blue. Used as the primary-
+      btn-hover gradient stop.
+  - id: blue-light
+    name: Blue Light
+    value: "#9EB1FF"
+    description: >
+      Pale brand blue — --color-blue-light.
+
+  # ─── Mango Gray (neutral ramp) ──────────────────────────────────
+  - id: mango-black
+    name: Mango Black
+    value: "#000000"
+    description: >
+      Pure black — --color-mango-black. The Unity page header /
+      navigation chrome.
+  - id: mango-gray-950
+    name: Mango Gray 950
+    value: "#1D1D1D"
+    description: >
+      Deepest neutral — --color-mango-gray-950.
+  - id: mango-gray-900
+    name: Mango Gray 900
+    value: "#242424"
+    description: >
+      High-emphasis text on light — --color-mango-gray-900 and
+      --color-gray-800.
+  - id: mango-gray-800
+    name: Mango Gray 800
+    value: "#262626"
+    description: >
+      Secondary deep neutral — --color-mango-gray-800.
+  - id: mango-gray-700
+    name: Mango Gray 700
+    value: "#424242"
+    description: >
+      Body text on light surface — --color-mango-gray-700.
+  - id: mango-gray-600
+    name: Mango Gray 600
+    value: "#585858"
+    description: >
+      Secondary text — --color-mango-gray-600.
+  - id: mango-gray-500
+    name: Mango Gray 500
+    value: "#727272"
+    description: >
+      Tertiary text — --color-mango-gray-500.
+  - id: mango-gray-400
+    name: Mango Gray 400
+    value: "#A6A6A6"
+    description: >
+      Pale neutral text — --color-mango-gray-400.
+  - id: mango-gray-300
+    name: Mango Gray 300
+    value: "#CCCCCC"
+    description: >
+      Border / divider — --color-mango-gray-300 and --color-
+      gray-300.
+  - id: mango-gray-200
+    name: Mango Gray 200
+    value: "#E6E6E6"
+    description: >
+      Quiet divider — --color-mango-gray-200.
+  - id: mango-gray-100
+    name: Mango Gray 100
+    value: "#F0F0F0"
+    description: >
+      Pale surface — --color-mango-gray-100.
+  - id: mango-gray-50
+    name: Mango Gray 50
+    value: "#F5F5F5"
+    description: >
+      Lightest neutral surface — --color-mango-gray-50.
+  - id: mango-white
+    name: Mango White
+    value: "#FFFFFF"
+    description: >
+      Primary canvas — --color-mango-white.
+
+  # ─── Status colors ──────────────────────────────────────────────
+  - id: mango-success
+    name: Mango Success
+    value: "#16A34A"
+    description: >
+      Success green — --color-mango-success and --color-green-
+      dark.
+  - id: mango-warning
+    name: Mango Warning
+    value: "#D97706"
+    description: >
+      Warning amber — --color-mango-warning.
+  - id: mango-error
+    name: Mango Error
+    value: "#DC2626"
+    description: >
+      Error red — --color-mango-error.
+  - id: mango-info
+    name: Mango Info
+    value: "#3358D4"
+    description: >
+      Informational blue — --color-mango-info (alias of mango-
+      blue-500).
+  - id: brand-red
+    name: Brand Red
+    value: "#FF5449"
+    description: >
+      Bright marketing red — --color-red. Used for promotional
+      accents and end-of-line announcements.
+
+modes:
+  light:
+    roles:
+      background: mango-white
+      surface: mango-gray-50
+      surface-elevated: mango-white
+      text-primary: mango-gray-900
+      text-secondary: mango-gray-700
+      text-tertiary: mango-gray-500
+      primary: mango-blue
+      primary-hover: mango-blue-hover
+      accent: blue-base
+      accent-hover: blue-dark
+      warning: mango-warning
+      warning-hover: mango-error
+      error: mango-error
+      success: mango-success
+      border: mango-gray-300
+
+  dark:
+    roles:
+      background: mango-black
+      surface: mango-gray-950
+      surface-elevated: mango-gray-900
+      text-primary: mango-white
+      text-secondary: mango-gray-300
+      text-tertiary: mango-gray-400
+      primary: mango-blue
+      primary-hover: mango-blue-light
+      accent: blue-light
+      accent-hover: mango-blue-focus
+      warning: mango-warning
+      warning-hover: mango-error
+      error: mango-error
+      success: mango-success
+      border: mango-gray-700

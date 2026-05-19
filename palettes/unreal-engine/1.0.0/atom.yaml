@@ -1,0 +1,255 @@
+kind: palette
+id: unreal-engine
+version: 1.0.0
+name: Unreal Engine
+description: >
+  Unreal Engine's brand palette as captured from the live
+  unrealengine.com Epic Design System ("EDS") tokens — including
+  the --color-eds.palette.blue.* family (the signature Unreal
+  blue ramp), the --color-eds.fill.primary.* family (default
+  brand action), the --color-background-default ink canvas, and
+  the --color-fill-critical.* and --color-fill-success.* status
+  channels. The brand is dark-first by construction: a deep ink
+  canvas (#101014) carries the chrome, with the signature
+  Unreal Blue (#26BBFF) as the primary action color across the
+  design system.
+
+  The blue ramp is fully calibrated for both light and dark
+  contexts — #0A2633 deep through #D6F2FF pale — and the brand
+  reads as engineering-precise and cinematic.
+
+tags: [unreal-engine, epic-games, gaming, engine, real-time-3d, dark-first, blue]
+
+provenance:
+  source: https://www.unrealengine.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Epic Games, Inc. — palette values captured from the deployed
+    Epic Design System ("EDS") tokens on unrealengine.com
+    (--colors-eds.palette.*, --color-fill-*, --color-background-*,
+    --color-text-*, --color-palette-* CSS custom-property families
+    plus the gradient-component stops --gradients-eds.gradient.*).
+    Unreal, Unreal Engine, the Unreal Engine logo, and associated
+    marks are trademarks of Epic Games, Inc.
+  importedDate: 2026-05-19
+  notes: >
+    Derived from live site CSS at https://www.unrealengine.com/
+    on 2026-05-19. The Unreal Engine brand documentation
+    (https://www.unrealengine.com/en-US/branding) is the
+    canonical Epic Games / Unreal Engine identity reference; the
+    captured live-site tokens align with the Epic Design System
+    that underpins the brand-asset center. The primary typeface
+    is Inter (--font-family-base / --fonts-eds.family.base =
+    "Inter, sans-serif"); the display typeface is Inter Tight
+    (--font-family-display / --fonts-eds.family.display); the
+    monospace family is Recursive Mono (--font-family-code /
+    --fonts-eds.family.code). All three are open-source and
+    available in this catalog as inter@1, inter-tight@1, and
+    (Recursive Mono not yet catalogued, substituted with
+    jetbrainsmono-nerdfont@1 in the brand atom).
+
+swatches:
+  # ─── Unreal Blue (primary brand) ────────────────────────────────
+  - id: unreal-blue
+    name: Unreal Blue
+    value: "#26BBFF"
+    description: >
+      Primary brand action — --color-eds.fill.primary.default,
+      --color-eds.icon.select.default, --color-text-select-
+      default, --color-fill-primary-press. The most identifiable
+      Unreal Engine accent.
+  - id: unreal-blue-hover
+    name: Unreal Blue Hover
+    value: "#72D3FF"
+    description: >
+      Hover variant — --color-eds.fill.primary.hover and
+      --color-fill-primary-hover.
+  - id: unreal-blue-400
+    name: Unreal Blue 400
+    value: "#33BFFF"
+    description: >
+      Mid-bright blue — --color-eds.palette.blue.400 (alias of
+      --color-palette-blue-400).
+  - id: unreal-blue-500
+    name: Unreal Blue 500
+    value: "#69D0FF"
+    description: >
+      Bright blue — --color-eds.palette.blue.500.
+  - id: unreal-blue-600
+    name: Unreal Blue 600
+    value: "#A0E1FF"
+    description: >
+      Pale blue — --color-eds.palette.blue.600. Gradient
+      start-stop in the green-gradient (#A0E1FF → #5FE367).
+  - id: unreal-blue-700
+    name: Unreal Blue 700
+    value: "#D6F2FF"
+    description: >
+      Lightest blue — --color-eds.palette.blue.700. Quiet
+      branded surface tint.
+  - id: unreal-blue-300
+    name: Unreal Blue 300
+    value: "#258CBB"
+    description: >
+      Mid-deep blue — --color-eds.palette.blue.300.
+  - id: unreal-blue-200
+    name: Unreal Blue 200
+    value: "#185977"
+    description: >
+      Deep blue — --color-eds.palette.blue.200.
+  - id: unreal-blue-100
+    name: Unreal Blue 100
+    value: "#0A2633"
+    description: >
+      Deepest blue surface — --color-eds.palette.blue.100.
+
+  # ─── Ink (dark canvas) ──────────────────────────────────────────
+  - id: ink
+    name: Ink
+    value: "#101014"
+    description: >
+      Primary dark canvas — --color-background-default and
+      --color-neutral-100. The Unreal Engine page-background
+      default.
+  - id: ink-elevated
+    name: Ink Elevated
+    value: "#202024"
+    description: >
+      Elevated dark surface — --colors-eds.background.elevated.
+      high.default. Card and panel backgrounds.
+  - id: ink-elevated-hover
+    name: Ink Elevated Hover
+    value: "#505054"
+    description: >
+      Tertiary elevated hover — --colors-eds.fill.tertiary.
+      elevated.hover.
+  - id: ink-divider
+    name: Ink Divider
+    value: "#303034"
+    description: >
+      Quiet divider on dark — --color-fill-secondary-disabled
+      and --colors-eds.fill.secondary.disabled.
+  - id: ink-deep
+    name: Ink Deep
+    value: "#000000"
+    description: >
+      Pure black — --colors-eds.text.on-accent and --colors-
+      eds.text.link.on-accent.default. Text fill on bright
+      blue and white surfaces.
+
+  # ─── Snow (text and light fills) ────────────────────────────────
+  - id: snow
+    name: Snow
+    value: "#FFFFFF"
+    description: >
+      Pure white — --color-text-primary, --color-icon-primary,
+      --colors-eds.icon.contrast. Primary body text on dark
+      canvas.
+  - id: snow-soft
+    name: Snow Soft
+    value: "#808084"
+    description: >
+      Mid neutral — --colors-eds.palette.grayscale.gray100.
+      Secondary text on dark surface.
+
+  # ─── Critical (error red) ───────────────────────────────────────
+  - id: critical-default
+    name: Critical Default
+    value: "#FF3F56"
+    description: >
+      Error / destructive default — --color-fill-critical-
+      default and --colors-eds.fill.critical.default.
+  - id: critical-alternate
+    name: Critical Alternate
+    value: "#FF6173"
+    description: >
+      Critical alternate — --color-fill-critical-alternate.
+      Used as the warning text color on critical alerts.
+  - id: critical-text
+    name: Critical Text
+    value: "#FF6173"
+    description: >
+      Critical text color — --colors-eds.text.critical.
+
+  # ─── Success (green) ────────────────────────────────────────────
+  - id: success-default
+    name: Success Default
+    value: "#8AEA90"
+    description: >
+      Success green — --colors-eds.palette.green.500.
+  - id: success-alternate
+    name: Success Alternate
+    value: "#71D687"
+    description: >
+      Success alternate — --color-fill-success-alternate.
+
+  # ─── Warning (amber/yellow) ─────────────────────────────────────
+  - id: warning-default
+    name: Warning Default
+    value: "#FFC229"
+    description: >
+      Warning icon color — --color-icon-warning and --color-
+      palette-accent-yellow200.
+  - id: warning-yellow-400
+    name: Warning Yellow 400
+    value: "#F7D82B"
+    description: >
+      Bright warning yellow — --colors-eds.palette.yellow.400.
+
+  # ─── Documented gradient end-stops ──────────────────────────────
+  - id: gradient-green
+    name: Gradient Green
+    value: "#5FE367"
+    description: >
+      Green gradient end-stop — --gradient-components-green-
+      stops-100. Paired with --gradient-components-blue-stops-
+      100 (#33BFFF or unreal-blue-600 #A0E1FF) on the
+      documented EDS gradients.
+  - id: gradient-orange
+    name: Gradient Orange
+    value: "#FE8539"
+    description: >
+      Orange gradient end-stop — --color-palette-orange-400.
+      Paired with yellow on the documented EDS orange gradient.
+
+modes:
+  light:
+    roles:
+      # Unreal Engine ships no first-class light mode on the
+      # consumer marketing site, but a light-context rendering
+      # is preserved for documentation and partner-portal
+      # contexts. The light canvas inverts the dark mode while
+      # preserving the brand-blue posture.
+      background: snow
+      surface: unreal-blue-700
+      surface-elevated: snow
+      text-primary: ink
+      text-secondary: ink-elevated-hover
+      text-tertiary: snow-soft
+      primary: unreal-blue-200
+      primary-hover: unreal-blue-300
+      accent: unreal-blue-300
+      accent-hover: unreal-blue-200
+      warning: warning-default
+      warning-hover: gradient-orange
+      error: critical-default
+      success: success-alternate
+      border: ink-divider
+
+  dark:
+    roles:
+      background: ink
+      surface: ink-elevated
+      surface-elevated: ink-elevated-hover
+      text-primary: snow
+      text-secondary: snow-soft
+      text-tertiary: ink-elevated-hover
+      primary: unreal-blue
+      primary-hover: unreal-blue-hover
+      accent: unreal-blue-hover
+      accent-hover: unreal-blue-500
+      warning: warning-default
+      warning-hover: gradient-orange
+      error: critical-default
+      success: success-default
+      border: ink-divider

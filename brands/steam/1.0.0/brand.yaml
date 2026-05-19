@@ -1,0 +1,241 @@
+id: steam
+version: 1.0.0
+name: Steam
+description: >
+  Steam is Valve Corporation's PC games storefront, library client,
+  and social platform — the dominant distribution channel for
+  desktop games and the platform behind Steam Workshop, Steam
+  Community, and Steamworks for developers. The brand voice is
+  utility-engineering: dense product chrome, dark navy storefront,
+  green CTA buttons that mean "Install / Buy / Play," and a chalky
+  light-blue accent that has been Steam's identifying tone since
+  the early-2010s storefront redesigns. Visually, Steam is dark-
+  first by construction — the deep "Storefront Darker" (#1B2838)
+  canvas with a "Storefront Dark" (#2A475E) gradient start carries
+  the entire product surface, with the chalky-blue (#66C0F4) and
+  green-CTA (#5BA32B → #A4D007) families as the dominant accents.
+  Typography is the proprietary Motiva Sans family.
+
+tags: [steam, valve, gaming, store, pc-games, dark-first, blue-green]
+
+provenance:
+  source: https://store.steampowered.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Valve Corporation — visual identity captured from the deployed
+    stylesheet on store.steampowered.com (--gpColor-*, --gpStore-*,
+    --gpText-*, --font-family CSS custom-property families).
+    Steam, the Steam logo, Valve, and associated marks are
+    trademarks of Valve Corporation in the U.S. and/or other
+    countries.
+  importedDate: 2026-05-19
+  notes: >
+    Derived from live site CSS at https://store.steampowered.com/
+    on 2026-05-19; Valve's public Steam Brand Guide
+    (partner.steamgames.com/doc/marketing/branding) governs logo
+    usage and legal attribution but does not publish hex color
+    specifications. The Steam display typeface is Motiva Sans
+    (declared on the store via --font-family and --gpText-* token
+    families), proprietary and not publicly distributed; this
+    atom references Inter@1 as the open-source rendering
+    substitute. assets: [] per the encyclopedia's trademark-
+    redistribution policy.
+
+references:
+  palette: steam@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # Steam's identity is the dark storefront canvas — chalky blue
+    # and green CTAs read against the deep navy. Naming `identity`
+    # to the dark storefront and `on-identity` to the chalky blue
+    # mirrors the brand's canonical hero pairing: a chalky-blue
+    # headline on the storefront-darker ground.
+    identity: storefront-darker
+    on-identity: chalky-blue
+
+    primary: steam-green
+    primary-hover: steam-green-hi
+    accent: chalky-blue
+    accent-hover: steam-blue-hi
+    mark: chalky-blue
+    success: steam-green
+    warning: steam-yellow
+    error: steam-red
+    text-primary-light: storefront-darker
+    text-primary-dark: storefront-lightest
+    background-light: storefront-lightest
+    background-dark: storefront-darker
+    surface-light: storefront-lighter
+    surface-dark: storefront-dark
+    text-secondary-light: storefront-dark
+    text-tertiary-light: storefront-mid
+    border-light: storefront-light
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: roles.colors.primary
+    allowed:
+      - steam-green
+      - steam-green-hi
+      - steam-green-lime
+    forbidden:
+      - chalky-blue
+      - steam-blue
+      - steam-blue-hi
+      - steam-red
+      - steam-orange
+      - steam-yellow
+    severity: error
+    rationale: >
+      The Steam "Install / Buy / Play" CTA family is built on
+      --gpColor-Green (#5BA32B) with the --gpColor-GreenHi
+      (#59BF40) and lime --color-green-9 (#A4D007) gradient stops
+      on top. Substituting blue, red, orange, or yellow for the
+      primary action conflicts with a decade of muscle memory on
+      the Steam Store — those colors signal "secondary link,"
+      "destructive," "promotional sticker," and "featured tag"
+      respectively, not the brand's primary action.
+
+  - type: colorChoice
+    target: roles.colors.accent
+    allowed:
+      - chalky-blue
+      - steam-blue
+      - steam-blue-hi
+      - light-blue
+    forbidden:
+      - steam-green
+      - steam-red
+      - steam-orange
+    severity: error
+    rationale: >
+      Chalky Blue (#66C0F4) is Steam's most recognizable
+      identifying hue — it carries headlines, hero type, and
+      brand-badge surfaces. The interactive blues (#1A9FFF /
+      #00BBFF) carry inline links and focus rings. Reusing the
+      green CTA or red destructive hues as the accent eliminates
+      the structural color separation between "informational
+      accent" and "primary action" that the storefront depends on.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Storefront Lightest (#CCD8E3) on Storefront Darker
+      (#1B2838) measures ~10:1 — clears WCAG AA comfortably and
+      sits inside the AAA band for body text. Steam's dense
+      product chrome (long descriptions, system-requirement
+      tables, review snippets) earns a higher contrast floor than
+      the AA minimum.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+      - outlined
+    severity: error
+    rationale: >
+      Per Valve's published partner branding requirements, the
+      Steam logo must be used from approved Valve artwork only
+      and "must stand alone" — it may not be combined with other
+      logos, words, graphics, photos, slogans, numbers, design
+      features, or symbols. Recoloring, stretching, rotating, or
+      drop-shadowing the mark violates the explicit Valve
+      partner guidelines.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["400", "500", "700"]
+    severity: warning
+    rationale: >
+      Steam's storefront declares Motiva Sans at Regular (400),
+      Medium (500), and Bold (700) — captured as --font-weight-
+      regular, --font-weight-medium, and --font-weight-heavy on
+      the live stylesheet. The lighter and heavier cuts (300,
+      600, 800, 900) are not licensed in the storefront's
+      variable-font set.
+
+  - type: contextRestriction
+    target: roles.colors.accent
+    allowedContexts:
+      - hero-headline
+      - brand-badge
+      - inline-link
+      - focus-ring
+    forbiddenContexts:
+      - error-state
+      - destructive-action
+      - primary-cta
+    severity: error
+    rationale: >
+      Chalky Blue carries identification and informational
+      surfaces; it must not stand in for the green primary CTA
+      or the red destructive action. The storefront's three-color
+      action grammar (green = go, red = destroy, blue = inform)
+      collapses if the accent migrates onto the primary CTA.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - storefront-darker
+      - storefront-dark
+      - storefront-darkest
+      - storefront-lightest
+    doesNotPairWith:
+      - steam-red
+      - steam-orange
+      - steam-yellow
+    severity: recommendation
+    rationale: >
+      Steam Green reads cleanest against the storefront-darker
+      navy or the lightest pale-slate. Pairing it adjacent to
+      the warm warning / error / promotional family (yellow,
+      orange, red) introduces a chromatic conflict that fights
+      for attention — the store deliberately uses these warm
+      hues as discount-sticker overlays on top of cards, not
+      adjacent to the green CTA.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level
+      AA. Steam's dense storefront chrome (multi-paragraph game
+      descriptions, system-requirement tables, review excerpts)
+      must meet the AA body-text floor across the dark-mode
+      surfaces; the Storefront Lightest on Storefront Darker
+      pairing clears it comfortably.
+
+  - type: fontPairing
+    target: typography.display
+    requires: prose
+    minSizeRatio: 1.4
+    severity: recommendation
+    rationale: >
+      Steam's storefront uses Motiva Sans for both display and
+      body, distinguished by weight and size rather than two
+      distinct families. Maintain at least a 1.4× ratio between
+      display (gpText-HeadingLarge / Medium / Small) and prose
+      (gpText-BodyLarge / Medium / Small) to preserve hierarchy
+      when one family carries both roles.

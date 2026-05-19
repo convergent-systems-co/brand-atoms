@@ -1,0 +1,254 @@
+id: unreal-engine
+version: 1.0.0
+name: Unreal Engine
+description: >
+  Unreal Engine is Epic Games' real-time 3D creation platform — the
+  engine behind Fortnite, the Unreal Tournament series, a large
+  share of AAA console / PC games, and a growing footprint in
+  film virtual-production (the volume / LED-wall pipeline behind
+  The Mandalorian and its successors), architectural visualization,
+  and automotive simulation. The brand voice under the recent Epic
+  Design System ("EDS") rebrand is cinematic-engineering: hero
+  artwork on deep ink grounds, the signature Unreal Blue (#26BBFF)
+  carrying the primary action, and a calibrated nine-stop blue
+  ramp covering everything from deep-navy surface tints (#0A2633)
+  to bright link affordances (#A0E1FF). Visually, Unreal Engine is
+  dark-first by construction — the deep ink canvas (#101014) is
+  the dominant background, and the brand reads at its strongest in
+  hero key-art presentations.
+
+  Unreal Engine is a brand under the Epic Games umbrella (parent
+  catalogued as epic-games@1) but stands on its own atom because
+  the EDS blue identity is functionally distinct from the
+  reductive monochrome Epic Games Store chrome.
+
+tags: [unreal-engine, epic-games, gaming, engine, real-time-3d, dark-first, blue]
+
+provenance:
+  source: https://www.unrealengine.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Epic Games, Inc. — visual identity captured from the
+    deployed Epic Design System ("EDS") tokens on
+    unrealengine.com (--color-eds.palette.blue.*, --color-fill-
+    primary.*, --color-background-default, --color-fill-
+    critical.*, --color-fill-success.*, --font-family-base,
+    --font-family-display, --font-family-code CSS custom-property
+    families). Unreal, Unreal Engine, the Unreal Engine logo,
+    and associated marks are trademarks of Epic Games, Inc.
+  importedDate: 2026-05-19
+  notes: >
+    Derived from live site CSS at https://www.unrealengine.com/
+    on 2026-05-19. The Epic Design System ("EDS") underpins the
+    deployed brand assets; the captured tokens align with the
+    branding center at https://www.unrealengine.com/en-US/
+    branding which is the canonical Unreal Engine identity
+    reference. The primary typeface is Inter (--fonts-
+    eds.family.base / --font-family-base = "Inter, sans-serif",
+    open-source); the display typeface is Inter Tight (--fonts-
+    eds.family.display / --font-family-display, open-source);
+    the monospace family is Recursive Mono (--fonts-eds.family.
+    code, open-source via Google Fonts). This atom references
+    inter@1 / inter-tight@1 / jetbrainsmono-nerdfont@1; consumers
+    who require Recursive Mono should override the mono
+    reference in derived atoms. assets: [] per the encyclopedia's
+    trademark-redistribution policy.
+
+references:
+  palette: unreal-engine@1
+  fonts:
+    heading: inter-tight@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # Unreal Engine is dark-first by construction. The brand
+    # block uses the ink canvas with the Unreal Blue as the
+    # on-identity action color — the canonical hero pairing
+    # observed across every product launch and the editor splash.
+    identity: ink
+    on-identity: unreal-blue
+
+    primary: unreal-blue
+    primary-hover: unreal-blue-hover
+    accent: unreal-blue-hover
+    accent-hover: unreal-blue-500
+    mark: snow
+    success: success-default
+    warning: warning-default
+    error: critical-default
+    text-primary-light: ink
+    text-primary-dark: snow
+    background-light: snow
+    background-dark: ink
+    surface-light: unreal-blue-700
+    surface-dark: ink-elevated
+    text-secondary-light: ink-elevated-hover
+    text-tertiary-light: snow-soft
+    border-light: ink-divider
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: roles.colors.primary
+    allowed:
+      - unreal-blue
+      - unreal-blue-hover
+      - unreal-blue-400
+      - unreal-blue-500
+    forbidden:
+      - critical-default
+      - warning-default
+      - success-default
+      - gradient-orange
+      - gradient-green
+    severity: error
+    rationale: >
+      The Unreal Blue family (#26BBFF default / #72D3FF hover)
+      carries the primary action across the Epic Design System
+      — declared as --color-fill-primary-default and --color-
+      fill-primary-hover. The status colors (red critical,
+      amber warning, green success) are reserved for their
+      semantic roles, and the gradient end-stops are content
+      affordances inside EDS gradient surfaces, not primary
+      actions. Substituting any of them for the brand primary
+      inverts the documented EDS action grammar.
+
+  - type: colorChoice
+    target: roles.colors.mark
+    allowed:
+      - snow
+      - ink
+      - unreal-blue
+    forbidden:
+      - critical-default
+      - warning-default
+      - success-default
+      - gradient-orange
+      - gradient-green
+    severity: error
+    rationale: >
+      The Unreal Engine wordmark renders in pure white on dark
+      surfaces, in pure black on light surfaces, and in the
+      Unreal Blue (#26BBFF) for documented brand-color
+      treatments on hero key-art. The status colors and
+      gradient end-stops are not mark fills; substituting any
+      of them for the wordmark fill misrepresents the brand.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+      - outlined
+      - distorted
+    severity: error
+    rationale: >
+      Unreal Engine's wordmark is a fixed-proportion identity
+      governed by the Epic Games / Unreal Engine branding
+      center. Recoloring (outside the documented Unreal Blue
+      treatment), skewing, rotating, drop-shadowing, or placing
+      the mark on a busy photo without documented clearspace
+      conflicts with the Epic Games branding guidelines.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 7.0
+    standard: WCAG-AAA
+    severity: error
+    rationale: >
+      Snow (#FFFFFF) on Ink (#101014) measures ~19:1 — clears
+      AAA decisively. Unreal Engine's marketing surfaces carry
+      long-form technical documentation (engine release notes,
+      Blueprint reference, C++ API docs) where the AAA contrast
+      band matches the long-read posture.
+
+  - type: contextRestriction
+    target: roles.colors.accent
+    allowedContexts:
+      - hero-headline
+      - active-state
+      - focus-ring
+      - inline-link
+      - selection
+    forbiddenContexts:
+      - error-state
+      - destructive-action
+      - warning
+    severity: error
+    rationale: >
+      The Unreal Blue family carries identification, inline
+      links, focus rings, and selection (--color-text-select-
+      default, --color-fill-primary-press). It must not appear
+      as the error / destructive / warning state — those
+      contexts use --color-fill-critical-default (#FF3F56) and
+      --color-icon-warning (#FFC229) respectively. Substituting
+      blue for any of those semantic roles collapses the EDS
+      status grammar.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["400", "500", "700", "900"]
+    severity: warning
+    rationale: >
+      Unreal Engine's EDS declares Regular (400), Medium (500),
+      Bold (700), and Black (900) cuts of Inter / Inter Tight —
+      captured as --fonts-eds.weight.regular, --fonts-eds.weight.
+      medium, --fonts-eds.weight.bold, and --fonts-eds.weight.
+      black. Lighter cuts (100–300) and SemiBold (600) are not
+      in the deployed type system.
+
+  - type: fontPairing
+    target: typography.display
+    requires: prose
+    minSizeRatio: 1.5
+    severity: recommendation
+    rationale: >
+      Unreal Engine pairs Inter Tight (display, --font-family-
+      display) with Inter Regular (prose, --font-family-base).
+      The compressed Inter Tight earns a 1.5× minimum size
+      ratio over the wider Inter body to preserve the
+      cinematic-engineering hierarchy the brand depends on.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - ink
+      - ink-elevated
+      - snow
+      - unreal-blue-100
+    doesNotPairWith:
+      - critical-default
+      - warning-default
+      - gradient-orange
+    severity: recommendation
+    rationale: >
+      Unreal Blue reads cleanest against the deep ink canvas or
+      the snow inverse. Placing it directly adjacent to the
+      critical red, warning amber, or gradient orange produces
+      chromatic conflict and collapses the semantic separation
+      between brand action and status signaling — the live EDS
+      surfaces keep these channels separated by neutral chrome.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AAA
+    criterion: "1.4.6"
+    severity: warning
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.6 (Contrast Enhanced) —
+      Level AAA. Unreal Engine's documentation surfaces and the
+      editor splash / loading screens specifically (which
+      developers spend long sessions reading) benefit from the
+      AAA contrast band rather than the AA floor.

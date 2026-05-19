@@ -1,0 +1,227 @@
+id: nintendo
+version: 1.0.0
+name: Nintendo
+description: >
+  Nintendo Co., Ltd. is the Kyoto-headquartered Japanese consumer
+  electronics and video-game company behind the Switch / Switch 2
+  consoles, the Mario, Zelda, Pokémon, Animal Crossing, and
+  Splatoon franchises, and the Nintendo eShop digital storefront.
+  The brand voice is family-friendly, playful, and quietly
+  proprietary — long-running IP custody combined with restrained
+  visual identity. Visually, Nintendo is light-first by
+  construction: a white page canvas with the iconic Nintendo Red
+  (#E60012) as the primary action color, a deep navy (#3946A0) as
+  the secondary, and a charcoal-on-paper neutral type ramp. The
+  documented description-tag accents (violet, green, blue, red,
+  charcoal) provide category badging without overwhelming the
+  restrained chrome.
+
+  Typography is the Geologica Variable family (open-source via
+  Google Fonts), declared on the live site as --theme-font-family.
+
+tags: [nintendo, gaming, red, light-first, japanese, family-friendly]
+
+provenance:
+  source: https://www.nintendo.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Nintendo Co., Ltd. / Nintendo of America Inc. — visual
+    identity captured from the deployed stylesheet on
+    nintendo.com (--theme-color-*, --theme-colors-button-*,
+    --theme-font-* design-token families declared under the
+    "Nintendo Light Theme"). Nintendo, the Nintendo logo, Switch,
+    Mario, Zelda, Pokémon, Animal Crossing, Splatoon, and
+    associated marks are trademarks of Nintendo Co., Ltd.
+  importedDate: 2026-05-19
+  notes: >
+    Derived from live site CSS at https://www.nintendo.com/ on
+    2026-05-19; Nintendo's published brand-guidelines documents
+    are partner-portal-only and not publicly accessible. The
+    captured tokens come from a deployed design-system theme
+    declared as "Nintendo Light Theme" (--theme-name, --theme-
+    status: approved). The display typeface is Geologica
+    Variable (open-source via Google Fonts) declared as
+    --theme-font-family — this atom references inter@1 as the
+    open-source rendering substitute because no `geologica`
+    atom exists in this catalog yet. assets: [] per the
+    encyclopedia's trademark-redistribution policy.
+
+references:
+  palette: nintendo@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # Nintendo's identity is the paper canvas with the red mark.
+    # `identity` names the white canvas; `on-identity` names the
+    # Nintendo Red mark fill — the canonical brand-badge pairing.
+    identity: paper
+    on-identity: nintendo-red
+
+    primary: nintendo-red
+    primary-hover: nintendo-red-hover
+    accent: nintendo-navy
+    accent-hover: nintendo-navy-hover
+    mark: nintendo-red
+    success: tag-green
+    warning: tag-yellow
+    error: nintendo-red
+    text-primary-light: charcoal
+    text-primary-dark: paper
+    background-light: paper
+    background-dark: charcoal-dark
+    surface-light: cloud-lightest
+    surface-dark: charcoal
+    text-secondary-light: charcoal-mid
+    text-tertiary-light: charcoal-light
+    border-light: cloud
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: roles.colors.mark
+    allowed:
+      - nintendo-red
+      - paper
+      - charcoal-dark
+    forbidden:
+      - nintendo-navy
+      - tag-violet
+      - tag-green
+      - tag-blue
+      - tag-yellow
+    severity: error
+    rationale: >
+      The Nintendo wordmark renders in Nintendo Red (#E60012) on
+      light surfaces, white on dark surfaces, and pure black for
+      monochrome contexts. The description-tag accents (violet,
+      green, blue, yellow) are category badging affordances, not
+      identity colors; substituting them for the mark fill
+      misrepresents the brand.
+
+  - type: colorChoice
+    target: roles.colors.primary
+    allowed:
+      - nintendo-red
+      - nintendo-red-hover
+    forbidden:
+      - nintendo-navy
+      - tag-green
+      - tag-blue
+      - tag-violet
+      - tag-yellow
+    severity: error
+    rationale: >
+      Nintendo Red (#E60012) is the documented primary action
+      color — --theme-color-primary and --theme-colors-button-
+      background-primary on the live site. Nintendo Navy is the
+      *secondary* (--theme-color-secondary) — substituting navy
+      or any of the description-tag accents for the primary
+      action inverts the brand's documented action hierarchy.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+      - outlined
+      - distorted
+    severity: error
+    rationale: >
+      Nintendo's wordmark is a fixed-proportion identity that
+      appears on the live site in solid Nintendo Red on white
+      and solid white on dark — with no shadow, gradient, or
+      texture treatments. Skewing, rotating, gradient-filling,
+      drop-shadowing, or placing the mark on a busy photo
+      conflicts with the brand's quietly proprietary identity
+      and Nintendo's partner-portal usage restrictions.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Charcoal (#484848) on Paper (#FFFFFF) measures ~8.4:1 —
+      clears WCAG AA comfortably for body text and sits inside
+      the AAA band for normal-weight text. Nintendo's family-
+      friendly consumer audience justifies a comfortable
+      contrast floor.
+
+  - type: contextRestriction
+    target: roles.colors.primary
+    allowedContexts:
+      - primary-cta
+      - mark
+      - inline-link
+      - error-state
+    forbiddenContexts:
+      - background
+      - large-surface
+      - prose
+    severity: warning
+    rationale: >
+      Nintendo Red is a focal accent — it appears as the mark
+      fill, primary CTA, inline link, and (notably) the error /
+      alert icon. The brand deliberately avoids large red
+      surfaces in product chrome; that role is held by the
+      paper / charcoal neutrals. A red page background or red
+      body-prose treatment reads as a sale-page promotional
+      surface, not as the parent Nintendo identity.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["300", "400", "600"]
+    severity: warning
+    rationale: >
+      Nintendo's live design system declares Light (300),
+      Regular (400), and Bold (600) — --theme-font-weight-light
+      and --theme-font-weight-bold are explicit, with regular
+      as the implicit default. Heavier display weights are not
+      in the deployed variable-font cut.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - paper
+      - cloud-lightest
+      - charcoal-dark
+      - nintendo-red-light
+    doesNotPairWith:
+      - tag-violet
+      - tag-blue
+      - tag-yellow
+    severity: recommendation
+    rationale: >
+      Nintendo Red reads cleanest against the paper canvas, the
+      cloud-lightest surface, or the charcoal-dark inverse. The
+      description-tag accents (violet, blue, yellow) introduce
+      chromatic conflict when placed directly adjacent to the
+      red primary; the live site separates them with neutral
+      surfaces.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level
+      AA. Nintendo's consumer audience (which includes children)
+      and the dense product-listing surfaces (game titles,
+      pricing, age ratings) make AA the baseline contrast
+      requirement; the charcoal-on-paper pairing clears it
+      comfortably.

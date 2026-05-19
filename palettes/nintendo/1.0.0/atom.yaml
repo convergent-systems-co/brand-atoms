@@ -1,0 +1,215 @@
+kind: palette
+id: nintendo
+version: 1.0.0
+name: Nintendo
+description: >
+  Nintendo's brand palette as captured from the live nintendo.com
+  design-system tokens (--theme-color-primary, --theme-color-
+  secondary, --theme-colors-text-*, --theme-color-darkGray*,
+  --theme-color-lightGray*, --theme-colors-descriptionTag-*). The
+  brand is light-first by construction: a white page canvas with
+  the iconic Nintendo Red (#E60012) as the primary accent and a
+  deep navy (#3946A0) as the secondary action. A calibrated
+  neutral ramp from #242424 darkest through #F8F8F8 lightest
+  carries body text, surfaces, and quiet UI chrome.
+
+  The four "description tag" accents (violet #9531B9, green
+  #2D8513, blue #4B5CCE, red #E60012, charcoal #484848) are the
+  brand's documented secondary palette for product category
+  badging.
+
+tags: [nintendo, gaming, red, light-first, family-friendly, japanese]
+
+provenance:
+  source: https://www.nintendo.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Nintendo Co., Ltd. / Nintendo of America Inc. — palette
+    values captured from the deployed stylesheet on nintendo.com
+    (--theme-color-* CSS custom-property family, "Nintendo Light
+    Theme" design tokens). Nintendo, the Nintendo logo, Nintendo
+    Switch, and associated marks are trademarks of Nintendo Co.,
+    Ltd.
+  importedDate: 2026-05-19
+  notes: >
+    Derived from live site CSS at https://www.nintendo.com/ on
+    2026-05-19; Nintendo's published brand-guidelines documents
+    are partner-portal-only and not publicly accessible. The
+    captured tokens come from a deployed design-system theme
+    declared as "Nintendo Light Theme" (--theme-name, --theme-
+    status: approved). The display font on the live site is
+    Geologica Variable (open-source via Google Fonts) declared
+    as --theme-font-family — this palette is paired with
+    inter@1 in the brand atom as the open-source substitute
+    because no `geologica` atom exists in this catalog yet.
+
+swatches:
+  # ─── Nintendo Red (primary brand) ───────────────────────────────
+  - id: nintendo-red
+    name: Nintendo Red
+    value: "#E60012"
+    description: >
+      The iconic Nintendo Red — --theme-color-primary. Used for
+      the wordmark, primary CTA fills, inline links (--theme-
+      colors-text-link), and the red description-tag accent.
+  - id: nintendo-red-hover
+    name: Nintendo Red Hover
+    value: "#AC000D"
+    description: >
+      Pressed / active variant of Nintendo Red — --theme-color-
+      primaryHover. Used on hover and active states of the
+      primary action.
+  - id: nintendo-red-light
+    name: Nintendo Red Light
+    value: "#FDE6E7"
+    description: >
+      Pale red surface — --theme-color-primaryLight. Subtle
+      branded background tint behind alerts and selected states.
+
+  # ─── Nintendo Navy (secondary) ──────────────────────────────────
+  - id: nintendo-navy
+    name: Nintendo Navy
+    value: "#3946A0"
+    description: >
+      Secondary brand color — --theme-color-secondary. Used for
+      secondary CTAs (button-background-secondary), focus rings
+      (--theme-color-focus), and the blue description-tag accent.
+  - id: nintendo-navy-hover
+    name: Nintendo Navy Hover
+    value: "#2A3477"
+    description: >
+      Pressed / active variant of Nintendo Navy — --theme-color-
+      secondaryHover.
+  - id: nintendo-navy-light
+    name: Nintendo Navy Light
+    value: "#BDC3E8"
+    description: >
+      Pale navy surface — --theme-color-secondaryLight. Quiet
+      branded background tint.
+
+  # ─── Charcoal (text and ink) ────────────────────────────────────
+  - id: charcoal
+    name: Charcoal
+    value: "#484848"
+    description: >
+      Primary body text — --theme-color-darkGray2 and --theme-
+      colors-text-standard. Nintendo's body-text ink across the
+      light-first design system.
+  - id: charcoal-dark
+    name: Charcoal Dark
+    value: "#242424"
+    description: >
+      Deepest neutral — --theme-color-darkGray1. Headlines and
+      high-emphasis text.
+  - id: charcoal-mid
+    name: Charcoal Mid
+    value: "#727272"
+    description: >
+      Secondary text — --theme-color-darkGray3.
+  - id: charcoal-light
+    name: Charcoal Light
+    value: "#969696"
+    description: >
+      Tertiary text and quiet icon fills — --theme-color-
+      darkGray4.
+
+  # ─── Cloud (light neutrals) ─────────────────────────────────────
+  - id: cloud-dark
+    name: Cloud Dark
+    value: "#C8C8C8"
+    description: >
+      Border / divider — --theme-color-lightGray1.
+  - id: cloud
+    name: Cloud
+    value: "#DADADA"
+    description: >
+      Default UI line — --theme-color-lightGray2 and --theme-
+      colors-ui-line. Disabled-button background.
+  - id: cloud-light
+    name: Cloud Light
+    value: "#EFEFEF"
+    description: >
+      Quaternary surface — --theme-color-lightGray3. Hover state
+      for quaternary buttons.
+  - id: cloud-lightest
+    name: Cloud Lightest
+    value: "#F8F8F8"
+    description: >
+      Lightest neutral surface — --theme-color-lightGray4 and
+      --theme-colors-ui-bgAccent. Alternate row backgrounds and
+      search-input fill.
+  - id: paper
+    name: Paper
+    value: "#FFFFFF"
+    description: >
+      Primary canvas — --theme-color-white and --theme-colors-
+      ui-bgMain.
+
+  # ─── Status / tag accents ───────────────────────────────────────
+  - id: tag-green
+    name: Tag Green
+    value: "#2D8513"
+    description: >
+      Documented green description-tag accent and success-state
+      icon color — --theme-colors-descriptionTag-green and
+      --theme-colors-alert-successIcon.
+  - id: tag-violet
+    name: Tag Violet
+    value: "#9531B9"
+    description: >
+      Documented violet description-tag accent — --theme-colors-
+      descriptionTag-violet.
+  - id: tag-blue
+    name: Tag Blue
+    value: "#4B5CCE"
+    description: >
+      Documented blue description-tag accent — --theme-colors-
+      descriptionTag-blue.
+  - id: tag-yellow
+    name: Tag Yellow
+    value: "#BEA000"
+    description: >
+      Warning icon color — --theme-colors-alert-warningIcon.
+      Used on caution banners and maintenance notices.
+
+modes:
+  light:
+    roles:
+      background: paper
+      surface: cloud-lightest
+      surface-elevated: paper
+      text-primary: charcoal
+      text-secondary: charcoal-mid
+      text-tertiary: charcoal-light
+      primary: nintendo-red
+      primary-hover: nintendo-red-hover
+      accent: nintendo-navy
+      accent-hover: nintendo-navy-hover
+      warning: tag-yellow
+      warning-hover: tag-yellow
+      error: nintendo-red
+      success: tag-green
+      border: cloud
+
+  dark:
+    roles:
+      # Nintendo ships no first-class dark mode on the consumer
+      # site, but a dark-context rendering is preserved here for
+      # consumers (mobile-app night theme, video overlays) that
+      # need to invert the brand. The dark canvas borrows the
+      # deepest neutral; brand accents (red, navy) remain.
+      background: charcoal-dark
+      surface: charcoal
+      surface-elevated: charcoal-mid
+      text-primary: paper
+      text-secondary: cloud
+      text-tertiary: cloud-dark
+      primary: nintendo-red
+      primary-hover: nintendo-red-light
+      accent: nintendo-navy-light
+      accent-hover: nintendo-navy
+      warning: tag-yellow
+      warning-hover: tag-yellow
+      error: nintendo-red
+      success: tag-green
+      border: charcoal-mid

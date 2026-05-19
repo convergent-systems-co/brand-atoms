@@ -1,0 +1,286 @@
+kind: palette
+id: playstation
+version: 1.0.0
+name: PlayStation
+description: >
+  PlayStation's brand palette as captured from the live design
+  system on playstation.com. The PlayStation brand is built
+  around a calibrated blue family — the primary action color
+  (#0070CC bright / #0068BD link / #003697 deep) and the
+  diagonal "PlayStation Blue gradient" that ramps from the deep
+  navy to the bright accent — with a commerce-orange family
+  (#D63D00 / #D53B00 / #AA2F00) reserved for buy / store
+  affordances, and the documented PS Plus yellow (#FCC71D) for
+  the subscription brand mark. The chrome is dual-mode: a paper
+  canvas (#FFFFFF / #F5F7FA) for the marketing site and a deep
+  ink canvas (#121314 / #1F2024 / #17181A) for the console UI
+  and dark-mode hero modules.
+
+  Typography is the proprietary SST family declared via
+  @font-face as `sst`.
+
+tags: [playstation, gaming, console, blue, sony, sub-brand]
+
+provenance:
+  source: https://www.playstation.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Sony Interactive Entertainment LLC — palette values captured
+    from the deployed stylesheet on playstation.com (--color-N-*,
+    --color-role-* design-token families, including the
+    --color-role-section-gradients-blue-start / blue-end and
+    --color-role-backgrounds-primary-link-* token clusters).
+    PlayStation, the PlayStation family-mark logos (PS1 / PS2 /
+    PS3 / PS4 / PS5), PS Plus, DualSense, and associated marks
+    are trademarks of Sony Interactive Entertainment LLC.
+  importedDate: 2026-05-19
+  notes: >
+    Derived from live site CSS at https://www.playstation.com/
+    on 2026-05-19; Sony Interactive Entertainment's published
+    brand-guidelines documents (Style Guide for Licensees) are
+    distributed under NDA via the DevNet partner portal and are
+    not publicly accessible. The captured tokens come from the
+    deployed design-system theme on the consumer site. The
+    primary typeface is SST (proprietary, declared via
+    --dk-font as "sst, Arial, sans-serif"), supplemented by Mont
+    W05 (--dk-font-mont) and Bebas Neue (--dk-font-bebas-neue)
+    on hero modules. This palette is paired with inter@1 as the
+    open-source rendering substitute in the corresponding brand
+    atom. PlayStation is a sub-brand of Sony (parent: sony@1)
+    but stands on its own atom here because the visual identity
+    is functionally independent.
+
+swatches:
+  # ─── PlayStation Blue (primary brand) ───────────────────────────
+  - id: ps-blue
+    name: PlayStation Blue
+    value: "#0070CC"
+    description: >
+      Primary action blue — --color-role-backgrounds-primary-
+      link-base-light (rgb(0 112 204)). The "Sign In / Buy /
+      Find out more" CTA fill on the marketing site.
+  - id: ps-blue-link
+    name: PlayStation Blue Link
+    value: "#0068BD"
+    description: >
+      Inline-link blue — --color-role-text-link-base-light
+      (rgb(0 104 189)). Body-text link color and the standard
+      PlayStation identifier hue.
+  - id: ps-blue-hover
+    name: PlayStation Blue Hover
+    value: "#0064B7"
+    description: >
+      Pressed / active variant — --color-role-backgrounds-
+      primary-link-focus-light (rgb(0 100 183)).
+  - id: ps-blue-active
+    name: PlayStation Blue Active
+    value: "#005DAA"
+    description: >
+      Deepest pressed state — --color-role-text-link-hover-light
+      (rgb(0 93 170)).
+  - id: ps-blue-deep
+    name: PlayStation Blue Deep
+    value: "#003697"
+    description: >
+      Gradient endpoint — --color-role-section-gradients-blue-
+      start (rgb(0 54 151)). The deep end of the documented
+      "PlayStation Blue gradient" (#003697 → #0068BD).
+  - id: ps-blue-bright
+    name: PlayStation Blue Bright
+    value: "#31A1FF"
+    description: >
+      Bright link variant for dark mode — --color-role-text-
+      link-active-dark (rgb(15 146 255)) and adjacent token.
+  - id: ps-blue-pale
+    name: PlayStation Blue Pale
+    value: "#D4DCE9"
+    description: >
+      Pale blue surface — --color-2-darken-10-light. Quiet
+      branded background for secondary-link backgrounds.
+  - id: ps-blue-paler
+    name: PlayStation Blue Paler
+    value: "#EBEEF0"
+    description: >
+      Lightest blue surface — --color-3-light (rgb(235 238 240)).
+      Tertiary page background.
+
+  # ─── Ink (dark canvas) ──────────────────────────────────────────
+  - id: ink
+    name: Ink
+    value: "#121314"
+    description: >
+      Primary dark canvas — --color-role-page-backgrounds-
+      primary-dark (rgb(18 19 20)). Console UI / dark hero
+      module background.
+  - id: ink-deep
+    name: Ink Deep
+    value: "#090A0A"
+    description: >
+      Deepest near-black — --color-role-page-backgrounds-
+      secondary-dark (rgb(9 10 10)). Used for the deepest
+      modal scrims.
+  - id: ink-surface
+    name: Ink Surface
+    value: "#17181A"
+    description: >
+      Elevated dark surface — --color-role-gradients-content-
+      dark start (rgb(23 24 26)). Card and panel backgrounds
+      on dark mode.
+  - id: ink-surface-high
+    name: Ink Surface High
+    value: "#1F2024"
+    description: >
+      High-elevation dark surface — --color-7-dark (rgb(31 32
+      36)). Modal backgrounds and elevated card chrome.
+  - id: ink-divider
+    name: Ink Divider
+    value: "#2C2D33"
+    description: >
+      Quiet divider on dark surface — --color-6-dark (rgb(44
+      45 51)).
+
+  # ─── Paper (light canvas) ───────────────────────────────────────
+  - id: paper
+    name: Paper
+    value: "#FFFFFF"
+    description: >
+      Primary light canvas — --color-role-page-backgrounds-
+      primary-light. Marketing-site page background.
+  - id: paper-surface
+    name: Paper Surface
+    value: "#F5F7FA"
+    description: >
+      Light elevated surface — --color-role-page-backgrounds-
+      secondary-light (rgb(245 247 250)).
+  - id: paper-divider
+    name: Paper Divider
+    value: "#F3F3F3"
+    description: >
+      Quiet divider on light surface — --color-8-light /
+      --color-role-borders-divider-line-base-light.
+
+  # ─── Ash (neutral text scale) ───────────────────────────────────
+  - id: ash-text
+    name: Ash Text
+    value: "#1F1F1F"
+    description: >
+      Primary body text — observed as the live body computed
+      color (rgb(31 31 31)).
+  - id: ash-secondary
+    name: Ash Secondary
+    value: "#6B6B6B"
+    description: >
+      Secondary text — --color-role-text-secondary-light
+      (rgb(107 107 107)).
+  - id: ash-tertiary
+    name: Ash Tertiary
+    value: "#969799"
+    description: >
+      Tertiary text and quiet icon fills — --color-6-light
+      (rgb(150 151 153)).
+  - id: ash-disabled
+    name: Ash Disabled
+    value: "#D2D4D9"
+    description: >
+      Disabled-link surface — --color-7-light (rgb(210 212
+      217)).
+  - id: ash-secondary-dark
+    name: Ash Secondary Dark
+    value: "#B2B2B2"
+    description: >
+      Secondary text on dark surface — --color-role-text-
+      secondary-dark (rgb(178 178 178)).
+
+  # ─── Commerce orange (buy / store) ──────────────────────────────
+  - id: ps-orange
+    name: PlayStation Orange
+    value: "#D63D00"
+    description: >
+      Commerce / "buy" orange — --color-role-backgrounds-
+      commerce-link-base-dark (rgb(214 61 0)). Store and
+      checkout primary action.
+  - id: ps-orange-base
+    name: PlayStation Orange Base
+    value: "#D53B00"
+    description: >
+      Commerce base — --color-role-backgrounds-commerce-link-
+      base-light (rgb(213 59 0)).
+  - id: ps-orange-hover
+    name: PlayStation Orange Hover
+    value: "#C03500"
+    description: >
+      Commerce hover — --color-role-backgrounds-commerce-link-
+      hover-light (rgb(192 53 0)).
+  - id: ps-orange-active
+    name: PlayStation Orange Active
+    value: "#AA2F00"
+    description: >
+      Commerce active — --color-role-backgrounds-commerce-link-
+      active-light (rgb(170 47 0)).
+
+  # ─── PS Plus yellow (subscription brand) ────────────────────────
+  - id: ps-plus-yellow
+    name: PS Plus Yellow
+    value: "#FCC71D"
+    description: >
+      PS Plus subscription brand — --color-role-text-ps-plus-
+      light (rgb(252 199 29)). Reserved for PS Plus tiers and
+      subscription affordances.
+
+  # ─── Status colors ──────────────────────────────────────────────
+  - id: ps-warning
+    name: PlayStation Warning
+    value: "#C81B3A"
+    description: >
+      Warning red — --color-role-text-warning-light (rgb(200
+      27 58)). Critical alert state.
+  - id: ps-success
+    name: PlayStation Success
+    value: "#007A62"
+    description: >
+      Success green — --color-role-text-success-light (rgb(0
+      122 98)). Confirmation surfaces.
+  - id: ps-hint-pink
+    name: PlayStation Hint Pink
+    value: "#CB2070"
+    description: >
+      Hint / tooltip accent — --color-role-text-hint-light
+      (rgb(203 32 112)). Used for the documented "hint" affordance
+      on form fields.
+
+modes:
+  light:
+    roles:
+      background: paper
+      surface: paper-surface
+      surface-elevated: paper
+      text-primary: ash-text
+      text-secondary: ash-secondary
+      text-tertiary: ash-tertiary
+      primary: ps-blue
+      primary-hover: ps-blue-hover
+      accent: ps-blue-link
+      accent-hover: ps-blue-active
+      warning: ps-orange
+      warning-hover: ps-orange-active
+      error: ps-warning
+      success: ps-success
+      border: paper-divider
+
+  dark:
+    roles:
+      background: ink
+      surface: ink-surface
+      surface-elevated: ink-surface-high
+      text-primary: paper
+      text-secondary: ash-secondary-dark
+      text-tertiary: ash-secondary
+      primary: ps-blue
+      primary-hover: ps-blue-bright
+      accent: ps-blue-bright
+      accent-hover: ps-blue
+      warning: ps-orange
+      warning-hover: ps-orange-active
+      error: ps-warning
+      success: ps-success
+      border: ink-divider

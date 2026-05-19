@@ -1,0 +1,233 @@
+kind: palette
+id: steam
+version: 1.0.0
+name: Steam
+description: >
+  Steam's brand palette as captured from the live store stylesheet
+  on store.steampowered.com. Steam is dark-first by construction:
+  a deep navy "Storefront" canvas with a chalky-blue accent and a
+  signature green CTA family carried over from the early Valve
+  software-store identity. The CSS exposes the live design-system
+  tokens (--gpColor-Green, --gpColor-Blue, --gpColor-ChalkyBlue,
+  --gpColor-LightBlue, --gpStoreDarkerGrey, etc.) which this atom
+  mirrors using the project's swatch-id convention.
+
+  Steam reads as engineering-utility and gaming-storefront rather
+  than marketing-glossy: the chalky-blue page chrome carries
+  product imagery while the green CTAs (install, buy, play) carry
+  the dominant brand action.
+
+tags: [steam, valve, gaming, store, dark-first, blue-green]
+
+provenance:
+  source: https://store.steampowered.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Valve Corporation — palette values captured from the deployed
+    stylesheet on store.steampowered.com (--gpColor-*, --gpStore-*,
+    --color-*, --color-accent-* CSS custom-property families).
+    Steam, the Steam logo, Valve, and associated marks are
+    trademarks of Valve Corporation in the U.S. and/or other
+    countries.
+  importedDate: 2026-05-19
+  notes: >
+    Derived from live site CSS at https://store.steampowered.com/
+    on 2026-05-19; Valve's public Steam Brand Guide does not
+    publish hex color specifications (it governs logo usage and
+    legal attribution only). The Steam display typeface is Motiva
+    Sans (proprietary, declared via @font-face but not publicly
+    distributed) — this palette is paired with Inter@1 as the
+    open-source rendering substitute in the corresponding brand
+    atom. Swatch IDs mirror Steam's own --gpColor-* and
+    --gpStore*Grey token names where possible.
+
+swatches:
+  # ─── Storefront (deep navy canvas) ──────────────────────────────
+  - id: storefront-darkest
+    name: Storefront Darkest
+    value: "#000F18"
+    description: >
+      Deepest near-black storefront ground; --gpStoreDarkestGrey.
+      Used for footers, modal scrims, and the deepest layered
+      panels.
+  - id: storefront-darker
+    name: Storefront Darker
+    value: "#1B2838"
+    description: >
+      Primary page canvas — --gpStoreDarkerGrey. The Steam Store's
+      dominant background tone; appears in the gradient end-stop
+      of the store-background gradient.
+  - id: storefront-dark
+    name: Storefront Dark
+    value: "#2A475E"
+    description: >
+      Slate-blue surface — --gpStoreDarkGrey. Start of the store-
+      background gradient and base of card backgrounds.
+  - id: storefront-mid
+    name: Storefront Mid
+    value: "#4E697D"
+    description: >
+      Mid-tone slate — --gpStoreGrey. Used for borders and
+      secondary chrome between dark panels.
+  - id: storefront-light
+    name: Storefront Light
+    value: "#7C8EA3"
+    description: >
+      Light slate — --gpStoreLightGrey. Quiet text on the dark
+      canvas, divider tones.
+  - id: storefront-lighter
+    name: Storefront Lighter
+    value: "#A7BACC"
+    description: >
+      Pale slate — --gpStoreLighterGrey. Tertiary text and quiet
+      icon fills against the dark canvas.
+  - id: storefront-lightest
+    name: Storefront Lightest
+    value: "#CCD8E3"
+    description: >
+      Near-white pale slate — --gpStoreLightestGrey. Primary
+      body text color on the dark canvas.
+
+  # ─── System neutrals (chrome) ───────────────────────────────────
+  - id: chrome-darkest
+    name: Chrome Darkest
+    value: "#0E141B"
+    description: >
+      Application chrome darkest — --gpSystemDarkestGrey. Header
+      bar background and elevated overlay panels.
+  - id: chrome-darker
+    name: Chrome Darker
+    value: "#23262E"
+    description: >
+      Application chrome darker — --gpSystemDarkerGrey. Library
+      chrome and elevated card backgrounds.
+  - id: chrome-dark
+    name: Chrome Dark
+    value: "#3D4450"
+    description: >
+      Application chrome dark — --gpSystemDarkGrey. Hover surfaces
+      and quiet borders inside the chrome.
+
+  # ─── Steam Blue (link / interactive) ────────────────────────────
+  - id: steam-blue
+    name: Steam Blue
+    value: "#1A9FFF"
+    description: >
+      Primary interactive blue — --gpColor-Blue. The Steam Store's
+      inline-link and primary-action accent on the dark canvas.
+  - id: steam-blue-hi
+    name: Steam Blue Hi
+    value: "#00BBFF"
+    description: >
+      High-emphasis blue — --gpColor-BlueHi. Highlighted state
+      for the Steam Blue interactive family.
+  - id: chalky-blue
+    name: Chalky Blue
+    value: "#66C0F4"
+    description: >
+      Steam's signature chalky blue — --gpColor-ChalkyBlue. The
+      brand's most identifiable on-screen color; used for
+      headlines, mark surfaces, and store-page accent type.
+  - id: light-blue
+    name: Light Blue
+    value: "#B3DFFF"
+    description: >
+      Pale brand blue — --gpColor-LightBlue. Tertiary blue accent
+      and quiet info surfaces.
+  - id: dusty-blue
+    name: Dusty Blue
+    value: "#417A9B"
+    description: >
+      Muted slate-blue — --gpColor-DustyBlue. Secondary surface
+      accent and quiet button fills.
+
+  # ─── Steam Green (CTA family) ───────────────────────────────────
+  - id: steam-green
+    name: Steam Green
+    value: "#5BA32B"
+    description: >
+      Steam's signature CTA green — --gpColor-Green. The
+      "Install / Add to Cart / Play" button family is built on
+      this hue (with the brighter --gpColor-GreenHi as the
+      gradient-top stop on those buttons).
+  - id: steam-green-hi
+    name: Steam Green Hi
+    value: "#59BF40"
+    description: >
+      High-emphasis green — --gpColor-GreenHi. Top-stop of the
+      green-CTA gradient.
+  - id: steam-green-lime
+    name: Steam Green Lime
+    value: "#A4D007"
+    description: >
+      Lime CTA accent — observed as the top-stop of the legacy
+      green-button gradient (linear-gradient #A4D007 → #536904).
+      Used on the primary download / install affordances.
+
+  # ─── Status colors ──────────────────────────────────────────────
+  - id: steam-orange
+    name: Steam Orange
+    value: "#E35E1C"
+    description: >
+      Promotional orange — --gpColor-Orange. Sale stickers and
+      discount badges.
+  - id: steam-orange-red
+    name: Steam Orange Red
+    value: "#EE563B"
+    description: >
+      High-emphasis warm — --gpColor-RedHi. Hot-deal / time-
+      limited badges.
+  - id: steam-red
+    name: Steam Red
+    value: "#D94126"
+    description: >
+      Error / removal red — --gpColor-Red. Destructive-action
+      affordance.
+  - id: steam-yellow
+    name: Steam Yellow
+    value: "#FFC82C"
+    description: >
+      Yellow warning / featured tag — --gpColor-Yellow.
+
+modes:
+  light:
+    roles:
+      # Steam ships no first-class light mode for the storefront,
+      # but the brand defines a "light surface" set used for
+      # printed and partner-portal materials. These map to the
+      # lightest of the storefront neutrals so consumers rendering
+      # in a light environment retain the chalky-blue + green
+      # accent posture.
+      background: storefront-lightest
+      surface: storefront-lighter
+      surface-elevated: storefront-lightest
+      text-primary: storefront-darker
+      text-secondary: storefront-dark
+      text-tertiary: storefront-mid
+      primary: steam-green
+      primary-hover: steam-green-hi
+      accent: steam-blue
+      accent-hover: steam-blue-hi
+      warning: steam-yellow
+      warning-hover: steam-orange
+      error: steam-red
+      success: steam-green
+      border: storefront-light
+
+  dark:
+    roles:
+      background: storefront-darker
+      surface: storefront-dark
+      surface-elevated: chrome-darker
+      text-primary: storefront-lightest
+      text-secondary: storefront-lighter
+      text-tertiary: storefront-light
+      primary: steam-green
+      primary-hover: steam-green-hi
+      accent: chalky-blue
+      accent-hover: steam-blue-hi
+      warning: steam-yellow
+      warning-hover: steam-orange
+      error: steam-red
+      success: steam-green
+      border: chrome-dark

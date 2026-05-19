@@ -1,0 +1,243 @@
+kind: palette
+id: xbox
+version: 1.0.0
+name: Xbox
+description: >
+  Xbox's brand palette as captured from the live xbox.com
+  stylesheet. The brand is built around a single, instantly
+  recognizable signature: "Xbox Green" — declared as
+  --brandColorPrimary (#107C10) and --green (#107C10) on the
+  live site, with a hover state of #007738 and an alt darker
+  #044E2A. The brand canvas is dual-mode: a paper canvas for
+  product detail pages and a deep ink (#171717 hero, #201F24
+  header) for the gaming-focused chrome. The "Xbox Progress"
+  green ramp (#107C10 → #44B01C → #65C914) and the bright
+  lime-stripe accent (#9BF00B) appear on subscription /
+  achievement / Game Pass affordances.
+
+  Typography is Microsoft's Segoe UI family (--font-family-
+  sans-serif / --uhf-font-family) with SegoeProBlack reserved
+  for hero display modules.
+
+tags: [xbox, gaming, console, green, microsoft, sub-brand]
+
+provenance:
+  source: https://www.xbox.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Microsoft Corporation / Microsoft Gaming — palette values
+    captured from the deployed stylesheet on xbox.com
+    (--brandColorPrimary, --xboxProgressA/B/C, --green,
+    --entryGradientStart/Mid/End, --pd-hero-* CSS custom-
+    property families). Xbox, the Xbox sphere logo, Xbox Series
+    X|S, Xbox Game Pass, and associated marks are trademarks of
+    Microsoft Corporation.
+  importedDate: 2026-05-19
+  notes: >
+    Derived from live site CSS at https://www.xbox.com/en-us/
+    on 2026-05-19; Microsoft's public Xbox brand-guidelines
+    documents are partner-portal-only (Xbox Partner Marketing
+    Hub) and not publicly accessible. The captured tokens come
+    from the Microsoft Universal Header Footer (UHF) layer plus
+    Xbox-specific design tokens declared on the page chrome.
+    The primary typeface is Segoe UI (--font-family-sans-serif
+    = "Segoe UI", SegoeUI, "Helvetica Neue", Helvetica, Arial,
+    sans-serif), an open and licensed Microsoft font available
+    in this catalog as segoe-ui@1. Xbox is a sub-brand of
+    Microsoft (parent: microsoft@1) but stands on its own atom
+    because the green identity is functionally independent.
+
+swatches:
+  # ─── Xbox Green (primary brand) ─────────────────────────────────
+  - id: xbox-green
+    name: Xbox Green
+    value: "#107C10"
+    description: >
+      The iconic Xbox Green — --brandColorPrimary, --green,
+      --success, --primary, and --xboxProgressA. The single
+      most identifiable element of the Xbox brand.
+  - id: xbox-green-hover
+    name: Xbox Green Hover
+    value: "#007738"
+    description: >
+      Pressed / hover variant — --brandColorPrimaryHover,
+      --colorBrandBackgroundHover, --colorNeutralBackground1Hover.
+  - id: xbox-green-alt
+    name: Xbox Green Alt
+    value: "#044E2A"
+    description: >
+      Darker brand variant — --brandColorPrimaryAlt. Used for
+      borders and quiet panel accents in the brand-green family.
+  - id: xbox-progress-b
+    name: Xbox Progress B
+    value: "#65C914"
+    description: >
+      Bright achievement / progress green — --xboxProgressB.
+      Mid-stop of the progress-bar gradient.
+  - id: xbox-progress-c
+    name: Xbox Progress C
+    value: "#44B01C"
+    description: >
+      Mid achievement / progress green — --xboxProgressC.
+  - id: gradient-start
+    name: Gradient Start
+    value: "#0A4F0A"
+    description: >
+      Hero gradient start — --entryGradientStart. Deepest stop
+      of the documented Xbox-green hero gradient.
+  - id: gradient-mid
+    name: Gradient Mid
+    value: "#107C10"
+    description: >
+      Hero gradient mid — --entryGradientMid (same value as
+      brand primary).
+  - id: gradient-end
+    name: Gradient End
+    value: "#054B16"
+    description: >
+      Hero gradient end — --entryGradientEnd.
+
+  # ─── Lime stripe (Game Pass / achievement accent) ───────────────
+  - id: lime-stripe
+    name: Lime Stripe
+    value: "#9BF00B"
+    description: >
+      Bright lime accent — observed on the Xbox Game Pass
+      promotional CTAs and the "AVAILABLE WITH GAME PASS"
+      affordances. Inverts to a #054B16 (gradient-end) text
+      fill on the live stripe.
+
+  # ─── Ink (dark canvas) ──────────────────────────────────────────
+  - id: ink-hero
+    name: Ink Hero
+    value: "#171717"
+    description: >
+      Primary dark hero background — --pd-hero-bg. Used for the
+      product-detail-page hero modules.
+  - id: ink-header
+    name: Ink Header
+    value: "#201F24"
+    description: >
+      Header chrome dark — observed as the navigation bar
+      computed backgroundColor (rgb(32, 31, 36)).
+  - id: ink-card
+    name: Ink Card
+    value: "#333333"
+    description: >
+      Elevated dark card surface — observed on product card
+      backgrounds inside hero modules.
+
+  # ─── Neutral text scale ─────────────────────────────────────────
+  - id: graphite-text
+    name: Graphite Text
+    value: "#242424"
+    description: >
+      Primary body text — --text-color (#242424). Used on the
+      light marketing surfaces.
+  - id: graphite-dark
+    name: Graphite Dark
+    value: "#2F2F2F"
+    description: >
+      Deep neutral — --gray-dark.
+  - id: graphite
+    name: Graphite
+    value: "#505050"
+    description: >
+      Mid neutral — --gray.
+
+  # ─── Light surfaces ─────────────────────────────────────────────
+  - id: paper
+    name: Paper
+    value: "#FFFFFF"
+    description: >
+      Primary light canvas — --white.
+  - id: paper-surface
+    name: Paper Surface
+    value: "#F5F5F5"
+    description: >
+      Light elevated surface — --background-color and --color-
+      neutral-background3.
+  - id: paper-divider
+    name: Paper Divider
+    value: "#D2D2D2"
+    description: >
+      Quiet divider — --info (#D2D2D2). Used for borders and
+      divider lines on light chrome.
+
+  # ─── Status colors (Microsoft UHF / Bootstrap-style) ────────────
+  - id: status-warning
+    name: Status Warning
+    value: "#FFB900"
+    description: >
+      Warning amber — --warning, --yellow.
+  - id: status-danger
+    name: Status Danger
+    value: "#DC3545"
+    description: >
+      Danger red — --danger, --red.
+  - id: status-info-blue
+    name: Status Info Blue
+    value: "#0067B8"
+    description: >
+      Microsoft information blue — --blue. Inherited from the
+      Microsoft UHF layer; appears in inline links inside the
+      Xbox chrome.
+  - id: status-teal
+    name: Status Teal
+    value: "#008575"
+    description: >
+      Microsoft teal — --teal. UHF status accent.
+
+  # ─── Promotional pink (Game Pass CTA) ───────────────────────────
+  - id: gamepass-pink
+    name: Game Pass Pink
+    value: "#FF0088"
+    description: >
+      Game Pass promotional CTA fill — observed on the live
+      "JOIN GAME PASS" button. Not a brand primary; reserved
+      for promotional subscription affordances.
+
+  # ─── Hero alert yellow ──────────────────────────────────────────
+  - id: hero-alert
+    name: Hero Alert
+    value: "#FFD800"
+    description: >
+      Hero-banner alert background — --pd-hero-alert-bg.
+      Reserved for time-sensitive launch banners.
+
+modes:
+  light:
+    roles:
+      background: paper
+      surface: paper-surface
+      surface-elevated: paper
+      text-primary: graphite-text
+      text-secondary: graphite-dark
+      text-tertiary: graphite
+      primary: xbox-green
+      primary-hover: xbox-green-hover
+      accent: xbox-green
+      accent-hover: xbox-green-hover
+      warning: status-warning
+      warning-hover: hero-alert
+      error: status-danger
+      success: xbox-green
+      border: paper-divider
+
+  dark:
+    roles:
+      background: ink-hero
+      surface: ink-header
+      surface-elevated: ink-card
+      text-primary: paper
+      text-secondary: paper-divider
+      text-tertiary: graphite
+      primary: xbox-green
+      primary-hover: lime-stripe
+      accent: lime-stripe
+      accent-hover: xbox-progress-b
+      warning: status-warning
+      warning-hover: hero-alert
+      error: status-danger
+      success: xbox-progress-b
+      border: graphite-dark

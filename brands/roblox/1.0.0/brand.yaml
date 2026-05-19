@@ -1,0 +1,257 @@
+id: roblox
+version: 1.0.0
+name: Roblox
+description: >
+  Roblox is the San Mateo-headquartered user-generated-content
+  gaming platform — covering the Roblox client across PC, mobile,
+  Xbox, PlayStation, and Meta Quest; the Roblox Studio creator
+  IDE; the Robux virtual currency and Marketplace; and the
+  hundreds of millions of player-created "experiences" hosted on
+  the platform. The brand voice under the recent "Foundation"
+  design-system rebrand is platform-confident and creator-first:
+  the chrome carries the developer / creator surfaces while the
+  in-experience artwork inside individual games provides
+  chromatic variety. Visually, Roblox is dual-mode with a strong
+  dark-mode default on the consumer site: a deep ink canvas
+  (#121215 / #191A1F) carries the page chrome, with the
+  "System Emphasis" blue (#335FFF) as the calibrated primary
+  action across both modes. The earlier red-orange Roblox
+  identity has been retired under Foundation in favor of this
+  blue-centered palette.
+
+  Typography is the proprietary Builder Sans family.
+
+tags: [roblox, gaming, platform, ugc, creator, blue, dual-mode]
+
+provenance:
+  source: https://www.roblox.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Roblox Corporation — visual identity captured from the
+    deployed "Foundation" design-system tokens on roblox.com
+    (--color-system-emphasis, --color-surface-*, --color-content-*,
+    --light-mode-*, --dark-mode-*, --typography-*, --config-text-
+    font CSS custom-property families). Roblox, the Roblox logo,
+    Robux, Roblox Studio, and associated marks are trademarks of
+    Roblox Corporation.
+  importedDate: 2026-05-19
+  notes: >
+    Derived from live site CSS at https://www.roblox.com/ on
+    2026-05-19; Roblox's published press-kit page
+    (https://about.roblox.com/press-kit/, formerly
+    corp.roblox.com/press-kit) provides logo downloads but no
+    hex color specifications. The captured tokens come from the
+    deployed "Foundation" design-system theme (--config-theme-
+    name: "Foundation"). The display typeface is Builder Sans
+    (proprietary, declared via --config-text-font as "Builder
+    Sans" with Helvetica Neue / Helvetica / Arial fallbacks)
+    and is not publicly distributed. This atom references
+    inter@1 as the open-source rendering substitute. The Robux
+    icon is a central identity element but is not enumerated
+    as a separate asset variant per the encyclopedia's
+    trademark-redistribution policy. assets: [] applies.
+
+references:
+  palette: roblox@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # Roblox is dual-mode with a strong dark-mode default on the
+    # consumer site. The brand block uses the ink-elevated
+    # canvas (the live body background) with the emphasis blue
+    # as the on-identity action color.
+    identity: ink-elevated
+    on-identity: emphasis-blue
+
+    primary: emphasis-blue
+    primary-hover: emphasis-blue-deep
+    accent: emphasis-blue-link
+    accent-hover: emphasis-blue-deep
+    mark: paper-elevated
+    success: system-success
+    warning: system-warning
+    error: system-alert
+    text-primary-light: content-emphasis
+    text-primary-dark: paper-elevated
+    background-light: paper
+    background-dark: ink-elevated
+    surface-light: paper-elevated
+    surface-dark: ink-surface
+    text-secondary-light: content-default
+    text-tertiary-light: content-muted
+    border-light: paper-line
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: roles.colors.primary
+    allowed:
+      - emphasis-blue
+      - emphasis-blue-link
+      - emphasis-blue-bright
+      - emphasis-blue-deep
+    forbidden:
+      - system-success
+      - system-warning
+      - system-alert
+      - accent-magenta
+      - accent-purple
+      - accent-orange
+      - accent-pink
+    severity: error
+    rationale: >
+      Under the Foundation design system, Roblox's primary
+      action color is --color-system-emphasis (#335FFF) — a
+      calibrated blue that carries the brand across both light
+      and dark modes. The extended accents (magenta, purple,
+      orange, pink) are content-tag affordances inside the
+      design system, not brand actions. Substituting any of
+      them — or the status colors (success green, warning
+      amber, alert red) — for the primary inverts the
+      Foundation system's documented action hierarchy.
+
+  - type: colorChoice
+    target: roles.colors.mark
+    allowed:
+      - paper-elevated
+      - paper
+      - content-emphasis
+      - ink
+    forbidden:
+      - emphasis-blue
+      - accent-magenta
+      - accent-purple
+      - system-alert
+      - accent-orange
+    severity: error
+    rationale: >
+      The Roblox wordmark renders in monochrome — white on dark
+      surfaces, content-emphasis (#202227) on light surfaces.
+      The emphasis blue is the *action* color, not the mark
+      fill; the extended accents are content-tag affordances.
+      Recoloring the wordmark in any of them misrepresents the
+      Foundation rebrand's monochrome wordmark posture.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+      - outlined
+      - distorted
+    severity: error
+    rationale: >
+      Roblox's wordmark under the Foundation rebrand is a fixed-
+      proportion identity. The brand's press kit distributes
+      approved logo files only; gradient-filling, drop-
+      shadowing, skewing, rotating, or placing the mark on a
+      busy photo conflicts with the brand's reductive Foundation
+      identity.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Content Emphasis (#202227) on Paper (#FFFFFF) measures
+      ~16:1 and Paper Elevated (#F7F7F8) on Ink Elevated
+      (#191A1F) measures ~14:1 — both clear WCAG AA decisively.
+      Roblox's platform surfaces carry dense product information
+      (experience cards, creator pages, Robux pricing, moderation
+      surfaces); AA is the floor across both modes.
+
+  - type: contextRestriction
+    target: roles.colors.accent
+    allowedContexts:
+      - inline-link
+      - focus-ring
+      - active-state
+      - selection
+    forbiddenContexts:
+      - logo
+      - hero-headline
+      - error-state
+      - destructive-action
+    severity: warning
+    rationale: >
+      The emphasis blue carries inline links, focus rings,
+      active-state highlights, and selection — declared as
+      --color-content-link and --color-selection-start /
+      selection-end. It must not stand in for the Roblox logo
+      fill (which is monochrome) or appear in error /
+      destructive contexts (those use --color-system-alert).
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["600", "700", "800"]
+    severity: warning
+    rationale: >
+      Roblox's Foundation typography declares Builder Sans at
+      SemiBold (600) for labels (--typography-label-* fonts),
+      Bold (700) for headings, titles, and displays
+      (--typography-heading-*, --typography-title-*,
+      --typography-display-*), with Heavy (800) reserved for
+      special display contexts. Lighter heading weights (400,
+      500) appear only in body / caption roles, not display.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - ink
+      - ink-elevated
+      - paper
+      - paper-elevated
+    doesNotPairWith:
+      - accent-magenta
+      - accent-purple
+      - accent-orange
+      - accent-pink
+    severity: recommendation
+    rationale: >
+      The emphasis blue reads cleanest against the ink or paper
+      canvases. Placing it directly adjacent to the extended
+      accent stops (magenta, purple, orange, pink) — which are
+      content-tag affordances used inside experience-card chrome
+      — introduces chromatic conflict and collapses the
+      separation between "brand action" and "content tag."
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level
+      AA. Roblox's platform serves a global, often-young
+      audience and ships dense product information across mobile,
+      console, and PC; AA is the body-text floor. The brand's
+      moderation surfaces specifically (which carry safety-
+      critical information) earn this floor.
+
+  - type: fontPairing
+    target: typography.display
+    requires: prose
+    minSizeRatio: 1.5
+    severity: recommendation
+    rationale: >
+      Roblox's Foundation system uses Builder Sans for both
+      display and body, distinguished by weight (Bold for
+      display, Regular for body) and size. The deployed token
+      ratios put display-large at ~80px and body-medium at
+      ~14px — well above a 1.5× floor. Maintain at least this
+      ratio when one family carries both roles.

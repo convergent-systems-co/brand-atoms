@@ -1,0 +1,255 @@
+id: xbox
+version: 1.0.0
+name: Xbox
+description: >
+  Xbox is Microsoft's gaming brand cluster — covering the Xbox
+  console family (original Xbox / 360 / One / Series S|X), Xbox
+  Game Pass (the multi-tier subscription service), Xbox Cloud
+  Gaming, Xbox Game Studios first-party publishing (Bethesda,
+  Activision Blizzard, 343 Industries, The Coalition, Mojang,
+  Obsidian, inXile, Compulsion, Double Fine, Rare, Turn 10,
+  Playground, World's Edge, undead Labs, and others), and the
+  PC Game Pass / Xbox app on Windows. The brand voice is loud,
+  inclusive, and player-first — "Power Your Dreams" and "When
+  everyone plays, we all win" frame the marketing posture.
+  Visually, Xbox is the most chromatically committed gaming
+  identity: the entire brand reads on the single signature hue,
+  "Xbox Green" (#107C10), with the achievement / Game Pass lime
+  stripe (#9BF00B) as a secondary energy accent.
+
+  Xbox is a sub-brand of Microsoft (parent: microsoft@1) but
+  stands on its own atom because the green identity is
+  functionally independent of the Microsoft corporate identity
+  and Microsoft Gaming operates as a distinct visual brand
+  cluster.
+
+tags: [xbox, microsoft, gaming, console, green, sub-brand]
+
+provenance:
+  source: https://www.xbox.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Microsoft Corporation / Microsoft Gaming — visual identity
+    captured from the deployed stylesheet on xbox.com
+    (--brandColorPrimary, --xboxProgressA/B/C, --entryGradient*,
+    --pd-hero-* CSS custom-property families plus the Microsoft
+    UHF / Bootstrap status tokens). Xbox, the Xbox sphere logo,
+    Xbox Series X|S, Xbox Game Pass, Xbox Live, Xbox Cloud
+    Gaming, and associated marks are trademarks of Microsoft
+    Corporation.
+  importedDate: 2026-05-19
+  notes: >
+    Derived from live site CSS at https://www.xbox.com/en-us/
+    on 2026-05-19; Microsoft's public Xbox brand-guidelines
+    documents (Xbox Partner Marketing Hub) are partner-portal-
+    only and not publicly accessible. The primary typeface is
+    Segoe UI (--font-family-sans-serif), supplemented by
+    SegoeProBlack for hero display modules (observed on the
+    live "JOIN GAME PASS" promo CTA). Segoe UI is available in
+    this catalog as segoe-ui@1. The Xbox sphere logo is a
+    central identity element but is not enumerated as a separate
+    asset variant per the encyclopedia's trademark-redistribution
+    policy. assets: [] applies.
+
+references:
+  palette: xbox@1
+  fonts:
+    heading: segoe-ui@1
+    body: segoe-ui@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # Xbox's identity is the green-on-ink (or green-on-paper)
+    # brand mark. The brand block uses the dark ink hero canvas
+    # since that is the dominant marketing-site hero
+    # rendering, with the Xbox Green carrying the on-identity
+    # affordance.
+    identity: ink-hero
+    on-identity: xbox-green
+
+    primary: xbox-green
+    primary-hover: xbox-green-hover
+    accent: lime-stripe
+    accent-hover: xbox-progress-b
+    mark: xbox-green
+    success: xbox-green
+    warning: status-warning
+    error: status-danger
+    text-primary-light: graphite-text
+    text-primary-dark: paper
+    background-light: paper
+    background-dark: ink-hero
+    surface-light: paper-surface
+    surface-dark: ink-header
+    text-secondary-light: graphite-dark
+    text-tertiary-light: graphite
+    border-light: paper-divider
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: roles.colors.primary
+    allowed:
+      - xbox-green
+      - xbox-green-hover
+      - xbox-green-alt
+    forbidden:
+      - lime-stripe
+      - status-info-blue
+      - status-danger
+      - status-warning
+      - gamepass-pink
+    severity: error
+    rationale: >
+      The Xbox brand is the single committed Xbox Green
+      (#107C10) — declared on the live site as
+      --brandColorPrimary, --green, --success, and --primary
+      simultaneously. The lime stripe (#9BF00B) is the
+      achievement / Game Pass *accent*, the blue is Microsoft's
+      inherited UHF link affordance, and the pink is a
+      promotional subscription-CTA. Substituting any of them for
+      the brand primary breaks the most identifiable element of
+      the Xbox identity.
+
+  - type: colorChoice
+    target: roles.colors.mark
+    allowed:
+      - xbox-green
+      - paper
+      - graphite-text
+    forbidden:
+      - lime-stripe
+      - status-info-blue
+      - status-danger
+      - gamepass-pink
+      - status-warning
+    severity: error
+    rationale: >
+      The Xbox sphere logo renders in Xbox Green on light
+      backgrounds, in white on dark backgrounds, and in
+      monochrome graphite for ink-on-paper contexts. The lime
+      stripe, Microsoft blue, pink, and warning yellow are
+      *not* mark fills — they are content affordances or
+      Microsoft-corporate inheritances. Substituting any of
+      them as the Xbox mark fill misrepresents the brand.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+      - outlined
+      - distorted
+    severity: error
+    rationale: >
+      The Xbox sphere is a fixed-proportion identity. Microsoft
+      Gaming's published partner-portal guidelines require the
+      sphere to render only in approved color and on plain or
+      approved-photo backgrounds with documented clearspace.
+      Skewing, rotating, drop-shadowing, or placing the sphere
+      on a busy photo violates the partner-portal requirements.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Paper (#FFFFFF) on Ink Hero (#171717) measures ~18:1 and
+      Graphite Text (#242424) on Paper (#FFFFFF) measures
+      ~15:1 — both clear WCAG AA decisively. Xbox's product-
+      detail pages carry dense system-requirements tables,
+      multi-tier Game Pass pricing comparisons, and achievement
+      lists; AA is the body-text floor across both modes.
+
+  - type: contextRestriction
+    target: roles.colors.accent
+    allowedContexts:
+      - achievement
+      - game-pass
+      - active-state
+      - focus-ring
+      - subscription-cta
+    forbiddenContexts:
+      - logo
+      - hero-headline
+      - error-state
+      - destructive-action
+    severity: error
+    rationale: >
+      The Lime Stripe (#9BF00B) is a Game Pass / achievement /
+      active-state accent on the live Xbox surfaces — observed
+      with a #054B16 (gradient-end) text fill on its stripe
+      treatment. It must not appear as the Xbox logo fill or
+      as a hero headline color (those roles belong to the
+      Xbox-green family), and it must not appear in error or
+      destructive contexts (those use --danger / --red).
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["400", "600", "700"]
+    severity: warning
+    rationale: >
+      Xbox uses Segoe UI at Regular (400), SemiBold (600), and
+      Bold (700) for the marketing chrome — observed on the
+      live Universal Header Footer (UHF) and Xbox-specific
+      navigation. The SegoeProBlack cut (font-weight: 900) is
+      reserved for hero display modules ("JOIN GAME PASS" and
+      similar promo CTAs) and lives under typography.display,
+      not typography.heading.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - ink-hero
+      - ink-header
+      - paper
+      - paper-surface
+    doesNotPairWith:
+      - gamepass-pink
+      - status-warning
+      - hero-alert
+    severity: recommendation
+    rationale: >
+      Xbox Green reads cleanest against the deep ink hero canvas
+      or the paper canvas. Placing it directly adjacent to the
+      Game Pass promotional pink, the warning amber, or the
+      hero-alert yellow produces chromatic conflict — the live
+      site separates these accent surfaces with neutral chrome.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) —
+      Level AA. Xbox's surfaces carry dense product information
+      (game titles, ratings, system requirements, multi-tier
+      Game Pass pricing) across both light and dark modes; AA
+      is the floor. The mark-on-canvas pairings (Xbox Green on
+      Paper, white-on-Ink-Hero) clear AA comfortably.
+
+  - type: fontPairing
+    target: typography.display
+    requires: prose
+    minSizeRatio: 1.5
+    severity: recommendation
+    rationale: >
+      Xbox hero modules pair SegoeProBlack (display) with Segoe
+      UI Regular (prose). Maintain at least a 1.5× display-to-
+      prose size ratio to preserve hierarchy between the heavy
+      display cut and the body text — the live "JOIN GAME PASS"
+      hero / supporting-text combinations sit comfortably above
+      this floor.

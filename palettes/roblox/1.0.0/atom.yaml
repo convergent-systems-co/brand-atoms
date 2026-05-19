@@ -1,0 +1,267 @@
+kind: palette
+id: roblox
+version: 1.0.0
+name: Roblox
+description: >
+  Roblox's brand palette as captured from the live roblox.com
+  "Foundation" design-system tokens (--color-extended-*, --color-
+  surface-*, --color-content-*, --color-system-*, --light-mode-*,
+  --dark-mode-* token families). The brand is dual-mode by
+  construction with a strong dark-mode default on the consumer
+  site: a near-black "Surface 0" canvas (#121215 dark / #FFFFFF
+  light) carries the chrome, with the "System Emphasis" blue
+  (#335FFF, light variant #1446FF, dark variant #528BFF) as the
+  primary identifying action color. The brand has moved away
+  from its earlier red-orange identity toward this calibrated
+  blue palette under the recent Foundation rebrand.
+
+  A complete extended ramp covers every hue (blue, green, red,
+  yellow, orange, magenta, pink, purple, turquoise, gray) in 14
+  steps — this atom captures the most-used identity stops and
+  the documented system roles.
+
+tags: [roblox, gaming, platform, blue, dual-mode, dark-default]
+
+provenance:
+  source: https://www.roblox.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Roblox Corporation — palette values captured from the
+    deployed "Foundation" design-system tokens on roblox.com
+    (--color-system-emphasis, --color-extended-blue-*,
+    --color-surface-*, --color-content-*, --light-mode-*, and
+    --dark-mode-* CSS custom-property families). Roblox, the
+    Roblox logo, the Robux icon, and associated marks are
+    trademarks of Roblox Corporation.
+  importedDate: 2026-05-19
+  notes: >
+    Derived from live site CSS at https://www.roblox.com/ on
+    2026-05-19; Roblox's published press-kit page
+    (https://about.roblox.com/press-kit/) provides logo
+    downloads but no hex color specifications. The captured
+    tokens come from the "Foundation" design-system theme
+    declared on the consumer site (--config-theme-name:
+    "Foundation"). The display typeface is Builder Sans
+    (proprietary, declared via --config-text-font as "Builder
+    Sans" with Helvetica Neue / Helvetica / Arial fallbacks)
+    and is not publicly distributed. This atom references
+    inter@1 as the open-source rendering substitute.
+
+swatches:
+  # ─── Roblox Blue (system emphasis / primary brand) ──────────────
+  - id: emphasis-blue
+    name: Emphasis Blue
+    value: "#335FFF"
+    description: >
+      Primary brand action — --color-system-emphasis and
+      --color-extended-blue-700. The Foundation system's
+      identifying action color across both modes.
+  - id: emphasis-blue-link
+    name: Emphasis Blue Link
+    value: "#1446FF"
+    description: >
+      Inline-link variant for light mode — --light-mode-content-
+      link and --color-extended-blue-800.
+  - id: emphasis-blue-bright
+    name: Emphasis Blue Bright
+    value: "#528BFF"
+    description: >
+      Link variant for dark mode — --dark-mode-content-link and
+      --color-extended-blue-600.
+  - id: emphasis-blue-pale
+    name: Emphasis Blue Pale
+    value: "#8FB4FF"
+    description: >
+      Pale link / tertiary blue — --color-extended-blue-400.
+  - id: emphasis-blue-light
+    name: Emphasis Blue Light
+    value: "#EBF1FF"
+    description: >
+      Lightest blue surface — --color-extended-blue-100. Soft
+      branded background tint.
+  - id: emphasis-blue-deep
+    name: Emphasis Blue Deep
+    value: "#002DD6"
+    description: >
+      Deep blue — --color-extended-blue-1000. Pressed-state
+      brand action.
+  - id: emphasis-blue-deepest
+    name: Emphasis Blue Deepest
+    value: "#00145C"
+    description: >
+      Deepest blue — --color-extended-blue-1400. The "soft
+      emphasis foreground" color (--color-action-soft-emphasis-
+      foreground).
+
+  # ─── Ink (dark surfaces) ────────────────────────────────────────
+  - id: ink
+    name: Ink
+    value: "#121215"
+    description: >
+      Primary dark canvas — --dark-mode-surface-0 and
+      --color-extended-gray-1200. The deepest Foundation surface.
+  - id: ink-elevated
+    name: Ink Elevated
+    value: "#191A1F"
+    description: >
+      Dark elevated surface — --dark-mode-surface-100 and
+      --color-extended-gray-1100. The body background on the
+      consumer site (observed as the live body backgroundColor).
+  - id: ink-surface
+    name: Ink Surface
+    value: "#202227"
+    description: >
+      Mid dark surface — --dark-mode-surface-200 and
+      --color-extended-gray-1000.
+  - id: ink-card
+    name: Ink Card
+    value: "#272930"
+    description: >
+      Elevated card on dark — --dark-mode-surface-300 and
+      --color-extended-gray-900.
+
+  # ─── Paper (light surfaces) ─────────────────────────────────────
+  - id: paper
+    name: Paper
+    value: "#FFFFFF"
+    description: >
+      Primary light canvas — --light-mode-surface-0 and
+      --color-surface-0.
+  - id: paper-elevated
+    name: Paper Elevated
+    value: "#F7F7F8"
+    description: >
+      Light elevated surface — --light-mode-surface-100 and
+      --color-extended-gray-100.
+  - id: paper-divider
+    name: Paper Divider
+    value: "#EEEFF1"
+    description: >
+      Quiet divider — --color-extended-gray-200.
+  - id: paper-line
+    name: Paper Line
+    value: "#E6E7EA"
+    description: >
+      UI line — --color-extended-gray-300.
+
+  # ─── Content (neutral text scale) ───────────────────────────────
+  - id: content-emphasis
+    name: Content Emphasis
+    value: "#202227"
+    description: >
+      Primary text on light — --light-mode-content-emphasis and
+      --color-extended-gray-1000.
+  - id: content-default
+    name: Content Default
+    value: "#494D5A"
+    description: >
+      Secondary text on light — --color-content-default and
+      --color-extended-gray-700.
+  - id: content-muted
+    name: Content Muted
+    value: "#6A6F81"
+    description: >
+      Tertiary text — --color-content-muted and --color-
+      extended-gray-600.
+  - id: content-soft
+    name: Content Soft
+    value: "#BCBEC8"
+    description: >
+      Quiet text on dark / quaternary text — --color-extended-
+      gray-500 and --dark-mode-content-muted.
+  - id: content-soft-light
+    name: Content Soft Light
+    value: "#D5D7DD"
+    description: >
+      Pale text on dark — --dark-mode-content-default and
+      --color-extended-gray-400.
+
+  # ─── System status ──────────────────────────────────────────────
+  - id: system-success
+    name: System Success
+    value: "#39C582"
+    description: >
+      Success green — --color-system-success and --color-
+      extended-green-500.
+  - id: system-warning
+    name: System Warning
+    value: "#F2BA2A"
+    description: >
+      Warning amber — --color-system-warning and --color-
+      extended-yellow-400.
+  - id: system-alert
+    name: System Alert
+    value: "#DF281F"
+    description: >
+      Alert / error red — --color-system-alert and --color-
+      extended-red-800.
+  - id: system-alert-dark
+    name: System Alert Dark
+    value: "#F04433"
+    description: >
+      Alert text on dark — --dark-mode-action-alert-foreground.
+
+  # ─── Extended accent stops (worth keeping for the catalog) ──────
+  - id: accent-magenta
+    name: Accent Magenta
+    value: "#C00AE8"
+    description: >
+      Magenta accent — --color-extended-magenta-800. Used for
+      sub-brand and creator-tag accents.
+  - id: accent-purple
+    name: Accent Purple
+    value: "#9348F0"
+    description: >
+      Purple accent — --color-extended-purple-800.
+  - id: accent-turquoise
+    name: Accent Turquoise
+    value: "#127D98"
+    description: >
+      Turquoise accent — --color-extended-turquoise-800.
+  - id: accent-orange
+    name: Accent Orange
+    value: "#C05014"
+    description: >
+      Orange accent — --color-extended-orange-800.
+  - id: accent-pink
+    name: Accent Pink
+    value: "#CD377B"
+    description: >
+      Pink accent — --color-extended-pink-800.
+
+modes:
+  light:
+    roles:
+      background: paper
+      surface: paper-elevated
+      surface-elevated: paper
+      text-primary: content-emphasis
+      text-secondary: content-default
+      text-tertiary: content-muted
+      primary: emphasis-blue
+      primary-hover: emphasis-blue-deep
+      accent: emphasis-blue-link
+      accent-hover: emphasis-blue-deep
+      warning: system-warning
+      warning-hover: accent-orange
+      error: system-alert
+      success: system-success
+      border: paper-line
+
+  dark:
+    roles:
+      background: ink-elevated
+      surface: ink-surface
+      surface-elevated: ink-card
+      text-primary: paper-elevated
+      text-secondary: content-soft-light
+      text-tertiary: content-soft
+      primary: emphasis-blue
+      primary-hover: emphasis-blue-bright
+      accent: emphasis-blue-bright
+      accent-hover: emphasis-blue-pale
+      warning: system-warning
+      warning-hover: accent-orange
+      error: system-alert-dark
+      success: system-success
+      border: ink-card

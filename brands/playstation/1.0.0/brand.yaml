@@ -1,0 +1,255 @@
+id: playstation
+version: 1.0.0
+name: PlayStation
+description: >
+  PlayStation is Sony Interactive Entertainment's gaming brand
+  cluster — covering the PS1 through PS5 console generations, the
+  DualSense controller line, the PlayStation Network and PlayStation
+  Store digital storefronts, PS Plus subscription tiers (Essential,
+  Extra, Premium), and the PS Studios first-party publishing arm
+  (Naughty Dog, Insomniac, Santa Monica, Bend, Sucker Punch,
+  Bluepoint, and others). The brand voice is cinematic and product-
+  led: hero key-art on dark grounds, PlayStation Blue as the
+  primary identifying hue, the commerce-orange as the store/buy
+  affordance, and the proprietary SST family carrying the type.
+
+  PlayStation is a sub-brand of Sony Group Corporation (parent
+  catalogued as sony@1) but stands on its own atom because the
+  visual identity — and especially the calibrated PlayStation Blue
+  gradient — is functionally independent of the monochrome Sony
+  parent identity.
+
+tags: [playstation, sony, gaming, console, blue, dual-mode, sub-brand]
+
+provenance:
+  source: https://www.playstation.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Sony Interactive Entertainment LLC — visual identity captured
+    from the deployed stylesheet on playstation.com (--color-N-*,
+    --color-role-*, --dk-font-* design-token families, including
+    the documented "PlayStation Blue gradient" (--color-role-
+    section-gradients-blue-start / blue-end)). PlayStation, the
+    PS family-mark logos, PS Plus, DualSense, and associated
+    marks are trademarks of Sony Interactive Entertainment LLC.
+  importedDate: 2026-05-19
+  notes: >
+    Derived from live site CSS at https://www.playstation.com/
+    on 2026-05-19; Sony Interactive Entertainment's published
+    brand-guidelines documents (Style Guide for Licensees) are
+    distributed under NDA via the DevNet partner portal and are
+    not publicly accessible. The primary typeface is SST
+    (proprietary, declared via --dk-font as "sst, Arial, sans-
+    serif"), supplemented by Mont W05 (--dk-font-mont) for
+    display and Bebas Neue (--dk-font-bebas-neue) on hero
+    modules. This atom references inter@1 as the open-source
+    rendering substitute for the SST sans family. The PS family-
+    mark "shapes" (triangle, circle, cross, square) are a
+    central identity element but are not enumerated as separate
+    swatches in the palette — they live in the asset library.
+    assets: [] per the encyclopedia's trademark-redistribution
+    policy.
+
+references:
+  palette: playstation@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # PlayStation is functionally dual-mode — the marketing site
+    # is light-first and the console / hero modules are dark-
+    # first. The brand block here uses the dark ink canvas with
+    # the bright PlayStation Blue mark since that is the
+    # documented hero identity pairing on every product launch.
+    identity: ink
+    on-identity: ps-blue-bright
+
+    primary: ps-blue
+    primary-hover: ps-blue-hover
+    accent: ps-blue-link
+    accent-hover: ps-blue-active
+    mark: paper
+    success: ps-success
+    warning: ps-orange
+    error: ps-warning
+    text-primary-light: ash-text
+    text-primary-dark: paper
+    background-light: paper
+    background-dark: ink
+    surface-light: paper-surface
+    surface-dark: ink-surface
+    text-secondary-light: ash-secondary
+    text-tertiary-light: ash-tertiary
+    border-light: paper-divider
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: roles.colors.primary
+    allowed:
+      - ps-blue
+      - ps-blue-link
+      - ps-blue-hover
+      - ps-blue-active
+      - ps-blue-deep
+      - ps-blue-bright
+    forbidden:
+      - ps-orange
+      - ps-orange-base
+      - ps-plus-yellow
+      - ps-warning
+      - ps-success
+    severity: error
+    rationale: >
+      The documented PlayStation Blue family carries the brand's
+      primary action across the entire design system (--color-
+      role-backgrounds-primary-link-* and --color-role-section-
+      gradients-blue-* token clusters). The commerce orange
+      is *not* a primary — it is a context-restricted commerce
+      affordance (--color-role-backgrounds-commerce-link-base-*).
+      The PS Plus yellow is reserved for the PS Plus subscription
+      mark only. Substituting any of them for the brand primary
+      collapses the documented three-way action grammar (blue =
+      identity, orange = commerce, yellow = subscription).
+
+  - type: colorChoice
+    target: roles.colors.mark
+    allowed:
+      - paper
+      - ink
+      - ps-blue
+      - ps-blue-deep
+    forbidden:
+      - ps-orange
+      - ps-plus-yellow
+      - ps-hint-pink
+      - ps-warning
+    severity: error
+    rationale: >
+      The PlayStation wordmark renders in pure white on dark, in
+      Ink (#121314) on light surfaces, and in the documented
+      PlayStation Blue gradient as a brand-color treatment on
+      hero key-art. The commerce orange and PS Plus yellow are
+      tier-mark and sub-brand affordances — substituting them
+      for the parent PlayStation wordmark fill misrepresents the
+      brand hierarchy.
+
+  - type: contextRestriction
+    target: roles.colors.warning
+    allowedContexts:
+      - commerce
+      - checkout
+      - buy-cta
+      - store-page
+    forbiddenContexts:
+      - mark
+      - hero-headline
+      - brand-badge
+    severity: error
+    rationale: >
+      PlayStation's "warning" color in this brand mapping is the
+      commerce orange (#D63D00) — it carries the buy / checkout
+      affordance per the design system's --color-role-backgrounds-
+      commerce-link-* tokens. It must not appear as the mark
+      fill, hero headline color, or brand badge — those roles
+      belong to the PlayStation Blue family or the white
+      monochrome treatments.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+      - outlined
+      - distorted
+    severity: error
+    rationale: >
+      PlayStation's wordmark is a fixed-proportion identity that
+      ships under NDA-distributed licensee guidelines.
+      Recoloring (outside the documented PlayStation Blue
+      gradient), skewing, rotating, drop-shadowing, or placing
+      the mark on a busy photo without the documented clearspace
+      conflicts with Sony Interactive Entertainment's published
+      partner-portal requirements.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Ash Text (#1F1F1F) on Paper (#FFFFFF) measures ~16:1 and
+      Paper (#FFFFFF) on Ink (#121314) measures ~19:1 — both
+      clear WCAG AA decisively and sit inside the AAA band. The
+      console UI's dense game-tile chrome, pricing, and rating
+      labels earn a higher contrast floor than the bare AA
+      minimum.
+
+  - type: fontPairing
+    target: typography.display
+    requires: prose
+    minSizeRatio: 1.3
+    severity: recommendation
+    rationale: >
+      PlayStation's marketing surfaces use SST (proprietary) for
+      both display and body, supplemented by Mont W05 for
+      display and Bebas Neue for hero modules. Maintain at
+      least a 1.3× ratio between display and prose to preserve
+      hierarchy when a single sans family carries both roles.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["400", "500", "600", "700"]
+    severity: warning
+    rationale: >
+      PlayStation's marketing-site CSS exercises Regular (400),
+      Medium (500), SemiBold (600), and Bold (700) cuts of SST.
+      Heavier display weights are reserved for the proprietary
+      SST Display cut and are not in the variable-font set
+      shipped to the consumer site.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) — Level
+      AA. PlayStation's console UI and storefront chrome carry
+      dense product information (game titles, pricing tiers,
+      controller compatibility icons, PS Plus tier badging)
+      across both light and dark modes; AA is the floor across
+      both modes.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - ink
+      - paper
+      - paper-surface
+      - ink-surface
+    doesNotPairWith:
+      - ps-plus-yellow
+      - ps-hint-pink
+      - ps-orange
+    severity: recommendation
+    rationale: >
+      PlayStation Blue reads cleanest against the ink canvas or
+      the paper canvas. Placing it directly adjacent to the
+      commerce orange (a category-signal hue) or PS Plus yellow
+      (a sub-brand hue) introduces chromatic conflict and
+      collapses the documented action-hierarchy separation; the
+      live site separates them with neutral surfaces.
