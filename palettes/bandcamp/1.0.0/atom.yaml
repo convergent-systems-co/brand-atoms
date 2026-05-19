@@ -1,0 +1,114 @@
+kind: palette
+id: bandcamp
+version: 1.0.0
+name: Bandcamp
+description: >
+  Bandcamp's brand palette built around the signature Bandcamp Aqua
+  — the muted cadet-blue / ocean-blue color that fills the
+  wordmark, the "Buy Now" button, and the player accent. The brand
+  is light-first and minimalist: a near-white canvas, the aqua
+  accent, deep ink for text, and a small neutral scale. Bandcamp's
+  identity is deliberately understated — the platform is built
+  around discovery of artist-uploaded music and direct artist
+  support, and the visual restraint reflects an artist-first,
+  catalog-forward voice.
+
+tags: [bandcamp, music, indie, marketplace, aqua, ocean-blue, light-first]
+
+provenance:
+  source: https://htmlcolors.com/brand-color/bandcamp
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Bandcamp, the Bandcamp wordmark, and the aqua "BC" mark are
+    trademarks of Bandcamp (a subsidiary of Songtradr).
+    Bandcamp Aqua (#629AA9) — labeled "Breaker Bay" by some
+    aggregators — is the cross-cited single brand color across
+    htmlcolors.com, designpieces.com, and Bandcamp's own
+    public asset naming (logotype-aqua.svg). The neutral
+    swatches are captured from the public bandcamp.com player
+    chrome and marketing surfaces.
+  importedDate: 2026-05-19
+  notes: >
+    Bandcamp publishes a buttons / logos page at
+    bandcamp.com/buttons listing button color variants (black,
+    green, grey, aqua, white) but does not publish hex values
+    in the page text. The single canonical brand hex (#629AA9)
+    is cross-cited by multiple third-party aggregators and
+    matches Bandcamp's own filename convention for the aqua
+    wordmark asset. Bandcamp's marketing site uses system
+    fonts; this palette is paired with the open-source
+    Inter substitute in the brand atom.
+
+swatches:
+  - id: bandcamp-aqua
+    name: Bandcamp Aqua
+    value: "#629AA9"
+    description: The signature Bandcamp aqua / cadet-blue — wordmark, primary CTA, player accent.
+  - id: bandcamp-aqua-deep
+    name: Bandcamp Aqua Deep
+    value: "#4A7E8C"
+    description: Pressed / active state for the primary action; deeper teal step from the brand aqua.
+  - id: bandcamp-aqua-light
+    name: Bandcamp Aqua Light
+    value: "#A4C5CE"
+    description: Hover / soft-fill variant of the brand aqua for tinted surfaces.
+  - id: bandcamp-ink
+    name: Bandcamp Ink
+    value: "#202020"
+    description: Primary text on the light canvas; deep near-black for body and the wordmark on white.
+  - id: bandcamp-charcoal
+    name: Bandcamp Charcoal
+    value: "#444444"
+    description: Secondary text and label color on the light canvas.
+  - id: bandcamp-gray
+    name: Bandcamp Gray
+    value: "#888888"
+    description: Tertiary text, metadata, and the unplayed waveform region.
+  - id: bandcamp-gray-light
+    name: Bandcamp Gray Light
+    value: "#CCCCCC"
+    description: Divider lines and quiet borders on the light canvas.
+  - id: bandcamp-surface
+    name: Bandcamp Surface
+    value: "#F5F5F5"
+    description: Subtle elevated surface — row hover, sidebar, footer.
+  - id: bandcamp-white
+    name: Bandcamp White
+    value: "#FFFFFF"
+    description: Canonical light canvas — the player chrome and marketing default.
+
+modes:
+  light:
+    roles:
+      background: bandcamp-white
+      surface: bandcamp-surface
+      surface-elevated: bandcamp-white
+      text-primary: bandcamp-ink
+      text-secondary: bandcamp-charcoal
+      text-tertiary: bandcamp-gray
+      primary: bandcamp-aqua
+      primary-hover: bandcamp-aqua-deep
+      accent: bandcamp-aqua
+      accent-hover: bandcamp-aqua-deep
+      warning: bandcamp-aqua
+      warning-hover: bandcamp-aqua-deep
+      error: bandcamp-ink
+      success: bandcamp-aqua
+      border: bandcamp-gray-light
+  dark:
+    roles:
+      background: bandcamp-ink
+      surface: bandcamp-charcoal
+      surface-elevated: bandcamp-gray
+      text-primary: bandcamp-white
+      text-secondary: bandcamp-gray-light
+      text-tertiary: bandcamp-gray
+      primary: bandcamp-aqua-light
+      primary-hover: bandcamp-aqua
+      accent: bandcamp-aqua-light
+      accent-hover: bandcamp-aqua
+      warning: bandcamp-aqua-light
+      warning-hover: bandcamp-aqua
+      error: bandcamp-aqua-light
+      success: bandcamp-aqua-light
+      border: bandcamp-charcoal

@@ -1,0 +1,218 @@
+id: tidal
+version: 1.0.0
+name: TIDAL
+description: >
+  TIDAL is a subscription music-streaming service positioned at
+  the audiophile end of the market — founded on lossless and
+  high-resolution audio, and now operated as a subsidiary of
+  Block, Inc. The brand voice is premium, artist-respectful,
+  and audio-quality-first: where competitors lean editorial or
+  community, TIDAL leans into fidelity and the artist's
+  uncompromised master. Visually, the identity is the most
+  restrained in music streaming: a solid-black canvas, a single
+  bright cyan / oxide-blue accent, and white text. The two-tone
+  black-and-cyan pairing is the most recognizable element of
+  the TIDAL identity, and the spareness of the palette is
+  itself a brand statement — clarity, fidelity, no decoration.
+
+tags: [tidal, music, streaming, hifi, lossless, audiophile, dark-first, premium]
+
+provenance:
+  source: https://mobbin.com/colors/brand/tidal-music
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    TIDAL, the TIDAL wordmark, and the cyan / black brand mark
+    are trademarks of TIDAL Music AS (a subsidiary of Block,
+    Inc.). This atom captures brand-atoms' read of TIDAL's
+    publicly observable identity (the consumer marketing
+    surfaces and the cross-cited brand-color values from
+    third-party aggregators). It is not an official TIDAL
+    brand-guidelines document.
+  importedDate: 2026-05-19
+  notes: >
+    TIDAL's public marketing site (tidal.com) returns HTTP 403
+    to unauthenticated fetches; provenance for this palette
+    falls back to Mobbin's published TIDAL brand-color
+    reference, which documents the canonical three-color
+    Black / White / Cyan identity. TIDAL's marketing site
+    uses a proprietary sans-serif; this atom substitutes
+    `inter@1` as the open-source rendering fallback for both
+    heading and body roles, matching the convention used by
+    other proprietary-typography brand atoms in this catalog.
+
+references:
+  palette: tidal@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # TIDAL is dark-first: the solid-black canvas IS the brand,
+    # with cyan reading as the high-fidelity accent layered on
+    # top. `identity` = the black canvas; `on-identity` = the
+    # cyan, since the white wordmark variant pairs with the
+    # cyan as the brand's chromatic complement.
+    identity: tidal-black
+    on-identity: tidal-cyan
+
+    background: tidal-black
+    surface: tidal-near-black
+    surface-elevated: tidal-surface-elevated
+    text-primary: tidal-white
+    text-secondary: tidal-gray-light
+    text-tertiary: tidal-gray
+
+    primary: tidal-cyan
+    primary-hover: tidal-cyan-pressed
+    accent: tidal-cyan
+    accent-hover: tidal-cyan-pressed
+    mark: tidal-cyan
+    border: tidal-gray-dark
+  typography:
+    display: heading
+    prose: body
+    wordmark: heading
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.wordmark.fill
+    allowed:
+      - tidal-white
+      - tidal-black
+      - tidal-cyan
+    forbidden:
+      - tidal-cyan-pressed
+      - tidal-cyan-deep
+      - tidal-gray
+      - tidal-gray-light
+      - tidal-gray-dark
+    severity: error
+    rationale: >
+      The TIDAL wordmark renders only in white, black, or the
+      brand cyan. The cyan-pressed and cyan-deep variants are
+      interactive-state colors for the primary action, not
+      wordmark fills, and the neutral grays are reserved for
+      text hierarchy on the dark canvas.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - gradient-fill
+      - cyan-on-low-contrast-background
+    severity: error
+    rationale: >
+      TIDAL's identity is built on minimalism and clarity.
+      Recoloring, stretching, or adding gradient / shadow
+      treatments to the wordmark conflicts with the brand's
+      audiophile-first, no-decoration voice. The cyan
+      wordmark must never appear on a background where it
+      falls below WCAG-AA-large contrast.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 7.0
+    standard: WCAG-AAA
+    severity: error
+    rationale: >
+      TIDAL White (#FFFFFF) on TIDAL Black (#000000) gives
+      ~21:1 — clears WCAG 2.1 Level AAA decisively. The
+      audiophile / premium positioning argues for an AAA
+      contrast target on the canonical dark canvas rather
+      than the AA floor; the dark canvas dominates the
+      consumer surface and the text must be unequivocally
+      legible.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 3.0
+    standard: WCAG-AA-large
+    severity: error
+    rationale: >
+      TIDAL Cyan (#00FFFF) on TIDAL Black (#000000) gives
+      ~16:1 — well above the AA-large floor. This rule
+      encodes the affordance: the cyan primary action and
+      play button must remain perceptible at all interactive
+      sizes on the dark canvas.
+
+  - type: contextRestriction
+    target: roles.colors.primary
+    forbiddenContexts:
+      - body-text
+      - secondary-link
+      - validation-failure
+      - hero-background
+    severity: error
+    rationale: >
+      TIDAL Cyan is reserved for the brand mark, the play
+      affordance, the primary action, and tightly-scoped
+      hover / selected states. Using it for body text, for
+      validation-failure states, or as a hero background
+      collapses the brand's chromatic restraint and dilutes
+      the high-fidelity affordance the cyan carries.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["400", "500", "700"]
+    severity: warning
+    rationale: >
+      TIDAL's headlines use Regular (400) for editorial,
+      Medium (500) for UI emphasis, and Bold (700) for hero
+      typography. The brand's restrained, audio-first voice
+      argues against the heaviest display weights — the
+      visual weight comes from the dark canvas and the
+      generous whitespace, not from typographic shouting.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.5
+    severity: warning
+    rationale: >
+      TIDAL's hero / section headers run materially larger
+      than the player UI's body text. A 1.5× floor between
+      display and prose preserves the editorial hierarchy
+      and prevents the minimal palette from being read as
+      flat or undifferentiated.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AAA
+    criterion: "1.4.6"
+    severity: warning
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.6 (Contrast Enhanced) —
+      Level AAA. The TIDAL premium / audiophile positioning
+      and the high-contrast Black / White / Cyan palette
+      already clear AAA on the canonical dark canvas;
+      adopting AAA as the target rather than the AA floor
+      keeps the brand's clarity-first posture explicit.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - tidal-black
+      - tidal-near-black
+      - tidal-white
+    doesNotPairWith:
+      - tidal-cyan-deep
+      - tidal-cyan-pressed
+      - tidal-gray-light
+    severity: recommendation
+    rationale: >
+      The brand cyan reads cleanest against the deep black
+      canvas, the near-black surface, or pure white. Pairing
+      it adjacent to its own deeper interactive-state variants
+      or to the pale neutral creates a muddy chromatic
+      adjacency that fights the brand's two-tone restraint.

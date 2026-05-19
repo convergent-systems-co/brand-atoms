@@ -1,0 +1,106 @@
+kind: palette
+id: apple-music
+version: 1.0.0
+name: Apple Music
+description: >
+  Apple Music's signature pink-to-red gradient palette. The product
+  brand under the Apple parent identity uses a vivid pink-into-red
+  warm gradient as its mark fill and hero accent, paired with the
+  near-black canvas and pure white that Apple deploys across its
+  HIG dark-mode surfaces. The Apple Music identity is the warmest,
+  most chromatic of Apple's service-tier brands — distinct from
+  the monochrome Apple corporate mark — and reads as energetic,
+  expressive, and music-forward against the otherwise restrained
+  Apple system.
+
+tags: [apple-music, music, streaming, apple, pink, red, gradient, dark-first]
+
+provenance:
+  source: https://brandcolorcode.com/apple-music
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Apple Music, the Apple Music wordmark and gradient mark are
+    trademarks of Apple Inc. The pink (#FF4E6B) and red (#FF0436)
+    hex values are reported by brandcolorcode.com as the
+    closest published approximations of the Apple Music brand
+    gradient; Apple does not distribute Apple Music brand
+    guidelines as a standalone document. White (#FFFFFF) and
+    near-black (#000000 / #1C1C1E) are the canonical Apple HIG
+    canvas / on-color pairings for service-tier surfaces.
+  importedDate: 2026-05-19
+  notes: >
+    Apple has not published explicit hex values for the Apple
+    Music gradient. The pink and red values here are the
+    third-party-reported approximations. The neutral canvas
+    swatches mirror the iOS / macOS HIG dark-mode system
+    backgrounds (system-background-dark #000000, secondary
+    system-background-dark #1C1C1E) which Apple Music inherits
+    from its parent platform.
+
+swatches:
+  - id: apple-music-pink
+    name: Apple Music Pink
+    value: "#FF4E6B"
+    description: The lighter terminus of Apple Music's signature pink-to-red gradient; primary mark fill.
+  - id: apple-music-red
+    name: Apple Music Red
+    value: "#FF0436"
+    description: The deeper terminus of the gradient; pairs with the pink to form the mark.
+  - id: apple-music-coral
+    name: Apple Music Coral
+    value: "#FA233B"
+    description: Mid-gradient coral — the pressed / hovered state on the gradient marks.
+  - id: apple-music-white
+    name: Apple Music White
+    value: "#FFFFFF"
+    description: Primary text and reversed wordmark fill on the dark canvas.
+  - id: apple-music-black
+    name: Apple Music Black
+    value: "#000000"
+    description: Canonical Apple HIG dark-mode canvas. Inherited from the iOS / macOS system-background-dark token.
+  - id: apple-music-surface
+    name: Apple Music Surface
+    value: "#1C1C1E"
+    description: Elevated surface on the dark canvas — matches HIG secondary-system-background-dark.
+  - id: apple-music-surface-elevated
+    name: Apple Music Surface Elevated
+    value: "#2C2C2E"
+    description: Cards, sheets, and elevated tiles — matches HIG tertiary-system-background-dark.
+  - id: apple-music-gray
+    name: Apple Music Gray
+    value: "#8E8E93"
+    description: Secondary text and divider tone — matches HIG system-gray on dark.
+  - id: apple-music-gray-light
+    name: Apple Music Gray Light
+    value: "#C7C7CC"
+    description: Tertiary text and metadata on the dark canvas.
+
+modes:
+  light:
+    roles:
+      background: apple-music-white
+      surface: apple-music-white
+      surface-elevated: apple-music-white
+      text-primary: apple-music-black
+      text-secondary: apple-music-gray
+      text-tertiary: apple-music-gray-light
+      primary: apple-music-red
+      primary-hover: apple-music-coral
+      accent: apple-music-pink
+      accent-hover: apple-music-coral
+      error: apple-music-red
+      success: apple-music-pink
+  dark:
+    roles:
+      background: apple-music-black
+      surface: apple-music-surface
+      surface-elevated: apple-music-surface-elevated
+      text-primary: apple-music-white
+      text-secondary: apple-music-gray-light
+      text-tertiary: apple-music-gray
+      primary: apple-music-pink
+      primary-hover: apple-music-coral
+      accent: apple-music-pink
+      accent-hover: apple-music-red
+      error: apple-music-red
+      success: apple-music-pink

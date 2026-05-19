@@ -1,0 +1,115 @@
+kind: palette
+id: soundcloud
+version: 1.0.0
+name: SoundCloud
+description: >
+  SoundCloud's brand palette built around the signature
+  SoundCloud Orange — the saturated, near-vermillion accent
+  that fills the waveform mark, the play button, and the
+  primary CTA across the player and marketing surfaces. The
+  brand is light-first historically (white-canvas player chrome)
+  but renders comfortably on dark surfaces; the palette is
+  trimmed: a single-color brand accent, deep near-black ink,
+  and a small neutral scale for body text, dividers, and the
+  waveform's quiet ranges.
+
+tags: [soundcloud, music, streaming, audio, orange, light-first]
+
+provenance:
+  source: https://htmlcolors.com/brand-color/soundcloud
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    SoundCloud, the SoundCloud wordmark, and the orange cloud /
+    waveform mark are trademarks of SoundCloud Global Limited
+    & Co. KG. The orange (#FF8800) and red-orange (#FF3300)
+    values are published by htmlcolors.com as the two-color
+    SoundCloud brand palette; brandcolorcode.com cross-references
+    a Pantone 158 C approximation (#F37422). This atom uses the
+    htmlcolors set as the canonical pair and treats #F37422 as
+    a documented warm variant.
+  importedDate: 2026-05-19
+  notes: >
+    SoundCloud does not distribute a public brand-guidelines
+    document with hex values. The orange / red-orange pair
+    captured here is the most widely cross-cited representation
+    of the SoundCloud accent across third-party brand-color
+    aggregators. The black, white, and gray neutrals are
+    captured from the public player UI's chrome.
+
+swatches:
+  - id: soundcloud-orange
+    name: SoundCloud Orange
+    value: "#FF8800"
+    description: The signature SoundCloud accent — the waveform fill, the play button, and the primary CTA color.
+  - id: soundcloud-red-orange
+    name: SoundCloud Red Orange
+    value: "#FF3300"
+    description: The deeper red-orange variant used in the gradient mark and on hover / active states.
+  - id: soundcloud-orange-pressed
+    name: SoundCloud Orange Pressed
+    value: "#E67300"
+    description: Pressed / active state for the primary action — a darker step from the brand orange.
+  - id: soundcloud-pantone
+    name: SoundCloud Pantone 158
+    value: "#F37422"
+    description: Pantone 158 C — third-party-documented warm variant of the SoundCloud accent.
+  - id: soundcloud-black
+    name: SoundCloud Black
+    value: "#111111"
+    description: Primary text on the light canvas; deep ink for the wordmark on white.
+  - id: soundcloud-charcoal
+    name: SoundCloud Charcoal
+    value: "#333333"
+    description: Secondary text and divider on the light canvas.
+  - id: soundcloud-gray
+    name: SoundCloud Gray
+    value: "#999999"
+    description: Tertiary text, metadata, and quiet waveform regions.
+  - id: soundcloud-gray-light
+    name: SoundCloud Gray Light
+    value: "#CCCCCC"
+    description: Divider lines and the unplayed waveform fill in the player UI.
+  - id: soundcloud-surface
+    name: SoundCloud Surface
+    value: "#F2F2F2"
+    description: Subtle elevated surface on the light canvas — row hover, sidebar.
+  - id: soundcloud-white
+    name: SoundCloud White
+    value: "#FFFFFF"
+    description: Canonical light canvas — the player chrome and marketing default.
+
+modes:
+  light:
+    roles:
+      background: soundcloud-white
+      surface: soundcloud-surface
+      surface-elevated: soundcloud-white
+      text-primary: soundcloud-black
+      text-secondary: soundcloud-charcoal
+      text-tertiary: soundcloud-gray
+      primary: soundcloud-orange
+      primary-hover: soundcloud-orange-pressed
+      accent: soundcloud-orange
+      accent-hover: soundcloud-red-orange
+      warning: soundcloud-orange
+      warning-hover: soundcloud-orange-pressed
+      error: soundcloud-red-orange
+      success: soundcloud-orange
+      border: soundcloud-gray-light
+  dark:
+    roles:
+      background: soundcloud-black
+      surface: soundcloud-charcoal
+      surface-elevated: soundcloud-gray
+      text-primary: soundcloud-white
+      text-secondary: soundcloud-gray-light
+      text-tertiary: soundcloud-gray
+      primary: soundcloud-orange
+      primary-hover: soundcloud-red-orange
+      accent: soundcloud-orange
+      accent-hover: soundcloud-red-orange
+      warning: soundcloud-orange
+      warning-hover: soundcloud-orange-pressed
+      error: soundcloud-red-orange
+      success: soundcloud-orange
+      border: soundcloud-charcoal

@@ -1,0 +1,206 @@
+id: soundcloud
+version: 1.0.0
+name: SoundCloud
+description: >
+  SoundCloud is a global audio-streaming platform built around
+  user-uploaded music, podcasts, mixes, and DJ sets, headquartered
+  in Berlin. The brand voice is community-first, creator-forward,
+  and unpolished by design — it is the platform where independent
+  artists, bedroom producers, and unsigned acts publish first.
+  Visually, the identity is the signature SoundCloud Orange — a
+  saturated near-vermillion that fills the cloud-and-waveform mark,
+  the play affordance, and the primary action — paired with a
+  spare neutral scale on a light canvas. The brand is light-first
+  in product chrome, with the orange providing the only chromatic
+  punch in an otherwise reserved palette.
+
+tags: [soundcloud, music, streaming, audio, podcasts, creator-platform, light-first]
+
+provenance:
+  source: https://htmlcolors.com/brand-color/soundcloud
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    SoundCloud, the SoundCloud wordmark, and the orange cloud /
+    waveform mark are trademarks of SoundCloud Global Limited
+    & Co. KG. This atom captures brand-atoms' read of SoundCloud's
+    publicly observable identity (the marketing site, the player
+    UI, and the cross-cited brand-color values from third-party
+    aggregators). It is not an official SoundCloud
+    brand-guidelines document.
+  importedDate: 2026-05-19
+  notes: >
+    SoundCloud does not publish a public brand-guidelines
+    document with hex values. The primary orange (#FF8800) and
+    secondary red-orange (#FF3300) are cross-cited by multiple
+    third-party brand-color aggregators (htmlcolors.com,
+    designpieces.com) and match the rendered values on the
+    public player. SoundCloud's marketing site uses Interstate
+    (proprietary, licensed from Font Bureau) for headlines and
+    a system-sans stack for body. This atom substitutes
+    `inter@1` as the open-source rendering fallback for both
+    heading and body roles.
+
+references:
+  palette: soundcloud@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # SoundCloud is light-first; the identity block is the
+    # white canvas the player and marketing render on, with
+    # the orange reading as the high-energy accent on top.
+    identity: soundcloud-white
+    on-identity: soundcloud-orange
+
+    background: soundcloud-white
+    surface: soundcloud-surface
+    surface-elevated: soundcloud-white
+    text-primary: soundcloud-black
+    text-secondary: soundcloud-charcoal
+    text-tertiary: soundcloud-gray
+
+    primary: soundcloud-orange
+    primary-hover: soundcloud-orange-pressed
+    accent: soundcloud-orange
+    accent-hover: soundcloud-red-orange
+    mark: soundcloud-orange
+    border: soundcloud-gray-light
+  typography:
+    display: heading
+    prose: body
+    wordmark: heading
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.mark.fill
+    allowed:
+      - soundcloud-orange
+      - soundcloud-red-orange
+      - soundcloud-white
+      - soundcloud-black
+    forbidden:
+      - soundcloud-gray
+      - soundcloud-gray-light
+      - soundcloud-charcoal
+      - soundcloud-pantone
+    severity: error
+    rationale: >
+      The SoundCloud cloud-waveform mark renders in the brand
+      orange, the deeper red-orange gradient variant, or as a
+      flat reversed white / black mark on chromatic backgrounds.
+      Filling the mark with the neutral grays or the Pantone
+      approximation (kept as a documented variant only) breaks
+      the published brand treatment.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - inverted-without-variant
+    severity: error
+    rationale: >
+      The SoundCloud mark has a fixed aspect ratio and a small,
+      published set of color variants (orange, white, black,
+      and the orange-to-red-orange gradient). Stretching,
+      rotating, or filling it with arbitrary colors conflicts
+      with the brand's straightforward, creator-forward voice.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      SoundCloud Black (#111111) on SoundCloud White (#FFFFFF)
+      gives ~19:1 — well clear of WCAG 2.1 Level AA. This rule
+      encodes the floor any new foreground / background role
+      pairing must clear on the light canvas.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 3.0
+    standard: WCAG-AA-large
+    severity: warning
+    rationale: >
+      SoundCloud Orange (#FF8800) on white falls near the 3:1
+      AA-large floor — the saturated mid-orange is bright enough
+      to read at interactive sizes but is not WCAG-AA-clear for
+      small-text uses. Treat the orange as an accent for marks
+      and interactive surfaces, not for body text.
+
+  - type: contextRestriction
+    target: roles.colors.primary
+    forbiddenContexts:
+      - body-text
+      - secondary-link
+      - validation-failure
+    severity: error
+    rationale: >
+      SoundCloud Orange is reserved for the brand mark, the
+      play affordance, and the primary action. Using it for
+      body text or for validation-failure / error states
+      collides with its established positive-action meaning
+      and dilutes the brand's only chromatic accent.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["500", "600", "700", "900"]
+    severity: warning
+    rationale: >
+      SoundCloud's display type runs Medium (500) through Bold
+      (700) with the heaviest Black (900) cut reserved for
+      hero / editorial headlines. Lighter weights read as body
+      or UI weight and compromise the editorial impact of the
+      marketing voice.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.5
+    severity: warning
+    rationale: >
+      SoundCloud hero typography runs materially larger than
+      the player UI's body text. A 1.5× floor between display
+      and prose preserves the editorial hierarchy and prevents
+      the creator-forward voice from collapsing into a single
+      typographic register.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) —
+      Level AA. The light-first canvas makes contrast checks
+      the default verification on every new role pairing,
+      especially around the orange accent which sits near the
+      AA-large floor on white.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - soundcloud-white
+      - soundcloud-black
+      - soundcloud-charcoal
+    doesNotPairWith:
+      - soundcloud-gray-light
+      - soundcloud-surface
+    severity: recommendation
+    rationale: >
+      SoundCloud Orange reads cleanest against pure white,
+      deep black, or charcoal. Pairing it against the pale
+      surface gray collapses the contrast and softens the
+      orange's role as the brand's only chromatic accent.

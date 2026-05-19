@@ -1,0 +1,204 @@
+id: bandcamp
+version: 1.0.0
+name: Bandcamp
+description: >
+  Bandcamp is an artist-first online music store and audio
+  streaming service where fans buy music and merchandise
+  directly from independent and label-affiliated artists. The
+  brand voice is deliberately understated, catalog-forward, and
+  artist-centric: the platform exists to surface the work, not
+  to decorate it. Visually the identity is the signature
+  Bandcamp Aqua — a muted cadet-blue / ocean-blue accent —
+  applied sparingly against a near-white canvas and deep-ink
+  text. Bandcamp's chrome is famously spare; the aqua reads as
+  the one chromatic note in an otherwise neutral, library-like
+  layout.
+
+tags: [bandcamp, music, indie, marketplace, streaming, light-first, minimal]
+
+provenance:
+  source: https://bandcamp.com/buttons
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Bandcamp, the Bandcamp wordmark, and the aqua "BC" mark
+    are trademarks of Bandcamp (a subsidiary of Songtradr).
+    This atom captures brand-atoms' read of Bandcamp's
+    publicly observable identity (the marketing site, the
+    public buttons / logos asset page at bandcamp.com/buttons,
+    and the cross-cited brand-color values from third-party
+    aggregators). It is not an official Bandcamp
+    brand-guidelines document.
+  importedDate: 2026-05-19
+  notes: >
+    Bandcamp publishes button and logo variants at
+    bandcamp.com/buttons but does not publish hex values in
+    the page text. The canonical aqua (#629AA9) is cross-cited
+    by htmlcolors.com and designpieces.com and matches
+    Bandcamp's own filename convention for the aqua wordmark
+    asset. Bandcamp's marketing site uses a system-font stack;
+    this atom substitutes `inter@1` as the open-source
+    rendering fallback for both heading and body roles.
+
+references:
+  palette: bandcamp@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # Bandcamp is light-first; the identity block is the white
+    # canvas the player and marketing render on, with the aqua
+    # reading as the brand's single chromatic accent.
+    identity: bandcamp-white
+    on-identity: bandcamp-aqua
+
+    background: bandcamp-white
+    surface: bandcamp-surface
+    surface-elevated: bandcamp-white
+    text-primary: bandcamp-ink
+    text-secondary: bandcamp-charcoal
+    text-tertiary: bandcamp-gray
+
+    primary: bandcamp-aqua
+    primary-hover: bandcamp-aqua-deep
+    accent: bandcamp-aqua
+    accent-hover: bandcamp-aqua-deep
+    mark: bandcamp-aqua
+    border: bandcamp-gray-light
+  typography:
+    display: heading
+    prose: body
+    wordmark: heading
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.wordmark.fill
+    allowed:
+      - bandcamp-aqua
+      - bandcamp-ink
+      - bandcamp-white
+    forbidden:
+      - bandcamp-aqua-deep
+      - bandcamp-aqua-light
+      - bandcamp-gray
+      - bandcamp-gray-light
+      - bandcamp-charcoal
+    severity: error
+    rationale: >
+      Bandcamp publishes three wordmark variants — aqua,
+      black (ink), and white — on its public buttons / logos
+      page. The aqua-deep and aqua-light variants exist as
+      interactive-state colors on the primary action, not as
+      wordmark fills, and the neutral grays are reserved for
+      body text and dividers.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - gradient-fill
+    severity: error
+    rationale: >
+      Bandcamp's wordmark is flat-color by design — applying
+      gradients, shadows, or arbitrary recoloring conflicts
+      with the brand's deliberately understated, catalog-forward
+      voice. The aqua / ink / white variants documented on
+      bandcamp.com/buttons are the only approved fills.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Bandcamp Ink (#202020) on Bandcamp White (#FFFFFF) gives
+      ~17:1 — well clear of WCAG 2.1 Level AA. This rule encodes
+      the floor any new foreground / background role pairing
+      must clear on the light canvas.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 3.0
+    standard: WCAG-AA-large
+    severity: error
+    rationale: >
+      Bandcamp Aqua (#629AA9) on white gives ~3.3:1 — just clear
+      of WCAG 2.1 AA-large. The aqua is functional as a primary
+      CTA fill and an accent on white but is too muted for
+      small body text on the same canvas; treat it as an
+      interactive / accent color, not as a text color.
+
+  - type: contextRestriction
+    target: roles.colors.primary
+    forbiddenContexts:
+      - body-text
+      - validation-failure
+    severity: error
+    rationale: >
+      Bandcamp Aqua is reserved for the wordmark, the "Buy Now"
+      CTA, and the player's accent. Using it for body text
+      collapses its readability margin to below AA, and using
+      it for validation-failure / error states collides with
+      its established positive-action meaning.
+
+  - type: enumMembership
+    target: typography.heading.fontWeight
+    allowed: ["400", "500", "600", "700"]
+    severity: recommendation
+    rationale: >
+      Bandcamp's marketing and player chrome use the system
+      sans-serif stack at Regular (400) and Bold (700) for
+      most chrome, with Medium (500) and Semibold (600) used
+      sparingly. The brand's understated voice argues against
+      the heaviest display weights — let the catalog work
+      carry the visual weight, not the type.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.3
+    severity: recommendation
+    rationale: >
+      Bandcamp uses a single-family system stack for both
+      headings and body, distinguished by size and weight
+      rather than family change. A 1.3× ratio between heading
+      and body preserves hierarchy without forcing a louder
+      typographic register than the brand voice supports.
+
+  - type: accessibilityRequirement
+    target: "*"
+    standard: WCAG-AA
+    criterion: "1.4.3"
+    severity: error
+    rationale: >
+      WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) —
+      Level AA. The aqua-on-white pairing sits near the
+      AA-large floor; every new role pairing involving the
+      aqua needs an explicit contrast check.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - bandcamp-white
+      - bandcamp-ink
+      - bandcamp-surface
+    doesNotPairWith:
+      - bandcamp-aqua-light
+      - bandcamp-gray
+    severity: recommendation
+    rationale: >
+      The aqua reads cleanest against the white canvas, against
+      the deep ink, or on the pale surface gray. Pairing it
+      against the lighter aqua tint or the mid-gray collapses
+      the contrast and softens the brand's only chromatic note.

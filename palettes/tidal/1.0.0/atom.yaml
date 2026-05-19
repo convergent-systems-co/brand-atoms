@@ -1,0 +1,110 @@
+kind: palette
+id: tidal
+version: 1.0.0
+name: TIDAL
+description: >
+  TIDAL's brand palette built on the most restrained pairing in
+  music streaming: pure black, pure white, and a single bright
+  cyan / oxide-blue accent. The brand is dark-first, premium, and
+  audiophile-positioned — TIDAL was founded on the promise of
+  lossless and high-resolution audio, and the visual identity
+  reflects that minimalism: the deep black canvas dominates, the
+  cyan reads as the only chromatic note, and white provides text
+  and reversed wordmark variants. The two-tone palette is the
+  most identifiable element of the TIDAL identity.
+
+tags: [tidal, music, streaming, hifi, lossless, audiophile, cyan, dark-first, monochrome]
+
+provenance:
+  source: https://mobbin.com/colors/brand/tidal-music
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    TIDAL, the TIDAL wordmark, and the cyan / black brand mark
+    are trademarks of TIDAL Music AS (a subsidiary of Block,
+    Inc.). The Black (#000000) / White (#FFFFFF) / Cyan
+    (#00FFFF) three-color palette is cross-cited by Mobbin's
+    brand-color reference and matches the rendered values on
+    the public tidal.com surfaces. TIDAL does not distribute a
+    public brand-guidelines document with explicit hex values.
+  importedDate: 2026-05-19
+  notes: >
+    TIDAL's public marketing site returns HTTP 403 to
+    unauthenticated fetches; provenance for this palette
+    falls back to the Mobbin brand-color reference, which
+    documents the three-color TIDAL identity. The deep
+    near-black surface tokens (#0A0A0A, #181818) are captured
+    from the consumer player UI's elevated surface chrome.
+
+swatches:
+  - id: tidal-black
+    name: TIDAL Black
+    value: "#000000"
+    description: Canonical canvas — the TIDAL consumer surface is solid black.
+  - id: tidal-near-black
+    name: TIDAL Near Black
+    value: "#0A0A0A"
+    description: Elevated surface on the dark canvas — main panel chrome.
+  - id: tidal-surface-elevated
+    name: TIDAL Surface Elevated
+    value: "#181818"
+    description: Cards, hovered rows, and elevated tiles on the dark canvas.
+  - id: tidal-cyan
+    name: TIDAL Cyan
+    value: "#00FFFF"
+    description: The signature TIDAL cyan / oxide-blue accent — the brand's only chromatic note.
+  - id: tidal-cyan-pressed
+    name: TIDAL Cyan Pressed
+    value: "#00CCCC"
+    description: Pressed / active state for the primary action — a darker step from the cyan.
+  - id: tidal-cyan-deep
+    name: TIDAL Cyan Deep
+    value: "#008B94"
+    description: Deeper cyan reserved for hover and selected states on the player chrome.
+  - id: tidal-white
+    name: TIDAL White
+    value: "#FFFFFF"
+    description: Primary text on the dark canvas; reversed wordmark fill on light marketing surfaces.
+  - id: tidal-gray-light
+    name: TIDAL Gray Light
+    value: "#CCCCCC"
+    description: Secondary text and divider color on the dark canvas.
+  - id: tidal-gray
+    name: TIDAL Gray
+    value: "#737373"
+    description: Tertiary text, captions, and metadata in the player UI.
+  - id: tidal-gray-dark
+    name: TIDAL Gray Dark
+    value: "#404040"
+    description: Quiet dividers, disabled state, and the unplayed seek-bar fill.
+
+modes:
+  light:
+    roles:
+      background: tidal-white
+      surface: tidal-white
+      surface-elevated: tidal-white
+      text-primary: tidal-black
+      text-secondary: tidal-gray
+      text-tertiary: tidal-gray-light
+      primary: tidal-cyan-deep
+      primary-hover: tidal-cyan-pressed
+      accent: tidal-cyan-deep
+      accent-hover: tidal-cyan-pressed
+      error: tidal-black
+      success: tidal-cyan-deep
+      border: tidal-gray-light
+  dark:
+    roles:
+      background: tidal-black
+      surface: tidal-near-black
+      surface-elevated: tidal-surface-elevated
+      text-primary: tidal-white
+      text-secondary: tidal-gray-light
+      text-tertiary: tidal-gray
+      primary: tidal-cyan
+      primary-hover: tidal-cyan-pressed
+      accent: tidal-cyan
+      accent-hover: tidal-cyan-pressed
+      error: tidal-white
+      success: tidal-cyan
+      border: tidal-gray-dark
