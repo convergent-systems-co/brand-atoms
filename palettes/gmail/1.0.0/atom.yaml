@@ -1,0 +1,129 @@
+kind: palette
+id: gmail
+version: 1.0.0
+name: Gmail
+description: >
+  Gmail's product palette, anchored on the 2020-refresh envelope
+  mark — a multicolor "M" rendered in the four Google brand hues
+  (Blue, Green, Yellow, Red) with a deeper Crimson accent for the
+  envelope interior. Gmail is a product-brand under the Google
+  parent: the typography and corporate voice inherit from Google,
+  while these envelope-specific swatches are the visual fingerprint
+  of the Gmail mark itself.
+tags: [gmail, google, email, product-brand, multicolor]
+
+provenance:
+  source: https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Gmail and the Gmail envelope mark are trademarks of Google LLC.
+    The five fill colors documented here are the exact hex values
+    declared in the canonical 2020 Gmail icon SVG hosted on
+    Wikimedia Commons, mirrored from Google's public brand assets.
+  importedDate: 2026-05-18
+  notes: >
+    Brand-atoms' read of the public Gmail 2020 envelope icon. This
+    file is not an official Google brand document. Gmail inherits
+    its typography and corporate voice from the Google parent atom
+    (see brands/google/1.0.0); these swatches are scoped to the
+    product mark itself. The four Google hues are intentionally
+    identical to the values in palettes/google@1 — Gmail uses the
+    same canonical four-color set with a fifth Crimson Dark accent
+    for the envelope interior fold.
+
+swatches:
+  # ─── Gmail envelope mark (2020 refresh) ─────────────────────────
+  - id: gmail-red
+    name: Gmail Red
+    value: "#EA4335"
+    description: >
+      Right downstroke of the Gmail "M" envelope. Google Red /
+      Material Red 500 — the canonical Google four-color red.
+  - id: gmail-crimson
+    name: Gmail Crimson
+    value: "#C5221F"
+    description: >
+      Deeper red used for the envelope interior fold in the 2020
+      Gmail icon. Provides depth between the outer Red and the
+      inner envelope face.
+  - id: gmail-yellow
+    name: Gmail Yellow
+    value: "#FBBC04"
+    description: >
+      Right-of-center valley of the "M". Google Yellow / Material
+      Yellow 600 — used for highlight and starred states inside
+      the Gmail UI.
+  - id: gmail-green
+    name: Gmail Green
+    value: "#34A853"
+    description: >
+      Left-of-center valley of the "M". Google Green / Material
+      Green 500 — used as the canonical success / send-confirmed
+      hue in Gmail product chrome.
+  - id: gmail-blue
+    name: Gmail Blue
+    value: "#4285F4"
+    description: >
+      Left downstroke of the "M". Google Blue / Material Blue 500 —
+      Gmail's primary action color (Compose button, link affordance).
+
+  # ─── Neutral surface ramp (inherited from Material) ─────────────
+  - id: gmail-grey-900
+    name: Gmail Grey 900
+    value: "#202124"
+    description: >
+      Primary text on light surfaces; near-black drawn from
+      Material Grey 900 to match the Google parent.
+  - id: gmail-grey-700
+    name: Gmail Grey 700
+    value: "#5F6368"
+    description: Secondary text and inactive icons (Material Grey 700).
+  - id: gmail-grey-200
+    name: Gmail Grey 200
+    value: "#E8EAED"
+    description: Divider and subtle surface tint (Material Grey 200).
+  - id: gmail-grey-100
+    name: Gmail Grey 100
+    value: "#F1F3F4"
+    description: >
+      Page-level background — Gmail's product chrome uses this warm
+      light-grey as the inbox canvas.
+  - id: gmail-white
+    name: Gmail White
+    value: "#FFFFFF"
+    description: Base background and reversed surface fill.
+
+modes:
+  light:
+    roles:
+      background: gmail-white
+      surface: gmail-grey-100
+      surface-elevated: gmail-white
+      text-primary: gmail-grey-900
+      text-secondary: gmail-grey-700
+      primary: gmail-blue
+      primary-hover: gmail-blue
+      accent: gmail-red
+      accent-hover: gmail-crimson
+      warning: gmail-yellow
+      warning-hover: gmail-yellow
+      error: gmail-red
+      success: gmail-green
+      border: gmail-grey-200
+
+  dark:
+    roles:
+      background: gmail-grey-900
+      surface: gmail-grey-700
+      surface-elevated: gmail-grey-700
+      text-primary: gmail-white
+      text-secondary: gmail-grey-200
+      primary: gmail-blue
+      primary-hover: gmail-blue
+      accent: gmail-red
+      accent-hover: gmail-crimson
+      warning: gmail-yellow
+      warning-hover: gmail-yellow
+      error: gmail-red
+      success: gmail-green
+      border: gmail-grey-700

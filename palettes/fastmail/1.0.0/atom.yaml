@@ -1,0 +1,183 @@
+kind: palette
+id: fastmail
+version: 1.0.0
+name: Fastmail
+description: >
+  Fastmail's brand palette, captured directly from the live
+  marketing site (fastmail.com) where the design system exposes a
+  comprehensive named-color token surface on the document root.
+  Fastmail's identity is built on a confident corporate Blue
+  (#0067B9) as the primary action color, a Deep Blue navy
+  (#243959) as the brand-anchor "trust" hue used for the footer
+  canvas, a warm Mellow Yellow (#FBF7EF) page surface, and a four-
+  color "flag" gradient (Pink, Blue, Light Blue, Yellow) that
+  appears as the footer separator.
+tags: [fastmail, email, brand, blue, navy, professional]
+
+provenance:
+  source: https://www.fastmail.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Fastmail and the Fastmail wordmark are trademarks of Fastmail
+    Pty Ltd. Palette values captured from the deployed stylesheet
+    on fastmail.com on 2026-05-18 — the marketing site exposes a
+    comprehensive brand token surface (--brand-color-*, --theme-*,
+    --ui-color-* families) on the document root.
+  importedDate: 2026-05-18
+  notes: >
+    Derived from live site CSS at https://www.fastmail.com on
+    2026-05-18; no public brand guide located. Token names mirror
+    Fastmail's internal naming as exposed on the live site. The
+    brand uses Proxima Nova as the primary typeface (referenced
+    here only as a substitution note — the proprietary licensing
+    is owned by Mark Simonson Studio, not by Fastmail).
+
+swatches:
+  # ─── Primary Blue (CTA / action) ────────────────────────────────
+  - id: fastmail-blue
+    name: Fastmail Blue
+    value: "#0067B9"
+    description: >
+      Fastmail's primary action / CTA color — the dominant brand
+      blue used for buttons, links, and primary affordances across
+      the marketing site and product.
+  - id: fastmail-blue-hover
+    name: Fastmail Blue Hover
+    value: "#176BAD"
+    description: Hover variant on the primary CTA.
+  - id: fastmail-blue-active
+    name: Fastmail Blue Active
+    value: "#296B9F"
+    description: Pressed / active state of the primary blue.
+
+  # ─── Deep Blue (brand-anchor navy) ──────────────────────────────
+  - id: fastmail-deep-blue
+    name: Fastmail Deep Blue
+    value: "#243959"
+    description: >
+      The navy "trust" hue used as the footer background and as the
+      brand-anchor identity color in marketing surfaces. Reads as
+      "secure, established" against the lighter primary blue.
+
+  # ─── Light Blue (supporting / focus) ────────────────────────────
+  - id: fastmail-lightblue
+    name: Fastmail Light Blue
+    value: "#69B3E7"
+    description: >
+      The mid-light blue used in the footer flag-gradient and as
+      the focus-ring / outline color on buttons.
+
+  # ─── Mellow Yellow (warm surface) ───────────────────────────────
+  - id: fastmail-mellow-yellow
+    name: Fastmail Mellow Yellow
+    value: "#FBF7EF"
+    description: >
+      The warm off-white "mellow" surface — a paper-toned canvas
+      used on marketing modules as the calm alternative to pure
+      white.
+  - id: fastmail-yellow
+    name: Fastmail Yellow
+    value: "#FFC107"
+    description: >
+      The saturated yellow used in the footer flag-gradient and
+      for highlight accents.
+
+  # ─── Pink (flag-gradient accent) ────────────────────────────────
+  - id: fastmail-pink
+    name: Fastmail Pink
+    value: "#FFA0C3"
+    description: >
+      The blush-pink accent that opens the footer flag-gradient —
+      a softer, warmer counterpoint to the dominant blues.
+
+  # ─── Neutral ramp (grey scale) ──────────────────────────────────
+  - id: fastmail-text
+    name: Fastmail Text
+    value: "#1B1E20"
+    description: >
+      Primary body-text color — a soft near-black with a slight
+      cool tint that pairs with the deep-blue brand anchor.
+  - id: fastmail-text-alt
+    name: Fastmail Text Alt
+    value: "#333E48"
+    description: Alternate heading/text on lighter surfaces.
+  - id: fastmail-text-subtle
+    name: Fastmail Text Subtle
+    value: "#5B646C"
+    description: Subtle/secondary text on light surfaces.
+  - id: fastmail-text-extra-subtle
+    name: Fastmail Text Extra Subtle
+    value: "#70777E"
+    description: Tertiary text and inactive labels.
+  - id: fastmail-border-light
+    name: Fastmail Border Light
+    value: "#EAEBEC"
+    description: Light border / divider on white surfaces.
+  - id: fastmail-border-medium
+    name: Fastmail Border Medium
+    value: "#D6D8DA"
+    description: Mid-tone border on cards and inputs.
+  - id: fastmail-bg-alt
+    name: Fastmail Background Alt
+    value: "#F4F5F5"
+    description: Alternate page-background tint (faint neutral surface).
+  - id: fastmail-bg-focused
+    name: Fastmail Background Focused
+    value: "#E9EBEE"
+    description: Selected / focused row tint.
+  - id: fastmail-white
+    name: Fastmail White
+    value: "#FFFFFF"
+    description: Base page background.
+
+  # ─── Status ramp ────────────────────────────────────────────────
+  - id: fastmail-success
+    name: Fastmail Success
+    value: "#147B33"
+    description: Success / send-confirmed (ui-color-successgreen-100).
+  - id: fastmail-error
+    name: Fastmail Error
+    value: "#B9031F"
+    description: Error / destructive (ui-color-criticalred-100).
+  - id: fastmail-warning
+    name: Fastmail Warning
+    value: "#CA3C08"
+    description: Warning / snooze (ui-color-snoozeorange-100).
+
+modes:
+  light:
+    roles:
+      background: fastmail-white
+      surface: fastmail-bg-alt
+      surface-elevated: fastmail-white
+      surface-warm: fastmail-mellow-yellow
+      text-primary: fastmail-text
+      text-secondary: fastmail-text-subtle
+      text-tertiary: fastmail-text-extra-subtle
+      primary: fastmail-blue
+      primary-hover: fastmail-blue-hover
+      accent: fastmail-blue
+      accent-hover: fastmail-blue-active
+      warning: fastmail-warning
+      warning-hover: fastmail-warning
+      error: fastmail-error
+      success: fastmail-success
+      border: fastmail-border-light
+
+  dark:
+    roles:
+      background: fastmail-deep-blue
+      surface: fastmail-text-alt
+      surface-elevated: fastmail-text-subtle
+      text-primary: fastmail-white
+      text-secondary: fastmail-border-light
+      text-tertiary: fastmail-border-medium
+      primary: fastmail-lightblue
+      primary-hover: fastmail-blue
+      accent: fastmail-lightblue
+      accent-hover: fastmail-blue
+      warning: fastmail-warning
+      warning-hover: fastmail-warning
+      error: fastmail-error
+      success: fastmail-success
+      border: fastmail-text-subtle

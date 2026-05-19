@@ -1,0 +1,186 @@
+id: outlook
+version: 1.0.0
+name: Outlook
+description: >
+  Outlook is Microsoft's email-and-calendar product — the consumer
+  side of Microsoft 365 personal mail and a flagship enterprise
+  productivity surface. Outlook is a product-brand under the
+  Microsoft parent (see brands/microsoft/1.0.0); it inherits the
+  Fluent design language, the Segoe UI typographic family, and
+  Microsoft's enterprise-clear voice. The visual fingerprint that
+  distinguishes Outlook specifically is the envelope-with-O mark
+  — a deep-navy envelope outer, a pale-blue inner flap, and the
+  white "O" ring — and the Communications Blue primary
+  (#0078D4 / #0067B8) used for the Compose button and primary
+  links across the product surface.
+tags: [outlook, microsoft, email, product-brand, fluent, productivity, enterprise]
+
+provenance:
+  source: https://www.microsoft.com/design/fluent/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Outlook, the Outlook envelope-with-O mark, Microsoft, Fluent, and
+    Segoe UI are trademarks of the Microsoft group of companies.
+    Brand colors and identity guidance documented here are derived
+    from microsoft.com/design/, the Fluent 2 design system at
+    fluent2.microsoft.design, and the live Outlook product surface
+    at outlook.live.com.
+  importedDate: 2026-05-18
+  notes: >
+    Outlook inherits from the Microsoft Fluent design language; see
+    brands/microsoft/1.0.0. Identity role uses the Outlook envelope
+    mark colors specifically. This atom is brand-atoms' read of
+    public Outlook surfaces; it is not an official Microsoft brand
+    document. The Outlook mark is among the most-protected trademarks
+    on the internet; no asset files are bundled here. Outlook's
+    primary typeface is Segoe UI (referenced via segoe-ui@1).
+
+references:
+  palette: outlook@1
+  fonts:
+    heading: segoe-ui@1
+    body: segoe-ui@1
+    mono: cascadiacode-nerdfont@1
+
+roles:
+  colors:
+    # Identity is the Outlook envelope mark's outer fill — the
+    # deep navy is the strongest single-color reference to the
+    # product brand. The Microsoft Communications Blue parent
+    # token serves the primary CTA role beneath it.
+    identity: outlook-deep-blue
+    on-identity: outlook-white
+
+    primary: outlook-link-blue
+    primary-hover: communications-blue
+    accent: outlook-action-blue
+    accent-hover: outlook-link-blue
+    mark-envelope-outer: outlook-deep-blue
+    mark-envelope-flap: outlook-sky
+    mark-letter-o: outlook-action-blue
+    background: outlook-canvas
+    surface: outlook-gray-30
+    text-primary: outlook-ink
+    text-secondary: outlook-gray-160
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.envelope-mark
+    allowed:
+      - outlook-deep-blue
+      - outlook-sky
+      - outlook-action-blue
+      - outlook-white
+    forbidden:
+      - communications-blue
+      - outlook-ink
+    severity: error
+    rationale: >
+      The Outlook envelope-with-O mark uses exactly four fills —
+      Deep Blue (#2A446F) outer, Sky (#B3DAF0) flap, Action Blue
+      (#0066FF) on the "O" ring, and white negative space.
+      Communications Blue (#0078D4) is the Fluent system primary
+      for product chrome and link affordances, not a logo fill —
+      substituting it muddies the envelope's intentional contrast
+      between deep navy and bright "O".
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - separated-envelope-and-o
+      - reverted-to-old-blue-envelope
+    severity: error
+    rationale: >
+      Microsoft's brand guidelines explicitly prohibit altering the
+      proportions, colors, or arrangement of the Outlook envelope
+      mark. The "O" and the envelope are a unified mark — separating
+      them, or reverting to the pre-2018 wireframe envelope, breaks
+      brand recognition.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      WCAG 2.1 Level AA contrast requirement for body text. Outlook
+      Ink (#17253D) on Outlook Canvas (#FFFDFB) clears AA at ~15:1,
+      matching Fluent's accessibility floor for text-on-background
+      pairings.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Outlook Link Blue (#0067B8) on Outlook Canvas clears AA at
+      ~5.3:1 — the live product uses #0067B8 in place of the lighter
+      #0078D4 Communications Blue specifically because #0078D4 on a
+      warm-white canvas drops below 4.5:1 for small body-text links.
+
+  - type: colorChoice
+    target: roles.colors.primary
+    allowed:
+      - outlook-link-blue
+      - communications-blue
+    forbidden:
+      - outlook-action-blue
+      - outlook-deep-blue
+    severity: error
+    rationale: >
+      Primary action affordances (Compose, Send, link text) must use
+      one of the two Fluent / Outlook system blues. The brighter
+      Action Blue (#0066FF) is reserved for the envelope-mark "O"
+      ring; the deep-navy envelope outer is identity-only and lacks
+      the affordance signal for "clickable."
+
+  - type: compositionConstraint
+    target: roles.colors.identity
+    pairsWith:
+      - outlook-white
+      - outlook-canvas
+      - outlook-sky
+    doesNotPairWith:
+      - outlook-action-blue
+    severity: recommendation
+    rationale: >
+      The deep-navy envelope reads cleanest against white or against
+      its own pale-blue flap. Pairing the navy outer with the bright
+      Action Blue "O" at large scale (without the envelope context)
+      reads as two competing blues fighting for hierarchy.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.4
+    severity: recommendation
+    rationale: >
+      Outlook inherits Fluent's Segoe UI for both heading and body.
+      A 1.4× minimum size ratio preserves hierarchy when one family
+      does double duty — Fluent's type ramp runs from Caption (~12px)
+      to Title (~32px+), and Outlook's product chrome uses the same
+      scale.
+
+  - type: enumMembership
+    target: typography.body.fontWeight
+    allowed: ["400", "600"]
+    severity: recommendation
+    rationale: >
+      Outlook inherits Fluent's type-weight discipline — Segoe UI
+      Regular (400) and Semibold (600) for the majority of UI
+      surfaces. Lighter and heavier weights are reserved for
+      specific roles (Light for hero display, Bold for emphasis).

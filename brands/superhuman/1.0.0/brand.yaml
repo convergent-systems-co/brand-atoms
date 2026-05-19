@@ -1,0 +1,191 @@
+id: superhuman
+version: 1.0.0
+name: Superhuman
+description: >
+  Superhuman is a premium email-and-productivity product positioned
+  around speed, keyboard-first interaction, and AI-assisted triage.
+  The visual identity is dark-first, dramatic, and unapologetically
+  chromatic — a deep Mulberry-Black hero canvas (#241013) is the
+  brand's signature marketing surface, paired with a warm off-white
+  Neutral-0 (#FCFAF7) for light contexts. The primary accent is
+  Purple-60 (#714CB6) on light surfaces and Purple-20 (#D4C7FF) on
+  dark surfaces — a deliberate, theatrical purple that distinguishes
+  Superhuman from the corporate-blue email field. Typography uses
+  the proprietary "Super Sans VF" / "Super Serif VF" family, with
+  Inter as the open-source rendering substitute.
+tags: [superhuman, email, productivity, brand, purple, dark-first, premium]
+
+provenance:
+  source: https://superhuman.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Superhuman, the Superhuman wordmark, and the Super Sans / Super
+    Serif / Super Sans Mono typefaces are property of Superhuman
+    Labs, Inc. Brand colors and identity guidance documented here
+    are derived from the deployed stylesheet on superhuman.com
+    (--purple-*, --mulberry-*, --neutral-*, --color-* token
+    families).
+  importedDate: 2026-05-18
+  notes: >
+    Derived from live site CSS at https://superhuman.com on
+    2026-05-18; no public brand guide located. The proprietary
+    brand typefaces (Super Sans VF, Super Serif VF, Super Sans
+    Mono VF) are declared on superhuman.com via @font-face but are
+    not publicly distributed. This atom references Inter@1 as the
+    open-source rendering substitute for the sans roles. The brand
+    is intentionally dark-first on the marketing surface — the
+    Mulberry-Black canvas (#241013) is the brand's hero state, not
+    a "dark mode" of a lighter design.
+
+references:
+  palette: superhuman@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # Superhuman is dark-first — the identity surface IS the
+    # Mulberry-Black canvas, with Purple-60 as the primary accent.
+    identity: mulberry-black
+    on-identity: white
+
+    primary: purple-60
+    primary-hover: purple-80
+    accent: purple-60
+    accent-hover: purple-80
+    mark: purple-60
+    success: green-60
+    warning: gold-pro-60
+    error: red-60
+    text-primary-light: neutral-90
+    text-primary-dark: white
+    background-light: neutral-0
+    background-dark: mulberry-black
+    surface-light: neutral-5
+    surface-dark: mulberry-100
+    text-secondary-light: neutral-60
+    text-tertiary-light: neutral-30
+    border-light: neutral-30
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      WCAG 2.1 Level AA contrast requirement for body text.
+      Neutral-90 (#292827) on Neutral-0 (#FCFAF7) clears AA at
+      ~13:1 in light mode; White on Mulberry-Black clears AA at
+      ~17:1 in dark mode.
+
+  - type: colorChoice
+    target: roles.colors.primary
+    allowed:
+      - purple-60
+      - purple-20
+    forbidden:
+      - mulberry-80
+      - red-60
+      - gold-pro-60
+      - sky-60
+    severity: error
+    rationale: >
+      Superhuman's primary action color is Purple-60 on light
+      surfaces and Purple-20 on dark surfaces — this is the brand's
+      single most distinguishing visual decision. Substituting any
+      other chromatic erases the brand's intentional separation
+      from the corporate-blue email field.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+    severity: error
+    rationale: >
+      Superhuman's mark is rendered as a single-color wordmark or
+      monogram. Recolored, gradient-filled, or skewed treatments
+      conflict with the brand's restrained, premium voice.
+
+  - type: contextRestriction
+    target: roles.colors.identity
+    allowedContexts:
+      - marketing-site
+      - hero
+      - dark-surface
+    forbiddenContexts:
+      - body-text-background
+    severity: recommendation
+    rationale: >
+      Mulberry-Black (#241013) is the marketing-hero canvas and
+      dark-mode page background — it is NOT suitable as a
+      surface-elevated card-fill or as the immediate background
+      behind dense reading text (use Mulberry-100 #421D24 or
+      Neutral-80 #474543 as the elevated dark surface instead).
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 3.0
+    standard: WCAG-AA-large
+    severity: error
+    rationale: >
+      Purple-60 on Neutral-0 must remain perceptible at link /
+      large-text sizes. Below 3:1 the affordance for "clickable"
+      collapses on the warm-off-white canvas. The brand's dark-mode
+      pairing (Purple-20 on Mulberry-Black) clears 3:1 by a much
+      larger margin.
+
+  - type: fontPairing
+    target: typography.display
+    requires: prose
+    minSizeRatio: 1.5
+    severity: recommendation
+    rationale: >
+      The Super Sans display face pairs with Super Serif for
+      long-form prose on superhuman.com marketing surfaces. A 1.5×
+      minimum display-to-prose size ratio preserves typographic
+      hierarchy when the serif renders alongside the sans headlines.
+
+  - type: enumMembership
+    target: typography.body.fontWeight
+    allowed: ["200", "460", "540", "600", "700"]
+    severity: warning
+    rationale: >
+      The live superhuman.com stylesheet declares Super Sans at
+      five custom weights — book (200), regular (460), medium
+      (540), semibold (600), bold (700). The non-standard
+      intermediate values are deliberate brand choices; other
+      weights are not in the licensed variable-font cut.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - neutral-0
+      - mulberry-black
+      - white
+    doesNotPairWith:
+      - gold-pro-60
+      - red-60
+      - sky-60
+    severity: recommendation
+    rationale: >
+      Purple-60 reads cleanest against the warm-white canvas or
+      the mulberry-black hero. Pairing it adjacent to Gold-Pro,
+      Red, or Sky introduces a chromatic conflict that fights for
+      attention without resolving into hierarchy — the supporting
+      chromatics belong in illustration and data-viz contexts only.

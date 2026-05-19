@@ -1,0 +1,189 @@
+id: gmail
+version: 1.0.0
+name: Gmail
+description: >
+  Gmail is Google's email service — launched 2004, refreshed in
+  2020 with the multicolor "M" envelope mark that replaced the
+  long-standing single-red envelope. Gmail is a product-brand
+  under the Google parent (see brands/google/1.0.0); it inherits
+  Google's typography (Google Sans for display, Roboto for body),
+  the corporate four-color identity, and the approachable,
+  information-clear voice. The visual fingerprint that
+  distinguishes Gmail specifically is the five-color envelope mark
+  — Blue, Green, Yellow, Red, and a deeper Crimson for the inner
+  fold — and the Compose-button blue (#4285F4) as the primary
+  action affordance across the product surface.
+tags: [gmail, google, email, product-brand, productivity, consumer]
+
+provenance:
+  source: https://about.google/brand-resource-center/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Gmail, the Gmail envelope mark, and Google Sans are trademarks
+    of Google LLC. Brand colors and identity guidance documented
+    here are derived from the Google Brand Resource Center
+    (about.google/brand-resource-center/), the public 2020 Gmail
+    icon SVG hosted on Wikimedia Commons, and the live Gmail
+    product surface at mail.google.com.
+  importedDate: 2026-05-18
+  notes: >
+    Gmail inherits typography and brand voice from the Google
+    parent (see brands/google/1.0.0). Identity role uses the Gmail
+    envelope mark colors specifically. This atom is brand-atoms'
+    read of public Gmail brand surfaces; it is not an official
+    Google brand document. Gmail's logo and envelope mark are
+    among the most-protected trademarks on the internet; no asset
+    files are bundled here. The proprietary Google Sans / Product
+    Sans typefaces are referenced via the google-sans@1 atom and
+    Inter@1 is the open-source rendering substitute when Google
+    Sans is unavailable.
+
+references:
+  palette: gmail@1
+  fonts:
+    heading: google-sans@1
+    body: roboto@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # Identity is the Gmail envelope mark specifically — naming
+    # gmail-red here (the dominant outer-stroke hue) lets consumers
+    # render a Gmail-badge surface without resolving to the parent
+    # Google blue primary.
+    identity: gmail-red
+    on-identity: gmail-white
+
+    primary: gmail-blue
+    primary-hover: gmail-blue
+    accent: gmail-red
+    accent-hover: gmail-crimson
+    mark-outer: gmail-red
+    mark-inner: gmail-crimson
+    mark-blue: gmail-blue
+    mark-green: gmail-green
+    mark-yellow: gmail-yellow
+    background: gmail-white
+    surface: gmail-grey-100
+    text-primary: gmail-grey-900
+    text-secondary: gmail-grey-700
+    error: gmail-red
+    success: gmail-green
+    warning: gmail-yellow
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: colorChoice
+    target: logo.envelope-mark
+    allowed:
+      - gmail-red
+      - gmail-crimson
+      - gmail-yellow
+      - gmail-green
+      - gmail-blue
+    forbidden:
+      - gmail-grey-900
+      - gmail-grey-700
+    severity: error
+    rationale: >
+      The 2020 Gmail envelope mark uses exactly five colors — Blue,
+      Green, Yellow, Red, and Crimson Dark — declared in the public
+      Gmail icon SVG. Monochromatic Gmail marks are reserved for
+      special contexts (favicons at extreme small sizes) that
+      Google's brand guidance calls out explicitly.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - on-busy-photo
+      - reverted-to-old-red-envelope
+      - reordered-colors
+    severity: error
+    rationale: >
+      Gmail's 2020 refresh replaced the pre-2020 solid-red envelope.
+      Reverting to the legacy mark, recoloring the strokes, or
+      altering proportions all conflict with current Google brand
+      guidance. The mark requires generous clearspace and an
+      unbusy background.
+
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      WCAG 2.1 Level AA contrast requirement for body text. Gmail
+      Grey 900 (#202124) on Gmail White clears AA at ~16:1, matching
+      the Google parent's accessibility floor for Material surfaces.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 3.0
+    standard: WCAG-AA-large
+    severity: error
+    rationale: >
+      Gmail Blue (#4285F4) on Gmail White must remain perceptible as
+      the Compose-button and primary-link affordance. Below 3:1 the
+      "clickable" signal collapses on the inbox canvas.
+
+  - type: colorChoice
+    target: roles.colors.error
+    allowed:
+      - gmail-red
+    severity: error
+    rationale: >
+      Gmail uses Google Red (#EA4335) as the canonical error /
+      destructive color across the product UI (delete-thread,
+      send-failed). Other reds dilute the signal and break parity
+      with the Google parent.
+
+  - type: colorChoice
+    target: roles.colors.success
+    allowed:
+      - gmail-green
+    severity: recommendation
+    rationale: >
+      Gmail uses Google Green (#34A853) as the canonical success
+      color — "Message sent," "Recipient added," conversation-marked
+      labels. Other greens are acceptable for illustration but should
+      not appear in confirmation chrome.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.5
+    severity: recommendation
+    rationale: >
+      Gmail's marketing surfaces pair Google Sans (display / titles)
+      with Roboto (body / UI), inheriting the Google parent's
+      typographic pairing. A 1.5× minimum size ratio preserves the
+      geometric-vs-neogrotesque hierarchy when the two families
+      appear together.
+
+  - type: compositionConstraint
+    target: roles.colors.primary
+    pairsWith:
+      - gmail-white
+      - gmail-grey-100
+      - gmail-grey-900
+    doesNotPairWith:
+      - gmail-red
+      - gmail-green
+      - gmail-yellow
+    severity: recommendation
+    rationale: >
+      The five envelope hues belong together as the brand mark.
+      Pairing Gmail Blue with a single sibling hue (without the full
+      five-color set) reads as a brand-identity conflict rather than
+      a coordinated palette — same pattern as the Google parent.

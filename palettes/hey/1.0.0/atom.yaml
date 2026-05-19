@@ -1,0 +1,163 @@
+kind: palette
+id: hey
+version: 1.0.0
+name: HEY
+description: >
+  HEY's brand palette, captured from the live marketing site
+  (hey.com) where the design system is deliberately utilitarian:
+  pure white page canvas (#FFFFFF), near-black body text (#222222),
+  a bright Bootstrap-era link blue (#0088CC) for action affordance,
+  and HEY's famous bright Yellow (#FFFF00) used as a deliberately
+  loud highlight throughout the product. HEY is authored by
+  Basecamp / 37signals — the design language inherits their
+  opinionated, anti-trend, utility-first stance.
+tags: [hey, basecamp, thirty-seven-signals, email, brand, yellow, utility]
+
+provenance:
+  source: https://hey.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    HEY and the HEY wordmark are trademarks of 37signals LLC /
+    Basecamp. Palette values captured from the deployed stylesheet
+    on hey.com on 2026-05-18 — the marketing site uses a deliberately
+    minimal token surface (Bootstrap-era greys, a single accent
+    yellow, and a primary action blue).
+  importedDate: 2026-05-18
+  notes: >
+    Derived from live site CSS at https://hey.com on 2026-05-18; no
+    public brand guide located. HEY is authored by Basecamp /
+    37signals — the parent company's "Rework" / "Shape Up"
+    operating philosophy extends visually into the deliberately
+    utilitarian, system-font-driven brand presentation. HEY uses
+    the system stack ("Lucida Grande", Helvetica, Arial) on the
+    marketing site rather than a proprietary face. The bright
+    Yellow (#FFFF00) is the brand's most distinctive single visual
+    choice — used as a highlight throughout the product to
+    aggressively redirect attention.
+
+swatches:
+  # ─── Highlight Yellow (the HEY signature) ───────────────────────
+  - id: hey-yellow
+    name: HEY Yellow
+    value: "#FFFF00"
+    description: >
+      The defining HEY accent — a pure CSS-yellow used as a
+      highlight throughout the product (think text-marker / "Screener"
+      highlight bar). Loud by design.
+
+  # ─── Primary action blue ────────────────────────────────────────
+  - id: hey-blue
+    name: HEY Blue
+    value: "#0088CC"
+    description: >
+      The action blue captured from hey.com — used for links,
+      primary buttons, and active-state affordance.
+  - id: hey-blue-hover
+    name: HEY Blue Hover
+    value: "#1A8AD5"
+    description: Slightly brighter hover variant.
+  - id: hey-blue-active
+    name: HEY Blue Active
+    value: "#176BAD"
+    description: Pressed / active blue.
+
+  # ─── Neutrals (Bootstrap-era greyscale) ─────────────────────────
+  - id: hey-white
+    name: HEY White
+    value: "#FFFFFF"
+    description: Page canvas — pure white, no warm tint.
+  - id: hey-near-white
+    name: HEY Near White
+    value: "#FCFCFC"
+    description: Subtle elevated surface.
+  - id: hey-grey-100
+    name: HEY Grey 100
+    value: "#F5F5F5"
+    description: Hairline panel background.
+  - id: hey-grey-300
+    name: HEY Grey 300
+    value: "#DDDDDD"
+    description: Border and divider on light surfaces.
+  - id: hey-grey-500
+    name: HEY Grey 500
+    value: "#888888"
+    description: Tertiary text / inactive icon.
+  - id: hey-grey-700
+    name: HEY Grey 700
+    value: "#555555"
+    description: Secondary text.
+  - id: hey-text
+    name: HEY Text
+    value: "#333333"
+    description: Body text on white canvas.
+  - id: hey-heading
+    name: HEY Heading
+    value: "#222222"
+    description: Heading and emphasis text on white.
+  - id: hey-near-black
+    name: HEY Near Black
+    value: "#1E1E1E"
+    description: Deepest ink for high-contrast type and dark-mode canvas.
+
+  # ─── Status colors (Bootstrap heritage) ─────────────────────────
+  - id: hey-success
+    name: HEY Success
+    value: "#3C763D"
+    description: Confirmation green — Bootstrap success-text heritage.
+  - id: hey-success-bg
+    name: HEY Success Background
+    value: "#DFF0D8"
+    description: Success-state surface tint.
+  - id: hey-error
+    name: HEY Error
+    value: "#A94442"
+    description: Error red — Bootstrap danger-text heritage.
+  - id: hey-error-bg
+    name: HEY Error Background
+    value: "#F2DEDE"
+    description: Error-state surface tint.
+  - id: hey-warning
+    name: HEY Warning
+    value: "#8A6D3B"
+    description: Warning amber.
+  - id: hey-warning-bg
+    name: HEY Warning Background
+    value: "#FCF8E3"
+    description: Warning-state surface tint.
+
+modes:
+  light:
+    roles:
+      background: hey-white
+      surface: hey-grey-100
+      surface-elevated: hey-near-white
+      text-primary: hey-text
+      text-secondary: hey-grey-700
+      text-tertiary: hey-grey-500
+      primary: hey-blue
+      primary-hover: hey-blue-hover
+      accent: hey-yellow
+      accent-hover: hey-yellow
+      warning: hey-warning
+      warning-hover: hey-warning
+      error: hey-error
+      success: hey-success
+      border: hey-grey-300
+
+  dark:
+    roles:
+      background: hey-near-black
+      surface: hey-grey-700
+      surface-elevated: hey-grey-500
+      text-primary: hey-white
+      text-secondary: hey-grey-300
+      text-tertiary: hey-grey-500
+      primary: hey-blue-hover
+      primary-hover: hey-blue
+      accent: hey-yellow
+      accent-hover: hey-yellow
+      warning: hey-warning
+      warning-hover: hey-warning
+      error: hey-error
+      success: hey-success
+      border: hey-grey-700

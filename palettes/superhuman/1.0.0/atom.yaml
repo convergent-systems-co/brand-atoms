@@ -1,0 +1,204 @@
+kind: palette
+id: superhuman
+version: 1.0.0
+name: Superhuman
+description: >
+  Superhuman's brand palette, captured directly from the live
+  marketing site (superhuman.com) where the design system exposes
+  named color tokens on the document root. The brand is built
+  around a deliberate purple — Purple-60 (#714CB6) as the primary
+  identity hue — paired with a Mulberry-Black hero canvas
+  (#241013) for the dramatic dark-first marketing surface, a warm
+  off-white Neutral-0 (#FCFAF7) for light contexts, and supporting
+  natural-world chromatics (Gold-Pro, Orange, Mulberry, Sky,
+  Green, Yellow, Red).
+tags: [superhuman, email, productivity, brand, purple, dark-first]
+
+provenance:
+  source: https://superhuman.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Superhuman and the Superhuman wordmark are trademarks of
+    Superhuman Labs, Inc. Palette values captured from the live
+    superhuman.com marketing site stylesheet on 2026-05-18 (root
+    CSS custom-property family — --neutral-*, --purple-*,
+    --mulberry-*, --color-* token sets).
+  importedDate: 2026-05-18
+  notes: >
+    Derived from live site CSS at https://superhuman.com on
+    2026-05-18; no public brand guide located. Token names mirror
+    Superhuman's internal naming as exposed on the live site. The
+    brand pairs with a proprietary "Super Sans VF" / "Super Serif
+    VF" / "Super Sans Mono VF" typeface family, none of which are
+    publicly distributed — Inter@1 is the open-source rendering
+    substitute for the sans role in atoms that reference this
+    palette.
+
+swatches:
+  # ─── Purple (primary identity) ──────────────────────────────────
+  - id: purple-60
+    name: Purple 60
+    value: "#714CB6"
+    description: >
+      Superhuman's primary identity hue — the Purple-60 brand
+      anchor used as --color-action-primary in light mode and as
+      the dominant marketing-accent color.
+  - id: purple-80
+    name: Purple 80
+    value: "#533192"
+    description: Pressed / active variant of Purple-60.
+  - id: purple-90
+    name: Purple 90
+    value: "#3F256F"
+    description: Deepest pressed purple — primary "darker" token.
+  - id: purple-40
+    name: Purple 40
+    value: "#9E7BE0"
+    description: Mid-tone purple used in dark-mode primary affordance.
+  - id: purple-30
+    name: Purple 30
+    value: "#BEA1F5"
+    description: Hover / lift variant on dark surfaces.
+  - id: purple-20
+    name: Purple 20
+    value: "#D4C7FF"
+    description: Light-tint purple — dark-mode primary action token.
+  - id: purple-10
+    name: Purple 10
+    value: "#E8E0FF"
+    description: Surface-tint purple for accent backgrounds in light mode.
+
+  # ─── Mulberry (dark canvas / hero surface) ──────────────────────
+  - id: mulberry-black
+    name: Mulberry Black
+    value: "#241013"
+    description: >
+      The dramatic near-black hero canvas — a warm mulberry-tinged
+      black used as the dark-mode page background on superhuman.com.
+  - id: mulberry-100
+    name: Mulberry 100
+    value: "#421D24"
+    description: >
+      Elevated dark-mode surface — the next step up from the
+      Mulberry-Black canvas, used for dark-mode card and panel fills.
+  - id: mulberry-80
+    name: Mulberry 80
+    value: "#792D4B"
+    description: Pressed accent on dark surfaces.
+
+  # ─── Neutral (warm light canvas) ────────────────────────────────
+  - id: neutral-0
+    name: Neutral 0
+    value: "#FCFAF7"
+    description: >
+      Warm off-white page canvas in light mode — the Superhuman
+      "paper" surface, slightly cream rather than pure white.
+  - id: neutral-5
+    name: Neutral 5
+    value: "#F7F5F2"
+    description: Slight elevated surface tint in light mode.
+  - id: neutral-10
+    name: Neutral 10
+    value: "#F2F0EB"
+    description: Secondary background / faded-light surface.
+  - id: neutral-30
+    name: Neutral 30
+    value: "#BFBCB6"
+    description: Soft border / divider on warm surfaces.
+  - id: neutral-60
+    name: Neutral 60
+    value: "#73716D"
+    description: Faded text / icon-soft token.
+  - id: neutral-80
+    name: Neutral 80
+    value: "#474543"
+    description: Shadow / secondary text on dark surfaces.
+  - id: neutral-90
+    name: Neutral 90
+    value: "#292827"
+    description: >
+      Primary body text on the warm canvas; also acts as the
+      secondary-action base color.
+  - id: neutral-100
+    name: Neutral 100
+    value: "#141413"
+    description: Deepest ink — heading text and high-contrast type.
+
+  # ─── Supporting chromatics ──────────────────────────────────────
+  - id: gold-pro-60
+    name: Gold Pro 60
+    value: "#E57300"
+    description: Warm gold accent used for highlight and warning states.
+  - id: orange-40
+    name: Orange 40
+    value: "#F18333"
+    description: Warning-light tone on dark surfaces.
+  - id: red-40
+    name: Red 40
+    value: "#F72A42"
+    description: Error / destructive accent.
+  - id: red-60
+    name: Red 60
+    value: "#CD0037"
+    description: Error base on light surfaces.
+  - id: green-60
+    name: Green 60
+    value: "#148072"
+    description: Success base — Superhuman's teal-leaning green.
+  - id: green-40
+    name: Green 40
+    value: "#26A28B"
+    description: Success-light / data-positive on dark surfaces.
+  - id: sky-60
+    name: Sky 60
+    value: "#0163C6"
+    description: Focus-ring blue.
+  - id: yellow-30
+    name: Yellow 30
+    value: "#F9D255"
+    description: Mid-yellow accent for highlights.
+
+  # ─── White ──────────────────────────────────────────────────────
+  - id: white
+    name: White
+    value: "#FFFFFF"
+    description: Base reversed-text and bright surface fill.
+
+modes:
+  light:
+    roles:
+      background: neutral-0
+      surface: neutral-5
+      surface-elevated: white
+      text-primary: neutral-90
+      text-secondary: neutral-60
+      text-tertiary: neutral-30
+      primary: purple-60
+      primary-hover: purple-80
+      accent: purple-60
+      accent-hover: purple-80
+      warning: gold-pro-60
+      warning-hover: orange-40
+      error: red-60
+      success: green-60
+      border: neutral-30
+      focus-ring: sky-60
+
+  dark:
+    roles:
+      background: mulberry-black
+      surface: mulberry-100
+      surface-elevated: neutral-80
+      text-primary: white
+      text-secondary: neutral-10
+      text-tertiary: neutral-30
+      primary: purple-20
+      primary-hover: purple-30
+      accent: purple-20
+      accent-hover: purple-30
+      warning: orange-40
+      warning-hover: gold-pro-60
+      error: red-40
+      success: green-40
+      border: neutral-80
+      focus-ring: sky-60

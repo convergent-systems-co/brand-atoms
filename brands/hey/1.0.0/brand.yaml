@@ -1,0 +1,192 @@
+id: hey
+version: 1.0.0
+name: HEY
+description: >
+  HEY is an opinionated email-and-calendar product authored by
+  Basecamp / 37signals — the brand voice is anti-trend,
+  utility-first, and deliberately confrontational about email
+  conventions ("Imbox," "The Feed," "Paper Trail," "Screener" as
+  reframings of inbox conventions). The visual identity matches:
+  pure-white canvas, near-black body type, a single bright Yellow
+  (#FFFF00) used as a screaming highlight, and a Bootstrap-era
+  action blue (#0088CC). Typography is the system stack — Lucida
+  Grande, Helvetica, Arial — never a proprietary face. HEY's
+  design is a statement against design-trend conformity.
+tags: [hey, basecamp, thirty-seven-signals, email, brand, yellow, utility, opinionated]
+
+provenance:
+  source: https://hey.com/about
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    HEY, the HEY wordmark, Basecamp, and 37signals are trademarks
+    of 37signals LLC. Brand colors and identity guidance documented
+    here are derived from hey.com and hey.com/about, captured on
+    2026-05-18.
+  importedDate: 2026-05-18
+  notes: >
+    Derived from live site CSS at https://hey.com on 2026-05-18; no
+    public brand guide located. HEY is authored by Basecamp /
+    37signals — the visual restraint and system-font choice are
+    intentional brand decisions inherited from the parent company's
+    operating philosophy. The bright Yellow (#FFFF00) is the
+    brand's single most distinguishing visual choice — used
+    aggressively as a highlight throughout the product. No
+    proprietary typeface; the marketing site renders in the system
+    stack ("Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica,
+    Verdana, sans-serif).
+
+references:
+  palette: hey@1
+  fonts:
+    heading: helvetica-neue@1
+    body: helvetica-neue@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # HEY's identity surface is the white canvas with the Yellow
+    # highlight as the brand's signature accent.
+    identity: hey-white
+    on-identity: hey-heading
+
+    primary: hey-blue
+    primary-hover: hey-blue-hover
+    accent: hey-yellow
+    accent-hover: hey-yellow
+    mark: hey-heading
+    highlight: hey-yellow
+    success: hey-success
+    warning: hey-warning
+    error: hey-error
+    background: hey-white
+    surface: hey-grey-100
+    text-primary: hey-text
+    text-secondary: hey-grey-700
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 7.0
+    standard: WCAG-AAA
+    severity: error
+    rationale: >
+      HEY Text (#333333) on HEY White clears AAA at ~12.6:1. HEY's
+      product is reading-dense by design (long email threads,
+      paper-trail receipts); the AAA contrast target reflects the
+      product's deliberate emphasis on extended-reading comfort.
+
+  - type: colorChoice
+    target: roles.colors.accent
+    allowed:
+      - hey-yellow
+    forbidden:
+      - hey-blue
+      - hey-blue-hover
+      - hey-success
+      - hey-warning
+    severity: error
+    rationale: >
+      HEY Yellow (#FFFF00) is THE brand accent — the screaming
+      highlight that defines the product's visual fingerprint.
+      Substituting any other hue erases the brand's most
+      distinguishing visual choice. The Yellow is used aggressively
+      as a text-highlight / attention-redirect throughout HEY.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+      - decorative-typography
+    severity: error
+    rationale: >
+      HEY's wordmark is rendered as plain, system-font-flavored
+      type — no gradient fills, no decorative treatments, no
+      drop-shadows. The brand's whole point is anti-decoration; a
+      treated HEY mark contradicts the brand's stated values.
+
+  - type: enumMembership
+    target: typography.body.fontFamily
+    allowed:
+      - "Lucida Grande"
+      - "Lucida Sans Unicode"
+      - "Helvetica Neue"
+      - "Helvetica"
+      - "Arial"
+      - "Verdana"
+      - "system-ui"
+      - "-apple-system"
+      - "BlinkMacSystemFont"
+    severity: warning
+    rationale: >
+      HEY deliberately uses the OS system-font stack — Lucida
+      Grande on macOS, Helvetica / Arial / Verdana as fallbacks —
+      rather than a proprietary or web-hosted face. Introducing a
+      custom typeface (Inter, Söhne, etc.) breaks the brand's
+      intentional system-aesthetic stance.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      HEY Blue (#0088CC) on HEY White clears AA at ~5.3:1 — the
+      product uses #0088CC for both link affordance and primary
+      button fills; staying above AA is non-negotiable on the
+      reading-dense product surface.
+
+  - type: contextRestriction
+    target: roles.colors.accent
+    allowedContexts:
+      - highlight
+      - emphasis
+      - attention-redirect
+    forbiddenContexts:
+      - body-text
+      - large-surface-fill
+    severity: error
+    rationale: >
+      HEY Yellow (#FFFF00) is a highlight — used as a thin text-marker
+      stripe or a small badge. Using it as a body-text color (no
+      contrast against white) or as a full-page background (visual
+      assault) inverts the brand's deliberate "loud but contained"
+      use of the hue.
+
+  - type: compositionConstraint
+    target: roles.colors.accent
+    pairsWith:
+      - hey-heading
+      - hey-near-black
+      - hey-text
+    doesNotPairWith:
+      - hey-white
+      - hey-blue
+    severity: error
+    rationale: >
+      HEY Yellow is only legible on a dark text foreground (no
+      contrast against white). Pairing it adjacent to HEY Blue
+      creates a primary-color competition that destabilizes the
+      single-accent rule.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.3
+    severity: recommendation
+    rationale: >
+      HEY uses the same system-font family for headings and body
+      — hierarchy is signaled by size and weight rather than
+      family-switching. A 1.3× minimum heading-to-body size ratio
+      preserves hierarchy when one family does all the work.

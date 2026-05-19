@@ -1,0 +1,197 @@
+id: fastmail
+version: 1.0.0
+name: Fastmail
+description: >
+  Fastmail is an independent, privacy-respecting email-and-calendar
+  service operated from Australia — positioned as the
+  "no-tracking, no-ads, paid-by-customers" alternative to consumer
+  webmail. The visual identity is built on a confident Fastmail
+  Blue (#0067B9) as the primary CTA and a Deep Blue navy (#243959)
+  as the brand-anchor trust hue, supported by a warm Mellow Yellow
+  (#FBF7EF) paper surface and a distinctive four-color "flag"
+  separator (Pink, Blue, Light Blue, Yellow) that appears at the
+  footer of every marketing page. Typography uses Proxima Nova as
+  the licensed primary face. The voice is professional, technical,
+  and quietly confident — the brand reads as a serious,
+  long-standing email service rather than a venture-backed
+  productivity startup.
+tags: [fastmail, email, brand, blue, professional, privacy, independent]
+
+provenance:
+  source: https://www.fastmail.com/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Fastmail and the Fastmail wordmark are trademarks of Fastmail
+    Pty Ltd. Brand colors and identity guidance documented here
+    are derived from the deployed stylesheet on fastmail.com on
+    2026-05-18 (--brand-color-*, --theme-*, --ui-color-* token
+    families).
+  importedDate: 2026-05-18
+  notes: >
+    Derived from live site CSS at https://www.fastmail.com on
+    2026-05-18; no public brand guide located. Fastmail's
+    marketing site exposes a comprehensive brand-color token
+    surface on the document root — the values here are the
+    canonical brand-defining hues plus the baseline neutral ramp.
+    The brand's primary typeface is Proxima Nova (licensed from
+    Mark Simonson Studio) — referenced via the proxima-nova@1
+    atom; Inter@1 is the open-source rendering substitute when
+    Proxima Nova is unavailable.
+
+references:
+  palette: fastmail@1
+  fonts:
+    heading: proxima-nova@1
+    body: proxima-nova@1
+    mono: jetbrainsmono-nerdfont@1
+
+roles:
+  colors:
+    # The deep-blue navy is the brand anchor (footer canvas,
+    # marketing-trust surface); the lighter Fastmail Blue is the
+    # primary CTA on light surfaces.
+    identity: fastmail-deep-blue
+    on-identity: fastmail-white
+
+    primary: fastmail-blue
+    primary-hover: fastmail-blue-hover
+    accent: fastmail-blue
+    accent-hover: fastmail-blue-active
+    mark: fastmail-blue
+    flag-pink: fastmail-pink
+    flag-blue: fastmail-blue
+    flag-lightblue: fastmail-lightblue
+    flag-yellow: fastmail-yellow
+    surface-warm: fastmail-mellow-yellow
+    background: fastmail-white
+    surface: fastmail-bg-alt
+    text-primary: fastmail-text
+    text-secondary: fastmail-text-subtle
+    error: fastmail-error
+    success: fastmail-success
+    warning: fastmail-warning
+  typography:
+    display: heading
+    prose: body
+    code: mono
+
+assets: []
+
+rules:
+  - type: contrastRatio
+    target: text-primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      WCAG 2.1 Level AA contrast requirement for body text. Fastmail
+      Text (#1B1E20) on Fastmail White clears AA at ~17:1, matching
+      the marketing site's accessibility floor.
+
+  - type: contrastRatio
+    target: roles.colors.primary
+    against: background
+    minRatio: 4.5
+    standard: WCAG-AA
+    severity: error
+    rationale: >
+      Fastmail Blue (#0067B9) on Fastmail White clears AA at ~5.6:1
+      — the brand uses #0067B9 specifically because a lighter blue
+      would drop below AA on small body-text links. The CTA blue
+      MUST stay AA-compliant on the white canvas.
+
+  - type: colorChoice
+    target: roles.colors.primary
+    allowed:
+      - fastmail-blue
+      - fastmail-blue-hover
+      - fastmail-blue-active
+    forbidden:
+      - fastmail-lightblue
+      - fastmail-pink
+      - fastmail-yellow
+    severity: error
+    rationale: >
+      Fastmail's primary CTA is one of the three blue-family
+      tokens. The supporting flag colors (Pink, Light Blue, Yellow)
+      belong in the marketing flag-gradient and as illustration
+      accents — they are NOT CTA colors and lack the AA contrast
+      that the primary affordance demands.
+
+  - type: forbiddenTreatment
+    target: logo
+    treatments:
+      - stretched
+      - rotated
+      - recolored
+      - drop-shadow
+      - gradient-fill
+      - on-busy-photo
+    severity: error
+    rationale: >
+      Fastmail's wordmark is a single-color "Fastmail" set in
+      Proxima Nova. Recolored, gradient, or shadowed treatments
+      conflict with the brand's quietly confident, professional
+      voice.
+
+  - type: compositionConstraint
+    target: roles.colors.identity
+    pairsWith:
+      - fastmail-white
+      - fastmail-mellow-yellow
+      - fastmail-pink
+      - fastmail-lightblue
+      - fastmail-yellow
+    doesNotPairWith:
+      - fastmail-error
+      - fastmail-warning
+    severity: recommendation
+    rationale: >
+      The Deep Blue brand-anchor reads cleanest against the white
+      and Mellow Yellow canvases, and forms the supporting role of
+      the four-color flag gradient. Pairing it adjacent to the
+      Error red or Warning orange status hues creates a chromatic
+      conflict that competes with the trust-establishing intent of
+      the navy.
+
+  - type: contextRestriction
+    target: roles.colors.surface-warm
+    allowedContexts:
+      - marketing-site
+      - hero
+      - editorial
+    forbiddenContexts:
+      - product-chrome
+      - error-state
+    severity: recommendation
+    rationale: >
+      Mellow Yellow (#FBF7EF) is a marketing-surface paper tone —
+      used on hero modules and editorial blocks to soften the
+      page. The Fastmail product chrome (the actual webmail UI) is
+      white-canvas-first; substituting Mellow Yellow into the
+      product surface breaks the marketing/product visual
+      contract.
+
+  - type: fontPairing
+    target: typography.heading
+    requires: body
+    minSizeRatio: 1.4
+    severity: recommendation
+    rationale: >
+      Fastmail uses Proxima Nova for both heading and body. A 1.4×
+      minimum size ratio preserves hierarchy when one family does
+      double duty across the marketing site's fluid type scale
+      (the site declares a --fluid-font-0 through --fluid-font-11
+      ramp).
+
+  - type: enumMembership
+    target: typography.body.fontWeight
+    allowed: ["400", "500", "600", "700"]
+    severity: recommendation
+    rationale: >
+      Fastmail's Proxima Nova use is restrained to four weights —
+      Regular (400), Medium (500), Semibold (600), Bold (700).
+      Lighter weights are not part of the brand's typographic
+      voice; heavier-than-Bold conflicts with the professional,
+      not-shouty visual register.

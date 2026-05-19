@@ -1,0 +1,138 @@
+kind: palette
+id: outlook
+version: 1.0.0
+name: Outlook
+description: >
+  Outlook's product palette, anchored on the Outlook envelope-with-O
+  mark (a deep-navy envelope, a pale-blue flap, and the white "O"
+  ring) and on Microsoft's Communications Blue (#0067B8 / #0078D4)
+  as the primary product action color. Outlook is a product-brand
+  under the Microsoft parent (see brands/microsoft/1.0.0); it
+  inherits Microsoft's Fluent design language, the Segoe UI
+  typographic family, and the enterprise-clear voice.
+tags: [outlook, microsoft, email, product-brand, fluent, productivity]
+
+provenance:
+  source: https://outlook.live.com/mail/
+  license: Proprietary — All Rights Reserved
+  attribution: >
+    Outlook, the Outlook envelope mark, Fluent, and Segoe UI are
+    trademarks of the Microsoft group of companies. Brand colors
+    documented here are captured from the live outlook.live.com
+    product surface (computed styles on the Outlook logo SVG paths
+    and the product chrome) and corroborated by the public Fluent 2
+    design system at fluent2.microsoft.design.
+  importedDate: 2026-05-18
+  notes: >
+    Outlook color values captured from the live outlook.live.com
+    product on 2026-05-18 — the envelope-mark SVG fills (deep navy
+    #2A446F, sky #B3DAF0, action blue #0066FF) and product chrome
+    (text #17253D, action text #0067B8, page background #FFFDFB).
+    This is brand-atoms' read of public Outlook surfaces; not an
+    official Microsoft brand document. Outlook inherits its
+    typography (Segoe UI) and Communications Blue primary from the
+    Microsoft parent atom; the values here are the Outlook-specific
+    envelope mark hues plus the Microsoft baseline neutrals.
+
+swatches:
+  # ─── Outlook envelope mark ──────────────────────────────────────
+  - id: outlook-deep-blue
+    name: Outlook Deep Blue
+    value: "#2A446F"
+    description: >
+      The outer-envelope navy. Captured from the SVG fill on the
+      Outlook logo on outlook.live.com. The dominant identity hue
+      of the Outlook mark.
+  - id: outlook-action-blue
+    name: Outlook Action Blue
+    value: "#0066FF"
+    description: >
+      The "O" ring on the Outlook envelope and the brand's vibrant
+      mid-blue. Used on the live product surface for the logo
+      letter-mark fill.
+  - id: outlook-sky
+    name: Outlook Sky
+    value: "#B3DAF0"
+    description: >
+      The pale-blue envelope flap on the Outlook mark. A light-tint
+      accent that softens the deep-navy outer fill.
+
+  # ─── Microsoft Communications Blue (Fluent system primary) ──────
+  - id: communications-blue
+    name: Communications Blue
+    value: "#0078D4"
+    description: >
+      Microsoft's Fluent system primary, inherited from the
+      Microsoft parent. The canonical CTA / link affordance across
+      Outlook product chrome.
+  - id: outlook-link-blue
+    name: Outlook Link Blue
+    value: "#0067B8"
+    description: >
+      The action-text blue captured from outlook.live.com — Fluent's
+      darker brand variant used for links and primary buttons on
+      light surfaces, where #0078D4 would lose AA contrast on small
+      type.
+
+  # ─── Neutral surface ramp (Fluent baseline) ─────────────────────
+  - id: outlook-ink
+    name: Outlook Ink
+    value: "#17253D"
+    description: >
+      Primary text and heading color, captured from the live
+      product. A deep navy-tinged near-black that pairs with the
+      envelope-deep-blue identity hue.
+  - id: outlook-near-black
+    name: Outlook Near-Black
+    value: "#1F1F1F"
+    description: Fluent's soft near-black for body text on light surfaces.
+  - id: outlook-gray-160
+    name: Outlook Gray 160
+    value: "#605E5C"
+    description: >
+      Secondary text and inactive UI (Fluent Neutral Foreground 2),
+      inherited from the Microsoft parent.
+  - id: outlook-gray-30
+    name: Outlook Gray 30
+    value: "#EDEBE9"
+    description: Subtle surface tint (Fluent Neutral Background 3).
+  - id: outlook-canvas
+    name: Outlook Canvas
+    value: "#FFFDFB"
+    description: >
+      The warm-white inbox canvas captured from outlook.live.com.
+      A barely-off-white surface that reduces eye-strain on long
+      reading sessions.
+  - id: outlook-white
+    name: Outlook White
+    value: "#FFFFFF"
+    description: Base background and reversed text on chromatic surfaces.
+
+modes:
+  light:
+    roles:
+      background: outlook-canvas
+      surface: outlook-gray-30
+      surface-elevated: outlook-white
+      text-primary: outlook-ink
+      text-secondary: outlook-gray-160
+      primary: outlook-link-blue
+      primary-hover: communications-blue
+      accent: outlook-action-blue
+      accent-hover: outlook-link-blue
+      error: outlook-action-blue
+      success: outlook-action-blue
+      border: outlook-gray-30
+
+  dark:
+    roles:
+      background: outlook-ink
+      surface: outlook-deep-blue
+      surface-elevated: outlook-gray-160
+      text-primary: outlook-white
+      text-secondary: outlook-sky
+      primary: outlook-sky
+      primary-hover: outlook-action-blue
+      accent: outlook-action-blue
+      accent-hover: outlook-sky
+      border: outlook-gray-160
