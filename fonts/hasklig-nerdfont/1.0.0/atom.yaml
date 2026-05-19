@@ -1,0 +1,65 @@
+kind: font
+id: hasklig-nerdfont
+version: 1.0.0
+name: Hasklug Nerd Font
+description: >
+  Hasklig monospaced font with Nerd Fonts glyph augmentation. Hasklig is a fork of Source Code Pro with programming ligatures, originally aimed at Haskell developers; the Nerd Fonts patched build is renamed "Hasklug" to avoid name collisions and adds ~10,000 additional icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.).
+family: Hasklug Nerd Font
+classification: monospace
+tags: [ nerd-font, monospace, programming-ligatures, haskell, source-code-pro, terminal, code ]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: OFL-1.1
+  attribution: >
+    Hasklig, Copyright Ian Tuomi (https://github.com/i-tu/Hasklig), based on Adobe's Source Code Pro by Paul D. Hunt. Both Hasklig and Source Code Pro are licensed under the SIL Open Font License, Version 1.1. Nerd Fonts patching by Ryan L McIntyre, MIT license.
+  importedDate: 2026-05-19
+  importedFromVersion: v3.4.0
+  notes: >
+    Base font: Hasklig (fork of Source Code Pro with programming ligatures). Patched build is distributed under the family name "Hasklug Nerd Font" to differentiate from upstream. Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Hasklig.zip
+
+source:
+  kind: external
+  family: Hasklug Nerd Font
+  notes: >
+    Nerd-Font-patched build of Hasklig (distributed as "Hasklug"). Distributed as .otf. Not available via Google Fonts (the underlying Source Code Pro is). Download otf files from the Nerd Fonts GitHub release and self-host, or install system-wide for terminal/IDE use.
+
+fallbackStack:
+  - Hasklig
+  - Source Code Pro
+  - Menlo
+  - Monaco
+  - Consolas
+  - Liberation Mono
+  - monospace
+
+availableStyles:
+  - { weight: 200, style: normal }
+  - { weight: 200, style: italic }
+  - { weight: 300, style: normal }
+  - { weight: 300, style: italic }
+  - { weight: 400, style: normal }
+  - { weight: 400, style: italic }
+  - { weight: 500, style: normal }
+  - { weight: 500, style: italic }
+  - { weight: 600, style: normal }
+  - { weight: 600, style: italic }
+  - { weight: 700, style: normal }
+  - { weight: 700, style: italic }
+  - { weight: 900, style: normal }
+  - { weight: 900, style: italic }
+cdnUrls:
+  HasklugNerdFontMono-ExtraLight.otf: https://cdn.brand-atoms.com/fonts/hasklig-nerdfont/1.0.0/HasklugNerdFontMono-ExtraLight.otf
+  HasklugNerdFontMono-ExtraLightItalic.otf: https://cdn.brand-atoms.com/fonts/hasklig-nerdfont/1.0.0/HasklugNerdFontMono-ExtraLightItalic.otf
+  HasklugNerdFontMono-Light.otf: https://cdn.brand-atoms.com/fonts/hasklig-nerdfont/1.0.0/HasklugNerdFontMono-Light.otf
+  HasklugNerdFontMono-LightItalic.otf: https://cdn.brand-atoms.com/fonts/hasklig-nerdfont/1.0.0/HasklugNerdFontMono-LightItalic.otf
+  HasklugNerdFontMono-Regular.otf: https://cdn.brand-atoms.com/fonts/hasklig-nerdfont/1.0.0/HasklugNerdFontMono-Regular.otf
+  HasklugNerdFontMono-Italic.otf: https://cdn.brand-atoms.com/fonts/hasklig-nerdfont/1.0.0/HasklugNerdFontMono-Italic.otf
+  HasklugNerdFontMono-Medium.otf: https://cdn.brand-atoms.com/fonts/hasklig-nerdfont/1.0.0/HasklugNerdFontMono-Medium.otf
+  HasklugNerdFontMono-MediumItalic.otf: https://cdn.brand-atoms.com/fonts/hasklig-nerdfont/1.0.0/HasklugNerdFontMono-MediumItalic.otf
+  HasklugNerdFontMono-SemiBold.otf: https://cdn.brand-atoms.com/fonts/hasklig-nerdfont/1.0.0/HasklugNerdFontMono-SemiBold.otf
+  HasklugNerdFontMono-SemiBoldItalic.otf: https://cdn.brand-atoms.com/fonts/hasklig-nerdfont/1.0.0/HasklugNerdFontMono-SemiBoldItalic.otf
+  HasklugNerdFontMono-Bold.otf: https://cdn.brand-atoms.com/fonts/hasklig-nerdfont/1.0.0/HasklugNerdFontMono-Bold.otf
+  HasklugNerdFontMono-BoldItalic.otf: https://cdn.brand-atoms.com/fonts/hasklig-nerdfont/1.0.0/HasklugNerdFontMono-BoldItalic.otf
+  HasklugNerdFontMono-Black.otf: https://cdn.brand-atoms.com/fonts/hasklig-nerdfont/1.0.0/HasklugNerdFontMono-Black.otf
+  HasklugNerdFontMono-BlackItalic.otf: https://cdn.brand-atoms.com/fonts/hasklig-nerdfont/1.0.0/HasklugNerdFontMono-BlackItalic.otf

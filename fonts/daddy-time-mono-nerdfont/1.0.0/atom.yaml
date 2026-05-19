@@ -1,0 +1,39 @@
+kind: font
+id: daddy-time-mono-nerdfont
+version: 1.0.0
+name: Daddy Time Mono Nerd Font
+description: >
+  Daddy Time Mono monospaced font with Nerd Fonts glyph augmentation. A casual handwritten-style coding font designed by Helena Zhang; patched with ~10,000 additional icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.).
+family: DaddyTimeMono Nerd Font
+classification: monospace
+tags: [ nerd-font, monospace, handwritten, terminal, code ]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: OFL-1.1
+  attribution: >
+    Daddy Time Mono, Copyright 2022–2024 Helena Zhang (helenazhang.com), licensed under the SIL Open Font License, Version 1.1. Nerd Fonts patching by Ryan L McIntyre, MIT license.
+  importedDate: 2026-05-19
+  importedFromVersion: v3.4.0
+  notes: >
+    Upstream: https://github.com/HelenaZhang/daddytimemono. Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/DaddyTimeMono.zip
+
+source:
+  kind: external
+  family: DaddyTimeMono Nerd Font
+  notes: >
+    Nerd-Font-patched build of Daddy Time Mono. Single-weight (Regular only). Download ttf files from the Nerd Fonts GitHub release and self-host, or install system-wide for terminal/editor use.
+
+fallbackStack:
+  - Daddy Time Mono
+  - Comic Mono
+  - Menlo
+  - Monaco
+  - Consolas
+  - Liberation Mono
+  - monospace
+
+availableStyles:
+  - { weight: 400, style: normal }
+cdnUrls:
+  DaddyTimeMonoNerdFontMono-Regular.ttf: https://cdn.brand-atoms.com/fonts/daddy-time-mono-nerdfont/1.0.0/DaddyTimeMonoNerdFontMono-Regular.ttf

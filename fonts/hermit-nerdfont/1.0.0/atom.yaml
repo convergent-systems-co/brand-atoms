@@ -1,0 +1,49 @@
+kind: font
+id: hermit-nerdfont
+version: 1.0.0
+name: Hurmit Nerd Font
+description: >
+  Hermit monospaced font with Nerd Fonts glyph augmentation. A minimal, low-clutter coding font by Pablo Caro with simple geometric letterforms and a slashed zero; the Nerd Fonts patched build is renamed "Hurmit" to avoid name collisions and adds ~10,000 additional icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.).
+family: Hurmit Nerd Font
+classification: monospace
+tags: [ nerd-font, monospace, minimal, terminal, code, slashed-zero ]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: OFL-1.1
+  attribution: >
+    Hermit, Copyright Pablo Caro (https://pcaro.es/p/hermit), licensed under the SIL Open Font License, Version 1.1. Nerd Fonts patching by Ryan L McIntyre, MIT license. Patched build distributed under the family name "Hurmit Nerd Font" to differentiate from upstream Hermit.
+  importedDate: 2026-05-19
+  importedFromVersion: v3.4.0
+  notes: >
+    Base font: Hermit 2.0 by Pablo Caro. Distributed as .otf. Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Hermit.zip
+
+source:
+  kind: external
+  family: Hurmit Nerd Font
+  notes: >
+    Nerd-Font-patched build of Hermit (distributed as "Hurmit"). Not available via Google Fonts. Download otf files from the Nerd Fonts GitHub release and self-host, or install system-wide for terminal/editor use.
+
+fallbackStack:
+  - Hermit
+  - Inconsolata
+  - Menlo
+  - Monaco
+  - Consolas
+  - Liberation Mono
+  - monospace
+
+availableStyles:
+  - { weight: 300, style: normal }
+  - { weight: 300, style: italic }
+  - { weight: 400, style: normal }
+  - { weight: 400, style: italic }
+  - { weight: 700, style: normal }
+  - { weight: 700, style: italic }
+cdnUrls:
+  HurmitNerdFontMono-Light.otf: https://cdn.brand-atoms.com/fonts/hermit-nerdfont/1.0.0/HurmitNerdFontMono-Light.otf
+  HurmitNerdFontMono-LightItalic.otf: https://cdn.brand-atoms.com/fonts/hermit-nerdfont/1.0.0/HurmitNerdFontMono-LightItalic.otf
+  HurmitNerdFontMono-Regular.otf: https://cdn.brand-atoms.com/fonts/hermit-nerdfont/1.0.0/HurmitNerdFontMono-Regular.otf
+  HurmitNerdFontMono-Italic.otf: https://cdn.brand-atoms.com/fonts/hermit-nerdfont/1.0.0/HurmitNerdFontMono-Italic.otf
+  HurmitNerdFontMono-Bold.otf: https://cdn.brand-atoms.com/fonts/hermit-nerdfont/1.0.0/HurmitNerdFontMono-Bold.otf
+  HurmitNerdFontMono-BoldItalic.otf: https://cdn.brand-atoms.com/fonts/hermit-nerdfont/1.0.0/HurmitNerdFontMono-BoldItalic.otf

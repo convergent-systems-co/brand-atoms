@@ -1,0 +1,42 @@
+kind: font
+id: envy-code-r-nerdfont
+version: 1.0.0
+name: Envy Code R Nerd Font
+description: >
+  Envy Code R monospaced font with Nerd Fonts glyph augmentation. Designed by Damien Guard as a screen-optimized coding and console font with a distinctive slashed zero; patched with ~10,000 additional icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.).
+family: EnvyCodeR Nerd Font
+classification: monospace
+tags: [ nerd-font, monospace, terminal, code, slashed-zero ]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: OFL-1.1
+  attribution: >
+    Envy Code R, Copyright Damien Guard (https://damieng.com/blog/2008/05/26/envy-code-r-preview-7-coding-font-released), licensed under the SIL Open Font License, Version 1.1. Nerd Fonts patching by Ryan L McIntyre, MIT license.
+  importedDate: 2026-05-19
+  importedFromVersion: v3.4.0
+  notes: >
+    Base font: Envy Code R Preview 7 (PR7) by Damien Guard. Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/EnvyCodeR.zip
+
+source:
+  kind: external
+  family: EnvyCodeR Nerd Font
+  notes: >
+    Nerd-Font-patched build of Envy Code R. Not available via Google Fonts. Download ttf files from the Nerd Fonts GitHub release and self-host, or install system-wide for terminal/editor use.
+
+fallbackStack:
+  - Envy Code R
+  - Consolas
+  - Menlo
+  - Monaco
+  - Liberation Mono
+  - monospace
+
+availableStyles:
+  - { weight: 400, style: normal }
+  - { weight: 400, style: italic }
+  - { weight: 700, style: normal }
+cdnUrls:
+  EnvyCodeRNerdFontMono-Regular.ttf: https://cdn.brand-atoms.com/fonts/envy-code-r-nerdfont/1.0.0/EnvyCodeRNerdFontMono-Regular.ttf
+  EnvyCodeRNerdFontMono-Italic.ttf: https://cdn.brand-atoms.com/fonts/envy-code-r-nerdfont/1.0.0/EnvyCodeRNerdFontMono-Italic.ttf
+  EnvyCodeRNerdFontMono-Bold.ttf: https://cdn.brand-atoms.com/fonts/envy-code-r-nerdfont/1.0.0/EnvyCodeRNerdFontMono-Bold.ttf

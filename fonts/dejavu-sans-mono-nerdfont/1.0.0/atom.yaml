@@ -1,0 +1,45 @@
+kind: font
+id: dejavu-sans-mono-nerdfont
+version: 1.0.0
+name: DejaVu Sans Mono Nerd Font
+description: >
+  DejaVu Sans Mono monospaced font with Nerd Fonts glyph augmentation. A widely-deployed open-source extension of Bitstream Vera Sans Mono with broad Unicode coverage, shipped by default on many Linux distributions; patched with ~10,000 additional icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.).
+family: DejaVuSansM Nerd Font
+classification: monospace
+tags: [ nerd-font, monospace, unicode, linux, terminal, code ]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: Bitstream-Vera
+  attribution: >
+    DejaVu Sans Mono, based on Bitstream Vera (Copyright Bitstream, Inc.) with DejaVu modifications placed in the public domain by the DejaVu Project. Distributed under the Bitstream Vera Fonts License (modifications public domain). Nerd Fonts patching by Ryan L McIntyre, MIT license.
+  importedDate: 2026-05-19
+  importedFromVersion: v3.4.0
+  notes: >
+    Base font: DejaVu Sans Mono 2.37 (derived from Bitstream Vera Sans Mono with DejaVu Project extensions). Upstream: https://dejavu-fonts.github.io/. Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/DejaVuSansMono.zip. Note: licensing combines the Bitstream Vera Fonts License (no standard SPDX identifier) with public-domain DejaVu modifications; treat as Bitstream-Vera-equivalent.
+
+source:
+  kind: external
+  family: DejaVuSansM Nerd Font
+  notes: >
+    Nerd-Font-patched build of DejaVu Sans Mono. Distributed under the family name "DejaVuSansM Nerd Font" (M = "Mono"). Not available via Google Fonts. Download ttf files from the Nerd Fonts GitHub release and self-host, or install system-wide for terminal/editor use.
+
+fallbackStack:
+  - DejaVu Sans Mono
+  - Bitstream Vera Sans Mono
+  - Menlo
+  - Monaco
+  - Consolas
+  - Liberation Mono
+  - monospace
+
+availableStyles:
+  - { weight: 400, style: normal }
+  - { weight: 400, style: italic }
+  - { weight: 700, style: normal }
+  - { weight: 700, style: italic }
+cdnUrls:
+  DejaVuSansMNerdFontMono-Regular.ttf: https://cdn.brand-atoms.com/fonts/dejavu-sans-mono-nerdfont/1.0.0/DejaVuSansMNerdFontMono-Regular.ttf
+  DejaVuSansMNerdFontMono-Oblique.ttf: https://cdn.brand-atoms.com/fonts/dejavu-sans-mono-nerdfont/1.0.0/DejaVuSansMNerdFontMono-Oblique.ttf
+  DejaVuSansMNerdFontMono-Bold.ttf: https://cdn.brand-atoms.com/fonts/dejavu-sans-mono-nerdfont/1.0.0/DejaVuSansMNerdFontMono-Bold.ttf
+  DejaVuSansMNerdFontMono-BoldOblique.ttf: https://cdn.brand-atoms.com/fonts/dejavu-sans-mono-nerdfont/1.0.0/DejaVuSansMNerdFontMono-BoldOblique.ttf

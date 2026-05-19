@@ -1,0 +1,54 @@
+kind: font
+id: geist-mono-nerdfont
+version: 1.0.0
+name: GeistMono Nerd Font
+description: >
+  Geist Mono monospaced font with Nerd Fonts glyph augmentation. Vercel's modern monospace companion to Geist Sans, designed in collaboration with basement.studio for developer-facing UIs; patched with ~10,000 additional icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.).
+family: GeistMono Nerd Font
+classification: monospace
+tags: [ nerd-font, monospace, vercel, modern, terminal, code ]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: OFL-1.1
+  attribution: >
+    Geist Sans and Geist Mono, Copyright 2023 Vercel (made in collaboration with basement.studio), licensed under the SIL Open Font License, Version 1.1. Nerd Fonts patching by Ryan L McIntyre, MIT license.
+  importedDate: 2026-05-19
+  importedFromVersion: v3.4.0
+  notes: >
+    Base font version: Geist Mono 1.401. Upstream: https://github.com/vercel/geist-font. Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/GeistMono.zip
+
+source:
+  kind: external
+  family: GeistMono Nerd Font
+  notes: >
+    Nerd-Font-patched build of Geist Mono. Distributed as .otf. The unpatched Geist Mono is available via Google Fonts and as the geist-mono atom in this catalog. Download otf files from the Nerd Fonts GitHub release and self-host, or install system-wide for terminal/IDE use.
+
+fallbackStack:
+  - Geist Mono
+  - JetBrains Mono
+  - Menlo
+  - Monaco
+  - Consolas
+  - Liberation Mono
+  - monospace
+
+availableStyles:
+  - { weight: 100, style: normal }
+  - { weight: 200, style: normal }
+  - { weight: 300, style: normal }
+  - { weight: 400, style: normal }
+  - { weight: 500, style: normal }
+  - { weight: 600, style: normal }
+  - { weight: 700, style: normal }
+  - { weight: 900, style: normal }
+cdnUrls:
+  GeistMonoNerdFontMono-Thin.otf: https://cdn.brand-atoms.com/fonts/geist-mono-nerdfont/1.0.0/GeistMonoNerdFontMono-Thin.otf
+  GeistMonoNerdFontMono-UltraLight.otf: https://cdn.brand-atoms.com/fonts/geist-mono-nerdfont/1.0.0/GeistMonoNerdFontMono-UltraLight.otf
+  GeistMonoNerdFontMono-Light.otf: https://cdn.brand-atoms.com/fonts/geist-mono-nerdfont/1.0.0/GeistMonoNerdFontMono-Light.otf
+  GeistMonoNerdFontMono-Regular.otf: https://cdn.brand-atoms.com/fonts/geist-mono-nerdfont/1.0.0/GeistMonoNerdFontMono-Regular.otf
+  GeistMonoNerdFontMono-Medium.otf: https://cdn.brand-atoms.com/fonts/geist-mono-nerdfont/1.0.0/GeistMonoNerdFontMono-Medium.otf
+  GeistMonoNerdFontMono-SemiBold.otf: https://cdn.brand-atoms.com/fonts/geist-mono-nerdfont/1.0.0/GeistMonoNerdFontMono-SemiBold.otf
+  GeistMonoNerdFontMono-Bold.otf: https://cdn.brand-atoms.com/fonts/geist-mono-nerdfont/1.0.0/GeistMonoNerdFontMono-Bold.otf
+  GeistMonoNerdFontMono-Black.otf: https://cdn.brand-atoms.com/fonts/geist-mono-nerdfont/1.0.0/GeistMonoNerdFontMono-Black.otf
+  GeistMonoNerdFontMono-UltraBlack.otf: https://cdn.brand-atoms.com/fonts/geist-mono-nerdfont/1.0.0/GeistMonoNerdFontMono-UltraBlack.otf

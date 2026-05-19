@@ -1,0 +1,41 @@
+kind: font
+id: gohu-nerdfont
+version: 1.0.0
+name: GohuFont Nerd Font
+description: >
+  GohuFont bitmap monospaced font with Nerd Fonts glyph augmentation. Originally a pixel-perfect X11 bitmap font by Hugo Chargois sized for 11px and 14px screen rendering, distributed here in TTF form so modern systems can render it; patched with ~10,000 additional icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.).
+family: GohuFont Nerd Font
+classification: monospace
+tags: [ nerd-font, monospace, bitmap, pixel, x11, terminal, code ]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: WTFPL-2.0
+  attribution: >
+    GohuFont, Copyright Hugo Chargois (font.gohu.org), distributed under the WTFPL (Do What The Fuck You Want To Public License), Version 2. Nerd Fonts patching by Ryan L McIntyre, MIT license.
+  importedDate: 2026-05-19
+  importedFromVersion: v3.4.0
+  notes: >
+    Base font: GohuFont 2.0 by Hugo Chargois. Patched build ships four variants — 11px and 14px, each in original and "uni" (extended Unicode) flavors. Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Gohu.zip
+
+source:
+  kind: external
+  family: GohuFont Nerd Font
+  notes: >
+    Nerd-Font-patched build of GohuFont. Designed for very small pixel sizes (11px and 14px); rendering at other sizes will be uneven. Not available via Google Fonts. Download ttf files from the Nerd Fonts GitHub release and self-host, or install system-wide for terminal use.
+
+fallbackStack:
+  - GohuFont
+  - Terminus
+  - Menlo
+  - Monaco
+  - Consolas
+  - monospace
+
+availableStyles:
+  - { weight: 400, style: normal }
+cdnUrls:
+  GohuFont11NerdFontMono-Regular.ttf: https://cdn.brand-atoms.com/fonts/gohu-nerdfont/1.0.0/GohuFont11NerdFontMono-Regular.ttf
+  GohuFont14NerdFontMono-Regular.ttf: https://cdn.brand-atoms.com/fonts/gohu-nerdfont/1.0.0/GohuFont14NerdFontMono-Regular.ttf
+  GohuFontuni11NerdFontMono-Regular.ttf: https://cdn.brand-atoms.com/fonts/gohu-nerdfont/1.0.0/GohuFontuni11NerdFontMono-Regular.ttf
+  GohuFontuni14NerdFontMono-Regular.ttf: https://cdn.brand-atoms.com/fonts/gohu-nerdfont/1.0.0/GohuFontuni14NerdFontMono-Regular.ttf

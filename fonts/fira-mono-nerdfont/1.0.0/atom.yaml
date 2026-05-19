@@ -1,0 +1,43 @@
+kind: font
+id: fira-mono-nerdfont
+version: 1.0.0
+name: FiraMono Nerd Font
+description: >
+  Fira Mono monospaced font with Nerd Fonts glyph augmentation. Mozilla's Fira Mono is the non-ligature ancestor of Fira Code, originally commissioned for Firefox OS; patched with ~10,000 additional icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.).
+family: FiraMono Nerd Font
+classification: monospace
+tags: [ nerd-font, monospace, mozilla, firefox-os, terminal, code ]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: OFL-1.1
+  attribution: >
+    Fira Mono, Copyright Mozilla Foundation / Carrois Apostrophe (designer Erik Spiekermann with Ralph du Carrois and Anja Meiners), licensed under the SIL Open Font License, Version 1.1. Nerd Fonts patching by Ryan L McIntyre, MIT license.
+  importedDate: 2026-05-19
+  importedFromVersion: v3.4.0
+  notes: >
+    Base font: Fira Mono (the ligature-free predecessor to Fira Code). Distributed as .otf. Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/FiraMono.zip
+
+source:
+  kind: external
+  family: FiraMono Nerd Font
+  notes: >
+    Nerd-Font-patched build of Fira Mono (not Fira Code — see firacode-nerdfont for the ligature build). Not available via Google Fonts. Download otf files from the Nerd Fonts GitHub release and self-host, or install system-wide for terminal/editor use.
+
+fallbackStack:
+  - Fira Mono
+  - Fira Code
+  - Menlo
+  - Monaco
+  - Consolas
+  - Liberation Mono
+  - monospace
+
+availableStyles:
+  - { weight: 400, style: normal }
+  - { weight: 500, style: normal }
+  - { weight: 700, style: normal }
+cdnUrls:
+  FiraMonoNerdFontMono-Regular.otf: https://cdn.brand-atoms.com/fonts/fira-mono-nerdfont/1.0.0/FiraMonoNerdFontMono-Regular.otf
+  FiraMonoNerdFontMono-Medium.otf: https://cdn.brand-atoms.com/fonts/fira-mono-nerdfont/1.0.0/FiraMonoNerdFontMono-Medium.otf
+  FiraMonoNerdFontMono-Bold.otf: https://cdn.brand-atoms.com/fonts/fira-mono-nerdfont/1.0.0/FiraMonoNerdFontMono-Bold.otf

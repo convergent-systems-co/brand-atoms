@@ -1,0 +1,39 @@
+kind: font
+id: departure-mono-nerdfont
+version: 1.0.0
+name: Departure Mono Nerd Font
+description: >
+  Departure Mono monospaced font with Nerd Fonts glyph augmentation. A retro-futuristic pixel/bitmap-style display font designed by Helena Zhang evoking 1970s computer terminals and aerospace control panels; patched with ~10,000 additional icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.).
+family: DepartureMono Nerd Font
+classification: monospace
+tags: [ nerd-font, monospace, retro, pixel, bitmap-style, terminal, code ]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: OFL-1.1
+  attribution: >
+    Departure Mono, Copyright Helena Zhang (https://departuremono.com), licensed under the SIL Open Font License, Version 1.1. Nerd Fonts patching by Ryan L McIntyre, MIT license.
+  importedDate: 2026-05-19
+  importedFromVersion: v3.4.0
+  notes: >
+    Base font version: Departure Mono 1.422. Upstream: https://github.com/rektdeckard/departure-mono. Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/DepartureMono.zip
+
+source:
+  kind: external
+  family: DepartureMono Nerd Font
+  notes: >
+    Nerd-Font-patched build of Departure Mono. Single-weight (Regular only). Distributed as .otf. Not available via Google Fonts. Download from the Nerd Fonts GitHub release and self-host, or install system-wide for terminal/editor use.
+
+fallbackStack:
+  - Departure Mono
+  - Press Start 2P
+  - VT323
+  - Menlo
+  - Monaco
+  - Consolas
+  - monospace
+
+availableStyles:
+  - { weight: 400, style: normal }
+cdnUrls:
+  DepartureMonoNerdFontMono-Regular.otf: https://cdn.brand-atoms.com/fonts/departure-mono-nerdfont/1.0.0/DepartureMonoNerdFontMono-Regular.otf

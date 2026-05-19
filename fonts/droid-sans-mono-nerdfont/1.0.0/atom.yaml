@@ -1,0 +1,39 @@
+kind: font
+id: droid-sans-mono-nerdfont
+version: 1.0.0
+name: Droid Sans Mono Nerd Font
+description: >
+  Droid Sans Mono monospaced font with Nerd Fonts glyph augmentation. Designed by Steve Matteson at Ascender Corp. for the Android Open Source Project; patched with ~10,000 additional icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.).
+family: DroidSansM Nerd Font
+classification: monospace
+tags: [ nerd-font, monospace, android, google, terminal, code ]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: Apache-2.0
+  attribution: >
+    Droid Sans Mono, Copyright Google Inc. / Steve Matteson (Ascender Corp.), licensed under the Apache License, Version 2.0. Nerd Fonts patching by Ryan L McIntyre, MIT license.
+  importedDate: 2026-05-19
+  importedFromVersion: v3.4.0
+  notes: >
+    Base font: Droid Sans Mono, originally bundled with the Android Open Source Project. Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/DroidSansMono.zip
+
+source:
+  kind: external
+  family: DroidSansM Nerd Font
+  notes: >
+    Nerd-Font-patched build of Droid Sans Mono. Distributed under the family name "DroidSansM Nerd Font" (M = "Mono"). Single-weight (Regular). Distributed as .otf. Download from the Nerd Fonts GitHub release and self-host, or install system-wide for terminal/editor use.
+
+fallbackStack:
+  - Droid Sans Mono
+  - Roboto Mono
+  - Menlo
+  - Monaco
+  - Consolas
+  - Liberation Mono
+  - monospace
+
+availableStyles:
+  - { weight: 400, style: normal }
+cdnUrls:
+  DroidSansMNerdFontMono-Regular.otf: https://cdn.brand-atoms.com/fonts/droid-sans-mono-nerdfont/1.0.0/DroidSansMNerdFontMono-Regular.otf

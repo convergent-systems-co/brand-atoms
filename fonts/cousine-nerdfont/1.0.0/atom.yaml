@@ -1,0 +1,45 @@
+kind: font
+id: cousine-nerdfont
+version: 1.0.0
+name: Cousine Nerd Font
+description: >
+  Cousine monospaced font with Nerd Fonts glyph augmentation. Designed by Steve Matteson as a Courier New metric-compatible alternative for Chrome OS; patched with ~10,000 additional icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.).
+family: Cousine Nerd Font
+classification: monospace
+tags: [ nerd-font, monospace, terminal, code, metric-compatible ]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: Apache-2.0
+  attribution: >
+    Cousine, Copyright Steve Matteson / Ascender Corporation, licensed under the Apache License, Version 2.0. Nerd Fonts patching by Ryan L McIntyre, MIT license.
+  importedDate: 2026-05-19
+  importedFromVersion: v3.4.0
+  notes: >
+    Base font: Cousine by Steve Matteson (Ascender), a Courier New metric-compatible alternative shipped with Chrome OS. Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Cousine.zip
+
+source:
+  kind: external
+  family: Cousine Nerd Font
+  notes: >
+    Nerd-Font-patched build of Cousine. Not available via Google Fonts as a patched build (base Cousine is on Google Fonts). Download ttf files from the Nerd Fonts GitHub release and self-host, or install system-wide for terminal/editor use.
+
+fallbackStack:
+  - Cousine
+  - Courier New
+  - Menlo
+  - Monaco
+  - Consolas
+  - Liberation Mono
+  - monospace
+
+availableStyles:
+  - { weight: 400, style: normal }
+  - { weight: 400, style: italic }
+  - { weight: 700, style: normal }
+  - { weight: 700, style: italic }
+cdnUrls:
+  CousineNerdFontMono-Regular.ttf: https://cdn.brand-atoms.com/fonts/cousine-nerdfont/1.0.0/CousineNerdFontMono-Regular.ttf
+  CousineNerdFontMono-Italic.ttf: https://cdn.brand-atoms.com/fonts/cousine-nerdfont/1.0.0/CousineNerdFontMono-Italic.ttf
+  CousineNerdFontMono-Bold.ttf: https://cdn.brand-atoms.com/fonts/cousine-nerdfont/1.0.0/CousineNerdFontMono-Bold.ttf
+  CousineNerdFontMono-BoldItalic.ttf: https://cdn.brand-atoms.com/fonts/cousine-nerdfont/1.0.0/CousineNerdFontMono-BoldItalic.ttf

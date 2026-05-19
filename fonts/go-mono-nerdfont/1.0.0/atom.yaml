@@ -1,0 +1,44 @@
+kind: font
+id: go-mono-nerdfont
+version: 1.0.0
+name: GoMono Nerd Font
+description: >
+  Go Mono monospaced font with Nerd Fonts glyph augmentation. Designed by Charles Bigelow and Kris Holmes for the Go programming language project; patched with ~10,000 additional icons (Powerline, Material Design Icons, Font Awesome, Devicons, Octicons, Codicons, etc.).
+family: GoMono Nerd Font
+classification: monospace
+tags: [ nerd-font, monospace, golang, terminal, code ]
+
+provenance:
+  source: https://github.com/ryanoasis/nerd-fonts/releases/tag/v3.4.0
+  license: BSD-3-Clause
+  attribution: >
+    Go Mono, Copyright The Go Authors / designed by Charles Bigelow and Kris Holmes (Bigelow & Holmes) for the Go programming language, licensed under the 3-clause BSD license. Nerd Fonts patching by Ryan L McIntyre, MIT license.
+  importedDate: 2026-05-19
+  importedFromVersion: v3.4.0
+  notes: >
+    Base font: Go Mono, the official monospace font of the Go project. Upstream: https://go.googlesource.com/image/+/master/font/gofont/. Download archive: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Go-Mono.zip
+
+source:
+  kind: external
+  family: GoMono Nerd Font
+  notes: >
+    Nerd-Font-patched build of Go Mono. Not available via Google Fonts. Download ttf files from the Nerd Fonts GitHub release and self-host, or install system-wide for terminal/editor use.
+
+fallbackStack:
+  - Go Mono
+  - Menlo
+  - Monaco
+  - Consolas
+  - Liberation Mono
+  - monospace
+
+availableStyles:
+  - { weight: 400, style: normal }
+  - { weight: 400, style: italic }
+  - { weight: 700, style: normal }
+  - { weight: 700, style: italic }
+cdnUrls:
+  GoMonoNerdFontMono-Regular.ttf: https://cdn.brand-atoms.com/fonts/go-mono-nerdfont/1.0.0/GoMonoNerdFontMono-Regular.ttf
+  GoMonoNerdFontMono-Italic.ttf: https://cdn.brand-atoms.com/fonts/go-mono-nerdfont/1.0.0/GoMonoNerdFontMono-Italic.ttf
+  GoMonoNerdFontMono-Bold.ttf: https://cdn.brand-atoms.com/fonts/go-mono-nerdfont/1.0.0/GoMonoNerdFontMono-Bold.ttf
+  GoMonoNerdFontMono-BoldItalic.ttf: https://cdn.brand-atoms.com/fonts/go-mono-nerdfont/1.0.0/GoMonoNerdFontMono-BoldItalic.ttf
