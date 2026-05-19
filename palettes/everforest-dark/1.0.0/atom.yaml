@@ -1,0 +1,113 @@
+kind: palette
+id: everforest-dark
+version: 1.0.0
+name: Everforest Dark
+description: >
+  Sainnhe's Everforest — dark variant at medium contrast. Warm, woodsy
+  green-and-tan palette designed for comfortable long sessions. Soft
+  red/orange/yellow/green/aqua/blue/purple accents on a muted forest-green
+  background.
+tags: [dev-theme, dark, modern, everforest, soft]
+
+provenance:
+  source: https://github.com/sainnhe/everforest
+  license: MIT
+  attribution: Everforest by sainnhe (sainnhe/everforest)
+  importedDate: 2026-05-17
+
+swatches:
+  # ─── Background tones (medium contrast) ───
+  - id: bg0
+    name: bg0 (primary background)
+    value: "#2D353B"
+  - id: bg1
+    name: bg1
+    value: "#343F44"
+  - id: bg2
+    name: bg2
+    value: "#3D484D"
+  - id: bg3
+    name: bg3
+    value: "#475258"
+  - id: bg4
+    name: bg4
+    value: "#4F585E"
+  - id: bg5
+    name: bg5
+    value: "#56635F"
+
+  # ─── Foreground / grey tones ───
+  - id: fg
+    name: Foreground
+    value: "#D3C6AA"
+  - id: grey0
+    name: Grey 0
+    value: "#7A8478"
+  - id: grey1
+    name: Grey 1
+    value: "#859289"
+  - id: grey2
+    name: Grey 2
+    value: "#9DA9A0"
+
+  # ─── Accents ───
+  - id: red
+    name: Red
+    value: "#E67E80"
+  - id: orange
+    name: Orange
+    value: "#E69875"
+  - id: yellow
+    name: Yellow
+    value: "#DBBC7F"
+  - id: green
+    name: Green
+    value: "#A7C080"
+  - id: aqua
+    name: Aqua
+    value: "#83C092"
+  - id: blue
+    name: Blue
+    value: "#7FBBB3"
+  - id: purple
+    name: Purple
+    value: "#D699B6"
+
+modes:
+  dark:
+    roles:
+      background: bg0
+      surface: bg1
+      surface-elevated: bg2
+      text-primary: fg
+      text-secondary: grey2
+      text-tertiary: grey0
+      primary: blue
+      primary-hover: aqua
+      accent: green
+      secondary-accent: purple
+      success: green
+      warning: yellow
+      error: red
+      info: blue
+      annotation: orange
+      special: purple
+  light:
+    # Inversion — everforest-dark is dark-only. For a real light, see everforest-light.
+    roles:
+      background: fg
+      surface: grey2
+      surface-elevated: grey1
+      text-primary: bg0
+      text-secondary: bg1
+      text-tertiary: grey0
+      primary: blue
+      primary-hover: aqua
+      accent: green
+      secondary-accent: purple
+      success: green
+      warning: yellow
+      error: red
+      info: blue
+      annotation: orange
+      special: purple

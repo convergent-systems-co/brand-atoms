@@ -1,0 +1,140 @@
+kind: palette
+id: ibm-carbon
+version: 1.0.0
+name: IBM Carbon Design System
+description: >
+  Carbon's core color palette — IBM's open-source design system color
+  primitives. Includes the Gray 10–100 neutral ramp and the named hue
+  ramps (Blue, Red, Green, Yellow, Magenta, Purple, Teal, Cyan) that
+  underpin Carbon themes (White, Gray 10, Gray 90, Gray 100).
+tags: [corporate, ibm, carbon, design-system, light, dark]
+
+provenance:
+  source: https://github.com/carbon-design-system/carbon/blob/main/packages/colors/src/colors.js
+  license: Apache-2.0
+  attribution: IBM Carbon Design System, Copyright IBM Corp. (carbon-design-system/carbon)
+  importedDate: 2026-05-17
+
+swatches:
+  # ─── Neutrals ───
+  - id: white
+    name: White
+    value: "#FFFFFF"
+  - id: gray-10
+    name: Gray 10
+    value: "#F4F4F4"
+  - id: gray-20
+    name: Gray 20
+    value: "#E0E0E0"
+  - id: gray-30
+    name: Gray 30
+    value: "#C6C6C6"
+  - id: gray-40
+    name: Gray 40
+    value: "#A8A8A8"
+  - id: gray-50
+    name: Gray 50
+    value: "#8D8D8D"
+  - id: gray-60
+    name: Gray 60
+    value: "#6F6F6F"
+  - id: gray-70
+    name: Gray 70
+    value: "#525252"
+  - id: gray-80
+    name: Gray 80
+    value: "#393939"
+  - id: gray-90
+    name: Gray 90
+    value: "#262626"
+  - id: gray-100
+    name: Gray 100
+    value: "#161616"
+  - id: black
+    name: Black
+    value: "#000000"
+
+  # ─── Brand & semantic ───
+  - id: blue-60
+    name: Blue 60 (primary / interactive)
+    value: "#0F62FE"
+  - id: blue-70
+    name: Blue 70
+    value: "#0043CE"
+  - id: blue-50
+    name: Blue 50
+    value: "#4589FF"
+  - id: red-60
+    name: Red 60 (danger)
+    value: "#DA1E28"
+  - id: red-50
+    name: Red 50
+    value: "#FA4D56"
+  - id: green-50
+    name: Green 50 (success)
+    value: "#24A148"
+  - id: green-40
+    name: Green 40
+    value: "#42BE65"
+  - id: yellow-30
+    name: Yellow 30 (warning)
+    value: "#F1C21B"
+  - id: yellow-20
+    name: Yellow 20
+    value: "#FDDC69"
+  - id: magenta-60
+    name: Magenta 60
+    value: "#D02670"
+  - id: purple-60
+    name: Purple 60
+    value: "#8A3FFC"
+  - id: teal-60
+    name: Teal 60
+    value: "#007D79"
+  - id: cyan-60
+    name: Cyan 60 (info)
+    value: "#0072C3"
+
+modes:
+  light:
+    # Maps to Carbon's "White" theme.
+    roles:
+      background: white
+      surface: gray-10
+      surface-elevated: white
+      text-primary: gray-100
+      text-secondary: gray-70
+      text-tertiary: gray-60
+      primary: blue-60
+      primary-hover: blue-70
+      accent: purple-60
+      secondary-accent: magenta-60
+      success: green-50
+      warning: yellow-30
+      error: red-60
+      info: cyan-60
+      annotation: teal-60
+      special: purple-60
+      outline: gray-30
+      cta: blue-60
+  dark:
+    # Maps to Carbon's "Gray 100" theme.
+    roles:
+      background: gray-100
+      surface: gray-90
+      surface-elevated: gray-80
+      text-primary: gray-10
+      text-secondary: gray-30
+      text-tertiary: gray-50
+      primary: blue-60
+      primary-hover: blue-50
+      accent: purple-60
+      secondary-accent: magenta-60
+      success: green-40
+      warning: yellow-30
+      error: red-50
+      info: cyan-60
+      annotation: teal-60
+      special: purple-60
+      outline: gray-70
+      cta: blue-60

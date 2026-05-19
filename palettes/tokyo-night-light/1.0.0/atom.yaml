@@ -1,0 +1,121 @@
+kind: palette
+id: tokyo-night-light
+version: 1.0.0
+name: Tokyo Night Light
+description: >
+  Bright daytime flavor of Tokyo Night — a paper-light background with
+  the same blue/magenta/cyan accent system, tuned for legibility on
+  light surfaces.
+tags: [dev-theme, light, modern, tokyo-night]
+
+provenance:
+  source: https://github.com/folke/tokyonight.nvim/blob/main/lua/tokyonight/colors/day.lua
+  license: Apache-2.0
+  attribution: Tokyo Night by Folke Lemaitre and contributors (folke/tokyonight.nvim)
+  importedDate: 2026-05-17
+
+swatches:
+  # ─── Backgrounds ───
+  - id: bg
+    name: Background
+    value: "#E1E2E7"
+  - id: bg-dark
+    name: Background (sidebar)
+    value: "#D5D6DB"
+  - id: bg-highlight
+    name: Background highlight
+    value: "#C4C8DA"
+  - id: bg-visual
+    name: Background visual
+    value: "#B7C1E3"
+
+  # ─── Foreground ───
+  - id: fg
+    name: Foreground
+    value: "#3760BF"
+  - id: fg-dark
+    name: Foreground (dark)
+    value: "#6172B0"
+  - id: fg-gutter
+    name: Foreground gutter
+    value: "#A8AECB"
+  - id: comment
+    name: Comment
+    value: "#848CB5"
+
+  # ─── Accents ───
+  - id: blue
+    name: Blue
+    value: "#2E7DE9"
+  - id: blue1
+    name: Blue 1
+    value: "#188092"
+  - id: blue2
+    name: Blue 2
+    value: "#07879D"
+  - id: cyan
+    name: Cyan
+    value: "#007197"
+  - id: magenta
+    name: Magenta
+    value: "#9854F1"
+  - id: purple
+    name: Purple
+    value: "#7847BD"
+  - id: orange
+    name: Orange
+    value: "#B15C00"
+  - id: yellow
+    name: Yellow
+    value: "#8C6C3E"
+  - id: green
+    name: Green
+    value: "#587539"
+  - id: green1
+    name: Green 1
+    value: "#387068"
+  - id: red
+    name: Red
+    value: "#F52A65"
+  - id: red1
+    name: Red 1
+    value: "#C64343"
+
+modes:
+  light:
+    roles:
+      background: bg
+      surface: bg-dark
+      surface-elevated: bg-highlight
+      text-primary: fg
+      text-secondary: fg-dark
+      text-tertiary: comment
+      primary: blue
+      primary-hover: cyan
+      accent: magenta
+      secondary-accent: green1
+      success: green
+      warning: yellow
+      error: red
+      info: blue1
+      annotation: orange
+      special: purple
+  dark:
+    # Thoughtful inversion — this is the day flavor; dark mode swaps bg/fg.
+    roles:
+      background: fg
+      surface: fg-dark
+      surface-elevated: comment
+      text-primary: bg
+      text-secondary: bg-highlight
+      text-tertiary: fg-gutter
+      primary: blue
+      primary-hover: blue2
+      accent: magenta
+      secondary-accent: green1
+      success: green
+      warning: orange
+      error: red
+      info: blue1
+      annotation: orange
+      special: purple

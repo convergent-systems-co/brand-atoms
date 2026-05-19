@@ -1,0 +1,112 @@
+kind: palette
+id: everforest-light
+version: 1.0.0
+name: Everforest Light
+description: >
+  Sainnhe's Everforest — light variant at medium contrast. Warm cream
+  background with muted, slightly desaturated accents. Pairs visually
+  with everforest-dark.
+tags: [dev-theme, light, modern, everforest, soft]
+
+provenance:
+  source: https://github.com/sainnhe/everforest
+  license: MIT
+  attribution: Everforest by sainnhe (sainnhe/everforest)
+  importedDate: 2026-05-17
+
+swatches:
+  # ─── Background tones (medium contrast) ───
+  - id: bg0
+    name: bg0 (primary background)
+    value: "#FDF6E3"
+  - id: bg1
+    name: bg1
+    value: "#F4F0D9"
+  - id: bg2
+    name: bg2
+    value: "#EFEBD4"
+  - id: bg3
+    name: bg3
+    value: "#E6E2CC"
+  - id: bg4
+    name: bg4
+    value: "#E0DCC7"
+  - id: bg5
+    name: bg5
+    value: "#BDC3AF"
+
+  # ─── Foreground / grey tones ───
+  - id: fg
+    name: Foreground
+    value: "#5C6A72"
+  - id: grey0
+    name: Grey 0
+    value: "#A6B0A0"
+  - id: grey1
+    name: Grey 1
+    value: "#939F91"
+  - id: grey2
+    name: Grey 2
+    value: "#829181"
+
+  # ─── Accents ───
+  - id: red
+    name: Red
+    value: "#F85552"
+  - id: orange
+    name: Orange
+    value: "#F57D26"
+  - id: yellow
+    name: Yellow
+    value: "#DFA000"
+  - id: green
+    name: Green
+    value: "#8DA101"
+  - id: aqua
+    name: Aqua
+    value: "#35A77C"
+  - id: blue
+    name: Blue
+    value: "#3A94C5"
+  - id: purple
+    name: Purple
+    value: "#DF69BA"
+
+modes:
+  light:
+    roles:
+      background: bg0
+      surface: bg1
+      surface-elevated: bg2
+      text-primary: fg
+      text-secondary: grey2
+      text-tertiary: grey0
+      primary: blue
+      primary-hover: aqua
+      accent: green
+      secondary-accent: purple
+      success: green
+      warning: yellow
+      error: red
+      info: blue
+      annotation: orange
+      special: purple
+  dark:
+    # Inversion — everforest-light is light-only.
+    roles:
+      background: fg
+      surface: grey2
+      surface-elevated: grey1
+      text-primary: bg0
+      text-secondary: bg1
+      text-tertiary: grey0
+      primary: blue
+      primary-hover: aqua
+      accent: green
+      secondary-accent: purple
+      success: green
+      warning: yellow
+      error: red
+      info: blue
+      annotation: orange
+      special: purple
