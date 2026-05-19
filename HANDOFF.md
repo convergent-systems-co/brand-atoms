@@ -211,16 +211,12 @@ decreasing order of usefulness for the catalog's primary audiences
 
 ## 4. Documentation
 
-- [x] `/instructions` page — concept overview + AI/human usage
+- [x] `/install` + `/how-to-use` pages — split from the prior `/instructions`
 - [x] Per-brand Copy-AI-prompt button
-- [ ] **`CONTRIBUTING.md`** at repo root — how to add an atom, how
-      to author rules, what counts as valid provenance, the
-      trademark policy.
-- [ ] **`ARCHITECTURE.md`** at repo root — encyclopedia layout,
-      schema vocabulary, emitter contract, build pipeline.
-- [ ] **`SECURITY.md`** — how to report a vulnerability.
-- [ ] **README at repo root** — current is thin; could include the
-      live counts via the dist/index.json endpoint.
+- [x] **`CONTRIBUTING.md`** at repo root — added 2026-05-19 (`9e4e640`)
+- [x] **`ARCHITECTURE.md`** at repo root — added 2026-05-19 (`9e4e640`)
+- [x] **`SECURITY.md`** at repo root — added 2026-05-19 (`9e4e640`)
+- [x] **README at repo root** — added 2026-05-19 (`9e4e640`)
 
 ---
 
