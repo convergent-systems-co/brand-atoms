@@ -737,3 +737,6 @@ dist/
 
 # Claude Code session state (scheduled_tasks.lock, etc.)
 .claude/
+
+# AI tooling state (checkpoints, transient logs)
+.ai/
