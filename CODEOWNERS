@@ -1,0 +1,4 @@
+# Adjust per repo.
+*           @convergent-systems-co/maintainers
+/infra/     @convergent-systems-co/infra
+/.github/   @convergent-systems-co/maintainers

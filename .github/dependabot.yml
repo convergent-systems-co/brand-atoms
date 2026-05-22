@@ -1,0 +1,20 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: "/web/site"
+    schedule: { interval: weekly }
+    groups:
+      site-deps:
+        patterns: ["*"]
+  - package-ecosystem: terraform
+    directory: "/infra/terraform/envs/dev"
+    schedule: { interval: weekly }
+  - package-ecosystem: terraform
+    directory: "/infra/terraform/envs/stg"
+    schedule: { interval: weekly }
+  - package-ecosystem: terraform
+    directory: "/infra/terraform/envs/prod"
+    schedule: { interval: weekly }
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule: { interval: weekly }

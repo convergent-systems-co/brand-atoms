@@ -1,0 +1,28 @@
+NOTICE
+
+This repository (brand-atoms) is dual-licensed by artifact class.
+
+Source code
+-----------
+Source code in this repository — including but not limited to:
+  *.go, *.ts, *.tsx, *.js, *.mjs, *.cjs, *.py, *.sh, *.astro,
+  scripts/, validators, build configuration, Makefile, CI workflows
+— is licensed under the Apache License, Version 2.0. See LICENSE.
+
+Atom data and documentation
+---------------------------
+Atom data and documentation in this repository — including but not
+limited to:
+  atoms/, schemas/, exports/, docs/, *.md, and *.json / *.toml / *.yaml
+  files used as atom data
+— is licensed under the Creative Commons Attribution 4.0 International
+License (CC-BY-4.0). See LICENSE-data.
+
+Rationale
+---------
+This dual-licensing model matches the pattern used by civilization-grade
+open infrastructure (IETF RFCs, Schema.org, Unicode): permissive code
+licensing for maximum substrate adoption, attribution-preserving data
+licensing for the encyclopedia content. See the design spec at
+docs/superpowers/specs/2026-05-22-atoms-template-alignment-design.md
+in the umbrella repository for the full rationale.

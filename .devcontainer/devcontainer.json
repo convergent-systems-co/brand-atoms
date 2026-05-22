@@ -1,0 +1,19 @@
+{
+  "name": "astro-tf-app",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/terraform:1": { "version": "1.7" },
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "postCreateCommand": "npm --prefix web/site install && curl -fsSL https://github.com/terraform-linters/tflint/releases/download/v0.50.3/tflint_linux_amd64.zip -o /tmp/tflint.zip && unzip -o /tmp/tflint.zip -d /usr/local/bin/ && rm /tmp/tflint.zip",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "astro-build.astro-vscode",
+        "hashicorp.terraform",
+        "github.vscode-github-actions",
+        "dbaeumer.vscode-eslint"
+      ]
+    }
+  }
+}

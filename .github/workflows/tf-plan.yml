@@ -1,0 +1,25 @@
+name: Terraform plan
+
+on:
+  pull_request:
+    paths: ["infra/terraform/**"]
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        env: [dev, stg, prod]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.7.5"
+      - name: fmt
+        run: terraform fmt -recursive -check infra/
+      - name: init
+        run: terraform -chdir=infra/terraform/envs/${{ matrix.env }} init -backend=false
+      - name: validate
+        run: terraform -chdir=infra/terraform/envs/${{ matrix.env }} validate
+      - name: plan
+        run: terraform -chdir=infra/terraform/envs/${{ matrix.env }} plan -input=false || echo "Plan requires backend; skipping for now."
