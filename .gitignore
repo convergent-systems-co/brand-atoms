@@ -744,3 +744,14 @@ dist/
 # Override .NET template [Ss]cripts rule — keep our scripts/ tracked
 !scripts/
 !scripts/**
+
+# Terraform / OpenTofu local state and provider cache
+**/.terraform/
+*.tfstate
+*.tfstate.backup
+.terraform.lock.hcl
+crash.log
+crash.*.log
+*.tfvars
+*.tfvars.json
+!terraform.tfvars
