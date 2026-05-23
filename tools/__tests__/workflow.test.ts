@@ -14,7 +14,7 @@ import { parse as parseYaml } from 'yaml';
 const REPO_ROOT = process.cwd();
 const WORKFLOW_PATH = join(REPO_ROOT, '.github', 'workflows', 'deploy.yml');
 const ACCOUNT_ID = 'e1fe0f0ce8ff18da4edc118372c30022';
-const SECRET_NAME = 'CSO_CF_TOKEN';
+const SECRET_NAME = 'CLOUDFLARE_API_TOKEN';
 const PROJECT_NAME = 'brand-atoms';
 
 type Step = {
@@ -96,7 +96,7 @@ pass(`CLOUDFLARE_API_TOKEN aliases secrets.${SECRET_NAME}`);
 const rawFile = readFileSync(WORKFLOW_PATH, 'utf8');
 assert.ok(
   !/secrets\.CLOUDFLARE_API_TOKEN\b/.test(rawFile),
-  'workflow must not reference secrets.CLOUDFLARE_API_TOKEN (use CSO_CF_TOKEN)',
+  'workflow must not reference secrets.CLOUDFLARE_API_TOKEN (use CLOUDFLARE_API_TOKEN)',
 );
 pass('no references to secrets.CLOUDFLARE_API_TOKEN');
 
@@ -219,7 +219,7 @@ for (const s of steps) {
 pass('no step uses continue-on-error: true or if: false');
 
 // ─── Missing-secret guard ─────────────────────────────────────────────
-// Either an explicit guard step that fails on empty CSO_CF_TOKEN with
+// Either an explicit guard step that fails on empty CLOUDFLARE_API_TOKEN with
 // the required URL message, OR a secret-presence assertion via env.
 const settingsUrl =
   'https://github.com/convergent-systems-co/branding-library/settings/secrets/actions';

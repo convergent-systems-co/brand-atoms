@@ -19,7 +19,7 @@
  *   pnpm mirror:r2 --dry-run        # print planned uploads, do nothing
  *   pnpm mirror:r2 --only=inter     # mirror just one font slug
  *
- * Auth: reads `CSO_CF_TOKEN` from env. Wrap with `zsh -ic 'pnpm mirror:r2'`
+ * Auth: reads `CLOUDFLARE_API_TOKEN` from env. Wrap with `zsh -ic 'pnpm mirror:r2'`
  * to pick it up from the 1Password-backed shell config.
  */
 import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
@@ -467,9 +467,9 @@ const parseArgs = (argv: string[]): { dryRun: boolean; only?: string } => {
 
 const main = async (): Promise<void> => {
   const args = parseArgs(process.argv.slice(2));
-  const token = process.env.CSO_CF_TOKEN;
+  const token = process.env.CLOUDFLARE_API_TOKEN;
   if (!token) {
-    console.error('CSO_CF_TOKEN not set. Run via: zsh -ic "pnpm mirror:r2"');
+    console.error('CLOUDFLARE_API_TOKEN not set. Run via: zsh -ic "pnpm mirror:r2"');
     process.exit(2);
   }
 
