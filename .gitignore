@@ -705,10 +705,6 @@ vite.config.ts.timestamp-*
 # would otherwise ignore. The encyclopedia source code lives under web/src/lib/.
 !web/src/lib/
 !web/src/lib/**
-# brandatom CLI distribution drafts (brew formula, scoop manifest) live under
-# src/brandatom/dist/ — those are source files, not build artifacts.
-!src/brandatom/dist/
-!src/brandatom/dist/**
 # Build outputs
 dist/
 
