@@ -1,0 +1,6 @@
+# Copy to terraform.tfvars before running plan/apply.
+# Or export TF_VAR_cloudflare_account_id=<id>
+
+cloudflare_account_id = "<convergent-systems-co account id>"
+# project_name      = "brand-atoms"
+# production_branch = "main"
