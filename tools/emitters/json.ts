@@ -29,6 +29,10 @@ export const jsonEmitter: Emitter = {
       roles: brand.roles,
       assets: brand.assets,
       rules: brand.rules,
+      _ai: {
+        docs: 'https://brand-atoms.com/ai/index.json',
+        catalog: 'https://brand-atoms.com/dist/index.json',
+      },
     };
     return [
       {
