@@ -1,5 +1,5 @@
 #!/usr/bin/env tsx
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative, sep } from 'node:path';
 import { emitterMap, emitters } from './emitters/index.js';
 import { type AtomRecord, type FontAtomRecord, type PaletteAtomRecord, loadAll } from './loader.js';
@@ -343,6 +343,23 @@ const main = (): void => {
         writeFileSync(fullPath, file.contents, 'utf8');
         writtenFiles.push(relative(repoRoot, fullPath));
         totalFiles++;
+      }
+    }
+
+    // Copy static subdirectories (assets/, ui/) from the brand source directory.
+    const brandSourceDir = wantedBrands.find(
+      (b) => b.slug === resolved.id && b.version === resolved.version
+    )?.versionDir;
+
+    if (brandSourceDir) {
+      for (const staticSubdir of ['assets', 'ui']) {
+        const srcDir = join(brandSourceDir, staticSubdir);
+        if (existsSync(srcDir)) {
+          const destDir = join(brandOutDir, staticSubdir);
+          mkdirSync(destDir, { recursive: true });
+          cpSync(srcDir, destDir, { recursive: true });
+          writtenFiles.push(`${staticSubdir}/ (static copy)`);
+        }
       }
     }
 

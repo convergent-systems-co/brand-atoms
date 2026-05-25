@@ -1,0 +1,81 @@
+id: atom-family
+version: 1.0.0
+name: Atom Family
+description: >
+  The Atom Family is the product brand for the convergent-systems.co *-atoms
+  catalog ecosystem. 25 catalog sites (schema-atoms, brand-atoms, theme-atoms,
+  etc.) share this visual identity: the Deep Space canvas, molecular mark,
+  Frost Cyan primary, Solar Gold accent, and Ember Orange warmth.
+
+tags: [atom-family, atoms-ecosystem, dark-first]
+
+provenance:
+  source: https://convergent-systems.co
+  license: MIT
+  attribution: >
+    Atom Family brand identity. Part of the convergent-systems.co atoms
+    ecosystem. Trademarks and design rights belong to Convergent Systems Co.
+
+references:
+  palette: convergent-deep-space@1
+  fonts:
+    heading: inter@1
+    body: inter@1
+
+roles:
+  colors:
+    background: deep-space-0
+    surface: deep-space-1
+    surface-elevated: deep-space-2
+    text-primary: snow-0
+    text-secondary: snow-1
+    text-tertiary: snow-2
+    primary: frost-cyan
+    primary-hover: frost-cyan-soft
+    accent: solar-gold
+    accent-hover: solar-gold-soft
+    warning: ember-orange
+    identity: frost-cyan
+    on-identity: deep-space-0
+    mark: solar-gold
+
+assets:
+  - id: favicon
+    category: favicon
+    name: Favicon
+    description: 32px 4-dot rounded-rect mark for browser tabs and app icons
+    variants:
+      - id: dark
+        file: assets/favicon.svg
+        colorScheme: light-on-dark
+        format: svg
+
+  - id: mark
+    category: logo-mark
+    name: Hero Mark
+    description: 120px 4-dot mark with glow halos for page heroes
+    variants:
+      - id: dark
+        file: assets/mark.svg
+        colorScheme: light-on-dark
+        format: svg
+
+  - id: atom-family-icon
+    category: logo
+    name: Atom Family Icon
+    description: Molecular A-frame logo, icon-only variant
+    variants:
+      - id: dark
+        file: assets/atom-family-icon.svg
+        colorScheme: light-on-dark
+        format: svg
+
+  - id: atom-family-wordmark
+    category: logo
+    name: Atom Family Wordmark
+    description: Molecular A-frame logo with ATOMS wordmark
+    variants:
+      - id: dark
+        file: assets/atom-family-wordmark.svg
+        colorScheme: light-on-dark
+        format: svg
