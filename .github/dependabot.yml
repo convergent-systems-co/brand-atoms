@@ -1,7 +1,7 @@
 version: 2
 updates:
   - package-ecosystem: npm
-    directory: "/web/site"
+    directory: "/web"
     schedule: { interval: weekly }
     groups:
       site-deps:
