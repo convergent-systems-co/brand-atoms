@@ -277,7 +277,7 @@ test('validateConfigCoverage: detects on-disk slugs missing from config', () => 
   ]);
   const res = validateConfigCoverage(fontsDir, [fakeFontConfig('inter')]);
   assert.equal(res.ok, false);
-  assert.deepEqual(res.missing, ['orphan']);
+  assert.deepEqual(res.missing, .orphan);
 });
 
 test('validateConfigCoverage: passes when configs match on-disk slugs', () => {

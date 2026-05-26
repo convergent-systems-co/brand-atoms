@@ -188,11 +188,11 @@ test('buildAtom: Inter from OFL — atom matches schema', () => {
   const atom = buildAtom({ md, slug: 'inter-test', licenseDir: 'ofl' });
   const res = Font.safeParse(atom);
   assert.equal(res.success, true, res.success ? '' : JSON.stringify(res.error.issues));
-  assert.equal(atom['id'], 'inter-test');
-  assert.equal(atom['classification'], 'sans-serif');
-  const prov = atom['provenance'] as Record<string, unknown>;
-  assert.equal(prov['license'], 'OFL-1.1');
-  assert.ok(String(prov['attribution']).includes('Rasmus Andersson'));
+  assert.equal(atom.id, 'inter-test');
+  assert.equal(atom.classification, 'sans-serif');
+  const prov = atom.provenance as Record<string, unknown>;
+  assert.equal(prov.license, 'OFL-1.1');
+  assert.ok(String(prov.attribution).includes('Rasmus Andersson'));
 });
 
 test('buildAtom: Lobster — display classification, single style', () => {
@@ -200,8 +200,8 @@ test('buildAtom: Lobster — display classification, single style', () => {
   const atom = buildAtom({ md, slug: 'lobster', licenseDir: 'ofl' });
   const res = Font.safeParse(atom);
   assert.equal(res.success, true, res.success ? '' : JSON.stringify(res.error.issues));
-  assert.equal(atom['classification'], 'display');
-  const styles = atom['availableStyles'] as Array<{ weight: number; style: string }>;
+  assert.equal(atom.classification, 'display');
+  const styles = atom.availableStyles as Array<{ weight: number; style: string }>;
   assert.equal(styles.length, 1);
   assert.equal(styles[0]?.weight, 400);
 });
@@ -209,8 +209,8 @@ test('buildAtom: Lobster — display classification, single style', () => {
 test('buildAtom: Ubuntu — UFL license mapping', () => {
   const md = parseFixture('ubuntu.METADATA.pb');
   const atom = buildAtom({ md, slug: 'ubuntu', licenseDir: 'ufl' });
-  const prov = atom['provenance'] as Record<string, unknown>;
-  assert.equal(prov['license'], 'UFL-1.0');
+  const prov = atom.provenance as Record<string, unknown>;
+  assert.equal(prov.license, 'UFL-1.0');
 });
 
 test('buildAtom: slab-serif override applies and adds slab tag', () => {
@@ -220,19 +220,19 @@ test('buildAtom: slab-serif override applies and adds slab tag', () => {
     slug: 'fake-slab',
     licenseDir: 'ofl',
     classificationOverride: 'slab-serif',
-    extraTags: ['slab'],
+    extraTags: .slab,
   });
-  assert.equal(atom['classification'], 'slab-serif');
-  const tags = atom['tags'] as string[];
+  assert.equal(atom.classification, 'slab-serif');
+  const tags = atom.tags as string[];
   assert.ok(tags.includes('slab'));
 });
 
 test('buildAtom: provenance.source is the METADATA URL', () => {
   const md = parseFixture('roboto.METADATA.pb');
   const atom = buildAtom({ md, slug: 'roboto', licenseDir: 'ofl' });
-  const prov = atom['provenance'] as Record<string, unknown>;
+  const prov = atom.provenance as Record<string, unknown>;
   assert.equal(
-    prov['source'],
+    prov.source,
     'https://raw.githubusercontent.com/google/fonts/main/ofl/roboto/METADATA.pb',
   );
 });
@@ -307,14 +307,14 @@ test('idempotency: running emit twice over fixtures yields zero diff', () => {
 test('hard case: variable font (Inter) gets variable-font tag', () => {
   const md = parseFixture('inter.METADATA.pb');
   const atom = buildAtom({ md, slug: 'inter-test', licenseDir: 'ofl' });
-  const tags = atom['tags'] as string[];
+  const tags = atom.tags as string[];
   assert.ok(tags.includes('variable-font'));
 });
 
 test('hard case: non-variable font (Lobster) does NOT get variable-font tag', () => {
   const md = parseFixture('lobster.METADATA.pb');
   const atom = buildAtom({ md, slug: 'lobster', licenseDir: 'ofl' });
-  const tags = atom['tags'] as string[];
+  const tags = atom.tags as string[];
   assert.ok(!tags.includes('variable-font'));
 });
 
