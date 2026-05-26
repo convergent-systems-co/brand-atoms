@@ -1,16 +1,17 @@
-# Replace this stub during seed issue #3.
-# Recommended: R2 (S3-compatible) + Cloudflare KV lock, or HCP Terraform.
-#
-# terraform {
-#   backend "s3" {
-#     bucket                      = "REPLACE-ME-tfstate"
-#     key                         = "astro-tf-app-template/dev/terraform.tfstate"
-#     region                      = "auto"
-#     endpoints                   = { s3 = "https://<accountid>.r2.cloudflarestorage.com" }
-#     skip_credentials_validation = true
-#     skip_region_validation      = true
-#     skip_metadata_api_check     = true
-#     skip_requesting_account_id  = true
-#     use_path_style              = true
-#   }
-# }
+terraform {
+  backend "s3" {
+    bucket = "cs-tfstate"
+    key    = "state-bucket/convergent-systems-co/brand-atoms/dev/terraform.tfstate"
+    region = "auto"
+    endpoints = {
+      s3 = "https://e1fe0f0ce8ff18da4edc118372c30022.r2.cloudflarestorage.com"
+    }
+    skip_credentials_validation = true
+    skip_region_validation      = true
+    skip_metadata_api_check     = true
+    skip_requesting_account_id  = true
+    skip_s3_checksum            = true
+    use_path_style              = false
+    use_lockfile                = true
+  }
+}
