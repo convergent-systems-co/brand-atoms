@@ -117,6 +117,23 @@ swatches:
     description: Red error — distinct from brand red; critical system failure
 
 modes:
+  light:
+    roles:
+      background: white
+      surface: gray-100
+      surface-elevated: white
+      text-primary: black
+      text-secondary: surface-elevated
+      text-tertiary: gray-400
+      primary: blue
+      primary-hover: blue-bright
+      accent: red
+      accent-hover: red-bright
+      mark: violet
+      warning: warning
+      error: error
+      success: success
+      border: border
   dark:
     roles:
       background: black
