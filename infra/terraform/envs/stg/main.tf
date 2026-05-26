@@ -36,7 +36,7 @@ resource "cloudflare_pages_project" "site" {
   build_config {
     build_command   = "npm run build"
     destination_dir = "dist"
-    root_dir        = "web/site"
+    root_dir        = "web"
   }
 }
 
