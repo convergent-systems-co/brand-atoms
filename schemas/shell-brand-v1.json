@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://brand-atoms.com/schemas/shell-brand-v1.json",
+  "title": "brand-atoms v1 shell brand extension",
+  "description": "Extends a general brand atom with shell-specific bindings for use with aish. Covers prompt segments, separator characters, ANSI escape sequence role bindings, and terminal color support declarations.",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "version",
+    "base_brand",
+    "prompt_symbol",
+    "separator_char",
+    "ansi_256_support",
+    "truecolor_support"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Unique slug for this shell brand extension. Matches the filename without .yaml."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Human-readable display name for this shell brand."
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "description": "SemVer version string for this shell brand atom."
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional prose description of the shell brand and its intended use."
+    },
+    "base_brand": {
+      "type": "string",
+      "description": "Reference to a brand-atoms brand ID that this shell extension derives from. Does not require the base brand to exist in brands/ (supports external/community themes)."
+    },
+    "prompt_symbol": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Terminal prompt symbol displayed at the shell prompt. Examples: '❯', '➜', '$', '▶', '%'."
+    },
+    "separator_char": {
+      "type": "string",
+      "description": "Powerline or segment separator character. Use empty string for themes without segment separators."
+    },
+    "ansi_256_support": {
+      "type": "boolean",
+      "description": "Whether this shell brand supports 256-color ANSI palettes (xterm-256color)."
+    },
+    "truecolor_support": {
+      "type": "boolean",
+      "description": "Whether this shell brand supports 24-bit true-color terminals."
+    },
+    "role_bindings": {
+      "type": "object",
+      "description": "Maps semantic roles to #RRGGBB hex color values for use as ANSI escape sequences or terminal color references.",
+      "properties": {
+        "primary": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "description": "Primary UI color — used for active prompt segments, directory names."
+        },
+        "accent": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "description": "Accent color — used for git branch indicators, highlights."
+        },
+        "error": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "description": "Error / failure color — used for non-zero exit codes, error messages."
+        },
+        "warning": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "description": "Warning color — used for dirty git state, stash indicators."
+        },
+        "success": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "description": "Success / clean color — used for zero exit codes, clean git state."
+        },
+        "muted": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "description": "Muted / secondary color — used for timestamps, secondary path segments."
+        }
+      },
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^#[0-9A-Fa-f]{6}$"
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Taxonomy tags for discovery and filtering."
+    },
+    "license": {
+      "type": "string",
+      "description": "SPDX license identifier for the color scheme. Examples: MIT, Apache-2.0, CC0-1.0."
+    }
+  },
+  "additionalProperties": false
+}

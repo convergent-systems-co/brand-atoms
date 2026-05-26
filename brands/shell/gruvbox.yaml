@@ -1,0 +1,22 @@
+id: gruvbox
+name: Gruvbox Shell
+version: 1.0.0
+description: >
+  Gruvbox warm dark theme for terminal shell use with aish. Gruvbox is a
+  retro groove color scheme designed to be warm, comfortable, and easy on the
+  eyes. The dark variant uses desaturated warm tones with clearly differentiated
+  semantic roles for shell prompt elements.
+base_brand: gruvbox
+prompt_symbol: "▶"
+separator_char: ""
+ansi_256_support: true
+truecolor_support: true
+role_bindings:
+  primary: "#83a598"    # Gruvbox aqua; active prompt, cwd
+  accent: "#fabd2f"     # Gruvbox yellow; git branch, highlights
+  error: "#fb4934"      # Gruvbox red; non-zero exit, errors
+  warning: "#fe8019"    # Gruvbox orange; dirty git, stash
+  success: "#b8bb26"    # Gruvbox green; clean state, zero exit
+  muted: "#928374"      # Gruvbox gray; timestamps, secondary segments
+tags: [gruvbox, dark, warm, retro, earthy]
+license: MIT

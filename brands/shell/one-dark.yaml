@@ -1,0 +1,23 @@
+id: one-dark
+name: One Dark Shell
+version: 1.0.0
+description: >
+  Atom One Dark theme for terminal shell use with aish. One Dark was designed
+  by the Atom editor team and became one of the most widely ported color
+  schemes in developer tooling. It pairs a medium-dark charcoal background with
+  saturated rainbow accents — cyan, blue, purple, red, orange, green — that
+  retain readability while providing strong visual differentiation between roles.
+base_brand: one-dark
+prompt_symbol: "❯"
+separator_char: ""
+ansi_256_support: true
+truecolor_support: true
+role_bindings:
+  primary: "#61afef"    # Blue; active prompt, cwd
+  accent: "#c678dd"     # Purple; git branch, highlights
+  error: "#e06c75"      # Red; non-zero exit, errors
+  warning: "#e5c07b"    # Yellow; dirty git, stash
+  success: "#98c379"    # Green; clean state, zero exit
+  muted: "#5c6370"      # Comment; timestamps, secondary segments
+tags: [one-dark, dark, atom, balanced, saturated]
+license: MIT

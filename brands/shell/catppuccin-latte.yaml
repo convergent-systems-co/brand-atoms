@@ -1,0 +1,22 @@
+id: catppuccin-latte
+name: Catppuccin Latte Shell
+version: 1.0.0
+description: >
+  Catppuccin Latte light variant for terminal shell use with aish. Latte is the
+  light-mode entry in the Catppuccin family, with a warm cream background and
+  gently saturated pastel accents. Designed for developers who prefer light
+  terminal themes without harsh primary colors.
+base_brand: catppuccin
+prompt_symbol: "❯"
+separator_char: ""
+ansi_256_support: true
+truecolor_support: true
+role_bindings:
+  primary: "#8839ef"    # Mauve; active prompt, cwd
+  accent: "#04a5e5"     # Sky; git branch, highlights
+  error: "#d20f39"      # Red; non-zero exit, errors
+  warning: "#fe640b"    # Peach; dirty git, stash
+  success: "#40a02b"    # Green; clean state, zero exit
+  muted: "#9ca0b0"      # Overlay1; timestamps, secondary segments
+tags: [catppuccin, latte, light, pastel, warm]
+license: MIT

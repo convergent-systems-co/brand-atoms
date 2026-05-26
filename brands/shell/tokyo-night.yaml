@@ -1,0 +1,23 @@
+id: tokyo-night
+name: Tokyo Night Shell
+version: 1.0.0
+description: >
+  Tokyo Night for terminal shell use with aish. Tokyo Night is a dark theme
+  inspired by the neon-lit streets of Tokyo after dark. The palette combines
+  deep navy backgrounds with vivid blues, purples, and accent colors drawn
+  from city neon lighting, resulting in a high-contrast aesthetic with visual
+  depth.
+base_brand: tokyo-night
+prompt_symbol: "❯"
+separator_char: ""
+ansi_256_support: true
+truecolor_support: true
+role_bindings:
+  primary: "#7aa2f7"    # Blue; active prompt, cwd
+  accent: "#bb9af7"     # Purple; git branch, highlights
+  error: "#f7768e"      # Red; non-zero exit, errors
+  warning: "#e0af68"    # Yellow; dirty git, stash
+  success: "#9ece6a"    # Green; clean state, zero exit
+  muted: "#565f89"      # Comment; timestamps, secondary segments
+tags: [tokyo-night, dark, neon, blue, purple, vivid]
+license: MIT

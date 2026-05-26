@@ -1,0 +1,22 @@
+id: nord
+name: Nord Shell
+version: 1.0.0
+description: >
+  Nord color scheme optimized for terminal shell use with aish. Nord is an
+  arctic, north-bluish color palette designed for a clean, elegant aesthetic.
+  The shell extension maps Nord's Polar Night and Frost families to semantic
+  shell roles, emphasizing readability on dark backgrounds.
+base_brand: nord
+prompt_symbol: "❯"
+separator_char: ""
+ansi_256_support: true
+truecolor_support: true
+role_bindings:
+  primary: "#88c0d0"    # nord8 — Frost light blue; active prompt, cwd
+  accent: "#81a1c1"     # nord9 — Frost blue; git branch, highlights
+  error: "#bf616a"      # nord11 — Aurora red; non-zero exit, errors
+  warning: "#ebcb8b"    # nord13 — Aurora yellow; dirty git, stash
+  success: "#a3be8c"    # nord14 — Aurora green; clean state, zero exit
+  muted: "#616e88"      # nord3 — Polar Night lighter; timestamps, secondary
+tags: [nord, dark, minimal, clean, arctic, blue]
+license: MIT

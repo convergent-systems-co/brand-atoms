@@ -1,0 +1,22 @@
+id: dracula
+name: Dracula Shell
+version: 1.0.0
+description: >
+  Dracula theme adapted for terminal shell use with aish. The Dracula color
+  scheme uses a dark background with vivid purple, cyan, and green accents,
+  creating high-contrast readability. The shell extension maps Dracula's
+  canonical palette to semantic shell roles.
+base_brand: dracula
+prompt_symbol: "➜"
+separator_char: ""
+ansi_256_support: true
+truecolor_support: true
+role_bindings:
+  primary: "#bd93f9"    # Dracula purple; active prompt, cwd
+  accent: "#8be9fd"     # Dracula cyan; git branch, highlights
+  error: "#ff5555"      # Dracula red; non-zero exit, errors
+  warning: "#ffb86c"    # Dracula orange; dirty git, stash
+  success: "#50fa7b"    # Dracula green; clean state, zero exit
+  muted: "#6272a4"      # Dracula comment; timestamps, secondary segments
+tags: [dracula, dark, purple, high-contrast, vivid]
+license: MIT

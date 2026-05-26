@@ -1,0 +1,23 @@
+id: solarized-dark
+name: Solarized Dark Shell
+version: 1.0.0
+description: >
+  Solarized Dark for terminal shell use with aish. Solarized is Ethan
+  Schoonover's precision color scheme built around a 16-color palette with
+  carefully calculated perceptual relationships. The dark variant uses a deep
+  teal-toned background with accent colors that retain contrast across both
+  light and dark modes.
+base_brand: solarized
+prompt_symbol: "$"
+separator_char: ""
+ansi_256_support: true
+truecolor_support: true
+role_bindings:
+  primary: "#268bd2"    # Blue; active prompt, cwd
+  accent: "#2aa198"     # Cyan; git branch, highlights
+  error: "#dc322f"      # Red; non-zero exit, errors
+  warning: "#b58900"    # Yellow; dirty git, stash
+  success: "#859900"    # Green; clean state, zero exit
+  muted: "#586e75"      # Base01; timestamps, secondary segments
+tags: [solarized, dark, precision, teal, classic]
+license: MIT

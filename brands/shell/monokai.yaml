@@ -1,0 +1,23 @@
+id: monokai
+name: Monokai Pro Shell
+version: 1.0.0
+description: >
+  Monokai Pro for terminal shell use with aish. Monokai was created by Wimer
+  Hazenberg and became iconic through its use as Sublime Text's default theme.
+  The Pro variant refines the original with a richer dark background and more
+  carefully balanced accent colors. Known for its vivid greens, yellows, and
+  pinks against a near-black background.
+base_brand: monokai
+prompt_symbol: "❯"
+separator_char: ""
+ansi_256_support: true
+truecolor_support: true
+role_bindings:
+  primary: "#66d9e8"    # Cyan; active prompt, cwd
+  accent: "#ae81ff"     # Purple; git branch, highlights
+  error: "#f92672"      # Pink-red; non-zero exit, errors
+  warning: "#fd971f"    # Orange; dirty git, stash
+  success: "#a6e22e"    # Green; clean state, zero exit
+  muted: "#75715e"      # Comment; timestamps, secondary segments
+tags: [monokai, dark, vivid, sublime, classic]
+license: MIT

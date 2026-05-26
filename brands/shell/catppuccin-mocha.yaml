@@ -1,0 +1,22 @@
+id: catppuccin-mocha
+name: Catppuccin Mocha Shell
+version: 1.0.0
+description: >
+  Catppuccin Mocha dark variant for terminal shell use with aish. Catppuccin is
+  a community-driven pastel theme family. Mocha is the darkest and most popular
+  variant, built around a warm dark background with soft, desaturated pastel
+  accents that provide comfortable contrast without eye strain.
+base_brand: catppuccin
+prompt_symbol: "❯"
+separator_char: ""
+ansi_256_support: true
+truecolor_support: true
+role_bindings:
+  primary: "#cba6f7"    # Mauve; active prompt, cwd
+  accent: "#89dceb"     # Sky; git branch, highlights
+  error: "#f38ba8"      # Red; non-zero exit, errors
+  warning: "#fab387"    # Peach; dirty git, stash
+  success: "#a6e3a1"    # Green; clean state, zero exit
+  muted: "#585b70"      # Surface2; timestamps, secondary segments
+tags: [catppuccin, mocha, dark, pastel, soft]
+license: MIT

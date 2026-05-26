@@ -1,0 +1,22 @@
+id: solarized-light
+name: Solarized Light Shell
+version: 1.0.0
+description: >
+  Solarized Light for terminal shell use with aish. The light variant of Ethan
+  Schoonover's Solarized scheme swaps the background to a warm cream while
+  retaining the same eight accent colors, providing symmetrical contrast ratios
+  in both light and dark modes by design.
+base_brand: solarized
+prompt_symbol: "$"
+separator_char: ""
+ansi_256_support: true
+truecolor_support: true
+role_bindings:
+  primary: "#268bd2"    # Blue; active prompt, cwd (same as dark variant — invariant accent)
+  accent: "#2aa198"     # Cyan; git branch, highlights
+  error: "#dc322f"      # Red; non-zero exit, errors
+  warning: "#b58900"    # Yellow; dirty git, stash
+  success: "#859900"    # Green; clean state, zero exit
+  muted: "#93a1a1"      # Base1; timestamps, secondary segments
+tags: [solarized, light, precision, cream, classic]
+license: MIT
