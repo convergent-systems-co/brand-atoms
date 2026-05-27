@@ -110,7 +110,7 @@ const fontSans = csTheme?.headingFont ?? "'Inter', -apple-system, BlinkMacSystem
         </footer>
       </main>
 
-      <aside class="sidenav">
+      <nav class="sidenav">
         <a class="brand" href="/">
           <span class="mark" aria-hidden="true">
             <span class="dot dot-1"></span>
@@ -121,27 +121,25 @@ const fontSans = csTheme?.headingFont ?? "'Inter', -apple-system, BlinkMacSystem
           <span class="brand-text">Brand<br/>Atoms</span>
         </a>
 
-        <nav class="nav">
-          <ul>
-            {navItems.map((item) => (
-              <li>
-                <a
-                  href={item.href}
-                  class:list={['nav-link', { active: item.id === section }]}
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <ul class="nav">
+          {navItems.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class:list={['nav-link', { active: item.id === section }]}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
 
         <div class="aside-meta">
-          <a href="https://github.com/convergent-systems-co/branding-library" class="meta-link">
+          <a href="https://github.com/convergent-systems-co/brand-atoms" class="meta-link">
             <span>↗</span> GitHub
           </a>
         </div>
-      </aside>
+      </nav>
     </div>
 
     <style is:global define:vars={{
@@ -279,7 +277,7 @@ const fontSans = csTheme?.headingFont ?? "'Inter', -apple-system, BlinkMacSystem
         letter-spacing: -0.02em;
       }
 
-      .nav ul {
+      .nav {
         list-style: none;
         padding: 0;
         margin: 0;
@@ -357,7 +355,7 @@ const fontSans = csTheme?.headingFont ?? "'Inter', -apple-system, BlinkMacSystem
           padding: 16px 24px;
           gap: 24px;
         }
-        .nav ul {
+        .nav {
           flex-direction: row;
           flex-wrap: wrap;
         }
