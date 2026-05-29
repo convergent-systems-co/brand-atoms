@@ -13,20 +13,20 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "@astrojs/react": "^4.1.6",
-    "astro": "^6.1.10",
+    "@astrojs/react": "^5.0.6",
+    "astro": "^6.4.2",
     "fflate": "^0.8.2",
-    "marked": "^14.1.4",
+    "marked": "^18.0.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "yaml": "^2.5.1"
   },
   "devDependencies": {
     "@testing-library/react": "^16.1.0",
-    "@types/react": "^19.0.2",
+    "@types/react": "^19.2.15",
     "@types/react-dom": "^19.0.2",
     "happy-dom": "^20.8.9",
-    "vitest": "^4.1.0",
-    "wrangler": "^4.0.0"
+    "vitest": "^4.1.7",
+    "wrangler": "^4.95.0"
   }
 }
