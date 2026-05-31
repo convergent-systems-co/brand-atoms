@@ -8,12 +8,8 @@ concurrency:
   group: deploy-${{ github.ref }}
   cancel-in-progress: false
 
-# Workflow-level env so every step sees the Cloudflare context.
-# CLOUDFLARE_API_TOKEN is the org-level secret at convergent-systems-co
-# so wrangler / wrangler-action pick it up.
 env:
   CLOUDFLARE_ACCOUNT_ID: e1fe0f0ce8ff18da4edc118372c30022
-  CLOUDFLARE_API_TOKEN: ${{ steps.cf_token.outputs.token_val }}
   # Opt every javascript-based action into Node 24 ahead of the
   # 2026-06-02 deprecation of Node 20 on GitHub Actions runners.
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
@@ -32,13 +28,6 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-
-      - name: Verify CLOUDFLARE_API_TOKEN secret is set
-        run: |
-          if [ -z "${CLOUDFLARE_API_TOKEN}" ]; then
-            echo "::error::Missing CLOUDFLARE_API_TOKEN secret — set at the convergent-systems-co org level"
-            exit 1
-          fi
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
