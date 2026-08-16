@@ -87,7 +87,7 @@ jobs:
             rm brandatom
           fi
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: brandatom-${{ matrix.os }}-${{ matrix.arch }}
           path: release/*
