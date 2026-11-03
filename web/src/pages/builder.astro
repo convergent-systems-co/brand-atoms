@@ -34,8 +34,9 @@ const atomsJson = JSON.stringify(atoms);
   <header class="hero">
     <h1>Builder</h1>
     <p class="lede">
-      Compose your own brand from the catalog. Pick a palette and three fonts, preview live,
-      then download the YAML definition or every emitter format as a zip — all client-side.
+      Compose your own brand. Pick a catalog palette or create your own colors, choose three
+      fonts, preview live, then download the YAML definition or every emitter format as a zip —
+      all client-side.
     </p>
   </header>
 
@@ -118,6 +119,119 @@ const atomsJson = JSON.stringify(atoms);
       padding: 8px 10px;
       font-family: var(--font-sans);
       font-size: 14px;
+    }
+    .builder-controls .control-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-tertiary);
+    }
+    .source-toggle {
+      display: inline-flex;
+      align-self: flex-start;
+      background: var(--bg);
+      border: 1px solid var(--surface-elevated);
+      border-radius: 8px;
+      padding: 2px;
+      gap: 2px;
+    }
+    .source-btn {
+      background: transparent;
+      color: var(--text-secondary);
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .source-btn.active {
+      background: var(--surface-elevated);
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+    .color-creator {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .color-creator-lede {
+      margin: 0;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+    .color-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 520px) {
+      .color-grid { grid-template-columns: minmax(0, 1fr); }
+    }
+    .color-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 0;
+    }
+    .color-field > label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-tertiary);
+    }
+    .color-field-inputs {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      min-width: 0;
+    }
+    .color-field-inputs input[type='color'] {
+      width: 40px;
+      height: 36px;
+      padding: 2px;
+      border-radius: 8px;
+      border: 1px solid var(--surface-elevated);
+      background: var(--bg);
+      cursor: pointer;
+      flex: 0 0 auto;
+    }
+    .color-field-inputs input[type='text'] {
+      flex: 1 1 auto;
+      min-width: 0;
+      font-family: var(--font-mono);
+      text-transform: lowercase;
+    }
+    .color-field-inputs input[aria-invalid='true'] {
+      border-color: #d93025;
+    }
+    .color-hint {
+      font-size: 12px;
+      color: var(--text-tertiary);
+    }
+    .color-contrast {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+    .color-contrast li {
+      display: flex;
+      gap: 10px;
+      align-items: baseline;
+    }
+    .color-contrast strong {
+      color: var(--text-primary);
+    }
+    .color-grade {
+      color: var(--text-tertiary);
     }
     .builder-actions {
       display: flex;
