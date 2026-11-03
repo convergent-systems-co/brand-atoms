@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { parse as parseYaml } from 'yaml';
 import { Palette, Brand } from '../../../tools/schemas/index.js';
 import { emitters } from '../../../tools/emitters/index.js';
-import { composeBrand, toBrandDefinitionYaml } from '../lib/composeBrand.js';
+import { composeBrand, slugifyBrandName, toBrandDefinitionYaml } from '../lib/composeBrand.js';
 import {
   DEFAULT_CUSTOM_COLORS,
   buildCustomPalette,
@@ -145,5 +145,26 @@ describe('composing a brand with a custom palette', () => {
     const parsed = parseYaml(yaml);
     expect(parsed.references.palette).toBe(`${palette.id}@${palette.version}`);
     expect(Brand.safeParse(parsed).success).toBe(true);
+  });
+});
+
+describe('slugifyBrandName', () => {
+  it('produces letter-leading slugs that satisfy the atom schema', () => {
+    for (const name of ['2026 Brand', '3M', 'My Brand', '  !!  ', 'Ünïcode']) {
+      const slug = slugifyBrandName(name);
+      expect(/^[a-z][a-z0-9-]*$/.test(slug), `${name} -> ${slug}`).toBe(true);
+      const built = buildCustomPalette({
+        id: `${slug}-palette`,
+        name: `${name} palette`,
+        colors: DEFAULT_CUSTOM_COLORS,
+      });
+      expect(Palette.safeParse(built).success, name).toBe(true);
+    }
+  });
+
+  it('keeps ordinary names unchanged and falls back for empty input', () => {
+    expect(slugifyBrandName('My Brand')).toBe('my-brand');
+    expect(slugifyBrandName('2026 Brand')).toBe('brand-2026-brand');
+    expect(slugifyBrandName('!!!')).toBe('composed-brand');
   });
 });

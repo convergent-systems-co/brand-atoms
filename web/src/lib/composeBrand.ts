@@ -131,3 +131,17 @@ export const toBrandDefinitionYaml = (refs: BrandDefinitionRefs): string => {
   };
   return yamlStringify(def, { lineWidth: 0 });
 };
+
+/**
+ * Derive a schema-valid slug (lowercase, letter-leading) from a brand name.
+ * Names that would start with a digit ("2026 Brand") get a "brand-" prefix so
+ * the derived brand and palette ids still satisfy the atom schema.
+ */
+export const slugifyBrandName = (name: string): string => {
+  const slug = name
+    .toLowerCase()
+    .replace(/[^a-z0-9-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  if (!slug) return 'composed-brand';
+  return /^[a-z]/.test(slug) ? slug : `brand-${slug}`;
+};

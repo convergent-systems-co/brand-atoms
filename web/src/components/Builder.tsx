@@ -4,6 +4,7 @@ import { emitters } from '../../../tools/emitters/index.js';
 import {
   type AtomCatalog,
   composeBrand,
+  slugifyBrandName,
   toBrandDefinitionYaml,
 } from '../lib/composeBrand.js';
 import { Preview } from './Preview.js';
@@ -48,11 +49,6 @@ const loadAtoms = (): AtomCatalog => {
   }
 };
 
-const slugifyBrandName = (name: string): string =>
-  name
-    .toLowerCase()
-    .replace(/[^a-z0-9-]+/g, '-')
-    .replace(/^-+|-+$/g, '') || 'composed-brand';
 
 export default function Builder(): JSX.Element {
   const [atoms, setAtoms] = useState<AtomCatalog>(EMPTY_CATALOG);
