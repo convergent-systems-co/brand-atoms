@@ -7,6 +7,14 @@ import {
   toBrandDefinitionYaml,
 } from '../lib/composeBrand.js';
 import { Preview } from './Preview.js';
+import { ColorCreator } from './ColorCreator.js';
+import {
+  type CustomColorKey,
+  type CustomColors,
+  DEFAULT_CUSTOM_COLORS,
+  buildCustomPalette,
+  toPaletteDefinitionYaml,
+} from '../lib/customPalette.js';
 
 const EMPTY_CATALOG: AtomCatalog = { palettes: [], fonts: [] };
 
@@ -59,6 +67,8 @@ export default function Builder(): JSX.Element {
   const monoSlug = useState<string>('');
   const brandName = useState<string>('My Brand');
   const previewMode = useState<'light' | 'dark'>('light');
+  const paletteSource = useState<'catalog' | 'custom'>('catalog');
+  const customColors = useState<CustomColors>(DEFAULT_CUSTOM_COLORS);
 
   // Auto-default selections once atoms load.
   useEffect(() => {
@@ -73,21 +83,52 @@ export default function Builder(): JSX.Element {
     if (!monoSlug[0]) monoSlug[1](mono?.slug ?? atoms.fonts[0]!.slug);
   }, [atoms]);
 
+  // In "Create colors" mode the palette is generated from the user's colors
+  // and appended to the catalog, so composeBrand and the downloads treat it
+  // like any other palette atom.
+  const isCustomPalette = paletteSource[0] === 'custom';
+  const brandId = slugifyBrandName(brandName[0]);
+  const customPalette = useMemo(
+    () =>
+      buildCustomPalette({
+        id: `${brandId}-palette`,
+        name: `${brandName[0]} palette`,
+        colors: customColors[0],
+      }),
+    [brandId, brandName[0], customColors[0]],
+  );
+  const effectiveAtoms = useMemo<AtomCatalog>(
+    () =>
+      isCustomPalette
+        ? {
+            ...atoms,
+            palettes: [
+              ...atoms.palettes,
+              { slug: customPalette.id, version: customPalette.version, data: customPalette },
+            ],
+          }
+        : atoms,
+    [atoms, isCustomPalette, customPalette],
+  );
+  const activePaletteSlug = isCustomPalette ? customPalette.id : paletteSlug[0];
+
   const composed = useMemo(() => {
-    if (!paletteSlug[0] || !headingSlug[0] || !bodySlug[0] || !monoSlug[0]) return null;
+    if (!activePaletteSlug || !headingSlug[0] || !bodySlug[0] || !monoSlug[0]) return null;
     return composeBrand({
-      id: slugifyBrandName(brandName[0]),
+      id: brandId,
       version: '0.1.0',
       name: brandName[0],
-      paletteSlug: paletteSlug[0],
+      paletteSlug: activePaletteSlug,
       headingSlug: headingSlug[0],
       bodySlug: bodySlug[0],
       monoSlug: monoSlug[0],
-      atoms,
+      atoms: effectiveAtoms,
     });
   }, [
-    atoms,
+    effectiveAtoms,
+    brandId,
     brandName[0],
+    activePaletteSlug,
     paletteSlug[0],
     headingSlug[0],
     bodySlug[0],
@@ -96,7 +137,7 @@ export default function Builder(): JSX.Element {
 
   const handleYamlDownload = (): void => {
     if (!composed) return;
-    const palette = atoms.palettes.find((p) => p.slug === paletteSlug[0])!;
+    const palette = effectiveAtoms.palettes.find((p) => p.slug === activePaletteSlug)!;
     const heading = atoms.fonts.find((f) => f.slug === headingSlug[0])!;
     const body = atoms.fonts.find((f) => f.slug === bodySlug[0])!;
     const mono = atoms.fonts.find((f) => f.slug === monoSlug[0])!;
@@ -114,6 +155,21 @@ export default function Builder(): JSX.Element {
       monoVersion: mono.version,
     });
     triggerDownload(`${composed.id}.brand.yaml`, yaml, 'text/yaml');
+  };
+
+  // The brand YAML references the generated palette by slug, so a custom
+  // palette needs its own atom file to resolve on the encyclopedia side.
+  const handlePaletteYamlDownload = (): void => {
+    if (!composed || !isCustomPalette) return;
+    triggerDownload(
+      `${customPalette.id}.palette.yaml`,
+      toPaletteDefinitionYaml(customPalette),
+      'text/yaml',
+    );
+  };
+
+  const updateColor = (key: CustomColorKey, value: string): void => {
+    customColors[1]((prev) => ({ ...prev, [key]: value }));
   };
 
   const handleAllFormatsDownload = (): void => {
@@ -146,7 +202,35 @@ export default function Builder(): JSX.Element {
           />
         </div>
 
-        <div className="control-grid">
+        <div className="control palette-source">
+          <span className="control-label" id="palette-source-label">
+            Palette source
+          </span>
+          <div className="source-toggle" role="group" aria-labelledby="palette-source-label">
+            <button
+              type="button"
+              className={paletteSource[0] === 'catalog' ? 'source-btn active' : 'source-btn'}
+              aria-pressed={paletteSource[0] === 'catalog'}
+              onClick={() => paletteSource[1]('catalog')}
+              data-source="catalog"
+            >
+              Catalog palette
+            </button>
+            <button
+              type="button"
+              className={paletteSource[0] === 'custom' ? 'source-btn active' : 'source-btn'}
+              aria-pressed={paletteSource[0] === 'custom'}
+              onClick={() => paletteSource[1]('custom')}
+              data-source="custom"
+            >
+              Create colors
+            </button>
+          </div>
+        </div>
+
+        {isCustomPalette ? (
+          <ColorCreator colors={customColors[0]} onColorChange={updateColor} />
+        ) : (
           <div className="control">
             <label htmlFor="palette-select">Palette</label>
             <select
@@ -162,7 +246,9 @@ export default function Builder(): JSX.Element {
               ))}
             </select>
           </div>
+        )}
 
+        <div className="control-grid">
           <div className="control">
             <label htmlFor="heading-select">Heading font</label>
             <select
@@ -221,6 +307,16 @@ export default function Builder(): JSX.Element {
           >
             Download YAML
           </button>
+          {isCustomPalette && (
+            <button
+              type="button"
+              onClick={handlePaletteYamlDownload}
+              disabled={!composed}
+              data-action="download-palette-yaml"
+            >
+              Download palette YAML
+            </button>
+          )}
           <button
             type="button"
             onClick={handleAllFormatsDownload}
